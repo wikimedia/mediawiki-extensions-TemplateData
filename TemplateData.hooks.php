@@ -1,0 +1,86 @@
+<?php
+/**
+ * Hooks for TemplateInfo extension
+ *
+ * @file
+ * @ingroup Extensions
+ */
+
+class TemplateDataHooks {
+
+	/**
+	 * Register parser hooks
+	 */
+	public static function onParserFirstCallInit( &$parser ) {
+		$parser->setHook( 'templatedata', array( 'TemplateDataHooks', 'render' ) );
+		return true;
+	}
+
+	/**
+	 * @param Page &$page
+	 * @param User &$user
+	 * @param Content &$content
+	 * @param string &$summary
+	 * @param $minor
+	 * @param bool|null $watchthis
+	 * @param $sectionanchor
+	 * @param &$flags
+	 * @param Status &$status
+	 */
+	public static function onPageContentSave( &$page, &$user, &$content, &$summary, $minor,
+		$watchthis, $sectionanchor, &$flags, &$status
+	) {
+
+		// The PageContentSave hook provides raw $text, but not $parser because at this stage
+		// the page is not actually parsed yet. Which means we can't know whether self::render()
+		// got a valid tag or not. Looking at $text directly is not a solution either as
+		// it may not be in the current page (it can be transcluded).
+		// Since there is no later hook that allows aborting the save and showing an error,
+		// we will have to trigger the parser ourselves.
+		// Fortunately this causes no overhead since the below (copied from WikiPage::doEditContent,
+		// right after this hook is ran) has guards that lazy-init and return early if called again
+		// later by the real WikiPage.
+
+		$editInfo = $page->prepareContentForEdit( $content, null, $user, $serialisation_format = null );
+
+		if ( isset( $editInfo->output->ext_templatedata_status ) ) {
+			$validation = $editInfo->output->ext_templatedata_status;
+			if ( !$validation->isOK() ) {
+				// Abort edit, show error message from TemplateDataBlob::getStatus
+				$status->merge( $validation );
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Parser hook for <templatedata>.
+	 * If there is any JSON provided, render the template documentation on the page.
+	 *
+	 * @param string $input: The content of the tag.
+	 * @param array $args: The attributes of the tag.
+	 * @param Parser $parser: Parser instance available to render
+	 *  wikitext into html, or parser methods.
+	 * @param PPFrame $frame: Can be used to see what template parameters ("{{{1}}}", etc.) this hook was used with.
+	 *
+	 * @return string: HTML to insert in the page.
+	 */
+	public static function render( $input, $args, $parser, $frame ) {
+		$ti = TemplateDataBlob::newFromJSON( $input );
+		// TODO: Is there a better context?
+		$context = RequestContext::getMain();
+
+		$status = $ti->getStatus();
+		if ( !$status->isOK() ) {
+			$parser->getOutput()->ext_templatedata_status = $status;
+			return '<div class="error">' . $status->getHtml() . '</div>';
+		}
+
+		$parser->getOutput()->setProperty( 'templatedata', $ti->getJSON() );
+
+		$parser->getOutput()->addModules( 'ext.templateData' );
+
+		return $ti->getHtml( $context );
+	}
+}
