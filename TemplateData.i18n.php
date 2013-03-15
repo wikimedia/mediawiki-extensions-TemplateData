@@ -7,7 +7,7 @@ $messages = array();
 $messages['en'] = array(
 
 	// Special:Version
-	'templatedata-desc' => 'Implement data storage for template parameters (using JSON).',
+	'templatedata-desc' => 'Implement data storage for template parameters (using JSON)',
 
 	// Page output for <templatedata>
 	'templatedata-doc-params' => 'Template parameters',
@@ -17,7 +17,7 @@ $messages['en'] = array(
 	'templatedata-doc-param-status' => 'Status',
 
 	// Error message for edit page
-	'templatedata-invalid-parse' => 'SyntaxError in JSON.',
+	'templatedata-invalid-parse' => 'Syntax error in JSON.',
 	'templatedata-invalid-type' => 'Property "$1" is expected to be of type "$2".',
 	'templatedata-invalid-missing' => 'Required property "$1" not found.',
 	'templatedata-invalid-unknown' => 'Unexpected property "$1".',
