@@ -172,6 +172,15 @@ $messages['mk'] = array(
 	'templatedata-invalid-value' => 'Неисправна вредност за својството „$1“.',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Santhosh.thottingal
+ */
+$messages['ml'] = array(
+	'templatedata-doc-params' => 'ഫലകത്തിനുള്ള ചരങ്ങൾ',
+	'templatedata-doc-param-name' => 'പേര്‌',
+	'templatedata-doc-param-status' => 'സ്ഥിതി',
+);
+
 /** Dutch (Nederlands)
  * @author Konovalov
  * @author Siebrand
