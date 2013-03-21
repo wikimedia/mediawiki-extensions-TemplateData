@@ -93,10 +93,11 @@ $messages['dsb'] = array(
 );
 
 /** French (français)
+ * @author Boniface
  * @author Gomoko
  */
 $messages['fr'] = array(
-	'templatedata-desc' => 'Implémenter un stockage de données pour les paramètres du modèle (en utilisant JSON)',
+	'templatedata-desc' => 'Mettre en œuvre un stockage de données pour les paramètres du modèle (en utilisant JSON)',
 	'templatedata-doc-params' => 'Paramètres du modèle',
 	'templatedata-doc-param-name' => 'Nom',
 	'templatedata-doc-param-desc' => 'Description',
@@ -107,6 +108,23 @@ $messages['fr'] = array(
 	'templatedata-invalid-missing' => 'Propriété "$1" obligatoire non trouvée.',
 	'templatedata-invalid-unknown' => 'Propriété "$1" non attendue.',
 	'templatedata-invalid-value' => 'Valeur non valide pour la propriété $1".',
+);
+
+/** Galician (galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'templatedata-desc' => 'Inclúe un almacenamento de datos para os parámetros do modelo (mediante JSON)',
+	'templatedata-doc-params' => 'Parámetros do modelo',
+	'templatedata-doc-param-name' => 'Nome',
+	'templatedata-doc-param-desc' => 'Descrición',
+	'templatedata-doc-param-default' => 'Predeterminado',
+	'templatedata-doc-param-status' => 'Estado',
+	'templatedata-invalid-parse' => 'Erro de sintaxe en JSON.',
+	'templatedata-invalid-type' => 'A propiedade "$1" agárdase que sexa de tipo "$2".',
+	'templatedata-invalid-missing' => 'Non se atopou a propiedade obrigatoria "$1".',
+	'templatedata-invalid-unknown' => 'Propiedade "$1" inesperada.',
+	'templatedata-invalid-value' => 'Valor non válido para a propiedade "$1".',
 );
 
 /** Upper Sorbian (hornjoserbsce)
