@@ -223,8 +223,14 @@ $messages['nl'] = array(
 $messages['sr-ec'] = array(
 	'templatedata-doc-params' => 'Параметри шаблона',
 	'templatedata-doc-param-name' => 'Име',
+	'templatedata-doc-param-desc' => 'Опис',
 	'templatedata-doc-param-default' => 'Подразумевано',
 	'templatedata-doc-param-status' => 'Статус',
+	'templatedata-invalid-parse' => 'Синтаксна грешка у JSON-у.',
+	'templatedata-invalid-type' => 'Својство „$1“ би требало да је од „$2“ врсте.',
+	'templatedata-invalid-missing' => 'Обавезно својство „$1“ није пронађено.',
+	'templatedata-invalid-unknown' => 'Неочекивано својство „$1“.',
+	'templatedata-invalid-value' => 'Неисправна вредност за својство „$1“.',
 );
 
 /** Telugu (తెలుగు)
