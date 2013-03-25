@@ -92,6 +92,14 @@ $messages['dsb'] = array(
 	'templatedata-invalid-value' => 'Njepłaśiwa gódnota za kakosć "$1".',
 );
 
+/** Finnish (suomi)
+ * @author Silvonen
+ */
+$messages['fi'] = array(
+	'templatedata-doc-param-name' => 'Nimi',
+	'templatedata-doc-param-desc' => 'Kuvaus',
+);
+
 /** French (français)
  * @author Boniface
  * @author Gomoko
@@ -204,14 +212,14 @@ $messages['ml'] = array(
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'templatedata-desc' => 'Implementeer data-opslag voor sjabloonparameters (met behulp van JSON)',
+	'templatedata-desc' => 'Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)',
 	'templatedata-doc-params' => 'Sjabloonparameters',
 	'templatedata-doc-param-name' => 'Naam',
 	'templatedata-doc-param-desc' => 'Beschrijving',
 	'templatedata-doc-param-default' => 'Standaard',
 	'templatedata-doc-param-status' => 'Status',
 	'templatedata-invalid-parse' => 'Syntaxisfout in JSON.',
-	'templatedata-invalid-type' => 'Eigenschap "$1" zou moeten zijn van het type "$2".',
+	'templatedata-invalid-type' => 'De verwachting is dat eigenschap "$1" van het type "$2" is.',
 	'templatedata-invalid-missing' => 'Vereiste eigenschap "$1" niet gevonden.',
 	'templatedata-invalid-unknown' => 'Onverwachte eigenschap "$1".',
 	'templatedata-invalid-value' => 'Ongeldige waarde voor de eigenschap "$1".',
@@ -242,4 +250,34 @@ $messages['te'] = array(
 	'templatedata-doc-param-desc' => 'వివరణ',
 	'templatedata-doc-param-default' => 'అప్రమేయం',
 	'templatedata-doc-param-status' => 'స్థితి',
+);
+
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'templatedata-desc' => 'Isakatuparan ang pag-iimbak ng dato para sa mga parametro ng padron (na ginagamit ang JSON)',
+	'templatedata-doc-params' => 'Mga parametro ng padron',
+	'templatedata-doc-param-name' => 'Pangalan',
+	'templatedata-doc-param-desc' => 'Paglalarawan',
+	'templatedata-doc-param-default' => 'Likas na katakdaan',
+	'templatedata-doc-param-status' => 'Katayuan',
+	'templatedata-invalid-parse' => 'Kamalian ng palaugnayan sa JSON.',
+	'templatedata-invalid-type' => 'Ang pag-aaring "$1" ay inaasahan na maging ng uring "$2".',
+	'templatedata-invalid-missing' => 'Hindi natagpuan ang kailangang pag-aari na "$1".',
+	'templatedata-invalid-unknown' => 'Hindi inaasahang pag-aari na "$1".',
+	'templatedata-invalid-value' => 'Hindi katanggap-tanggap na halaga para sa pag-aaring "$1".',
+);
+
+/** Simplified Chinese (中文（简体）‎)
+ * @author Yfdyh000
+ */
+$messages['zh-hans'] = array(
+	'templatedata-doc-params' => '模板参数',
+	'templatedata-doc-param-name' => '名称',
+	'templatedata-doc-param-desc' => '描述',
+	'templatedata-doc-param-default' => '默认',
+	'templatedata-doc-param-status' => '状态',
+	'templatedata-invalid-parse' => 'JSON中语法错误。',
+	'templatedata-invalid-value' => '属性“$1”的值无效。',
 );
