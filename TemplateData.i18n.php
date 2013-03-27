@@ -75,6 +75,13 @@ $messages['de'] = array(
 	'templatedata-invalid-value' => 'Ungültiger Wert für die Eigenschaft „$1”.',
 );
 
+/** Zazaki (Zazaki)
+ * @author Mirzali
+ */
+$messages['diq'] = array(
+	'templatedata-doc-param-status' => 'Weziyet',
+);
+
 /** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
