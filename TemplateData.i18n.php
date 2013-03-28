@@ -110,6 +110,7 @@ $messages['fi'] = array(
 /** French (français)
  * @author Boniface
  * @author Gomoko
+ * @author Peter17
  */
 $messages['fr'] = array(
 	'templatedata-desc' => 'Mettre en œuvre un stockage de données pour les paramètres du modèle (en utilisant JSON)',
@@ -119,10 +120,10 @@ $messages['fr'] = array(
 	'templatedata-doc-param-default' => 'Par défaut',
 	'templatedata-doc-param-status' => 'Statut',
 	'templatedata-invalid-parse' => 'Erreur de syntaxe dans JSON.',
-	'templatedata-invalid-type' => 'La propriété "$1" doit être de type "$2".',
-	'templatedata-invalid-missing' => 'Propriété "$1" obligatoire non trouvée.',
-	'templatedata-invalid-unknown' => 'Propriété "$1" non attendue.',
-	'templatedata-invalid-value' => 'Valeur non valide pour la propriété $1".',
+	'templatedata-invalid-type' => 'La propriété « $1 » doit être de type « $2 ».',
+	'templatedata-invalid-missing' => 'Propriété « $1 » obligatoire non trouvée.',
+	'templatedata-invalid-unknown' => 'Propriété « $1 » non attendue.',
+	'templatedata-invalid-value' => 'Valeur non valide pour la propriété « $1 ».',
 );
 
 /** Galician (galego)
@@ -212,6 +213,13 @@ $messages['ml'] = array(
 	'templatedata-doc-params' => 'ഫലകത്തിനുള്ള ചരങ്ങൾ',
 	'templatedata-doc-param-name' => 'പേര്‌',
 	'templatedata-doc-param-status' => 'സ്ഥിതി',
+);
+
+/** Low German (Plattdüütsch)
+ * @author Joachim Mos
+ */
+$messages['nds'] = array(
+	'templatedata-doc-param-desc' => 'Beschrieven',
 );
 
 /** Dutch (Nederlands)
