@@ -288,11 +288,15 @@ $messages['tl'] = array(
  * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
+	'templatedata-desc' => '为模板参数实现数据存储（使用JSON）',
 	'templatedata-doc-params' => '模板参数',
 	'templatedata-doc-param-name' => '名称',
 	'templatedata-doc-param-desc' => '描述',
 	'templatedata-doc-param-default' => '默认',
 	'templatedata-doc-param-status' => '状态',
 	'templatedata-invalid-parse' => 'JSON中语法错误。',
+	'templatedata-invalid-type' => '属性“$1”预期为“$2”类型。',
+	'templatedata-invalid-missing' => '请求的属性“$1”未找到。',
+	'templatedata-invalid-unknown' => '意外的属性“$1”。',
 	'templatedata-invalid-value' => '属性“$1”的值无效。',
 );
