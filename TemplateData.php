@@ -28,16 +28,16 @@ $dir = __DIR__;
 $wgExtensionMessagesFiles['TemplateData'] = $dir . '/TemplateData.i18n.php';
 $wgAutoloadClasses['TemplateDataHooks'] = $dir . '/TemplateData.hooks.php';
 $wgAutoloadClasses['TemplateDataBlob'] = $dir . '/TemplateDataBlob.php';
-$wgAutoloadClasses['ApiQueryTemplateData'] = $dir . '/api/ApiQueryTemplateData.php';
+$wgAutoloadClasses['ApiTemplateData'] = $dir . '/api/ApiTemplateData.php';
 
 // Register hooks
 $wgHooks['ParserFirstCallInit'][] = 'TemplateDataHooks::onParserFirstCallInit';
 $wgHooks['PageContentSave'][] = 'TemplateDataHooks::onPageContentSave';
 
-// Register API actions
-$wgAPIPropModules['templatedata'] = 'ApiQueryTemplateData';
+// Register APIs
+$wgAPIModules['templatedata'] = 'ApiTemplateData';
 
-// Register page_props
+// Register page properties
 $wgPageProps['templatedata'] = 'Content of &lt;templatedata&gt; tag';
 
 // Register modules
