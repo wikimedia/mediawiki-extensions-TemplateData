@@ -240,6 +240,15 @@ $messages['nl'] = array(
 	'templatedata-invalid-value' => 'Ongeldige waarde voor de eigenschap "$1".',
 );
 
+/** Polish (polski)
+ * @author Chrumps
+ */
+$messages['pl'] = array(
+	'templatedata-doc-params' => 'Parametry szablonu',
+	'templatedata-doc-param-desc' => 'Opis',
+	'templatedata-invalid-parse' => 'Błąd składni w JSON.',
+);
+
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Милан Јелисавчић
  */
