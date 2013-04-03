@@ -30,21 +30,35 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'templatedata-desc' => '{{desc}}',
-	'templatedata-doc-params' => '{{Identical|Template parameter}}',
-	'templatedata-doc-param-name' => '{{Identical|Name}}',
-	'templatedata-doc-param-desc' => '{{Identical|Description}}',
-	'templatedata-doc-param-default' => '{{Identical|Default}}',
-	'templatedata-doc-param-status' => '{{Identical|Status}}',
+	'templatedata-doc-params' => 'Used as caption for the table which has the following headings:
+* {{msg-mw|Templatedata-doc-param-name}}
+* {{msg-mw|Templatedata-doc-param-desc}}
+* {{msg-mw|Templatedata-doc-param-default}}
+* {{msg-mw|Templatedata-doc-param-status}}
+{{Identical|Template parameter}}',
+	'templatedata-doc-param-name' => 'Used as column heading in the table.
+{{Related|Templatedata-doc-param}}
+{{Identical|Name}}',
+	'templatedata-doc-param-desc' => 'Used as column heading in the table.
+{{Related|Templatedata-doc-param}}
+{{Identical|Description}}',
+	'templatedata-doc-param-default' => 'Used as column heading in the table.
+{{Related|Templatedata-doc-param}}
+{{Identical|Default}}',
+	'templatedata-doc-param-status' => 'Used as column heading in the table.
+{{Related|Templatedata-doc-param}}
+{{Identical|Status}}',
+	'templatedata-invalid-parse' => 'Error message when there is a syntax error in JSON.',
 	'templatedata-invalid-type' => 'Error message when a property is of the wrong type.
-* $1: Name of property
-* $2: Expected type of property',
+* $1 - name of property
+* $2 - expected type of property',
 	'templatedata-invalid-missing' => 'Error message when a required property is not found.
-* $1 - Name of name
-* $2 - (Unused) Type of property',
+* $1 - name of name
+* $2 - type of property (Unused)',
 	'templatedata-invalid-unknown' => 'Error message when an unknown property is found.
-* $1: Name of property',
+* $1 - name of property',
 	'templatedata-invalid-value' => 'Error message when a property that cannot contain free-form text has an invalid value.
-* $1: Name of property',
+* $1 - name of property',
 );
 
 /** Bengali (বাংলা)
