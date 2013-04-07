@@ -24,10 +24,7 @@ $messages['en'] = array(
 	'templatedata-invalid-value' => 'Invalid value for property "$1".',
 );
 
-/** Message documentation (This is the name of the message documentation language code (qqq). Follow the rules of your languages and use small first letter if it doesn't capitalize language names always.
-
-It might be easier to translate it as "translation guidelines" or "translation help".
-{{Identical|Message documentation}})
+/** Message documentation (Message documentation)
  * @author Shirayuki
  * @author Timo Tijhof
  */
@@ -73,6 +70,17 @@ $messages['bn'] = array(
 	'templatedata-doc-param-desc' => 'বিবরণ',
 	'templatedata-doc-param-default' => 'ডিফল্ট',
 	'templatedata-doc-param-status' => 'অবস্থা',
+);
+
+/** Breton (brezhoneg)
+ * @author Y-M D
+ */
+$messages['br'] = array(
+	'templatedata-doc-param-name' => 'Anv',
+	'templatedata-doc-param-desc' => 'Deskrivadur',
+	'templatedata-doc-param-default' => 'Dre ziouer',
+	'templatedata-doc-param-status' => 'Statud',
+	'templatedata-invalid-parse' => 'Fazi ereadurezh e JSON.',
 );
 
 /** German (Deutsch)
