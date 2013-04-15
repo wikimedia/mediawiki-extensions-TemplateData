@@ -274,6 +274,23 @@ $messages['pl'] = array(
 	'templatedata-invalid-parse' => 'Błąd składni w JSON.',
 );
 
+/** tarandíne (tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'templatedata-desc' => "'Mblemende 'nu majazzine de date pe le parametre d'u template (ausanne JSON)",
+	'templatedata-doc-params' => "Parametre d'u template",
+	'templatedata-doc-param-name' => 'Nome',
+	'templatedata-doc-param-desc' => 'Descrizione',
+	'templatedata-doc-param-default' => 'De base',
+	'templatedata-doc-param-status' => 'State',
+	'templatedata-invalid-parse' => "Errore de sindasse jndr'à JSON.",
+	'templatedata-invalid-type' => 'S\'aspettave ca \'a probbietà "$1" ere de tipe "$2".',
+	'templatedata-invalid-missing' => 'Probbietà richieste "$1" non acchiate.',
+	'templatedata-invalid-unknown' => 'Probbietà inaspettate "$1".',
+	'templatedata-invalid-value' => 'Valore invalide pa probbietà "$1".',
+);
+
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Милан Јелисавчић
  */
