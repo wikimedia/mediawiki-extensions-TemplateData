@@ -17,6 +17,15 @@ class TemplateDataHooks {
 	}
 
 	/**
+	 * Register unit tests
+	 */
+	public static function onUnitTestsList( array &$files ) {
+		$testDir = __DIR__ . '/tests/';
+		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
+		return true;
+	}
+
+	/**
 	 * @param Page &$page
 	 * @param User &$user
 	 * @param Content &$content
