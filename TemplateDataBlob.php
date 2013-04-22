@@ -12,6 +12,7 @@
  * @class
  */
 class TemplateDataBlob {
+
 	/**
 	 * @var stdClass
 	 */
@@ -176,10 +177,12 @@ class TemplateDataBlob {
 	}
 
 	public function getHtml( IContextSource $context ) {
+		global $wgContLang;
+		$langCode = $wgContLang->getCode();
 		$data = $this->data;
 		$html =
 			Html::openElement( 'div', array( 'class' => 'mw-templatedata-doc-wrap' ) )
-			. Html::element( 'p', array( 'class' => 'mw-templatedata-doc-desc' ), $data->description )
+			. Html::element( 'p', array( 'class' => 'mw-templatedata-doc-desc' ), $data->description->$langCode )
 			. '<table class="wikitable sortable mw-templatedata-doc-params">'
 			. Html::element( 'caption', array(), $context->msg( 'templatedata-doc-params' ) )
 			. '<thead><tr>'
@@ -198,9 +201,9 @@ class TemplateDataBlob {
 			// Description
 			. Html::rawElement( 'td', array(
 				'class' => array(
-					'mw-templatedata-doc-param-empty' => $paramObj->description === '' && $paramObj->deprecated === false
+					'mw-templatedata-doc-param-empty' => !isset( $paramObj->description->$langCode ) && $paramObj->deprecated === false
 				)
-			), $paramObj->description !== '' ? $paramObj->description : 'no description' )
+			), isset( $paramObj->description->$langCode ) ? $paramObj->description->$langCode : 'no description' )
 			// Default
 			. Html::element( 'td', array(
 				'class' => array(
