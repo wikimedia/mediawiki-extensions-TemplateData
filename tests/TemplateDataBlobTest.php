@@ -99,6 +99,30 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'InterfaceText is expanded to langcode-keyed object, assuming content language'
+			),
+			array(
+				'
+				{
+					"description": {
+						"en": "User badge MediaWiki developers."
+					},
+					"params": {
+						"nickname": {
+							"description": {
+								"en": "User name of user who owns the badge"
+							},
+							"default": "Base page name of the host page",
+							"required": false,
+							"deprecated": false,
+							"aliases": [
+								"1"
+							],
+							"clones": []
+						}
+					}
+				}
+				',
+				'Fully normalised json should be valid input and stay unchanged'
 			)
 		);
 	}
@@ -106,7 +130,11 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider provideParse
 	 */
-	public function testParse( $input, $expected, $msg ) {
+	public function testParse( $input, $expected, $msg = null ) {
+		if ( !$msg ) {
+			$msg = $expected;
+			$expected = $input;
+		}
 		$t = TemplateDataBlob::newFromJSON( $input );
 		$actual = $t->getJSON();
 		$this->assertJsonStringEqualsJsonString(

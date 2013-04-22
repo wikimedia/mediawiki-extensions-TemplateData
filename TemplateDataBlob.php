@@ -24,19 +24,19 @@ class TemplateDataBlob {
 	private $status;
 
 	/**
-	 * @param string $json
+	 *  @param string $json
 	 * @return TemplateInfo
 	 */
 	public static function newFromJSON( $json ) {
-		$ti = new self( json_decode( $json ) );
-		$status = $ti->parse();
+		$tdb = new self( json_decode( $json ) );
+		$status = $tdb->parse();
 
 		if ( !$status->isOK() ) {
 			// Don't save invalid data, clear it.
-			$ti->data = new stdClass();
+			$tdb->data = new stdClass();
 		}
-		$ti->status = $status;
-		return $ti;
+		$tdb->status = $status;
+		return $tdb;
 	}
 
 	/**
@@ -117,7 +117,7 @@ class TemplateDataBlob {
 			}
 
 			if ( isset( $paramObj->deprecated ) ) {
-				if ( $paramObj->deprecated === false || is_string( $paramObj->deprecated ) ) {
+				if ( $paramObj->deprecated !== false && !is_string( $paramObj->deprecated ) ) {
 					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.deprecated', 'boolean|string' );
 				}
 			} else {
@@ -172,6 +172,14 @@ class TemplateDataBlob {
 		return $this->status;
 	}
 
+	public function getData() {
+		// Returned by reference. Data is a private member. Use clone instead?
+		return $this->data;
+	}
+
+	/**
+	 * @return string JSON
+	 */
 	public function getJSON() {
 		return json_encode( $this->data );
 	}
