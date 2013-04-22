@@ -33,6 +33,7 @@ $wgAutoloadClasses['ApiTemplateData'] = $dir . '/api/ApiTemplateData.php';
 // Register hooks
 $wgHooks['ParserFirstCallInit'][] = 'TemplateDataHooks::onParserFirstCallInit';
 $wgHooks['PageContentSave'][] = 'TemplateDataHooks::onPageContentSave';
+$wgHooks['UnitTestsList'][] = 'TemplateDataHooks::onUnitTestsList';
 
 // Register APIs
 $wgAPIModules['templatedata'] = 'ApiTemplateData';

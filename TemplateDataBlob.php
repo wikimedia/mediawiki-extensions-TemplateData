@@ -30,8 +30,6 @@ class TemplateDataBlob {
 		$ti = new self( json_decode( $json ) );
 		$status = $ti->parse();
 
-		// TODO: Normalise `params.*.description` to a plain object.
-
 		if ( !$status->isOK() ) {
 			// Don't save invalid data, clear it.
 			$ti->data = new stdClass();
@@ -72,11 +70,12 @@ class TemplateDataBlob {
 		}
 
 		if ( isset( $data->description ) ) {
-			if ( !is_object( $data->params ) ) {
-				return Status::newFatal( 'templatedata-invalid-type', 'params', 'object' );
+			if ( !is_object( $data->description ) && !is_string( $data->description ) ) {
+				return Status::newFatal( 'templatedata-invalid-type', 'description', 'string|object' );
 			}
+			$data->description = self::normaliseInterfaceText( $data->description );
 		} else {
-			$data->description = '';
+			$data->description = self::normaliseInterfaceText( '' );
 		}
 
 		foreach ( $data->params as $paramName => $paramObj ) {
@@ -111,8 +110,9 @@ class TemplateDataBlob {
 					// and the values strings.
 					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.description', 'string|object' );
 				}
+				$paramObj->description = self::normaliseInterfaceText( $paramObj->description );
 			} else {
-				$paramObj->description = '';
+				$paramObj->description = self::normaliseInterfaceText( '' );
 			}
 
 			if ( isset( $paramObj->deprecated ) ) {
@@ -151,6 +151,20 @@ class TemplateDataBlob {
 		}
 
 		return Status::newGood();
+	}
+
+	/**
+	 * Normalise a InterfaceText field in the TemplateData blob.
+	 * @return stdClass|string $text
+	 */
+	protected static function normaliseInterfaceText( $text ) {
+		if ( is_string( $text ) ) {
+			global $wgContLang;
+			$ret = array();
+			$ret[ $wgContLang->getCode() ] = $text;
+			return (object) $ret;
+		}
+		return $text;
 	}
 
 	public function getStatus() {
@@ -207,7 +221,7 @@ class TemplateDataBlob {
 		return $html;
 	}
 
-	private function __construct( stdClass $data = null ) {
+	private function __construct( $data = null ) {
 		$this->data = $data;
 	}
 
