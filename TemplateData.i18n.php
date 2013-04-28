@@ -61,6 +61,23 @@ $messages['qqq'] = array(
 * $1 - name of property',
 );
 
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'templatedata-desc' => "Permite l'almacenamientu de datos pa los parámetros de plantíes (usando JSON)",
+	'templatedata-doc-params' => 'Parámetros de la plantía',
+	'templatedata-doc-param-name' => 'Nome',
+	'templatedata-doc-param-desc' => 'Descripción',
+	'templatedata-doc-param-default' => 'Predetermináu',
+	'templatedata-doc-param-status' => 'Estáu',
+	'templatedata-invalid-parse' => 'Error de sintaxis en JSON.',
+	'templatedata-invalid-type' => 'Esperabase que la propiedá «$1» fuera de tipu «$2».',
+	'templatedata-invalid-missing' => "Nun s'alcontró la propiedá requerida «$1».",
+	'templatedata-invalid-unknown' => 'Propiedá inesperada «$1».',
+	'templatedata-invalid-value' => 'Valor inválidu pa la propiedá «$1».',
+);
+
 /** Bengali (বাংলা)
  * @author Leemon2010
  */
