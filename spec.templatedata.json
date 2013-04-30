@@ -14,9 +14,6 @@
 	 Keyed by an internal id, contains #Set objects.
 
 @structure {Object} Param
-	@property {string} [inherits] Key to another object in `Root.params`.
-	 The current Param object will inherit from that one, with local properties
-	 overriding the inherited ones.
 	@property {InterfaceText} [label] Defaults to key of object in `Root.params`.
 	@property {boolean} [required=false]
 	@property {InterfaceText} [description]
@@ -29,6 +26,9 @@
 	 own property marked "deprecated".
 	@property {string} [default] The default value or description thereof.
 	@property {Type} [type] The type of the expected parameter value.
+	@property {string} [inherits] Key to another object in `Root.params`.
+	 The current Param object will inherit from that one, with local properties
+	 overriding the inherited ones.
 
 @structure {Object} Set
 	@property {InterfaceText} [label] Defaults to key of object in `Root.sets`.

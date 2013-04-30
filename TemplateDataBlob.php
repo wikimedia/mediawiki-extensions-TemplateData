@@ -48,6 +48,21 @@ class TemplateDataBlob {
 	private function parse() {
 		$data = $this->data;
 
+		static $rootKeys = array(
+			'params',
+			'description',
+		);
+		static $paramKeys = array(
+			// 'label',
+			'required',
+			'description',
+			'deprecated',
+			'aliases',
+			'default',
+			'inherits',
+			// 'type',
+		);
+
 		if ( $data === null ) {
 			return Status::newFatal( 'templatedata-invalid-parse' );
 		}
@@ -57,7 +72,7 @@ class TemplateDataBlob {
 		}
 
 		foreach ( $data as $key => $value ) {
-			if ( !in_array( $key, array( 'params', 'description' ) ) ) {
+			if ( !in_array( $key, $rootKeys ) ) {
 				return Status::newFatal( 'templatedata-invalid-unknown', $key );
 			}
 		}
@@ -81,34 +96,20 @@ class TemplateDataBlob {
 			return Status::newFatal( 'templatedata-invalid-type', 'params', 'object' );
 		}
 
+		// Deep clone
+		// We need this to determine whether a property was originally set
+		// to decide whether 'inherits' will add it or not.
+		$unnormalizedParams = unserialize( serialize( $data->params ) );
+
 		foreach ( $data->params as $paramName => $paramObj ) {
 			if ( !is_object( $paramObj ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName, 'object' );
 			}
 
 			foreach ( $paramObj as $key => $value ) {
-				if ( !in_array( $key, array(
-						'required',
-						'description',
-						'deprecated',
-						'aliases',
-						'clones',
-						'default',
-				) ) ) {
+				if ( !in_array( $key, $paramKeys ) ) {
 					return Status::newFatal( 'templatedata-invalid-unknown', $key );
 				}
-			}
-
-			// Param.inherits
-			// TODO: Implementation specifies we use inherit (target references origin), instead
-			// of clone (origin lists targets).
-			if ( isset( $paramObj->clones ) ) {
-				if ( !is_array( $paramObj->clones ) ) {
-					// TODO: Validate the array values.
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.clones', 'array' );
-				}
-			} else {
-				$paramObj->clones = array();
 			}
 
 			// TODO: Param.label
@@ -163,6 +164,26 @@ class TemplateDataBlob {
 			}
 
 			// TODO: Param.type
+		}
+
+		// Param.inherits
+		// Done afterwards to avoid code duplication
+		foreach ( $data->params as $paramName => $paramObj ) {
+			if ( isset( $paramObj->inherits ) ) {
+				if ( !isset( $data->params->{ $paramObj->inherits } ) ) {
+						return Status::newFatal( 'templatedata-invalid-missing', "params.{$paramObj->inherits}" );
+				}
+				$parentParamObj = $data->params->{ $paramObj->inherits };
+				foreach ( $parentParamObj as $key => $value ) {
+					if ( !in_array( $key, $paramKeys ) ) {
+						return Status::newFatal( 'templatedata-invalid-unknown', $key );
+					}
+					if ( !isset( $unnormalizedParams->$paramName->$key ) ) {
+						$paramObj->$key = is_object( $parentParamObj->$key ) ? clone $parentParamObj->$key : $parentParamObj->$key;
+					}
+				}
+				unset( $paramObj->inherits );
+			}
 		}
 
 		// TODO: Root.sets
