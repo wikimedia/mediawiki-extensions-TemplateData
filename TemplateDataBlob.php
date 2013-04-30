@@ -228,7 +228,7 @@ class TemplateDataBlob {
 		$html =
 			Html::openElement( 'div', array( 'class' => 'mw-templatedata-doc-wrap' ) )
 			. Html::element( 'p', array( 'class' => 'mw-templatedata-doc-desc' ), $data->description->$langCode )
-			. '<table class="wikitable sortable mw-templatedata-doc-params">'
+			. '<table class="wikitable mw-templatedata-doc-params">'
 			. Html::element( 'caption', array(), $context->msg( 'templatedata-doc-params' ) )
 			. '<thead><tr>'
 			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-name' ) )
