@@ -40,12 +40,12 @@
 	  Any textual value.
 	- number
 	  Any numerical value (without decimal points or thousand separators).
-	- wikipage
+	- wiki/page
 	  A valid MediaWiki page name for the current wiki. Doesn't have to exist,
 	  but if not, should be a valid page name to create.
-	- wikiuser
-	  The username of an account on the current wiki (regardless of whether
-	  that user has an edit count or a user page).
+	- wiki/user
+	  A valid MediaWiki user name for the current wiki. Doesn't have to exist,
+	  but if not should be a valid user name to create.
 
 @structure {string|Object} InterfaceText
 	A free-form string (no wikitext) in the content-language of the wiki, or,
