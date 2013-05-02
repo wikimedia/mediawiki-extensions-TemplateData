@@ -62,14 +62,7 @@ class TemplateDataBlob {
 			}
 		}
 
-		if ( !isset( $data->params ) ) {
-			return Status::newFatal( 'templatedata-invalid-missing', 'params', 'object' );
-		}
-
-		if ( !is_object( $data->params ) ) {
-			return Status::newFatal( 'templatedata-invalid-type', 'params', 'object' );
-		}
-
+		// Root.description
 		if ( isset( $data->description ) ) {
 			if ( !is_object( $data->description ) && !is_string( $data->description ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', 'description', 'string|object' );
@@ -77,6 +70,15 @@ class TemplateDataBlob {
 			$data->description = self::normaliseInterfaceText( $data->description );
 		} else {
 			$data->description = self::normaliseInterfaceText( '' );
+		}
+
+		// Root.params
+		if ( !isset( $data->params ) ) {
+			return Status::newFatal( 'templatedata-invalid-missing', 'params', 'object' );
+		}
+
+		if ( !is_object( $data->params ) ) {
+			return Status::newFatal( 'templatedata-invalid-type', 'params', 'object' );
 		}
 
 		foreach ( $data->params as $paramName => $paramObj ) {
@@ -97,6 +99,21 @@ class TemplateDataBlob {
 				}
 			}
 
+			// Param.inherits
+			// TODO: Implementation specifies we use inherit (target references origin), instead
+			// of clone (origin lists targets).
+			if ( isset( $paramObj->clones ) ) {
+				if ( !is_array( $paramObj->clones ) ) {
+					// TODO: Validate the array values.
+					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.clones', 'array' );
+				}
+			} else {
+				$paramObj->clones = array();
+			}
+
+			// TODO: Param.label
+
+			// Param.required
 			if ( isset( $paramObj->required ) ) {
 				if ( !is_bool( $paramObj->required ) ) {
 					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.required', 'boolean' );
@@ -105,6 +122,7 @@ class TemplateDataBlob {
 				$paramObj->required = false;
 			}
 
+			// Param.description
 			if ( isset( $paramObj->description ) ) {
 				if ( !is_object( $paramObj->description ) && !is_string( $paramObj->description ) ) {
 					// TODO: Also validate that if it is an object, the keys are valid lang codes
@@ -116,6 +134,7 @@ class TemplateDataBlob {
 				$paramObj->description = self::normaliseInterfaceText( '' );
 			}
 
+			// Param.deprecated
 			if ( isset( $paramObj->deprecated ) ) {
 				if ( $paramObj->deprecated !== false && !is_string( $paramObj->deprecated ) ) {
 					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.deprecated', 'boolean|string' );
@@ -124,6 +143,7 @@ class TemplateDataBlob {
 				$paramObj->deprecated = false;
 			}
 
+			// Param.aliases
 			if ( isset( $paramObj->aliases ) ) {
 				if ( !is_array( $paramObj->aliases ) ) {
 					// TODO: Validate the array values.
@@ -133,15 +153,7 @@ class TemplateDataBlob {
 				$paramObj->aliases = array();
 			}
 
-			if ( isset( $paramObj->clones ) ) {
-				if ( !is_array( $paramObj->clones ) ) {
-					// TODO: Validate the array values.
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.clones', 'array' );
-				}
-			} else {
-				$paramObj->clones = array();
-			}
-
+			// Param.default
 			if ( isset( $paramObj->default ) ) {
 				if ( !is_string( $paramObj->default ) ) {
 					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.default', 'string' );
@@ -149,7 +161,11 @@ class TemplateDataBlob {
 			} else {
 				$paramObj->default = '';
 			}
+
+			// TODO: Param.type
 		}
+
+		// TODO: Root.sets
 
 		return Status::newGood();
 	}
