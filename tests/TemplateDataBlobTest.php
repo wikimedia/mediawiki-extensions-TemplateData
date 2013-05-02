@@ -53,8 +53,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"default": "",
 							"required": false,
 							"deprecated": false,
-							"aliases": [],
-							"clones": []
+							"aliases": []
 						}
 					}
 				}
@@ -92,8 +91,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [
 								"1"
-							],
-							"clones": []
+							]
 						}
 					}
 				}
@@ -116,14 +114,59 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [
 								"1"
-							],
-							"clones": []
+							]
 						}
 					}
 				}
 				',
 				'Fully normalised json should be valid input and stay unchanged'
-			)
+			),
+			array(
+				'
+				{
+					"description": "Document the documenter.",
+					"params": {
+						"1d": {
+							"description": "Description of the template parameter",
+							"required": true,
+							"default": "example"
+						},
+						"2d": {
+							"inherits": "1d",
+							"default": "overridden"
+						}
+					}
+				}
+				',
+				'
+				{
+					"description": {
+						"en": "Document the documenter."
+					},
+					"params": {
+						"1d": {
+							"description": {
+								"en": "Description of the template parameter"
+							},
+							"required": true,
+							"default": "example",
+							"deprecated": false,
+							"aliases": []
+						},
+						"2d": {
+							"description": {
+								"en": "Description of the template parameter"
+							},
+							"required": true,
+							"default": "overridden",
+							"deprecated": false,
+							"aliases": []
+						}
+					}
+				}
+				',
+				'The inherits property copies over properties from another parameter (preserving overides)'
+			),
 		);
 	}
 
