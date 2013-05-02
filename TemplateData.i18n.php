@@ -291,6 +291,13 @@ $messages['pl'] = array(
 	'templatedata-invalid-parse' => 'Błąd składni w JSON.',
 );
 
+/** Brazilian Portuguese (português do Brasil)
+ * @author Luckas
+ */
+$messages['pt-br'] = array(
+	'templatedata-doc-param-desc' => 'Descrição',
+);
+
 /** tarandíne (tarandíne)
  * @author Joetaras
  */
@@ -350,6 +357,23 @@ $messages['tl'] = array(
 	'templatedata-invalid-missing' => 'Hindi natagpuan ang kailangang pag-aari na "$1".',
 	'templatedata-invalid-unknown' => 'Hindi inaasahang pag-aari na "$1".',
 	'templatedata-invalid-value' => 'Hindi katanggap-tanggap na halaga para sa pag-aaring "$1".',
+);
+
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'templatedata-desc' => 'Lưu trữ dữ liệu cho tham số bản mẫu (qua JSON)',
+	'templatedata-doc-params' => 'Tham số bản mẫu',
+	'templatedata-doc-param-name' => 'Tên',
+	'templatedata-doc-param-desc' => 'Miêu tả',
+	'templatedata-doc-param-default' => 'Mặc định',
+	'templatedata-doc-param-status' => 'Trạng thái',
+	'templatedata-invalid-parse' => 'Lỗi cú pháp JSON.',
+	'templatedata-invalid-type' => 'Mong đợi kiểu “$2” cho giá trị thuộc tính “$1”.',
+	'templatedata-invalid-missing' => 'Không tìm thấy thuộc tính bắt buộc “$1”.',
+	'templatedata-invalid-unknown' => 'Thuộc tính bất ngờ “$1”.',
+	'templatedata-invalid-value' => 'Giá trị thuộc tính “$1” là không hợp lệ.',
 );
 
 /** Simplified Chinese (中文（简体）‎)
