@@ -100,6 +100,13 @@ $messages['br'] = array(
 	'templatedata-invalid-parse' => 'Fazi ereadurezh e JSON.',
 );
 
+/** Catalan (català)
+ * @author Luckas
+ */
+$messages['ca'] = array(
+	'templatedata-doc-param-desc' => 'Descripció',
+);
+
 /** German (Deutsch)
  * @author Metalhead64
  */
@@ -139,6 +146,20 @@ $messages['dsb'] = array(
 	'templatedata-invalid-missing' => 'Trěbna kakosć "$1" njejo se namakała.',
 	'templatedata-invalid-unknown' => 'Njewótcakana kakosć "$1".',
 	'templatedata-invalid-value' => 'Njepłaśiwa gódnota za kakosć "$1".',
+);
+
+/** Esperanto (Esperanto)
+ * @author Luckas
+ */
+$messages['eo'] = array(
+	'templatedata-doc-param-desc' => 'Priskribo',
+);
+
+/** Estonian (eesti)
+ * @author Luckas
+ */
+$messages['et'] = array(
+	'templatedata-doc-param-desc' => 'Kirjeldus',
 );
 
 /** Finnish (suomi)
