@@ -110,12 +110,12 @@ class TemplateDataBlob {
 
 		foreach ( $data->params as $paramName => $paramObj ) {
 			if ( !is_object( $paramObj ) ) {
-				return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName, 'object' );
+				return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}", 'object' );
 			}
 
 			foreach ( $paramObj as $key => $value ) {
 				if ( !in_array( $key, $paramKeys ) ) {
-					return Status::newFatal( 'templatedata-invalid-unknown', $key );
+					return Status::newFatal( 'templatedata-invalid-unknown', "params.{$paramName}.{$key}" );
 				}
 			}
 
@@ -124,7 +124,7 @@ class TemplateDataBlob {
 				if ( !is_object( $paramObj->label ) && !is_string( $paramObj->label ) ) {
 					// TODO: Also validate that if it is an object, the keys are valid lang codes
 					// and the values strings.
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.label', 'string|object' );
+					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.label", 'string|object' );
 				}
 				$paramObj->label = self::normaliseInterfaceText( $paramObj->label );
 			} else {
@@ -134,7 +134,7 @@ class TemplateDataBlob {
 			// Param.required
 			if ( isset( $paramObj->required ) ) {
 				if ( !is_bool( $paramObj->required ) ) {
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.required', 'boolean' );
+					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.required", 'boolean' );
 				}
 			} else {
 				$paramObj->required = false;
@@ -145,7 +145,7 @@ class TemplateDataBlob {
 				if ( !is_object( $paramObj->description ) && !is_string( $paramObj->description ) ) {
 					// TODO: Also validate that if it is an object, the keys are valid lang codes
 					// and the values strings.
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.description', 'string|object' );
+					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.description", 'string|object' );
 				}
 				$paramObj->description = self::normaliseInterfaceText( $paramObj->description );
 			} else {
@@ -155,7 +155,7 @@ class TemplateDataBlob {
 			// Param.deprecated
 			if ( isset( $paramObj->deprecated ) ) {
 				if ( $paramObj->deprecated !== false && !is_string( $paramObj->deprecated ) ) {
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.deprecated', 'boolean|string' );
+					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.deprecated", 'boolean|string' );
 				}
 			} else {
 				$paramObj->deprecated = false;
@@ -165,7 +165,7 @@ class TemplateDataBlob {
 			if ( isset( $paramObj->aliases ) ) {
 				if ( !is_array( $paramObj->aliases ) ) {
 					// TODO: Validate the array values.
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.aliases', 'array' );
+					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.aliases", 'array' );
 				}
 			} else {
 				$paramObj->aliases = array();
@@ -174,7 +174,7 @@ class TemplateDataBlob {
 			// Param.default
 			if ( isset( $paramObj->default ) ) {
 				if ( !is_string( $paramObj->default ) ) {
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.default', 'string' );
+					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.default", 'string' );
 				}
 			} else {
 				$paramObj->default = '';
@@ -183,7 +183,7 @@ class TemplateDataBlob {
 			// Param.type
 			if ( isset( $paramObj->type ) ) {
 				if ( !is_string( $paramObj->type ) ) {
-					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.type', 'string' );
+					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.type", 'string' );
 				}
 				if ( !in_array( $paramObj->type, $types ) ) {
 					return Status::newFatal( 'templatedata-invalid-value', 'params.' . $paramName . '.type' );
