@@ -53,14 +53,21 @@ class TemplateDataBlob {
 			'description',
 		);
 		static $paramKeys = array(
-			// 'label',
+			'label',
 			'required',
 			'description',
 			'deprecated',
 			'aliases',
 			'default',
 			'inherits',
-			// 'type',
+			'type',
+		);
+		static $types = array(
+			'unknown',
+			'string',
+			'number',
+			'string/wiki-page-name',
+			'string/wiki-user-name',
 		);
 
 		if ( $data === null ) {
@@ -84,7 +91,7 @@ class TemplateDataBlob {
 			}
 			$data->description = self::normaliseInterfaceText( $data->description );
 		} else {
-			$data->description = self::normaliseInterfaceText( '' );
+			$data->description = null;
 		}
 
 		// Root.params
@@ -112,7 +119,17 @@ class TemplateDataBlob {
 				}
 			}
 
-			// TODO: Param.label
+			// Param.label
+			if ( isset( $paramObj->label ) ) {
+				if ( !is_object( $paramObj->label ) && !is_string( $paramObj->label ) ) {
+					// TODO: Also validate that if it is an object, the keys are valid lang codes
+					// and the values strings.
+					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.label', 'string|object' );
+				}
+				$paramObj->label = self::normaliseInterfaceText( $paramObj->label );
+			} else {
+				$paramObj->label = null;
+			}
 
 			// Param.required
 			if ( isset( $paramObj->required ) ) {
@@ -132,7 +149,7 @@ class TemplateDataBlob {
 				}
 				$paramObj->description = self::normaliseInterfaceText( $paramObj->description );
 			} else {
-				$paramObj->description = self::normaliseInterfaceText( '' );
+				$paramObj->description = null;
 			}
 
 			// Param.deprecated
@@ -163,7 +180,17 @@ class TemplateDataBlob {
 				$paramObj->default = '';
 			}
 
-			// TODO: Param.type
+			// Param.type
+			if ( isset( $paramObj->type ) ) {
+				if ( !is_string( $paramObj->type ) ) {
+					return Status::newFatal( 'templatedata-invalid-type', 'params.' . $paramName . '.type', 'string' );
+				}
+				if ( !in_array( $paramObj->type, $types ) ) {
+					return Status::newFatal( 'templatedata-invalid-value', 'params.' . $paramName . '.type' );
+				}
+			} else {
+				$paramObj->type = 'unknown';
+			}
 		}
 
 		// Param.inherits
@@ -231,8 +258,9 @@ class TemplateDataBlob {
 			. '<table class="wikitable mw-templatedata-doc-params">'
 			. Html::element( 'caption', array(), $context->msg( 'templatedata-doc-params' ) )
 			. '<thead><tr>'
-			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-name' ) )
+			. Html::element( 'th', array( 'colspan' => 2 ), $context->msg( 'templatedata-doc-param-name' ) )
 			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-desc' ) )
+			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-type' ) )
 			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-default' ) )
 			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-status' ) )
 			. '</tr></thead>'
@@ -241,20 +269,48 @@ class TemplateDataBlob {
 		foreach ( $data->params as $paramName => $paramObj ) {
 			$description = '';
 			$default = '';
+
+			$aliases = '';
+			if ( count( $paramObj->aliases ) ) {
+				foreach ( $paramObj->aliases as $alias ) {
+					$aliases .= Html::element( 'tt', array( 'class' => 'mw-templatedata-doc-param-alias' ), $alias );
+				}
+			}
+
 			$html .= '<tr>'
-			. Html::element( 'th', array(), $paramName )
+			// Label
+			. Html::element( 'th', array(),
+				isset( $paramObj->label->$langCode ) ? $paramObj->label->$langCode : ucfirst( $paramName )
+			)
+			// Parameters and aliases
+			. Html::rawElement( 'td', array( 'class' => 'mw-templatedata-doc-param-name' ),
+				Html::element( 'tt', array(), $paramName ) . $aliases
+			)
 			// Description
-			. Html::rawElement( 'td', array(
-				'class' => array(
-					'mw-templatedata-doc-param-empty' => !isset( $paramObj->description->$langCode ) && $paramObj->deprecated === false
+			. Html::element( 'td', array(
+					'class' => array(
+						'mw-templatedata-doc-muted' => !isset( $paramObj->description->$langCode ) && $paramObj->deprecated === false
+					)
+				),
+				isset( $paramObj->description->$langCode ) ? $paramObj->description->$langCode : 'no description'
 				)
-			), isset( $paramObj->description->$langCode ) ? $paramObj->description->$langCode : 'no description' )
+			// Type
+			. Html::rawElement( 'td', array(
+					'class' => array(
+						'mw-templatedata-doc-param-type',
+						'mw-templatedata-doc-muted' => $paramObj->type === 'unknown'
+					)
+				),
+				Html::element( 'tt', array(), $paramObj->type )
+			)
 			// Default
 			. Html::element( 'td', array(
-				'class' => array(
-					'mw-templatedata-doc-param-empty' => $paramObj->default === ''
-				)
-			), $paramObj->default !== '' ? $paramObj->default : 'empty' )
+					'class' => array(
+						'mw-templatedata-doc-muted' => $paramObj->default === ''
+					)
+				),
+				$paramObj->default !== '' ? $paramObj->default : 'empty'
+			)
 			// Status
 			. Html::element( 'td', array(),
 				$paramObj->deprecated ? 'deprecated' : (

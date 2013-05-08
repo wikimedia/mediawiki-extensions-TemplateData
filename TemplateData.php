@@ -44,6 +44,7 @@ $wgPageProps['templatedata'] = 'Content of &lt;templatedata&gt; tag';
 // Register modules
 $wgResourceModules['ext.templateData'] = array(
 	'styles' => 'resources/ext.templateData.css',
+	'position' => 'top',
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'TemplateData',
 );

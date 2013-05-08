@@ -36,118 +36,72 @@
 
 @structure {string} Type
 	One of the following:
+	- unknown
+	  When no type is specified.
 	- string
 	  Any textual value.
 	- number
 	  Any numerical value (without decimal points or thousand separators).
-	- wiki/page
+	- string/wiki-page-name
 	  A valid MediaWiki page name for the current wiki. Doesn't have to exist,
 	  but if not, should be a valid page name to create.
-	- wiki/user
+	- string/wiki-user-name
 	  A valid MediaWiki user name for the current wiki. Doesn't have to exist,
 	  but if not should be a valid user name to create.
 
-@structure {string|Object} InterfaceText
+@structure {null|string|Object} InterfaceText
 	A free-form string (no wikitext) in the content-language of the wiki, or,
 	an object containing those strings keyed by language code.
+	Defaults to null if no inteface text is available.
 
 
 	Examples:
  */
-[
-	/**
-	 * Template:Unsigned
-	 * Example for
-	 *     {{unsigned|JohnDoe|2012-10-18}}
-	 *     {{unsigned|user=JohnDoe|year=2012|month=10|day=18|comment=blabla}}
-	 */
-	{
-		"params": {
-			"user": {
-				"label": "Username",
-				"required:": true,
-				"description": "User name of person who forgot to sign their comment.",
-				"aliases": ["1"]
-			},
-			"date": {
-				"label": {
-					"en": "Date"
-				},
-				"description": {
-					"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."
-				},
-				"aliases": ["2"]
-			},
-			"year": {
-				"label": "Year"
-			},
-			"month": {
-				"label": "Month"
-			},
-			"day": {
-				"label": "Day"
-			},
-			"comment": {
-				"required": false
-			}
+
+/**
+ * [[Template:Unsigned]]
+ *
+ * Example usage:
+ *     {{unsigned|JohnDoe|2012-10-18}}
+ *     {{unsigned|user=JohnDoe|year=2012|month=10|day=18|comment=blabla}}
+ */
+{
+	"description": "Label unsigned comments in a conversation.",
+	"params": {
+		"user": {
+			"label": "User's name",
+			"type": "string/wiki-user-name",
+			"required": true,
+			"description": "User name of person who forgot to sign their comment.",
+			"aliases": ["1"]
 		},
-		"sets": {
-			"date": {
-				"label": "Date",
-				"params": ["year", "month", "day"]
-			}
+		"date": {
+			"label": "Date",
+			"description": {
+				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."
+			},
+			"aliases": ["2"]
+		},
+		"year": {
+			"label": "Year",
+			"type": "number"
+		},
+		"month": {
+			"label": "Month",
+			"inherits": "year"
+		},
+		"day": {
+			"label": "Day",
+			"inherits": "year"
+		},
+		"comment": {
+			"required": false
 		}
 	},
-	/**
-	 * Template:TemplateBox
-	 * Example for:
-	 *     {{TemplateBox|1d=..|2d=..|10d=..}}
-	 */
-	{
-		"description": "Document the documenter.",
-		"params": {
-			"1d": {
-				"label": "Param 1",
-				"description": "Description of the template parameter",
-				"type": "string"
-
-			},
-			"2d": {
-				"label": "Param 2",
-				"inherits": "1d"
-			},
-			"3d": {
-				"label": "Param 3",
-				"inherits": "1d"
-			},
-			"4d": {
-				"label": "Param 4",
-				"inherits": "1d"
-			},
-			"5d": {
-				"label": "Param 5",
-				"inherits": "1d"
-			},
-			"6d": {
-				"label": "Param 6",
-				"inherits": "1d"
-			},
-			"7d": {
-				"label": "Param 7",
-				"inherits": "1d"
-			},
-			"8d": {
-				"label": "Param 8",
-				"inherits": "1d"
-			},
-			"9d": {
-				"label": "Param 9",
-				"inherits": "1d"
-			},
-			"10d": {
-				"label": "Param 10",
-				"inherits": "1d"
-			}
+	"sets": {
+		"date": {
+			"label": "Date",
+			"params": ["year", "month", "day"]
 		}
 	}
-]
+}

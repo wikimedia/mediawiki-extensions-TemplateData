@@ -11,8 +11,9 @@ $messages['en'] = array(
 
 	// Page output for <templatedata>
 	'templatedata-doc-params' => 'Template parameters',
-	'templatedata-doc-param-name' => 'Name',
+	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Description',
+	'templatedata-doc-param-type' => 'Type',
 	'templatedata-doc-param-default' => 'Default',
 	'templatedata-doc-param-status' => 'Status',
 

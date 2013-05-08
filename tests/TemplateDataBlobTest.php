@@ -42,18 +42,16 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'
 				{
-					"description": {
-						"en": ""
-					},
+					"description": null,
 					"params": {
 						"foo": {
-							"description": {
-								"en": ""
-							},
+							"label": null,
+							"description": null,
 							"default": "",
 							"required": false,
 							"deprecated": false,
-							"aliases": []
+							"aliases": [],
+							"type": "unknown"
 						}
 					}
 				}
@@ -66,6 +64,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"description": "User badge MediaWiki developers.",
 					"params": {
 						"nickname": {
+							"label": null,
 							"description": "User name of user who owns the badge",
 							"default": "Base page name of the host page",
 							"required": false,
@@ -83,6 +82,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"params": {
 						"nickname": {
+							"label": null,
 							"description": {
 								"en": "User name of user who owns the badge"
 							},
@@ -91,7 +91,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [
 								"1"
-							]
+							],
+							"type": "unknown"
 						}
 					}
 				}
@@ -106,6 +107,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"params": {
 						"nickname": {
+							"label": null,
 							"description": {
 								"en": "User name of user who owns the badge"
 							},
@@ -114,7 +116,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [
 								"1"
-							]
+							],
+							"type": "unknown"
 						}
 					}
 				}
@@ -145,22 +148,26 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"params": {
 						"1d": {
+							"label": null,
 							"description": {
 								"en": "Description of the template parameter"
 							},
 							"required": true,
 							"default": "example",
 							"deprecated": false,
-							"aliases": []
+							"aliases": [],
+							"type": "unknown"
 						},
 						"2d": {
+							"label": null,
 							"description": {
 								"en": "Description of the template parameter"
 							},
 							"required": true,
 							"default": "overridden",
 							"deprecated": false,
-							"aliases": []
+							"aliases": [],
+							"type": "unknown"
 						}
 					}
 				}
