@@ -224,6 +224,23 @@ $messages['hsb'] = array(
 	'templatedata-invalid-value' => 'Njepłaćiwa hódnota za kajkosć "$1".',
 );
 
+/** Italian (italiano)
+ * @author Beta16
+ */
+$messages['it'] = array(
+	'templatedata-desc' => 'Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)',
+	'templatedata-doc-params' => 'Parametri template',
+	'templatedata-doc-param-name' => 'Nome', # Fuzzy
+	'templatedata-doc-param-desc' => 'Descrizione',
+	'templatedata-doc-param-default' => 'Predefinito',
+	'templatedata-doc-param-status' => 'Stato',
+	'templatedata-invalid-parse' => 'Errore di sintassi in JSON.',
+	'templatedata-invalid-type' => 'La proprietà "$1" dovrebbe essere di tipo "$2".',
+	'templatedata-invalid-missing' => 'Proprietà obbligatoria "$1" non trovata.',
+	'templatedata-invalid-unknown' => 'Proprietà "$1" non prevista.',
+	'templatedata-invalid-value' => 'Valore non valido per la proprietà "$1".',
+);
+
 /** Japanese (日本語)
  * @author Shirayuki
  */
