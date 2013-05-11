@@ -39,10 +39,11 @@ $messages['qqq'] = array(
 {{Identical|Template parameter}}',
 	'templatedata-doc-param-name' => 'Used as column heading in the table.
 {{Related|Templatedata-doc-param}}
-{{Identical|Name}}',
+{{Identical|Parameter}}',
 	'templatedata-doc-param-desc' => 'Used as column heading in the table.
 {{Related|Templatedata-doc-param}}
 {{Identical|Description}}',
+	'templatedata-doc-param-type' => '{{Identical|Type}}',
 	'templatedata-doc-param-default' => 'Used as column heading in the table.
 {{Related|Templatedata-doc-param}}
 {{Identical|Default}}',
@@ -114,8 +115,9 @@ $messages['ca'] = array(
 $messages['de'] = array(
 	'templatedata-desc' => 'Ermöglicht mithilfe von JSON die Implementierung der Datenspeicherung für Vorlagenparameter',
 	'templatedata-doc-params' => 'Vorlagenparameter',
-	'templatedata-doc-param-name' => 'Name',
+	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Beschreibung',
+	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Standard',
 	'templatedata-doc-param-status' => 'Status',
 	'templatedata-invalid-parse' => 'Syntaxfehler in JSON.',
@@ -174,13 +176,15 @@ $messages['fi'] = array(
 /** French (français)
  * @author Boniface
  * @author Gomoko
+ * @author Metroitendo
  * @author Peter17
  */
 $messages['fr'] = array(
 	'templatedata-desc' => 'Mettre en œuvre un stockage de données pour les paramètres du modèle (en utilisant JSON)',
 	'templatedata-doc-params' => 'Paramètres du modèle',
-	'templatedata-doc-param-name' => 'Nom',
+	'templatedata-doc-param-name' => 'Paramètre',
 	'templatedata-doc-param-desc' => 'Description',
+	'templatedata-doc-param-type' => 'Type',
 	'templatedata-doc-param-default' => 'Par défaut',
 	'templatedata-doc-param-status' => 'Statut',
 	'templatedata-invalid-parse' => 'Erreur de syntaxe dans JSON.',
@@ -230,7 +234,7 @@ $messages['hsb'] = array(
 $messages['it'] = array(
 	'templatedata-desc' => 'Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)',
 	'templatedata-doc-params' => 'Parametri template',
-	'templatedata-doc-param-name' => 'Nome', # Fuzzy
+	'templatedata-doc-param-name' => 'Parametro',
 	'templatedata-doc-param-desc' => 'Descrizione',
 	'templatedata-doc-param-default' => 'Predefinito',
 	'templatedata-doc-param-status' => 'Stato',
@@ -247,7 +251,7 @@ $messages['it'] = array(
 $messages['ja'] = array(
 	'templatedata-desc' => 'テンプレート引数のデータストレージを実装する (JSON を使用)',
 	'templatedata-doc-params' => 'テンプレート引数',
-	'templatedata-doc-param-name' => '名前',
+	'templatedata-doc-param-name' => '引数',
 	'templatedata-doc-param-desc' => '説明',
 	'templatedata-doc-param-default' => '既定',
 	'templatedata-doc-param-status' => '状態',
@@ -276,8 +280,9 @@ $messages['lb'] = array(
 $messages['mk'] = array(
 	'templatedata-desc' => 'Овозможува складирање на податоци за шаблонски параметри (користејќи JSON)',
 	'templatedata-doc-params' => 'Шаблонски параметри',
-	'templatedata-doc-param-name' => 'Име',
+	'templatedata-doc-param-name' => 'Параметар',
 	'templatedata-doc-param-desc' => 'Опис',
+	'templatedata-doc-param-type' => 'Тип',
 	'templatedata-doc-param-default' => 'По основно',
 	'templatedata-doc-param-status' => 'Статус',
 	'templatedata-invalid-parse' => 'Синтаксна грешка во JSON.',
@@ -310,8 +315,9 @@ $messages['nds'] = array(
 $messages['nl'] = array(
 	'templatedata-desc' => 'Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)',
 	'templatedata-doc-params' => 'Sjabloonparameters',
-	'templatedata-doc-param-name' => 'Naam',
+	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Beschrijving',
+	'templatedata-doc-param-type' => 'Type',
 	'templatedata-doc-param-default' => 'Standaard',
 	'templatedata-doc-param-status' => 'Status',
 	'templatedata-invalid-parse' => 'Syntaxisfout in JSON.',
