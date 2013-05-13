@@ -166,11 +166,13 @@ $messages['et'] = array(
 );
 
 /** Finnish (suomi)
+ * @author Nike
  * @author Silvonen
  */
 $messages['fi'] = array(
-	'templatedata-doc-param-name' => 'Nimi',
+	'templatedata-doc-param-name' => 'Parametri',
 	'templatedata-doc-param-desc' => 'Kuvaus',
+	'templatedata-doc-param-type' => 'Tyyppi',
 );
 
 /** French (français)
@@ -349,8 +351,9 @@ $messages['pt-br'] = array(
 $messages['roa-tara'] = array(
 	'templatedata-desc' => "'Mblemende 'nu majazzine de date pe le parametre d'u template (ausanne JSON)",
 	'templatedata-doc-params' => "Parametre d'u template",
-	'templatedata-doc-param-name' => 'Nome',
+	'templatedata-doc-param-name' => 'Parametre',
 	'templatedata-doc-param-desc' => 'Descrizione',
+	'templatedata-doc-param-type' => 'Tipe',
 	'templatedata-doc-param-default' => 'De base',
 	'templatedata-doc-param-status' => 'State',
 	'templatedata-invalid-parse' => "Errore de sindasse jndr'à JSON.",
@@ -410,8 +413,9 @@ $messages['tl'] = array(
 $messages['vi'] = array(
 	'templatedata-desc' => 'Lưu trữ dữ liệu cho tham số bản mẫu (qua JSON)',
 	'templatedata-doc-params' => 'Tham số bản mẫu',
-	'templatedata-doc-param-name' => 'Tên',
+	'templatedata-doc-param-name' => 'Tham số',
 	'templatedata-doc-param-desc' => 'Miêu tả',
+	'templatedata-doc-param-type' => 'Kiểu',
 	'templatedata-doc-param-default' => 'Mặc định',
 	'templatedata-doc-param-status' => 'Trạng thái',
 	'templatedata-invalid-parse' => 'Lỗi cú pháp JSON.',
@@ -436,4 +440,22 @@ $messages['zh-hans'] = array(
 	'templatedata-invalid-missing' => '请求的属性“$1”未找到。',
 	'templatedata-invalid-unknown' => '意外的属性“$1”。',
 	'templatedata-invalid-value' => '属性“$1”的值无效。',
+);
+
+/** Traditional Chinese (中文（繁體）‎)
+ * @author Simon Shek
+ */
+$messages['zh-hant'] = array(
+	'templatedata-desc' => '為模板參數實現數據存儲（使用JSON）',
+	'templatedata-doc-params' => '模版參數',
+	'templatedata-doc-param-name' => '參數',
+	'templatedata-doc-param-desc' => '描述',
+	'templatedata-doc-param-type' => '類型',
+	'templatedata-doc-param-default' => '預設',
+	'templatedata-doc-param-status' => '狀態',
+	'templatedata-invalid-parse' => 'JSON中語法錯誤。',
+	'templatedata-invalid-type' => '屬性「$1」預期為類型「$2」。',
+	'templatedata-invalid-missing' => '找不到必須的屬性「$1」。',
+	'templatedata-invalid-unknown' => '意外的屬性「$1」。',
+	'templatedata-invalid-value' => '屬性「$1」的值無效。',
 );
