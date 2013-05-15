@@ -248,6 +248,7 @@ $messages['it'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Fryed-peach
  * @author Shirayuki
  */
 $messages['ja'] = array(
@@ -255,6 +256,7 @@ $messages['ja'] = array(
 	'templatedata-doc-params' => 'テンプレート引数',
 	'templatedata-doc-param-name' => '引数',
 	'templatedata-doc-param-desc' => '説明',
+	'templatedata-doc-param-type' => '型',
 	'templatedata-doc-param-default' => '既定',
 	'templatedata-doc-param-status' => '状態',
 	'templatedata-invalid-parse' => 'JSON の構文エラーです。',
