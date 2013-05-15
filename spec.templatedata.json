@@ -6,7 +6,7 @@
 	Author: Trevor Parscal
 
 @structure {Object} Root
-	@property {InterfaceText} [description]
+	@property {null|InterfaceText} [description]
 	@property {Object} params Contains all parameters.
 	 Keyed by parameter name, contains #Param objects.
 	@property {Array} sets List of groups of parameters that should be used
@@ -14,9 +14,9 @@
 	 in a set. The array contains #Set objects.
 
 @structure {Object} Param
-	@property {InterfaceText} [label] Defaults to key of object in `Root.params`.
+	@property {null|InterfaceText} [label] Defaults to key of object in `Root.params`.
 	@property {boolean} [required=false]
-	@property {InterfaceText} [description]
+	@property {null|InterfaceText} [description]
 	@property {boolean|string} [deprecated=false] Tooltip for the user detailing
 	 the intent for the deprecated parameters.
 	@property {Array} [aliases] List of aliases.
@@ -49,7 +49,7 @@
 	  A valid MediaWiki user name for the current wiki. Doesn't have to exist,
 	  but if not should be a valid user name to create.
 
-@structure {null|string|Object} InterfaceText
+@structure {string|Object} InterfaceText
 	A free-form string (no wikitext) in the content-language of the wiki, or,
 	an object containing those strings keyed by language code.
 	Defaults to null if no inteface text is available.
