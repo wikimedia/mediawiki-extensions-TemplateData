@@ -98,10 +98,10 @@
 			"required": false
 		}
 	},
-	"sets": {
-		"date": {
+	"sets": [
+		{
 			"label": "Date",
 			"params": ["year", "month", "day"]
 		}
-	}
+	]
 }

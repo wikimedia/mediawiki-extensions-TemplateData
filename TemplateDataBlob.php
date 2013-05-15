@@ -49,8 +49,9 @@ class TemplateDataBlob {
 		$data = $this->data;
 
 		static $rootKeys = array(
-			'params',
 			'description',
+			'params',
+			'sets',
 		);
 		static $paramKeys = array(
 			'label',
@@ -213,7 +214,45 @@ class TemplateDataBlob {
 			}
 		}
 
-		// TODO: Root.sets
+		// Root.sets
+		if ( isset( $data->sets ) ) {
+			if ( !is_array( $data->sets ) ) {
+				return Status::newFatal( 'templatedata-invalid-type', 'sets', 'array' );
+			}
+		} else {
+			$data->sets = array();
+		}
+
+		foreach ( $data->sets as $setNr => $setObj ) {
+			if ( !is_object( $setObj ) ) {
+				return Status::newFatal( 'templatedata-invalid-type', "sets.{$setNr}", 'object' );
+			}
+
+			if ( !isset( $setObj->label ) ) {
+				return Status::newFatal( 'templatedata-invalid-missing', "sets.{$setNr}.label", 'string|object' );
+			}
+
+			if ( !is_object( $setObj->label ) && !is_string( $setObj->label ) ) {
+				// TODO: Also validate that if it is an object, the keys are valid lang codes and the values strings.
+				return Status::newFatal( 'templatedata-invalid-type', "sets.{$setNr}.label", 'string|object' );
+			}
+
+			$setObj->label = self::normaliseInterfaceText( $setObj->label );
+
+			if ( !isset( $setObj->params ) ) {
+				return Status::newFatal( 'templatedata-invalid-missing', "sets.{$setNr}.params", 'array' );
+			}
+
+			if ( !is_array( $setObj->params ) ) {
+				return Status::newFatal( 'templatedata-invalid-type', "sets.{$setNr}.params", 'array' );
+			}
+
+			foreach ( $setObj->params as $param ) {
+				if ( !isset( $data->params->$param ) ) {
+					return Status::newFatal( 'templatedata-invalid-missing', "params.{$param}" );
+				}
+			}
+		}
 
 		return Status::newGood();
 	}

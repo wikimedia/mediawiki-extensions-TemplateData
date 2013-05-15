@@ -24,7 +24,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'output' => '{
 					"description": null,
-					"params": {}
+					"params": {},
+					"sets": []
 				}
 				',
 				'status' => true,
@@ -71,7 +72,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"aliases": [],
 							"type": "unknown"
 						}
-					}
+					},
+					"sets": []
 				}
 				',
 				'msg' => 'Optional properties are added if missing'
@@ -110,7 +112,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							],
 							"type": "unknown"
 						}
-					}
+					},
+					"sets": []
 				}
 				',
 				'msg' => 'InterfaceText is expanded to langcode-keyed object, assuming content language'
@@ -134,7 +137,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							],
 							"type": "unknown"
 						}
-					}
+					},
+					"sets": []
 				}
 				',
 				'msg' => 'Fully normalised json should be valid input and stay unchanged'
@@ -182,10 +186,122 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"aliases": [],
 							"type": "unknown"
 						}
-					}
+					},
+					"sets": []
 				}
 				',
 				'msg' => 'The inherits property copies over properties from another parameter (preserving overides)'
+			),
+			array(
+				'input' => '{
+					"params": {},
+					"sets": [
+						{
+							"label": "Example"
+						}
+					]
+				}',
+				'status' => 'Required property "sets.0.params" not found.'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+						}
+					},
+					"sets": [
+						{
+							"params": ["foo"]
+						}
+					]
+				}',
+				'status' => 'Required property "sets.0.label" not found.'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+						},
+						"bar": {
+						}
+					},
+					"sets": [
+						{
+							"label": "Foo with Quux",
+							"params": ["foo", "quux"]
+						}
+					]
+				}',
+				'status' => 'Required property "params.quux" not found.'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+						},
+						"bar": {
+						},
+						"quux": {
+						}
+					},
+					"sets": [
+						{
+							"label": "Foo with Quux",
+							"params": ["foo", "quux"]
+						},
+						{
+							"label": "Bar with Quux",
+							"params": ["bar", "quux"]
+						}
+					]
+				}',
+				'output' => '{
+					"description": null,
+					"params": {
+						"foo": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						},
+						"bar": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						},
+						"quux": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						}
+					},
+					"sets": [
+						{
+							"label": {
+								"en": "Foo with Quux"
+							},
+							"params": ["foo", "quux"]
+						},
+						{
+							"label": {
+								"en": "Bar with Quux"
+							},
+							"params": ["bar", "quux"]
+						}
+					]
+				}',
+				'status' => true
 			),
 		);
 		$calls = array();
