@@ -9,9 +9,9 @@
 	@property {InterfaceText} [description]
 	@property {Object} params Contains all parameters.
 	 Keyed by parameter name, contains #Param objects.
-	@property {Object} sets Groups of parameters that should be used
-	 together. Groups may overlap with each other, though this is not recommended.
-	 Keyed by an internal id, contains #Set objects.
+	@property {Array} sets List of groups of parameters that should be used
+	 together. A parameter can be in multiple sets. Not every parameter has to be
+	 in a set. The array contains #Set objects.
 
 @structure {Object} Param
 	@property {InterfaceText} [label] Defaults to key of object in `Root.params`.
@@ -31,7 +31,7 @@
 	 overriding the inherited ones.
 
 @structure {Object} Set
-	@property {InterfaceText} [label] Defaults to key of object in `Root.sets`.
+	@property {InterfaceText} label Label of this set.
 	@property {Array} params A subset of the parameter's names that belong to this set.
 
 @structure {string} Type
