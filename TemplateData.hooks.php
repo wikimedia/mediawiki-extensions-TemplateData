@@ -71,7 +71,8 @@ class TemplateDataHooks {
 	 * @param array $args: The attributes of the tag.
 	 * @param Parser $parser: Parser instance available to render
 	 *  wikitext into html, or parser methods.
-	 * @param PPFrame $frame: Can be used to see what template parameters ("{{{1}}}", etc.) this hook was used with.
+	 * @param PPFrame $frame: Can be used to see what template parameters ("{{{1}}}", etc.)
+	 *  this hook was used with.
 	 *
 	 * @return string: HTML to insert in the page.
 	 */

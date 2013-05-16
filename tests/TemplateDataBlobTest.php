@@ -190,7 +190,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"sets": []
 				}
 				',
-				'msg' => 'The inherits property copies over properties from another parameter (preserving overides)'
+				'msg' => 'The inherits property copies over properties from another parameter '
+					. '(preserving overides)'
 			),
 			array(
 				'input' => '{

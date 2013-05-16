@@ -111,21 +111,31 @@ class TemplateDataBlob {
 
 		foreach ( $data->params as $paramName => $paramObj ) {
 			if ( !is_object( $paramObj ) ) {
-				return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}", 'object' );
+				return Status::newFatal(
+					'templatedata-invalid-type',
+					"params.{$paramName}",
+					'object'
+				);
 			}
 
 			foreach ( $paramObj as $key => $value ) {
 				if ( !in_array( $key, $paramKeys ) ) {
-					return Status::newFatal( 'templatedata-invalid-unknown', "params.{$paramName}.{$key}" );
+					return Status::newFatal(
+						'templatedata-invalid-unknown',
+						"params.{$paramName}.{$key}"
+					);
 				}
 			}
 
 			// Param.label
 			if ( isset( $paramObj->label ) ) {
 				if ( !is_object( $paramObj->label ) && !is_string( $paramObj->label ) ) {
-					// TODO: Also validate that if it is an object, the keys are valid lang codes
-					// and the values strings.
-					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.label", 'string|object' );
+				// TODO: Also validate that the keys are valid lang codes and the values strings.
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.label",
+						'string|object'
+					);
 				}
 				$paramObj->label = self::normaliseInterfaceText( $paramObj->label );
 			} else {
@@ -135,7 +145,11 @@ class TemplateDataBlob {
 			// Param.required
 			if ( isset( $paramObj->required ) ) {
 				if ( !is_bool( $paramObj->required ) ) {
-					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.required", 'boolean' );
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.required",
+						'boolean'
+					);
 				}
 			} else {
 				$paramObj->required = false;
@@ -144,9 +158,12 @@ class TemplateDataBlob {
 			// Param.description
 			if ( isset( $paramObj->description ) ) {
 				if ( !is_object( $paramObj->description ) && !is_string( $paramObj->description ) ) {
-					// TODO: Also validate that if it is an object, the keys are valid lang codes
-					// and the values strings.
-					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.description", 'string|object' );
+					// TODO: Also validate that the keys are valid lang codes and the values strings.
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.description",
+						'string|object'
+					);
 				}
 				$paramObj->description = self::normaliseInterfaceText( $paramObj->description );
 			} else {
@@ -156,7 +173,11 @@ class TemplateDataBlob {
 			// Param.deprecated
 			if ( isset( $paramObj->deprecated ) ) {
 				if ( $paramObj->deprecated !== false && !is_string( $paramObj->deprecated ) ) {
-					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.deprecated", 'boolean|string' );
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.deprecated",
+						'boolean|string'
+					);
 				}
 			} else {
 				$paramObj->deprecated = false;
@@ -166,7 +187,11 @@ class TemplateDataBlob {
 			if ( isset( $paramObj->aliases ) ) {
 				if ( !is_array( $paramObj->aliases ) ) {
 					// TODO: Validate the array values.
-					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.aliases", 'array' );
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.aliases",
+						'array'
+					);
 				}
 			} else {
 				$paramObj->aliases = array();
@@ -175,7 +200,11 @@ class TemplateDataBlob {
 			// Param.default
 			if ( isset( $paramObj->default ) ) {
 				if ( !is_string( $paramObj->default ) ) {
-					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.default", 'string' );
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.default",
+						'string'
+					);
 				}
 			} else {
 				$paramObj->default = '';
@@ -184,10 +213,17 @@ class TemplateDataBlob {
 			// Param.type
 			if ( isset( $paramObj->type ) ) {
 				if ( !is_string( $paramObj->type ) ) {
-					return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}.type", 'string' );
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.type",
+						'string'
+					);
 				}
 				if ( !in_array( $paramObj->type, $types ) ) {
-					return Status::newFatal( 'templatedata-invalid-value', 'params.' . $paramName . '.type' );
+					return Status::newFatal(
+						'templatedata-invalid-value',
+						'params.' . $paramName . '.type'
+					);
 				}
 			} else {
 				$paramObj->type = 'unknown';
@@ -199,7 +235,10 @@ class TemplateDataBlob {
 		foreach ( $data->params as $paramName => $paramObj ) {
 			if ( isset( $paramObj->inherits ) ) {
 				if ( !isset( $data->params->{ $paramObj->inherits } ) ) {
-						return Status::newFatal( 'templatedata-invalid-missing', "params.{$paramObj->inherits}" );
+						return Status::newFatal(
+							'templatedata-invalid-missing',
+							"params.{$paramObj->inherits}"
+						);
 				}
 				$parentParamObj = $data->params->{ $paramObj->inherits };
 				foreach ( $parentParamObj as $key => $value ) {
@@ -207,7 +246,9 @@ class TemplateDataBlob {
 						return Status::newFatal( 'templatedata-invalid-unknown', $key );
 					}
 					if ( !isset( $unnormalizedParams->$paramName->$key ) ) {
-						$paramObj->$key = is_object( $parentParamObj->$key ) ? clone $parentParamObj->$key : $parentParamObj->$key;
+						$paramObj->$key = is_object( $parentParamObj->$key )
+							? clone $parentParamObj->$key
+							: $parentParamObj->$key;
 					}
 				}
 				unset( $paramObj->inherits );
@@ -229,12 +270,20 @@ class TemplateDataBlob {
 			}
 
 			if ( !isset( $setObj->label ) ) {
-				return Status::newFatal( 'templatedata-invalid-missing', "sets.{$setNr}.label", 'string|object' );
+				return Status::newFatal(
+					'templatedata-invalid-missing',
+					"sets.{$setNr}.label",
+					'string|object'
+				);
 			}
 
 			if ( !is_object( $setObj->label ) && !is_string( $setObj->label ) ) {
-				// TODO: Also validate that if it is an object, the keys are valid lang codes and the values strings.
-				return Status::newFatal( 'templatedata-invalid-type', "sets.{$setNr}.label", 'string|object' );
+				// TODO: Also validate that the keys are valid lang codes and the values strings.
+				return Status::newFatal(
+					'templatedata-invalid-type',
+					"sets.{$setNr}.label",
+					'string|object'
+				);
 			}
 
 			$setObj->label = self::normaliseInterfaceText( $setObj->label );
@@ -293,7 +342,9 @@ class TemplateDataBlob {
 		$data = $this->data;
 		$html =
 			Html::openElement( 'div', array( 'class' => 'mw-templatedata-doc-wrap' ) )
-			. Html::element( 'p', array( 'class' => 'mw-templatedata-doc-desc' ), $data->description->$langCode )
+			. Html::element( 'p', array(
+				'class' => 'mw-templatedata-doc-desc'
+			), $data->description->$langCode )
 			. '<table class="wikitable mw-templatedata-doc-params">'
 			. Html::element( 'caption', array(), $context->msg( 'templatedata-doc-params' ) )
 			. '<thead><tr>'
@@ -303,8 +354,8 @@ class TemplateDataBlob {
 			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-default' ) )
 			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-status' ) )
 			. '</tr></thead>'
-			. '<tbody>'
-			;
+			. '<tbody>';
+
 		foreach ( $data->params as $paramName => $paramObj ) {
 			$description = '';
 			$default = '';
@@ -312,14 +363,18 @@ class TemplateDataBlob {
 			$aliases = '';
 			if ( count( $paramObj->aliases ) ) {
 				foreach ( $paramObj->aliases as $alias ) {
-					$aliases .= Html::element( 'tt', array( 'class' => 'mw-templatedata-doc-param-alias' ), $alias );
+					$aliases .= Html::element( 'tt', array(
+						'class' => 'mw-templatedata-doc-param-alias'
+					), $alias );
 				}
 			}
 
 			$html .= '<tr>'
 			// Label
 			. Html::element( 'th', array(),
-				isset( $paramObj->label->$langCode ) ? $paramObj->label->$langCode : ucfirst( $paramName )
+				isset( $paramObj->label->$langCode )
+					? $paramObj->label->$langCode
+					: ucfirst( $paramName )
 			)
 			// Parameters and aliases
 			. Html::rawElement( 'td', array( 'class' => 'mw-templatedata-doc-param-name' ),
@@ -328,10 +383,14 @@ class TemplateDataBlob {
 			// Description
 			. Html::element( 'td', array(
 					'class' => array(
-						'mw-templatedata-doc-muted' => !isset( $paramObj->description->$langCode ) && $paramObj->deprecated === false
+						'mw-templatedata-doc-muted' => (
+							!isset( $paramObj->description->$langCode ) && $paramObj->deprecated === false
+						)
 					)
 				),
-				isset( $paramObj->description->$langCode ) ? $paramObj->description->$langCode : 'no description'
+				isset( $paramObj->description->$langCode )
+					? $paramObj->description->$langCode
+					: 'no description'
 				)
 			// Type
 			. Html::rawElement( 'td', array(

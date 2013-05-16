@@ -83,7 +83,10 @@ class ApiTemplateData extends ApiBase {
 			$tdb = TemplateDataBlob::newFromJSON( $rawData );
 			$status = $tdb->getStatus();
 			if ( !$status->isOK() ) {
-				$this->dieUsage( 'Page #' . intval( $row->pp_page ) . ' templatedata contains invalid data:' . $status->getMessage(), 'templatedata-corrupt' );
+				$this->dieUsage(
+					'Page #' . intval( $row->pp_page ) . ' templatedata contains invalid data:'
+						. $status->getMessage(), 'templatedata-corrupt'
+				);
 			}
 			$data = $tdb->getData();
 			$resp[$row->pp_page] = array(
