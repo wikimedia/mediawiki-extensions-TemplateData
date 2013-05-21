@@ -110,6 +110,24 @@ $messages['ca'] = array(
 	'templatedata-doc-param-desc' => 'Descripció',
 );
 
+/** Czech (česky)
+ * @author Mormegil
+ */
+$messages['cs'] = array(
+	'templatedata-desc' => 'Implementuje datové úložiště pro parametry šablon (pomocí JSON)',
+	'templatedata-doc-params' => 'Parametry šablony',
+	'templatedata-doc-param-name' => 'Parametr',
+	'templatedata-doc-param-desc' => 'Popis',
+	'templatedata-doc-param-type' => 'Typ',
+	'templatedata-doc-param-default' => 'Implicitní',
+	'templatedata-doc-param-status' => 'Stav',
+	'templatedata-invalid-parse' => 'Syntaktická chyba v JSON.',
+	'templatedata-invalid-type' => 'Očekávaný typ vlastnosti „$1“ je „$2“.',
+	'templatedata-invalid-missing' => 'Nenalezena vyžadovaná vlastnost „$1“.',
+	'templatedata-invalid-unknown' => 'Neočekávaná vlastnost „$1“.',
+	'templatedata-invalid-value' => 'Chybná hodnota vlastnosti „$1“.',
+);
+
 /** German (Deutsch)
  * @author Metalhead64
  */
@@ -203,8 +221,9 @@ $messages['fr'] = array(
 $messages['gl'] = array(
 	'templatedata-desc' => 'Inclúe un almacenamento de datos para os parámetros do modelo (mediante JSON)',
 	'templatedata-doc-params' => 'Parámetros do modelo',
-	'templatedata-doc-param-name' => 'Nome',
+	'templatedata-doc-param-name' => 'Parámetro',
 	'templatedata-doc-param-desc' => 'Descrición',
+	'templatedata-doc-param-type' => 'Tipo',
 	'templatedata-doc-param-default' => 'Predeterminado',
 	'templatedata-doc-param-status' => 'Estado',
 	'templatedata-invalid-parse' => 'Erro de sintaxe en JSON.',
@@ -212,6 +231,24 @@ $messages['gl'] = array(
 	'templatedata-invalid-missing' => 'Non se atopou a propiedade obrigatoria "$1".',
 	'templatedata-invalid-unknown' => 'Propiedade "$1" inesperada.',
 	'templatedata-invalid-value' => 'Valor non válido para a propiedade "$1".',
+);
+
+/** Hebrew (עברית)
+ * @author Amire80
+ */
+$messages['he'] = array(
+	'templatedata-desc' => 'מימוש אחסון נתונים לפרמטרים של תבניות (באמצעות JSON)',
+	'templatedata-doc-params' => 'פרמטרים של תבניות',
+	'templatedata-doc-param-name' => 'פרמטר',
+	'templatedata-doc-param-desc' => 'תיאור',
+	'templatedata-doc-param-type' => 'סוג',
+	'templatedata-doc-param-default' => 'בררת מחדל',
+	'templatedata-doc-param-status' => 'מצב',
+	'templatedata-invalid-parse' => 'שגיאת תחביר ב־JSON.',
+	'templatedata-invalid-type' => 'מאפיין "$1" צפוי להיות מסוג "$2".',
+	'templatedata-invalid-missing' => 'המאפיין הדרוש "$1" לא נמצא.',
+	'templatedata-invalid-unknown' => 'מאפיין בלתי־צפוי "$1".',
+	'templatedata-invalid-value' => 'ערך בלתי־תקין למאפיין "$1".',
 );
 
 /** Upper Sorbian (hornjoserbsce)
@@ -273,8 +310,9 @@ $messages['ja'] = array(
  */
 $messages['lb'] = array(
 	'templatedata-doc-params' => 'Parameter vun der Schabloun',
-	'templatedata-doc-param-name' => 'Numm',
+	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Beschreiwung',
+	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Standard',
 	'templatedata-doc-param-status' => 'Status',
 	'templatedata-invalid-parse' => 'Syntaxfeeler am JSON.',
