@@ -406,12 +406,14 @@ $messages['roa-tara'] = array(
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Милан Јелисавчић
  */
 $messages['sr-ec'] = array(
 	'templatedata-doc-params' => 'Параметри шаблона',
-	'templatedata-doc-param-name' => 'Име',
+	'templatedata-doc-param-name' => 'Име', # Fuzzy
 	'templatedata-doc-param-desc' => 'Опис',
+	'templatedata-doc-param-type' => 'Врста',
 	'templatedata-doc-param-default' => 'Подразумевано',
 	'templatedata-doc-param-status' => 'Статус',
 	'templatedata-invalid-parse' => 'Синтаксна грешка у JSON-у.',
