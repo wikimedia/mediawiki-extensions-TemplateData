@@ -91,6 +91,7 @@ class ApiTemplateData extends ApiBase {
 			$data = $tdb->getData();
 			$resp[$row->pp_page] = array(
 				'title' => strval( $titles[$row->pp_page] ),
+				'description' => $data->description,
 				'params' => $data->params,
 			);
 		}
