@@ -345,6 +345,24 @@ $messages['ml'] = array(
 	'templatedata-doc-param-status' => 'സ്ഥിതി',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'templatedata-desc' => 'Melaksanakan storan data bagi parameter templat (menggunakan JSON)',
+	'templatedata-doc-params' => 'Parameter templat',
+	'templatedata-doc-param-name' => 'Parameter',
+	'templatedata-doc-param-desc' => 'Keterangan',
+	'templatedata-doc-param-type' => 'Jenis',
+	'templatedata-doc-param-default' => 'Azali',
+	'templatedata-doc-param-status' => 'Status',
+	'templatedata-invalid-parse' => 'Ralat sintaks dalam JSON.',
+	'templatedata-invalid-type' => 'Sifat "$1" dijangka jenis "$2".',
+	'templatedata-invalid-missing' => 'Sifat "$1" yang dikehendaki tidak dijumpai.',
+	'templatedata-invalid-unknown' => 'Sifat "$1" tidak dijangka.',
+	'templatedata-invalid-value' => 'Nilai tidak sah untuk sifat "$1".',
+);
+
 /** Low German (Plattdüütsch)
  * @author Joachim Mos
  */
