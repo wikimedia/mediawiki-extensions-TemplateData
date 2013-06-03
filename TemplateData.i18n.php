@@ -305,6 +305,24 @@ $messages['ja'] = array(
 	'templatedata-invalid-value' => 'プロパティ「$1」の値が無効です。',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'templatedata-desc' => '(JSON을 사용하여) 틀 변수에 대한 데이터 저장소를 구현합니다',
+	'templatedata-doc-params' => '틀 변수',
+	'templatedata-doc-param-name' => '변수',
+	'templatedata-doc-param-desc' => '설명',
+	'templatedata-doc-param-type' => '형식',
+	'templatedata-doc-param-default' => '기본값',
+	'templatedata-doc-param-status' => '상태',
+	'templatedata-invalid-parse' => 'JSON에 구문 오류가 있습니다.',
+	'templatedata-invalid-type' => '"$1" 속성의 값이 예기치 않은 "$2" 형식입니다.',
+	'templatedata-invalid-missing' => '필요한 "$1" 속성을 찾을 수 없습니다.',
+	'templatedata-invalid-unknown' => '예기치 않은 "$1" 속성입니다.',
+	'templatedata-invalid-value' => '"$1" 속성의 값이 잘못되었습니다.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -402,7 +420,10 @@ $messages['pl'] = array(
  * @author Luckas
  */
 $messages['pt-br'] = array(
+	'templatedata-doc-param-name' => 'Parâmetro',
 	'templatedata-doc-param-desc' => 'Descrição',
+	'templatedata-doc-param-type' => 'Tipo',
+	'templatedata-doc-param-default' => 'Padrão',
 );
 
 /** tarandíne (tarandíne)
