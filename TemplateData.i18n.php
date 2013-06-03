@@ -86,7 +86,7 @@ $messages['ast'] = array(
  */
 $messages['bn'] = array(
 	'templatedata-doc-params' => 'টেমপ্লেট পরামিতি',
-	'templatedata-doc-param-name' => 'নাম',
+	'templatedata-doc-param-name' => 'নাম', # Fuzzy
 	'templatedata-doc-param-desc' => 'বিবরণ',
 	'templatedata-doc-param-default' => 'ডিফল্ট',
 	'templatedata-doc-param-status' => 'অবস্থা',
@@ -96,7 +96,7 @@ $messages['bn'] = array(
  * @author Y-M D
  */
 $messages['br'] = array(
-	'templatedata-doc-param-name' => 'Anv',
+	'templatedata-doc-param-name' => 'Anv', # Fuzzy
 	'templatedata-doc-param-desc' => 'Deskrivadur',
 	'templatedata-doc-param-default' => 'Dre ziouer',
 	'templatedata-doc-param-status' => 'Statud',
@@ -159,7 +159,7 @@ $messages['diq'] = array(
 $messages['dsb'] = array(
 	'templatedata-desc' => 'Datowe składowanje za pśedłogowe parametry implementěrowaś (z pomocu JSON)',
 	'templatedata-doc-params' => 'Pśedłogowe parametry',
-	'templatedata-doc-param-name' => 'Mě',
+	'templatedata-doc-param-name' => 'Mě', # Fuzzy
 	'templatedata-doc-param-desc' => 'Wopisanje',
 	'templatedata-doc-param-default' => 'Standard',
 	'templatedata-doc-param-status' => 'Status',
@@ -257,7 +257,7 @@ $messages['he'] = array(
 $messages['hsb'] = array(
 	'templatedata-desc' => 'Datowe składowanje za předłohowe parametry implementować (z pomocu JSON)',
 	'templatedata-doc-params' => 'Předłohowe parametry',
-	'templatedata-doc-param-name' => 'Mjeno',
+	'templatedata-doc-param-name' => 'Mjeno', # Fuzzy
 	'templatedata-doc-param-desc' => 'Wopisanje',
 	'templatedata-doc-param-default' => 'Standard',
 	'templatedata-doc-param-status' => 'Status',
@@ -359,7 +359,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'templatedata-doc-params' => 'ഫലകത്തിനുള്ള ചരങ്ങൾ',
-	'templatedata-doc-param-name' => 'പേര്‌',
+	'templatedata-doc-param-name' => 'പേര്‌', # Fuzzy
 	'templatedata-doc-param-status' => 'സ്ഥിതി',
 );
 
@@ -467,7 +467,7 @@ $messages['sr-ec'] = array(
  */
 $messages['te'] = array(
 	'templatedata-doc-params' => 'మూస పరామితులు',
-	'templatedata-doc-param-name' => 'పేరు',
+	'templatedata-doc-param-name' => 'పేరు', # Fuzzy
 	'templatedata-doc-param-desc' => 'వివరణ',
 	'templatedata-doc-param-default' => 'అప్రమేయం',
 	'templatedata-doc-param-status' => 'స్థితి',
@@ -479,7 +479,7 @@ $messages['te'] = array(
 $messages['tl'] = array(
 	'templatedata-desc' => 'Isakatuparan ang pag-iimbak ng dato para sa mga parametro ng padron (na ginagamit ang JSON)',
 	'templatedata-doc-params' => 'Mga parametro ng padron',
-	'templatedata-doc-param-name' => 'Pangalan',
+	'templatedata-doc-param-name' => 'Pangalan', # Fuzzy
 	'templatedata-doc-param-desc' => 'Paglalarawan',
 	'templatedata-doc-param-default' => 'Likas na katakdaan',
 	'templatedata-doc-param-status' => 'Katayuan',
@@ -514,7 +514,7 @@ $messages['vi'] = array(
 $messages['zh-hans'] = array(
 	'templatedata-desc' => '为模板参数实现数据存储（使用JSON）',
 	'templatedata-doc-params' => '模板参数',
-	'templatedata-doc-param-name' => '名称',
+	'templatedata-doc-param-name' => '名称', # Fuzzy
 	'templatedata-doc-param-desc' => '描述',
 	'templatedata-doc-param-default' => '默认',
 	'templatedata-doc-param-status' => '状态',
