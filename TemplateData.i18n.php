@@ -444,6 +444,24 @@ $messages['roa-tara'] = array(
 	'templatedata-invalid-value' => 'Valore invalide pa probbietà "$1".',
 );
 
+/** Russian (русский)
+ * @author Putnik
+ */
+$messages['ru'] = array(
+	'templatedata-desc' => 'Реализация хранилища данных для параметров шаблона (с помощью JSON)',
+	'templatedata-doc-params' => 'Параметры шаблона',
+	'templatedata-doc-param-name' => 'Параметр',
+	'templatedata-doc-param-desc' => 'Описание',
+	'templatedata-doc-param-type' => 'Тип',
+	'templatedata-doc-param-default' => 'По умолчанию',
+	'templatedata-doc-param-status' => 'Статус',
+	'templatedata-invalid-parse' => 'Синтаксическая ошибка в JSON.',
+	'templatedata-invalid-type' => 'Для свойства «$1» ожидается тип «$2».',
+	'templatedata-invalid-missing' => 'Обязательное свойство «$1» не найдено.',
+	'templatedata-invalid-unknown' => 'Неожиданное свойство «$1».',
+	'templatedata-invalid-value' => 'Недопустимое значение для свойства «$1».',
+);
+
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Milicevic01
  * @author Милан Јелисавчић
