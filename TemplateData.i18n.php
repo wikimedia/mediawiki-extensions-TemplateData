@@ -30,7 +30,7 @@ $messages['en'] = array(
  * @author Timo Tijhof
  */
 $messages['qqq'] = array(
-	'templatedata-desc' => '{{desc}}',
+	'templatedata-desc' => '{{desc|name=Template Data|url=http://www.mediawiki.org/wiki/Extension:TemplateData}}',
 	'templatedata-doc-params' => 'Used as caption for the table which has the following headings:
 * {{msg-mw|Templatedata-doc-param-name}}
 * {{msg-mw|Templatedata-doc-param-desc}}
