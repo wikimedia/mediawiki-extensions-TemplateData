@@ -52,15 +52,15 @@ $messages['qqq'] = array(
 {{Identical|Status}}',
 	'templatedata-invalid-parse' => 'Error message when there is a syntax error in JSON.',
 	'templatedata-invalid-type' => 'Error message when a property is of the wrong type.
-* $1 - name of property
-* $2 - expected type of property',
+* $1 - name of property. e.g. "params.1.required"
+* $2 - expected type of property. e.g. "boolean"',
 	'templatedata-invalid-missing' => 'Error message when a required property is not found.
-* $1 - name of name
+* $1 - name of property. e.g. "params"
 * $2 - type of property (Unused)',
 	'templatedata-invalid-unknown' => 'Error message when an unknown property is found.
-* $1 - name of property',
+* $1 - name of property. e.g. "params.1.foobar"',
 	'templatedata-invalid-value' => 'Error message when a property that cannot contain free-form text has an invalid value.
-* $1 - name of property',
+* $1 - name of property. e.g. "params.1.type"',
 );
 
 /** Asturian (asturianu)
@@ -299,7 +299,7 @@ $messages['ja'] = array(
 	'templatedata-doc-param-default' => '既定',
 	'templatedata-doc-param-status' => '状態',
 	'templatedata-invalid-parse' => 'JSON の構文エラーです。',
-	'templatedata-invalid-type' => 'プロパティ「$1」の値が予期しない型「$2」です。',
+	'templatedata-invalid-type' => 'プロパティ「$1」には型「$2」の値を指定してください。',
 	'templatedata-invalid-missing' => '必須のプロパティ「$1」がありません。',
 	'templatedata-invalid-unknown' => '予期しないプロパティ「$1」です。',
 	'templatedata-invalid-value' => 'プロパティ「$1」の値が無効です。',
