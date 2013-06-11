@@ -52,7 +52,6 @@
 @structure {string|Object} InterfaceText
 	A free-form string (no wikitext) in the content-language of the wiki, or,
 	an object containing those strings keyed by language code.
-	Defaults to null if no inteface text is available.
 
 
 	Examples:
