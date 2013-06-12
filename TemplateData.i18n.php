@@ -110,6 +110,13 @@ $messages['ca'] = array(
 	'templatedata-doc-param-desc' => 'Descripció',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'templatedata-doc-param-desc' => 'Цуьнах лаьцна',
+);
+
 /** Czech (česky)
  * @author Mormegil
  */
