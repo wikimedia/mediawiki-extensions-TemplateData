@@ -81,6 +81,24 @@ $messages['ast'] = array(
 	'templatedata-invalid-value' => 'Valor inválidu pa la propiedá «$1».',
 );
 
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
+ * @author Wizardist
+ */
+$messages['be-tarask'] = array(
+	'templatedata-desc' => 'Рэалізацыя сховішча зьвестак для парамэтраў шаблёнаў (праз JSON)',
+	'templatedata-doc-params' => 'Парамэтры шаблёнаў',
+	'templatedata-doc-param-name' => 'Парамэтар',
+	'templatedata-doc-param-desc' => 'Апісаньне',
+	'templatedata-doc-param-type' => 'Тып',
+	'templatedata-doc-param-default' => 'Перадвызначана',
+	'templatedata-doc-param-status' => 'Стан',
+	'templatedata-invalid-parse' => 'Памылка сынтаксу ў JSON.',
+	'templatedata-invalid-type' => 'Уласьцівасьць «$1» вымагае тыпу «$2».',
+	'templatedata-invalid-missing' => 'Абавязковая ўласьцівасьць «$1» ня знойдзеная.',
+	'templatedata-invalid-unknown' => 'Нечаканая ўласьцівасьць «$1».',
+	'templatedata-invalid-value' => 'Няслушнае значэньне для ўласьцівасьці «$1».',
+);
+
 /** Bengali (বাংলা)
  * @author Leemon2010
  */
