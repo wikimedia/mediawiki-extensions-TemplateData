@@ -441,14 +441,41 @@ $messages['pl'] = array(
 	'templatedata-invalid-parse' => 'Błąd składni w JSON.',
 );
 
-/** Brazilian Portuguese (português do Brasil)
- * @author Luckas
+/** Portuguese (português)
+ * @author Helder.wiki
  */
-$messages['pt-br'] = array(
+$messages['pt'] = array(
+	'templatedata-desc' => 'Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)',
+	'templatedata-doc-params' => 'Parâmetros da predefinição',
 	'templatedata-doc-param-name' => 'Parâmetro',
 	'templatedata-doc-param-desc' => 'Descrição',
 	'templatedata-doc-param-type' => 'Tipo',
 	'templatedata-doc-param-default' => 'Padrão',
+	'templatedata-doc-param-status' => 'Condição',
+	'templatedata-invalid-parse' => 'Erro de sintaxe em JSON',
+	'templatedata-invalid-type' => 'A propriedade "$1" deveria ser do tipo "$2"',
+	'templatedata-invalid-missing' => 'A propriedade "$1" é requerida mas não foi fornecida.',
+	'templatedata-invalid-unknown' => 'Propriedade "$1" inesperada.',
+	'templatedata-invalid-value' => 'Valor inválido para a propriedade "$1".',
+);
+
+/** Brazilian Portuguese (português do Brasil)
+ * @author Helder.wiki
+ * @author Luckas
+ */
+$messages['pt-br'] = array(
+	'templatedata-desc' => 'Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)',
+	'templatedata-doc-params' => 'Parâmetros da predefinição',
+	'templatedata-doc-param-name' => 'Parâmetro',
+	'templatedata-doc-param-desc' => 'Descrição',
+	'templatedata-doc-param-type' => 'Tipo',
+	'templatedata-doc-param-default' => 'Padrão',
+	'templatedata-doc-param-status' => 'Condição',
+	'templatedata-invalid-parse' => 'Erro de sintaxe em JSON',
+	'templatedata-invalid-type' => 'A propriedade "$1" deveria ser do tipo "$2"',
+	'templatedata-invalid-missing' => 'A propriedade "$1" é requerida mas não foi fornecida.',
+	'templatedata-invalid-unknown' => 'Propriedade "$1" inesperada.',
+	'templatedata-invalid-value' => 'Valor inválido para a propriedade "$1".',
 );
 
 /** tarandíne (tarandíne)
