@@ -133,6 +133,7 @@ $messages['ca'] = array(
  */
 $messages['ce'] = array(
 	'templatedata-doc-param-desc' => 'Цуьнах лаьцна',
+	'templatedata-doc-param-default' => 'Iад йитарца',
 );
 
 /** Czech (česky)
