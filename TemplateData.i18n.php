@@ -223,11 +223,12 @@ $messages['fi'] = array(
 /** French (français)
  * @author Boniface
  * @author Gomoko
+ * @author Guillom
  * @author Metroitendo
  * @author Peter17
  */
 $messages['fr'] = array(
-	'templatedata-desc' => 'Mettre en œuvre un stockage de données pour les paramètres du modèle (en utilisant JSON)',
+	'templatedata-desc' => 'Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)',
 	'templatedata-doc-params' => 'Paramètres du modèle',
 	'templatedata-doc-param-name' => 'Paramètre',
 	'templatedata-doc-param-desc' => 'Description',
