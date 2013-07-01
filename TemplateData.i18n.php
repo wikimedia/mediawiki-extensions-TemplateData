@@ -295,6 +295,23 @@ $messages['hsb'] = array(
 	'templatedata-invalid-value' => 'Njepłaćiwa hódnota za kajkosć "$1".',
 );
 
+/** Icelandic (íslenska)
+ * @author Snævar
+ */
+$messages['is'] = array(
+	'templatedata-doc-params' => 'Gildi sniðsins',
+	'templatedata-doc-param-name' => 'Gildi',
+	'templatedata-doc-param-desc' => 'Lýsing',
+	'templatedata-doc-param-type' => 'Gerð',
+	'templatedata-doc-param-default' => 'Sjálfgefið',
+	'templatedata-doc-param-status' => 'Staða',
+	'templatedata-invalid-parse' => 'Villa í málskipan JSON.',
+	'templatedata-invalid-type' => 'Bjóst við að eiginleikinn „$1” væri af gerðinni „$2”, en fékk eitthvað allt annað.',
+	'templatedata-invalid-missing' => 'Nauðsynlegur eiginleiki „$1” fannst ekki.',
+	'templatedata-invalid-unknown' => 'Óvæntur eiginleiki „$1”.',
+	'templatedata-invalid-value' => 'Ógilt eigindargildi fyrir eiginleikann „$1”.',
+);
+
 /** Italian (italiano)
  * @author Beta16
  */
