@@ -48,6 +48,8 @@
 	- string/wiki-user-name
 	  A valid MediaWiki user name for the current wiki. Doesn't have to exist,
 	  but if not should be a valid user name to create.
+	- string/line
+	  Short text field - use for names, labels, and other short-form fields.
 
 @structure {string|Object} InterfaceText
 	A free-form string (no wikitext) in the content-language of the wiki, or,

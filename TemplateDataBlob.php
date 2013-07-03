@@ -69,6 +69,7 @@ class TemplateDataBlob {
 			'number',
 			'string/wiki-page-name',
 			'string/wiki-user-name',
+			'string/line',
 		);
 
 		if ( $data === null ) {
