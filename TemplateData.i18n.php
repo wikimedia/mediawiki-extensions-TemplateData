@@ -272,7 +272,7 @@ $messages['he'] = array(
 	'templatedata-doc-param-default' => 'בררת מחדל',
 	'templatedata-doc-param-status' => 'מצב',
 	'templatedata-invalid-parse' => 'שגיאת תחביר ב־JSON.',
-	'templatedata-invalid-type' => 'מאפיין "$1" צפוי להיות מסוג "$2".',
+	'templatedata-invalid-type' => 'המאפיין "$1" צפוי להיות מסוג "$2".',
 	'templatedata-invalid-missing' => 'המאפיין הדרוש "$1" לא נמצא.',
 	'templatedata-invalid-unknown' => 'מאפיין בלתי־צפוי "$1".',
 	'templatedata-invalid-value' => 'ערך בלתי־תקין למאפיין "$1".',
@@ -294,6 +294,24 @@ $messages['hsb'] = array(
 	'templatedata-invalid-missing' => 'Trěbna kajkosć "$1" njeje so namakała.',
 	'templatedata-invalid-unknown' => 'Njewočakowana kajkosć "$1".',
 	'templatedata-invalid-value' => 'Njepłaćiwa hódnota za kajkosć "$1".',
+);
+
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'templatedata-desc' => 'Isayangkatna ti pagipenpenan ti datos para kadagiti parametro ti plantilia (agaramat ti JSON)',
+	'templatedata-doc-params' => 'Dagiti parametro ti plantilia',
+	'templatedata-doc-param-name' => 'Parametro',
+	'templatedata-doc-param-desc' => 'Deskripsion',
+	'templatedata-doc-param-type' => 'Kita',
+	'templatedata-doc-param-default' => 'Kasisigud',
+	'templatedata-doc-param-status' => 'Kasasaad',
+	'templatedata-invalid-parse' => 'Biddut ti eskritu iti JSON.',
+	'templatedata-invalid-type' => 'Ti tagikua ti "$1" ket nanamnama a kita iti "$2".',
+	'templatedata-invalid-missing' => 'Ti nasken a tagikua ti "$1" ket saan a nabirukan.',
+	'templatedata-invalid-unknown' => 'Di nanamnama a tagikua ti "$1".',
+	'templatedata-invalid-value' => 'Saan nga umiso a pateg para iti tagikua ti "$1".',
 );
 
 /** Icelandic (íslenska)
@@ -469,11 +487,21 @@ $messages['pa'] = array(
 
 /** Polish (polski)
  * @author Chrumps
+ * @author Woytecr
  */
 $messages['pl'] = array(
+	'templatedata-desc' => 'Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)',
 	'templatedata-doc-params' => 'Parametry szablonu',
+	'templatedata-doc-param-name' => 'Parametr',
 	'templatedata-doc-param-desc' => 'Opis',
+	'templatedata-doc-param-type' => 'Typ',
+	'templatedata-doc-param-default' => 'Domyślne',
+	'templatedata-doc-param-status' => 'Status',
 	'templatedata-invalid-parse' => 'Błąd składni w JSON.',
+	'templatedata-invalid-type' => 'Właściwość "$1" powinna mieć typ "$2".',
+	'templatedata-invalid-missing' => 'Wymagana właściwość "$1" nie została znaleziona.',
+	'templatedata-invalid-unknown' => 'Nieoczekiwane właściwość "$1".',
+	'templatedata-invalid-value' => 'Nieprawidłowa wartość właściwości "$1".',
 );
 
 /** Portuguese (português)
