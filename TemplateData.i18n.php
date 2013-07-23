@@ -100,14 +100,17 @@ $messages['be-tarask'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Aftab1995
  * @author Leemon2010
  */
 $messages['bn'] = array(
-	'templatedata-doc-params' => 'টেমপ্লেট পরামিতি',
-	'templatedata-doc-param-name' => 'নাম', # Fuzzy
+	'templatedata-doc-params' => 'টেমপ্লেট প্যারামিটার',
+	'templatedata-doc-param-name' => 'প্যারামিটার',
 	'templatedata-doc-param-desc' => 'বিবরণ',
+	'templatedata-doc-param-type' => 'ধরন',
 	'templatedata-doc-param-default' => 'ডিফল্ট',
 	'templatedata-doc-param-status' => 'অবস্থা',
+	'templatedata-invalid-parse' => 'জেএসওএন-এর মধ্যে বাক্যগঠনে ত্রুটি।',
 );
 
 /** Breton (brezhoneg)
