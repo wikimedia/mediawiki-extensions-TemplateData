@@ -23,6 +23,7 @@ $messages['en'] = array(
 	'templatedata-invalid-missing' => 'Required property "$1" not found.',
 	'templatedata-invalid-unknown' => 'Unexpected property "$1".',
 	'templatedata-invalid-value' => 'Invalid value for property "$1".',
+	'templatedata-invalid-length' => 'Data too large to save ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|limit is}} {{formatnum:$2}})',
 );
 
 /** Message documentation (Message documentation)
@@ -61,6 +62,9 @@ $messages['qqq'] = array(
 * $1 - name of property. e.g. "params.1.foobar"',
 	'templatedata-invalid-value' => 'Error message when a property that cannot contain free-form text has an invalid value.
 * $1 - name of property. e.g. "params.1.type"',
+	'templatedata-invalid-length' => 'Error message when generated JSON\'s length exceed database limits.
+* $1 - length of generated JSON
+* $2 - maximal allowed length',
 );
 
 /** Asturian (asturianu)

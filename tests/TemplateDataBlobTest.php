@@ -304,6 +304,13 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}',
 				'status' => true
 			),
+			array(
+				'input' => '{
+					"description": "' . str_repeat( 'X', 65535 ) . '",
+					"params": {}
+				}',
+				'status' => 'Data too large to save (65,582 bytes, limit is 65,535)'
+			),
 		);
 		$calls = array();
 		foreach ( $cases as $case ) {

@@ -12,6 +12,8 @@
  * @class
  */
 class TemplateDataBlob {
+	// Size of MySQL 'blob' field; page_props table where the data is stored uses one.
+	const MAX_LENGTH = 65535;
 
 	/**
 	 * @var stdClass
@@ -302,6 +304,11 @@ class TemplateDataBlob {
 					return Status::newFatal( 'templatedata-invalid-missing', "params.{$param}" );
 				}
 			}
+		}
+
+		$length = strlen( $this->getJSON() );
+		if ( $length > self::MAX_LENGTH ) {
+			return Status::newFatal( 'templatedata-invalid-length', $length, self::MAX_LENGTH );
 		}
 
 		return Status::newGood();
