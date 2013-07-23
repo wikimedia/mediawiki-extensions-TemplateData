@@ -84,7 +84,7 @@ class ApiTemplateData extends ApiBase {
 			$status = $tdb->getStatus();
 			if ( !$status->isOK() ) {
 				$this->dieUsage(
-					'Page #' . intval( $row->pp_page ) . ' templatedata contains invalid data:'
+					'Page #' . intval( $row->pp_page ) . ' templatedata contains invalid data: '
 						. $status->getMessage(), 'templatedata-corrupt'
 				);
 			}
