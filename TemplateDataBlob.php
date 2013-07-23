@@ -26,11 +26,16 @@ class TemplateDataBlob {
 	private $status;
 
 	/**
-	 *  @param string $json
+	 * Parse and validate passed JSON and create a TemplateDataBlob object.
+	 * Accepts and handles user-provided data.
+	 *
+	 * @param string $json
+	 * @throws MWException
 	 * @return TemplateInfo
 	 */
 	public static function newFromJSON( $json ) {
 		$tdb = new self( json_decode( $json ) );
+
 		$status = $tdb->parse();
 
 		if ( !$status->isOK() ) {
@@ -39,6 +44,20 @@ class TemplateDataBlob {
 		}
 		$tdb->status = $status;
 		return $tdb;
+	}
+
+	/**
+	 * Parse and validate passed JSON (possibly gzip-compressed) and create a TemplateDataBlob object.
+	 *
+	 * @param string $json
+	 * @return TemplateInfo
+	 */
+	public static function newFromDatabase( $json ) {
+		// Handle GZIP compression. \037\213 is the header for GZIP files.
+		if ( substr( $json, 0, 2 ) === "\037\213" ) {
+			$json = gzdecode( $json );
+		}
+		return self::newFromJSON( $json );
 	}
 
 	/**
@@ -308,7 +327,7 @@ class TemplateDataBlob {
 			}
 		}
 
-		$length = strlen( $this->getJSON() );
+		$length = strlen( $this->getJSONForDatabase() );
 		if ( $length > self::MAX_LENGTH ) {
 			return Status::newFatal( 'templatedata-invalid-length', $length, self::MAX_LENGTH );
 		}
@@ -344,6 +363,13 @@ class TemplateDataBlob {
 	 */
 	public function getJSON() {
 		return json_encode( $this->data );
+	}
+
+	/**
+	 * @return string JSON, gzip-compressed
+	 */
+	public function getJSONForDatabase() {
+		return gzencode( $this->getJSON() );
 	}
 
 	public function getHtml( Language $lang ) {

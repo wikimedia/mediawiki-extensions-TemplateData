@@ -10,6 +10,25 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		) );
 	}
 
+	/**
+	 * Helper method to generate a string that gzip can't compress.
+	 *
+	 * Output is consistent when given the same seed.
+	 */
+	private static function generatePseudorandomString( $length, $seed ) {
+		mt_srand( $seed );
+
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$characters_max = strlen( $characters ) - 1;
+
+		$string = '';
+
+		for ( $i = 0; $i < $length; $i++ ) {
+			$string .= $characters[mt_rand( 0, $characters_max )];
+		}
+
+		return $string;
+	}
 	public static function provideParse() {
 		$cases = array(
 			array(
@@ -305,11 +324,12 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'status' => true
 			),
 			array(
+				// Should be long enough to trigger this condition after gzipping.
 				'input' => '{
-					"description": "' . str_repeat( 'X', 65535 ) . '",
+					"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
 					"params": {}
 				}',
-				'status' => 'Data too large to save (65,582 bytes, limit is 65,535)'
+				'status' => 'Data too large to save (75,195 bytes, limit is 65,535)'
 			),
 		);
 		$calls = array();

@@ -80,7 +80,7 @@ class ApiTemplateData extends ApiBase {
 
 		foreach ( $res as $row ) {
 			$rawData = $row->pp_value;
-			$tdb = TemplateDataBlob::newFromJSON( $rawData );
+			$tdb = TemplateDataBlob::newFromDatabase( $rawData );
 			$status = $tdb->getStatus();
 			if ( !$status->isOK() ) {
 				$this->dieUsage(
