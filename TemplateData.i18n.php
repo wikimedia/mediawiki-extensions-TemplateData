@@ -598,6 +598,19 @@ $messages['sr-ec'] = array(
 	'templatedata-invalid-value' => 'Неисправна вредност за својство „$1“.',
 );
 
+/** Swedish (svenska)
+ * @author Jopparn
+ */
+$messages['sv'] = array(
+	'templatedata-doc-params' => 'Mallparametrar',
+	'templatedata-doc-param-name' => 'Parameter',
+	'templatedata-doc-param-desc' => 'Beskrivning',
+	'templatedata-doc-param-type' => 'Typ',
+	'templatedata-doc-param-default' => 'Standard',
+	'templatedata-doc-param-status' => 'Status',
+	'templatedata-invalid-parse' => 'Syntaxfel i JSON.',
+);
+
 /** Telugu (తెలుగు)
  * @author Veeven
  */
