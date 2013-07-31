@@ -314,9 +314,9 @@ class TemplateDataBlob {
 	protected static function normaliseInterfaceText( $text ) {
 		if ( is_string( $text ) ) {
 			global $wgContLang;
-			$ret = array();
-			$ret[ $wgContLang->getCode() ] = $text;
-			return (object) $ret;
+			$ret = new stdClass();
+			$ret->{ $wgContLang->getCode() } = $text;
+			return $ret;
 		}
 		return $text;
 	}
