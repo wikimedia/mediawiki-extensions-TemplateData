@@ -337,23 +337,49 @@ class TemplateDataBlob {
 		return json_encode( $this->data );
 	}
 
-	public function getHtml( IContextSource $context ) {
+	public function getHtml( Language $lang ) {
 		global $wgContLang;
 		$langCode = $wgContLang->getCode();
 		$data = $this->data;
 		$html =
 			Html::openElement( 'div', array( 'class' => 'mw-templatedata-doc-wrap' ) )
-			. Html::element( 'p', array(
-				'class' => 'mw-templatedata-doc-desc'
-			), $data->description->$langCode )
+			. Html::element(
+				'p',
+				array( 'class' => 'mw-templatedata-doc-desc' ),
+				$data->description->$langCode
+			)
 			. '<table class="wikitable mw-templatedata-doc-params">'
-			. Html::element( 'caption', array(), $context->msg( 'templatedata-doc-params' ) )
+			. Html::element(
+				'caption',
+				array(),
+				wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )
+			)
 			. '<thead><tr>'
-			. Html::element( 'th', array( 'colspan' => 2 ), $context->msg( 'templatedata-doc-param-name' ) )
-			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-desc' ) )
-			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-type' ) )
-			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-default' ) )
-			. Html::element( 'th', array(), $context->msg( 'templatedata-doc-param-status' ) )
+			. Html::element(
+				'th',
+				array( 'colspan' => 2 ),
+				wfMessage( 'templatedata-doc-param-name' )->inLanguage( $lang )
+			)
+			. Html::element(
+				'th',
+				array(),
+				wfMessage( 'templatedata-doc-param-desc' )->inLanguage( $lang )
+			)
+			. Html::element(
+				'th',
+				array(),
+				wfMessage( 'templatedata-doc-param-type' )->inLanguage( $lang )
+			)
+			. Html::element(
+				'th',
+				array(),
+				wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )
+			)
+			. Html::element(
+				'th',
+				array(),
+				wfMessage( 'templatedata-doc-param-status' )->inLanguage( $lang )
+			)
 			. '</tr></thead>'
 			. '<tbody>';
 

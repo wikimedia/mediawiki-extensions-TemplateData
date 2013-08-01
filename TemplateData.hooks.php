@@ -78,8 +78,6 @@ class TemplateDataHooks {
 	 */
 	public static function render( $input, $args, $parser, $frame ) {
 		$ti = TemplateDataBlob::newFromJSON( $input );
-		// TODO: Is there a better context?
-		$context = RequestContext::getMain();
 
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
@@ -91,6 +89,6 @@ class TemplateDataHooks {
 
 		$parser->getOutput()->addModules( 'ext.templateData' );
 
-		return $ti->getHtml( $context );
+		return $ti->getHtml( $parser->getOptions()->getUserLangObj() );
 	}
 }
