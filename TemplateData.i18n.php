@@ -62,9 +62,27 @@ $messages['qqq'] = array(
 * $1 - name of property. e.g. "params.1.foobar"',
 	'templatedata-invalid-value' => 'Error message when a property that cannot contain free-form text has an invalid value.
 * $1 - name of property. e.g. "params.1.type"',
-	'templatedata-invalid-length' => 'Error message when generated JSON\'s length exceed database limits.
+	'templatedata-invalid-length' => "Error message when generated JSON's length exceed database limits.
 * $1 - length of generated JSON
-* $2 - maximal allowed length',
+* $2 - maximal allowed length",
+);
+
+/** Arabic (العربية)
+ * @author زكريا
+ */
+$messages['ar'] = array(
+	'templatedata-desc' => 'تخزين بيانات وسائط القالب',
+	'templatedata-doc-params' => 'وسائط القالب',
+	'templatedata-doc-param-name' => 'وسيط',
+	'templatedata-doc-param-desc' => 'وصف',
+	'templatedata-doc-param-type' => 'نوع',
+	'templatedata-doc-param-default' => 'غيابي',
+	'templatedata-doc-param-status' => 'حالة',
+	'templatedata-invalid-parse' => 'خطأ نحوي',
+	'templatedata-invalid-type' => 'خاصية "$1" من نوع "$2".',
+	'templatedata-invalid-missing' => 'خاصية "$1" ضرورية.',
+	'templatedata-invalid-unknown' => 'خاصية "$1" غير متوقعة.',
+	'templatedata-invalid-value' => 'قيمة خاصية "$1" غير صالحة.',
 );
 
 /** Asturian (asturianu)
@@ -177,6 +195,7 @@ $messages['de'] = array(
 	'templatedata-invalid-missing' => 'Die erforderliche Eigenschaft „$1” wurde nicht gefunden.',
 	'templatedata-invalid-unknown' => 'Unerwartete Eigenschaft „$1”.',
 	'templatedata-invalid-value' => 'Ungültiger Wert für die Eigenschaft „$1”.',
+	'templatedata-invalid-length' => 'Die Daten sind zu groß zum Speichern ({{PLURAL:$1|Ein Byte|{{formatnum:$1}} Bytes}}, {{PLURAL:$2|die Grenze ist}} {{formatnum:$2}})',
 );
 
 /** Zazaki (Zazaki)
