@@ -101,6 +101,7 @@ $messages['ast'] = array(
 	'templatedata-invalid-missing' => "Nun s'alcontró la propiedá requerida «$1».",
 	'templatedata-invalid-unknown' => 'Propiedá inesperada «$1».',
 	'templatedata-invalid-value' => 'Valor inválidu pa la propiedá «$1».',
+	'templatedata-invalid-length' => 'Los datos son demasiao grandes pa guardar ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|la llende ye}} {{formatnum:$2}})',
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
@@ -272,18 +273,19 @@ $messages['fr'] = array(
  * @author Toliño
  */
 $messages['gl'] = array(
-	'templatedata-desc' => 'Inclúe un almacenamento de datos para os parámetros do modelo (mediante JSON)',
+	'templatedata-desc' => 'Inclúe un almacenamento de datos para os parámetros dos modelos (mediante JSON)',
 	'templatedata-doc-params' => 'Parámetros do modelo',
 	'templatedata-doc-param-name' => 'Parámetro',
 	'templatedata-doc-param-desc' => 'Descrición',
 	'templatedata-doc-param-type' => 'Tipo',
-	'templatedata-doc-param-default' => 'Predeterminado',
+	'templatedata-doc-param-default' => 'Por defecto',
 	'templatedata-doc-param-status' => 'Estado',
 	'templatedata-invalid-parse' => 'Erro de sintaxe en JSON.',
 	'templatedata-invalid-type' => 'A propiedade "$1" agárdase que sexa de tipo "$2".',
 	'templatedata-invalid-missing' => 'Non se atopou a propiedade obrigatoria "$1".',
 	'templatedata-invalid-unknown' => 'Propiedade "$1" inesperada.',
 	'templatedata-invalid-value' => 'Valor non válido para a propiedade "$1".',
+	'templatedata-invalid-length' => 'Dato longo de máis para podelo gardar ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}; {{PLURAL:$2|o límite é}} {{formatnum:$2}})',
 );
 
 /** Hebrew (עברית)
@@ -392,6 +394,7 @@ $messages['ja'] = array(
 	'templatedata-invalid-missing' => '必須のプロパティ「$1」がありません。',
 	'templatedata-invalid-unknown' => '予期しないプロパティ「$1」です。',
 	'templatedata-invalid-value' => 'プロパティ「$1」の値が無効です。',
+	'templatedata-invalid-length' => 'データが大きすぎるため保存できません ({{formatnum:$1}} {{PLURAL:$1|バイト}}、{{PLURAL:$2|上限は}} {{formatnum:$2}} バイト)',
 );
 
 /** Korean (한국어)
@@ -441,6 +444,7 @@ $messages['mk'] = array(
 	'templatedata-invalid-missing' => 'Бараното својство „$1“ не е пронајдено.',
 	'templatedata-invalid-unknown' => 'Неочекувано својство „$1“.',
 	'templatedata-invalid-value' => 'Неисправна вредност за својството „$1“.',
+	'templatedata-invalid-length' => 'Податоците се преголеми за да се зачуваат ({{formatnum:$1}} {{PLURAL:$1|бајт|бајти}}, а {{PLURAL:$2|границата е}} {{formatnum:$2}})',
 );
 
 /** Malayalam (മലയാളം)
