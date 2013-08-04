@@ -413,6 +413,7 @@ $messages['ko'] = array(
 	'templatedata-invalid-missing' => '필요한 "$1" 속성을 찾을 수 없습니다.',
 	'templatedata-invalid-unknown' => '예기치 않은 "$1" 속성입니다.',
 	'templatedata-invalid-value' => '"$1" 속성의 값이 잘못되었습니다.',
+	'templatedata-invalid-length' => '저장하기에 데이터가 너무 큽니다 ({{formatnum:$1}} {{PLURAL:$1|바이드}}, {{PLURAL:$2|제한은}} {{formatnum:$2}})',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -472,6 +473,7 @@ $messages['ms'] = array(
 	'templatedata-invalid-missing' => 'Sifat "$1" yang dikehendaki tidak dijumpai.',
 	'templatedata-invalid-unknown' => 'Sifat "$1" tidak dijangka.',
 	'templatedata-invalid-value' => 'Nilai tidak sah untuk sifat "$1".',
+	'templatedata-invalid-length' => 'Data terlalu besar untuk menyimpan ({{formatnum:$1}} {{PLURAL:$1|bait}}, {{PLURAL:$2|hadnya}} adalah {{formatnum:$2}})',
 );
 
 /** Low German (Plattdüütsch)
