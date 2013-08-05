@@ -267,6 +267,7 @@ $messages['fr'] = array(
 	'templatedata-invalid-missing' => 'Propriété « $1 » obligatoire non trouvée.',
 	'templatedata-invalid-unknown' => 'Propriété « $1 » non attendue.',
 	'templatedata-invalid-value' => 'Valeur non valide pour la propriété « $1 ».',
+	'templatedata-invalid-length' => 'Données trop grosses pour être enregistrées ({{formatnum:$1}} {{PLURAL:$1|octet|octets}}, {{PLURAL:$2|la limite est}} {{formatnum:$2}})',
 );
 
 /** Galician (galego)
@@ -449,12 +450,19 @@ $messages['mk'] = array(
 );
 
 /** Malayalam (മലയാളം)
+ * @author Praveenp
  * @author Santhosh.thottingal
  */
 $messages['ml'] = array(
+	'templatedata-desc' => 'ഫലകങ്ങളുടെ ചരങ്ങളിൽ ഡേറ്റ ശേഖരിച്ച് വെയ്ക്കൽ നടപ്പിലാക്കുക (ജെസൺ ഉപയോഗിച്ച്)',
 	'templatedata-doc-params' => 'ഫലകത്തിനുള്ള ചരങ്ങൾ',
-	'templatedata-doc-param-name' => 'പേര്‌', # Fuzzy
+	'templatedata-doc-param-name' => 'ചരം',
+	'templatedata-doc-param-desc' => 'വിവരണം',
+	'templatedata-doc-param-type' => 'തരം',
+	'templatedata-doc-param-default' => 'സ്വതേ',
 	'templatedata-doc-param-status' => 'സ്ഥിതി',
+	'templatedata-invalid-parse' => 'ജെസണിൽ എഴുത്ത് രീതിയിൽ പിഴവുണ്ടായി.',
+	'templatedata-invalid-length' => 'ഡേറ്റ സേവ് ചെയ്യാൻ കഴിയുന്നതിലും വലുതാണ് ({{formatnum:$1}} {{PLURAL:$1|ബൈറ്റ്|ബൈറ്റുകൾ}}, {{PLURAL:$2|പരിധി}} {{formatnum:$2}})',
 );
 
 /** Malay (Bahasa Melayu)
