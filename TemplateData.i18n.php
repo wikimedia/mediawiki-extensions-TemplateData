@@ -692,6 +692,7 @@ $messages['vi'] = array(
 	'templatedata-invalid-missing' => 'Không tìm thấy thuộc tính bắt buộc “$1”.',
 	'templatedata-invalid-unknown' => 'Thuộc tính bất ngờ “$1”.',
 	'templatedata-invalid-value' => 'Giá trị thuộc tính “$1” là không hợp lệ.',
+	'templatedata-invalid-length' => 'Dữ liệu quá lớn để lưu ({{formatnum:$1}} byte, vượt quá hạn chế {{formatnum:$2}} byte)',
 );
 
 /** Simplified Chinese (中文（简体）‎)
