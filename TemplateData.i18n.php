@@ -465,6 +465,13 @@ $messages['ml'] = array(
 	'templatedata-invalid-length' => 'ഡേറ്റ സേവ് ചെയ്യാൻ കഴിയുന്നതിലും വലുതാണ് ({{formatnum:$1}} {{PLURAL:$1|ബൈറ്റ്|ബൈറ്റുകൾ}}, {{PLURAL:$2|പരിധി}} {{formatnum:$2}})',
 );
 
+/** Marathi (मराठी)
+ * @author V.narsikar
+ */
+$messages['mr'] = array(
+	'templatedata-invalid-length' => 'माहिती जतन करण्यास बरीच मोठी आहे({{formatnum:$1}} {{PLURAL:$1|बाईट|बाईट्स}}, {{PLURAL:$2|मर्यादा}} {{formatnum:$2}} आहे)',
+);
+
 /** Malay (Bahasa Melayu)
  * @author Anakmalaysia
  */
@@ -597,6 +604,7 @@ $messages['roa-tara'] = array(
 	'templatedata-invalid-missing' => 'Probbietà richieste "$1" non acchiate.',
 	'templatedata-invalid-unknown' => 'Probbietà inaspettate "$1".',
 	'templatedata-invalid-value' => 'Valore invalide pa probbietà "$1".',
+	'templatedata-invalid-length' => "Date troppe granne pe reggistrà ({{formatnum:$1}} {{PLURAL:$1|byte}}, 'u {{PLURAL:$2|limite jè}} {{formatnum:$2}})",
 );
 
 /** Russian (русский)
