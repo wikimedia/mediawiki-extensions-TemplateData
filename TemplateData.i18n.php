@@ -120,6 +120,7 @@ $messages['be-tarask'] = array(
 	'templatedata-invalid-missing' => 'Абавязковая ўласьцівасьць «$1» ня знойдзеная.',
 	'templatedata-invalid-unknown' => 'Нечаканая ўласьцівасьць «$1».',
 	'templatedata-invalid-value' => 'Няслушнае значэньне для ўласьцівасьці «$1».',
+	'templatedata-invalid-length' => 'Завялікі для захаваньня памер зьвестак ({{formatnum:$1}} {{PLURAL:$1|байт|байта|байтаў}}, {{PLURAL:$2|абмежавана}} да {{formatnum:$2}})',
 );
 
 /** Bengali (বাংলা)
