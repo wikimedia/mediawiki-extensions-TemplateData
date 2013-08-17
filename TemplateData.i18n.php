@@ -685,6 +685,25 @@ $messages['tl'] = array(
 	'templatedata-invalid-value' => 'Hindi katanggap-tanggap na halaga para sa pag-aaring "$1".',
 );
 
+/** Ukrainian (українська)
+ * @author Andriykopanytsia
+ */
+$messages['uk'] = array(
+	'templatedata-desc' => 'Реалізація сховища даних для параметрів шаблону (JSON)',
+	'templatedata-doc-params' => 'Параметри шаблону',
+	'templatedata-doc-param-name' => 'Параметр',
+	'templatedata-doc-param-desc' => 'Опис',
+	'templatedata-doc-param-type' => 'Тип',
+	'templatedata-doc-param-default' => 'Стандартно',
+	'templatedata-doc-param-status' => 'Статус',
+	'templatedata-invalid-parse' => 'Синтаксична помилка в JSON.',
+	'templatedata-invalid-type' => 'Властивість "$1" має бути типу "$2".',
+	'templatedata-invalid-missing' => 'Обов\'язкову властивість "$1" не знайдено.',
+	'templatedata-invalid-unknown' => 'Неочікувана властивість "$1".',
+	'templatedata-invalid-value' => 'Неприпустиме значення властивості "$1".',
+	'templatedata-invalid-length' => 'Дані завеликі для збереження ({{formatnum:$1}} {{PLURAL:$1|байт|байти|байтів}}, {{PLURAL:$2|обмеження становить}} {{formatnum:$2}})',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  */
