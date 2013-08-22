@@ -377,6 +377,7 @@ $messages['it'] = array(
 	'templatedata-invalid-missing' => 'Proprietà obbligatoria "$1" non trovata.',
 	'templatedata-invalid-unknown' => 'Proprietà "$1" non prevista.',
 	'templatedata-invalid-value' => 'Valore non valido per la proprietà "$1".',
+	'templatedata-invalid-length' => 'Troppi dati da salvare ({{formatnum:$1}} {{PLURAL:$1|byte}}, {{PLURAL:$2|limite è}} {{formatnum:$2}})',
 );
 
 /** Japanese (日本語)
