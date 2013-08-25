@@ -306,6 +306,7 @@ $messages['he'] = array(
 	'templatedata-invalid-missing' => 'המאפיין הדרוש "$1" לא נמצא.',
 	'templatedata-invalid-unknown' => 'מאפיין בלתי־צפוי "$1".',
 	'templatedata-invalid-value' => 'ערך בלתי־תקין למאפיין "$1".',
+	'templatedata-invalid-length' => 'הנתונים גדולים מכדי לשמור ({{formatnum:$1}} {{PLURAL:$1|בית|בתים}}, {{PLURAL:$2|המגבלה היא}} {{formatnum:$2}})',
 );
 
 /** Upper Sorbian (hornjoserbsce)
@@ -342,6 +343,7 @@ $messages['ilo'] = array(
 	'templatedata-invalid-missing' => 'Ti nasken a tagikua ti "$1" ket saan a nabirukan.',
 	'templatedata-invalid-unknown' => 'Di nanamnama a tagikua ti "$1".',
 	'templatedata-invalid-value' => 'Saan nga umiso a pateg para iti tagikua ti "$1".',
+	'templatedata-invalid-length' => 'Ti datos ket dakkel unay a maidulin ({{formatnum:$1}} {{PLURAL:$1|byte|dagiti byte}}, {{PLURAL:$2|ti patingga ket}} {{formatnum:$2}})',
 );
 
 /** Icelandic (íslenska)
