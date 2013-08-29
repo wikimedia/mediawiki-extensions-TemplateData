@@ -148,6 +148,21 @@ $messages['br'] = array(
 	'templatedata-invalid-parse' => 'Fazi ereadurezh e JSON.',
 );
 
+/** Bosnian (bosanski)
+ * @author DzWiki
+ */
+$messages['bs'] = array(
+	'templatedata-doc-params' => 'Parametri šablona',
+	'templatedata-doc-param-name' => 'Parametar',
+	'templatedata-doc-param-desc' => 'Opis',
+	'templatedata-doc-param-type' => 'Vrsta',
+	'templatedata-doc-param-status' => 'Status',
+	'templatedata-invalid-parse' => 'Sintaksna greška u JSON-u.',
+	'templatedata-invalid-type' => 'Svojstvo "$1" bi trebalo da je od "$2" vrste.',
+	'templatedata-invalid-unknown' => 'Neočekivano svojstvo "$1".',
+	'templatedata-invalid-value' => 'Neispravna vrijednost za svojstvo "$1"',
+);
+
 /** Catalan (català)
  * @author Luckas
  */
@@ -519,6 +534,25 @@ $messages['nl'] = array(
 	'templatedata-invalid-missing' => 'Vereiste eigenschap "$1" niet gevonden.',
 	'templatedata-invalid-unknown' => 'Onverwachte eigenschap "$1".',
 	'templatedata-invalid-value' => 'Ongeldige waarde voor de eigenschap "$1".',
+);
+
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'templatedata-desc' => 'Met en place un emmagazinatge de donadas pels paramètres dels modèls (en utilizant JSON)',
+	'templatedata-doc-params' => 'Paramètres del modèl',
+	'templatedata-doc-param-name' => 'Paramètre',
+	'templatedata-doc-param-desc' => 'Descripcion',
+	'templatedata-doc-param-type' => 'Tipe',
+	'templatedata-doc-param-default' => 'Per defaut',
+	'templatedata-doc-param-status' => 'Estatut',
+	'templatedata-invalid-parse' => 'Error de sintaxi dins JSON.',
+	'templatedata-invalid-type' => 'La proprietat « $1 » deu èsser de tipe « $2 ».',
+	'templatedata-invalid-missing' => 'Proprietat « $1 » obligatòria pas trobada.',
+	'templatedata-invalid-unknown' => 'Proprietat « $1 » pas esperada.',
+	'templatedata-invalid-value' => 'Valor invalida per la proprietat « $1 ».',
+	'templatedata-invalid-length' => 'Donadas tròp gròssas per èsser enregistradas ({{formatnum:$1}} {{PLURAL:$1|octet|octets}}, {{PLURAL:$2|lo limit es}} {{formatnum:$2}})',
 );
 
 /** Punjabi (ਪੰਜਾਬੀ)
