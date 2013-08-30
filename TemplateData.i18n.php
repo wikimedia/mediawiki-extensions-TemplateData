@@ -669,7 +669,7 @@ $messages['ru'] = array(
  */
 $messages['sr-ec'] = array(
 	'templatedata-doc-params' => 'Параметри шаблона',
-	'templatedata-doc-param-name' => 'Име', # Fuzzy
+	'templatedata-doc-param-name' => 'Параметар',
 	'templatedata-doc-param-desc' => 'Опис',
 	'templatedata-doc-param-type' => 'Врста',
 	'templatedata-doc-param-default' => 'Подразумевано',
