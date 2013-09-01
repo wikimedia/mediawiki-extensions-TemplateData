@@ -246,6 +246,24 @@ $messages['eo'] = array(
 	'templatedata-doc-param-desc' => 'Priskribo',
 );
 
+/** Spanish (español)
+ * @author Fitoschido
+ */
+$messages['es'] = array(
+	'templatedata-desc' => 'Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).',
+	'templatedata-doc-params' => 'Parámetros de la plantilla',
+	'templatedata-doc-param-name' => 'Parámetro',
+	'templatedata-doc-param-desc' => 'Descripción',
+	'templatedata-doc-param-type' => 'Tipo',
+	'templatedata-doc-param-default' => 'Predeterminado',
+	'templatedata-doc-param-status' => 'Estado',
+	'templatedata-invalid-parse' => 'Error de sintaxis en el JSON.',
+	'templatedata-invalid-type' => 'Se espera que la propiedad «$1» sea del tipo «$2».',
+	'templatedata-invalid-missing' => 'No se encontró la propiedad requerida «$1».',
+	'templatedata-invalid-unknown' => 'Propiedad «$1» inesperada.',
+	'templatedata-invalid-value' => 'Valor no válido para la propiedad «$1».',
+);
+
 /** Estonian (eesti)
  * @author Luckas
  */
