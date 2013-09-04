@@ -55,6 +55,7 @@ class TemplateDataBlob {
 			'params',
 			'sets',
 		);
+
 		static $paramKeys = array(
 			'label',
 			'required',
@@ -65,6 +66,7 @@ class TemplateDataBlob {
 			'inherits',
 			'type',
 		);
+
 		static $types = array(
 			'unknown',
 			'string',
@@ -249,9 +251,9 @@ class TemplateDataBlob {
 						return Status::newFatal( 'templatedata-invalid-unknown', $key );
 					}
 					if ( !isset( $unnormalizedParams->$paramName->$key ) ) {
-						$paramObj->$key = is_object( $parentParamObj->$key )
-							? clone $parentParamObj->$key
-							: $parentParamObj->$key;
+						$paramObj->$key = is_object( $parentParamObj->$key ) ?
+							clone $parentParamObj->$key :
+							$parentParamObj->$key;
 					}
 				}
 				unset( $paramObj->inherits );
@@ -406,9 +408,9 @@ class TemplateDataBlob {
 			$html .= '<tr>'
 			// Label
 			. Html::element( 'th', array(),
-				isset( $paramObj->label->$langCode )
-					? $paramObj->label->$langCode
-					: ucfirst( $paramName )
+				isset( $paramObj->label->$langCode ) ?
+					$paramObj->label->$langCode :
+					ucfirst( $paramName )
 			)
 			// Parameters and aliases
 			. Html::rawElement( 'td', array( 'class' => 'mw-templatedata-doc-param-name' ),
@@ -422,9 +424,9 @@ class TemplateDataBlob {
 						)
 					)
 				),
-				isset( $paramObj->description->$langCode )
-					? $paramObj->description->$langCode
-					: 'no description'
+				isset( $paramObj->description->$langCode ) ?
+					$paramObj->description->$langCode :
+					'no description'
 				)
 			// Type
 			. Html::rawElement( 'td', array(
