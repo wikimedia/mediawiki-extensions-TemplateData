@@ -135,6 +135,7 @@ $messages['bn'] = array(
 	'templatedata-doc-param-default' => 'ডিফল্ট',
 	'templatedata-doc-param-status' => 'অবস্থা',
 	'templatedata-invalid-parse' => 'জেএসওএন-এর মধ্যে বাক্যগঠনে ত্রুটি।',
+	'templatedata-invalid-length' => 'সংরক্ষণ করার জন্য ডেটা খুব বড় ({{formatnum:$1}} {{PLURAL:$1|বাইট}}, {{PLURAL:$2|সর্বোচ্চ সীমা}} {{formatnum:$2}})',
 );
 
 /** Breton (brezhoneg)
