@@ -21,7 +21,7 @@ class TemplateDataBlob {
 	private $data;
 
 	/**
-	 * @var Status: Cache of TemplateInfo::validate
+	 * @var Status: Cache of TemplateDataBlob::parse
 	 */
 	private $status;
 
@@ -50,7 +50,7 @@ class TemplateDataBlob {
 	 * Parse and validate passed JSON (possibly gzip-compressed) and create a TemplateDataBlob object.
 	 *
 	 * @param string $json
-	 * @return TemplateInfo
+	 * @return TemplateDataBlob
 	 */
 	public static function newFromDatabase( $json ) {
 		// Handle GZIP compression. \037\213 is the header for GZIP files.

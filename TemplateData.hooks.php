@@ -1,6 +1,6 @@
 <?php
 /**
- * Hooks for TemplateInfo extension
+ * Hooks for TemplateData extension
  *
  * @file
  * @ingroup Extensions

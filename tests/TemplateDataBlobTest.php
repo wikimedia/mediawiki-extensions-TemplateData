@@ -394,7 +394,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		// Compress JSON to trigger the code pass in newFromDatabase that ends
 		// up calling gzdecode().
 		$gzJson = gzencode( '{}' );
-		$templateInfo = TemplateDataBlob::newFromDatabase( $gzJson );
-		$this->assertInstanceOf( 'TemplateDataBlob', $templateInfo );
+		$templateData = TemplateDataBlob::newFromDatabase( $gzJson );
+		$this->assertInstanceOf( 'TemplateDataBlob', $templateData );
 	}
 }

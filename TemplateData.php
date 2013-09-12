@@ -1,13 +1,13 @@
 <?php
 /**
- * TemplateInfo extension.
+ * TemplateData extension.
  *
  * @file
  * @ingroup Extensions
  */
 
 if ( version_compare( $wgVersion, '1.20', '<' ) ) {
-	echo "Extension:TemplateInfo requires MediaWiki 1.20 or higher.\n";
+	echo "Extension:TemplateData requires MediaWiki 1.20 or higher.\n";
 	exit( 1 );
 }
 
