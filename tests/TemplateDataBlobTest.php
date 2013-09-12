@@ -381,4 +381,20 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			$cases['msg']
 		);
 	}
+
+	/**
+	 * Verify we can gzdecode() which came in PHP 5.4.0. Mediawiki needs a
+	 * fallback function for it.
+	 * If this test fail, we are most probably attempting to use gzdecode()
+	 * with PHP before 5.4.
+	 *
+	 * @see bug 54058
+	 */
+	public function testGetJsonForDatabase() {
+		// Compress JSON to trigger the code pass in newFromDatabase that ends
+		// up calling gzdecode().
+		$gzJson = gzencode( '{}' );
+		$templateInfo = TemplateDataBlob::newFromDatabase( $gzJson );
+		$this->assertInstanceOf( 'TemplateDataBlob', $templateInfo );
+	}
 }

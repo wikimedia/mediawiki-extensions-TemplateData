@@ -31,7 +31,7 @@ class TemplateDataBlob {
 	 *
 	 * @param string $json
 	 * @throws MWException
-	 * @return TemplateInfo
+	 * @return TemplateDataBlob
 	 */
 	public static function newFromJSON( $json ) {
 		$tdb = new self( json_decode( $json ) );
