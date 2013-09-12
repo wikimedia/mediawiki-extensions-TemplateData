@@ -48,3 +48,11 @@ $wgResourceModules['ext.templateData'] = array(
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'TemplateData',
 );
+
+// gzdecode function only exists in PHP >= 5.4.0
+// http://php.net/manual/en/function.gzdecode.php
+if ( !function_exists( 'gzdecode' ) ) {
+	function gzdecode( $data ) {
+		return gzinflate( substr( $data, 10, -8 ) );
+	}
+}
