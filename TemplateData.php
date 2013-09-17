@@ -6,8 +6,8 @@
  * @ingroup Extensions
  */
 
-if ( version_compare( $wgVersion, '1.20', '<' ) ) {
-	echo "Extension:TemplateData requires MediaWiki 1.20 or higher.\n";
+if ( version_compare( $wgVersion, '1.22alpha', '<' ) ) {
+	echo "Extension:TemplateData requires MediaWiki 1.22alpha or higher.\n";
 	exit( 1 );
 }
 
@@ -48,11 +48,3 @@ $wgResourceModules['ext.templateData'] = array(
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'TemplateData',
 );
-
-// gzdecode function only exists in PHP >= 5.4.0
-// http://php.net/manual/en/function.gzdecode.php
-if ( !function_exists( 'gzdecode' ) ) {
-	function gzdecode( $data ) {
-		return gzinflate( substr( $data, 10, -8 ) );
-	}
-}
