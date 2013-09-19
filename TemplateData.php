@@ -6,11 +6,6 @@
  * @ingroup Extensions
  */
 
-if ( version_compare( $wgVersion, '1.22alpha', '<' ) ) {
-	echo "Extension:TemplateData requires MediaWiki 1.22alpha or higher.\n";
-	exit( 1 );
-}
-
 $wgExtensionCredits['parserhook'][] = array(
 	'path'          => __FILE__,
 	'name'          => 'TemplateData',
