@@ -1,0 +1,87 @@
+.tdg-editscreen-main-button {
+	padding: 5px;
+	font-size: 120%;
+}
+
+.tdg-editTable {
+	width: 100%;
+}
+
+.tdg-editTable th, .tdg-editTable td{
+	padding:0;
+}
+
+.tdg-editTable > tbody > tr {
+	vertical-align: top;
+}
+.tdg-editTable th {
+	text-align: left;
+}
+
+.tdg-editTable > tbody > tr > td:hover,
+.tdg-editTable > tbody > tr:hover > td {
+	background-color: #BECDD4;
+}
+
+.tdg-editTable input,
+.tdg-editTable select,
+.tdg-editTable textarea,
+.tdg-template-description{
+	background: transparent;
+	border: 1px solid #999999;
+	padding: 5px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+}
+
+.tdg-editTable input:not([type="checkbox"]),
+.tdg-editTable select,
+.tdg-editTable textarea{
+	height: 40px;
+}
+
+.tdg-editTable .tdg-title-delbutton, .tdg-title-required {
+	width: 80px;
+}
+.tdg-editTable  .tdg-attr-required {
+	text-align: center;
+}
+.tdg-editTable  .tdg-attr-required label {
+	display: block;
+}
+.tdg-attr-type select {
+	padding-top: 15px;
+}
+.tdg-attr-type {
+	width: 130px;
+	text-align: center;
+}
+
+.tdg-editTable .tdgerror {
+	background-color: #F2CBCB;
+}
+
+/** Start small, grow on focus: */
+.tdg-title-name,
+.tdg-title-aliases,
+.tdg-title-label {
+	width: 100px;
+}
+
+.tdg-element-attr-name,
+.tdg-element-attr-aliases,
+.tdg-element-attr-label {
+	width: 100px;
+}
+
+.tdg-element-attr-name:focus,
+.tdg-element-attr-aliases:focus,
+.tdg-element-attr-label:focus {
+	width: 200px;
+}
+
+.tdg-element-attr-description:focus,
+.tdg-element-attr-default:focus {
+	height: 70px;
+}
