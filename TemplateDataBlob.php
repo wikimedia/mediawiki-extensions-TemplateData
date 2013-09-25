@@ -380,8 +380,15 @@ class TemplateDataBlob {
 			Html::openElement( 'div', array( 'class' => 'mw-templatedata-doc-wrap' ) )
 			. Html::element(
 				'p',
-				array( 'class' => 'mw-templatedata-doc-desc' ),
-				$data->description->$langCode
+				array(
+					'class' => array(
+						'mw-templatedata-doc-desc',
+						'mw-templatedata-doc-muted' => $data->description === null,
+					)
+				),
+				$data->description !== null ?
+					$data->description->$langCode :
+					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )
 			)
 			. '<table class="wikitable mw-templatedata-doc-params">'
 			. Html::element(
@@ -450,9 +457,9 @@ class TemplateDataBlob {
 						)
 					)
 				),
-				isset( $paramObj->description->$langCode ) ?
+				$paramObj->description->$langCode !== null ?
 					$paramObj->description->$langCode :
-					'no description'
+					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )
 				)
 			// Type
 			. Html::rawElement( 'td', array(

@@ -10,12 +10,14 @@ $messages['en'] = array(
 	'templatedata-desc' => 'Implement data storage for template parameters (using JSON)',
 
 	// Page output for <templatedata>
+	'templatedata-doc-desc-empty' => 'No description.',
 	'templatedata-doc-params' => 'Template parameters',
 	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Description',
 	'templatedata-doc-param-type' => 'Type',
 	'templatedata-doc-param-default' => 'Default',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-desc-empty' => 'no description',
 
 	// Error message for edit page
 	'templatedata-invalid-parse' => 'Syntax error in JSON.',
@@ -32,6 +34,7 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'templatedata-desc' => '{{desc|name=Template Data|url=http://www.mediawiki.org/wiki/Extension:TemplateData}}',
+	'templatedata-doc-desc-empty' => 'Displayed when a template has no description (should be a valid sentence).',
 	'templatedata-doc-params' => 'Used as caption for the table which has the following headings:
 * {{msg-mw|Templatedata-doc-param-name}}
 * {{msg-mw|Templatedata-doc-param-desc}}
@@ -51,6 +54,7 @@ $messages['qqq'] = array(
 	'templatedata-doc-param-status' => 'Used as column heading in the table.
 {{Related|Templatedata-doc-param}}
 {{Identical|Status}}',
+	'templatedata-doc-param-desc-empty' => 'Displayed when a template parameter has no description (should be not be a full sentence, used in a table cell).',
 	'templatedata-invalid-parse' => 'Error message when there is a syntax error in JSON.',
 	'templatedata-invalid-type' => 'Error message when a property is of the wrong type.
 * $1 - name of property. e.g. "params.1.required"
