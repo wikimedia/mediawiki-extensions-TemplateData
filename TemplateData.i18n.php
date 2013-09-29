@@ -184,6 +184,7 @@ $messages['ce'] = array(
 );
 
 /** Czech (česky)
+ * @author Littledogboy
  * @author Mormegil
  */
 $messages['cs'] = array(
@@ -192,8 +193,9 @@ $messages['cs'] = array(
 	'templatedata-doc-param-name' => 'Parametr',
 	'templatedata-doc-param-desc' => 'Popis',
 	'templatedata-doc-param-type' => 'Typ',
-	'templatedata-doc-param-default' => 'Implicitní',
+	'templatedata-doc-param-default' => 'Výchozí hodnota',
 	'templatedata-doc-param-status' => 'Stav',
+	'templatedata-doc-param-desc-empty' => 'prázdné',
 	'templatedata-invalid-parse' => 'Syntaktická chyba v JSON.',
 	'templatedata-invalid-type' => 'Očekávaný typ vlastnosti „$1“ je „$2“.',
 	'templatedata-invalid-missing' => 'Nenalezena vyžadovaná vlastnost „$1“.',
@@ -201,17 +203,32 @@ $messages['cs'] = array(
 	'templatedata-invalid-value' => 'Chybná hodnota vlastnosti „$1“.',
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'templatedata-doc-params' => "Paramedrau'r nodyn",
+	'templatedata-doc-param-name' => 'Paramedr',
+	'templatedata-doc-param-desc' => 'Disgrifiad',
+	'templatedata-doc-param-type' => 'Math',
+	'templatedata-doc-param-default' => 'Yn ddiofyn',
+	'templatedata-doc-param-status' => 'Statws',
+	'templatedata-invalid-parse' => 'Gwall cystrawen yn JSON.',
+);
+
 /** German (Deutsch)
  * @author Metalhead64
  */
 $messages['de'] = array(
 	'templatedata-desc' => 'Ermöglicht mithilfe von JSON die Implementierung der Datenspeicherung für Vorlagenparameter',
+	'templatedata-doc-desc-empty' => 'Keine Beschreibung.',
 	'templatedata-doc-params' => 'Vorlagenparameter',
 	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Beschreibung',
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Standard',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-desc-empty' => 'keine Beschreibung',
 	'templatedata-invalid-parse' => 'Syntaxfehler in JSON.',
 	'templatedata-invalid-type' => 'Für den Typ „$2” wird die Eigenschaft „$1” erwartet.',
 	'templatedata-invalid-missing' => 'Die erforderliche Eigenschaft „$1” wurde nicht gefunden.',
@@ -253,15 +270,18 @@ $messages['eo'] = array(
 
 /** Spanish (español)
  * @author Fitoschido
+ * @author Ovruni
  */
 $messages['es'] = array(
 	'templatedata-desc' => 'Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).',
+	'templatedata-doc-desc-empty' => 'Sin descripción',
 	'templatedata-doc-params' => 'Parámetros de la plantilla',
 	'templatedata-doc-param-name' => 'Parámetro',
 	'templatedata-doc-param-desc' => 'Descripción',
 	'templatedata-doc-param-type' => 'Tipo',
 	'templatedata-doc-param-default' => 'Predeterminado',
 	'templatedata-doc-param-status' => 'Estado',
+	'templatedata-doc-param-desc-empty' => 'sin descripción',
 	'templatedata-invalid-parse' => 'Error de sintaxis en el JSON.',
 	'templatedata-invalid-type' => 'Se espera que la propiedad «$1» sea del tipo «$2».',
 	'templatedata-invalid-missing' => 'No se encontró la propiedad requerida «$1».',
@@ -295,12 +315,14 @@ $messages['fi'] = array(
  */
 $messages['fr'] = array(
 	'templatedata-desc' => 'Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)',
+	'templatedata-doc-desc-empty' => 'Aucune description.',
 	'templatedata-doc-params' => 'Paramètres du modèle',
 	'templatedata-doc-param-name' => 'Paramètre',
 	'templatedata-doc-param-desc' => 'Description',
 	'templatedata-doc-param-type' => 'Type',
 	'templatedata-doc-param-default' => 'Par défaut',
 	'templatedata-doc-param-status' => 'Statut',
+	'templatedata-doc-param-desc-empty' => 'aucune description',
 	'templatedata-invalid-parse' => 'Erreur de syntaxe dans JSON.',
 	'templatedata-invalid-type' => 'La propriété « $1 » doit être de type « $2 ».',
 	'templatedata-invalid-missing' => 'Propriété « $1 » obligatoire non trouvée.',
@@ -314,12 +336,14 @@ $messages['fr'] = array(
  */
 $messages['gl'] = array(
 	'templatedata-desc' => 'Inclúe un almacenamento de datos para os parámetros dos modelos (mediante JSON)',
+	'templatedata-doc-desc-empty' => 'Sen descrición.',
 	'templatedata-doc-params' => 'Parámetros do modelo',
 	'templatedata-doc-param-name' => 'Parámetro',
 	'templatedata-doc-param-desc' => 'Descrición',
 	'templatedata-doc-param-type' => 'Tipo',
 	'templatedata-doc-param-default' => 'Por defecto',
 	'templatedata-doc-param-status' => 'Estado',
+	'templatedata-doc-param-desc-empty' => 'sen descrición',
 	'templatedata-invalid-parse' => 'Erro de sintaxe en JSON.',
 	'templatedata-invalid-type' => 'A propiedade "$1" agárdase que sexa de tipo "$2".',
 	'templatedata-invalid-missing' => 'Non se atopou a propiedade obrigatoria "$1".',
@@ -406,12 +430,14 @@ $messages['is'] = array(
  */
 $messages['it'] = array(
 	'templatedata-desc' => 'Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)',
+	'templatedata-doc-desc-empty' => 'Nessuna descrizione.',
 	'templatedata-doc-params' => 'Parametri template',
 	'templatedata-doc-param-name' => 'Parametro',
 	'templatedata-doc-param-desc' => 'Descrizione',
 	'templatedata-doc-param-type' => 'Tipo',
 	'templatedata-doc-param-default' => 'Predefinito',
 	'templatedata-doc-param-status' => 'Stato',
+	'templatedata-doc-param-desc-empty' => 'nessuna descrizione',
 	'templatedata-invalid-parse' => 'Errore di sintassi in JSON.',
 	'templatedata-invalid-type' => 'La proprietà "$1" dovrebbe essere di tipo "$2".',
 	'templatedata-invalid-missing' => 'Proprietà obbligatoria "$1" non trovata.',
@@ -463,12 +489,14 @@ $messages['ko'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'templatedata-doc-desc-empty' => 'Keng Beschreiwung.',
 	'templatedata-doc-params' => 'Parameter vun der Schabloun',
 	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Beschreiwung',
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Standard',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-desc-empty' => 'keng Beschreiwung',
 	'templatedata-invalid-parse' => 'Syntaxfeeler am JSON.',
 );
 
@@ -477,12 +505,14 @@ $messages['lb'] = array(
  */
 $messages['mk'] = array(
 	'templatedata-desc' => 'Овозможува складирање на податоци за шаблонски параметри (користејќи JSON)',
+	'templatedata-doc-desc-empty' => 'Нема опис.',
 	'templatedata-doc-params' => 'Шаблонски параметри',
 	'templatedata-doc-param-name' => 'Параметар',
 	'templatedata-doc-param-desc' => 'Опис',
 	'templatedata-doc-param-type' => 'Тип',
 	'templatedata-doc-param-default' => 'По основно',
 	'templatedata-doc-param-status' => 'Статус',
+	'templatedata-doc-param-desc-empty' => 'нема опис',
 	'templatedata-invalid-parse' => 'Синтаксна грешка во JSON.',
 	'templatedata-invalid-type' => 'Се очекува својството „$1“ да биде од типот „$2“.',
 	'templatedata-invalid-missing' => 'Бараното својство „$1“ не е пронајдено.',
@@ -543,20 +573,24 @@ $messages['nds'] = array(
 /** Dutch (Nederlands)
  * @author Konovalov
  * @author Siebrand
+ * @author Southparkfan
  */
 $messages['nl'] = array(
 	'templatedata-desc' => 'Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)',
+	'templatedata-doc-desc-empty' => 'Geen beschrijving.',
 	'templatedata-doc-params' => 'Sjabloonparameters',
 	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Beschrijving',
 	'templatedata-doc-param-type' => 'Type',
 	'templatedata-doc-param-default' => 'Standaard',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-desc-empty' => 'geen beschrijving',
 	'templatedata-invalid-parse' => 'Syntaxisfout in JSON.',
 	'templatedata-invalid-type' => 'De verwachting is dat eigenschap "$1" van het type "$2" is.',
 	'templatedata-invalid-missing' => 'Vereiste eigenschap "$1" niet gevonden.',
 	'templatedata-invalid-unknown' => 'Onverwachte eigenschap "$1".',
 	'templatedata-invalid-value' => 'Ongeldige waarde voor de eigenschap "$1".',
+	'templatedata-invalid-length' => 'Gegevens te groot om op te slaan ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|limiet is}} {{formatnum:$2}})',
 );
 
 /** Occitan (occitan)
@@ -636,12 +670,14 @@ $messages['pt'] = array(
  */
 $messages['pt-br'] = array(
 	'templatedata-desc' => 'Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)',
+	'templatedata-doc-desc-empty' => 'Sem descrição.',
 	'templatedata-doc-params' => 'Parâmetros da predefinição',
 	'templatedata-doc-param-name' => 'Parâmetro',
 	'templatedata-doc-param-desc' => 'Descrição',
 	'templatedata-doc-param-type' => 'Tipo',
 	'templatedata-doc-param-default' => 'Padrão',
 	'templatedata-doc-param-status' => 'Condição',
+	'templatedata-doc-param-desc-empty' => 'sem descrição',
 	'templatedata-invalid-parse' => 'Erro de sintaxe em JSON',
 	'templatedata-invalid-type' => 'A propriedade "$1" deveria ser do tipo "$2"',
 	'templatedata-invalid-missing' => 'A propriedade "$1" é requerida mas não foi fornecida.',
@@ -706,14 +742,18 @@ $messages['sr-ec'] = array(
 
 /** Swedish (svenska)
  * @author Jopparn
+ * @author Lokal Profil
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'templatedata-doc-desc-empty' => 'Ingen beskrivning.',
 	'templatedata-doc-params' => 'Mallparametrar',
 	'templatedata-doc-param-name' => 'Parameter',
 	'templatedata-doc-param-desc' => 'Beskrivning',
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Standard',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-desc-empty' => 'ingen beskrivning',
 	'templatedata-invalid-parse' => 'Syntaxfel i JSON.',
 );
 
@@ -750,12 +790,14 @@ $messages['tl'] = array(
  */
 $messages['uk'] = array(
 	'templatedata-desc' => 'Реалізація сховища даних для параметрів шаблону (JSON)',
+	'templatedata-doc-desc-empty' => 'Немає опису.',
 	'templatedata-doc-params' => 'Параметри шаблону',
 	'templatedata-doc-param-name' => 'Параметр',
 	'templatedata-doc-param-desc' => 'Опис',
 	'templatedata-doc-param-type' => 'Тип',
 	'templatedata-doc-param-default' => 'Стандартно',
 	'templatedata-doc-param-status' => 'Статус',
+	'templatedata-doc-param-desc-empty' => 'немає опису',
 	'templatedata-invalid-parse' => 'Синтаксична помилка в JSON.',
 	'templatedata-invalid-type' => 'Властивість "$1" має бути типу "$2".',
 	'templatedata-invalid-missing' => 'Обов\'язкову властивість "$1" не знайдено.',
@@ -784,22 +826,27 @@ $messages['vi'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Liuxinyu970226
  * @author Shizhao
+ * @author Xiaomingyan
  * @author Yfdyh000
  */
 $messages['zh-hans'] = array(
-	'templatedata-desc' => '为模板参数实现数据存储（使用JSON）',
+	'templatedata-desc' => '实现模板参数的数据存储（使用JSON）',
+	'templatedata-doc-desc-empty' => '没有说明。',
 	'templatedata-doc-params' => '模板参数',
 	'templatedata-doc-param-name' => '参数',
-	'templatedata-doc-param-desc' => '描述',
+	'templatedata-doc-param-desc' => '说明',
 	'templatedata-doc-param-type' => '类型',
-	'templatedata-doc-param-default' => '默认',
+	'templatedata-doc-param-default' => '默认值',
 	'templatedata-doc-param-status' => '状态',
+	'templatedata-doc-param-desc-empty' => '没有说明',
 	'templatedata-invalid-parse' => 'JSON中语法错误。',
-	'templatedata-invalid-type' => '属性“$1”预期为“$2”类型。',
-	'templatedata-invalid-missing' => '必需的属性“$1”未找到。',
+	'templatedata-invalid-type' => '属性“$1”的预期类型为“$2”。',
+	'templatedata-invalid-missing' => '未找到必需的属性“$1”。',
 	'templatedata-invalid-unknown' => '意外的属性“$1”。',
 	'templatedata-invalid-value' => '属性“$1”的值无效。',
+	'templatedata-invalid-length' => '数据过大，无法保存（{{formatnum:$1}}{{PLURAL:$1|字节}}，{{PLURAL:$2|限制是}}{{formatnum:$2}}）',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
