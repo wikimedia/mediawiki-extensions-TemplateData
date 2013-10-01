@@ -811,12 +811,14 @@ $messages['uk'] = array(
  */
 $messages['vi'] = array(
 	'templatedata-desc' => 'Lưu trữ dữ liệu cho tham số bản mẫu (qua JSON)',
+	'templatedata-doc-desc-empty' => 'Không có miêu tả.',
 	'templatedata-doc-params' => 'Tham số bản mẫu',
 	'templatedata-doc-param-name' => 'Tham số',
 	'templatedata-doc-param-desc' => 'Miêu tả',
 	'templatedata-doc-param-type' => 'Kiểu',
 	'templatedata-doc-param-default' => 'Mặc định',
 	'templatedata-doc-param-status' => 'Trạng thái',
+	'templatedata-doc-param-desc-empty' => 'không miêu tả',
 	'templatedata-invalid-parse' => 'Lỗi cú pháp JSON.',
 	'templatedata-invalid-type' => 'Mong đợi kiểu “$2” cho giá trị thuộc tính “$1”.',
 	'templatedata-invalid-missing' => 'Không tìm thấy thuộc tính bắt buộc “$1”.',
