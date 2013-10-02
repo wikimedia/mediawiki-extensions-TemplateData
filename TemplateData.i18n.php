@@ -722,6 +722,14 @@ $messages['ru'] = array(
 	'templatedata-invalid-value' => 'Недопустимое значение для свойства «$1».',
 );
 
+/** Slovenian (slovenščina)
+ * @author Eleassar
+ */
+$messages['sl'] = array(
+	'templatedata-doc-desc-empty' => 'Nobenega opisa.',
+	'templatedata-doc-param-desc-empty' => 'nobenega opisa',
+);
+
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Milicevic01
  * @author Милан Јелисавчић
