@@ -189,6 +189,7 @@ $messages['ce'] = array(
  */
 $messages['cs'] = array(
 	'templatedata-desc' => 'Implementuje datové úložiště pro parametry šablon (pomocí JSON)',
+	'templatedata-doc-desc-empty' => 'Bez popisu.',
 	'templatedata-doc-params' => 'Parametry šablony',
 	'templatedata-doc-param-name' => 'Parametr',
 	'templatedata-doc-param-desc' => 'Popis',
@@ -201,6 +202,7 @@ $messages['cs'] = array(
 	'templatedata-invalid-missing' => 'Nenalezena vyžadovaná vlastnost „$1“.',
 	'templatedata-invalid-unknown' => 'Neočekávaná vlastnost „$1“.',
 	'templatedata-invalid-value' => 'Chybná hodnota vlastnosti „$1“.',
+	'templatedata-invalid-length' => 'Takto velká data nelze uložit ({{formatnum:$1}} {{PLURAL:$1|bajt|bajty|bajtů}}, limit je {{formatnum:$2}} {{PLURAL:$2|bajt|bajty|bajtů}})',
 );
 
 /** Welsh (Cymraeg)
