@@ -154,7 +154,7 @@ class TemplateDataBlob {
 			// Param.label
 			if ( isset( $paramObj->label ) ) {
 				if ( !is_object( $paramObj->label ) && !is_string( $paramObj->label ) ) {
-				// TODO: Also validate that the keys are valid lang codes and the values strings.
+					// TODO: Also validate that the keys are valid lang codes and the values strings.
 					return Status::newFatal(
 						'templatedata-invalid-type',
 						"params.{$paramName}.label",
@@ -349,13 +349,101 @@ class TemplateDataBlob {
 		return $text;
 	}
 
+	/**
+	 * Get a single localized string from an InterfaceText object.
+	 *
+	 * Uses the preferred language passed to this function, or one of its fallbacks,
+	 * or the site content language, or its fallbacks.
+	 *
+	 * @param stdClass $text An InterfaceText object
+	 * @param string $langCode Preferred language
+	 * @return null|string Text value from the InterfaceText object or null if no suitable
+	 *  match was found
+	 */
+	protected static function getInterfaceTextInLanguage( stdClass $text, $langCode ) {
+		if ( isset( $text->$langCode ) ) {
+			return $text->$langCode;
+		}
+
+		list( $userlangs, $sitelangs ) = Language::getFallbacksIncludingSiteLanguage( $langCode );
+
+		foreach ( $userlangs as $lang ) {
+			if ( isset( $text->$lang ) ) {
+				return $text->$lang;
+			}
+		}
+
+		foreach ( $sitelangs as $lang ) {
+			if ( isset( $text->$lang ) ) {
+				return $text->$lang;
+			}
+		}
+
+		// If none of the languages are found fallback to null. Alternatively we could fallback to
+		// reset( $text ) which will return whatever key there is, but we should't give the user a
+		// "random" language with no context (e.g. could be RTL/Hebrew for an LTR/Japanese user).
+		return null;
+	}
+
+	/**
+	 * @return Status
+	 */
 	public function getStatus() {
 		return $this->status;
 	}
 
+	/**
+	 * @return object
+	 */
 	public function getData() {
-		// Returned by reference. Data is a private member. Use clone instead?
+		// TODO: Returned by reference. Data is a private member. Use clone instead?
 		return $this->data;
+	}
+
+	/**
+	 * Get data with all InterfaceText objects resolved to a single string to the
+	 * appropriate language.
+	 *
+	 * @param string $langCode Preferred language
+	 * @return object
+	 */
+	public function getDataInLanguage( $langCode ) {
+		// Deep clone, also need to clone ->params and all interfacetext objects
+		// within param properties.
+		$data = unserialize( serialize( $this->data ) );
+
+		// Root.description
+		if ( $data->description !== null ) {
+			$data->description = self::getInterfaceTextInLanguage( $data->description, $langCode );
+		}
+
+		foreach ( $data->params as $paramObj ) {
+			// Param.label
+			if ( $paramObj->label !== null ) {
+				$paramObj->label = self::getInterfaceTextInLanguage( $paramObj->label, $langCode );
+			}
+
+			// Param.description
+			if ( $paramObj->description !== null ) {
+				$paramObj->description = self::getInterfaceTextInLanguage( $paramObj->description, $langCode );
+			}
+		}
+
+		foreach ( $data->sets as $setObj ) {
+			$label = self::getInterfaceTextInLanguage( $setObj->label, $langCode );
+			if ( $label === null ) {
+				// Contrary to other InterfaceTexts, set label is not optional. If we're here it
+				// means the template data from the wiki doesn't contain either the user language,
+				// site language or any of its fallbacks. Wikis should fix data that is in this
+				// condition (TODO: Disallow during saving?). For now, fallback to whatever we can
+				// get that does exist in the text object.
+				$label = reset( $setObj->label );
+			}
+
+			$setObj->label = $label;
+		}
+
+		return $data;
 	}
 
 	/**
@@ -373,9 +461,7 @@ class TemplateDataBlob {
 	}
 
 	public function getHtml( Language $lang ) {
-		global $wgContLang;
-		$langCode = $wgContLang->getCode();
-		$data = $this->data;
+		$data = $this->getDataInLanguage( $lang->getCode() );
 		$html =
 			Html::openElement( 'div', array( 'class' => 'mw-templatedata-doc-wrap' ) )
 			. Html::element(
@@ -387,7 +473,7 @@ class TemplateDataBlob {
 					)
 				),
 				$data->description !== null ?
-					$data->description->$langCode :
+					$data->description :
 					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )
 			)
 			. '<table class="wikitable mw-templatedata-doc-params">'
@@ -441,8 +527,8 @@ class TemplateDataBlob {
 			$html .= '<tr>'
 			// Label
 			. Html::element( 'th', array(),
-				isset( $paramObj->label->$langCode ) ?
-					$paramObj->label->$langCode :
+				$paramObj->label !== null ?
+					$paramObj->label :
 					ucfirst( $paramName )
 			)
 			// Parameters and aliases
@@ -453,12 +539,12 @@ class TemplateDataBlob {
 			. Html::element( 'td', array(
 					'class' => array(
 						'mw-templatedata-doc-muted' => (
-							!isset( $paramObj->description->$langCode ) && $paramObj->deprecated === false
+							$paramObj->description === null && $paramObj->deprecated === false
 						)
 					)
 				),
-				$paramObj->description->$langCode !== null ?
-					$paramObj->description->$langCode :
+				$paramObj->description !== null ?
+					$paramObj->description :
 					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )
 				)
 			// Type

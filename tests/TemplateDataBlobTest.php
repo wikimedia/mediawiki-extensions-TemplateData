@@ -29,6 +29,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 
 		return $string;
 	}
+
 	public static function provideParse() {
 		$cases = array(
 			array(
@@ -396,5 +397,225 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		$gzJson = gzencode( '{}' );
 		$templateData = TemplateDataBlob::newFromDatabase( $gzJson );
 		$this->assertInstanceOf( 'TemplateDataBlob', $templateData );
+	}
+
+	public static function provideGetDataInLanguage() {
+		$cases = array(
+			array(
+				'input' => '{
+					"description": {
+						"de": "German",
+						"nl": "Dutch",
+						"en": "English",
+						"de-formal": "German (formal address)"
+					},
+					"params": {}
+				}
+				',
+				'output' => '{
+					"description": "German",
+					"params": {},
+					"sets": []
+				}
+				',
+				'lang' => 'de',
+				'msg' => 'Simple description'
+			),
+			array(
+				'input' => '{
+					"description": "Hi",
+					"params": {}
+				}
+				',
+				'output' => '{
+					"description": "Hi",
+					"params": {},
+					"sets": []
+				}
+				',
+				'lang' => 'fr',
+				'msg' => 'Non multi-language value returned as is (expands to { "en": value } for' .
+					' content-lang, "fr" falls back to "en")'
+			),
+			array(
+				'input' => '{
+					"description": {
+						"nl": "Dutch",
+						"de": "German"
+					},
+					"params": {}
+				}
+				',
+				'output' => '{
+					"description": "Dutch",
+					"params": {},
+					"sets": []
+				}
+				',
+				'lang' => 'fr',
+				'msg' => 'Try content language before giving up on user language and fallbacks'
+			),
+			array(
+				'input' => '{
+					"description": {
+						"es": "Spanish",
+						"de": "German"
+					},
+					"params": {}
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {},
+					"sets": []
+				}
+				',
+				'lang' => 'fr',
+				'msg' => 'Description is optional, use null if no suitable fallback'
+			),
+			array(
+				'input' => '{
+					"description": {
+						"de": "German",
+						"nl": "Dutch",
+						"en": "English"
+					},
+					"params": {}
+				}
+				',
+				'output' => '{
+					"description": "German",
+					"params": {},
+					"sets": []
+				}
+				',
+				'lang' => 'de-formal',
+				'msg' => '"de-formal" falls back to "de"'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+							"label": {
+								"fr": "French",
+								"en": "English"
+							}
+						}
+					}
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {
+						"foo": {
+							"label": "French",
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						}
+					},
+					"sets": []
+				}
+				',
+				'lang' => 'fr',
+				'msg' => 'Simple parameter label'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+							"label": {
+								"es": "Spanish",
+								"de": "German"
+							}
+						}
+					}
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {
+						"foo": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						}
+					},
+					"sets": []
+				}
+				',
+				'lang' => 'fr',
+				'msg' => 'Parameter label is optional, use null if no matching fallback'
+			),
+			array(
+				'input' => '{
+					"params": {},
+					"sets": [
+						{
+							"label": {
+								"es": "Spanish",
+								"de": "German"
+							},
+							"params": []
+						}
+					]
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {},
+					"sets": [
+						{
+							"label": "Spanish",
+							"params": []
+						}
+					]
+				}
+				',
+				'lang' => 'fr',
+				'msg' => 'Set label is not optional, choose first available key as final fallback'
+			),
+		);
+		$calls = array();
+		foreach ( $cases as $case ) {
+			$calls[] = array( $case );
+		}
+		return $calls;
+	}
+
+	/**
+	 * @dataProvider provideGetDataInLanguage
+	 */
+	public function testGetDataInLanguage( Array $case ) {
+
+		// Change content-language to be non-English so we can distinguish between the
+		// last 'en' fallback and the content language in our tests
+		$this->setMwGlobals( array(
+			'wgLanguageCode' => 'nl',
+			'wgContLang' => Language::factory( 'nl' ),
+		) );
+
+		if ( !isset( $case['msg'] ) ) {
+			$case['msg'] = is_string( $case['status'] ) ? $case['status'] : 'TemplateData assertion';
+		}
+
+		$t = TemplateDataBlob::newFromJSON( $case['input'] );
+		$status = $t->getStatus();
+
+		$this->assertTrue( $status->isGood(), 'Status is good: ' . $case['msg'] );
+
+		$actual = $t->getDataInLanguage( $case['lang'] );
+		$this->assertJsonStringEqualsJsonString(
+			$case['output'],
+			json_encode( $actual ),
+			$case['msg']
+		);
 	}
 }
