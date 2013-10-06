@@ -474,39 +474,39 @@ class TemplateDataBlob {
 				),
 				$data->description !== null ?
 					$data->description :
-					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )
+					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )->text()
 			)
 			. '<table class="wikitable mw-templatedata-doc-params">'
 			. Html::element(
 				'caption',
 				array(),
-				wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )
+				wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )->text()
 			)
 			. '<thead><tr>'
 			. Html::element(
 				'th',
 				array( 'colspan' => 2 ),
-				wfMessage( 'templatedata-doc-param-name' )->inLanguage( $lang )
+				wfMessage( 'templatedata-doc-param-name' )->inLanguage( $lang )->text()
 			)
 			. Html::element(
 				'th',
 				array(),
-				wfMessage( 'templatedata-doc-param-desc' )->inLanguage( $lang )
+				wfMessage( 'templatedata-doc-param-desc' )->inLanguage( $lang )->text()
 			)
 			. Html::element(
 				'th',
 				array(),
-				wfMessage( 'templatedata-doc-param-type' )->inLanguage( $lang )
+				wfMessage( 'templatedata-doc-param-type' )->inLanguage( $lang )->text()
 			)
 			. Html::element(
 				'th',
 				array(),
-				wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )
+				wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )->text()
 			)
 			. Html::element(
 				'th',
 				array(),
-				wfMessage( 'templatedata-doc-param-status' )->inLanguage( $lang )
+				wfMessage( 'templatedata-doc-param-status' )->inLanguage( $lang )->text()
 			)
 			. '</tr></thead>'
 			. '<tbody>';
@@ -545,7 +545,7 @@ class TemplateDataBlob {
 				),
 				$paramObj->description !== null ?
 					$paramObj->description :
-					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )
+					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
 				)
 			// Type
 			. Html::rawElement( 'td', array(
@@ -562,13 +562,21 @@ class TemplateDataBlob {
 						'mw-templatedata-doc-muted' => $paramObj->default === ''
 					)
 				),
-				$paramObj->default !== '' ? $paramObj->default : 'empty'
+				$paramObj->default !== '' ?
+					$paramObj->default :
+					wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
 			)
 			// Status
 			. Html::element( 'td', array(),
-				$paramObj->deprecated ? 'deprecated' : (
-					$paramObj->required ? 'required' : 'optional'
-				)
+				$paramObj->deprecated ?
+					wfMessage( 'templatedata-doc-param-status-deprecated' )
+						->inLanguage( $lang )->text() :
+					( $paramObj->required ?
+						wfMessage( 'templatedata-doc-param-status-required' )
+							->inLanguage( $lang )->text() :
+						wfMessage( 'templatedata-doc-param-status-optional' )
+							->inLanguage( $lang )->text()
+					)
 			)
 			. '</tr>';
 		}
