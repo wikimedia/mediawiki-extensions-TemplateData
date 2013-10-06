@@ -94,12 +94,14 @@ $messages['ar'] = array(
  */
 $messages['ast'] = array(
 	'templatedata-desc' => "Permite l'almacenamientu de datos pa los parámetros de plantíes (usando JSON)",
+	'templatedata-doc-desc-empty' => 'Ensin descripción.',
 	'templatedata-doc-params' => 'Parámetros de la plantía',
 	'templatedata-doc-param-name' => 'Parámetru',
 	'templatedata-doc-param-desc' => 'Descripción',
 	'templatedata-doc-param-type' => 'Triba',
 	'templatedata-doc-param-default' => 'Predetermináu',
 	'templatedata-doc-param-status' => 'Estáu',
+	'templatedata-doc-param-desc-empty' => 'ensin descripción',
 	'templatedata-invalid-parse' => 'Error de sintaxis en JSON.',
 	'templatedata-invalid-type' => 'Esperabase que la propiedá «$1» fuera de tipu «$2».',
 	'templatedata-invalid-missing' => "Nun s'alcontró la propiedá requerida «$1».",
@@ -209,13 +211,20 @@ $messages['cs'] = array(
  * @author Lloffiwr
  */
 $messages['cy'] = array(
+	'templatedata-doc-desc-empty' => 'Dim disgrifiad.',
 	'templatedata-doc-params' => "Paramedrau'r nodyn",
 	'templatedata-doc-param-name' => 'Paramedr',
 	'templatedata-doc-param-desc' => 'Disgrifiad',
 	'templatedata-doc-param-type' => 'Math',
 	'templatedata-doc-param-default' => 'Yn ddiofyn',
 	'templatedata-doc-param-status' => 'Statws',
+	'templatedata-doc-param-desc-empty' => 'dim disgrifiad',
 	'templatedata-invalid-parse' => 'Gwall cystrawen yn JSON.',
+	'templatedata-invalid-type' => 'Disgwylir i\'r briodwedd "$1" fod o\'r math "$2".',
+	'templatedata-invalid-missing' => 'Ni ellir cael gafael ar y briodwedd angenrheidiol "$1".',
+	'templatedata-invalid-unknown' => 'Priodwedd annisgwyl, "$1".',
+	'templatedata-invalid-value' => 'Gwerth annilys i\'r briodwedd "$1".',
+	'templatedata-invalid-length' => "Y data yn rhy fawr i'w roi ar gadw ({{formatnum:$1}} {{PLURAL:$1|beit|beit|feit|beit}}, {{formatnum:$2}}) yw'r {{PLURAL:$2|maint mwyaf}}",
 );
 
 /** German (Deutsch)
@@ -396,12 +405,14 @@ $messages['hsb'] = array(
  */
 $messages['ilo'] = array(
 	'templatedata-desc' => 'Isayangkatna ti pagipenpenan ti datos para kadagiti parametro ti plantilia (agaramat ti JSON)',
+	'templatedata-doc-desc-empty' => 'Awan ti deskripsion.',
 	'templatedata-doc-params' => 'Dagiti parametro ti plantilia',
 	'templatedata-doc-param-name' => 'Parametro',
 	'templatedata-doc-param-desc' => 'Deskripsion',
 	'templatedata-doc-param-type' => 'Kita',
 	'templatedata-doc-param-default' => 'Kasisigud',
 	'templatedata-doc-param-status' => 'Kasasaad',
+	'templatedata-doc-param-desc-empty' => 'awan ti deskripsion',
 	'templatedata-invalid-parse' => 'Biddut ti eskritu iti JSON.',
 	'templatedata-invalid-type' => 'Ti tagikua ti "$1" ket nanamnama a kita iti "$2".',
 	'templatedata-invalid-missing' => 'Ti nasken a tagikua ti "$1" ket saan a nabirukan.',
@@ -469,16 +480,19 @@ $messages['ja'] = array(
 );
 
 /** Korean (한국어)
+ * @author Kwj2772
  * @author 아라
  */
 $messages['ko'] = array(
 	'templatedata-desc' => '(JSON을 사용하여) 틀 변수에 대한 데이터 저장소를 구현합니다',
+	'templatedata-doc-desc-empty' => '설명이 없습니다.',
 	'templatedata-doc-params' => '틀 변수',
 	'templatedata-doc-param-name' => '변수',
 	'templatedata-doc-param-desc' => '설명',
 	'templatedata-doc-param-type' => '형식',
 	'templatedata-doc-param-default' => '기본값',
 	'templatedata-doc-param-status' => '상태',
+	'templatedata-doc-param-desc-empty' => '설명 없음',
 	'templatedata-invalid-parse' => 'JSON에 구문 오류가 있습니다.',
 	'templatedata-invalid-type' => '"$1" 속성의 값이 예기치 않은 "$2" 형식입니다.',
 	'templatedata-invalid-missing' => '필요한 "$1" 속성을 찾을 수 없습니다.',
@@ -669,6 +683,7 @@ $messages['pt'] = array(
 /** Brazilian Portuguese (português do Brasil)
  * @author Helder.wiki
  * @author Luckas
+ * @author 555
  */
 $messages['pt-br'] = array(
 	'templatedata-desc' => 'Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)',
@@ -682,9 +697,10 @@ $messages['pt-br'] = array(
 	'templatedata-doc-param-desc-empty' => 'sem descrição',
 	'templatedata-invalid-parse' => 'Erro de sintaxe em JSON',
 	'templatedata-invalid-type' => 'A propriedade "$1" deveria ser do tipo "$2"',
-	'templatedata-invalid-missing' => 'A propriedade "$1" é requerida mas não foi fornecida.',
-	'templatedata-invalid-unknown' => 'Propriedade "$1" inesperada.',
+	'templatedata-invalid-missing' => 'A propriedade "$1" é requerida mas não foi encontrada.',
+	'templatedata-invalid-unknown' => 'Propriedade inesperada: "$1".',
 	'templatedata-invalid-value' => 'Valor inválido para a propriedade "$1".',
+	'templatedata-invalid-length' => 'Quantia de dados muito grande para ser salva ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|e o limite é}} {{formatnum:$2}})',
 );
 
 /** tarandíne (tarandíne)
