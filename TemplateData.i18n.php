@@ -16,7 +16,11 @@ $messages['en'] = array(
 	'templatedata-doc-param-desc' => 'Description',
 	'templatedata-doc-param-type' => 'Type',
 	'templatedata-doc-param-default' => 'Default',
+	'templatedata-doc-param-default-empty' => 'empty',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-status-deprecated' => 'deprecated',
+	'templatedata-doc-param-status-optional' => 'optional',
+	'templatedata-doc-param-status-required' => 'required',
 	'templatedata-doc-param-desc-empty' => 'no description',
 
 	// Error message for edit page
@@ -51,10 +55,14 @@ $messages['qqq'] = array(
 	'templatedata-doc-param-default' => 'Used as column heading in the table.
 {{Related|Templatedata-doc-param}}
 {{Identical|Default}}',
+	'templatedata-doc-param-default-empty' => 'Displayed when a template parameter has no default value (should not be a full sentence, used in a table).',
 	'templatedata-doc-param-status' => 'Used as column heading in the table.
 {{Related|Templatedata-doc-param}}
 {{Identical|Status}}',
-	'templatedata-doc-param-desc-empty' => 'Displayed when a template parameter has no description (should be not be a full sentence, used in a table cell).',
+	'templatedata-doc-param-status-deprecated' => 'Displayed when a template parameter is deprecated (should not be a full sentence, used in a table).',
+	'templatedata-doc-param-status-optional' => 'Displayed when a template parameter is optional (should not be a full sentence, used in a table).',
+	'templatedata-doc-param-status-required' => 'Displayed when a template parameter is required (should not be a full sentence, used in a table).',
+	'templatedata-doc-param-desc-empty' => 'Displayed when a template parameter has no description (should not be a full sentence, used in a table cell).',
 	'templatedata-invalid-parse' => 'Error message when there is a syntax error in JSON.',
 	'templatedata-invalid-type' => 'Error message when a property is of the wrong type.
 * $1 - name of property. e.g. "params.1.required"
