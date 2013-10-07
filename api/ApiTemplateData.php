@@ -57,6 +57,14 @@ class ApiTemplateData extends ApiBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
+		if ( is_null( $params['lang'] ) ) {
+			$langCode = false;
+		} elseif ( !Language::isValidCode( $params['lang'] ) ) {
+			$this->dieUsage( 'Invalid language code for parameter lang', 'invalidlang' );
+		} else {
+			$langCode = $params['lang'];
+		}
+
 		$pageSet = $this->getPageSet();
 		$pageSet->execute();
 		$titles = $pageSet->getGoodTitles(); // page_id => Title object
@@ -82,13 +90,20 @@ class ApiTemplateData extends ApiBase {
 			$rawData = $row->pp_value;
 			$tdb = TemplateDataBlob::newFromDatabase( $rawData );
 			$status = $tdb->getStatus();
+
 			if ( !$status->isOK() ) {
 				$this->dieUsage(
 					'Page #' . intval( $row->pp_page ) . ' templatedata contains invalid data: '
 						. $status->getMessage(), 'templatedata-corrupt'
 				);
 			}
-			$data = $tdb->getData();
+
+			if ( $langCode ) {
+				$data = $tdb->getDataInLanguage( $langCode );
+			} else {
+				$data = $tdb->getData();
+			}
+
 			$resp[$row->pp_page] = array(
 				'title' => strval( $titles[$row->pp_page] ),
 				'description' => $data->description,
@@ -110,13 +125,16 @@ class ApiTemplateData extends ApiBase {
 			'format' => array(
 				ApiBase::PARAM_DFLT => 'json',
 				ApiBase::PARAM_TYPE => array( 'json', 'jsonfm' ),
-			)
+			),
+			'lang' => null
 		);
 	}
 
 	public function getParamDescription() {
 		return $this->getPageSet()->getParamDescription() + array(
 			'format' => 'The format of the output',
+			'lang' => 'Return localized values in this language (by default all available' .
+				' translations are returned)',
 		);
 	}
 
