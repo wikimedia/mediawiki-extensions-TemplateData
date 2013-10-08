@@ -55,13 +55,17 @@ $messages['qqq'] = array(
 	'templatedata-doc-param-default' => 'Used as column heading in the table.
 {{Related|Templatedata-doc-param}}
 {{Identical|Default}}',
-	'templatedata-doc-param-default-empty' => 'Displayed when a template parameter has no default value (should not be a full sentence, used in a table).',
+	'templatedata-doc-param-default-empty' => 'Displayed when a template parameter has no default value (should not be a full sentence, used in a table).
+{{Identical|Empty}}',
 	'templatedata-doc-param-status' => 'Used as column heading in the table.
 {{Related|Templatedata-doc-param}}
 {{Identical|Status}}',
-	'templatedata-doc-param-status-deprecated' => 'Displayed when a template parameter is deprecated (should not be a full sentence, used in a table).',
-	'templatedata-doc-param-status-optional' => 'Displayed when a template parameter is optional (should not be a full sentence, used in a table).',
-	'templatedata-doc-param-status-required' => 'Displayed when a template parameter is required (should not be a full sentence, used in a table).',
+	'templatedata-doc-param-status-deprecated' => 'Displayed when a template parameter is deprecated (should not be a full sentence, used in a table).
+{{Identical|Deprecated}}',
+	'templatedata-doc-param-status-optional' => 'Displayed when a template parameter is optional (should not be a full sentence, used in a table).
+{{Identical|Optional}}',
+	'templatedata-doc-param-status-required' => 'Displayed when a template parameter is required (should not be a full sentence, used in a table).
+{{Identical|Required}}',
 	'templatedata-doc-param-desc-empty' => 'Displayed when a template parameter has no description (should not be a full sentence, used in a table cell).',
 	'templatedata-invalid-parse' => 'Error message when there is a syntax error in JSON.',
 	'templatedata-invalid-type' => 'Error message when a property is of the wrong type.
@@ -252,7 +256,11 @@ $messages['de'] = array(
 	'templatedata-doc-param-desc' => 'Beschreibung',
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Standard',
+	'templatedata-doc-param-default-empty' => 'leer',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-status-deprecated' => 'veraltet',
+	'templatedata-doc-param-status-optional' => 'optional',
+	'templatedata-doc-param-status-required' => 'erforderlich',
 	'templatedata-doc-param-desc-empty' => 'keine Beschreibung',
 	'templatedata-invalid-parse' => 'Syntaxfehler in JSON.',
 	'templatedata-invalid-type' => 'Für den Typ „$2” wird die Eigenschaft „$1” erwartet.',
@@ -346,7 +354,11 @@ $messages['fr'] = array(
 	'templatedata-doc-param-desc' => 'Description',
 	'templatedata-doc-param-type' => 'Type',
 	'templatedata-doc-param-default' => 'Par défaut',
+	'templatedata-doc-param-default-empty' => 'vide',
 	'templatedata-doc-param-status' => 'Statut',
+	'templatedata-doc-param-status-deprecated' => 'obsolète',
+	'templatedata-doc-param-status-optional' => 'facultatif',
+	'templatedata-doc-param-status-required' => 'obligatoire',
 	'templatedata-doc-param-desc-empty' => 'aucune description',
 	'templatedata-invalid-parse' => 'Erreur de syntaxe dans JSON.',
 	'templatedata-invalid-type' => 'La propriété « $1 » doit être de type « $2 ».',
@@ -463,7 +475,11 @@ $messages['it'] = array(
 	'templatedata-doc-param-desc' => 'Descrizione',
 	'templatedata-doc-param-type' => 'Tipo',
 	'templatedata-doc-param-default' => 'Predefinito',
+	'templatedata-doc-param-default-empty' => 'vuoto',
 	'templatedata-doc-param-status' => 'Stato',
+	'templatedata-doc-param-status-deprecated' => 'deprecato',
+	'templatedata-doc-param-status-optional' => 'facoltativo',
+	'templatedata-doc-param-status-required' => 'obbligatorio',
 	'templatedata-doc-param-desc-empty' => 'nessuna descrizione',
 	'templatedata-invalid-parse' => 'Errore di sintassi in JSON.',
 	'templatedata-invalid-type' => 'La proprietà "$1" dovrebbe essere di tipo "$2".',
@@ -484,7 +500,11 @@ $messages['ja'] = array(
 	'templatedata-doc-param-desc' => '説明',
 	'templatedata-doc-param-type' => '型',
 	'templatedata-doc-param-default' => '既定',
+	'templatedata-doc-param-default-empty' => '空',
 	'templatedata-doc-param-status' => '状態',
+	'templatedata-doc-param-status-deprecated' => '非推奨',
+	'templatedata-doc-param-status-optional' => '省略可能',
+	'templatedata-doc-param-status-required' => '必須',
 	'templatedata-invalid-parse' => 'JSON の構文エラーです。',
 	'templatedata-invalid-type' => 'プロパティ「$1」には型「$2」の値を指定してください。',
 	'templatedata-invalid-missing' => '必須のプロパティ「$1」がありません。',
@@ -628,7 +648,7 @@ $messages['nl'] = array(
 	'templatedata-invalid-missing' => 'Vereiste eigenschap "$1" niet gevonden.',
 	'templatedata-invalid-unknown' => 'Onverwachte eigenschap "$1".',
 	'templatedata-invalid-value' => 'Ongeldige waarde voor de eigenschap "$1".',
-	'templatedata-invalid-length' => 'Gegevens te groot om op te slaan ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|limiet is}} {{formatnum:$2}})',
+	'templatedata-invalid-length' => 'Te veel gegevens om op te slaan ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}} opgegeven, de {{PLURAL:$2|limiet is}} {{formatnum:$2}})',
 );
 
 /** Occitan (occitan)
@@ -745,21 +765,29 @@ $messages['roa-tara'] = array(
 );
 
 /** Russian (русский)
+ * @author Okras
  * @author Putnik
  */
 $messages['ru'] = array(
 	'templatedata-desc' => 'Реализация хранилища данных для параметров шаблона (с помощью JSON)',
+	'templatedata-doc-desc-empty' => 'Нет описания.',
 	'templatedata-doc-params' => 'Параметры шаблона',
 	'templatedata-doc-param-name' => 'Параметр',
 	'templatedata-doc-param-desc' => 'Описание',
 	'templatedata-doc-param-type' => 'Тип',
 	'templatedata-doc-param-default' => 'По умолчанию',
+	'templatedata-doc-param-default-empty' => 'пусто',
 	'templatedata-doc-param-status' => 'Статус',
+	'templatedata-doc-param-status-deprecated' => 'устаревший',
+	'templatedata-doc-param-status-optional' => 'необязательный',
+	'templatedata-doc-param-status-required' => 'обязательный',
+	'templatedata-doc-param-desc-empty' => 'без описания',
 	'templatedata-invalid-parse' => 'Синтаксическая ошибка в JSON.',
 	'templatedata-invalid-type' => 'Для свойства «$1» ожидается тип «$2».',
 	'templatedata-invalid-missing' => 'Обязательное свойство «$1» не найдено.',
 	'templatedata-invalid-unknown' => 'Неожиданное свойство «$1».',
 	'templatedata-invalid-value' => 'Недопустимое значение для свойства «$1».',
+	'templatedata-invalid-length' => 'Данные слишком велики для сохранения ({{formatnum:$1}} {{PLURAL:$1|байт|байта|байтов}}, {{PLURAL:$2|лимит:}} {{formatnum:$2}})',
 );
 
 /** Slovenian (slovenščina)
