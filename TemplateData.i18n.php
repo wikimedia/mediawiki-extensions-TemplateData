@@ -24,6 +24,7 @@ $messages['en'] = array(
 	'templatedata-doc-param-desc-empty' => 'no description',
 
 	// Error message for edit page
+	'templatedata-invalid-duplicate-value' => 'Property "$1" ("$3") is a duplicate of "$2".',
 	'templatedata-invalid-parse' => 'Syntax error in JSON.',
 	'templatedata-invalid-type' => 'Property "$1" is expected to be of type "$2".',
 	'templatedata-invalid-missing' => 'Required property "$1" not found.',
@@ -70,6 +71,10 @@ $messages['qqq'] = array(
 {{Identical|Required}}',
 	'templatedata-doc-param-desc-empty' => 'Displayed when a template parameter has no description (should not be a full sentence, used in a table cell).
 {{Identical|No description}}',
+	'templatedata-invalid-duplicate-value' => 'Displayed when an array that must only contain unique values contains a duplicate.
+* $1 - name of property containing the duplicate
+* $2 - name of property with first occurrence of value
+* $3 - the value being duplicated',
 	'templatedata-invalid-parse' => 'Error message when there is a syntax error in JSON.',
 	'templatedata-invalid-type' => 'Error message when a property is of the wrong type.
 * $1 - name of property. e.g. "params.1.required"

@@ -72,6 +72,7 @@ class TemplateDataBlob {
 		static $rootKeys = array(
 			'description',
 			'params',
+			'paramOrder',
 			'sets',
 		);
 
@@ -132,6 +133,7 @@ class TemplateDataBlob {
 		// We need this to determine whether a property was originally set
 		// to decide whether 'inherits' will add it or not.
 		$unnormalizedParams = unserialize( serialize( $data->params ) );
+		$paramNames = array();
 
 		foreach ( $data->params as $paramName => $paramObj ) {
 			if ( !is_object( $paramObj ) ) {
@@ -252,6 +254,8 @@ class TemplateDataBlob {
 			} else {
 				$paramObj->type = 'unknown';
 			}
+
+			$paramNames[] = $paramName;
 		}
 
 		// Param.inherits
@@ -279,6 +283,43 @@ class TemplateDataBlob {
 			}
 		}
 
+		// Root.paramOrder
+		if ( isset( $data->paramOrder ) ) {
+			if ( !is_array( $data->paramOrder ) ) {
+				return Status::newFatal( 'templatedata-invalid-type', 'paramOrder', 'array' );
+			}
+
+			if ( !count( $data->paramOrder ) ) {
+				return Status::newFatal( 'templatedata-invalid-empty-array', "paramOrder" );
+			}
+
+			if ( count( $data->paramOrder ) < count( $paramNames ) ) {
+				$i = count( $data->paramOrder );
+				return Status::newFatal( 'templatedata-invalid-missing', "paramOrder[$i]" );
+			}
+
+			// Validate each of the values corresponds to a parameter and that there are no
+			// duplicates
+			$seen = array();
+			foreach ( $data->paramOrder as $i => $param ) {
+				if ( !isset( $data->params->$param ) ) {
+					return Status::newFatal( 'templatedata-invalid-value', "paramOrder[$i]" );
+				}
+				if ( isset( $seen[$param] ) ) {
+					return Status::newFatal(
+						'templatedata-invalid-duplicate-value',
+						"paramOrder[$i]",
+						"paramOrder[{$seen[$param]}]",
+						$param
+					);
+				}
+				$seen[$param] = $i;
+			}
+
+		} elseif ( count( $paramNames ) ) {
+			$data->paramOrder = $paramNames;
+		}
+
 		// Root.sets
 		if ( isset( $data->sets ) ) {
 			if ( !is_array( $data->sets ) ) {
@@ -290,7 +331,7 @@ class TemplateDataBlob {
 
 		foreach ( $data->sets as $setNr => $setObj ) {
 			if ( !is_object( $setObj ) ) {
-				return Status::newFatal( 'templatedata-invalid-value', "paramOrder[$i]" );
+				return Status::newFatal( 'templatedata-invalid-value', "sets.{$setNr}" );
 			}
 
 			if ( !isset( $setObj->label ) ) {

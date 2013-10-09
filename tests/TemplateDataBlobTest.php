@@ -93,6 +93,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "unknown"
 						}
 					},
+					"paramOrder": ["foo"],
 					"sets": []
 				}
 				',
@@ -133,6 +134,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "unknown"
 						}
 					},
+					"paramOrder": ["nickname"],
 					"sets": []
 				}
 				',
@@ -158,6 +160,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "unknown"
 						}
 					},
+					"paramOrder": ["nickname"],
 					"sets": []
 				}
 				',
@@ -207,6 +210,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "unknown"
 						}
 					},
+					"paramOrder": ["1d", "2d"],
 					"sets": []
 				}
 				',
@@ -307,6 +311,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "unknown"
 						}
 					},
+					"paramOrder": ["foo", "bar", "quux"],
 					"sets": [
 						{
 							"label": {
@@ -520,6 +525,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "unknown"
 						}
 					},
+					"paramOrder": ["foo"],
 					"sets": []
 				}
 				',
@@ -551,6 +557,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "unknown"
 						}
 					},
+					"paramOrder": ["foo"],
 					"sets": []
 				}
 				',
@@ -586,6 +593,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "unknown"
 						}
 					},
+					"paramOrder": ["foo"],
 					"sets": [
 						{
 							"label": "Spanish",
@@ -632,5 +640,155 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			json_encode( $actual ),
 			$case['msg']
 		);
+	}
+
+	public static function provideParamOrder() {
+		$cases = array(
+			array(
+				'input' => '{
+					"params": {
+						"foo": {},
+						"bar": {},
+						"baz": {}
+					}
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {
+						"foo": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						},
+						"bar": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						},
+						"baz": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						}
+					},
+					"paramOrder": ["foo", "bar", "baz"],
+					"sets": []
+				}
+				',
+				'msg' => 'Normalisation adds paramOrder'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {},
+						"bar": {},
+						"baz": {}
+					},
+					"paramOrder": ["baz", "foo", "bar"]
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {
+						"foo": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						},
+						"bar": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						},
+						"baz": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						}
+					},
+					"paramOrder": ["baz", "foo", "bar"],
+					"sets": []
+				}
+				',
+				'msg' => 'Custom paramOrder'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {},
+						"bar": {},
+						"baz": {}
+					},
+					"paramOrder": ["foo", "bar"]
+				}
+				',
+				'status' => 'Required property "paramOrder&#91;2&#93;" not found.',
+				'msg' => 'Incomplete paramOrder'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {},
+						"bar": {},
+						"baz": {}
+					},
+					"paramOrder": ["foo", "bar", "baz", "quux"]
+				}
+				',
+				'status' => 'Invalid value for property "paramOrder&#91;3&#93;".',
+				'msg' => 'Unknown params in paramOrder'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {},
+						"bar": {},
+						"baz": {}
+					},
+					"paramOrder": ["foo", "bar", "baz", "bar"]
+				}
+				',
+				'status' => 'Property "paramOrder&#91;3&#93;" ("bar") is a duplicate of ' .
+					'"paramOrder&#91;1&#93;".',
+				'msg' => 'Duplicate params in paramOrder'
+			),
+		);
+		$calls = array();
+		foreach ( $cases as $case ) {
+			$calls[] = array( $case );
+		}
+		return $calls;
+	}
+
+	/**
+	 * @dataProvider provideParamOrder
+	 */
+	public function testParamOrder( Array $case ) {
+		$this->assertTemplateData( $case );
 	}
 }
