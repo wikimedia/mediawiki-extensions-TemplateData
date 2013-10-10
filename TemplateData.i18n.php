@@ -549,7 +549,11 @@ $messages['lb'] = array(
 	'templatedata-doc-param-desc' => 'Beschreiwung',
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Standard',
+	'templatedata-doc-param-default-empty' => 'eidel',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-status-deprecated' => 'vereelst',
+	'templatedata-doc-param-status-optional' => 'fakultativ',
+	'templatedata-doc-param-status-required' => 'obligatoresch',
 	'templatedata-doc-param-desc-empty' => 'keng Beschreiwung',
 	'templatedata-invalid-parse' => 'Syntaxfeeler am JSON.',
 );
