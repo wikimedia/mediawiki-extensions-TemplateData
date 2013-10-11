@@ -558,6 +558,14 @@ $messages['lb'] = array(
 	'templatedata-invalid-parse' => 'Syntaxfeeler am JSON.',
 );
 
+/** Latvian (latviešu)
+ * @author Papuass
+ */
+$messages['lv'] = array(
+	'templatedata-doc-param-default-empty' => 'tukšs',
+	'templatedata-doc-param-status-deprecated' => 'novecojis',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */
