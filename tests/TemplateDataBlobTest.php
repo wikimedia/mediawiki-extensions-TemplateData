@@ -253,7 +253,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					]
 				}',
-				'status' => 'Required property "params.quux" not found.'
+				'status' => 'Invalid value for property "sets.0.params&#91;1&#93;".'
 			),
 			array(
 				'input' => '{
@@ -340,47 +340,50 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		return $calls;
 	}
 
-	/**
-	 * @dataProvider provideParse
-	 */
-	public function testParse( Array $cases ) {
-
+	protected function assertTemplateData( Array $case ) {
 		// Expand defaults
-		if ( !isset( $cases['status'] ) ) {
-			$cases['status'] = true;
+		if ( !isset( $case['status'] ) ) {
+			$case['status'] = true;
 		}
-		if ( !isset( $cases['msg'] ) ) {
-			$cases['msg'] = is_string( $cases['status'] ) ? $cases['status'] : 'TemplateData assertion';
+		if ( !isset( $case['msg'] ) ) {
+			$case['msg'] = is_string( $case['status'] ) ? $case['status'] : 'TemplateData assertion';
 		}
-		if ( !isset( $cases['output'] ) ) {
-			if ( is_string( $cases['status'] ) ) {
-				$cases['output'] = '{}';
+		if ( !isset( $case['output'] ) ) {
+			if ( is_string( $case['status'] ) ) {
+				$case['output'] = '{}';
 			} else {
-				$cases['output'] = $cases['input'];
+				$case['output'] = $case['input'];
 			}
 		}
 
-		$t = TemplateDataBlob::newFromJSON( $cases['input'] );
+		$t = TemplateDataBlob::newFromJSON( $case['input'] );
 		$actual = $t->getJSON();
 		$status = $t->getStatus();
 		if ( !$status->isGood() ) {
 			$this->assertEquals(
-				$cases['status'],
+				$case['status'],
 				$status->getHtml(),
-				'Status: ' . $cases['msg']
+				'Status: ' . $case['msg']
 			);
 		} else {
 			$this->assertEquals(
-				$cases['status'],
+				$case['status'],
 				$status->isGood(),
-				'Status: ' . $cases['msg']
+				'Status: ' . $case['msg']
 			);
 		}
 		$this->assertJsonStringEqualsJsonString(
-			$cases['output'],
+			$case['output'],
 			$actual,
-			$cases['msg']
+			$case['msg']
 		);
+	}
+
+	/**
+	 * @dataProvider provideParse
+	 */
+	public function testParse( Array $case ) {
+		$this->assertTemplateData( $case );
 	}
 
 	/**
@@ -556,25 +559,37 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			),
 			array(
 				'input' => '{
-					"params": {},
+					"params": {
+						"foo": {}
+					},
 					"sets": [
 						{
 							"label": {
 								"es": "Spanish",
 								"de": "German"
 							},
-							"params": []
+							"params": ["foo"]
 						}
 					]
 				}
 				',
 				'output' => '{
 					"description": null,
-					"params": {},
+					"params": {
+						"foo": {
+							"label": null,
+							"required": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"default": "",
+							"type": "unknown"
+						}
+					},
 					"sets": [
 						{
 							"label": "Spanish",
-							"params": []
+							"params": ["foo"]
 						}
 					]
 				}
@@ -609,7 +624,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		$t = TemplateDataBlob::newFromJSON( $case['input'] );
 		$status = $t->getStatus();
 
-		$this->assertTrue( $status->isGood(), 'Status is good: ' . $case['msg'] );
+		$this->assertTrue( $status->isGood() ? : $status->getHtml(), 'Status is good: ' . $case['msg'] );
 
 		$actual = $t->getDataInLanguage( $case['lang'] );
 		$this->assertJsonStringEqualsJsonString(

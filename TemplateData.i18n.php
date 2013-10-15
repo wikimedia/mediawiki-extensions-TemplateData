@@ -27,6 +27,7 @@ $messages['en'] = array(
 	'templatedata-invalid-parse' => 'Syntax error in JSON.',
 	'templatedata-invalid-type' => 'Property "$1" is expected to be of type "$2".',
 	'templatedata-invalid-missing' => 'Required property "$1" not found.',
+	'templatedata-invalid-empty-array' => 'Property "$1" must have at least one value in its array.',
 	'templatedata-invalid-unknown' => 'Unexpected property "$1".',
 	'templatedata-invalid-value' => 'Invalid value for property "$1".',
 	'templatedata-invalid-length' => 'Data too large to save ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|limit is}} {{formatnum:$2}})',
@@ -76,6 +77,7 @@ $messages['qqq'] = array(
 	'templatedata-invalid-missing' => 'Error message when a required property is not found.
 * $1 - name of property. e.g. "params"
 * $2 - type of property (Unused)',
+	'templatedata-invalid-empty-array' => 'Error message when a property that must be non-empty is empty.',
 	'templatedata-invalid-unknown' => 'Error message when an unknown property is found.
 * $1 - name of property. e.g. "params.1.foobar"',
 	'templatedata-invalid-value' => 'Error message when a property that cannot contain free-form text has an invalid value.

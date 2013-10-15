@@ -32,7 +32,7 @@
 
 @structure {Object} Set
 	@property {InterfaceText} label Label of this set.
-	@property {Array} params A subset of the parameter's names that belong to this set.
+	@property {Array} params One or more parameter keys.
 
 @structure {string} Type
 	One of the following:

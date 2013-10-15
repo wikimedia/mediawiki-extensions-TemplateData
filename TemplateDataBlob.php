@@ -290,7 +290,7 @@ class TemplateDataBlob {
 
 		foreach ( $data->sets as $setNr => $setObj ) {
 			if ( !is_object( $setObj ) ) {
-				return Status::newFatal( 'templatedata-invalid-type', "sets.{$setNr}", 'object' );
+				return Status::newFatal( 'templatedata-invalid-value', "paramOrder[$i]" );
 			}
 
 			if ( !isset( $setObj->label ) ) {
@@ -320,9 +320,13 @@ class TemplateDataBlob {
 				return Status::newFatal( 'templatedata-invalid-type', "sets.{$setNr}.params", 'array' );
 			}
 
-			foreach ( $setObj->params as $param ) {
+			if ( !count( $setObj->params ) ) {
+				return Status::newFatal( 'templatedata-invalid-empty-array', "sets.{$setNr}.params" );
+			}
+
+			foreach ( $setObj->params as $i => $param ) {
 				if ( !isset( $data->params->$param ) ) {
-					return Status::newFatal( 'templatedata-invalid-missing', "params.{$param}" );
+					return Status::newFatal( 'templatedata-invalid-value', "sets.{$setNr}.params[$i]" );
 				}
 			}
 		}
