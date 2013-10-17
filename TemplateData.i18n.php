@@ -332,11 +332,22 @@ $messages['et'] = array(
 /** Finnish (suomi)
  * @author Nike
  * @author Silvonen
+ * @author Stryn
  */
 $messages['fi'] = array(
+	'templatedata-doc-desc-empty' => 'Ei kuvausta.',
+	'templatedata-doc-params' => 'Mallineen parametrit',
 	'templatedata-doc-param-name' => 'Parametri',
 	'templatedata-doc-param-desc' => 'Kuvaus',
 	'templatedata-doc-param-type' => 'Tyyppi',
+	'templatedata-doc-param-default' => 'Oletus',
+	'templatedata-doc-param-default-empty' => 'tyhjä',
+	'templatedata-doc-param-status' => 'Tila',
+	'templatedata-doc-param-status-deprecated' => 'vanhentunut',
+	'templatedata-doc-param-status-optional' => 'valinnainen',
+	'templatedata-doc-param-status-required' => 'pakollinen',
+	'templatedata-doc-param-desc-empty' => 'ei kuvausta',
+	'templatedata-invalid-parse' => 'Syntaksivirhe JSON:ssa',
 );
 
 /** French (français)
