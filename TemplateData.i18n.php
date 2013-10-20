@@ -229,13 +229,18 @@ $messages['cs'] = array(
  * @author Lloffiwr
  */
 $messages['cy'] = array(
+	'templatedata-desc' => 'Gweithredu storio data ar gyfer paramedrau nodynnau (gan ddefnyddio JSON)',
 	'templatedata-doc-desc-empty' => 'Dim disgrifiad.',
 	'templatedata-doc-params' => "Paramedrau'r nodyn",
 	'templatedata-doc-param-name' => 'Paramedr',
 	'templatedata-doc-param-desc' => 'Disgrifiad',
 	'templatedata-doc-param-type' => 'Math',
 	'templatedata-doc-param-default' => 'Yn ddiofyn',
+	'templatedata-doc-param-default-empty' => 'gwag',
 	'templatedata-doc-param-status' => 'Statws',
+	'templatedata-doc-param-status-deprecated' => 'anghymeradwyedig',
+	'templatedata-doc-param-status-optional' => 'dewisol',
+	'templatedata-doc-param-status-required' => 'angenrheidiol',
 	'templatedata-doc-param-desc-empty' => 'dim disgrifiad',
 	'templatedata-invalid-parse' => 'Gwall cystrawen yn JSON.',
 	'templatedata-invalid-type' => 'Disgwylir i\'r briodwedd "$1" fod o\'r math "$2".',
@@ -409,12 +414,18 @@ $messages['gl'] = array(
  */
 $messages['he'] = array(
 	'templatedata-desc' => 'מימוש אחסון נתונים לפרמטרים של תבניות (באמצעות JSON)',
+	'templatedata-doc-desc-empty' => 'אין תיאור.',
 	'templatedata-doc-params' => 'פרמטרים של תבניות',
 	'templatedata-doc-param-name' => 'פרמטר',
 	'templatedata-doc-param-desc' => 'תיאור',
 	'templatedata-doc-param-type' => 'סוג',
 	'templatedata-doc-param-default' => 'בררת מחדל',
+	'templatedata-doc-param-default-empty' => 'ריק',
 	'templatedata-doc-param-status' => 'מצב',
+	'templatedata-doc-param-status-deprecated' => 'מיושן',
+	'templatedata-doc-param-status-optional' => 'לא דרוש',
+	'templatedata-doc-param-status-required' => 'דרוש',
+	'templatedata-doc-param-desc-empty' => 'אין תיאור',
 	'templatedata-invalid-parse' => 'שגיאת תחביר ב־JSON.',
 	'templatedata-invalid-type' => 'המאפיין "$1" צפוי להיות מסוג "$2".',
 	'templatedata-invalid-missing' => 'המאפיין הדרוש "$1" לא נמצא.',
