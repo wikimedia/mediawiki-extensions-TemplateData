@@ -199,6 +199,7 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'templatedata-doc-params' => 'Кепан параметраш',
 	'templatedata-doc-param-desc' => 'Цуьнах лаьцна',
 	'templatedata-doc-param-default' => 'Iад йитарца',
 );
