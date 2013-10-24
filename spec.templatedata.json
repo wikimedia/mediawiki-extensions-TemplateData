@@ -54,6 +54,12 @@
 	- wiki-user-name
 	  A valid MediaWiki user name for the current wiki. Doesn't have to exist,
 	  but if not should be a valid user name to create.
+	- content
+	  Page content (such as text style, links and images etc.).
+	- unbalanced-wikitext
+	  Raw wikitext that should not be treated as standalone content because it
+	  is unbalanced (eg. templates concatenating incomplete wikitext as a bigger
+	  whole such as {{echo|before=<u>|after=</u>}})
 	- line
 	  Short text field - use for names, labels, and other short-form fields.
 

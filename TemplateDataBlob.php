@@ -93,9 +93,11 @@ class TemplateDataBlob {
 		);
 
 		static $types = array(
+			'content',
 			'line',
 			'number',
 			'string',
+			'unbalanced-wikitext',
 			'unknown',
 			'wiki-page-name',
 			'wiki-user-name',
