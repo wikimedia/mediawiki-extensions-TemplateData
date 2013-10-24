@@ -5,6 +5,10 @@
 	Author: Timo Tijhof
 	Author: Trevor Parscal
 
+	Property names listed in brackets (e.g. [foo]) are optional. This means
+	they may be omitted from the object. If a null value is allowed, this will
+	be explicitly specified.
+
 @structure {Object} Root
 	@property {null|InterfaceText} [description]
 	@property {Object} params Contains all parameters.

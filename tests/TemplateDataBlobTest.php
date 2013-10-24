@@ -142,32 +142,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			),
 			array(
 				'input' => '{
-					"description": {
-						"en": "User badge MediaWiki developers."
-					},
-					"params": {
-						"nickname": {
-							"label": null,
-							"description": {
-								"en": "User name of user who owns the badge"
-							},
-							"default": "Base page name of the host page",
-							"required": false,
-							"deprecated": false,
-							"aliases": [
-								"1"
-							],
-							"type": "unknown"
-						}
-					},
-					"paramOrder": ["nickname"],
-					"sets": []
-				}
-				',
-				'msg' => 'Fully normalised json should be valid input and stay unchanged'
-			),
-			array(
-				'input' => '{
 					"description": "Document the documenter.",
 					"params": {
 						"1d": {
@@ -355,7 +329,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		}
 		if ( !isset( $case['output'] ) ) {
 			if ( is_string( $case['status'] ) ) {
-				$case['output'] = '{}';
+				$case['output'] = '{ "description": null, "params": {}, "sets": [] }';
 			} else {
 				$case['output'] = $case['input'];
 			}
@@ -382,6 +356,26 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			$actual,
 			$case['msg']
 		);
+
+		// Assert this case roundtrips properly by running through the output as input.
+
+		$t = TemplateDataBlob::newFromJSON( $case['output'] );
+
+		$status = $t->getStatus();
+		if ( !$status->isGood() ) {
+			$this->assertEquals(
+				$case['status'],
+				$status->getHtml(),
+				'Roundtrip status: ' . $case['msg']
+			);
+		}
+
+		$this->assertJsonStringEqualsJsonString(
+			$case['output'],
+			$t->getJSON(),
+			'Roundtrip: ' . $case['msg']
+		);
+
 	}
 
 	/**

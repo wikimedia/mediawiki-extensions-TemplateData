@@ -39,8 +39,13 @@ class TemplateDataBlob {
 		$status = $tdb->parse();
 
 		if ( !$status->isOK() ) {
-			// Don't save invalid data, clear it.
+			// If data is invalid, replace with the minimal valid blob.
+			// This is to make sure that, if something forgets to check the status first,
+			// we don't end up with invalid data in the database.
 			$tdb->data = new stdClass();
+			$tdb->data->description = null;
+			$tdb->data->params = new stdClass();
+			$tdb->data->sets = array();
 		}
 		$tdb->status = $status;
 		return $tdb;
