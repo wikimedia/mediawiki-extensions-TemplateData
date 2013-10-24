@@ -38,7 +38,8 @@ $messages['en'] = array(
  */
 $messages['qqq'] = array(
 	'templatedata-desc' => '{{desc|name=Template Data|url=http://www.mediawiki.org/wiki/Extension:TemplateData}}',
-	'templatedata-doc-desc-empty' => 'Displayed when a template has no description (should be a valid sentence).',
+	'templatedata-doc-desc-empty' => 'Displayed when a template has no description (should be a valid sentence).
+{{Identical|No description}}',
 	'templatedata-doc-params' => 'Used as caption for the table which has the following headings:
 * {{msg-mw|Templatedata-doc-param-name}}
 * {{msg-mw|Templatedata-doc-param-desc}}
@@ -66,7 +67,8 @@ $messages['qqq'] = array(
 {{Identical|Optional}}',
 	'templatedata-doc-param-status-required' => 'Displayed when a template parameter is required (should not be a full sentence, used in a table).
 {{Identical|Required}}',
-	'templatedata-doc-param-desc-empty' => 'Displayed when a template parameter has no description (should not be a full sentence, used in a table cell).',
+	'templatedata-doc-param-desc-empty' => 'Displayed when a template parameter has no description (should not be a full sentence, used in a table cell).
+{{Identical|No description}}',
 	'templatedata-invalid-parse' => 'Error message when there is a syntax error in JSON.',
 	'templatedata-invalid-type' => 'Error message when a property is of the wrong type.
 * $1 - name of property. e.g. "params.1.required"
@@ -468,7 +470,11 @@ $messages['ilo'] = array(
 	'templatedata-doc-param-desc' => 'Deskripsion',
 	'templatedata-doc-param-type' => 'Kita',
 	'templatedata-doc-param-default' => 'Kasisigud',
+	'templatedata-doc-param-default-empty' => 'awan ti nagyanna',
 	'templatedata-doc-param-status' => 'Kasasaad',
+	'templatedata-doc-param-status-deprecated' => 'naikkaten',
+	'templatedata-doc-param-status-optional' => 'pagpilian',
+	'templatedata-doc-param-status-required' => 'nasken',
 	'templatedata-doc-param-desc-empty' => 'awan ti deskripsion',
 	'templatedata-invalid-parse' => 'Biddut ti eskritu iti JSON.',
 	'templatedata-invalid-type' => 'Ti tagikua ti "$1" ket nanamnama a kita iti "$2".',
@@ -526,6 +532,7 @@ $messages['it'] = array(
  */
 $messages['ja'] = array(
 	'templatedata-desc' => 'テンプレート引数のデータストレージを実装する (JSON を使用)',
+	'templatedata-doc-desc-empty' => '説明はありません。',
 	'templatedata-doc-params' => 'テンプレート引数',
 	'templatedata-doc-param-name' => '引数',
 	'templatedata-doc-param-desc' => '説明',
@@ -536,6 +543,7 @@ $messages['ja'] = array(
 	'templatedata-doc-param-status-deprecated' => '非推奨',
 	'templatedata-doc-param-status-optional' => '省略可能',
 	'templatedata-doc-param-status-required' => '必須',
+	'templatedata-doc-param-desc-empty' => '説明なし',
 	'templatedata-invalid-parse' => 'JSON の構文エラーです。',
 	'templatedata-invalid-type' => 'プロパティ「$1」には型「$2」の値を指定してください。',
 	'templatedata-invalid-missing' => '必須のプロパティ「$1」がありません。',
@@ -879,9 +887,17 @@ $messages['sv'] = array(
 	'templatedata-doc-param-desc' => 'Beskrivning',
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Standard',
+	'templatedata-doc-param-default-empty' => 'tom',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-status-deprecated' => 'föråldrad',
+	'templatedata-doc-param-status-optional' => 'valfri',
+	'templatedata-doc-param-status-required' => 'obligatorisk',
 	'templatedata-doc-param-desc-empty' => 'ingen beskrivning',
 	'templatedata-invalid-parse' => 'Syntaxfel i JSON.',
+	'templatedata-invalid-type' => 'Egenskapen "$1" förväntas vara av typen "$2".',
+	'templatedata-invalid-unknown' => 'Oväntad egenskap "$1".',
+	'templatedata-invalid-value' => 'Ogiltigt värde för egenskapen "$1".',
+	'templatedata-invalid-length' => 'Data för stor för att spara ({{formatnum:$1}}  {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|gränsen är}} {{formatnum: $2}})',
 );
 
 /** Telugu (తెలుగు)
