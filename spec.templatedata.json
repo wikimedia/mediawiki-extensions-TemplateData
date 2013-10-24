@@ -48,13 +48,13 @@
 	  Any textual value.
 	- number
 	  Any numerical value (without decimal points or thousand separators).
-	- string/wiki-page-name
+	- wiki-page-name
 	  A valid MediaWiki page name for the current wiki. Doesn't have to exist,
 	  but if not, should be a valid page name to create.
-	- string/wiki-user-name
+	- wiki-user-name
 	  A valid MediaWiki user name for the current wiki. Doesn't have to exist,
 	  but if not should be a valid user name to create.
-	- string/line
+	- line
 	  Short text field - use for names, labels, and other short-form fields.
 
 @structure {string|Object} InterfaceText

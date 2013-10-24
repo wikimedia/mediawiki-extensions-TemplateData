@@ -101,6 +101,34 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			),
 			array(
 				'input' => '{
+					"params": {
+						"comment": {
+							"type": "string/line"
+						}
+					}
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {
+						"comment": {
+							"label": null,
+							"description": null,
+							"default": "",
+							"required": false,
+							"deprecated": false,
+							"aliases": [],
+							"type": "line"
+						}
+					},
+					"paramOrder": ["comment"],
+					"sets": []
+				}
+				',
+				'msg' => 'Old string/* types are mapped to the unprefixed versions'
+			),
+			array(
+				'input' => '{
 					"description": "User badge MediaWiki developers.",
 					"params": {
 						"nickname": {

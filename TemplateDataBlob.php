@@ -93,12 +93,18 @@ class TemplateDataBlob {
 		);
 
 		static $types = array(
-			'unknown',
-			'string',
+			'line',
 			'number',
-			'string/wiki-page-name',
-			'string/wiki-user-name',
-			'string/line',
+			'string',
+			'unknown',
+			'wiki-page-name',
+			'wiki-user-name',
+		);
+
+		static $typeCompatMap = array(
+			'string/line' => 'line',
+			'string/wiki-page-name' => 'wiki-page-name',
+			'string/wiki-user-name' => 'wiki-user-name',
 		);
 
 		if ( $data === null ) {
@@ -250,6 +256,12 @@ class TemplateDataBlob {
 						'string'
 					);
 				}
+
+				// Map deprecated types to newer versions
+				if ( isset( $typeCompatMap[ $paramObj->type ] ) ) {
+					$paramObj->type = $typeCompatMap[ $paramObj->type ];
+				}
+
 				if ( !in_array( $paramObj->type, $types ) ) {
 					return Status::newFatal(
 						'templatedata-invalid-value',
