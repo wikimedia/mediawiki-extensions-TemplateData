@@ -878,9 +878,11 @@ $messages['sr-ec'] = array(
 /** Swedish (svenska)
  * @author Jopparn
  * @author Lokal Profil
+ * @author Skalman
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
+	'templatedata-desc' => 'Lagrar data för mallparametrar (med JSON)',
 	'templatedata-doc-desc-empty' => 'Ingen beskrivning.',
 	'templatedata-doc-params' => 'Mallparametrar',
 	'templatedata-doc-param-name' => 'Parameter',
@@ -895,6 +897,7 @@ $messages['sv'] = array(
 	'templatedata-doc-param-desc-empty' => 'ingen beskrivning',
 	'templatedata-invalid-parse' => 'Syntaxfel i JSON.',
 	'templatedata-invalid-type' => 'Egenskapen "$1" förväntas vara av typen "$2".',
+	'templatedata-invalid-missing' => 'Egenskapen "$1" krävs, men hittades inte.',
 	'templatedata-invalid-unknown' => 'Oväntad egenskap "$1".',
 	'templatedata-invalid-value' => 'Ogiltigt värde för egenskapen "$1".',
 	'templatedata-invalid-length' => 'Data för stor för att spara ({{formatnum:$1}}  {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|gränsen är}} {{formatnum: $2}})',
