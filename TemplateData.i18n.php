@@ -345,6 +345,13 @@ $messages['et'] = array(
 	'templatedata-doc-param-desc' => 'Kirjeldus',
 );
 
+/** Persian (فارسی)
+ * @author Ebraminio
+ */
+$messages['fa'] = array(
+	'templatedata-desc' => 'پیاده‌سازی انبارهٔ داده‌ها برای پارامترهای الگو (با استفاده از جی‌سون)',
+);
+
 /** Finnish (suomi)
  * @author Nike
  * @author Silvonen
@@ -680,6 +687,32 @@ $messages['ms'] = array(
 	'templatedata-invalid-unknown' => 'Sifat "$1" tidak dijangka.',
 	'templatedata-invalid-value' => 'Nilai tidak sah untuk sifat "$1".',
 	'templatedata-invalid-length' => 'Data terlalu besar untuk menyimpan ({{formatnum:$1}} {{PLURAL:$1|bait}}, {{PLURAL:$2|hadnya}} adalah {{formatnum:$2}})',
+);
+
+/** Norwegian Bokmål (norsk bokmål)
+ * @author Danmichaelo
+ */
+$messages['nb'] = array(
+	'templatedata-desc' => 'Implementerer datalager for malparametre (med JSON)',
+	'templatedata-doc-desc-empty' => 'Ingen beskrivelse.',
+	'templatedata-doc-params' => 'Malparametre',
+	'templatedata-doc-param-name' => 'Parameter',
+	'templatedata-doc-param-desc' => 'Beskrivelse',
+	'templatedata-doc-param-type' => 'Type',
+	'templatedata-doc-param-default' => 'Standard',
+	'templatedata-doc-param-default-empty' => 'tom',
+	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-status-deprecated' => 'foreldet',
+	'templatedata-doc-param-status-optional' => 'valgfri',
+	'templatedata-doc-param-status-required' => 'påkrevd',
+	'templatedata-doc-param-desc-empty' => 'ingen beskrivelse',
+	'templatedata-invalid-parse' => 'Syntaksfeil i JSON.',
+	'templatedata-invalid-type' => 'Egenskapen «$1» forventes å være av typen «$2».',
+	'templatedata-invalid-missing' => 'Egenskapen «$1» er påkrevd, men ble ikke funnet.',
+	'templatedata-invalid-empty-array' => 'Egenskapen «$1» må ha minst en verdi i listen sin.',
+	'templatedata-invalid-unknown' => 'Uventet egenskap «$1».',
+	'templatedata-invalid-value' => 'Ugyldig verdi for egenskapen «$1».',
+	'templatedata-invalid-length' => 'JSON-data for stor til å kunne lagres ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|grensen er}} {{formatnum:$2}})',
 );
 
 /** Low German (Plattdüütsch)
