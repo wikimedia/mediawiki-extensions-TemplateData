@@ -255,6 +255,7 @@ $messages['cy'] = array(
 	'templatedata-invalid-parse' => 'Gwall cystrawen yn JSON.',
 	'templatedata-invalid-type' => 'Disgwylir i\'r briodwedd "$1" fod o\'r math "$2".',
 	'templatedata-invalid-missing' => 'Ni ellir cael gafael ar y briodwedd angenrheidiol "$1".',
+	'templatedata-invalid-empty-array' => 'Rhaid bod o leiaf un gwerth yn arae y briodwedd "$1".',
 	'templatedata-invalid-unknown' => 'Priodwedd annisgwyl, "$1".',
 	'templatedata-invalid-value' => 'Gwerth annilys i\'r briodwedd "$1".',
 	'templatedata-invalid-length' => "Y data yn rhy fawr i'w roi ar gadw ({{formatnum:$1}} {{PLURAL:$1|beit|beit|feit|beit}}, {{formatnum:$2}}) yw'r {{PLURAL:$2|maint mwyaf}}",
