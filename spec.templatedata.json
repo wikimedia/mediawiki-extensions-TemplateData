@@ -9,6 +9,8 @@
 	@property {null|InterfaceText} [description]
 	@property {Object} params Contains all parameters.
 	 Keyed by parameter name, contains #Param objects.
+	@property {Array} [paramOrder] The logical order in which parameters should be
+	 displayed. The array contains each parameter key exactly once.
 	@property {Array} sets List of groups of parameters that should be used
 	 together. A parameter can be in multiple sets. Not every parameter has to be
 	 in a set. The array contains #Set objects.
