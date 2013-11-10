@@ -960,6 +960,7 @@ $messages['sv'] = array(
 	'templatedata-doc-param-status-optional' => 'valfri',
 	'templatedata-doc-param-status-required' => 'obligatorisk',
 	'templatedata-doc-param-desc-empty' => 'ingen beskrivning',
+	'templatedata-invalid-duplicate-value' => 'Egenskapen "$1" ("$3") är en dubblett av "$2".',
 	'templatedata-invalid-parse' => 'Syntaxfel i JSON.',
 	'templatedata-invalid-type' => 'Egenskapen "$1" förväntas vara av typen "$2".',
 	'templatedata-invalid-missing' => 'Egenskapen "$1" krävs, men hittades inte.',
