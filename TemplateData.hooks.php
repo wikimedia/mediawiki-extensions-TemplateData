@@ -50,7 +50,9 @@ class TemplateDataHooks {
 		// right after this hook is ran) has guards that lazy-init and return early if called again
 		// later by the real WikiPage.
 
-		$editInfo = $page->prepareContentForEdit( $content, null, $user, $serialisation_format = null );
+		// Specify format the same way the API and EditPage do to avoid extra parsing
+		$format = $content->getContentHandler()->getDefaultFormat();
+		$editInfo = $page->prepareContentForEdit( $content, null, $user, $format );
 
 		if ( isset( $editInfo->output->ext_templatedata_status ) ) {
 			$validation = $editInfo->output->ext_templatedata_status;
