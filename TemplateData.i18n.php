@@ -82,7 +82,8 @@ $messages['qqq'] = array(
 	'templatedata-invalid-missing' => 'Error message when a required property is not found.
 * $1 - name of property. e.g. "params"
 * $2 - type of property (Unused)',
-	'templatedata-invalid-empty-array' => 'Error message when a property that must be non-empty is empty.',
+	'templatedata-invalid-empty-array' => 'Error message when a property that must be non-empty is empty. Parameters:
+* $1 - property name ("paramOrder" or "sets.{$setNr}.params")',
 	'templatedata-invalid-unknown' => 'Error message when an unknown property is found.
 * $1 - name of property. e.g. "params.1.foobar"',
 	'templatedata-invalid-value' => 'Error message when a property that cannot contain free-form text has an invalid value.
@@ -127,6 +128,7 @@ $messages['ast'] = array(
 	'templatedata-doc-param-status-optional' => 'opcional',
 	'templatedata-doc-param-status-required' => 'obligatoriu',
 	'templatedata-doc-param-desc-empty' => 'ensin descripción',
+	'templatedata-invalid-duplicate-value' => 'La propiedá "$1" ("$3") ye un duplicáu de "$2".',
 	'templatedata-invalid-parse' => 'Error de sintaxis en JSON.',
 	'templatedata-invalid-type' => 'Esperabase que la propiedá «$1» fuera de tipu «$2».',
 	'templatedata-invalid-missing' => "Nun s'alcontró la propiedá requerida «$1».",
