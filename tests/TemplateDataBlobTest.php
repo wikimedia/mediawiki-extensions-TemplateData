@@ -654,7 +654,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		$t = TemplateDataBlob::newFromJSON( $case['input'] );
 		$status = $t->getStatus();
 
-		$this->assertTrue( $status->isGood() ? : $status->getHtml(), 'Status is good: ' . $case['msg'] );
+		$this->assertTrue( $status->isGood() ?: $status->getHtml(), 'Status is good: ' . $case['msg'] );
 
 		$actual = $t->getDataInLanguage( $case['lang'] );
 		$this->assertJsonStringEqualsJsonString(
