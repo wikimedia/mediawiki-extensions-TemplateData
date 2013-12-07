@@ -220,7 +220,7 @@ $messages['ce'] = array(
 	'templatedata-doc-param-default' => 'Iад йитарца',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Littledogboy
  * @author Mormegil
  */
@@ -297,10 +297,21 @@ $messages['de'] = array(
 );
 
 /** Zazaki (Zazaki)
+ * @author Marmase
  * @author Mirzali
  */
 $messages['diq'] = array(
+	'templatedata-doc-desc-empty' => 'Akerdenayış çıniyo',
+	'templatedata-doc-params' => 'parametrey şablonan',
+	'templatedata-doc-param-name' => 'Parametre',
+	'templatedata-doc-param-desc' => 'Sılasnayış',
+	'templatedata-doc-param-type' => 'Babet',
+	'templatedata-doc-param-default' => 'Hesıbyaye',
+	'templatedata-doc-param-default-empty' => 'veng',
 	'templatedata-doc-param-status' => 'Weziyet',
+	'templatedata-doc-param-status-optional' => 'opsiyonel',
+	'templatedata-doc-param-status-required' => 'lazım',
+	'templatedata-doc-param-desc-empty' => 'Akerdenayış çıniyo',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -766,9 +777,11 @@ $messages['nl'] = array(
 	'templatedata-doc-param-status-optional' => 'optioneel',
 	'templatedata-doc-param-status-required' => 'vereist',
 	'templatedata-doc-param-desc-empty' => 'geen beschrijving',
+	'templatedata-invalid-duplicate-value' => 'Eigenschap "$1" ("$3") is een duplicaat van "$2".',
 	'templatedata-invalid-parse' => 'Syntaxisfout in JSON.',
 	'templatedata-invalid-type' => 'De verwachting is dat eigenschap "$1" van het type "$2" is.',
 	'templatedata-invalid-missing' => 'Vereiste eigenschap "$1" niet gevonden.',
+	'templatedata-invalid-empty-array' => 'Eigenschap "$1" moet ten minste één waarde in de verzameling hebben.',
 	'templatedata-invalid-unknown' => 'Onverwachte eigenschap "$1".',
 	'templatedata-invalid-value' => 'Ongeldige waarde voor de eigenschap "$1".',
 	'templatedata-invalid-length' => 'Te veel gegevens om op te slaan ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}} opgegeven, de {{PLURAL:$2|limiet is}} {{formatnum:$2}})',
