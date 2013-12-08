@@ -206,9 +206,18 @@ $messages['bs'] = array(
 
 /** Catalan (català)
  * @author Luckas
+ * @author Vriullop
  */
 $messages['ca'] = array(
+	'templatedata-doc-params' => 'Paràmetres de la plantilla',
+	'templatedata-doc-param-name' => 'Paràmetre',
 	'templatedata-doc-param-desc' => 'Descripció',
+	'templatedata-doc-param-type' => 'Tipus',
+	'templatedata-doc-param-default' => 'Per defecte',
+	'templatedata-doc-param-default-empty' => 'buit',
+	'templatedata-doc-param-status' => 'Estat',
+	'templatedata-doc-param-status-optional' => 'opcional',
+	'templatedata-doc-param-status-required' => 'obligatori',
 );
 
 /** Chechen (нохчийн)
