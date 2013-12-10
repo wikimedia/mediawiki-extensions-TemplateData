@@ -347,6 +347,16 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		return $calls;
 	}
 
+	protected static function getStatusText( Status $status ) {
+		$str = $status->getHtml();
+		// Based on wfMsgExt/parseinline
+		$m = array();
+		if ( preg_match( '/^<p>(.*)\n?<\/p>\n?$/sU', $str, $m ) ) {
+			$str = $m[1];
+		}
+		return $str;
+	}
+
 	protected function assertTemplateData( Array $case ) {
 		// Expand defaults
 		if ( !isset( $case['status'] ) ) {
@@ -369,7 +379,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		if ( !$status->isGood() ) {
 			$this->assertEquals(
 				$case['status'],
-				$status->getHtml(),
+				self::getStatusText( $status ),
 				'Status: ' . $case['msg']
 			);
 		} else {
@@ -393,7 +403,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		if ( !$status->isGood() ) {
 			$this->assertEquals(
 				$case['status'],
-				$status->getHtml(),
+				self::getStatusText( $status ),
 				'Roundtrip status: ' . $case['msg']
 			);
 		}
@@ -654,7 +664,10 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		$t = TemplateDataBlob::newFromJSON( $case['input'] );
 		$status = $t->getStatus();
 
-		$this->assertTrue( $status->isGood() ?: $status->getHtml(), 'Status is good: ' . $case['msg'] );
+		$this->assertTrue(
+			$status->isGood() ?: self::getStatusText( $status ),
+			'Status is good: ' . $case['msg']
+		);
 
 		$actual = $t->getDataInLanguage( $case['lang'] );
 		$this->assertJsonStringEqualsJsonString(
