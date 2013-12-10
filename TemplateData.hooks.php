@@ -84,7 +84,7 @@ class TemplateDataHooks {
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
 			$parser->getOutput()->ext_templatedata_status = $status;
-			return '<div class="error">' . $status->getHtml() . '</div>';
+			return '<div class="errorbox">' . $status->getHtml() . '</div>';
 		}
 
 		$parser->getOutput()->setProperty( 'templatedata', $ti->getJSONForDatabase() );
