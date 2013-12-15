@@ -849,6 +849,7 @@ $messages['pl'] = array(
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Domyślne',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-invalid-duplicate-value' => 'Właściwość "$1" ("$3") jest duplikatem "$2".',
 	'templatedata-invalid-parse' => 'Błąd składni w JSON.',
 	'templatedata-invalid-type' => 'Właściwość "$1" powinna mieć typ "$2".',
 	'templatedata-invalid-missing' => 'Wymagana właściwość "$1" nie została znaleziona.',
