@@ -758,6 +758,7 @@ $messages['nb'] = array(
 	'templatedata-doc-param-status-optional' => 'valgfri',
 	'templatedata-doc-param-status-required' => 'påkrevd',
 	'templatedata-doc-param-desc-empty' => 'ingen beskrivelse',
+	'templatedata-invalid-duplicate-value' => 'Egenskapen «$1» («$3») er en duplikat av «$2».',
 	'templatedata-invalid-parse' => 'Syntaksfeil i JSON.',
 	'templatedata-invalid-type' => 'Egenskapen «$1» forventes å være av typen «$2».',
 	'templatedata-invalid-missing' => 'Egenskapen «$1» er påkrevd, men ble ikke funnet.',
