@@ -241,11 +241,17 @@ $messages['cs'] = array(
 	'templatedata-doc-param-desc' => 'Popis',
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Výchozí hodnota',
+	'templatedata-doc-param-default-empty' => 'prázdné',
 	'templatedata-doc-param-status' => 'Stav',
+	'templatedata-doc-param-status-deprecated' => 'zastaralý',
+	'templatedata-doc-param-status-optional' => 'nepovinný',
+	'templatedata-doc-param-status-required' => 'povinný',
 	'templatedata-doc-param-desc-empty' => 'prázdné',
+	'templatedata-invalid-duplicate-value' => 'Vlastnost „$1“ („$3“) je duplicita k „$2“.',
 	'templatedata-invalid-parse' => 'Syntaktická chyba v JSON.',
 	'templatedata-invalid-type' => 'Očekávaný typ vlastnosti „$1“ je „$2“.',
 	'templatedata-invalid-missing' => 'Nenalezena vyžadovaná vlastnost „$1“.',
+	'templatedata-invalid-empty-array' => 'Vlastnost „$1“ musí ve svém poli obsahovat alespoň jednu hodnotu.',
 	'templatedata-invalid-unknown' => 'Neočekávaná vlastnost „$1“.',
 	'templatedata-invalid-value' => 'Chybná hodnota vlastnosti „$1“.',
 	'templatedata-invalid-length' => 'Takto velká data nelze uložit ({{formatnum:$1}} {{PLURAL:$1|bajt|bajty|bajtů}}, limit je {{formatnum:$2}} {{PLURAL:$2|bajt|bajty|bajtů}})',
@@ -463,6 +469,7 @@ $messages['gl'] = array(
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Guycn2
  */
 $messages['he'] = array(
 	'templatedata-desc' => 'מימוש אחסון נתונים לפרמטרים של תבניות (באמצעות JSON)',
@@ -471,7 +478,7 @@ $messages['he'] = array(
 	'templatedata-doc-param-name' => 'פרמטר',
 	'templatedata-doc-param-desc' => 'תיאור',
 	'templatedata-doc-param-type' => 'סוג',
-	'templatedata-doc-param-default' => 'בררת מחדל',
+	'templatedata-doc-param-default' => 'ברירת מחדל',
 	'templatedata-doc-param-default-empty' => 'ריק',
 	'templatedata-doc-param-status' => 'מצב',
 	'templatedata-doc-param-status-deprecated' => 'מיושן',
