@@ -383,9 +383,15 @@ $messages['et'] = array(
 
 /** Persian (فارسی)
  * @author Ebraminio
+ * @author Reza1615
  */
 $messages['fa'] = array(
 	'templatedata-desc' => 'پیاده‌سازی انبارهٔ داده‌ها برای پارامترهای الگو (با استفاده از جی‌سون)',
+	'templatedata-doc-param-name' => 'پارامتر',
+	'templatedata-doc-param-desc' => 'توضیحات',
+	'templatedata-doc-param-type' => 'نوع',
+	'templatedata-doc-param-default' => 'پیش‌فرض',
+	'templatedata-doc-param-status' => 'وضعیت',
 );
 
 /** Finnish (suomi)
