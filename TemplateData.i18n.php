@@ -960,7 +960,7 @@ $messages['ru'] = array(
 	'templatedata-invalid-empty-array' => 'Свойство «$1» должно иметь по крайней мере одно значение в своём массиве.',
 	'templatedata-invalid-unknown' => 'Неожиданное свойство «$1».',
 	'templatedata-invalid-value' => 'Недопустимое значение для свойства «$1».',
-	'templatedata-invalid-length' => 'Данные слишком велики для сохранения ({{formatnum:$1}} {{PLURAL:$1|байт|байта|байтов}}, {{PLURAL:$2|лимит:}} {{formatnum:$2}})',
+	'templatedata-invalid-length' => 'Данные слишком велики для сохранения ({{formatnum:$1}} {{PLURAL:$1|байт|байтов|байта}}, {{PLURAL:$2|лимит:}} {{formatnum:$2}})', # Fuzzy
 );
 
 /** Slovenian (slovenščina)
