@@ -108,6 +108,7 @@ class ApiTemplateData extends ApiBase {
 				'title' => strval( $titles[$row->pp_page] ),
 				'description' => $data->description,
 				'params' => $data->params,
+				'paramOrder' => $data->paramOrder,
 			);
 		}
 
