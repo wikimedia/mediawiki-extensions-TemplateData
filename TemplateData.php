@@ -34,6 +34,8 @@ $wgAutoloadClasses['ApiTemplateData'] = $dir . '/api/ApiTemplateData.php';
 $wgHooks['ParserFirstCallInit'][] = 'TemplateDataHooks::onParserFirstCallInit';
 $wgHooks['PageContentSave'][] = 'TemplateDataHooks::onPageContentSave';
 $wgHooks['UnitTestsList'][] = 'TemplateDataHooks::onUnitTestsList';
+$wgHooks['ResourceLoaderTestModules'][] = 'TemplateDataHooks::onResourceLoaderTestModules';
+$wgHooks['EditPage::showEditForm:initial'][] = 'TemplateDataHooks::onEditPage';
 
 // Register APIs
 $wgAPIModules['templatedata'] = 'ApiTemplateData';
@@ -48,3 +50,63 @@ $wgResourceModules['ext.templateData'] = array(
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'TemplateData',
 );
+
+$wgResourceModules['ext.templateDataGenerator.editPage'] = array(
+	'localBasePath' => $dir,
+	'remoteExtPath' => 'TemplateData',
+	'scripts' => array(
+		'modules/ext.templateDataGenerator.editPage.js',
+	),
+	'dependencies' => array(
+		'ext.templateDataGenerator.core',
+	),
+	'messages' => array(
+		'templatedata-editbutton',
+		'templatedata-errormsg-jsonbadformat',
+	)
+);
+
+$wgResourceModules['ext.templateDataGenerator.core'] = array(
+	'localBasePath' => $dir,
+	'remoteExtPath' => 'TemplateData',
+	'styles' => 'modules/ext.templateDataGenerator.css',
+	'scripts' => array(
+		'modules/ext.templateDataGenerator.core.js',
+	),
+	'dependencies' => array(
+		'jquery.ui.dialog',
+		'jquery.ui.button',
+	),
+	'messages' => array(
+		'templatedata-modal-button-addparam',
+		'templatedata-modal-button-apply',
+		'templatedata-modal-button-cancel',
+		'templatedata-modal-button-delparam',
+		'templatedata-modal-button-importParams',
+		'templatedata-modal-errormsg',
+		'templatedata-modal-errormsg-import-noparams',
+		'templatedata-modal-notice-import-numparams',
+		'templatedata-modal-table-param-actions',
+		'templatedata-modal-table-param-aliases',
+		'templatedata-modal-table-param-default',
+		'templatedata-modal-table-param-desc',
+		'templatedata-modal-table-param-label',
+		'templatedata-modal-table-param-name',
+		'templatedata-modal-table-param-required',
+		'templatedata-modal-table-param-type',
+		'templatedata-modal-table-param-type-number',
+		'templatedata-modal-table-param-type-page',
+		'templatedata-modal-table-param-type-string',
+		'templatedata-modal-table-param-type-undefined',
+		'templatedata-modal-table-param-type-user',
+		'templatedata-modal-title',
+		'templatedata-modal-title-templatedesc',
+		'templatedata-modal-title-templateparams',
+	)
+);
+
+/* Configuration */
+
+// Set this to true to use the template documentation
+// editor feature
+$wgTemplateDataUseGUI = false;

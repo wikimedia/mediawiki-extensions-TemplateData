@@ -26,6 +26,22 @@ class TemplateDataHooks {
 	}
 
 	/**
+	 * Register qunit unit tests
+	 */
+	public static function onResourceLoaderTestModules(
+		array &$testModules,
+		ResourceLoader &$resourceLoader
+	) {
+		$testModules['qunit']['ext.templateData.test'] = array(
+			'scripts' => array( 'tests/ext.templateData.tests.js' ),
+			'dependencies' => array( 'ext.templateDataGenerator.core' ),
+			'localBasePath' => __DIR__ ,
+			'remoteExtPath' => 'TemplateData',
+		);
+		return true;
+	}
+
+	/**
 	 * @param Page &$page
 	 * @param User &$user
 	 * @param Content &$content
@@ -60,6 +76,23 @@ class TemplateDataHooks {
 				// Abort edit, show error message from TemplateDataBlob::getStatus
 				$status->merge( $validation );
 				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Parser hook registering the GUI module only in edit pages.
+	 *
+	 * @param EditPage $editPage
+	 * @param OutputPage $output
+	 * @return bool
+	 */
+	public static function onEditPage( $editPage, $output ) {
+		global $wgTemplateDataUseGUI;
+		if ( $wgTemplateDataUseGUI ) {
+			if ( $output->getTitle()->getNamespace() === NS_TEMPLATE ) {
+				$output->addModules( 'ext.templateDataGenerator.editPage' );
 			}
 		}
 		return true;
