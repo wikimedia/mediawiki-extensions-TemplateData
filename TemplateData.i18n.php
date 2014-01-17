@@ -263,6 +263,7 @@ $messages['bs'] = array(
 
 /** Catalan (català)
  * @author Luckas
+ * @author Toniher
  * @author Vriullop
  */
 $messages['ca'] = array(
@@ -275,6 +276,11 @@ $messages['ca'] = array(
 	'templatedata-doc-param-status' => 'Estat',
 	'templatedata-doc-param-status-optional' => 'opcional',
 	'templatedata-doc-param-status-required' => 'obligatori',
+	'templatedata-modal-table-param-actions' => 'Accions',
+	'templatedata-modal-table-param-default' => 'Per defecte',
+	'templatedata-modal-table-param-required' => 'Obligatori',
+	'templatedata-modal-table-param-type' => 'Tipus',
+	'templatedata-modal-table-param-type-user' => 'Usuari',
 );
 
 /** Chechen (нохчийн)
@@ -903,7 +909,7 @@ $messages['mk'] = array(
 	'templatedata-modal-button-cancel' => 'Откажи',
 	'templatedata-modal-button-delparam' => 'Избриши параметар',
 	'templatedata-modal-button-importParams' => 'Увези параметри',
-	'templatedata-modal-errormsg' => 'Пронајдов грешки. Проверете дали има празни или дуплирани називи на параметрите. Во нив не треба да се содржат знаците „|“, „=“ и „}}“.', # Fuzzy
+	'templatedata-modal-errormsg' => 'Пронајдов грешки. Проверете дали има празни или дуплирани називи на параметрите. Во нив не треба да се содржат знаците „|“, „=“ и „&#125;&#125;“.',
 	'templatedata-modal-errormsg-import-noparams' => 'Не пронајдов нови параметри во увозот.',
 	'templatedata-modal-notice-import-numparams' => 'Увезов {{PLURAL:$1|еден параметар|$1 параметри}}.',
 	'templatedata-modal-table-param-actions' => 'Дејства',
@@ -1097,6 +1103,7 @@ $messages['pa'] = array(
 
 /** Polish (polski)
  * @author Chrumps
+ * @author Vuh
  * @author Woytecr
  */
 $messages['pl'] = array(
@@ -1113,6 +1120,13 @@ $messages['pl'] = array(
 	'templatedata-invalid-missing' => 'Wymagana właściwość "$1" nie została znaleziona.',
 	'templatedata-invalid-unknown' => 'Nieoczekiwane właściwość "$1".',
 	'templatedata-invalid-value' => 'Nieprawidłowa wartość właściwości "$1".',
+	'templatedata-modal-button-addparam' => 'Dodaj parametr',
+	'templatedata-modal-button-apply' => 'Zastosuj',
+	'templatedata-modal-button-delparam' => 'Usuń parametr',
+	'templatedata-modal-table-param-default' => 'Domyślnie',
+	'templatedata-modal-table-param-desc' => 'Opis',
+	'templatedata-modal-table-param-type-page' => 'Strona',
+	'templatedata-modal-title-templateparams' => 'Parametry szablonu',
 );
 
 /** Portuguese (português)
@@ -1415,6 +1429,28 @@ $messages['zh-hans'] = array(
 	'templatedata-invalid-unknown' => '意外的属性“$1”。',
 	'templatedata-invalid-value' => '属性“$1”的值无效。',
 	'templatedata-invalid-length' => '数据过大，无法保存（{{formatnum:$1}}{{PLURAL:$1|字节}}，{{PLURAL:$2|限制是}}{{formatnum:$2}}）',
+	'templatedata-editbutton' => '管理模板文档',
+	'templatedata-modal-button-addparam' => '添加参数',
+	'templatedata-modal-button-apply' => '应用',
+	'templatedata-modal-button-cancel' => '取消',
+	'templatedata-modal-button-delparam' => '删除参数',
+	'templatedata-modal-button-importParams' => '导入参数',
+	'templatedata-modal-errormsg-import-noparams' => '导入过程中找不到新的参数。',
+	'templatedata-modal-table-param-actions' => '操作',
+	'templatedata-modal-table-param-aliases' => '别名（逗号分隔）',
+	'templatedata-modal-table-param-default' => '默认值',
+	'templatedata-modal-table-param-desc' => '描述',
+	'templatedata-modal-table-param-label' => '标签',
+	'templatedata-modal-table-param-name' => '名称',
+	'templatedata-modal-table-param-required' => '必填',
+	'templatedata-modal-table-param-type' => '类型',
+	'templatedata-modal-table-param-type-number' => '数值',
+	'templatedata-modal-table-param-type-page' => '页面',
+	'templatedata-modal-table-param-type-string' => '字符串',
+	'templatedata-modal-table-param-type-undefined' => '未定义',
+	'templatedata-modal-table-param-type-user' => '用户',
+	'templatedata-modal-title' => '模板文档编辑器',
+	'templatedata-modal-title-templateparams' => '模板参数',
 );
 
 /** Traditional Chinese (中文（繁體）‎)
