@@ -106,10 +106,7 @@ class ApiTemplateData extends ApiBase {
 
 			$resp[$row->pp_page] = array(
 				'title' => strval( $titles[$row->pp_page] ),
-				'description' => $data->description,
-				'params' => $data->params,
-				'paramOrder' => $data->paramOrder,
-			);
+			) + (array) $data;
 		}
 
 		// Set top level element
