@@ -794,6 +794,7 @@ $messages['ja'] = array(
 
 /** Korean (한국어)
  * @author Kwj2772
+ * @author Priviet
  * @author 아라
  */
 $messages['ko'] = array(
@@ -817,6 +818,21 @@ $messages['ko'] = array(
 	'templatedata-invalid-unknown' => '예기치 않은 "$1" 속성입니다.',
 	'templatedata-invalid-value' => '"$1" 속성의 값이 잘못되었습니다.',
 	'templatedata-invalid-length' => '저장하기에 데이터가 너무 큽니다 ({{formatnum:$1}} {{PLURAL:$1|바이드}}, {{PLURAL:$2|제한은}} {{formatnum:$2}})',
+	'templatedata-modal-button-cancel' => '취소',
+	'templatedata-modal-errormsg' => '오류 발견. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  "|", "=" 또는 "}}"이 포함되지 않도록 하세요.', # Fuzzy
+	'templatedata-modal-table-param-desc' => '설명',
+	'templatedata-modal-table-param-label' => '레이블',
+	'templatedata-modal-table-param-name' => '이름',
+	'templatedata-modal-table-param-required' => '필수',
+	'templatedata-modal-table-param-type' => '종류',
+	'templatedata-modal-table-param-type-number' => '번호',
+	'templatedata-modal-table-param-type-page' => '문서',
+	'templatedata-modal-table-param-type-string' => '문자열',
+	'templatedata-modal-table-param-type-undefined' => '정의되지 않음',
+	'templatedata-modal-table-param-type-user' => '사용자',
+	'templatedata-modal-title' => '템플릿 문서 편집기',
+	'templatedata-modal-title-templatedesc' => '틀 설명',
+	'templatedata-modal-title-templateparams' => '틀 매개변수',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1220,6 +1236,32 @@ $messages['ru'] = array(
 	'templatedata-invalid-unknown' => 'Неожиданное свойство «$1».',
 	'templatedata-invalid-value' => 'Недопустимое значение для свойства «$1».',
 	'templatedata-invalid-length' => 'Данные слишком велики для сохранения ({{formatnum:$1}} {{PLURAL:$1|байт|байтов|байта}}, {{PLURAL:$2|лимит:}} {{formatnum:$2}})',
+	'templatedata-editbutton' => 'Управление шаблонами документации',
+	'templatedata-errormsg-jsonbadformat' => 'Некорректный JSON-формат. Исправить его или удалите текущие теги <templatedata> и повторите попытку.',
+	'templatedata-modal-button-addparam' => 'Добавить параметр',
+	'templatedata-modal-button-apply' => 'Применить',
+	'templatedata-modal-button-cancel' => 'Отмена',
+	'templatedata-modal-button-delparam' => 'Удалить параметр',
+	'templatedata-modal-button-importParams' => 'Импортировать параметры',
+	'templatedata-modal-errormsg' => 'Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «|», «=», или «&#125;&#125;».',
+	'templatedata-modal-errormsg-import-noparams' => 'Во время импорта новые параметры не найдены.',
+	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|новый параметр импортирован|новых параметров импортировано|новых параметра импортировано}}.',
+	'templatedata-modal-table-param-actions' => 'Действия',
+	'templatedata-modal-table-param-aliases' => 'Псевдонимы (через запятую)',
+	'templatedata-modal-table-param-default' => 'По умолчанию',
+	'templatedata-modal-table-param-desc' => 'Описание',
+	'templatedata-modal-table-param-label' => 'Обозначение',
+	'templatedata-modal-table-param-name' => 'Имя',
+	'templatedata-modal-table-param-required' => 'Обязательное',
+	'templatedata-modal-table-param-type' => 'Тип',
+	'templatedata-modal-table-param-type-number' => 'Число',
+	'templatedata-modal-table-param-type-page' => 'Страница',
+	'templatedata-modal-table-param-type-string' => 'Строка',
+	'templatedata-modal-table-param-type-undefined' => 'Неопределённый',
+	'templatedata-modal-table-param-type-user' => 'Участник',
+	'templatedata-modal-title' => 'Редактор шаблонов документов',
+	'templatedata-modal-title-templatedesc' => 'Описание шаблона',
+	'templatedata-modal-title-templateparams' => 'Параметры шаблона',
 );
 
 /** Slovenian (slovenščina)
@@ -1330,10 +1372,18 @@ $messages['uk'] = array(
 	'templatedata-invalid-unknown' => 'Неочікувана властивість "$1".',
 	'templatedata-invalid-value' => 'Неприпустиме значення властивості "$1".',
 	'templatedata-invalid-length' => 'Дані завеликі для збереження ({{formatnum:$1}} {{PLURAL:$1|байт|байти|байтів}}, {{PLURAL:$2|обмеження становить}} {{formatnum:$2}})',
+	'templatedata-editbutton' => 'Управління документацією шаблону',
+	'templatedata-errormsg-jsonbadformat' => 'Невірний JSON-формат. Виправте його або вилучіть поточні теги <templatedata> і повторіть спробу.',
 	'templatedata-modal-button-addparam' => 'Додати параметр',
 	'templatedata-modal-button-apply' => 'Застосовувати',
 	'templatedata-modal-button-cancel' => 'Скасувати',
 	'templatedata-modal-button-delparam' => 'Видалити параметр',
+	'templatedata-modal-button-importParams' => 'Імпортувати параметри',
+	'templatedata-modal-errormsg' => 'Виявлено помилки. Будь ласка, переконайтеся що імена параметрів не порожні або не дублюються і не містять "|", "=" або "}}".', # Fuzzy
+	'templatedata-modal-errormsg-import-noparams' => 'Не знайдено нових параметрів під час імпорту.',
+	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|новий параметр імпортовано|нові параметри імпортовано|нових параметрів імпортовано}}.',
+	'templatedata-modal-table-param-actions' => 'Дії',
+	'templatedata-modal-table-param-aliases' => 'Псевдоніми (через кому)',
 	'templatedata-modal-table-param-default' => 'Стандартно',
 	'templatedata-modal-table-param-desc' => 'Опис',
 	'templatedata-modal-table-param-label' => 'Позначення',
@@ -1343,7 +1393,9 @@ $messages['uk'] = array(
 	'templatedata-modal-table-param-type-number' => 'Число',
 	'templatedata-modal-table-param-type-page' => 'Сторінка',
 	'templatedata-modal-table-param-type-string' => 'Рядок',
+	'templatedata-modal-table-param-type-undefined' => 'Невизначений',
 	'templatedata-modal-table-param-type-user' => 'Користувач',
+	'templatedata-modal-title' => 'Редактор шаблонів документації',
 	'templatedata-modal-title-templatedesc' => 'Опис шаблону',
 	'templatedata-modal-title-templateparams' => 'Параметри шаблону',
 );
