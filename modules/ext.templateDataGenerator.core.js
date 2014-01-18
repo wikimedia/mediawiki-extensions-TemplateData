@@ -457,13 +457,12 @@
 		 * Apply the changes made to the parameters to the json
 		 *
 		 * @param {Object} originalJsonObject [description]
-		 * @param {Object<String,jQuery>} modalDomElements The structure of the
+		 * @param {Object<string,jQuery>} modalDomElements The structure of the
 		 *  dom elements in the editor, sorted by parameter id and jQuery editable
 		 *  object
-		 * @param {String} originalWikitext The original wikitext
-		 * @param {Boolean} DoNotCheckForm if set to true, the system will not validate the form
+		 * @param {boolean} doNotCheckForm if set to true, the system will not validate the form
 		 *  used mostly for tests.
-		 * @returns {Object} Amended json object
+		 * @returns {Object|boolean} Amended json object or false if changes are invalid.
 		 */
 		function applyChangeToJSON( originalJsonObject, modalDomElements, doNotCheckForm ) {
 			var paramid,
@@ -483,7 +482,7 @@
 			if ( !doNotCheckForm ) {
 				if ( !isFormValid() ) {
 					showErrorModal( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
-					return;
+					return false;
 				}
 			}
 
@@ -602,9 +601,16 @@
 			var modalButtons = {};
 
 			modalButtons[btnApply] = function() {
-				var newJson = applyChangeToJSON(),
-					finalOutput = amendWikitext( newJson );
+				var finalOutput,
+					newJson = applyChangeToJSON();
 
+				// Check if returned json is valid
+				if ( !newJson ) {
+					return false;
+				}
+
+				// Apply changes
+				finalOutput = amendWikitext( newJson );
 
 				// Close the modal
 				domObjects.$modalBox.dialog( 'close' );
