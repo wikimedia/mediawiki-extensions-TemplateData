@@ -482,7 +482,7 @@
 			// Validate
 			if ( !doNotCheckForm ) {
 				if ( !isFormValid() ) {
-					showErrorModal( mw.msg( 'templatedata-modal-errormsg', '}}' ) );
+					showErrorModal( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
 					return;
 				}
 			}
