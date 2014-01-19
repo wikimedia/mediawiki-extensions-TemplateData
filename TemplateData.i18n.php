@@ -217,16 +217,44 @@ $messages['be-tarask'] = array(
 /** Bengali (বাংলা)
  * @author Aftab1995
  * @author Leemon2010
+ * @author Tauhid16
  */
 $messages['bn'] = array(
+	'templatedata-doc-desc-empty' => 'বিবরণ নেই।',
 	'templatedata-doc-params' => 'টেমপ্লেট প্যারামিটার',
 	'templatedata-doc-param-name' => 'প্যারামিটার',
 	'templatedata-doc-param-desc' => 'বিবরণ',
 	'templatedata-doc-param-type' => 'ধরন',
 	'templatedata-doc-param-default' => 'ডিফল্ট',
+	'templatedata-doc-param-default-empty' => 'খালি',
 	'templatedata-doc-param-status' => 'অবস্থা',
+	'templatedata-doc-param-status-optional' => 'ঐচ্ছিক',
+	'templatedata-doc-param-status-required' => 'প্রয়োজনীয়',
+	'templatedata-doc-param-desc-empty' => 'বিবরণ নেই',
 	'templatedata-invalid-parse' => 'জেএসওএন-এর মধ্যে বাক্যগঠনে ত্রুটি।',
 	'templatedata-invalid-length' => 'সংরক্ষণ করার জন্য ডেটা খুব বড় ({{formatnum:$1}} {{PLURAL:$1|বাইট}}, {{PLURAL:$2|সর্বোচ্চ সীমা}} {{formatnum:$2}})',
+	'templatedata-editbutton' => 'নথিপত্র টেমপ্লেট পরিচালনা করুন',
+	'templatedata-modal-button-addparam' => 'স্থিতিমাপ যোগ করুন',
+	'templatedata-modal-button-apply' => 'প্রয়োগ',
+	'templatedata-modal-button-cancel' => 'বাতিল',
+	'templatedata-modal-button-delparam' => 'প্যারামিটার অপসারণ',
+	'templatedata-modal-button-importParams' => 'প্যারামিটার আমদানি',
+	'templatedata-modal-errormsg-import-noparams' => 'আমদানির সময় নতুন কোনো প্যারামিটার পাওয়া যায়নি।',
+	'templatedata-modal-table-param-actions' => 'কার্যসমূহ',
+	'templatedata-modal-table-param-default' => 'পূর্বনির্ধারিত',
+	'templatedata-modal-table-param-desc' => 'বিবরণ',
+	'templatedata-modal-table-param-label' => 'লেবেল',
+	'templatedata-modal-table-param-name' => 'নাম',
+	'templatedata-modal-table-param-required' => 'আবশ্যক',
+	'templatedata-modal-table-param-type' => 'ধরন',
+	'templatedata-modal-table-param-type-number' => 'সংখ্যা',
+	'templatedata-modal-table-param-type-page' => 'পাতা',
+	'templatedata-modal-table-param-type-string' => 'স্ট্রিং',
+	'templatedata-modal-table-param-type-undefined' => 'অসংজ্ঞায়িত',
+	'templatedata-modal-table-param-type-user' => 'ব্যবহারকারী',
+	'templatedata-modal-title' => 'টেমপ্লেট নথিপত্র সম্পাদক',
+	'templatedata-modal-title-templatedesc' => 'টেমপ্লেট বিবরণ',
+	'templatedata-modal-title-templateparams' => 'টেমপ্লেট প্যারামিটার',
 );
 
 /** Breton (brezhoneg)
@@ -461,6 +489,28 @@ $messages['es'] = array(
 	'templatedata-invalid-missing' => 'No se encontró la propiedad requerida «$1».',
 	'templatedata-invalid-unknown' => 'Propiedad «$1» inesperada.',
 	'templatedata-invalid-value' => 'Valor no válido para la propiedad «$1».',
+	'templatedata-modal-button-addparam' => 'Añadir parámetro',
+	'templatedata-modal-button-apply' => 'Aplicar',
+	'templatedata-modal-button-cancel' => 'Cancelar',
+	'templatedata-modal-button-delparam' => 'Eliminar parámetro',
+	'templatedata-modal-button-importParams' => 'Importar parámetros',
+	'templatedata-modal-errormsg' => 'Se encontraron errores. Asegúrate de que no hay nombres de parámetros vacíos o duplicados, y de que estos no incluyen «|», «=» o «}}».', # Fuzzy
+	'templatedata-modal-errormsg-import-noparams' => 'No se hallaron parámetros nuevos durante la importación.',
+	'templatedata-modal-table-param-actions' => 'Acciones',
+	'templatedata-modal-table-param-default' => 'Predeterminado',
+	'templatedata-modal-table-param-desc' => 'Descripción',
+	'templatedata-modal-table-param-label' => 'Etiqueta',
+	'templatedata-modal-table-param-name' => 'Nombre',
+	'templatedata-modal-table-param-required' => 'Obligatorio',
+	'templatedata-modal-table-param-type' => 'Tipo',
+	'templatedata-modal-table-param-type-number' => 'Número',
+	'templatedata-modal-table-param-type-page' => 'Página',
+	'templatedata-modal-table-param-type-string' => 'Cadena',
+	'templatedata-modal-table-param-type-undefined' => 'Sin definir',
+	'templatedata-modal-table-param-type-user' => 'Usuario',
+	'templatedata-modal-title' => 'Editor de documentación de plantilla',
+	'templatedata-modal-title-templatedesc' => 'Descripción de la plantilla',
+	'templatedata-modal-title-templateparams' => 'Parámetros de la plantilla',
 );
 
 /** Estonian (eesti)
@@ -591,6 +641,7 @@ $messages['gl'] = array(
 /** Hebrew (עברית)
  * @author Amire80
  * @author Guycn2
+ * @author תומר ט
  */
 $messages['he'] = array(
 	'templatedata-desc' => 'מימוש אחסון נתונים לפרמטרים של תבניות (באמצעות JSON)',
@@ -617,6 +668,8 @@ $messages['he'] = array(
 	'templatedata-editbutton' => 'יצירת נתוני תבנית',
 	'templatedata-errormsg-jsonbadformat' => 'JSON בלתי־תקין. נא לתקן אותו או למחוק את הטקסט בין תגי <templatedata> ולנסות שוב.',
 	'templatedata-modal-button-addparam' => 'הוספת פרמטר',
+	'templatedata-modal-button-apply' => 'החלה',
+	'templatedata-modal-button-cancel' => 'ביטול',
 	'templatedata-modal-button-delparam' => 'מחיקת פרמטר',
 	'templatedata-modal-button-importParams' => 'ייבוא פרמטרים',
 	'templatedata-modal-errormsg' => 'נמצאו שגיאות. נא לוודא ששמות הפרמטרים אינם ריקים ואינם חוזרים על עצמם, ושבשמות הפרמטרים לא מופיעים התווים |, = או }}', # Fuzzy
@@ -818,8 +871,17 @@ $messages['ko'] = array(
 	'templatedata-invalid-unknown' => '예기치 않은 "$1" 속성입니다.',
 	'templatedata-invalid-value' => '"$1" 속성의 값이 잘못되었습니다.',
 	'templatedata-invalid-length' => '저장하기에 데이터가 너무 큽니다 ({{formatnum:$1}} {{PLURAL:$1|바이드}}, {{PLURAL:$2|제한은}} {{formatnum:$2}})',
+	'templatedata-editbutton' => '틀 문서 관리',
+	'templatedata-modal-button-addparam' => '매개변수 추가',
+	'templatedata-modal-button-apply' => '적용',
 	'templatedata-modal-button-cancel' => '취소',
-	'templatedata-modal-errormsg' => '오류 발견. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  "|", "=" 또는 "}}"이 포함되지 않도록 하세요.', # Fuzzy
+	'templatedata-modal-button-delparam' => '매개변수 삭제',
+	'templatedata-modal-button-importParams' => '매개변수 가져오기',
+	'templatedata-modal-errormsg' => '오류 발견. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  "|", "=" 등이 포함되지 않도록 하세요.',
+	'templatedata-modal-errormsg-import-noparams' => '가져오는 중 새로운 매개변수를 찾지 못 했습니다.',
+	'templatedata-modal-table-param-actions' => '명령',
+	'templatedata-modal-table-param-aliases' => '별명(쉼표로 구분)',
+	'templatedata-modal-table-param-default' => '기본값',
 	'templatedata-modal-table-param-desc' => '설명',
 	'templatedata-modal-table-param-label' => '레이블',
 	'templatedata-modal-table-param-name' => '이름',
@@ -1506,6 +1568,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author EagerLin
  * @author Simon Shek
  */
 $messages['zh-hant'] = array(
@@ -1521,4 +1584,27 @@ $messages['zh-hant'] = array(
 	'templatedata-invalid-missing' => '找不到必須的屬性「$1」。',
 	'templatedata-invalid-unknown' => '意外的屬性「$1」。',
 	'templatedata-invalid-value' => '屬性「$1」的值無效。',
+	'templatedata-editbutton' => '管理模板文檔',
+	'templatedata-modal-button-addparam' => '添加參數',
+	'templatedata-modal-button-apply' => '應用',
+	'templatedata-modal-button-cancel' => '取消',
+	'templatedata-modal-button-delparam' => '刪除參數',
+	'templatedata-modal-button-importParams' => '導入參數',
+	'templatedata-modal-errormsg-import-noparams' => '導入過程中找不到新的參數。',
+	'templatedata-modal-table-param-actions' => '操作',
+	'templatedata-modal-table-param-aliases' => '別名 (逗號分隔)',
+	'templatedata-modal-table-param-default' => '預設值',
+	'templatedata-modal-table-param-desc' => '描述',
+	'templatedata-modal-table-param-label' => '標籤',
+	'templatedata-modal-table-param-name' => '名稱',
+	'templatedata-modal-table-param-required' => '必填',
+	'templatedata-modal-table-param-type' => '類型',
+	'templatedata-modal-table-param-type-number' => '數值',
+	'templatedata-modal-table-param-type-page' => '頁面',
+	'templatedata-modal-table-param-type-string' => '字串',
+	'templatedata-modal-table-param-type-undefined' => '未定義',
+	'templatedata-modal-table-param-type-user' => '使用者',
+	'templatedata-modal-title' => '模板文檔編輯器',
+	'templatedata-modal-title-templatedesc' => '模板描述',
+	'templatedata-modal-title-templateparams' => '模版參數',
 );
