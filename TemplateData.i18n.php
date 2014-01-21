@@ -471,6 +471,7 @@ $messages['eo'] = array(
 );
 
 /** Spanish (español)
+ * @author Csbotero
  * @author Fitoschido
  * @author Ovruni
  */
@@ -499,14 +500,14 @@ $messages['es'] = array(
 	'templatedata-modal-table-param-actions' => 'Acciones',
 	'templatedata-modal-table-param-default' => 'Predeterminado',
 	'templatedata-modal-table-param-desc' => 'Descripción',
-	'templatedata-modal-table-param-label' => 'Etiqueta',
+	'templatedata-modal-table-param-label' => 'Etiquetar',
 	'templatedata-modal-table-param-name' => 'Nombre',
 	'templatedata-modal-table-param-required' => 'Obligatorio',
 	'templatedata-modal-table-param-type' => 'Tipo',
 	'templatedata-modal-table-param-type-number' => 'Número',
 	'templatedata-modal-table-param-type-page' => 'Página',
 	'templatedata-modal-table-param-type-string' => 'Cadena',
-	'templatedata-modal-table-param-type-undefined' => 'Sin definir',
+	'templatedata-modal-table-param-type-undefined' => 'No definido',
 	'templatedata-modal-table-param-type-user' => 'Usuario',
 	'templatedata-modal-title' => 'Editor de documentación de plantilla',
 	'templatedata-modal-title-templatedesc' => 'Descripción de la plantilla',
