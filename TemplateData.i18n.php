@@ -315,9 +315,11 @@ $messages['ca'] = array(
  * @author Умар
  */
 $messages['ce'] = array(
+	'templatedata-desc' => 'Кепан парамнтраш лато меттиг кечйо (JSON гӀоьнца)',
 	'templatedata-doc-params' => 'Кепан параметраш',
 	'templatedata-doc-param-desc' => 'Цуьнах лаьцна',
 	'templatedata-doc-param-default' => 'Iад йитарца',
+	'templatedata-modal-table-param-desc' => 'Цуьнах лаьцна',
 );
 
 /** Czech (čeština)
@@ -712,6 +714,24 @@ $messages['hsb'] = array(
 	'templatedata-invalid-value' => 'Njepłaćiwa hódnota za kajkosć "$1".',
 );
 
+/** Armenian (Հայերեն)
+ * @author Vadgt
+ */
+$messages['hy'] = array(
+	'templatedata-modal-button-addparam' => 'Ավելացնել պարամետր',
+	'templatedata-modal-button-apply' => 'Կիրառել',
+	'templatedata-modal-button-cancel' => 'Չեղյալ',
+	'templatedata-modal-button-delparam' => 'Հեռացնել պարամետրը',
+	'templatedata-modal-table-param-default' => 'Լռությամբ',
+	'templatedata-modal-table-param-label' => 'Պիտակ',
+	'templatedata-modal-table-param-name' => 'Անունը',
+	'templatedata-modal-table-param-type-number' => 'Թիվը',
+	'templatedata-modal-table-param-type-page' => 'Էջ',
+	'templatedata-modal-table-param-type-string' => 'Տող',
+	'templatedata-modal-table-param-type-undefined' => 'Անորոշ',
+	'templatedata-modal-table-param-type-user' => 'Մասնակից',
+);
+
 /** Iloko (Ilokano)
  * @author Lam-ang
  */
@@ -789,11 +809,13 @@ $messages['it'] = array(
 	'templatedata-invalid-value' => 'Valore non valido per la proprietà "$1".',
 	'templatedata-invalid-length' => 'Troppi dati da salvare ({{formatnum:$1}} {{PLURAL:$1|byte}}, {{PLURAL:$2|limite è}} {{formatnum:$2}})',
 	'templatedata-editbutton' => 'Gestisci documentazione template',
+	'templatedata-errormsg-jsonbadformat' => 'Formato JSON errato. Correggi o cancella il tag <templatedata> e riprova.',
 	'templatedata-modal-button-addparam' => 'Aggiungi parametro',
 	'templatedata-modal-button-apply' => 'Applica',
 	'templatedata-modal-button-cancel' => 'Annulla',
 	'templatedata-modal-button-delparam' => 'Cancella parametro',
 	'templatedata-modal-button-importParams' => 'Importa parametri',
+	'templatedata-modal-errormsg' => 'Sono stati trovati errori. Assicurati che non ci siano nomi dei parametri vuoti, duplicati, o che contengono "|", "=" o "&#125;&#125;".',
 	'templatedata-modal-errormsg-import-noparams' => "Nessun nuovo parametro trovato durante l'importazione.",
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|nuovo parametro è stato|nuovi parametri sono stati}} importati.',
 	'templatedata-modal-table-param-actions' => 'Azioni',
@@ -809,6 +831,7 @@ $messages['it'] = array(
 	'templatedata-modal-table-param-type-string' => 'Stringa',
 	'templatedata-modal-table-param-type-undefined' => 'Non definito',
 	'templatedata-modal-table-param-type-user' => 'Utente',
+	'templatedata-modal-title' => 'Editor della documentazione di template',
 	'templatedata-modal-title-templatedesc' => 'Descrizione template',
 	'templatedata-modal-title-templateparams' => 'Parametri template',
 );
@@ -1423,6 +1446,32 @@ $messages['sv'] = array(
 	'templatedata-invalid-unknown' => 'Oväntad egenskap "$1".',
 	'templatedata-invalid-value' => 'Ogiltigt värde för egenskapen "$1".',
 	'templatedata-invalid-length' => 'Data för stor för att spara ({{formatnum:$1}}  {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|gränsen är}} {{formatnum: $2}})',
+	'templatedata-editbutton' => 'Hantera malldokumentation',
+	'templatedata-errormsg-jsonbadformat' => 'Ogiltigt JSON-format. Korrigera den eller radera de aktuella <templatedata>-taggarna och försök igen.',
+	'templatedata-modal-button-addparam' => 'Lägg till parameter',
+	'templatedata-modal-button-apply' => 'Verkställ',
+	'templatedata-modal-button-cancel' => 'Avbryt',
+	'templatedata-modal-button-delparam' => 'Radera parameter',
+	'templatedata-modal-button-importParams' => 'Importera parametrar',
+	'templatedata-modal-errormsg' => 'Fel hittades. Var god se till att det inte finns några tomma eller dubbla parameternamn, och att parameternamnet inte innehåller "|", "=" eller "}}".', # Fuzzy
+	'templatedata-modal-errormsg-import-noparams' => 'Inga nya parametrar hittades under import.',
+	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|ny parameter|nya parametrar}} importerades.',
+	'templatedata-modal-table-param-actions' => 'Handlingar',
+	'templatedata-modal-table-param-aliases' => 'Alias (kommaseparerade)',
+	'templatedata-modal-table-param-default' => 'Standard',
+	'templatedata-modal-table-param-desc' => 'Beskrivning',
+	'templatedata-modal-table-param-label' => 'Etikett',
+	'templatedata-modal-table-param-name' => 'Namn',
+	'templatedata-modal-table-param-required' => 'Nödvändig',
+	'templatedata-modal-table-param-type' => 'Typ',
+	'templatedata-modal-table-param-type-number' => 'Siffra',
+	'templatedata-modal-table-param-type-page' => 'Sida',
+	'templatedata-modal-table-param-type-string' => 'Sträng',
+	'templatedata-modal-table-param-type-undefined' => 'Odefinierad',
+	'templatedata-modal-table-param-type-user' => 'Användare',
+	'templatedata-modal-title' => 'Malldokumentationsredigerare',
+	'templatedata-modal-title-templatedesc' => 'Mallbeskrivning',
+	'templatedata-modal-title-templateparams' => 'Mallparametrar',
 );
 
 /** Telugu (తెలుగు)
