@@ -1534,7 +1534,7 @@ $messages['uk'] = array(
 	'templatedata-modal-button-cancel' => 'Скасувати',
 	'templatedata-modal-button-delparam' => 'Видалити параметр',
 	'templatedata-modal-button-importParams' => 'Імпортувати параметри',
-	'templatedata-modal-errormsg' => 'Виявлено помилки. Будь ласка, переконайтеся що імена параметрів не порожні або не дублюються і не містять "|", "=" або "}}".', # Fuzzy
+	'templatedata-modal-errormsg' => 'Виявлено помилки. Будь ласка, переконайтеся що імена параметрів не порожні або не дублюються і не містять «|», «=», або «&#125;&#125;».',
 	'templatedata-modal-errormsg-import-noparams' => 'Не знайдено нових параметрів під час імпорту.',
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|новий параметр імпортовано|нові параметри імпортовано|нових параметрів імпортовано}}.',
 	'templatedata-modal-table-param-actions' => 'Дії',
