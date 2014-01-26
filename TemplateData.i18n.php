@@ -195,6 +195,13 @@ $messages['ast'] = array(
 	'templatedata-invalid-length' => 'Los datos son demasiao grandes pa guardar ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|la llende ye}} {{formatnum:$2}})',
 );
 
+/** Azerbaijani (azərbaycanca)
+ * @author Eminn
+ */
+$messages['az'] = array(
+	'templatedata-modal-button-cancel' => 'Ləğv et',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Wizardist
  */
@@ -869,6 +876,13 @@ $messages['ja'] = array(
 	'templatedata-modal-table-param-aliases' => '別名 (カンマ区切り)',
 );
 
+/** Lojban (Lojban)
+ * @author Gleki
+ */
+$messages['jbo'] = array(
+	'templatedata-modal-button-cancel' => 'naljetnygau',
+);
+
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
  * @author Arystanbek
  */
@@ -1109,7 +1123,7 @@ $messages['mr'] = array(
 	'templatedata-modal-button-cancel' => 'रद्द करा',
 	'templatedata-modal-button-delparam' => 'प्राचल (पॅरामीटर) काढून टाका',
 	'templatedata-modal-button-importParams' => 'प्राचले (पॅरामिटर्स) आयात करा',
-	'templatedata-modal-errormsg' => 'त्रूटी आढळली. याची कृपया खात्री करा कि यात रिकामे अथवा द्विरुक्त प्राचल नावे नाहीत व प्राचल नावात "|", "=" किंवा"}}" याचा अंतर्भाव नाही.', # Fuzzy
+	'templatedata-modal-errormsg' => 'त्रूटी आढळली. याची कृपया खात्री करा कि यात रिकामे अथवा द्विरुक्त प्राचल नावे नाहीत व प्राचल नावात "|", "=" किंवा "}}" याचा अंतर्भाव नाही.', # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => 'आयाती दरम्यान काही नविन प्राचले(पॅरामिटर्स) सापडली नाहीत.',
 	'templatedata-modal-notice-import-numparams' => '$1 नविन {{PLURAL:$1|प्राचल आयात केल्या गेले |आयात केल्या गेलीत}}.',
 	'templatedata-modal-table-param-actions' => 'क्रिया',
@@ -1500,6 +1514,30 @@ $messages['tl'] = array(
 	'templatedata-invalid-missing' => 'Hindi natagpuan ang kailangang pag-aari na "$1".',
 	'templatedata-invalid-unknown' => 'Hindi inaasahang pag-aari na "$1".',
 	'templatedata-invalid-value' => 'Hindi katanggap-tanggap na halaga para sa pag-aaring "$1".',
+);
+
+/** Turkish (Türkçe)
+ * @author Trncmvsr
+ */
+$messages['tr'] = array(
+	'templatedata-editbutton' => 'Şablon belgelerini yönetme',
+	'templatedata-modal-button-addparam' => 'Değişken ekle',
+	'templatedata-modal-button-apply' => 'Uygula',
+	'templatedata-modal-button-cancel' => 'İptal',
+	'templatedata-modal-button-importParams' => 'Değişkenleri içe aktar',
+	'templatedata-modal-errormsg-import-noparams' => 'İçe aktarma sırasında yeni öznitelikler bulunamadı.',
+	'templatedata-modal-table-param-actions' => 'Eylemler',
+	'templatedata-modal-table-param-default' => 'Varsayılan',
+	'templatedata-modal-table-param-desc' => 'Açıklama',
+	'templatedata-modal-table-param-label' => 'Etiket',
+	'templatedata-modal-table-param-name' => 'Ad',
+	'templatedata-modal-table-param-type' => 'Tür',
+	'templatedata-modal-table-param-type-number' => 'Sayı',
+	'templatedata-modal-table-param-type-page' => 'Sayfa',
+	'templatedata-modal-table-param-type-string' => 'Dize',
+	'templatedata-modal-table-param-type-user' => 'Kullanıcı',
+	'templatedata-modal-title' => 'Belge şablonu düzenleyicisi',
+	'templatedata-modal-title-templatedesc' => 'Şablon açıklaması',
 );
 
 /** Ukrainian (українська)
