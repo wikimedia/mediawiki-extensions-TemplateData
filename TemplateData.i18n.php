@@ -532,6 +532,7 @@ $messages['et'] = array(
 
 /** Persian (فارسی)
  * @author Ebraminio
+ * @author Fatemi127
  * @author Reza1615
  */
 $messages['fa'] = array(
@@ -541,6 +542,24 @@ $messages['fa'] = array(
 	'templatedata-doc-param-type' => 'نوع',
 	'templatedata-doc-param-default' => 'پیش‌فرض',
 	'templatedata-doc-param-status' => 'وضعیت',
+	'templatedata-modal-button-addparam' => 'افزودن پارامتر',
+	'templatedata-modal-button-apply' => 'اعمال',
+	'templatedata-modal-button-cancel' => 'انصراف',
+	'templatedata-modal-button-delparam' => 'زدودن پارامتر',
+	'templatedata-modal-button-importParams' => 'واردکردن پارامترها',
+	'templatedata-modal-table-param-actions' => 'اقدامات',
+	'templatedata-modal-table-param-default' => 'پیش‌فرض',
+	'templatedata-modal-table-param-desc' => 'توضیحات',
+	'templatedata-modal-table-param-label' => 'برچسب',
+	'templatedata-modal-table-param-name' => 'نام',
+	'templatedata-modal-table-param-required' => 'موردنیاز',
+	'templatedata-modal-table-param-type' => 'نوع',
+	'templatedata-modal-table-param-type-number' => 'شماره',
+	'templatedata-modal-table-param-type-page' => 'صفحه',
+	'templatedata-modal-table-param-type-string' => 'رشته',
+	'templatedata-modal-table-param-type-undefined' => 'تعریف‌نشده',
+	'templatedata-modal-table-param-type-user' => 'کاربر',
+	'templatedata-modal-title-templatedesc' => 'توضیحات قالب',
 );
 
 /** Finnish (suomi)
