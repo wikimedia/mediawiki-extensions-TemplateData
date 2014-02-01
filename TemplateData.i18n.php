@@ -63,6 +63,7 @@ $messages['en'] = array(
 );
 
 /** Message documentation (Message documentation)
+ * @author Sethladan
  * @author Shirayuki
  * @author Timo Tijhof
  */
@@ -129,7 +130,9 @@ $messages['qqq'] = array(
 {{Identical|Cancel}}',
 	'templatedata-modal-button-delparam' => 'Button to delete a parameter',
 	'templatedata-modal-button-importParams' => 'Label of the import button',
-	'templatedata-modal-errormsg' => 'Error message that appears in the TemplateData generator GUI in case there are empty, duplicate or invalid parameter names',
+	'templatedata-modal-errormsg' => 'Error message that appears in the TemplateData generator GUI in case there are empty, duplicate or invalid parameter names
+
+To avoid errors, it may be necessary to escape some of the characters with <nowiki><nowiki></nowiki></nowiki> or HTML entity codes.',
 	'templatedata-modal-errormsg-import-noparams' => 'message that appears in the TemplateData generator GUI in case no template parameters were found during the import attempt.',
 	'templatedata-modal-notice-import-numparams' => 'message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.',
 	'templatedata-modal-table-param-actions' => 'Label for a table heading: Parameter actions in the table',
@@ -193,6 +196,32 @@ $messages['ast'] = array(
 	'templatedata-invalid-unknown' => 'Propiedá inesperada «$1».',
 	'templatedata-invalid-value' => 'Valor inválidu pa la propiedá «$1».',
 	'templatedata-invalid-length' => 'Los datos son demasiao grandes pa guardar ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|la llende ye}} {{formatnum:$2}})',
+	'templatedata-editbutton' => 'Alministrar la documentación de plantía',
+	'templatedata-errormsg-jsonbadformat' => 'Formatu JSON incorreutu. Corríxalu o desanicie les etiquetes <templatedata> actuales y vuelva a intentalo.',
+	'templatedata-modal-button-addparam' => 'Amestar parámetru',
+	'templatedata-modal-button-apply' => 'Aplicar',
+	'templatedata-modal-button-cancel' => 'Encaboxar',
+	'templatedata-modal-button-delparam' => 'Desaniciar parámetru',
+	'templatedata-modal-button-importParams' => 'Importar parámetros',
+	'templatedata-modal-errormsg' => 'Atopáronse errores. Compruebe que nun hai nomes de parámetru baleros o duplicaos, y que\'l nome del parámetru nun incluye "|", "=" o "}}".', # Fuzzy
+	'templatedata-modal-errormsg-import-noparams' => "Nun s'alcontraron parámetros nuevos demientres la importación.",
+	'templatedata-modal-notice-import-numparams' => '{{PLURAL:$1|Importóse|Importáronse}} $1 {{PLURAL:$1|parámetru nuevu|parámetros nuevos}}.',
+	'templatedata-modal-table-param-actions' => 'Aiciones',
+	'templatedata-modal-table-param-aliases' => 'Alcuños (separaos por comes)',
+	'templatedata-modal-table-param-default' => 'Predetermináu',
+	'templatedata-modal-table-param-desc' => 'Descripción',
+	'templatedata-modal-table-param-label' => 'Etiqueta',
+	'templatedata-modal-table-param-name' => 'Nome',
+	'templatedata-modal-table-param-required' => 'Requeríu',
+	'templatedata-modal-table-param-type' => 'Triba',
+	'templatedata-modal-table-param-type-number' => 'Númberu',
+	'templatedata-modal-table-param-type-page' => 'Páxina',
+	'templatedata-modal-table-param-type-string' => 'Cadena',
+	'templatedata-modal-table-param-type-undefined' => 'Non definíu',
+	'templatedata-modal-table-param-type-user' => 'Usuariu',
+	'templatedata-modal-title' => 'Editor de documentación de plantía',
+	'templatedata-modal-title-templatedesc' => 'Descripción de la plantía',
+	'templatedata-modal-title-templateparams' => 'Parámetros de la plantía',
 );
 
 /** Azerbaijani (azərbaycanca)
@@ -483,6 +512,7 @@ $messages['eo'] = array(
  * @author Csbotero
  * @author Fitoschido
  * @author Ovruni
+ * @author Sethladan
  */
 $messages['es'] = array(
 	'templatedata-desc' => 'Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).',
@@ -504,7 +534,7 @@ $messages['es'] = array(
 	'templatedata-modal-button-cancel' => 'Cancelar',
 	'templatedata-modal-button-delparam' => 'Eliminar parámetro',
 	'templatedata-modal-button-importParams' => 'Importar parámetros',
-	'templatedata-modal-errormsg' => 'Se encontraron errores. Asegúrate de que no hay nombres de parámetros vacíos o duplicados, y de que estos no incluyen «|», «=» o «}}».', # Fuzzy
+	'templatedata-modal-errormsg' => 'Se encontraron errores. Asegúrate de que no hay nombres de parámetros vacíos o duplicados, y de que estos no incluyen «|», «=» o «<nowiki>}}</nowiki>».', # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => 'No se hallaron parámetros nuevos durante la importación.',
 	'templatedata-modal-table-param-actions' => 'Acciones',
 	'templatedata-modal-table-param-default' => 'Predeterminado',
@@ -531,23 +561,39 @@ $messages['et'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Armin1392
  * @author Ebraminio
  * @author Fatemi127
  * @author Reza1615
  */
 $messages['fa'] = array(
 	'templatedata-desc' => 'پیاده‌سازی انبارهٔ داده‌ها برای پارامترهای الگو (با استفاده از جی‌سون)',
+	'templatedata-doc-desc-empty' => 'بدون توصیف.',
+	'templatedata-doc-params' => 'پارامترهای الگو',
 	'templatedata-doc-param-name' => 'پارامتر',
 	'templatedata-doc-param-desc' => 'توضیحات',
 	'templatedata-doc-param-type' => 'نوع',
 	'templatedata-doc-param-default' => 'پیش‌فرض',
+	'templatedata-doc-param-default-empty' => 'خالی',
 	'templatedata-doc-param-status' => 'وضعیت',
+	'templatedata-doc-param-status-optional' => 'اختیاری',
+	'templatedata-doc-param-status-required' => 'ضروری',
+	'templatedata-doc-param-desc-empty' => 'بدون توصیف',
+	'templatedata-invalid-parse' => 'خطای نحوی در جی‌سون.',
+	'templatedata-invalid-type' => 'انتظار می‌رود ویژگی "$1" نوع "$2" بشود.',
+	'templatedata-invalid-missing' => 'ویژگی مورد نیاز "$1" پیدا نشد.',
+	'templatedata-invalid-empty-array' => 'ویژگی "$1" باید حداقل یک مقدار در این آرایه داشته باشد.',
+	'templatedata-invalid-unknown' => 'ویژگی "$1" غیرمنتظره.',
+	'templatedata-invalid-value' => 'مقدار برای ویژگی "$1" نامعتبر.',
+	'templatedata-editbutton' => 'مدیریت مستندات الگو',
 	'templatedata-modal-button-addparam' => 'افزودن پارامتر',
 	'templatedata-modal-button-apply' => 'اعمال',
 	'templatedata-modal-button-cancel' => 'انصراف',
 	'templatedata-modal-button-delparam' => 'زدودن پارامتر',
 	'templatedata-modal-button-importParams' => 'واردکردن پارامترها',
+	'templatedata-modal-errormsg-import-noparams' => 'هیچ پارامتر جدیدی حین وارد کردن پیدا نشد.',
 	'templatedata-modal-table-param-actions' => 'اقدامات',
+	'templatedata-modal-table-param-aliases' => 'نام‌های عاریتی (با کاما جدا شده)',
 	'templatedata-modal-table-param-default' => 'پیش‌فرض',
 	'templatedata-modal-table-param-desc' => 'توضیحات',
 	'templatedata-modal-table-param-label' => 'برچسب',
@@ -559,7 +605,9 @@ $messages['fa'] = array(
 	'templatedata-modal-table-param-type-string' => 'رشته',
 	'templatedata-modal-table-param-type-undefined' => 'تعریف‌نشده',
 	'templatedata-modal-table-param-type-user' => 'کاربر',
+	'templatedata-modal-title' => 'ویرایشگر مستندات الگو',
 	'templatedata-modal-title-templatedesc' => 'توضیحات قالب',
+	'templatedata-modal-title-templateparams' => 'پارامترهای الگو',
 );
 
 /** Finnish (suomi)
@@ -665,6 +713,32 @@ $messages['gl'] = array(
 	'templatedata-invalid-unknown' => 'Propiedade "$1" inesperada.',
 	'templatedata-invalid-value' => 'Valor non válido para a propiedade "$1".',
 	'templatedata-invalid-length' => 'Dato longo de máis para podelo gardar ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}; {{PLURAL:$2|o límite é}} {{formatnum:$2}})',
+	'templatedata-editbutton' => 'Administrar a documentación do modelo',
+	'templatedata-errormsg-jsonbadformat' => 'O formato JSON é incorrecto. Corríxao ou borre as etiquetas <templatedata> actuais e inténteo de novo.',
+	'templatedata-modal-button-addparam' => 'Engadir o parámetro',
+	'templatedata-modal-button-apply' => 'Aplicar',
+	'templatedata-modal-button-cancel' => 'Cancelar',
+	'templatedata-modal-button-delparam' => 'Borrar o parámetro',
+	'templatedata-modal-button-importParams' => 'Importar os parámetros',
+	'templatedata-modal-errormsg' => 'Producíronse varios erros. Asegúrese de que non hai nomes de parámetros baleiros ou duplicados e de que o nome do parámetro non inclúe os caracteres "|", "=" ou "}}".', # Fuzzy
+	'templatedata-modal-errormsg-import-noparams' => 'Non se atopou ningún parámetro novo durante a importación.',
+	'templatedata-modal-notice-import-numparams' => '{{PLURAL:$1|Importouse $1 parámetro|Importáronse $1 parámetros}}.',
+	'templatedata-modal-table-param-actions' => 'Accións',
+	'templatedata-modal-table-param-aliases' => 'Pseudónimos (separados por comas)',
+	'templatedata-modal-table-param-default' => 'Predeterminado',
+	'templatedata-modal-table-param-desc' => 'Descrición',
+	'templatedata-modal-table-param-label' => 'Etiqueta',
+	'templatedata-modal-table-param-name' => 'Nome',
+	'templatedata-modal-table-param-required' => 'Obrigatorio',
+	'templatedata-modal-table-param-type' => 'Tipo',
+	'templatedata-modal-table-param-type-number' => 'Número',
+	'templatedata-modal-table-param-type-page' => 'Páxina',
+	'templatedata-modal-table-param-type-string' => 'Cadea de caracteres',
+	'templatedata-modal-table-param-type-undefined' => 'Sen definir',
+	'templatedata-modal-table-param-type-user' => 'Usuario',
+	'templatedata-modal-title' => 'Editor da documentación do modelo',
+	'templatedata-modal-title-templatedesc' => 'Descrición do modelo',
+	'templatedata-modal-title-templateparams' => 'Parámetros do modelo',
 );
 
 /** Hebrew (עברית)
@@ -1424,6 +1498,50 @@ $messages['ru'] = array(
 	'templatedata-modal-title' => 'Редактор шаблонов документов',
 	'templatedata-modal-title-templatedesc' => 'Описание шаблона',
 	'templatedata-modal-title-templateparams' => 'Параметры шаблона',
+);
+
+/** Slovak (slovenčina)
+ * @author Sudo77(new)
+ */
+$messages['sk'] = array(
+	'templatedata-doc-desc-empty' => 'Bez popisu.',
+	'templatedata-doc-params' => 'Parametre šablóny',
+	'templatedata-doc-param-name' => 'Parameter',
+	'templatedata-doc-param-desc' => 'Popis',
+	'templatedata-doc-param-type' => 'Typ',
+	'templatedata-doc-param-default' => 'Predvolené',
+	'templatedata-doc-param-default-empty' => 'prázdne',
+	'templatedata-doc-param-status' => 'Stav',
+	'templatedata-doc-param-status-deprecated' => 'zastarané',
+	'templatedata-doc-param-status-optional' => 'voliteľný',
+	'templatedata-doc-param-status-required' => 'povinný',
+	'templatedata-doc-param-desc-empty' => 'Bez popisu.',
+	'templatedata-invalid-duplicate-value' => 'Vlastnosť „$1“ („$3“) je duplicitná k „$2“.',
+	'templatedata-invalid-parse' => 'Syntaktická chyba v JSON.',
+	'templatedata-invalid-type' => 'Očakávaný typ vlastnosti „$1“ je „$2“.',
+	'templatedata-invalid-missing' => 'Požadovaná vlastnosť "$1" nebola nájdená.',
+	'templatedata-invalid-empty-array' => 'Vlastnosť "$1" musí obsahovať aspoň jednu hodnotu.',
+	'templatedata-invalid-unknown' => 'Neočakávaná vlastnosť "$1".',
+	'templatedata-invalid-value' => 'Chybná hodnota vlastnosti "$1".',
+	'templatedata-invalid-length' => 'Údaje nie je možné uložiť, sú príliš veľké ({{formatnum:$1}} {{PLURAL:$1|bajt|bajty|bajtov}}, limit je {{formatnum:$2}} {{PLURAL:$2|bajt|bajty|bajtov}})',
+	'templatedata-modal-button-apply' => 'Použiť',
+	'templatedata-modal-button-cancel' => 'Zrušiť',
+	'templatedata-modal-button-delparam' => 'Odstrániť parameter',
+	'templatedata-modal-button-importParams' => 'Importovať parametre',
+	'templatedata-modal-table-param-aliases' => 'Prezývky (oddelené čiarkou)',
+	'templatedata-modal-table-param-default' => 'Predvolené',
+	'templatedata-modal-table-param-desc' => 'Popis',
+	'templatedata-modal-table-param-label' => 'Štítok',
+	'templatedata-modal-table-param-name' => 'Meno',
+	'templatedata-modal-table-param-required' => 'Povinný',
+	'templatedata-modal-table-param-type' => 'Typ',
+	'templatedata-modal-table-param-type-number' => 'Číslo',
+	'templatedata-modal-table-param-type-page' => 'Stránka',
+	'templatedata-modal-table-param-type-string' => 'Reťazec',
+	'templatedata-modal-table-param-type-undefined' => 'Nedefinovaná',
+	'templatedata-modal-table-param-type-user' => 'Používateľ',
+	'templatedata-modal-title-templatedesc' => 'Popis šablóny',
+	'templatedata-modal-title-templateparams' => 'Parametre šablóny',
 );
 
 /** Slovenian (slovenščina)
