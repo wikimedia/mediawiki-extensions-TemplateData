@@ -131,11 +131,13 @@ $messages['qqq'] = array(
 	'templatedata-modal-button-delparam' => 'Button to delete a parameter',
 	'templatedata-modal-button-importParams' => 'Label of the import button',
 	'templatedata-modal-errormsg' => 'Error message that appears in the TemplateData generator GUI in case there are empty, duplicate or invalid parameter names.
+
 Invalid characters are supplied as parameters to avoid parsing errors in translation strings.
 
-* $1 - pipe
-* $2 - equal sign
-* $3 - double curly brackets',
+Parameters:
+* $1 - pipe (<code>|</code>)
+* $2 - equal sign (<code>=</code>)
+* $3 - double curly brackets (<code><nowiki>}}</nowiki></code>)',
 	'templatedata-modal-errormsg-import-noparams' => 'message that appears in the TemplateData generator GUI in case no template parameters were found during the import attempt.',
 	'templatedata-modal-notice-import-numparams' => 'message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.',
 	'templatedata-modal-table-param-actions' => 'Label for a table heading: Parameter actions in the table',
@@ -206,7 +208,7 @@ $messages['ast'] = array(
 	'templatedata-modal-button-cancel' => 'Encaboxar',
 	'templatedata-modal-button-delparam' => 'Desaniciar parámetru',
 	'templatedata-modal-button-importParams' => 'Importar parámetros',
-	'templatedata-modal-errormsg' => 'Atopáronse errores. Compruebe que nun hai nomes de parámetru baleros o duplicaos, y que\'l nome del parámetru nun incluye "|", "=" o "$1".', # Fuzzy
+	'templatedata-modal-errormsg' => 'Atopáronse errores. Compruebe que nun hai nomes de parámetru baleros o duplicaos, y que\'l nome del parámetru nun incluye "$1", "$2" o "$3".', # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => "Nun s'alcontraron parámetros nuevos demientres la importación.",
 	'templatedata-modal-notice-import-numparams' => '{{PLURAL:$1|Importóse|Importáronse}} $1 {{PLURAL:$1|parámetru nuevu|parámetros nuevos}}.',
 	'templatedata-modal-table-param-actions' => 'Aiciones',
@@ -358,7 +360,29 @@ $messages['ce'] = array(
 	'templatedata-doc-params' => 'Кепан параметраш',
 	'templatedata-doc-param-desc' => 'Цуьнах лаьцна',
 	'templatedata-doc-param-default' => 'Iад йитарца',
+	'templatedata-editbutton' => 'Кепашна документашна урхалладар',
+	'templatedata-modal-button-addparam' => 'ТӀетоха параметр',
+	'templatedata-modal-button-apply' => 'Кхочушде',
+	'templatedata-modal-button-cancel' => 'Цаоьшу',
+	'templatedata-modal-button-delparam' => 'ДӀаяккха параметр',
+	'templatedata-modal-button-importParams' => 'Параметраш импорт ян',
+	'templatedata-modal-errormsg-import-noparams' => 'Импорт ечу хенахь керла параметраш цакарий.',
+	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|керла параметр импорт йина|керла параметраш импорт йина}}.',
+	'templatedata-modal-table-param-actions' => 'Дийраш',
+	'templatedata-modal-table-param-default' => 'Iад йитарца',
 	'templatedata-modal-table-param-desc' => 'Цуьнах лаьцна',
+	'templatedata-modal-table-param-label' => 'Билгалдар',
+	'templatedata-modal-table-param-name' => 'ЦӀе',
+	'templatedata-modal-table-param-required' => 'Оьшу',
+	'templatedata-modal-table-param-type' => 'Тайп',
+	'templatedata-modal-table-param-type-number' => 'Терахь',
+	'templatedata-modal-table-param-type-page' => 'АгӀо',
+	'templatedata-modal-table-param-type-string' => 'МогӀа',
+	'templatedata-modal-table-param-type-undefined' => 'Билгала ца йинарг',
+	'templatedata-modal-table-param-type-user' => 'Декъашхо',
+	'templatedata-modal-title' => 'Кепаш документаш тадераг',
+	'templatedata-modal-title-templatedesc' => 'Кепах лаьцна',
+	'templatedata-modal-title-templateparams' => 'Кепан параметраш',
 );
 
 /** Czech (čeština)
@@ -448,7 +472,7 @@ $messages['de'] = array(
 	'templatedata-modal-button-cancel' => 'Abbrechen',
 	'templatedata-modal-button-delparam' => 'Parameter löschen',
 	'templatedata-modal-button-importParams' => 'Parameter importieren',
-	'templatedata-modal-errormsg' => 'Es wurden Fehler gefunden. Stelle bitte sicher, dass keine Parameternamen leer oder doppelt sind und der Parametername kein „|“, „=“ oder „$1“ enthält.',
+	'templatedata-modal-errormsg' => 'Es wurden Fehler gefunden. Stelle bitte sicher, dass keine Parameternamen leer oder doppelt sind und der Parametername kein „$1“, „$2“ oder „$3“ enthält.',
 	'templatedata-modal-errormsg-import-noparams' => 'Beim Importieren wurden keine neuen Parameter gefunden.',
 	'templatedata-modal-notice-import-numparams' => 'Es {{PLURAL:$1|wurde ein neuer|wurden $1 neue}} Parameter importiert.',
 	'templatedata-modal-table-param-actions' => 'Aktionen',
@@ -537,7 +561,7 @@ $messages['es'] = array(
 	'templatedata-modal-button-cancel' => 'Cancelar',
 	'templatedata-modal-button-delparam' => 'Eliminar parámetro',
 	'templatedata-modal-button-importParams' => 'Importar parámetros',
-	'templatedata-modal-errormsg' => 'Se encontraron errores. Asegúrate de que no hay nombres de parámetros vacíos o duplicados, y de que estos no incluyen «|», «=» o «$1».', # Fuzzy
+	'templatedata-modal-errormsg' => 'Se encontraron errores. Asegúrate de que no hay nombres de parámetros vacíos o duplicados, y de que estos no incluyen «$1», «$2» ni «$3».', # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => 'No se hallaron parámetros nuevos durante la importación.',
 	'templatedata-modal-table-param-actions' => 'Acciones',
 	'templatedata-modal-table-param-default' => 'Predeterminado',
@@ -558,9 +582,21 @@ $messages['es'] = array(
 
 /** Estonian (eesti)
  * @author Luckas
+ * @author Pikne
  */
 $messages['et'] = array(
+	'templatedata-doc-desc-empty' => 'Kirjeldus puudub.',
+	'templatedata-doc-params' => 'Malli parameetrid',
+	'templatedata-doc-param-name' => 'Parameeter',
 	'templatedata-doc-param-desc' => 'Kirjeldus',
+	'templatedata-doc-param-type' => 'Tüüp',
+	'templatedata-doc-param-default' => 'Vaikimisi',
+	'templatedata-doc-param-default-empty' => 'tühi',
+	'templatedata-doc-param-status' => 'Olek',
+	'templatedata-doc-param-status-deprecated' => 'iganenud',
+	'templatedata-doc-param-status-optional' => 'valikuline',
+	'templatedata-doc-param-status-required' => 'nõutav',
+	'templatedata-doc-param-desc-empty' => 'kirjeldus puudub',
 );
 
 /** Persian (فارسی)
@@ -670,7 +706,7 @@ $messages['fr'] = array(
 	'templatedata-modal-button-cancel' => 'Annuler',
 	'templatedata-modal-button-delparam' => 'Supprimer le paramètre',
 	'templatedata-modal-button-importParams' => 'Importer les paramètres',
-	'templatedata-modal-errormsg' => "Des erreurs ont été trouvées. Assurez-vous qu’il n’y a pas de noms de paramètre vide ou dupliqué, et que le nom du paramètre ne comprend pas '|', '=' ou '$1'.", # Fuzzy
+	'templatedata-modal-errormsg' => "Des erreurs ont été trouvées. Assurez-vous qu’il n’y a pas de noms de paramètre vide ou dupliqué, et que le nom du paramètre ne comprend pas '$1', '$2' ou '$3'.", # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => 'Aucun nouveau paramètre trouvé lors de l’import.',
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|nouveau paramètre a été importé|nouveaux paramètres ont été importés}}.',
 	'templatedata-modal-table-param-actions' => 'Actions',
@@ -723,7 +759,7 @@ $messages['gl'] = array(
 	'templatedata-modal-button-cancel' => 'Cancelar',
 	'templatedata-modal-button-delparam' => 'Borrar o parámetro',
 	'templatedata-modal-button-importParams' => 'Importar os parámetros',
-	'templatedata-modal-errormsg' => 'Producíronse varios erros. Asegúrese de que non hai nomes de parámetros baleiros ou duplicados e de que o nome do parámetro non inclúe os caracteres "|", "=" ou "$1".', # Fuzzy
+	'templatedata-modal-errormsg' => 'Producíronse varios erros. Asegúrese de que non hai nomes de parámetros baleiros ou duplicados e de que o nome do parámetro non inclúe os caracteres "$1", "$2" ou "$3".', # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => 'Non se atopou ningún parámetro novo durante a importación.',
 	'templatedata-modal-notice-import-numparams' => '{{PLURAL:$1|Importouse $1 parámetro|Importáronse $1 parámetros}}.',
 	'templatedata-modal-table-param-actions' => 'Accións',
@@ -778,7 +814,7 @@ $messages['he'] = array(
 	'templatedata-modal-button-cancel' => 'ביטול',
 	'templatedata-modal-button-delparam' => 'מחיקת פרמטר',
 	'templatedata-modal-button-importParams' => 'ייבוא פרמטרים',
-	'templatedata-modal-errormsg' => 'נמצאו שגיאות. נא לוודא ששמות הפרמטרים אינם ריקים ואינם חוזרים על עצמם, ושבשמות הפרמטרים לא מופיעים התווים "|", "=" או "$1".', # Fuzzy
+	'templatedata-modal-errormsg' => 'נמצאו שגיאות. נא לוודא ששמות הפרמטרים אינם ריקים ואינם חוזרים על עצמם, ושבשמות הפרמטרים לא מופיעים התווים "$1", "$2" או "$3".',
 	'templatedata-modal-errormsg-import-noparams' => 'לא נמצאו פרמטרים חדשים בעת הייבוא',
 	'templatedata-modal-notice-import-numparams' => '{{PLURAL:$1|יובא פרמטר חדש אחד|יובאו $1 פרמטרים חדשים}}',
 	'templatedata-modal-table-param-actions' => 'פעולות',
@@ -918,7 +954,7 @@ $messages['it'] = array(
 	'templatedata-modal-button-cancel' => 'Annulla',
 	'templatedata-modal-button-delparam' => 'Cancella parametro',
 	'templatedata-modal-button-importParams' => 'Importa parametri',
-	'templatedata-modal-errormsg' => 'Sono stati trovati errori. Assicurati che non ci siano nomi dei parametri vuoti, duplicati, o che contengono "|", "=" o "$1".', # Fuzzy
+	'templatedata-modal-errormsg' => 'Sono stati trovati errori. Assicurati che non ci siano nomi dei parametri vuoti, duplicati, o che contengono "$1", "$2" o "$3".',
 	'templatedata-modal-errormsg-import-noparams' => "Nessun nuovo parametro trovato durante l'importazione.",
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|nuovo parametro è stato|nuovi parametri sono stati}} importati.',
 	'templatedata-modal-table-param-actions' => 'Azioni',
@@ -1053,7 +1089,7 @@ $messages['ko'] = array(
 	'templatedata-modal-button-cancel' => '취소',
 	'templatedata-modal-button-delparam' => '매개변수 삭제',
 	'templatedata-modal-button-importParams' => '매개변수 가져오기',
-	'templatedata-modal-errormsg' => '오류 발견. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  "|", "=" 등이 포함되지 않도록 하세요.',
+	'templatedata-modal-errormsg' => '오류 발견. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  "$1", "$2" 등이 포함되지 않도록 하세요.', # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => '가져오는 중 새로운 매개변수를 찾지 못 했습니다.',
 	'templatedata-modal-notice-import-numparams' => '$1 새로운 {{PLURAL:$1|매개변수}}를 가져왔습니다.',
 	'templatedata-modal-table-param-actions' => '명령',
@@ -1164,7 +1200,7 @@ $messages['mk'] = array(
 	'templatedata-modal-button-cancel' => 'Откажи',
 	'templatedata-modal-button-delparam' => 'Избриши параметар',
 	'templatedata-modal-button-importParams' => 'Увези параметри',
-	'templatedata-modal-errormsg' => 'Пронајдов грешки. Проверете дали има празни или дуплирани називи на параметрите. Во нив не треба да се содржат знаците „|“, „=“ и „$1“.', # Fuzzy
+	'templatedata-modal-errormsg' => 'Пронајдов грешки. Проверете да не имате празни или дуплирани називи на параметрите. Во нив не треба да се содржат знаците „$1“, „$2“ и „$3“.',
 	'templatedata-modal-errormsg-import-noparams' => 'Не пронајдов нови параметри во увозот.',
 	'templatedata-modal-notice-import-numparams' => 'Увезов {{PLURAL:$1|еден параметар|$1 параметри}}.',
 	'templatedata-modal-table-param-actions' => 'Дејства',
@@ -1219,7 +1255,7 @@ $messages['mr'] = array(
 	'templatedata-modal-button-cancel' => 'रद्द करा',
 	'templatedata-modal-button-delparam' => 'प्राचल (पॅरामीटर) काढून टाका',
 	'templatedata-modal-button-importParams' => 'प्राचले (पॅरामिटर्स) आयात करा',
-	'templatedata-modal-errormsg' => 'त्रूटी आढळली. याची कृपया खात्री करा कि यात रिकामे अथवा द्विरुक्त प्राचल नावे नाहीत व प्राचल नावात "|", "=" किंवा "$1" याचा अंतर्भाव नाही.', # Fuzzy
+	'templatedata-modal-errormsg' => 'त्रूटी आढळली. याची कृपया खात्री करा कि यात रिकामे अथवा द्विरुक्त प्राचल नावे नाहीत व प्राचल नावात "$1", "$2" किंवा "$3" याचा अंतर्भाव नाही.', # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => 'आयाती दरम्यान काही नविन प्राचले(पॅरामिटर्स) सापडली नाहीत.',
 	'templatedata-modal-notice-import-numparams' => '$1 नविन {{PLURAL:$1|प्राचल आयात केल्या गेले |आयात केल्या गेलीत}}.',
 	'templatedata-modal-table-param-actions' => 'क्रिया',
@@ -1482,7 +1518,7 @@ $messages['ru'] = array(
 	'templatedata-modal-button-cancel' => 'Отмена',
 	'templatedata-modal-button-delparam' => 'Удалить параметр',
 	'templatedata-modal-button-importParams' => 'Импортировать параметры',
-	'templatedata-modal-errormsg' => 'Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «|», «=», или «$1».', # Fuzzy
+	'templatedata-modal-errormsg' => 'Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».',
 	'templatedata-modal-errormsg-import-noparams' => 'Во время импорта новые параметры не найдены.',
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|новый параметр импортирован|новых параметров импортировано|новых параметра импортировано}}.',
 	'templatedata-modal-table-param-actions' => 'Действия',
@@ -1607,7 +1643,7 @@ $messages['sv'] = array(
 	'templatedata-modal-button-cancel' => 'Avbryt',
 	'templatedata-modal-button-delparam' => 'Radera parameter',
 	'templatedata-modal-button-importParams' => 'Importera parametrar',
-	'templatedata-modal-errormsg' => 'Fel hittades. Var god se till att det inte finns några tomma eller dubbla parameternamn, och att parameternamnet inte innehåller "|", "=" eller "$1".', # Fuzzy
+	'templatedata-modal-errormsg' => 'Fel hittades. Var god se till att det inte finns några tomma eller dubbla parameternamn, och att parameternamnet inte innehåller "$1", "$2" eller "$3".', # Fuzzy
 	'templatedata-modal-errormsg-import-noparams' => 'Inga nya parametrar hittades under import.',
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|ny parameter|nya parametrar}} importerades.',
 	'templatedata-modal-table-param-actions' => 'Handlingar',
@@ -1712,7 +1748,7 @@ $messages['uk'] = array(
 	'templatedata-modal-button-cancel' => 'Скасувати',
 	'templatedata-modal-button-delparam' => 'Видалити параметр',
 	'templatedata-modal-button-importParams' => 'Імпортувати параметри',
-	'templatedata-modal-errormsg' => 'Виявлено помилки. Будь ласка, переконайтеся що імена параметрів не порожні або не дублюються і не містять «|», «=», або «$1».', # Fuzzy
+	'templatedata-modal-errormsg' => 'Виявлено помилки. Будь ласка, переконайтеся що імена параметрів не порожні або не дублюються і не містять «$1», «$2», або «$3».',
 	'templatedata-modal-errormsg-import-noparams' => 'Не знайдено нових параметрів під час імпорту.',
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|новий параметр імпортовано|нові параметри імпортовано|нових параметрів імпортовано}}.',
 	'templatedata-modal-table-param-actions' => 'Дії',
@@ -1765,7 +1801,7 @@ $messages['vi'] = array(
 	'templatedata-modal-button-cancel' => 'Hủy bỏ',
 	'templatedata-modal-button-delparam' => 'Xóa tham số',
 	'templatedata-modal-button-importParams' => 'Nhập tham số',
-	'templatedata-modal-errormsg' => 'Đã xuất hiện lỗi. Xin hãy chắc chắn rằng không có tên tham số để trống hoặc thừa và rằng tên tham số không có “|”, “=”, “$1”.', # Fuzzy
+	'templatedata-modal-errormsg' => 'Đã xuất hiện lỗi. Xin hãy chắc chắn rằng không có tên tham số để trống hoặc thừa và rằng tên tham số không có “$1”, “$2”, “$3”.',
 	'templatedata-modal-errormsg-import-noparams' => 'Không tìm thấy tham số mới khi nhập.',
 	'templatedata-modal-notice-import-numparams' => 'Đã nhập $1 tham số mới.',
 	'templatedata-modal-table-param-actions' => 'Tác vụ',
