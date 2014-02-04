@@ -41,7 +41,7 @@ $messages['en'] = array(
 	'templatedata-modal-button-cancel' => 'Cancel',
 	'templatedata-modal-button-delparam' => 'Delete parameter',
 	'templatedata-modal-button-importParams' => 'Import parameters',
-	'templatedata-modal-errormsg' => 'Errors found. Please make sure there are no empty or duplicate parameter names, and that the parameter name does not include "|", "=" or "$1".',
+	'templatedata-modal-errormsg' => 'Errors found. Please make sure there are no empty or duplicate parameter names, and that the parameter name does not include "$1", "$2" or "$3".',
 	'templatedata-modal-errormsg-import-noparams' => 'No new parameters found during import.',
 	'templatedata-modal-notice-import-numparams' => '$1 new {{PLURAL:$1|parameter was|parameters were}} imported.',
 	'templatedata-modal-table-param-actions' => 'Actions',
@@ -130,8 +130,12 @@ $messages['qqq'] = array(
 {{Identical|Cancel}}',
 	'templatedata-modal-button-delparam' => 'Button to delete a parameter',
 	'templatedata-modal-button-importParams' => 'Label of the import button',
-	'templatedata-modal-errormsg' => 'Error message that appears in the TemplateData generator GUI in case there are empty, duplicate or invalid parameter names
-* $1 - double curly brackets, supplied as a parameter to avoid parsing errors in translation strings.',
+	'templatedata-modal-errormsg' => 'Error message that appears in the TemplateData generator GUI in case there are empty, duplicate or invalid parameter names.
+Invalid characters are supplied as parameters to avoid parsing errors in translation strings.
+
+* $1 - pipe
+* $2 - equal sign
+* $3 - double curly brackets',
 	'templatedata-modal-errormsg-import-noparams' => 'message that appears in the TemplateData generator GUI in case no template parameters were found during the import attempt.',
 	'templatedata-modal-notice-import-numparams' => 'message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.',
 	'templatedata-modal-table-param-actions' => 'Label for a table heading: Parameter actions in the table',
