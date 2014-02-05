@@ -676,6 +676,7 @@ $messages['fi'] = array(
  * @author Guillom
  * @author Metroitendo
  * @author Peter17
+ * @author Verdy p
  */
 $messages['fr'] = array(
 	'templatedata-desc' => 'Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)',
@@ -706,7 +707,7 @@ $messages['fr'] = array(
 	'templatedata-modal-button-cancel' => 'Annuler',
 	'templatedata-modal-button-delparam' => 'Supprimer le paramètre',
 	'templatedata-modal-button-importParams' => 'Importer les paramètres',
-	'templatedata-modal-errormsg' => "Des erreurs ont été trouvées. Assurez-vous qu’il n’y a pas de noms de paramètre vide ou dupliqué, et que le nom du paramètre ne comprend pas '$1', '$2' ou '$3'.", # Fuzzy
+	'templatedata-modal-errormsg' => 'Des erreurs ont été trouvées. Assurez-vous qu’il n’y a pas de noms de paramètre vides ou dupliqués, et que les noms de paramètres ne comprennent aucun « $1 », « $2 » ou « $3 ».',
 	'templatedata-modal-errormsg-import-noparams' => 'Aucun nouveau paramètre trouvé lors de l’import.',
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|nouveau paramètre a été importé|nouveaux paramètres ont été importés}}.',
 	'templatedata-modal-table-param-actions' => 'Actions',
