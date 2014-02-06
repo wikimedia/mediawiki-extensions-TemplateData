@@ -1294,6 +1294,7 @@ $messages['ms'] = array(
 	'templatedata-invalid-unknown' => 'Sifat "$1" tidak dijangka.',
 	'templatedata-invalid-value' => 'Nilai tidak sah untuk sifat "$1".',
 	'templatedata-invalid-length' => 'Data terlalu besar untuk menyimpan ({{formatnum:$1}} {{PLURAL:$1|bait}}, {{PLURAL:$2|hadnya}} adalah {{formatnum:$2}})',
+	'templatedata-modal-errormsg' => 'Ralat-ralat dijumpai. Sila pastikan tidak terdapat nama-nama parameter yang kosong atau berulang, malah nama parameter itu tidak mengandungi "$1", "$2" atau "$3".',
 );
 
 /** Norwegian Bokmål (norsk bokmål)
