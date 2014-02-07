@@ -208,7 +208,7 @@ $messages['ast'] = array(
 	'templatedata-modal-button-cancel' => 'Encaboxar',
 	'templatedata-modal-button-delparam' => 'Desaniciar parámetru',
 	'templatedata-modal-button-importParams' => 'Importar parámetros',
-	'templatedata-modal-errormsg' => 'Atopáronse errores. Compruebe que nun hai nomes de parámetru baleros o duplicaos, y que\'l nome del parámetru nun incluye "$1", "$2" o "$3".', # Fuzzy
+	'templatedata-modal-errormsg' => 'Atopáronse errores. Compruebe que nun hai nomes de parámetru baleros o duplicaos, y que\'l nome del parámetru nun incluye "$1", "$2" o "$3".',
 	'templatedata-modal-errormsg-import-noparams' => "Nun s'alcontraron parámetros nuevos demientres la importación.",
 	'templatedata-modal-notice-import-numparams' => '{{PLURAL:$1|Importóse|Importáronse}} $1 {{PLURAL:$1|parámetru nuevu|parámetros nuevos}}.',
 	'templatedata-modal-table-param-actions' => 'Aiciones',
@@ -760,7 +760,7 @@ $messages['gl'] = array(
 	'templatedata-modal-button-cancel' => 'Cancelar',
 	'templatedata-modal-button-delparam' => 'Borrar o parámetro',
 	'templatedata-modal-button-importParams' => 'Importar os parámetros',
-	'templatedata-modal-errormsg' => 'Producíronse varios erros. Asegúrese de que non hai nomes de parámetros baleiros ou duplicados e de que o nome do parámetro non inclúe os caracteres "$1", "$2" ou "$3".', # Fuzzy
+	'templatedata-modal-errormsg' => 'Producíronse varios erros. Asegúrese de que non hai nomes de parámetros baleiros ou duplicados e de que o nome do parámetro non inclúe os caracteres "$1", "$2" ou "$3".',
 	'templatedata-modal-errormsg-import-noparams' => 'Non se atopou ningún parámetro novo durante a importación.',
 	'templatedata-modal-notice-import-numparams' => '{{PLURAL:$1|Importouse $1 parámetro|Importáronse $1 parámetros}}.',
 	'templatedata-modal-table-param-actions' => 'Accións',
@@ -1333,6 +1333,7 @@ $messages['nds'] = array(
 
 /** Dutch (Nederlands)
  * @author Konovalov
+ * @author SPQRobin
  * @author Siebrand
  * @author Southparkfan
  */
@@ -1358,6 +1359,19 @@ $messages['nl'] = array(
 	'templatedata-invalid-unknown' => 'Onverwachte eigenschap "$1".',
 	'templatedata-invalid-value' => 'Ongeldige waarde voor de eigenschap "$1".',
 	'templatedata-invalid-length' => 'Te veel gegevens om op te slaan ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}} opgegeven, de {{PLURAL:$2|limiet is}} {{formatnum:$2}})',
+	'templatedata-modal-button-apply' => 'Toepassen',
+	'templatedata-modal-button-cancel' => 'Annuleren',
+	'templatedata-modal-button-delparam' => 'Parameter verwijderen',
+	'templatedata-modal-button-importParams' => 'Parameters importeren',
+	'templatedata-modal-table-param-desc' => 'Beschrijving',
+	'templatedata-modal-table-param-label' => 'Label',
+	'templatedata-modal-table-param-name' => 'Naam',
+	'templatedata-modal-table-param-required' => 'Vereist',
+	'templatedata-modal-table-param-type' => 'Type',
+	'templatedata-modal-table-param-type-page' => 'Pagina',
+	'templatedata-modal-table-param-type-string' => 'Tekenreeks',
+	'templatedata-modal-title-templatedesc' => 'Sjabloonbeschrijving',
+	'templatedata-modal-title-templateparams' => 'Sjabloonparameters',
 );
 
 /** Occitan (occitan)
@@ -1424,6 +1438,7 @@ $messages['pl'] = array(
 
 /** Portuguese (português)
  * @author Helder.wiki
+ * @author Imperadeiro98
  */
 $messages['pt'] = array(
 	'templatedata-desc' => 'Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)',
@@ -1438,6 +1453,7 @@ $messages['pt'] = array(
 	'templatedata-invalid-missing' => 'A propriedade "$1" é requerida mas não foi fornecida.',
 	'templatedata-invalid-unknown' => 'Propriedade "$1" inesperada.',
 	'templatedata-invalid-value' => 'Valor inválido para a propriedade "$1".',
+	'templatedata-modal-errormsg' => 'Erros encontrados. Por favor, certifique-se de que não há nomes de parâmetros vazios ou duplicados e que estes não incluem o nome do parâmetro "$1", "$2" ou "$3".',
 );
 
 /** Brazilian Portuguese (português do Brasil)
