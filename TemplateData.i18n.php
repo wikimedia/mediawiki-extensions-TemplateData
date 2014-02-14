@@ -897,6 +897,32 @@ $messages['ilo'] = array(
 	'templatedata-invalid-unknown' => 'Di nanamnama a tagikua ti "$1".',
 	'templatedata-invalid-value' => 'Saan nga umiso a pateg para iti tagikua ti "$1".',
 	'templatedata-invalid-length' => 'Ti datos ket dakkel unay a maidulin ({{formatnum:$1}} {{PLURAL:$1|byte|dagiti byte}}, {{PLURAL:$2|ti patingga ket}} {{formatnum:$2}})',
+	'templatedata-editbutton' => 'Agtaripato ti dokumentasion ti plantilia',
+	'templatedata-errormsg-jsonbadformat' => 'Madi a pormat ti JSON. Mabalin a pasayaatem, wenno ikkatem dagiti agdama nga etiketa ti <templatedata> ken padasen manen.',
+	'templatedata-modal-button-addparam' => 'Agnayon ti parametro',
+	'templatedata-modal-button-apply' => 'Ipakat',
+	'templatedata-modal-button-cancel' => 'Ukasen',
+	'templatedata-modal-button-delparam' => 'Ikkaten ti parametro',
+	'templatedata-modal-button-importParams' => 'Agala kadagiti parametro',
+	'templatedata-modal-errormsg' => 'Adda dagiti biddut a nabirukan. Pangngaasi a siguraduen nga awan dagiti awan linaon wenno duplikado a nagnagan ti parametro, ken ti nagan ti parametro ket saan a mangiraman ti "$1", "$2" wenno "$3".',
+	'templatedata-modal-errormsg-import-noparams' => 'Awan dagiti baro a parametro a nabirukan idi las-ud ti panagala.',
+	'templatedata-modal-notice-import-numparams' => '$1 a baro a {{PLURAL:$1|parametro ti|parametro dagiti}} naala idi.',
+	'templatedata-modal-table-param-actions' => 'Dagiti aramid',
+	'templatedata-modal-table-param-aliases' => 'Dagiti parbo a nagan (insina ti koma)',
+	'templatedata-modal-table-param-default' => 'Kasisigud',
+	'templatedata-modal-table-param-desc' => 'Deskripsion',
+	'templatedata-modal-table-param-label' => 'Etiketa',
+	'templatedata-modal-table-param-name' => 'Nagan',
+	'templatedata-modal-table-param-required' => 'Nasken',
+	'templatedata-modal-table-param-type' => 'Kita',
+	'templatedata-modal-table-param-type-number' => 'Numero',
+	'templatedata-modal-table-param-type-page' => 'Panid',
+	'templatedata-modal-table-param-type-string' => 'Kuerdas',
+	'templatedata-modal-table-param-type-undefined' => 'Saan a naipalpalawag',
+	'templatedata-modal-table-param-type-user' => 'Agar-aramat',
+	'templatedata-modal-title' => 'Editor ti dokumentasion ti plantilia',
+	'templatedata-modal-title-templatedesc' => 'Deskripsion ti plantilia',
+	'templatedata-modal-title-templateparams' => 'Dagiti parametro ti plantilia',
 );
 
 /** Icelandic (íslenska)
@@ -1242,6 +1268,26 @@ $messages['ml'] = array(
 	'templatedata-doc-param-desc-empty' => 'വിവരണമൊന്നുമില്ല',
 	'templatedata-invalid-parse' => 'ജെസണിൽ എഴുത്ത് രീതിയിൽ പിഴവുണ്ടായി.',
 	'templatedata-invalid-length' => 'ഡേറ്റ സേവ് ചെയ്യാൻ കഴിയുന്നതിലും വലുതാണ് ({{formatnum:$1}} {{PLURAL:$1|ബൈറ്റ്|ബൈറ്റുകൾ}}, {{PLURAL:$2|പരിധി}} {{formatnum:$2}})',
+	'templatedata-editbutton' => 'ഫലകത്തിന്റെ വിവരണം കൈകാര്യം ചെയ്യുക',
+	'templatedata-modal-button-addparam' => 'ചരം ചേർക്കുക',
+	'templatedata-modal-button-apply' => 'ബാധകമാക്കുക',
+	'templatedata-modal-button-cancel' => 'റദ്ദാക്കുക',
+	'templatedata-modal-button-delparam' => 'ചരം മായ്ക്കുക',
+	'templatedata-modal-button-importParams' => 'ചരങ്ങൾ ഇറക്കുമതി ചെയ്യുക',
+	'templatedata-modal-table-param-default' => 'സ്വതേ',
+	'templatedata-modal-table-param-desc' => 'വിവരണം',
+	'templatedata-modal-table-param-label' => 'തലക്കുറി',
+	'templatedata-modal-table-param-name' => 'പേര്',
+	'templatedata-modal-table-param-required' => 'ആവശ്യമാണ്',
+	'templatedata-modal-table-param-type' => 'തരം',
+	'templatedata-modal-table-param-type-number' => 'എണ്ണം',
+	'templatedata-modal-table-param-type-page' => 'താൾ',
+	'templatedata-modal-table-param-type-string' => 'പദം',
+	'templatedata-modal-table-param-type-undefined' => 'നിർവ്വചിക്കപ്പെട്ടിട്ടില്ല',
+	'templatedata-modal-table-param-type-user' => 'ഉപയോക്താവ്',
+	'templatedata-modal-title' => 'ഫലകവിവരണ തിരുത്തൽ സൗകര്യം',
+	'templatedata-modal-title-templatedesc' => 'ഫലകത്തിന്റെ വിവരണം',
+	'templatedata-modal-title-templateparams' => 'ഫലകത്തിനുള്ള ചരങ്ങൾ',
 );
 
 /** Marathi (मराठी)
@@ -1841,6 +1887,7 @@ $messages['vi'] = array(
 );
 
 /** Simplified Chinese (中文（简体）‎)
+ * @author Hzy980512
  * @author Liuxinyu970226
  * @author Shizhao
  * @author Xiaomingyan
@@ -1869,6 +1916,7 @@ $messages['zh-hans'] = array(
 	'templatedata-invalid-value' => '属性“$1”的值无效。',
 	'templatedata-invalid-length' => '数据过大，无法保存（{{formatnum:$1}}{{PLURAL:$1|字节}}，{{PLURAL:$2|限制是}}{{formatnum:$2}}）',
 	'templatedata-editbutton' => '管理模板文档',
+	'templatedata-errormsg-jsonbadformat' => '无效JSON格式。请将其改正或删除<templatedata>标签然后重试。',
 	'templatedata-modal-button-addparam' => '添加参数',
 	'templatedata-modal-button-apply' => '应用',
 	'templatedata-modal-button-cancel' => '取消',
