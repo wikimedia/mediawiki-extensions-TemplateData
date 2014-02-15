@@ -854,6 +854,49 @@ $messages['hsb'] = array(
 	'templatedata-invalid-value' => 'Njepłaćiwa hódnota za kajkosć "$1".',
 );
 
+/** Hungarian (magyar)
+ * @author Tacsipacsi
+ */
+$messages['hu'] = array(
+	'templatedata-doc-desc-empty' => 'Nincs leírás.',
+	'templatedata-doc-params' => 'Sablonparaméterek',
+	'templatedata-doc-param-name' => 'Paraméter',
+	'templatedata-doc-param-desc' => 'Leírás',
+	'templatedata-doc-param-type' => 'Típus',
+	'templatedata-doc-param-default' => 'Alapértelmezett',
+	'templatedata-doc-param-default-empty' => 'üres',
+	'templatedata-doc-param-status' => 'kötelező?',
+	'templatedata-doc-param-status-deprecated' => 'elavult',
+	'templatedata-doc-param-status-optional' => 'opcionális',
+	'templatedata-doc-param-status-required' => 'kötelező',
+	'templatedata-doc-param-desc-empty' => 'nincs leírás',
+	'templatedata-invalid-duplicate-value' => 'A(z) "$1" tulajdonság ("$3") a(z) "$2" tulajdonság duplikátuma.',
+	'templatedata-invalid-parse' => 'Szintaktikai hiba a JSON-ban.',
+	'templatedata-invalid-missing' => 'A(z) "$1" kötelező paraméter nincs megadva.',
+	'templatedata-modal-button-addparam' => 'Paraméter hozzáadása',
+	'templatedata-modal-button-apply' => 'Alkalmaz',
+	'templatedata-modal-button-cancel' => 'Mégse',
+	'templatedata-modal-button-delparam' => 'Paraméter eltávolítása',
+	'templatedata-modal-button-importParams' => 'Paraméterek importálása',
+	'templatedata-modal-errormsg-import-noparams' => 'Nem találtam új paramétereket az importálás során.',
+	'templatedata-modal-notice-import-numparams' => '$1 új paramétert találtam.',
+	'templatedata-modal-table-param-actions' => 'Műveletek',
+	'templatedata-modal-table-param-aliases' => 'Alternatív paraméterek (vesszővel elválasztva)',
+	'templatedata-modal-table-param-default' => 'Alapértelmezett',
+	'templatedata-modal-table-param-desc' => 'Leírás',
+	'templatedata-modal-table-param-label' => 'Címke',
+	'templatedata-modal-table-param-name' => 'Név',
+	'templatedata-modal-table-param-required' => 'Kötelező',
+	'templatedata-modal-table-param-type' => 'Típus',
+	'templatedata-modal-table-param-type-number' => 'Szám',
+	'templatedata-modal-table-param-type-page' => 'Szócikk',
+	'templatedata-modal-table-param-type-string' => 'Szöveg',
+	'templatedata-modal-table-param-type-undefined' => 'Meghatározatlan',
+	'templatedata-modal-table-param-type-user' => 'Szerkesztő',
+	'templatedata-modal-title-templatedesc' => 'Sablon leírása',
+	'templatedata-modal-title-templateparams' => 'Sablonparaméterek',
+);
+
 /** Armenian (Հայերեն)
  * @author Vadgt
  */
@@ -1461,12 +1504,14 @@ $messages['pa'] = array(
  */
 $messages['pl'] = array(
 	'templatedata-desc' => 'Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)',
+	'templatedata-doc-desc-empty' => 'Brak opisu.',
 	'templatedata-doc-params' => 'Parametry szablonu',
 	'templatedata-doc-param-name' => 'Parametr',
 	'templatedata-doc-param-desc' => 'Opis',
 	'templatedata-doc-param-type' => 'Typ',
 	'templatedata-doc-param-default' => 'Domyślne',
 	'templatedata-doc-param-status' => 'Status',
+	'templatedata-doc-param-desc-empty' => 'brak opisu',
 	'templatedata-invalid-duplicate-value' => 'Właściwość "$1" ("$3") jest duplikatem "$2".',
 	'templatedata-invalid-parse' => 'Błąd składni w JSON.',
 	'templatedata-invalid-type' => 'Właściwość "$1" powinna mieć typ "$2".',
@@ -1475,9 +1520,13 @@ $messages['pl'] = array(
 	'templatedata-invalid-value' => 'Nieprawidłowa wartość właściwości "$1".',
 	'templatedata-modal-button-addparam' => 'Dodaj parametr',
 	'templatedata-modal-button-apply' => 'Zastosuj',
+	'templatedata-modal-button-cancel' => 'Anuluj',
 	'templatedata-modal-button-delparam' => 'Usuń parametr',
 	'templatedata-modal-table-param-default' => 'Domyślnie',
 	'templatedata-modal-table-param-desc' => 'Opis',
+	'templatedata-modal-table-param-label' => 'Etykieta',
+	'templatedata-modal-table-param-name' => 'Nazwa',
+	'templatedata-modal-table-param-required' => 'Wymagane',
 	'templatedata-modal-table-param-type-page' => 'Strona',
 	'templatedata-modal-title-templateparams' => 'Parametry szablonu',
 );
