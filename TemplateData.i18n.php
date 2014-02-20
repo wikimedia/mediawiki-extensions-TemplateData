@@ -1652,6 +1652,13 @@ $messages['ru'] = array(
 	'templatedata-modal-title-templateparams' => 'Параметры шаблона',
 );
 
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'templatedata-modal-errormsg' => 'Errors foond. Please mak sair there ar no empty or duplicate parameter names, an that the parameter name disna inclaed "$1", "$2" or "$3".',
+);
+
 /** Slovak (slovenčina)
  * @author Sudo77(new)
  */
@@ -1756,7 +1763,7 @@ $messages['sv'] = array(
 	'templatedata-modal-button-cancel' => 'Avbryt',
 	'templatedata-modal-button-delparam' => 'Radera parameter',
 	'templatedata-modal-button-importParams' => 'Importera parametrar',
-	'templatedata-modal-errormsg' => 'Fel hittades. Var god se till att det inte finns några tomma eller dubbla parameternamn, och att parameternamnet inte innehåller "$1", "$2" eller "$3".', # Fuzzy
+	'templatedata-modal-errormsg' => 'Fel hittades. Var god se till att det inte finns några tomma eller dubbla parameternamn, och att parameternamnet inte innehåller "$1", "$2" eller "$3".',
 	'templatedata-modal-errormsg-import-noparams' => 'Inga nya parametrar hittades under import.',
 	'templatedata-modal-notice-import-numparams' => '$1 {{PLURAL:$1|ny parameter|nya parametrar}} importerades.',
 	'templatedata-modal-table-param-actions' => 'Handlingar',
