@@ -580,7 +580,7 @@
 								break;
 							case 'required':
 								newValue = $domEl.prop( 'checked' );
-								if ( paramObj[paramProp] !== newValue ) {
+								if ( paramObj[paramProp] !== undefined || newValue === true ) {
 									paramObj[paramProp] = newValue;
 								}
 								break;
