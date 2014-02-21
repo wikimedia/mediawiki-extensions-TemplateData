@@ -1499,6 +1499,7 @@ $messages['pa'] = array(
 
 /** Polish (polski)
  * @author Chrumps
+ * @author Dalis
  * @author Vuh
  * @author Woytecr
  */
@@ -1522,6 +1523,7 @@ $messages['pl'] = array(
 	'templatedata-modal-button-apply' => 'Zastosuj',
 	'templatedata-modal-button-cancel' => 'Anuluj',
 	'templatedata-modal-button-delparam' => 'Usuń parametr',
+	'templatedata-modal-errormsg' => 'Znaleziono błędy. Proszę, upewnij się, że nazwy parametrów nie są puste, nie są zduplikowane i nie zawierają «$1», «$2» lub «$3».',
 	'templatedata-modal-table-param-default' => 'Domyślnie',
 	'templatedata-modal-table-param-desc' => 'Opis',
 	'templatedata-modal-table-param-label' => 'Etykieta',
