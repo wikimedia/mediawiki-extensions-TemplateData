@@ -142,7 +142,8 @@ Parameters:
 	'templatedata-modal-notice-import-numparams' => 'message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.',
 	'templatedata-modal-table-param-actions' => 'Label for a table heading: Parameter actions in the table',
 	'templatedata-modal-table-param-aliases' => 'Label for a table heading: Aliases of the parameter, instruct the user to separate aliases with commas.',
-	'templatedata-modal-table-param-default' => 'Label for a table heading: Default value of the parameter',
+	'templatedata-modal-table-param-default' => 'Label for a table heading: Default value of the parameter.
+{{Identical|Default}}',
 	'templatedata-modal-table-param-desc' => 'Label for a table heading: Description of the parameter',
 	'templatedata-modal-table-param-label' => 'Label for a table heading: Label of the parameter',
 	'templatedata-modal-table-param-name' => 'Label for a table heading: Name of the parameter',
