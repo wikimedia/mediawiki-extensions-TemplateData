@@ -83,7 +83,7 @@
 	"params": {
 		"user": {
 			"label": "User's name",
-			"type": "string/wiki-user-name",
+			"type": "wiki-user-name",
 			"required": true,
 			"description": "User name of person who forgot to sign their comment.",
 			"aliases": ["1"]
