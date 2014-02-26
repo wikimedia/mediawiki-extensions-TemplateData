@@ -1730,6 +1730,15 @@ $messages['sr-ec'] = array(
 	'templatedata-invalid-missing' => 'Обавезно својство „$1“ није пронађено.',
 	'templatedata-invalid-unknown' => 'Неочекивано својство „$1“.',
 	'templatedata-invalid-value' => 'Неисправна вредност за својство „$1“.',
+	'templatedata-modal-table-param-default' => 'Подразумевано',
+);
+
+/** Serbian (Latin script) (srpski (latinica)‎)
+ * @author Milicevic01
+ */
+$messages['sr-el'] = array(
+	'templatedata-doc-param-default' => 'Podrazumevano',
+	'templatedata-modal-table-param-default' => 'Podrazumevano',
 );
 
 /** Swedish (svenska)
