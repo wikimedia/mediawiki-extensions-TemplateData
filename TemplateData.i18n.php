@@ -1425,9 +1425,11 @@ $messages['nds'] = array(
 );
 
 /** Dutch (Nederlands)
+ * @author Basvb
  * @author Konovalov
  * @author SPQRobin
  * @author Siebrand
+ * @author Sjoerddebruin
  * @author Southparkfan
  */
 $messages['nl'] = array(
@@ -1452,17 +1454,27 @@ $messages['nl'] = array(
 	'templatedata-invalid-unknown' => 'Onverwachte eigenschap "$1".',
 	'templatedata-invalid-value' => 'Ongeldige waarde voor de eigenschap "$1".',
 	'templatedata-invalid-length' => 'Te veel gegevens om op te slaan ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}} opgegeven, de {{PLURAL:$2|limiet is}} {{formatnum:$2}})',
+	'templatedata-editbutton' => 'Sjabloondocumentatie beheren',
+	'templatedata-modal-button-addparam' => 'Parameter toevoegen',
 	'templatedata-modal-button-apply' => 'Toepassen',
 	'templatedata-modal-button-cancel' => 'Annuleren',
 	'templatedata-modal-button-delparam' => 'Parameter verwijderen',
 	'templatedata-modal-button-importParams' => 'Parameters importeren',
+	'templatedata-modal-errormsg-import-noparams' => 'Geen nieuwe parameters gevonden tijdens het importeren.',
+	'templatedata-modal-notice-import-numparams' => '$1 nieuwe {{PLURAL:$1|parameter werd|parameters werden}} geïmporteerd.',
+	'templatedata-modal-table-param-actions' => 'Acties',
+	'templatedata-modal-table-param-aliases' => 'Aliassen (door komma gescheiden)',
+	'templatedata-modal-table-param-default' => 'Standaard',
 	'templatedata-modal-table-param-desc' => 'Beschrijving',
 	'templatedata-modal-table-param-label' => 'Label',
 	'templatedata-modal-table-param-name' => 'Naam',
 	'templatedata-modal-table-param-required' => 'Vereist',
 	'templatedata-modal-table-param-type' => 'Type',
+	'templatedata-modal-table-param-type-number' => 'Getal',
 	'templatedata-modal-table-param-type-page' => 'Pagina',
 	'templatedata-modal-table-param-type-string' => 'Tekenreeks',
+	'templatedata-modal-table-param-type-undefined' => 'Niet opgegeven',
+	'templatedata-modal-table-param-type-user' => 'Gebruiker',
 	'templatedata-modal-title-templatedesc' => 'Sjabloonbeschrijving',
 	'templatedata-modal-title-templateparams' => 'Sjabloonparameters',
 );
@@ -1662,7 +1674,7 @@ $messages['ru'] = array(
  * @author John Reid
  */
 $messages['sco'] = array(
-	'templatedata-modal-errormsg' => 'Errors foond. Please mak sair there ar no empty or duplicate parameter names, an that the parameter name disna inclaed "$1", "$2" or "$3".',
+	'templatedata-modal-errormsg' => 'Mistaks foond. Please mak sair thaur ar nae tuim or duplicate parameter names, n that the parameter name disna inclaed "$1", "$2" or "$3".',
 );
 
 /** Slovak (slovenčina)
@@ -1993,7 +2005,9 @@ $messages['zh-hans'] = array(
 	'templatedata-modal-button-cancel' => '取消',
 	'templatedata-modal-button-delparam' => '删除参数',
 	'templatedata-modal-button-importParams' => '导入参数',
+	'templatedata-modal-errormsg' => '找到错误。请确信这里没有空或重复的参数名称，并且它们不包括“$1”“$2”或“$3”。',
 	'templatedata-modal-errormsg-import-noparams' => '导入过程中找不到新的参数。',
+	'templatedata-modal-notice-import-numparams' => '$1个新参数已导入。',
 	'templatedata-modal-table-param-actions' => '操作',
 	'templatedata-modal-table-param-aliases' => '别名（逗号分隔）',
 	'templatedata-modal-table-param-default' => '默认值',
