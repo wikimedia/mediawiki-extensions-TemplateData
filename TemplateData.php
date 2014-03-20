@@ -12,12 +12,15 @@ if ( version_compare( $wgVersion, '1.22wmf18', '<' ) ) {
 }
 
 $wgExtensionCredits['parserhook'][] = array(
-	'path'          => __FILE__,
-	'name'          => 'TemplateData',
-	'author'        => array( 'Timo Tijhof' ),
-	'version'        => '0.1.0',
-	'url'            => 'https://www.mediawiki.org/wiki/Extension:TemplateData',
+	'path' => __FILE__,
+	'name' => 'TemplateData',
+	'author' => array(
+		'Timo Tijhof',
+	),
+	'version' => '0.1.0',
+	'url' => 'https://www.mediawiki.org/wiki/Extension:TemplateData',
 	'descriptionmsg' => 'templatedata-desc',
+	'license-name' => 'GPLv2',
 );
 
 /* Setup */
