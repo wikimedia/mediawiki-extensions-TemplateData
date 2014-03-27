@@ -1975,6 +1975,15 @@ $messages['vi'] = array(
 	'templatedata-modal-title-templateparams' => 'Tham số bản mẫu',
 );
 
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'templatedata-doc-param-name' => 'פאראמעטער',
+	'templatedata-doc-param-default-empty' => 'ליידיק',
+	'templatedata-modal-table-param-type-page' => 'בלאַט',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Hzy980512
  * @author Liuxinyu970226
