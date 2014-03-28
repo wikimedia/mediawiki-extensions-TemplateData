@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Veeven"
+        ]
+    },
+    "templatedata-doc-params": "మూస పరామితులు",
+    "templatedata-doc-param-name": "పేరు",
+    "templatedata-doc-param-desc": "వివరణ",
+    "templatedata-doc-param-default": "అప్రమేయం",
+    "templatedata-doc-param-status": "స్థితి"
+}

@@ -1,0 +1,18 @@
+{
+    "@metadata": {
+        "authors": [
+            "Y-M D"
+        ]
+    },
+    "templatedata-doc-desc-empty": "Deskrivadur ebet.",
+    "templatedata-doc-param-name": "Anv",
+    "templatedata-doc-param-desc": "Deskrivadur",
+    "templatedata-doc-param-default": "Dre ziouer",
+    "templatedata-doc-param-default-empty": "goullo",
+    "templatedata-doc-param-status": "Statud",
+    "templatedata-doc-param-status-deprecated": "dispredet",
+    "templatedata-doc-param-status-optional": "diret",
+    "templatedata-doc-param-status-required": "rekis",
+    "templatedata-doc-param-desc-empty": "deskrivadur ebet",
+    "templatedata-invalid-parse": "Fazi ereadurezh e JSON."
+}

@@ -17,7 +17,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'author' => array(
 		'Timo Tijhof',
 	),
-	'version' => '0.1.0',
+	'version' => '0.1.1',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:TemplateData',
 	'descriptionmsg' => 'templatedata-desc',
 	'license-name' => 'GPLv2',
@@ -28,6 +28,7 @@ $wgExtensionCredits['parserhook'][] = array(
 $dir = __DIR__;
 
 // Register files
+$wgMessagesDirs['TemplateData'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['TemplateData'] = $dir . '/TemplateData.i18n.php';
 $wgAutoloadClasses['TemplateDataHooks'] = $dir . '/TemplateData.hooks.php';
 $wgAutoloadClasses['TemplateDataBlob'] = $dir . '/TemplateDataBlob.php';

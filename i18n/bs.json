@@ -1,0 +1,16 @@
+{
+    "@metadata": {
+        "authors": [
+            "DzWiki"
+        ]
+    },
+    "templatedata-doc-params": "Parametri šablona",
+    "templatedata-doc-param-name": "Parametar",
+    "templatedata-doc-param-desc": "Opis",
+    "templatedata-doc-param-type": "Vrsta",
+    "templatedata-doc-param-status": "Status",
+    "templatedata-invalid-parse": "Sintaksna greška u JSON-u.",
+    "templatedata-invalid-type": "Svojstvo \"$1\" bi trebalo da je od \"$2\" vrste.",
+    "templatedata-invalid-unknown": "Neočekivano svojstvo \"$1\".",
+    "templatedata-invalid-value": "Neispravna vrijednost za svojstvo \"$1\""
+}
