@@ -33,5 +33,7 @@
     "templatedata-modal-table-param-name": "Nazwa",
     "templatedata-modal-table-param-required": "Wymagane",
     "templatedata-modal-table-param-type-page": "Strona",
+    "templatedata-modal-table-param-type-user": "Użytkownik",
+    "templatedata-modal-title-templatedesc": "Opis szablonu",
     "templatedata-modal-title-templateparams": "Parametry szablonu"
 }
