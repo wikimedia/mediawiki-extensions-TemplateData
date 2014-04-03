@@ -3,7 +3,8 @@
         "authors": [
             "Nike",
             "Silvonen",
-            "Stryn"
+            "Stryn",
+            "Pxos"
         ]
     },
     "templatedata-doc-desc-empty": "Ei kuvausta.",
@@ -18,5 +19,11 @@
     "templatedata-doc-param-status-optional": "valinnainen",
     "templatedata-doc-param-status-required": "pakollinen",
     "templatedata-doc-param-desc-empty": "ei kuvausta",
-    "templatedata-invalid-parse": "Syntaksivirhe JSON:ssa"
+    "templatedata-invalid-parse": "Syntaksivirhe JSON:ssa",
+    "templatedata-modal-button-addparam": "Lisää parametri",
+    "templatedata-modal-button-apply": "Käytä",
+    "templatedata-modal-button-cancel": "Peruuta",
+    "templatedata-modal-button-delparam": "Poista parametri",
+    "templatedata-modal-button-importParams": "Tuo parametrejä",
+    "templatedata-modal-table-param-actions": "Toimenpiteet"
 }
