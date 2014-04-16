@@ -1,20 +1,20 @@
 {
-    "@metadata": {
-        "authors": [
-            "Luckas",
-            "Pikne"
-        ]
-    },
-    "templatedata-doc-desc-empty": "Kirjeldus puudub.",
-    "templatedata-doc-params": "Malli parameetrid",
-    "templatedata-doc-param-name": "Parameeter",
-    "templatedata-doc-param-desc": "Kirjeldus",
-    "templatedata-doc-param-type": "Tüüp",
-    "templatedata-doc-param-default": "Vaikimisi",
-    "templatedata-doc-param-default-empty": "tühi",
-    "templatedata-doc-param-status": "Olek",
-    "templatedata-doc-param-status-deprecated": "iganenud",
-    "templatedata-doc-param-status-optional": "valikuline",
-    "templatedata-doc-param-status-required": "nõutav",
-    "templatedata-doc-param-desc-empty": "kirjeldus puudub"
+	"@metadata": {
+		"authors": [
+			"Luckas",
+			"Pikne"
+		]
+	},
+	"templatedata-doc-desc-empty": "Kirjeldus puudub.",
+	"templatedata-doc-params": "Malli parameetrid",
+	"templatedata-doc-param-name": "Parameeter",
+	"templatedata-doc-param-desc": "Kirjeldus",
+	"templatedata-doc-param-type": "Tüüp",
+	"templatedata-doc-param-default": "Vaikimisi",
+	"templatedata-doc-param-default-empty": "tühi",
+	"templatedata-doc-param-status": "Olek",
+	"templatedata-doc-param-status-deprecated": "iganenud",
+	"templatedata-doc-param-status-optional": "valikuline",
+	"templatedata-doc-param-status-required": "nõutav",
+	"templatedata-doc-param-desc-empty": "kirjeldus puudub"
 }

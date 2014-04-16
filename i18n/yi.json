@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "פוילישער"
-        ]
-    },
-    "templatedata-doc-param-name": "פאראמעטער",
-    "templatedata-doc-param-default-empty": "ליידיק",
-    "templatedata-modal-table-param-type-page": "בלאַט"
+	"@metadata": {
+		"authors": [
+			"פוילישער"
+		]
+	},
+	"templatedata-doc-param-name": "פאראמעטער",
+	"templatedata-doc-param-default-empty": "ליידיק",
+	"templatedata-modal-table-param-type-page": "בלאַט"
 }
