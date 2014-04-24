@@ -47,6 +47,7 @@
 	"templatedata-modal-table-param-required": "Label for a table heading: Required status of the parameter",
 	"templatedata-modal-table-param-suggested": "Label for a table heading: Suggested status of the parameter",
 	"templatedata-modal-table-param-type": "Label for a table heading: Type of the parameter",
+	"templatedata-modal-table-param-type-file": "A possible parameter type: File",
 	"templatedata-modal-table-param-type-number": "A possible parameter type: Number",
 	"templatedata-modal-table-param-type-page": "A possible parameter type: Page",
 	"templatedata-modal-table-param-type-string": "A possible parameter type: String",
