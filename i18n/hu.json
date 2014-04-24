@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tacsipacsi"
+			"Tacsipacsi",
+			"Tgr"
 		]
 	},
+	"templatedata-desc": "A sablonok paraméterezését leíró adatokat tárol (JSON formátumban)",
 	"templatedata-doc-desc-empty": "Nincs leírás.",
 	"templatedata-doc-params": "Sablonparaméterek",
 	"templatedata-doc-param-name": "Paraméter",
@@ -18,12 +20,20 @@
 	"templatedata-doc-param-desc-empty": "nincs leírás",
 	"templatedata-invalid-duplicate-value": "A(z) \"$1\" tulajdonság (\"$3\") a(z) \"$2\" tulajdonság duplikátuma.",
 	"templatedata-invalid-parse": "Szintaktikai hiba a JSON-ban.",
+	"templatedata-invalid-type": "A(z) „$1” tulajdonság „$2” típusú kellene, hogy legyen.",
 	"templatedata-invalid-missing": "A(z) \"$1\" kötelező paraméter nincs megadva.",
+	"templatedata-invalid-empty-array": "A(z) „$1” tulajdonság nem lehet üres",
+	"templatedata-invalid-unknown": "Ismeretlen tulajonság: „$1”",
+	"templatedata-invalid-value": "A(z) „$1” tulajdonság értéke érvénytelen",
+	"templatedata-invalid-length": "Nem lehet elmenteni, túl nagy ({{formatnum:$1}} {{PLURAL:$1|bájt}}, {{PLURAL:$2|a határ}} {{formatnum:$2}} bájt)",
+	"templatedata-editbutton": "Sablondokumentáció kezelése",
+	"templatedata-errormsg-jsonbadformat": "Hibás JSON formátum. Vagy javítsd ki, vagy töröld ki a <templatedata> szakaszt.",
 	"templatedata-modal-button-addparam": "Paraméter hozzáadása",
 	"templatedata-modal-button-apply": "Alkalmaz",
 	"templatedata-modal-button-cancel": "Mégse",
 	"templatedata-modal-button-delparam": "Paraméter eltávolítása",
 	"templatedata-modal-button-importParams": "Paraméterek importálása",
+	"templatedata-modal-errormsg": "Hibás paraméternév. Ellenőrizd, hogy nincsenek üres vagy ismételt paraméternevek, és hogy a paraméternévben nem szerepel „$1”, „$2” vagy „$3”.",
 	"templatedata-modal-errormsg-import-noparams": "Nem találtam új paramétereket az importálás során.",
 	"templatedata-modal-notice-import-numparams": "$1 új paramétert találtam.",
 	"templatedata-modal-table-param-actions": "Műveletek",
@@ -39,6 +49,7 @@
 	"templatedata-modal-table-param-type-string": "Szöveg",
 	"templatedata-modal-table-param-type-undefined": "Meghatározatlan",
 	"templatedata-modal-table-param-type-user": "Szerkesztő",
+	"templatedata-modal-title": "Sablondokumentáció-szerkesztő",
 	"templatedata-modal-title-templatedesc": "Sablon leírása",
 	"templatedata-modal-title-templateparams": "Sablonparaméterek"
 }
