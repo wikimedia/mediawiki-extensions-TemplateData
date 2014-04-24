@@ -4,6 +4,7 @@
 
 	Author: Timo Tijhof
 	Author: Trevor Parscal
+	Author: James D. Forrester
 
 	Property names listed in brackets (e.g. [foo]) are optional. This means
 	they may be omitted from the object. If a null value is allowed, this will
@@ -20,11 +21,37 @@
 	 in a set. The array contains #Set objects.
 
 @structure {Object} Param
-	@property {null|InterfaceText} [label] Defaults to key of object in `Root.params`.
-	@property {boolean} [required=false]
-	@property {null|InterfaceText} [description]
-	@property {boolean|string} [deprecated=false] Tooltip for the user detailing
-	 the intent for the deprecated parameters.
+	@property {null|InterfaceText} [label] Label of this parameter.
+	 To be shown as a clear identifier for human users of the template; should
+	 generally be unique amongst the parameters (e.g. "First author's name" and
+	 "Second author's name", not just "Name" and "Name"). Defaults to the key of
+	 the object in `Root.params`.
+	@property {boolean} [required=false] Required status of this parameter.
+	 Whether the parameter is required to have an explicit value for the template
+	 to function properly. For example, the ISBN parameter in a template about a
+	 book's ISBN might be required, whereas other parameters such as issue date
+	 might not be. Client tools SHOULD automatically prompt users to fill in these
+	 paramters, and MAY prevent them from adding a template invocation with a
+	 required parameter unset.
+	@property {boolean} [suggested=false] Suggested status of this parameter.
+	 Whether the parameter is suggested to be set to an explicit value for the
+	 template to be valuable. This status is a less strong indicator of inclusion
+	 than `required`, and the template should function correctly without a
+	 `suggested` parameter being set. For example, in a book template the author's
+	 name might be suggested, whereas the title might be required. Client tools
+	 MAY automatically prompt users to fill in these paramters, but SHOULD NOT
+	 prevent users from adding a template invocation with a suggested parameter
+	 unset.
+	@property {null|InterfaceText} [description] Description of this parameter.
+	 To be shown as an explanatory text for what the purpose of the parameter is
+	 and some minor hints as to how to the format the contents. For example, a
+	 template parameter about the author of a book might be "The name of the
+	 author of the book, to positively identify and attribute the claim. The name
+	 should be given as it would appear in the author's native language, script
+	 and culture." or similar.
+	@property {boolean|string} [deprecated=false] Deprecated status of this parameter.
+	 Description for why a parameter is deprecated, and what tasks instead should
+	 be set, or "true" if no description is wanted to be set.
 	@property {Array} [aliases] List of aliases.
 	 An alias is an alternative name for the parameter that may be used instead of
 	 (not in addition to) the primary name. Aliases are not documented in a
@@ -90,6 +117,7 @@
 		},
 		"date": {
 			"label": "Date",
+			"suggested": true,
 			"description": {
 				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."
 			},

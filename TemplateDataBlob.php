@@ -84,6 +84,7 @@ class TemplateDataBlob {
 		static $paramKeys = array(
 			'label',
 			'required',
+			'suggested',
 			'description',
 			'deprecated',
 			'aliases',
@@ -192,6 +193,19 @@ class TemplateDataBlob {
 				}
 			} else {
 				$paramObj->required = false;
+			}
+
+			// Param.suggested
+			if ( isset( $paramObj->suggested ) ) {
+				if ( !is_bool( $paramObj->suggested ) ) {
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.suggested",
+						'boolean'
+					);
+				}
+			} else {
+				$paramObj->suggested = false;
 			}
 
 			// Param.description
@@ -588,6 +602,16 @@ class TemplateDataBlob {
 				}
 			}
 
+			if ( $paramObj->deprecated ) {
+				$status = 'templatedata-doc-param-status-deprecated';
+			} elseif ( $paramObj->required ) {
+				$status = 'templatedata-doc-param-status-required';
+			} elseif ( $paramObj->suggested ) {
+				$status = 'templatedata-doc-param-status-suggested';
+			} else {
+				$status = 'templatedata-doc-param-status-optional';
+			}
+
 			$html .= '<tr>'
 			// Label
 			. Html::element( 'th', array(),
@@ -631,17 +655,7 @@ class TemplateDataBlob {
 					wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
 			)
 			// Status
-			. Html::element( 'td', array(),
-				$paramObj->deprecated ?
-					wfMessage( 'templatedata-doc-param-status-deprecated' )
-						->inLanguage( $lang )->text() :
-					( $paramObj->required ?
-						wfMessage( 'templatedata-doc-param-status-required' )
-							->inLanguage( $lang )->text() :
-						wfMessage( 'templatedata-doc-param-status-optional' )
-							->inLanguage( $lang )->text()
-					)
-			)
+			. Html::element( 'td', array(), $status->inLanguage( $lang )->text() )
 			. '</tr>';
 		}
 		$html .= '</tbody></table>'

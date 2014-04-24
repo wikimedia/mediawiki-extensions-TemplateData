@@ -97,6 +97,7 @@ $wgResourceModules['ext.templateDataGenerator.core'] = array(
 		'templatedata-modal-table-param-label',
 		'templatedata-modal-table-param-name',
 		'templatedata-modal-table-param-required',
+		'templatedata-modal-table-param-suggested',
 		'templatedata-modal-table-param-type',
 		'templatedata-modal-table-param-type-number',
 		'templatedata-modal-table-param-type-page',
