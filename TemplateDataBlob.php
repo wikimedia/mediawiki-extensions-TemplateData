@@ -211,7 +211,7 @@ class TemplateDataBlob {
 
 			// Param.deprecated
 			if ( isset( $paramObj->deprecated ) ) {
-				if ( $paramObj->deprecated !== false && !is_string( $paramObj->deprecated ) ) {
+				if ( !is_bool( $paramObj->deprecated ) && !is_string( $paramObj->deprecated ) ) {
 					return Status::newFatal(
 						'templatedata-invalid-type',
 						"params.{$paramName}.deprecated",
