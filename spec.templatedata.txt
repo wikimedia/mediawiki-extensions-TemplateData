@@ -53,7 +53,8 @@
 	  but if not, should be a valid page name to create.
 	- wiki-user-name
 	  A valid MediaWiki user name for the current wiki. Doesn't have to exist,
-	  but if not should be a valid user name to create.
+	  but if not, should be a valid user name to create. Should not include any
+	  localised or standard namespace prefix ("Foo" not "User:Foo").
 	- content
 	  Page content (such as text style, links and images etc.).
 	- unbalanced-wikitext
