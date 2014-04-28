@@ -4,7 +4,8 @@
 			"Chrumps",
 			"Dalis",
 			"Vuh",
-			"Woytecr"
+			"Woytecr",
+			"Wiochman"
 		]
 	},
 	"templatedata-desc": "Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)",
@@ -20,6 +21,7 @@
 	"templatedata-invalid-parse": "Błąd składni w JSON.",
 	"templatedata-invalid-type": "Właściwość \"$1\" powinna mieć typ \"$2\".",
 	"templatedata-invalid-missing": "Wymagana właściwość \"$1\" nie została znaleziona.",
+	"templatedata-invalid-empty-array": "Właściwość „$1” musi mieć w swojej tablicy co najmniej jedną wartość.",
 	"templatedata-invalid-unknown": "Nieoczekiwane właściwość \"$1\".",
 	"templatedata-invalid-value": "Nieprawidłowa wartość właściwości \"$1\".",
 	"templatedata-modal-button-addparam": "Dodaj parametr",
@@ -27,11 +29,13 @@
 	"templatedata-modal-button-cancel": "Anuluj",
 	"templatedata-modal-button-delparam": "Usuń parametr",
 	"templatedata-modal-errormsg": "Znaleziono błędy. Proszę, upewnij się, że nazwy parametrów nie są puste, nie są zduplikowane i nie zawierają «$1», «$2» lub «$3».",
+	"templatedata-modal-errormsg-import-noparams": "Nie znaleziono nowych parametrów podczas importu.",
 	"templatedata-modal-table-param-default": "Domyślnie",
 	"templatedata-modal-table-param-desc": "Opis",
 	"templatedata-modal-table-param-label": "Etykieta",
 	"templatedata-modal-table-param-name": "Nazwa",
 	"templatedata-modal-table-param-required": "Wymagane",
+	"templatedata-modal-table-param-suggested": "Sugerowany",
 	"templatedata-modal-table-param-type-page": "Strona",
 	"templatedata-modal-table-param-type-user": "Użytkownik",
 	"templatedata-modal-title-templatedesc": "Opis szablonu",
