@@ -657,7 +657,7 @@ class TemplateDataBlob {
 					wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
 			)
 			// Status
-			. Html::element( 'td', array(), $status->inLanguage( $lang )->text() )
+			. Html::element( 'td', array(), wfMessage( $status )->inLanguage( $lang )->text() )
 			. '</tr>';
 		}
 		$html .= '</tbody></table>'
