@@ -82,6 +82,10 @@
 	  A valid MediaWiki user name for the current wiki. Doesn't have to exist,
 	  but if not, should be a valid user name to create. Should not include any
 	  localised or standard namespace prefix ("Foo" not "User:Foo").
+	- wiki-file-name
+	  A valid MediaWiki file name for the current wiki. Doesn't have to exist,
+	  but if not, should be a valid file name to upload. Should not include any
+	  localised or standard namespace prefix ("Foo" not "File:Foo").
 	- content
 	  Page content (such as text style, links and images etc.).
 	- unbalanced-wikitext

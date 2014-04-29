@@ -102,12 +102,14 @@ class TemplateDataBlob {
 			'unknown',
 			'wiki-page-name',
 			'wiki-user-name',
+			'wiki-file-name',
 		);
 
 		static $typeCompatMap = array(
 			'string/line' => 'line',
 			'string/wiki-page-name' => 'wiki-page-name',
 			'string/wiki-user-name' => 'wiki-user-name',
+			'string/wiki-file-name' => 'wiki-file-name',
 		);
 
 		if ( $data === null ) {

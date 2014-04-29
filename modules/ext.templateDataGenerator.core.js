@@ -688,6 +688,7 @@
 					'number': mw.msg( 'templatedata-modal-table-param-type-number' ),
 					'string': mw.msg( 'templatedata-modal-table-param-type-string' ),
 					'string/wiki-user-name': mw.msg( 'templatedata-modal-table-param-type-user' ),
+					'string/wiki-file-name': mw.msg( 'templatedata-model-table-param-type-file' ),
 					'string/wiki-page-name': mw.msg( 'templatedata-modal-table-param-type-page' )
 				};
 				domObjects = {
