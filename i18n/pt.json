@@ -17,5 +17,6 @@
 	"templatedata-invalid-missing": "A propriedade \"$1\" é requerida mas não foi fornecida.",
 	"templatedata-invalid-unknown": "Propriedade \"$1\" inesperada.",
 	"templatedata-invalid-value": "Valor inválido para a propriedade \"$1\".",
-	"templatedata-modal-errormsg": "Erros encontrados. Por favor, certifique-se de que não há nomes de parâmetros vazios ou duplicados e que estes não incluem o nome do parâmetro \"$1\", \"$2\" ou \"$3\"."
+	"templatedata-modal-errormsg": "Erros encontrados. Por favor, certifique-se de que não há nomes de parâmetros vazios ou duplicados e que estes não incluem o nome do parâmetro \"$1\", \"$2\" ou \"$3\".",
+	"templatedata-modal-table-param-type-file": "Ficheiro"
 }

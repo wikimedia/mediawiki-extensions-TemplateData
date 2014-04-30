@@ -47,6 +47,7 @@
 	"templatedata-modal-table-param-required": "Обязательное",
 	"templatedata-modal-table-param-suggested": "Предложенный",
 	"templatedata-modal-table-param-type": "Тип",
+	"templatedata-modal-table-param-type-file": "Файл",
 	"templatedata-modal-table-param-type-number": "Число",
 	"templatedata-modal-table-param-type-page": "Страница",
 	"templatedata-modal-table-param-type-string": "Строка",

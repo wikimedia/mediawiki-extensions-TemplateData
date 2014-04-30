@@ -30,5 +30,6 @@
 	"templatedata-modal-button-apply": "適用",
 	"templatedata-modal-button-cancel": "キャンセル",
 	"templatedata-modal-button-delparam": "引数を削除",
-	"templatedata-modal-table-param-aliases": "別名 (カンマ区切り)"
+	"templatedata-modal-table-param-aliases": "別名 (カンマ区切り)",
+	"templatedata-modal-table-param-type-file": "ファイル"
 }

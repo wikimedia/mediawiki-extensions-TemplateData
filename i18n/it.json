@@ -45,6 +45,7 @@
 	"templatedata-modal-table-param-required": "Obbligatorio",
 	"templatedata-modal-table-param-suggested": "Consigliato",
 	"templatedata-modal-table-param-type": "Tipo",
+	"templatedata-modal-table-param-type-file": "File",
 	"templatedata-modal-table-param-type-number": "Numero",
 	"templatedata-modal-table-param-type-page": "Pagina",
 	"templatedata-modal-table-param-type-string": "Stringa",
