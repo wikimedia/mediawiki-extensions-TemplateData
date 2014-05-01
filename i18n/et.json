@@ -16,5 +16,10 @@
 	"templatedata-doc-param-status-deprecated": "iganenud",
 	"templatedata-doc-param-status-optional": "valikuline",
 	"templatedata-doc-param-status-required": "nõutav",
-	"templatedata-doc-param-desc-empty": "kirjeldus puudub"
+	"templatedata-doc-param-desc-empty": "kirjeldus puudub",
+	"templatedata-modal-button-addparam": "Lisa parameeter",
+	"templatedata-modal-button-apply": "Rakenda",
+	"templatedata-modal-button-cancel": "Loobu",
+	"templatedata-modal-button-delparam": "Kustuta parameeter",
+	"templatedata-modal-button-importParams": "Impordi parameetrid"
 }
