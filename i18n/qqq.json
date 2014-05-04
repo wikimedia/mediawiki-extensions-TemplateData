@@ -37,7 +37,7 @@
 	"templatedata-modal-button-importParams": "Label of the import button",
 	"templatedata-modal-errormsg": "Error message that appears in the TemplateData generator GUI in case there are empty, duplicate or invalid parameter names.\n\nInvalid characters are supplied as parameters to avoid parsing errors in translation strings.\n\nParameters:\n* $1 - pipe (<code>|</code>)\n* $2 - equal sign (<code>=</code>)\n* $3 - double curly brackets (<code><nowiki>}}</nowiki></code>)",
 	"templatedata-modal-errormsg-import-noparams": "message that appears in the TemplateData generator GUI in case no template parameters were found during the import attempt.",
-	"templatedata-modal-notice-import-numparams": "message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.",
+	"templatedata-modal-notice-import-numparams": "Message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.\n\nParameters:\n* $1 - number of parameters",
 	"templatedata-modal-table-param-actions": "Label for a table heading: Parameter actions in the table",
 	"templatedata-modal-table-param-aliases": "Label for a table heading: Aliases of the parameter, instruct the user to separate aliases with commas.",
 	"templatedata-modal-table-param-default": "Label for a table heading: Default value of the parameter.\n{{Identical|Default}}",
