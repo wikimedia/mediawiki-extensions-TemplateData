@@ -9,7 +9,7 @@
 	"templatedata-doc-param-name": "Parameter",
 	"templatedata-doc-param-desc": "Keterangan",
 	"templatedata-doc-param-type": "Jenis",
-	"templatedata-doc-param-default": "Azali",
+	"templatedata-doc-param-default": "Asali",
 	"templatedata-doc-param-status": "Status",
 	"templatedata-invalid-parse": "Ralat sintaks dalam JSON.",
 	"templatedata-invalid-type": "Sifat \"$1\" dijangka jenis \"$2\".",
