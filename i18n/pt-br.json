@@ -17,6 +17,7 @@
 	"templatedata-doc-param-status": "Condição",
 	"templatedata-doc-param-status-deprecated": "obsoleto",
 	"templatedata-doc-param-status-optional": "opcional",
+	"templatedata-doc-param-status-suggested": "recomendado",
 	"templatedata-doc-param-status-required": "obrigatório",
 	"templatedata-doc-param-desc-empty": "sem descrição",
 	"templatedata-invalid-parse": "Erro de sintaxe em JSON",
