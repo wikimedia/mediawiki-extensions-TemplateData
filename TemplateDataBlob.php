@@ -99,6 +99,7 @@ class TemplateDataBlob {
 			'number',
 			'boolean',
 			'string',
+			'date',
 			'unbalanced-wikitext',
 			'unknown',
 			'wiki-page-name',

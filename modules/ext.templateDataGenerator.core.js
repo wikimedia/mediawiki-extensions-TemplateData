@@ -686,6 +686,7 @@
 				paramTypes = {
 					'undefined': mw.msg( 'templatedata-modal-table-param-type-undefined' ),
 					'number': mw.msg( 'templatedata-modal-table-param-type-number' ),
+					'date': mw.msg( 'templatedata-modal-table-param-type-date' ),
 					'string': mw.msg( 'templatedata-modal-table-param-type-string' ),
 					'string/wiki-user-name': mw.msg( 'templatedata-modal-table-param-type-user' ),
 					'string/wiki-file-name': mw.msg( 'templatedata-modal-table-param-type-file' ),
