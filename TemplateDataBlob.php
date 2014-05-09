@@ -97,6 +97,7 @@ class TemplateDataBlob {
 			'content',
 			'line',
 			'number',
+			'boolean',
 			'string',
 			'unbalanced-wikitext',
 			'unknown',

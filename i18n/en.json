@@ -48,6 +48,7 @@
 	"templatedata-modal-table-param-type": "Type",
 	"templatedata-modal-table-param-type-file": "File",
 	"templatedata-modal-table-param-type-number": "Number",
+	"templatedata-modal-table-param-type-boolean": "Boolean",
 	"templatedata-modal-table-param-type-page": "Page",
 	"templatedata-modal-table-param-type-string": "String",
 	"templatedata-modal-table-param-type-undefined": "Undefined",
