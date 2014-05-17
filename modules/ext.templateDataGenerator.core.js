@@ -278,11 +278,20 @@
 					paramsJson.params[paramid] &&
 					paramsJson.params[paramid][paramAttr]
 				) {
-					// make sure we set the value correctly based on the DOM element
-					if ( paramAttrObj[paramAttr].prop( 'type' ) === 'checkbox' ) {
+					// Only accept values that are expected editable
+					if (
+						typeof paramsJson.params[paramid][paramAttr] === 'string' ||
+						( paramAttr === 'aliases' && $.isArray( paramsJson.params[paramid][paramAttr] ) )
+					) {
+						paramAttrObj[paramAttr].val( paramsJson.params[paramid][paramAttr] );
+					} else if ( paramAttrObj[paramAttr].prop( 'type' ) === 'checkbox' ) {
 						paramAttrObj[paramAttr].prop( 'checked', paramsJson.params[paramid][paramAttr] );
 					} else {
-						paramAttrObj[paramAttr].val( paramsJson.params[paramid][paramAttr] );
+						// For the moment, objects are uneditable
+						paramAttrObj[paramAttr]
+							.prop( 'disabled', true )
+							.data( 'tdg-uneditable', true )
+							.val( mw.msg( 'brackets', mw.msg( 'templatedata-modal-table-param-uneditablefield' ) ) );
 					}
 				}
 
@@ -465,7 +474,8 @@
 		 * @returns {Object|boolean} Amended json object or false if changes are invalid.
 		 */
 		function applyChangeToJSON( originalJsonObject, modalDomElements, doNotCheckForm ) {
-			var paramid,
+			var templateDescriptionObject,
+				paramid,
 				paramName,
 				paramProp,
 				$domEl,
@@ -487,8 +497,13 @@
 			}
 
 				// Update the description
-				if ( $( '.tdg-template-description' ).length ) {
-					outputJson.description = $( '.tdg-template-description' ).val();
+				templateDescriptionObject = $( '.tdg-template-description' );
+
+				if (
+						templateDescriptionObject.length &&
+						!templateDescriptionObject.data( 'tdg-uneditable' )
+					) {
+					outputJson.description = templateDescriptionObject.val();
 				}
 
 				// First check if there's outpuJson.params
@@ -531,59 +546,62 @@
 						propExists = ( paramObj.hasOwnProperty( paramProp ) );
 						$domEl = domElements[paramProp];
 
-						// Check if value changed
-						switch ( paramProp ) {
-							// Skip:
-							case 'name':
-							case 'delbutton':
-								break;
-							case 'aliases':
-								newValue = cleanupAliasArray( $domEl.val() );
-								if ( propExists &&
-									newValue.sort().join( '|' ) !== paramObj.aliases.sort().join( '|' ) ) {
-									// Replace:
-									if ( newValue.length === 0 ) {
-										delete paramObj.aliases;
-										continue;
-									} else {
-										paramObj.aliases = newValue;
+						// Skip all inputs that are marked as uneditable
+						if ( !$domEl.data( 'tdg-uneditable' ) ) {
+							// Check if value changed
+							switch ( paramProp ) {
+								// Skip:
+								case 'name':
+								case 'delbutton':
+									break;
+								case 'aliases':
+									newValue = cleanupAliasArray( $domEl.val() );
+									if ( propExists &&
+										newValue.sort().join( '|' ) !== paramObj.aliases.sort().join( '|' ) ) {
+										// Replace:
+										if ( newValue.length === 0 ) {
+											delete paramObj.aliases;
+											continue;
+										} else {
+											paramObj.aliases = newValue;
+										}
+									} else if ( !propExists ) {
+										if ( newValue.length > 0 ) {
+											paramObj.aliases = newValue;
+										}
 									}
-								} else if ( !propExists ) {
-									if ( newValue.length > 0 ) {
-										paramObj.aliases = newValue;
+									break;
+								case 'description':
+								case 'default':
+								case 'label':
+									newValue = $domEl.val();
+									if ( paramObj[paramProp] !== newValue ) {
+										if ( !newValue || newValue.length === 0 ) {
+											delete paramObj[paramProp];
+											continue;
+										} else {
+											paramObj[paramProp] = newValue;
+										}
 									}
-								}
-								break;
-							case 'description':
-							case 'default':
-							case 'label':
-								newValue = $domEl.val();
-								if ( paramObj[paramProp] !== newValue ) {
-									if ( !newValue || newValue.length === 0 ) {
-										delete paramObj[paramProp];
-										continue;
-									} else {
+									break;
+								case 'type':
+									newValue = $domEl.val();
+									if ( paramObj[paramProp] !== newValue ) {
+										if ( newValue === 'undefined' ) {
+											delete paramObj[paramProp];
+											continue;
+										} else {
+											paramObj[paramProp] = newValue;
+										}
+									}
+									break;
+								case 'required':
+									newValue = $domEl.prop( 'checked' );
+									if ( paramObj[paramProp] !== undefined || newValue === true ) {
 										paramObj[paramProp] = newValue;
 									}
-								}
-								break;
-							case 'type':
-								newValue = $domEl.val();
-								if ( paramObj[paramProp] !== newValue ) {
-									if ( newValue === 'undefined' ) {
-										delete paramObj[paramProp];
-										continue;
-									} else {
-										paramObj[paramProp] = newValue;
-									}
-								}
-								break;
-							case 'required':
-								newValue = $domEl.prop( 'checked' );
-								if ( paramObj[paramProp] !== undefined || newValue === true ) {
-									paramObj[paramProp] = newValue;
-								}
-								break;
+									break;
+							}
 						}
 					}
 				}
@@ -741,7 +759,14 @@
 				curr.paramsJson = parseTemplateData( wikitext );
 				if ( !$.isEmptyObject( curr.paramsJson ) ) {
 					if ( curr.paramsJson.description ) {
-						$descBox.text( curr.paramsJson.description );
+						if ( typeof curr.paramsJson.description === 'string' ) {
+							$descBox.text( curr.paramsJson.description );
+						} else {
+							$descBox
+								.prop( 'disabled', true )
+								.data( 'tdg-uneditable', true )
+								.val( mw.msg( 'brackets', mw.msg( 'templatedata-modal-table-param-uneditablefield' ) ) );
+						}
 					}
 
 					// Build the parameter row DOMs

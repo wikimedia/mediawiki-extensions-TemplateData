@@ -54,6 +54,7 @@
 	"templatedata-modal-table-param-type-string": "String",
 	"templatedata-modal-table-param-type-undefined": "Undefined",
 	"templatedata-modal-table-param-type-user": "User",
+	"templatedata-modal-table-param-uneditablefield": "Uneditable",
 	"templatedata-modal-title": "Template documentation editor",
 	"templatedata-modal-title-templatedesc": "Template description",
 	"templatedata-modal-title-templateparams": "Template parameters"

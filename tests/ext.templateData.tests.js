@@ -17,7 +17,7 @@
 		'			"type": "string/wiki-user-name",\n' +
 		'			"default": "some default value here.",\n' +
 		'			"required": true,\n' +
-		'			"description": "User name of person who forgot to sign their comment.",\n' +
+		'			"description": { "en": "User who forgot to sign their comment." },\n' +
 		'			"aliases": ["1"]\n' +
 		'		},\n' +
 		'		"date": {\n' +
@@ -82,10 +82,16 @@
 			'Parameter details: label.'
 		);
 
-		assert.equal(
+		// HACK: This is commented-out because the functionality is temporarily disabled for blocks
+/*		assert.equal(
 			$modalBox.find( '#param-user .tdg-element-attr-description' ).val(),
-			'User name of person who forgot to sign their comment.',
+			'User who forgot to sign their comment.',
 			'Parameter details: description.'
+		);*/
+		assert.equal(
+			$modalBox.find( '#param-user .tdg-element-attr-description' ).data( 'tdg-uneditable' ),
+			true,
+			'Block description as object: parameter description.'
 		);
 
 		assert.equal(
@@ -111,7 +117,6 @@
 			false,
 			'Parameter details: non required.'
 		);
-
 	} );
 
 	QUnit.test( 'TemplateData JSON manipulation', 4, function ( assert ) {

@@ -56,6 +56,7 @@
 	"templatedata-modal-table-param-type-string": "A possible parameter type: String\n{{Related|Templatedata-modal-table-param-type}}\n{{Identical|String}}",
 	"templatedata-modal-table-param-type-undefined": "A possible parameter type: Undefined\n{{Related|Templatedata-modal-table-param-type}}\n{{Identical|Undefined}}",
 	"templatedata-modal-table-param-type-user": "A possible parameter type: User\n{{Related|Templatedata-modal-table-param-type}}\n{{Identical|User}}",
+	"templatedata-modal-table-param-uneditablefield": "Placeholder text notifying the user the field is uneditable",
 	"templatedata-modal-title": "Title of the modal popup.",
 	"templatedata-modal-title-templatedesc": "The title for the template description textbox",
 	"templatedata-modal-title-templateparams": "The title for the template parameters table"

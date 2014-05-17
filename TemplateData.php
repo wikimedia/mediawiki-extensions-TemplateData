@@ -107,6 +107,7 @@ $wgResourceModules['ext.templateDataGenerator.core'] = array(
 		'templatedata-modal-table-param-type-string',
 		'templatedata-modal-table-param-type-undefined',
 		'templatedata-modal-table-param-type-user',
+		'templatedata-modal-table-param-uneditablefield',
 		'templatedata-modal-title',
 		'templatedata-modal-title-templatedesc',
 		'templatedata-modal-title-templateparams',
