@@ -66,6 +66,7 @@ $wgResourceModules['ext.templateDataGenerator.editPage'] = array(
 	),
 	'messages' => array(
 		'templatedata-editbutton',
+		'templatedata-helplink',
 		'templatedata-errormsg-jsonbadformat',
 	)
 );
@@ -80,6 +81,7 @@ $wgResourceModules['ext.templateDataGenerator.core'] = array(
 	'dependencies' => array(
 		'jquery.ui.dialog',
 		'jquery.ui.button',
+		'jquery.ui.sortable',
 	),
 	'messages' => array(
 		'templatedata-modal-button-addparam',
@@ -89,6 +91,7 @@ $wgResourceModules['ext.templateDataGenerator.core'] = array(
 		'templatedata-modal-button-importParams',
 		'templatedata-modal-errormsg',
 		'templatedata-modal-errormsg-import-noparams',
+		'templatedata-modal-errormsg-import-paramsalreadyexist',
 		'templatedata-modal-notice-import-numparams',
 		'templatedata-modal-table-param-actions',
 		'templatedata-modal-table-param-aliases',
@@ -99,14 +102,18 @@ $wgResourceModules['ext.templateDataGenerator.core'] = array(
 		'templatedata-modal-table-param-required',
 		'templatedata-modal-table-param-suggested',
 		'templatedata-modal-table-param-type',
-		'templatedata-modal-table-param-type-file',
+		'templatedata-modal-table-param-type-boolean',
+		'templatedata-modal-table-param-type-content',
+		'templatedata-modal-table-param-type-wiki-file-name',
+		'templatedata-modal-table-param-type-line',
 		'templatedata-modal-table-param-type-number',
 		'templatedata-modal-table-param-type-boolean',
 		'templatedata-modal-table-param-type-date',
-		'templatedata-modal-table-param-type-page',
+		'templatedata-modal-table-param-type-wiki-page-name',
 		'templatedata-modal-table-param-type-string',
+		'templatedata-modal-table-param-type-unbalanced-wikitext',
 		'templatedata-modal-table-param-type-undefined',
-		'templatedata-modal-table-param-type-user',
+		'templatedata-modal-table-param-type-wiki-user-name',
 		'templatedata-modal-table-param-uneditablefield',
 		'templatedata-modal-title',
 		'templatedata-modal-title-templatedesc',
