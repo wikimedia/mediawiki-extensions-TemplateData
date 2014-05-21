@@ -53,6 +53,7 @@
 	"templatedata-modal-table-param-type": "Type",
 	"templatedata-modal-table-param-type-file": "Fichier",
 	"templatedata-modal-table-param-type-number": "Nombre",
+	"templatedata-modal-table-param-type-boolean": "Booléen",
 	"templatedata-modal-table-param-type-page": "Page",
 	"templatedata-modal-table-param-type-string": "Chaîne",
 	"templatedata-modal-table-param-type-undefined": "Indéfini",

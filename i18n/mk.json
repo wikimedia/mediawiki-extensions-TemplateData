@@ -47,6 +47,7 @@
 	"templatedata-modal-table-param-type": "Тип",
 	"templatedata-modal-table-param-type-file": "Податотека",
 	"templatedata-modal-table-param-type-number": "Број",
+	"templatedata-modal-table-param-type-boolean": "Булов",
 	"templatedata-modal-table-param-type-page": "Страница",
 	"templatedata-modal-table-param-type-string": "Низа",
 	"templatedata-modal-table-param-type-undefined": "Неодреден",

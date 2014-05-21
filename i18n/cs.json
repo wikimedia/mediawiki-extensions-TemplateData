@@ -48,6 +48,7 @@
 	"templatedata-modal-table-param-type": "Typ",
 	"templatedata-modal-table-param-type-file": "Soubor",
 	"templatedata-modal-table-param-type-number": "Číslo",
+	"templatedata-modal-table-param-type-boolean": "Logická hodnota",
 	"templatedata-modal-table-param-type-page": "Stránka",
 	"templatedata-modal-table-param-type-string": "Řetězec",
 	"templatedata-modal-table-param-type-undefined": "Nedefinováno",
