@@ -101,6 +101,10 @@ class ApiTemplateData extends ApiBase {
 		if ( $values ) {
 			$result->addValue( null, 'normalized', $values );
 		}
+		$redirects = $pageSet->getRedirectTitlesAsResult();
+		if ( $redirects ) {
+			$result->addValue( null, 'redirects', $redirects );
+		}
 	}
 
 	public function getAllowedParams( $flags = 0 ) {
