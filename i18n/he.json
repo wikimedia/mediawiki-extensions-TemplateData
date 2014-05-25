@@ -50,6 +50,7 @@
 	"templatedata-modal-table-param-type-file": "קובץ",
 	"templatedata-modal-table-param-type-number": "מספר",
 	"templatedata-modal-table-param-type-boolean": "בוליאני",
+	"templatedata-modal-table-param-type-date": "תאריך",
 	"templatedata-modal-table-param-type-page": "דף",
 	"templatedata-modal-table-param-type-string": "מחרוזת",
 	"templatedata-modal-table-param-type-undefined": "בלתי־מוגדר",
