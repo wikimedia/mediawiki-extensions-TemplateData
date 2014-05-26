@@ -51,6 +51,7 @@
 	"templatedata-modal-table-param-type-file": "Fil",
 	"templatedata-modal-table-param-type-number": "Nummer",
 	"templatedata-modal-table-param-type-boolean": "Boolesk",
+	"templatedata-modal-table-param-type-date": "Datum",
 	"templatedata-modal-table-param-type-page": "Sida",
 	"templatedata-modal-table-param-type-string": "Sträng",
 	"templatedata-modal-table-param-type-undefined": "Odefinierad",

@@ -50,6 +50,7 @@
 	"templatedata-modal-table-param-type-file": "Ficheiro",
 	"templatedata-modal-table-param-type-number": "Número",
 	"templatedata-modal-table-param-type-boolean": "Booleano",
+	"templatedata-modal-table-param-type-date": "Data",
 	"templatedata-modal-table-param-type-page": "Página",
 	"templatedata-modal-table-param-type-string": "String",
 	"templatedata-modal-table-param-type-undefined": "Indefinido",
