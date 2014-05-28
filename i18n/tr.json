@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Trncmvsr"
+			"Trncmvsr",
+			"Mavrikant"
 		]
 	},
 	"templatedata-editbutton": "Şablon belgelerini yönetme",
@@ -17,6 +18,7 @@
 	"templatedata-modal-table-param-name": "Ad",
 	"templatedata-modal-table-param-type": "Tür",
 	"templatedata-modal-table-param-type-number": "Sayı",
+	"templatedata-modal-table-param-type-date": "Tarih",
 	"templatedata-modal-table-param-type-page": "Sayfa",
 	"templatedata-modal-table-param-type-string": "Dize",
 	"templatedata-modal-table-param-type-user": "Kullanıcı",
