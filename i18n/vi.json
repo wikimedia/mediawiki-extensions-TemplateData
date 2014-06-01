@@ -47,6 +47,8 @@
 	"templatedata-modal-table-param-type": "Kiểu",
 	"templatedata-modal-table-param-type-file": "Tập tin",
 	"templatedata-modal-table-param-type-number": "Số",
+	"templatedata-modal-table-param-type-boolean": "Luận lý",
+	"templatedata-modal-table-param-type-date": "Ngày tháng",
 	"templatedata-modal-table-param-type-page": "Trang",
 	"templatedata-modal-table-param-type-string": "Chuỗi",
 	"templatedata-modal-table-param-type-undefined": "Không định rõ",
