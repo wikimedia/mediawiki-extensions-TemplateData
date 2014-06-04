@@ -32,7 +32,7 @@
 				$modalBox.dialog( 'open' );
 
 				// respond to modal close event
-				$modalBox.on( 'TemplateDataGeneratorDone', function( e, output ) {
+				$modalBox.on( 'TemplateDataGeneratorDone', function ( e, output ) {
 					$textbox.val( output );
 				} );
 			} );

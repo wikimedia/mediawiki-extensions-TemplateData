@@ -600,7 +600,7 @@
 		function i18nModalButtons( btnApply, btnCancel ) {
 			var modalButtons = {};
 
-			modalButtons[btnApply] = function() {
+			modalButtons[btnApply] = function () {
 				var finalOutput,
 					newJson = applyChangeToJSON();
 
@@ -811,7 +811,7 @@
 			 * @private
 			 * @inheritDoc #parseTemplateData
 			 */
-			parseTemplateData: function( wikitext ) {
+			parseTemplateData: function ( wikitext ) {
 				return parseTemplateData( wikitext );
 			},
 
@@ -819,7 +819,7 @@
 			 * @private
 			 * @inheritDoc #applyChangesToJSON
 			 */
-			applyChangesToJSON: function( originalJsonObject, modalDomElements, doNotCheckForm ) {
+			applyChangesToJSON: function ( originalJsonObject, modalDomElements, doNotCheckForm ) {
 				return applyChangeToJSON( originalJsonObject, modalDomElements, doNotCheckForm );
 			},
 
@@ -827,7 +827,7 @@
 			 * @private
 			 * @inheritDoc #amendWikitext
 			 */
-			amendWikitext: function( newJsonObject, originalWikitext ) {
+			amendWikitext: function ( newJsonObject, originalWikitext ) {
 				return amendWikitext( newJsonObject, originalWikitext );
 			},
 
@@ -835,7 +835,7 @@
 			 * @private
 			 * @inheritDoc #translateParamToRowDom
 			 */
-			translateParamToRowDom: function( paramsJson, paramAttrObj ) {
+			translateParamToRowDom: function ( paramsJson, paramAttrObj ) {
 				return translateParamToRowDom( paramsJson, paramAttrObj );
 			}
 

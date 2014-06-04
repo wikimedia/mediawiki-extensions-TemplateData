@@ -114,7 +114,6 @@
 
 	} );
 
-
 	QUnit.test( 'TemplateData JSON manipulation', 4, function ( assert ) {
 		var $modalDomElements, parsedJson, expectedTextResult,
 			exampleJson, changedParsedJson, reparsedJson,
@@ -172,7 +171,7 @@
 		$modalDomElements = {
 			'user': {
 				'name': $( '<input>' ).val( 'user' ),
-				'label': $( '<input>' ).val( 'changed to another label' ),
+				'label': $( '<input>' ).val( 'changed to another label' )
 			}
 		};
 
@@ -191,7 +190,7 @@
 		$modalDomElements = {
 			'user': {
 				'name': $( '<input>' ).val( 'anotherName' ),
-				'label': $( '<input>' ).val( 'changed to another label' ),
+				'label': $( '<input>' ).val( 'changed to another label' )
 			}
 		};
 
