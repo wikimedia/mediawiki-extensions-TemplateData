@@ -55,6 +55,7 @@
 	"templatedata-modal-table-param-type-string": "מחרוזת",
 	"templatedata-modal-table-param-type-undefined": "בלתי־מוגדר",
 	"templatedata-modal-table-param-type-user": "משתמש",
+	"templatedata-modal-table-param-uneditablefield": "לא לעריכה",
 	"templatedata-modal-title": "מחולל נתוני תבנית",
 	"templatedata-modal-title-templatedesc": "תיאור התבנית",
 	"templatedata-modal-title-templateparams": "פרמטרי תבנית"

@@ -54,6 +54,7 @@
 	"templatedata-modal-table-param-type-string": "Zeichenfolge",
 	"templatedata-modal-table-param-type-undefined": "Nicht definiert",
 	"templatedata-modal-table-param-type-user": "Benutzer",
+	"templatedata-modal-table-param-uneditablefield": "Nicht bearbeitbar",
 	"templatedata-modal-title": "Vorlagendokumentations-Editor",
 	"templatedata-modal-title-templatedesc": "Vorlagenbeschreibung",
 	"templatedata-modal-title-templateparams": "Vorlagenparameter"

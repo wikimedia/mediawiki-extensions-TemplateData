@@ -59,6 +59,7 @@
 	"templatedata-modal-table-param-type-string": "Chaîne",
 	"templatedata-modal-table-param-type-undefined": "Indéfini",
 	"templatedata-modal-table-param-type-user": "Utilisateur",
+	"templatedata-modal-table-param-uneditablefield": "Non modifiable",
 	"templatedata-modal-title": "Éditeur de la documentation du modèle",
 	"templatedata-modal-title-templatedesc": "Description du modèle",
 	"templatedata-modal-title-templateparams": "Paramètres du modèle"

@@ -53,6 +53,7 @@
 	"templatedata-modal-table-param-type-string": "Низа",
 	"templatedata-modal-table-param-type-undefined": "Неодреден",
 	"templatedata-modal-table-param-type-user": "Корисник",
+	"templatedata-modal-table-param-uneditablefield": "Неуредливо",
 	"templatedata-modal-title": "Уредник на шаблонска документација",
 	"templatedata-modal-title-templatedesc": "Опис на шаблонот",
 	"templatedata-modal-title-templateparams": "Шаблонски параметри"
