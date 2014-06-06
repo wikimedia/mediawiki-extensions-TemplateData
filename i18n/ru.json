@@ -55,6 +55,7 @@
 	"templatedata-modal-table-param-type-string": "Строка",
 	"templatedata-modal-table-param-type-undefined": "Неопределённый",
 	"templatedata-modal-table-param-type-user": "Участник",
+	"templatedata-modal-table-param-uneditablefield": "Недоступно для редактирования",
 	"templatedata-modal-title": "Редактор шаблонов документов",
 	"templatedata-modal-title-templatedesc": "Описание шаблона",
 	"templatedata-modal-title-templateparams": "Параметры шаблона"

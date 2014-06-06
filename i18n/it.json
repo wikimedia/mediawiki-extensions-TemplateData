@@ -53,6 +53,7 @@
 	"templatedata-modal-table-param-type-string": "Stringa",
 	"templatedata-modal-table-param-type-undefined": "Non definito",
 	"templatedata-modal-table-param-type-user": "Utente",
+	"templatedata-modal-table-param-uneditablefield": "Non modificabile",
 	"templatedata-modal-title": "Editor della documentazione di template",
 	"templatedata-modal-title-templatedesc": "Descrizione template",
 	"templatedata-modal-title-templateparams": "Parametri template"

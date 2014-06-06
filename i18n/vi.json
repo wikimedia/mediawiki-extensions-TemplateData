@@ -53,6 +53,7 @@
 	"templatedata-modal-table-param-type-string": "Chuỗi",
 	"templatedata-modal-table-param-type-undefined": "Không định rõ",
 	"templatedata-modal-table-param-type-user": "Người dùng",
+	"templatedata-modal-table-param-uneditablefield": "Không sửa được",
 	"templatedata-modal-title": "Trình soạn thảo tài liệu bản mẫu",
 	"templatedata-modal-title-templatedesc": "Miêu tả bản mẫu",
 	"templatedata-modal-title-templateparams": "Tham số bản mẫu"

@@ -48,10 +48,12 @@
 	"templatedata-modal-table-param-type-file": "Papeles",
 	"templatedata-modal-table-param-type-number": "Numero",
 	"templatedata-modal-table-param-type-boolean": "Boolean",
+	"templatedata-modal-table-param-type-date": "Petsa",
 	"templatedata-modal-table-param-type-page": "Panid",
 	"templatedata-modal-table-param-type-string": "Kuerdas",
 	"templatedata-modal-table-param-type-undefined": "Saan a naipalpalawag",
 	"templatedata-modal-table-param-type-user": "Agar-aramat",
+	"templatedata-modal-table-param-uneditablefield": "Di mabalin a maurnos",
 	"templatedata-modal-title": "Editor ti dokumentasion ti plantilia",
 	"templatedata-modal-title-templatedesc": "Deskripsion ti plantilia",
 	"templatedata-modal-title-templateparams": "Dagiti parametro ti plantilia"

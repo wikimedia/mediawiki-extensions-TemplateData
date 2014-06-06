@@ -55,6 +55,7 @@
 	"templatedata-modal-table-param-type-string": "String",
 	"templatedata-modal-table-param-type-undefined": "Indefinido",
 	"templatedata-modal-table-param-type-user": "Utilizador",
+	"templatedata-modal-table-param-uneditablefield": "Não editável",
 	"templatedata-modal-title": "Editor de documentação de predefinição",
 	"templatedata-modal-title-templatedesc": "Descrição de predefinição",
 	"templatedata-modal-title-templateparams": "Parâmetros de predefinição"
