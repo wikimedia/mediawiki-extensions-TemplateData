@@ -5,7 +5,8 @@
 			"Dalis",
 			"Vuh",
 			"Woytecr",
-			"Wiochman"
+			"Wiochman",
+			"Matik7"
 		]
 	},
 	"templatedata-desc": "Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)",
@@ -38,6 +39,7 @@
 	"templatedata-modal-table-param-suggested": "Sugerowany",
 	"templatedata-modal-table-param-type-page": "Strona",
 	"templatedata-modal-table-param-type-user": "Użytkownik",
+	"templatedata-modal-table-param-uneditablefield": "Nieedytowalne",
 	"templatedata-modal-title-templatedesc": "Opis szablonu",
 	"templatedata-modal-title-templateparams": "Parametry szablonu"
 }
