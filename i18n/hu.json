@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Tacsipacsi",
-			"Tgr"
+			"Tgr",
+			"Csega"
 		]
 	},
 	"templatedata-desc": "A sablonok paraméterezését leíró adatokat tárol (JSON formátumban)",
@@ -52,6 +53,7 @@
 	"templatedata-modal-table-param-type-string": "Szöveg",
 	"templatedata-modal-table-param-type-undefined": "Meghatározatlan",
 	"templatedata-modal-table-param-type-user": "Szerkesztő",
+	"templatedata-modal-table-param-uneditablefield": "Nem szerkeszthető",
 	"templatedata-modal-title": "Sablondokumentáció-szerkesztő",
 	"templatedata-modal-title-templatedesc": "Sablon leírása",
 	"templatedata-modal-title-templateparams": "Sablonparaméterek"
