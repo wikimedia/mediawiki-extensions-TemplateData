@@ -54,6 +54,7 @@
 	"templatedata-modal-table-param-type-string": "Řetězec",
 	"templatedata-modal-table-param-type-undefined": "Nedefinováno",
 	"templatedata-modal-table-param-type-user": "Uživatel",
+	"templatedata-modal-table-param-uneditablefield": "Needitovatelné",
 	"templatedata-modal-title": "Editor dokumentace šablony",
 	"templatedata-modal-title-templatedesc": "Popis šablony",
 	"templatedata-modal-title-templateparams": "Parametry šablony"
