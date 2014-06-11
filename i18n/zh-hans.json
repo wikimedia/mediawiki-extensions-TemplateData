@@ -5,7 +5,8 @@
 			"Liuxinyu970226",
 			"Shizhao",
 			"Xiaomingyan",
-			"Yfdyh000"
+			"Yfdyh000",
+			"Mywood"
 		]
 	},
 	"templatedata-desc": "实现模板参数的数据存储（使用JSON）",
@@ -18,7 +19,7 @@
 	"templatedata-doc-param-default-empty": "空",
 	"templatedata-doc-param-status": "状态",
 	"templatedata-doc-param-status-deprecated": "弃用",
-	"templatedata-doc-param-status-optional": "可选",
+	"templatedata-doc-param-status-optional": "选填",
 	"templatedata-doc-param-status-suggested": "已建议",
 	"templatedata-doc-param-status-required": "必填",
 	"templatedata-doc-param-desc-empty": "没有说明",

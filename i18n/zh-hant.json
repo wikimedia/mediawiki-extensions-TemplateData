@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"EagerLin",
-			"Simon Shek"
+			"Simon Shek",
+			"Liuxinyu970226"
 		]
 	},
 	"templatedata-desc": "為模板參數實現數據存儲（使用JSON）",
@@ -12,6 +13,7 @@
 	"templatedata-doc-param-type": "類型",
 	"templatedata-doc-param-default": "預設",
 	"templatedata-doc-param-status": "狀態",
+	"templatedata-doc-param-status-optional": "可選",
 	"templatedata-invalid-parse": "JSON中語法錯誤。",
 	"templatedata-invalid-type": "屬性「$1」預期為類型「$2」。",
 	"templatedata-invalid-missing": "找不到必須的屬性「$1」。",
