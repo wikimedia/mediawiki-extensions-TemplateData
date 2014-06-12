@@ -58,6 +58,7 @@
 	"templatedata-modal-table-param-type-string": "字符串",
 	"templatedata-modal-table-param-type-undefined": "未定义",
 	"templatedata-modal-table-param-type-user": "用户",
+	"templatedata-modal-table-param-uneditablefield": "不可编辑",
 	"templatedata-modal-title": "模板文档编辑器",
 	"templatedata-modal-title-templatedesc": "模板说明",
 	"templatedata-modal-title-templateparams": "模板参数"

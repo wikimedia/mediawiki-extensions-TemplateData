@@ -47,6 +47,7 @@
 	"templatedata-modal-table-param-type-string": "Cadena",
 	"templatedata-modal-table-param-type-undefined": "No definido",
 	"templatedata-modal-table-param-type-user": "Usuario",
+	"templatedata-modal-table-param-uneditablefield": "No editable",
 	"templatedata-modal-title": "Editor de documentación de plantilla",
 	"templatedata-modal-title-templatedesc": "Descripción de la plantilla",
 	"templatedata-modal-title-templateparams": "Parámetros de la plantilla"
