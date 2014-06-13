@@ -31,6 +31,11 @@
 	"templatedata-modal-button-cancel": "キャンセル",
 	"templatedata-modal-button-delparam": "引数を削除",
 	"templatedata-modal-table-param-aliases": "別名 (カンマ区切り)",
+	"templatedata-modal-table-param-default": "既定",
+	"templatedata-modal-table-param-desc": "説明",
+	"templatedata-modal-table-param-label": "ラベル",
+	"templatedata-modal-table-param-name": "名前",
+	"templatedata-modal-table-param-required": "必須",
 	"templatedata-modal-table-param-type-file": "ファイル",
 	"templatedata-modal-table-param-type-number": "数値",
 	"templatedata-modal-table-param-type-boolean": "ブール値",
@@ -38,5 +43,6 @@
 	"templatedata-modal-table-param-type-page": "ページ",
 	"templatedata-modal-table-param-type-string": "文字列",
 	"templatedata-modal-table-param-type-undefined": "未定義",
-	"templatedata-modal-table-param-type-user": "利用者"
+	"templatedata-modal-table-param-type-user": "利用者",
+	"templatedata-modal-table-param-uneditablefield": "編集不可"
 }
