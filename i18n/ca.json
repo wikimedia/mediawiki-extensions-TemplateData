@@ -3,7 +3,8 @@
 		"authors": [
 			"Luckas",
 			"Toniher",
-			"Vriullop"
+			"Vriullop",
+			"Fitoschido"
 		]
 	},
 	"templatedata-doc-params": "Paràmetres de la plantilla",
@@ -19,5 +20,6 @@
 	"templatedata-modal-table-param-default": "Per defecte",
 	"templatedata-modal-table-param-required": "Obligatori",
 	"templatedata-modal-table-param-type": "Tipus",
+	"templatedata-modal-table-param-type-date": "Data",
 	"templatedata-modal-table-param-type-user": "Usuari"
 }
