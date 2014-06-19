@@ -600,7 +600,7 @@ class TemplateDataBlob {
 			$aliases = '';
 			if ( count( $paramObj->aliases ) ) {
 				foreach ( $paramObj->aliases as $alias ) {
-					$aliases .= Html::element( 'tt', array(
+					$aliases .= Html::element( 'code', array(
 						'class' => 'mw-templatedata-doc-param-alias'
 					), $alias );
 				}
@@ -625,7 +625,7 @@ class TemplateDataBlob {
 			)
 			// Parameters and aliases
 			. Html::rawElement( 'td', array( 'class' => 'mw-templatedata-doc-param-name' ),
-				Html::element( 'tt', array(), $paramName ) . $aliases
+				Html::element( 'code', array(), $paramName ) . $aliases
 			)
 			// Description
 			. Html::element( 'td', array(
@@ -646,7 +646,7 @@ class TemplateDataBlob {
 						'mw-templatedata-doc-muted' => $paramObj->type === 'unknown'
 					)
 				),
-				Html::element( 'tt', array(), $paramObj->type )
+				Html::element( 'code', array(), $paramObj->type )
 			)
 			// Default
 			. Html::element( 'td', array(
