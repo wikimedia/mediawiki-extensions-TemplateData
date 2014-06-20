@@ -59,6 +59,7 @@
 	"templatedata-modal-table-param-type-string": "Tekenreeks",
 	"templatedata-modal-table-param-type-undefined": "Niet opgegeven",
 	"templatedata-modal-table-param-type-user": "Gebruiker",
+	"templatedata-modal-table-param-uneditablefield": "Niet bewerkbaar",
 	"templatedata-modal-title": "Editor voor sjabloondocumentatie",
 	"templatedata-modal-title-templatedesc": "Sjabloonbeschrijving",
 	"templatedata-modal-title-templateparams": "Sjabloonparameters"
