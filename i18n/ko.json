@@ -28,7 +28,7 @@
 	"templatedata-invalid-value": "\"$1\" 속성의 값이 잘못되었습니다.",
 	"templatedata-invalid-length": "저장하기에 데이터가 너무 큽니다 ({{formatnum:$1}} {{PLURAL:$1|바이드}}, {{PLURAL:$2|제한은}} {{formatnum:$2}})",
 	"templatedata-editbutton": "틀 문서 관리",
-	"templatedata-errormsg-jsonbadformat": "잘못된 JSON 형식입니다. 수정하거나 현재의 <templatedata> 태그를 삭제한 후 다시 시도해보세요.",
+	"templatedata-errormsg-jsonbadformat": "잘못된 JSON 형식입니다. 그것을 수정하거나, 현재의 <templatedata> 태그를 삭제하고 나서 다시 시도하세요.",
 	"templatedata-modal-button-addparam": "변수 추가",
 	"templatedata-modal-button-apply": "적용",
 	"templatedata-modal-button-cancel": "취소",
