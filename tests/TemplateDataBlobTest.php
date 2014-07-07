@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @group TemplateData
+ */
 class TemplateDataBlobTest extends MediaWikiTestCase {
 
 	protected function setUp() {
