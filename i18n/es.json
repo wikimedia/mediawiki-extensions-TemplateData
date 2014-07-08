@@ -6,7 +6,8 @@
 			"Ovruni",
 			"Sethladan",
 			"Mcervera",
-			"Vfrico"
+			"Vfrico",
+			"Macofe"
 		]
 	},
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
@@ -29,7 +30,7 @@
 	"templatedata-modal-button-cancel": "Cancelar",
 	"templatedata-modal-button-delparam": "Eliminar parámetro",
 	"templatedata-modal-button-importParams": "Importar parámetros",
-	"templatedata-modal-errormsg": "Se encontraron errores. Asegúrate de que no hay nombres de parámetros vacíos o duplicados, y de que estos no incluyen «$1», «$2» ni «$3».",
+	"templatedata-modal-errormsg": "Se encontraron errores. Asegúrate de que no haya nombres de parámetros vacíos o duplicados, y de que estos no incluyan «$1», «$2» ni «$3».",
 	"templatedata-modal-errormsg-import-noparams": "No se hallaron parámetros nuevos durante la importación.",
 	"templatedata-modal-table-param-actions": "Acciones",
 	"templatedata-modal-table-param-default": "Predeterminado",
