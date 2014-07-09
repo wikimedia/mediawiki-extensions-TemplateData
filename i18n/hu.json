@@ -49,6 +49,8 @@
 	"templatedata-modal-table-param-type": "Típus",
 	"templatedata-modal-table-param-type-file": "Fájl",
 	"templatedata-modal-table-param-type-number": "Szám",
+	"templatedata-modal-table-param-type-boolean": "Logikai",
+	"templatedata-modal-table-param-type-date": "Dátum",
 	"templatedata-modal-table-param-type-page": "Szócikk",
 	"templatedata-modal-table-param-type-string": "Szöveg",
 	"templatedata-modal-table-param-type-undefined": "Meghatározatlan",
