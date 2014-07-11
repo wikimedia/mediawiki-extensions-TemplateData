@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"Amankel'dy"
 		]
 	},
 	"templatedata-doc-desc-empty": "Сипаттамасы жоқ.",
@@ -14,8 +15,13 @@
 	"templatedata-doc-param-status": "Статусы",
 	"templatedata-doc-param-status-deprecated": "Ескірген",
 	"templatedata-doc-param-status-optional": "міндетті емес",
+	"templatedata-doc-param-status-suggested": "ұсынылған",
 	"templatedata-doc-param-status-required": "Міндетті",
 	"templatedata-doc-param-desc-empty": "сипаттамасы жоқ",
+	"templatedata-invalid-duplicate-value": "\"$1\" (\"$3\") қасиеті \"$2\" дубликаты болып табылады.",
+	"templatedata-invalid-parse": "JSON ішіндегі синтаксистік қате.",
+	"templatedata-invalid-type": "\"$1\" қасиеті үшін \"$2\" типі сәйкес келеді.",
+	"templatedata-invalid-missing": "Міндетті $1 қасиет табылмады.",
 	"templatedata-editbutton": "Үлгі құжаттамасын басқару",
 	"templatedata-modal-button-addparam": "Параметр қосу",
 	"templatedata-modal-button-apply": "Қолдану",
