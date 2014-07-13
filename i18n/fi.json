@@ -4,7 +4,8 @@
 			"Nike",
 			"Silvonen",
 			"Stryn",
-			"Pxos"
+			"Pxos",
+			"MrTapsa"
 		]
 	},
 	"templatedata-doc-desc-empty": "Ei kuvausta.",
@@ -17,7 +18,7 @@
 	"templatedata-doc-param-status": "Tila",
 	"templatedata-doc-param-status-deprecated": "vanhentunut",
 	"templatedata-doc-param-status-optional": "valinnainen",
-	"templatedata-doc-param-status-suggested": "ehdotettu",
+	"templatedata-doc-param-status-suggested": "suositellaan",
 	"templatedata-doc-param-status-required": "pakollinen",
 	"templatedata-doc-param-desc-empty": "ei kuvausta",
 	"templatedata-invalid-parse": "Syntaksivirhe JSON:ssa",
@@ -27,8 +28,8 @@
 	"templatedata-modal-button-cancel": "Peruuta",
 	"templatedata-modal-button-delparam": "Poista parametri",
 	"templatedata-modal-button-importParams": "Tuo parametrejä",
-	"templatedata-modal-errormsg-import-noparams": "Ei löytynyt uusia parametreja tuomisen aikana.",
-	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|uusi parametri|uutta parametria}} tuotu.",
+	"templatedata-modal-errormsg-import-noparams": "Uusia parametreja ei löytynyt tuonnin kuluessa.",
+	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|uusi parametri|uutta parametria}} tuotiin.",
 	"templatedata-modal-table-param-actions": "Toimenpiteet",
 	"templatedata-modal-table-param-aliases": "Aliakset (pilkulla erotettuna)",
 	"templatedata-modal-table-param-default": "Oletus",
@@ -36,7 +37,7 @@
 	"templatedata-modal-table-param-label": "Nimitys",
 	"templatedata-modal-table-param-name": "Nimi",
 	"templatedata-modal-table-param-required": "Pakollinen",
-	"templatedata-modal-table-param-suggested": "Ehdotettu",
+	"templatedata-modal-table-param-suggested": "Suositeltava",
 	"templatedata-modal-table-param-type": "Tyyppi",
 	"templatedata-modal-table-param-type-file": "Tiedosto",
 	"templatedata-modal-table-param-type-number": "Numero",
