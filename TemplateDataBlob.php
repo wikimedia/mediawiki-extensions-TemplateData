@@ -519,7 +519,8 @@ class TemplateDataBlob {
 				// site language or any of its fallbacks. Wikis should fix data that is in this
 				// condition (TODO: Disallow during saving?). For now, fallback to whatever we can
 				// get that does exist in the text object.
-				$label = reset( $setObj->label );
+				$arr = (array)$setObj->label;
+				$label = reset( $arr );
 			}
 
 			$setObj->label = $label;
