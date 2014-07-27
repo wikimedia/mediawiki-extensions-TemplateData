@@ -3,7 +3,8 @@
 		"authors": [
 			"EagerLin",
 			"Simon Shek",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"LNDDYL"
 		]
 	},
 	"templatedata-desc": "為模板參數實現數據存儲（使用JSON）",
@@ -19,7 +20,7 @@
 	"templatedata-invalid-missing": "找不到必須的屬性「$1」。",
 	"templatedata-invalid-unknown": "意外的屬性「$1」。",
 	"templatedata-invalid-value": "屬性「$1」的值無效。",
-	"templatedata-editbutton": "管理模板文檔",
+	"templatedata-editbutton": "管理模板文件",
 	"templatedata-modal-button-addparam": "添加參數",
 	"templatedata-modal-button-apply": "應用",
 	"templatedata-modal-button-cancel": "取消",
@@ -39,7 +40,7 @@
 	"templatedata-modal-table-param-type-string": "字串",
 	"templatedata-modal-table-param-type-undefined": "未定義",
 	"templatedata-modal-table-param-type-user": "使用者",
-	"templatedata-modal-title": "模板文檔編輯器",
+	"templatedata-modal-title": "樣板文件編輯器",
 	"templatedata-modal-title-templatedesc": "模板描述",
 	"templatedata-modal-title-templateparams": "模版參數"
 }
