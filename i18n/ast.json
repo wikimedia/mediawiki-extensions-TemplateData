@@ -47,10 +47,13 @@
 	"templatedata-modal-table-param-type": "Triba",
 	"templatedata-modal-table-param-type-file": "Ficheru",
 	"templatedata-modal-table-param-type-number": "Númberu",
+	"templatedata-modal-table-param-type-boolean": "Lóxicu",
+	"templatedata-modal-table-param-type-date": "Data",
 	"templatedata-modal-table-param-type-page": "Páxina",
 	"templatedata-modal-table-param-type-string": "Cadena",
 	"templatedata-modal-table-param-type-undefined": "Non definíu",
 	"templatedata-modal-table-param-type-user": "Usuariu",
+	"templatedata-modal-table-param-uneditablefield": "Non editable",
 	"templatedata-modal-title": "Editor de documentación de plantía",
 	"templatedata-modal-title-templatedesc": "Descripción de la plantía",
 	"templatedata-modal-title-templateparams": "Parámetros de la plantía"
