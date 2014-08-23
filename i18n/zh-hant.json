@@ -15,6 +15,7 @@
 	"templatedata-doc-param-type": "類型",
 	"templatedata-doc-param-default": "預設",
 	"templatedata-doc-param-status": "狀態",
+	"templatedata-doc-param-status-deprecated": "不推薦使用",
 	"templatedata-doc-param-status-optional": "可選",
 	"templatedata-invalid-parse": "JSON中語法錯誤。",
 	"templatedata-invalid-type": "屬性「$1」預期為類型「$2」。",
