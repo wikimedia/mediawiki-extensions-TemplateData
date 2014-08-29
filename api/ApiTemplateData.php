@@ -129,13 +129,6 @@ class ApiTemplateData extends ApiBase {
 		return 'Data stored by the TemplateData extension';
 	}
 
-	public function getPossibleErrors() {
-		return array_merge(
-			parent::getPossibleErrors(),
-			$this->getPageSet()->getPossibleErrors()
-		);
-	}
-
 	public function getExamples() {
 		return array(
 			'api.php?action=templatedata&titles=Template:Stub|Template:Example',
