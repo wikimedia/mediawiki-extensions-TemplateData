@@ -7,863 +7,1464 @@
 	 * @author Moriel Schottlender
 	 */
 	'use strict';
-
 	mw.libs.templateDataGenerator = ( function () {
-		var paramBase, paramTypes, domObjects, curr;
+		var globalSettings,
+			/**
+			 * Unique counter for new param names so they can
+			 * be attached a unique and temporary paramId in the
+			 * model before the name field is filled.
+			 * @property {number}
+			 */
+			newParamIdCounter = 0,
+			/**
+			 * Cache and store the original templatedata json string
+			 * in an object. Particularly useful to preserve any types
+			 * or attributes that the editor might not handle yet.
+			 * @property {Object}
+			 */
+			jsonOriginalObject,
+			/**
+			 * Full name of the current page, including subpages
+			 * @property {string}
+			 */
+			fullPageName,
+			/**
+			 * The current page is sublevel; this is used when
+			 * fetching the template code. If there is no template
+			 * code in the current page, and the page is sub-level
+			 * then the system will look for template code at the
+			 * parent page.
+			 * @property {boolean}
+			 */
+			isPageSubLevel,
+			/**
+			 * The cached jQuery promise to search for template source code
+			 * from the API.
+			 * @property {jQuery.Promise}
+			 */
+			templateCodePromise,
+			/**
+			 * The original wikitext that is in the edit page textbox.
+			 * @property {string}
+			 */
+			originalTemplateDataWikitext,
+			/**
+			 * The parameters should be sorted. This is automatically
+			 * set to true if the given templatedata json string already
+			 * has a paramOrder set, and it turns true if the user
+			 * actively changes the order of parameters in the table.
+			 * Otherwise, paramOrder is not outputted
+			 * @property {boolean}
+			 */
+			isSorted = false,
+			/**
+			 * The templatedata parameters model
+			 * @property {Object}
+			 */
+			paramsDataModel,
+			/**
+			 * The templatedata meta model
+			 * @property {Object}
+			 */
+			templateDataMetaModel,
+			/**
+			 * An array of the parameter names that are found
+			 * in the template code
+			 * @property {string[]}
+			 */
+			templateParamNames = [],
+			/**
+			 * A reference to the textarea in the template edit
+			 * page
+			 * @property {jQuery}
+			 */
+			$editTextArea,
+			// Dialog DOM Elements
+			/**
+			 * An error label in the edit dialog
+			 * @property {jQuery}
+			 */
+			$errorModalBox,
+			/**
+			 * The DOM element holding the editor dialog
+			 * @property {jQuery}
+			 */
+			$modalBox,
+			/**
+			 * Define elements to attach to the main template edit
+			 * area.
+			 * @property {Object}
+			 */
+			editAreaElements = {
+				/**
+				 * Define the edit button for the main template edit
+				 * area that will trigger the editor window.
+				 * @property {jQuery}
+				 */
+				$editButton: $( '<button>' )
+					.button()
+					.addClass( 'tdg-editscreen-main-button' )
+					.text( mw.msg( 'templatedata-editbutton' ) ),
+				/**
+				 * Define the error box for the main template edit
+				 * area.
+				 * @property {jQuery}
+				 */
+				$errorBox: $( '<div>' )
+					.addClass( 'tdg-editscreen-error-msg' )
+					.hide()
+			},
+			/**
+			 * Detailing the available editable
+			 * attributes for parameters and their DOM elements.
+			 * @property {Object}
+			 */
+			editableAttributes = {},
+			/**
+			 * General settings for the templatedata Editor singleton
+			 * @property {Object}
+			 */
+			defaultSettings = {
+				/**
+				 * Use an editor GUI. False would mean only the model
+				 * is used without the GUI. This is mainly used for
+				 * unit tests.
+				 * @property {boolean}
+				 */
+				useGUI: true,
+				/**
+				 * By default, run the test of whether the page we are in
+				 * is a subpage, and if so, retrieve template code from the
+				 * original template. Making this false is mainly used for
+				 * unit tests.
+				 * @property {boolean}
+				 */
+				fetchCodeFromSource: true
+			},
+			/**
+			 * A definition of deprecated parameter types and their
+			 * current type equivalents.
+			 * @property {Object}
+			 */
+			mapDeprecatedParamType = {
+				'string/wiki-page-name': 'wiki-page-name',
+				'string/wiki-file-name': 'wiki-file-name',
+				'string/wiki-user-name': 'wiki-user-name'
+			},
+			/**
+			 * A full list of valid parameter types to include
+			 * in the type select box
+			 * @property {Array}
+			 */
+			paramTypes = [
+				'undefined',
+				'string',
+				'number',
+				'boolean',
+				'date',
+				'wiki-page-name',
+				'wiki-user-name',
+				'wiki-file-name',
+				'content',
+				'unbalanced-wikitext',
+				'line'
+			],
 
-		/* Private helper functions */
+		/* Model functions */
 
 		/**
-		 * Show an error message in the main Edit screen
+		 * Load the current templatedata from the tags in the page
+		 * if they exist. If not, we will create a new templatedata blob.
 		 *
-		 * @param {string} msg The message to display in the error box
+		 * @param {string} wikitext Current page wikitext
+		 * @returns {jQuery.Promise} Promise that is resolved when
+		 *  the full information about templatedata, including
+		 *  information about the template code is complete.
+		 *  Rejected if the json string could not be parsed.
 		 */
-		function showErrorEditPage( msg ) {
-			domObjects.$errorBox.text( msg ).show();
-		}
+		modelLoadTemplateDataJson = function ( wikitext ) {
+			var parts,
+				deferred = $.Deferred();
 
-		/**
-		 * Helper function to clean up the aliases string-to-array
-		 *
-		 * @param {string} str Comma separated string
-		 * @returns {string[]} Cleaned-up alias array
-		 */
-		function cleanupAliasArray( str ) {
-			return $.map( str.split( ',' ), function ( item ) {
-				if ( $.trim( item ).length > 0 ) {
-					return $.trim( item );
-				}
-			} );
-		}
-
-		/**
-		 * Show an error message in the GUI
-		 *
-		 * @param {string} msg The message to be displayed in the error box
-		 */
-		function showErrorModal( msg ) {
-			domObjects.$errorModalBox.text( msg ).show();
-		}
-
-		/**
-		 * Create `<select>` for parameter type based on the
-		 * options given by key/value
-		 *
-		 * @param {Object} options The key/value pair for the options
-		 *  that should appear in the select input.
-		 * @returns {jQuery} <select> object
-		 */
-		function createTypeSelect( opts ) {
-			var op,
-				$sel = $( '<select>' );
-
-			for ( op in opts ) {
-				$sel.append( $( '<option>' ).val( op ).text( opts[ op ] ) );
-			}
-
-			return $sel;
-		}
-
-		/**
-		 * Parse the JSON information from the wikitext
-		 *
-		 * If it exists, and prepare DOM elements from
-		 * the parameters into the global param DOM JSON.
-		 *
-		 * @param {string} wikitext The source of the template text
-		 * @returns {Object} Parameters object parsed from the JSON string
-		 */
-		function parseTemplateData( wikitext ) {
-			var attrib,
-				param,
-				trimmedParam,
-				arrayParamNamesForTrimming = [],
-				jsonParams = {},
-				parts = wikitext.match(
-					/(<templatedata>)([\s\S]*?)(<\/templatedata>)/i
-				);
+			// Check if there are templateData tags in the current page
+			wikitext = wikitext || originalTemplateDataWikitext;
+			parts = wikitext.match(
+				/<templatedata>([\s\S]*?)<\/templatedata>/i
+			);
+			templateDataMetaModel = {};
+			paramsDataModel = {};
 
 			// Check if <templatedata> exists
-			if ( parts && parts[2] ) {
-				// Make sure it's not empty
-				if ( $.trim( parts[2] ).length > 0 ) {
-					try {
-						jsonParams = $.parseJSON( $.trim( parts[2] ) );
-					} catch ( err ) {
-						// Oops, JSON contains syntax error
-						mw.log( 'TemplateData: ' + mw.msg( 'templatedata-errormsg-jsonbadformat' ) );
-						if ( domObjects ) {
-							showErrorEditPage( mw.msg( 'templatedata-errormsg-jsonbadformat' ) );
-						}
-						return {};
-					}
+			if ( parts && parts[1] && $.trim( parts[1] ).length > 0 ) {
+				// Parse the json string
+				try {
+					// Store the original
+					jsonOriginalObject = $.parseJSON( $.trim( parts[1] ) );
+				} catch ( err ) {
+					// Bad syntax for JSON
+					deferred.reject();
 				}
-				// See if jsonParams has 'params'
-				if ( jsonParams && jsonParams.params ) {
-					// Add DOM elements to the JSON data params
-					for ( param in jsonParams.params ) {
-						// Trim parameter key if it contains trailing/leading whitespace
-						trimmedParam = $.trim( param );
-
-						// Insert into the array for later trimming
-						if ( trimmedParam !== param ) {
-							arrayParamNamesForTrimming.push( param );
-						}
-						// Only create dom params if needed
-						// This will allow the entire method to be called
-						// individually, as a tool or for qunit tests
-						if ( curr && curr.paramDomElements ) {
-							setupDomParam( trimmedParam, attrib );
-						}
+				// Mark parameters that are in the template
+				modelGetParametersFromTemplateCode().done( function ( params ) {
+					templateParamNames = params;
+					// Create the parameters model
+					modelCleanAddMultipleParameters( jsonOriginalObject, templateParamNames );
+					// Save the meta details of the templatedata
+					if ( jsonOriginalObject.description ) {
+						templateDataMetaModel.description = jsonOriginalObject.description;
 					}
-				}
-				// Trim the params we need to in the JSON object param keys
-				$.each( arrayParamNamesForTrimming, function ( index, paramid ) {
-					trimmedParam = $.trim( paramid );
-					jsonParams.params[trimmedParam] = jsonParams.params[paramid];
-					delete jsonParams.params[paramid];
+					if ( jsonOriginalObject.paramOrder ) {
+						templateDataMetaModel.paramOrder = jsonOriginalObject.paramOrder;
+						isSorted = true;
+					} else {
+						isSorted = false;
+					}
+					deferred.resolve( paramsDataModel );
 				} );
+			} else {
+				deferred.resolve( {} );
 			}
 
-			return jsonParams;
-		}
+			return deferred.promise();
+		},
 
 		/**
-		 * Create a DOM element that correspond to the parameter and field
+		 * Add a new parameter to the model.
 		 *
-		 * @param {String} paramName Parameter name or id
-		 * @param {String} attrib The field that will correspond to the dom element
+		 * @param {string} paramName Parameter name or id
+		 * @param {Object} paramObj Parameter details object
+		 * @param {string[]} [templateParams] Parameters that exist in the template code.
+		 * @param {boolean} [doNotEmitEvent] Do not fire an event. This is useful when we
+		 *  need to silently add parameters during initialization, like in the case
+		 *  of adding parameters that appear in paramOrder but not in the templatedata
+		 *  json string itself.
+		 * @fires tdgEventModelAddParameter
 		 */
-		function setupDomParam( paramName, attrib ) {
-			var $tmpDom;
-			curr.paramDomElements[paramName] = {};
+		modelAddParam = function ( paramName, paramObj, templateParams, doNotEmitEvent ) {
+			paramObj = paramObj || {};
 
-			// Create DOM elements per parameter
-				for ( attrib in paramBase ) {
-					// Set up the DOM element
-					if ( attrib === 'type' ) {
-						$tmpDom = createTypeSelect( paramTypes );
-					} else {
-						$tmpDom = paramBase[attrib].dom;
+			paramsDataModel[paramName] = paramObj;
+			templateParams = templateParams || templateParamNames;
+
+			if ( paramsDataModel[paramName].name === undefined ) {
+				paramsDataModel[paramName].name = paramName;
+			}
+
+			if ( templateParams && $.inArray( paramName, templateParams ) !== -1 ) {
+				paramsDataModel[paramName].inTemplate = true;
+			}
+
+			if ( !doNotEmitEvent ) {
+				// Trigger add param event
+				$( document ).trigger( 'tdgEventModelAddParameter', [ paramName, paramObj ] );
+			}
+		},
+
+		/**
+		 * Delete a parameter from the model
+		 *
+		 * @param {string} paramId Parameter name or id
+		 * @fires tdgEventModelDeleteParameter
+		 */
+		modelDeleteParam = function ( paramId ) {
+			if ( paramsDataModel[paramId] ) {
+				delete paramsDataModel[paramId];
+				// Trigger delete param event
+				$( document ).trigger( 'tdgEventModelDeleteParameter', [ paramId ] );
+			}
+		},
+
+		/**
+		 * Clean up the original parameters that came from
+		 * the json string and insert the parameters to the model.
+		 * Trim parameters if necessary and collect the parameters
+		 * that can be edited into the parameter model.
+		 *
+		 * @param {Object} [jsonObj] Object from the original templatedata json string
+		 * @param {string[]} [templateParameters] Parameters that exist in the template code.
+		 */
+		modelCleanAddMultipleParameters = function ( jsonObj, templateParameters ) {
+			var trimmedParam, paramId;
+
+			jsonObj = $.isPlainObject( jsonObj ) ? $.extend( {}, jsonObj ) : {};
+
+			// Check if there are parameters
+			if ( jsonObj.params ) {
+				for ( paramId in jsonObj.params ) {
+					// Trim in the original
+					trimmedParam = $.trim( paramId );
+					if ( trimmedParam !== paramId ) {
+						// Add first
+						jsonObj.params[trimmedParam] = jsonObj.params[paramId];
+						// Delete the old param
+						delete jsonObj.params[paramId];
+						paramId = trimmedParam;
 					}
-					curr.paramDomElements[paramName][attrib] = $tmpDom.clone( true );
-					curr.paramDomElements[paramName][attrib].data( 'paramid', paramName );
-					curr.paramDomElements[paramName][attrib].attr( 'id', attrib + '_paramid_' + paramName );
-					curr.paramDomElements[paramName][attrib].addClass( 'tdg-element-attr-' + attrib );
 
+					// Add parameter to model
+					modelAddParam( paramId, jsonObj.params[paramId], templateParameters );
 				}
-				// Set up the 'delete' button
-				curr.paramDomElements[paramName].delbutton
-					.text( mw.msg( 'templatedata-modal-button-delparam' ) )
-					.addClass( 'tdg-param-del' )
-					.attr( 'id', 'tdg-param-del' )
-					.data( 'paramid', paramName );
-		}
+			}
+		},
+
+		/**
+		 * Update the parameter attribute value.
+		 *
+		 * @param {string} paramId Parameter id or name
+		 * @param {string} attr Attribute name
+		 * @param {string|boolean|Array} to New value, depending
+		 *  on the attribute
+		 */
+		modelUpdateParamAttribute = function ( paramId, attr, to ) {
+			var from;
+
+			// Sanity check: If either paramId or attr are undefined
+			// drop out of the method
+			if ( !paramId || !attr ) {
+				return;
+			}
+
+			// If the parameter doesn't exist but there is a new
+			// value, create it
+			if ( paramsDataModel[paramId] === undefined && to ) {
+				paramsDataModel[paramId] = {};
+			}
+
+			// Check the original value
+			from = paramsDataModel[paramId][attr];
+
+			if ( !to ) {
+				// Remove the attribute
+				delete paramsDataModel[paramId][attr];
+				return;
+			}
+
+			// Only update if the value is changed
+			// Stringify first, to make sure we compare objects
+			// and arrays as well
+			if ( JSON.stringify( from ) !== JSON.stringify( to ) ) {
+				paramsDataModel[paramId][attr] = to;
+			}
+		},
+
+		/**
+		 * Clean the parameter model from internal tags so it's ready to be stringified
+		 *
+		 * @returns {Object} Cleaned up parameter object
+		 */
+		modelGetCleanModelForOutput = function () {
+			var paramId,
+				paramOutput = $.extend( true, {}, paramsDataModel );
+
+			for ( paramId in paramOutput ) {
+				// Delete temporary and internal attributes
+				delete paramOutput[paramId].name;
+				delete paramOutput[paramId].inTemplate;
+				if ( paramOutput[paramId].type === 'undefined' ) {
+					delete paramOutput[paramId].type;
+				}
+			}
+
+			return paramOutput;
+		},
+
+		/**
+		 * Make sure all parameter names are sync with their keys
+		 */
+		modelSyncParamNames = function () {
+			var paramId;
+			// Make sure 'name' is the same as the parameter key
+			for ( paramId in paramsDataModel ) {
+				if ( paramsDataModel[paramId].name && paramId !== paramsDataModel[paramId].name ) {
+					paramsDataModel[paramsDataModel[paramId].name] = paramsDataModel[paramId];
+					delete paramsDataModel[paramId];
+				}
+			}
+		},
+
+		/**
+		 * Output the model and general data back to a json string.
+		 *
+		 * @returns {string} TemplateData json string
+		 */
+		modelOutputJsonString = function () {
+			var outputJson;
+
+			// Copy the original over to the output
+			outputJson = $.extend( true, {}, jsonOriginalObject );
+
+			if ( globalSettings.useGUI ) {
+				// Make sure the parameter names are synchronized with their names
+				viewSyncParamNameValues();
+			}
+
+			// Make sure param names are synchronized
+			modelSyncParamNames();
+
+			// Copy over general data
+			if ( !isSorted ) {
+				delete templateDataMetaModel.paramOrder;
+			}
+			$.extend( outputJson, templateDataMetaModel );
+
+			// Replace parameters
+			outputJson.params = modelGetCleanModelForOutput( paramsDataModel );
+
+			return JSON.stringify( outputJson, null, '\t');
+		},
+
+		/* GUI functions */
+
+		/**
+		 * Respond to model import parameters.
+		 *
+		 * @param {jQuery.Event} event jQuery event
+		 * @param {string[]} collectedParams Array of parameter names that were
+		 *  added to the model
+		 * @param {string[]} uncollectedParams Array of parameter names that were
+		 *  ignored or skipped
+		 */
+		onModelImportParams = function ( event, collectedParams, uncollectedParams ) {
+			var errorMessage = [];
+			if ( collectedParams.length + uncollectedParams.length === 0 ) {
+				errorMessage.push( mw.msg( 'templatedata-modal-errormsg-import-noparams' ) );
+			} else {
+				if ( collectedParams.length > 1 ) {
+					errorMessage.push( mw.msg( 'templatedata-modal-notice-import-numparams', collectedParams.length ) );
+				}
+
+				if ( uncollectedParams.length > 1 ) {
+					errorMessage.push( mw.msg( 'templatedata-modal-errormsg-import-paramsalreadyexist', uncollectedParams.join( ', ' ) ) );
+				}
+				// Reorder the table
+				viewReorderParamTable();
+			}
+			if ( errorMessage.length ) {
+				// Display error
+				viewShowModalError( errorMessage.join( ' ' ) );
+			}
+		},
+
+		/**
+		 * Respond to adding a parameter in the model.
+		 *
+		 * @param {jQuery.Event} event jQuery event
+		 * @param {string} paramName Parameter name or id
+		 * @param {Object} [paramObj] Parameter details
+		 * @param {boolean} [sortTable] Sort the table again;
+		 *  show parameters that appear in the template first, then those that are new.
+		 */
+		onModelAddParam = function ( event, paramName, paramObj ) {
+			var $element, editableAttribute, $tr,
+				$tbody = $( '.tdg-parameters-table > tbody' );
+
+			$tr = viewCreateParamDomRow( paramName, paramObj );
+
+			// Process the attribute values
+			for ( editableAttribute in editableAttributes ) {
+				$element = $tr.find( '.tdg_attr_' + editableAttribute + ' ' + editableAttributes[editableAttribute].selector );
+				viewProcessDOMAttrValue( $element, editableAttribute, paramObj[editableAttribute] );
+			}
+
+			$tbody.append( $tr );
+
+			// Focus on 'name' field
+			$tr.find( '.tdg_attr_name input' ).focus();
+		},
+
+		/**
+		 * Respond to deleting a parameter in the model.
+		 *
+		 * @param {jQuery.Event} event jQuery event
+		 * @param {string} paramName Parameter name or id
+		 */
+		onModelDeleteParam = function ( event, paramId ) {
+			// Delete the DOM row from table:
+			$( '#tdg_param_' + paramId ).remove();
+		},
+
+		/**
+		 * Retrieve template parameters from the template code.
+		 *
+		 * Adapted from https://he.wikipedia.org/wiki/MediaWiki:Gadget-TemplateParamWizard.js
+		 *
+		 * @param {string} templateSource Source of the template.
+		 * @returns {jQuery.Promise} A promise that resolves into an
+		 *  array of parameters that appear in the template code
+		 */
+		modelExtractParametersFromTemplateCode = function ( templateSource ) {
+			var matches,
+			paramNames = [],
+			paramExtractor = /{{3,}(.*?)[<|}]/mg;
+
+			while ( ( matches = paramExtractor.exec( templateSource ) ) !== null ) {
+				if ( $.inArray( matches[1], paramNames ) === -1 ) {
+					paramNames.push( $.trim( matches[1] ) );
+				}
+			}
+
+			return paramNames;
+		},
+
+		/**
+		 * Retrieve parameters from the template code from source in this order:
+		 *
+		 * 1. Check if there's a template in the given 'wikitext' parameter. If not,
+		 * 2. Check if there's a template in the current page. If not,
+		 * 3. Check if the page is a subpage and go up a level to check for template code. If none found,
+		 * 4. Repeat until we are in the root of the template
+		 * 5. Save the name of the page where the template is taken from
+		 *
+		 * Cache the templateCodePromise so we don't have to do this all over again on each
+		 * template code request.
+		 *
+		 * @param {string} [wikitext] Optional. Source of the template.
+		 * @returns {jQuery.Promise} Promise resolving into template parameter array
+		 */
+		modelGetParametersFromTemplateCode = function ( wikitext ) {
+			var parentPage, api,
+				currPageContent = wikitext || originalTemplateDataWikitext;
+
+			// TODO: Separate parameter names from aliases and attach the
+			// aliases to their respective parameter names when extracting the
+			// parameter list from the template code.
+			if ( !templateCodePromise ) {
+				if ( currPageContent ) {
+					// Check first the given wikitext for template code
+					templateParamNames = modelExtractParametersFromTemplateCode( currPageContent );
+				}
+				if ( templateParamNames.length > 0 ) {
+					// Resolve with the full parameters array
+					templateCodePromise = $.Deferred().resolve( templateParamNames );
+				} else {
+					templateCodePromise = $.Deferred();
+					if ( isPageSubLevel ) {
+						parentPage = fullPageName.substr( 0, fullPageName.indexOf( '/' ) );
+						// Get the content of one level up
+						api = new mw.Api();
+						api.get( {
+							action: 'query',
+							prop: 'revisions',
+							rvprop: 'content',
+							indexpageids: '1',
+							titles: parentPage
+						} )
+						.done( function ( resp ) {
+							var pageContent = '';
+
+							// Verify that we have a sane response from the API.
+							// This is particularly important for unit tests, since the
+							// requested page from the API is the Qunit module and has no content
+							if (
+								resp.query.pages[resp.query.pageids[0]].revisions &&
+								resp.query.pages[resp.query.pageids[0]].revisions[0]
+							) {
+								pageContent = resp.query.pages[resp.query.pageids[0]].revisions[0]['*'];
+							}
+							templateParamNames = modelExtractParametersFromTemplateCode( pageContent );
+							if ( templateParamNames.length === 0 ) {
+								// Resolve an empty parameters array
+								templateCodePromise.resolve( [] );
+							} else {
+								// Resolve the full parameers array
+								templateCodePromise.resolve( templateParamNames );
+							}
+						} )
+						.fail( function () {
+							// Resolve an empty parameters array
+							return templateCodePromise.resolve( [] );
+						} );
+					} else {
+						// No template found. Resolve to empty array of parameters
+						templateCodePromise.resolve( [] );
+					}
+				}
+			}
+			return templateCodePromise;
+		},
 
 		/**
 		 * Checks the wikitext for template parameters and imports
 		 * those that aren't yet in the templatedata list.
-		 * Adapted from https://he.wikipedia.org/wiki/MediaWiki:Gadget-TemplateParamWizard.js
 		 *
-		 * @param {string} wikitext The source of the template text
+		 * @param {Array} [existingParamNames] An array of existing parameter
+		 *  names to test for duplication.
+		 * @return {Object} Collected and uncollected parameter names
 		 */
-		function importTemplateParams( wikitext ) {
-			var newParam, matches, $row, paramName, paramID,
-				paramExtractor = /{{3,}(.*?)[<|}]/mg,
-				paramCounter = 0,
-				existingParamNamesArray = [];
+		modelImportTemplateParams = function ( existingParamNames ) {
+			var paramName, i,
+				uncollectedParams = [],
+				collectedParams = [];
 
-			// fill up the existingParamNameArray with GUI params
-			// So we can test against it while importing:
-			// We should go by param name, not param ID, because
-			// if the param is new, its id is new_randomString, and so
-			// the actual representation is the value of the name field.
-			for ( paramID in curr.paramDomElements ) {
-				paramName = $.trim( curr.paramDomElements[paramID].name.val() );
+			// Make sure parameter names are synchronized
+			// with their key
+			modelSyncParamNames();
 
-				// Validate
-				if (
-					paramName.length > 0 &&
-					!paramName.match( /[\|=]|}}/ ) &&
-					!curr.paramDomElements[paramID].tdgMarkedForDeletion &&
-					$.inArray( paramName, existingParamNamesArray ) === -1
-				) {
-					existingParamNamesArray.push( paramName );
-				}
-			}
+			existingParamNames = existingParamNames || viewCollectParameterNamesFromEditor();
 
-			while ( ( matches = paramExtractor.exec( wikitext ) ) !== null ) {
-				paramName = $.trim( matches[1] );
+			modelGetParametersFromTemplateCode().done( function ( paramNames ) {
+				for ( i = 0; i < paramNames.length; i++ ) {
+					paramName = paramNames[i];
+					// Make sure the parameter doesn't already exist in the model
+					if ( $.inArray( paramName, existingParamNames ) < 0 ) {
+						// Add to parameters model
+						modelAddParam( paramName );
 
-				// Make sure the template itself is not giving us bad params
-				if (
-					paramName.length === 0 &&
-					paramName.match( /[\|=]|}}/ )
-				) {
-					continue;
+						// Add to param name array
+						existingParamNames.push( paramName );
+
+						// Add to collected parameter list
+						collectedParams.push( paramName );
+					} else {
+						// Add to uncollected parameter list
+						uncollectedParams.push( paramName );
+					}
 				}
 
-				// Make sure the param doesn't already exist in the GUI
-				if ( $.inArray( paramName, existingParamNamesArray ) > -1 ) {
-					// This is dupe, ignore it
-					continue;
-				} else {
-					// Add name to the existingParamNamesArray
-					existingParamNamesArray.push( paramName );
-
-					// Add to domParams
-					newParam = addParam();
-					newParam.name.val( paramName );
-					$row = translateParamToRowDom( curr.paramsJson, newParam );
-					domObjects.$modalTable.append( $row );
-					paramCounter++;
-				}
-			}
-
-			if ( paramCounter === 0 ) {
-				showErrorModal( mw.msg( 'templatedata-modal-errormsg-import-noparams' ) );
-			} else {
-				showErrorModal( mw.msg( 'templatedata-modal-notice-import-numparams', paramCounter ) );
-			}
-		}
+				// Trigger import params event
+				$( document ).trigger( 'tdgEventModelImportParameters', [ collectedParams, uncollectedParams ] );
+			} );
+		},
 
 		/**
-		 * Create a <table> DOM with initial headings for the parameters
-		 * The table headings will go by the paramBase
+		 * Create the parameter table for the edit dialog.
 		 *
-		 * @returns {jQuery} Table element
+		 * @returns {jQuery} Parameter table
 		 */
-		function createParamTableDOM() {
-			var $tbl, attrib,
-				$tr = $( '<tr>' );
+		viewCreateParameterTable = function () {
+			var $table, $tr, $tbody, paramId, editableAttribute, i,
+				addedParams = [],
+				paramOrder = isSorted && templateDataMetaModel.paramOrder;
 
-			for ( attrib in paramBase ) {
+			$table = $( '<table>' )
+				.addClass( 'tdg-parameters-table' );
+
+			// Create table header
+			$tr = $( '<tr>' );
+			// Add space for the reorder arrows
+			$tr.append( '<th>' )
+				.html( '&nbsp' )
+				.addClass( 'tdg-table-head-reorder' );
+			// Add the columns
+			for ( editableAttribute in editableAttributes ) {
 				$tr.append(
 					$( '<th>' )
-						.text( paramBase[attrib].label )
-						.addClass( 'tdg-title-' + attrib )
-					);
+						.text( mw.msg( editableAttributes[editableAttribute].label ) )
+						.addClass( 'tdg-table-head_' + editableAttribute )
+				);
 			}
+			$table.append( $( '<thead>' ).append( $tr ) );
 
-			$tbl = $( '<table>' )
-				.addClass( 'tdg-editTable' )
-				.append( $tr );
+			$tbody = $( '<tbody>' );
+			// If there is a 'paramOrder' attribute in templatedata code
+			// add the parameters according to the order specified.
+			if ( paramOrder && paramOrder.length > 0 ) {
+				// This templatedata string already has paramOrder
+				isSorted = true;
+				// First go by the order
+				for ( i = 0; i < paramOrder.length; i++ ) {
+					// Check for duplicates
+					if ( $.inArray( paramOrder[i], addedParams ) < 0 ) {
+						// Sanity check: make sure the parameter exists
+						if ( paramsDataModel[paramOrder[i]] ) {
+							// Add param to table
+							$tr = viewCreateParamDomRow( paramOrder[i], paramsDataModel[paramOrder[i]] );
+							$tbody.append( $tr );
 
-			return $tbl;
-		}
-
-		/**
-		 * Create a <table> HTMLElement with initial headings for the parameters
-		 * The table headings will go by the paramBase
-		 *
-		 * @param {Object} paramsJson Object with current parameter values
-		 * @param {Object} paramAttrObj Object with parameter properties
-		 * @returns {jQuery} Table element
-		 */
-		function translateParamToRowDom( paramsJson, paramAttrObj ) {
-			var $tdDom,
-				$trDom,
-				paramAttr,
-				paramid = paramAttrObj.delbutton.data( 'paramid' );
-
-			$trDom = $( '<tr>' )
-				.attr( 'id', 'param-' + paramid )
-				.data( 'paramid', paramid );
-
-			// Go over the attributes for <td>s
-			for ( paramAttr in paramAttrObj ) {
-				// Check if value already exists for this in the original json
-				if (
-					paramsJson.params &&
-					paramsJson.params[paramid] &&
-					paramsJson.params[paramid][paramAttr]
-				) {
-					// Only accept values that are expected editable
-					if (
-						typeof paramsJson.params[paramid][paramAttr] === 'string' ||
-						( paramAttr === 'aliases' && $.isArray( paramsJson.params[paramid][paramAttr] ) )
-					) {
-						paramAttrObj[paramAttr].val( paramsJson.params[paramid][paramAttr] );
-					} else if ( paramAttrObj[paramAttr].prop( 'type' ) === 'checkbox' ) {
-						paramAttrObj[paramAttr].prop( 'checked', paramsJson.params[paramid][paramAttr] );
-					} else {
-						// For the moment, objects are uneditable
-						paramAttrObj[paramAttr]
-							.prop( 'disabled', true )
-							.data( 'tdg-uneditable', true )
-							.val( mw.msg( 'brackets', mw.msg( 'templatedata-modal-table-param-uneditablefield' ) ) );
+							// Add this param to the added ones to avoid duplicates
+							addedParams.push( paramOrder[i] );
+						}
 					}
 				}
+			}
 
-				$tdDom = $( '<td>' ).addClass( 'tdg-attr-' + paramAttr );
-
-				// Add label to 'required' checkbox
-				if ( paramAttr === 'required' ) {
-					$tdDom.append(
-						$( '<label>' )
-							.attr( 'for', paramAttr + '_paramid_' + paramid )
-							.text( paramBase.required.label )
-							.prepend( paramAttrObj[paramAttr] )
-					);
-				} else {
-					$tdDom.append( paramAttrObj[paramAttr] );
+			for ( paramId in paramsDataModel ) {
+				if ( $.inArray( paramId, addedParams ) < 0 ) {
+					$tr = viewCreateParamDomRow( paramId, paramsDataModel[paramId] );
+					$tbody.append( $tr );
+					// Add this param to the added ones to avoid duplicates
+					addedParams.push( paramId );
 				}
-
-				$trDom.append( $tdDom );
 			}
 
-			// Set up the name
-			if ( paramsJson && curr.paramsJson.params && curr.paramsJson.params[paramid] ) {
-				$trDom.find( '.tdg-element-attr-name' ).val( paramid );
-			}
+			$table.append( $tbody );
 
-			return $trDom;
-		}
+			$table.find( 'tbody' ).sortable( {
+				update: onParamTableSort
+			} );
+
+			return $table;
+		},
 
 		/**
-		 * Add an empty parameter to the paramDomElements list
-		 *
-		 * @returns {jQuery} Table row element
+		 * Respond to user sorting the table
 		 */
-		function addParam() {
-			var attrib,
-				$tmpDom,
-				// Create a unique identifier for paramid
-				paramid = 'new_' + $.now();
-
-			// Add to the DOM object
-			curr.paramDomElements[paramid] = {};
-
-			for ( attrib in paramBase ) {
-				// Set up the DOM element
-				if ( attrib === 'type' ) {
-					$tmpDom = createTypeSelect( paramTypes );
-				} else {
-					$tmpDom = paramBase[attrib].dom;
-				}
-
-				curr.paramDomElements[paramid][attrib] = $tmpDom.clone( true );
-				curr.paramDomElements[paramid][attrib].data( 'paramid', paramid );
-				curr.paramDomElements[paramid][attrib].attr( 'id', attrib + '_paramid_' + paramid );
-				curr.paramDomElements[paramid][attrib].addClass( 'tdg-element-attr-' + attrib );
-			}
-
-			// Set up the 'delete' button
-			curr.paramDomElements[paramid].delbutton
-				.text( mw.msg( 'templatedata-modal-button-delparam' ) )
-				.addClass( 'tdg-param-del' )
-				.attr( 'id', 'tdg-param-del' )
-				.data( 'paramid', paramid );
-
-			return curr.paramDomElements[paramid];
-		}
+		onParamTableSort = function () {
+			// User sorted manually, add a paramOrder to the templatedata
+			isSorted = true;
+		},
 
 		/**
-		 * Validate the Modal inputs before continuing to the actual 'apply'
+		 * Create the DOM row object of a parameter with editable
+		 * fields and its values.
 		 *
-		 * @returns {boolean} Passed validation
+		 * @param {string} paramId Unique parameter id
+		 * @param {Object} [pObj] Parameter attributes for a new
+		 *  (previously nonexisting) parameter
+		 * @returns {jQuery} Table row of parameter editable fields
 		 */
-		function isFormValid() {
-			var paramID,
-				paramName,
-				paramNameArray = [],
-				passed = true,
-				paramProblem = false;
+		viewCreateParamDomRow = function ( paramId, pObj ) {
+			var editableAttribute, i, attrType,
+				$wrapper, $element, $tr;
 
-			// Reset
+			$tr = $( '<tr>' )
+				.prop( 'id', 'tdg_param_' + paramId )
+				.data( 'paramId', paramId );
+
+			if ( $.inArray( paramId, templateParamNames ) < 0 ) {
+				$tr.addClass( 'tdg-not-in-template' );
+			}
+
+			pObj = pObj || {};
+
+			// Add the reorder arrows
+			$tr.append(
+				$( '<td>' )
+					.addClass( 'tdg_attr_reoder' )
+					// Add a reorder arrow icon
+					.append(
+						$( '<span>' )
+							.addClass( 'ui-icon ui-icon-arrowthick-2-n-s' )
+					)
+			);
+
+			for ( editableAttribute in editableAttributes ) {
+				$element = editableAttributes[editableAttribute].$element.clone()
+					.data( 'paramId', paramId )
+					.addClass( 'param-type-input' );
+				attrType = editableAttributes[editableAttribute].type;
+
+				if ( attrType === 'checkbox' ) {
+					// Checkbox
+					$element.prop( 'id', 'tdg_param_' + editableAttribute + '_' + paramId );
+					$wrapper = $( '<label>' )
+						.attr( 'for', 'tdg_param_' + editableAttribute + '_' + paramId )
+						.text( mw.msg( editableAttributes[editableAttribute].label ) )
+						.prepend( $element );
+
+				} else if ( editableAttribute === 'type' ) {
+					// Build type select
+					for ( i = 0; i < paramTypes.length; i++ ) {
+						$element.append(
+							$( '<option>' )
+								.val( paramTypes[i] )
+								.text( mw.msg( 'templatedata-modal-table-param-type-' + paramTypes[i] ) )
+						);
+					}
+					$wrapper = $element;
+				} else {
+					$wrapper = $element;
+				}
+
+				// Fill in the value
+				viewProcessDOMAttrValue( $element, editableAttribute, pObj[editableAttribute] );
+
+				$tr.append(
+					$( '<td>' )
+						.addClass( 'tdg_attr_' + editableAttribute )
+						.append( $wrapper )
+				);
+			}
+
+			$tr.find( '.tdg-param-button-del' ).click( function () {
+				var paramId = $( this ).data( 'paramId' );
+				// delete from model
+				modelDeleteParam( paramId );
+			} );
+
+			return $tr;
+		},
+
+		/**
+		 * Set the value of the DOM element according to its type
+		 * and the parameter object.
+		 *
+		 * @param {jQuery} $element The DOM element for the attribute
+		 * @param {string} attr Attribute name
+		 * @param {Object|string|undefined} rawValue The value in the original
+		 *  json string
+		 */
+		viewProcessDOMAttrValue = function ( $element, attr, rawValue ) {
+			// Only update value if there is an original value
+			// to update from
+			if ( rawValue === undefined ) {
+				return;
+			}
+
+			// Only update the value if the original one
+			// is not an object
+			if ( !$.isPlainObject( rawValue ) ) {
+				switch ( attr ) {
+					case 'aliases':
+						if ( rawValue.length > 0 ) {
+							$element.val( rawValue.join( ', ' ) );
+						}
+						break;
+					case 'type':
+						// Select box
+						// Check if the given type is a deprecated type
+						// and if it is, translate it to the corresponding new type
+						if ( mapDeprecatedParamType[rawValue] !== undefined ) {
+							rawValue = mapDeprecatedParamType[rawValue];
+						}
+						$element.val( rawValue );
+						break;
+					case 'required':
+					case 'suggested':
+						// For checkboxes, set 'true' and 'on' to true
+						// and all else to false
+						rawValue = ( rawValue === 'on' || rawValue === true );
+						// Checkbox
+						$element.prop( 'checked', !!rawValue );
+						break;
+					// All other attributes that appear inside a regular input
+					// or a textbox and do not require special treatment.
+					// For example: 'name', 'label', 'description' and 'default'
+					default:
+						$element.val( rawValue );
+						break;
+				}
+			} else {
+				// The attribute is an object. Tag it and disable
+				$element
+					.data( 'tdg_uneditable', true )
+					.prop( 'disabled', true )
+					.val( mw.msg( 'templatedata-modal-table-param-uneditablefield' ) );
+			}
+		},
+
+		/**
+		 * Define the editor modal buttons. This is done in a separate
+		 * method so the buttons could be internationalized.
+		 *
+		 * @param {string} applyCaption Caption for the apply button
+		 * @param {string} cancelCaption Caption for the cancel button
+		 * @returns {jQuery} Buttons
+		 */
+		viewI18nEditorButtons = function ( applyCaption, cancelCaption ) {
+			var buttons = {};
+
+			buttons[applyCaption] = function () {
+				var tdOutput, finalOutput, parts;
+
+				if ( globalSettings.useGUI && viewIsEditorFormValid() ) {
+					// Update the model
+					viewUpdateParamsModelFromEditor();
+					tdOutput = modelOutputJsonString();
+
+					parts = originalTemplateDataWikitext.match(
+							/<templatedata>([\s\S]*?)<\/templatedata>/i
+						);
+
+					if ( parts && parts[1] ) {
+						// <templatedata> exists. Replace it
+						finalOutput = originalTemplateDataWikitext.replace(
+							/(<templatedata>)([\s\S]*?)(<\/templatedata>)/i,
+							'<templatedata>\n' + tdOutput + '\n</templatedata>'
+						);
+					} else {
+						// Add the <templatedata>
+						finalOutput = originalTemplateDataWikitext + '\n\n<templatedata>\n' +
+							tdOutput +
+							'\n</templatedata>\n';
+					}
+
+					$modalBox.trigger( 'TemplateDataGeneratorDone', [ finalOutput ] );
+					$modalBox.dialog( 'close' );
+
+					// Clean up
+					destroyAllParameters();
+
+					return finalOutput;
+				}
+			};
+
+			buttons[cancelCaption] = function () {
+				// Clean up
+				destroyAllParameters();
+				$modalBox.dialog( 'close' );
+			};
+
+			return buttons;
+		},
+
+		/**
+		 * Make sure all parameter names are sync with their prospective
+		 * input name values
+		 */
+		viewSyncParamNameValues = function () {
+			var $paramRows = $modalBox.find( '.tdg-parameters-table > tbody > tr' );
+
+			$paramRows.each( function ( i, row ) {
+				var $tr = $( row ),
+					paramId = $( row ).data( 'paramId' ),
+					pname = $tr.find( '.tdg_attr_name input' ).val();
+
+				if ( paramsDataModel[paramId] ) {
+					paramsDataModel[paramId].name = pname;
+				}
+			} );
+		},
+
+		/**
+		 * Go over the editor parameter table and collect the
+		 * parameter name, collect them into an array.
+		 *
+		 * @returns {Array} Parameter names
+		 */
+		viewCollectParameterNamesFromEditor = function () {
+			var nameArray = [],
+				$paramRows = $modalBox.find( '.tdg-parameters-table > tbody > tr' );
+
+			$paramRows.each( function ( i, row ) {
+				var $tr = $( row ),
+					pname = $tr.find( '.tdg_attr_name input' ).val();
+
+				if ( $.trim( pname ) && $.inArray( pname, nameArray ) < 0 ) {
+					nameArray.push( $.trim( pname ) );
+				}
+			} );
+
+			return nameArray;
+		},
+
+		/**
+		 * Reorder the parameter table according to the parameter data model
+		 */
+		viewReorderParamTable = function () {
+			var $element, i, paramId, editableAttribute, paramName, $tr,
+				paramKeys = {
+					inTemplate: [],
+					added: []
+				},
+				$tbody = $( '.tdg-parameters-table > tbody' ),
+				sortFunc = function ( a, b ) {
+					if ( paramsDataModel[a].name < paramsDataModel[b].name ) {
+						return -1;
+					} else if ( paramsDataModel[a].name > paramsDataModel[b].name ) {
+						return 1;
+					} else {
+						return 0;
+					}
+				};
+
+			// Store param keys in a arrays so it can be sorted
+			for ( paramId in paramsDataModel ) {
+				if ( paramsDataModel[paramId].inTemplate ) {
+					paramKeys.inTemplate.push( paramId );
+				} else {
+					paramKeys.added.push( paramId );
+				}
+			}
+			// Sort arrays by name
+			paramKeys.inTemplate.sort( sortFunc );
+			paramKeys.added.sort( sortFunc );
+
+			// Redo the table
+			$tbody.empty();
+			for ( i = 0; i < paramKeys.inTemplate.length; i++ ) {
+				paramName = paramKeys.inTemplate[i];
+				$tr = viewCreateParamDomRow( paramName, paramsDataModel[paramName] );
+				// Process the attribute values
+				for ( editableAttribute in editableAttributes ) {
+					$element = $tr.find( '.tdg_attr_' + editableAttribute + ' ' + editableAttributes[editableAttribute].selector );
+					viewProcessDOMAttrValue( $element, editableAttribute, paramsDataModel[paramName][editableAttribute] );
+				}
+
+				$tbody
+					.append( $tr );
+			}
+
+			for ( i = 0; i < paramKeys.added.length; i++ ) {
+				paramName = paramKeys.added[i];
+				$tr = viewCreateParamDomRow( paramName, paramsDataModel[paramName] );
+				$tr.addClass( 'tdg-not-in-template' );
+				// Process the attribute values
+				for ( editableAttribute in editableAttributes ) {
+					$element = $tr.find( '.tdg_attr_' + editableAttribute + ' ' + editableAttributes[editableAttribute].selector );
+					viewProcessDOMAttrValue( $element, editableAttribute, paramsDataModel[paramName][editableAttribute] );
+				}
+
+				$tbody
+					.append( $tr );
+			}
+		},
+
+		/**
+		 * Display an error message in the editor window.
+		 *
+		 * @param {string} msg Message code to display
+		 */
+		viewShowModalError = function ( msg ) {
+			$errorModalBox
+				.text( msg )
+				.show();
+		},
+
+		/**
+		 * Validate the editor fields before processing the form.
+		 *
+		 * @returns {boolean} Form is valid
+		 */
+		viewIsEditorFormValid = function () {
+			var isValid = true,
+				$paramRows = $modalBox.find( '.tdg-parameters-table > tbody > tr' );
+
+			// Reset errors
 			$( '.tdgerror' ).removeClass( 'tdgerror' );
-			domObjects.$errorModalBox.empty().hide();
+			$errorModalBox.empty().hide();
 
-			// Go over the paramDomElements object, look for:
-			// * Empty name fields
-			// * Duplicate *name* values:
-			// * Illegal characters in name fields: pipe, equal, }}
-			for ( paramID in curr.paramDomElements ) {
-				paramProblem = false;
-				// Trim:
-				paramName = curr.paramDomElements[paramID].name.val();
-				curr.paramDomElements[paramID].name.val( paramName );
+			// Make sure param names are synchronized
+			modelSyncParamNames();
 
-				// Ignore if the param was flagged for deletion
-				if ( curr.paramDomElements[paramID].tdgMarkedForDeletion ) {
-					continue;
+			// Go over the editor table elements.
+			// Look for:
+			// - Empty name fields
+			// - Duplicate name fields
+			// - Illegal characters in name fields: pipe, equal, }}
+			$paramRows.each( function ( i, row ) {
+				var paramName,
+					paramNameArray = [],
+					$tr = $( row ),
+					$nameField = $tr.find( '.tdg_attr_name input' );
+
+				paramName = $.trim( $nameField.val() );
+
+				// Check that not empty
+				if ( paramName === '' ) {
+					$nameField.addClass( 'tdgerror' );
+					isValid = false;
+					return true; // Next iteration
 				}
 
-				// Name field is empty
-				if ( paramName.length === 0 ) {
-					passed = false;
-					paramProblem = true;
-				}
-
-				// Check for illegal characters in param name
-				if ( paramName.match( /[\|=]|}}/ ) ) {
-					passed = false;
-					paramProblem = true;
-				}
-
-				// Check for dupes
+				// Check for duplicates
 				if ( $.inArray( paramName, paramNameArray ) > -1 ) {
-					// This is dupe!
-					passed = false;
-					paramProblem = true;
-				} else {
-					paramNameArray.push( paramName );
+					// Duplicate!
+					$nameField.addClass( 'tdgerror' );
+					isValid = false;
+					return true; // Next iteration
 				}
+				// Add to param name array
+				paramNameArray.push( paramName );
 
-				if ( paramProblem ) {
-					domObjects.$modalTable.find( '#param-' + paramID ).addClass( 'tdgerror' );
+				// Check for illegal characters
+				if ( paramName.match( /[\|=]|}}/ ) ) {
+					$nameField.addClass( 'tdgerror' );
+					isValid = false;
+					return true; // Next iteration
 				}
+			} );
+
+			if ( !isValid ) {
+				viewShowModalError( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
 			}
 
-			return passed;
-		}
+			return isValid;
+		},
 
 		/**
-		 * Reset the GUI completely, including the domElements and the json
-		 */
-		function globalReset() {
-			// Reset Modal GUI
-			domObjects.$modalBox.empty();
-			domObjects.$errorModalBox.empty().hide();
-
-			// Reset vars
-			curr = {
-				paramDomElements: {},
-				paramsJson: {}
-			};
-		}
-
-		/**
-		 * Take the amended JSON object and stringify it, putting
-		 *  it back into the original wikitext.
-		 * @param {Object} newJsonObject Edited json object
-		 * @param {String} originalWikitext The original wikitext
-		 * @returns {String} Thew new wikitext
-		 */
-		function amendWikitext( newJsonObject, originalWikitext ) {
-			var finalOutput = '',
-				wikitext = originalWikitext || domObjects.wikitext;
-
-				// Check if we started with existing <templatedata> tags
-				if ( wikitext.match(
-						/(<templatedata>)([\s\S]*?)(<\/templatedata>)/i)
-				) {
-					// replace the <templatedata> tags
-					finalOutput = wikitext.replace(
-						/(<templatedata>)([\s\S]*?)(<\/templatedata>)/i,
-						'<templatedata>\n' + JSON.stringify( newJsonObject, null, '	' ) + '\n</templatedata>'
-					);
-				} else {
-					// add <templatedata> tags
-					finalOutput = wikitext + '\n<templatedata>\n';
-					finalOutput += JSON.stringify( newJsonObject, null, '	' );
-					finalOutput += '\n</templatedata>';
-				}
-
-				return finalOutput;
-		}
-		/**
-		 * Apply the changes made to the parameters to the json
+		 * Build the editor window.
 		 *
-		 * @param {Object} originalJsonObject [description]
-		 * @param {Object<string,jQuery>} modalDomElements The structure of the
-		 *  dom elements in the editor, sorted by parameter id and jQuery editable
-		 *  object
-		 * @param {boolean} doNotCheckForm if set to true, the system will not validate the form
-		 *  used mostly for tests.
-		 * @returns {Object|boolean} Amended json object or false if changes are invalid.
+		 * @fires TemplateDataGeneratorDone
+		 * @returns {jQuery} Editor window
 		 */
-		function applyChangeToJSON( originalJsonObject, modalDomElements, doNotCheckForm ) {
-			var templateDescriptionObject,
-				paramid,
-				paramName,
-				paramProp,
-				$domEl,
-				domElements,
-				newValue,
-				paramObj,
-				propExists,
-				tmpjson,
-				// Compare the original to the new changes
-				outputJson = originalJsonObject || curr.paramsJson,
-				paramDomElements = modalDomElements || curr.paramDomElements;
+		viewBuildEditWindow = function () {
+			var $editor = $( '<div>' )
+				.append( $( '<h3>' )
+					.addClass( 'tdg-title' )
+					.text( mw.msg( 'templatedata-modal-title-templatedesc' ) )
+				)
+				// Main description
+				.append(
+					$( '<textarea>' )
+						.addClass( 'tdg-template-description' )
+				)
+				// Main error box
+				.append( $errorModalBox
+					.addClass( 'errorbox' )
+					.hide()
+				)
+				.append( $( '<h3>' )
+					.addClass( 'tdg-title' )
+					.text( mw.msg( 'templatedata-modal-title-templateparams' ) )
+				)
+				// Import parameters button
+				.append(
+					$( '<button>' )
+						.text( mw.msg( 'templatedata-modal-button-importParams' ) )
+						.button()
+						.addClass( 'tdg-addparam' )
+						.click( function () {
+							// Reset error message
+							$errorModalBox.empty().hide();
 
-			// Validate
-			if ( !doNotCheckForm ) {
-				if ( !isFormValid() ) {
-					showErrorModal( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
-					return false;
+							// Sync the parameter values with their view names
+							// in case the user added parameters manually
+							viewSyncParamNameValues();
+
+							// Import parameters from the template code
+							modelImportTemplateParams( viewCollectParameterNamesFromEditor() );
+						} ) )
+				// Parameters table
+				.append( viewCreateParameterTable() )
+				// Add new parameter button
+				.append(
+					$( '<button>' )
+						.text( mw.msg( 'templatedata-modal-button-addparam' ) )
+						.button()
+						.addClass( 'tdg-addparam' )
+						.click( function () {
+							var newId = 'tdg_new_' + newParamIdCounter;
+								newParamIdCounter++;
+								modelAddParam( newId, { name: '' } );
+					} )
+				);
+
+				// Set the initial value of the description
+				$editor.find( '.tdg-template-description' ).val( templateDataMetaModel.description );
+
+			return $editor;
+		},
+
+		/**
+		 * Go over the editor table and update the parameters data model accordingly.
+		 */
+		viewUpdateParamsModelFromEditor = function () {
+			var paramOrder = [],
+				$descBox = $modalBox.find( '.tdg-template-description' ),
+				$paramRows = $modalBox.find( '.tdg-parameters-table > tbody > tr' );
+
+			// Save meta details
+			templateDataMetaModel.description = $descBox.val();
+
+			// Go over the parameter table
+			$paramRows.each( function ( i, row ) {
+				var editableAttribute, name, paramId, value, $input,
+					$tr = $( row );
+
+				paramId = $tr.data( 'paramId' );
+
+				// Check if param doesn't yet exists
+				if ( paramsDataModel[paramId] === undefined ) {
+					// Create the new param
+					paramsDataModel[paramId] = {};
+				} else {
+					name = $tr.find( '.tdg_attr_name input' ).val();
+					// Check if there's a need to change param name
+					if ( paramId !== name ) {
+						// Set name properly
+						paramsDataModel[name] = paramsDataModel[paramId];
+						delete paramsDataModel[paramId];
+						// Change paramId to new one
+						paramId = name;
+						$tr.data( 'paramId', paramId );
+					}
 				}
-			}
 
-				// Update the description
-				templateDescriptionObject = $( '.tdg-template-description' );
+				// Save the paramOrder
+				paramOrder.push( paramId );
 
-				if (
-						templateDescriptionObject.length &&
-						!templateDescriptionObject.data( 'tdg-uneditable' )
-					) {
-					outputJson.description = templateDescriptionObject.val();
-				}
-
-				// First check if there's outpuJson.params
-				if ( !outputJson.params ) {
-					outputJson.params = {};
-				}
-
-				// Go over the parameters, check if param was marked as deleted
-				// in curr.paramsJson
-				for ( paramid in paramDomElements ) {
-					domElements = paramDomElements[paramid];
-					// Get the name of the param
-					paramName = domElements.name.val();
-					// New parameter added
-					if ( !outputJson.params[paramid] ) {
-						paramObj = outputJson.params[paramName] = {};
-					} else {
-						// Check if name changed
-						if ( paramName !== paramid ) {
-							// change the param name
-							outputJson.params[paramName] = {};
-							tmpjson = $.extend( true, {}, outputJson.params[paramid] );
-							$.extend( true, outputJson.params[paramName], tmpjson );
-							// delete the old param
-							delete outputJson.params[paramid];
+				// Go over attributes and cells
+				for ( editableAttribute in editableAttributes ) {
+					// Skip the delete button and name
+					if ( editableAttribute !== 'delbutton' && editableAttribute !== 'name' ) {
+						// Look at the value
+						value = null;
+						switch ( editableAttribute ) {
+							case 'required':
+							case 'suggested':
+								$input = $tr.find( '.tdg_attr_' + editableAttribute + ' input' );
+								value = $input.prop( 'checked' );
+								break;
+							case 'description':
+								$input = $tr.find( '.tdg_attr_' + editableAttribute + ' textarea' );
+								value = $input.val();
+								break;
+							case 'aliases':
+								$input = $tr.find( '.tdg_attr_' + editableAttribute + ' input' );
+								if ( $.trim( $input.val() ) ) {
+									value = $input.val().split( ',' );
+								}
+								break;
+							case 'type':
+								$input = $tr.find( '.tdg_attr_' + editableAttribute + ' select' );
+								value = $input.val();
+								break;
+							default:
+								$input = $tr.find( '.tdg_attr_' + editableAttribute + ' input' );
+								value = $input.val();
+								break;
 						}
-					}
 
-					// Parameter marked for deletion
-					if ( domElements.tdgMarkedForDeletion ) {
-						delete outputJson.params[paramName];
-						// Move to next iteration
-						continue;
-					}
-
-					paramObj = outputJson.params[paramName];
-
-					// Go over the properties that have DOM elements
-					for ( paramProp in domElements ) {
-						propExists = ( paramObj.hasOwnProperty( paramProp ) );
-						$domEl = domElements[paramProp];
-
-						// Skip all inputs that are marked as uneditable
-						if ( !$domEl.data( 'tdg-uneditable' ) ) {
-							// Check if value changed
-							switch ( paramProp ) {
-								// Skip:
-								case 'name':
-								case 'delbutton':
-									break;
-								case 'aliases':
-									newValue = cleanupAliasArray( $domEl.val() );
-									if ( propExists &&
-										newValue.sort().join( '|' ) !== paramObj.aliases.sort().join( '|' ) ) {
-										// Replace:
-										if ( newValue.length === 0 ) {
-											delete paramObj.aliases;
-											continue;
-										} else {
-											paramObj.aliases = newValue;
-										}
-									} else if ( !propExists ) {
-										if ( newValue.length > 0 ) {
-											paramObj.aliases = newValue;
-										}
-									}
-									break;
-								case 'description':
-								case 'default':
-								case 'label':
-									newValue = $domEl.val();
-									if ( paramObj[paramProp] !== newValue ) {
-										if ( !newValue || newValue.length === 0 ) {
-											delete paramObj[paramProp];
-											continue;
-										} else {
-											paramObj[paramProp] = newValue;
-										}
-									}
-									break;
-								case 'type':
-									newValue = $domEl.val();
-									if ( paramObj[paramProp] !== newValue ) {
-										if ( newValue === 'undefined' ) {
-											delete paramObj[paramProp];
-											continue;
-										} else {
-											paramObj[paramProp] = newValue;
-										}
-									}
-									break;
-								case 'required':
-									newValue = $domEl.prop( 'checked' );
-									if ( paramObj[paramProp] !== undefined || newValue === true ) {
-										paramObj[paramProp] = newValue;
-									}
-									break;
-							}
+						if ( !$input.data( 'tdg_uneditable') ) {
+							// Only update the parameter attribute if it is editable
+							modelUpdateParamAttribute( paramId, editableAttribute, value );
 						}
 					}
 				}
-				return outputJson;
-		}
+			} );
+
+			// Save param order
+			templateDataMetaModel.paramOrder = paramOrder;
+		},
+
 		/**
-		 * Create i18n-compatible Modal Buttons
-		 * also contains the 'apply' functionality
-		 *
-		 * @param {string} btnApply the text for the 'apply' button
-		 * @param {string} btnCancel the text for the 'cancel' button
-		 * @returns {Array} Button objects with their functionality, for the modal
+		 * Set up all the required DOM elements for the dialog.
 		 */
-		function i18nModalButtons( btnApply, btnCancel ) {
-			var modalButtons = {};
+		viewSetupDialogDomElements = function () {
+			$errorModalBox = $( '<div>' )
+				.addClass( 'tdg-errorbox' );
 
-			modalButtons[btnApply] = function () {
-				var finalOutput,
-					newJson = applyChangeToJSON();
-
-				// Check if returned json is valid
-				if ( !newJson ) {
-					return false;
+			editableAttributes = {
+				name: {
+					selector: 'input',
+					type: 'string',
+					label: 'templatedata-modal-table-param-name',
+					$element: $( '<input>' )
+				},
+				aliases: {
+					selector: 'input',
+					type: 'array',
+					label: 'templatedata-modal-table-param-aliases',
+					$element: $( '<input>' )
+				},
+				label: {
+					selector: 'input',
+					type: 'string',
+					label: 'templatedata-modal-table-param-label',
+					$element: $( '<input>' )
+				},
+				description: {
+					selector: 'textarea',
+					type: 'multiline',
+					label: 'templatedata-modal-table-param-desc',
+					$element: $( '<textarea>' )
+				},
+				type: {
+					selector: 'select',
+					type: 'select',
+					label: 'templatedata-modal-table-param-type',
+					$element: $( '<select>' )
+				},
+				'default': {
+					selector: 'input[type="checkbox"]',
+					type: 'string',
+					label: 'templatedata-modal-table-param-default',
+					$element: $( '<input>' )
+				},
+				required: {
+					selector: 'input[type="checkbox"]',
+					type: 'checkbox',
+					label: 'templatedata-modal-table-param-required',
+					$element: $( '<input type="checkbox" />' )
+				},
+				suggested: {
+					selector: 'input[type="checkbox"]',
+					type: 'checkbox',
+					label: 'templatedata-modal-table-param-suggested',
+					$element: $( '<input type="checkbox" />' )
+				},
+				delbutton: {
+					selector: 'button',
+					type: 'button',
+					label: 'templatedata-modal-table-param-actions',
+					$element: $( '<button>' )
+						.text( mw.msg( 'templatedata-modal-button-delparam' ) )
+						.addClass( 'tdg-param-button-del buttonRed' )
+						.button()
 				}
-
-				// Apply changes
-				finalOutput = amendWikitext( newJson );
-
-				// Close the modal
-				domObjects.$modalBox.dialog( 'close' );
-
-				// Trigger the closing event so the new output can be put
-				// back to the textbox
-				domObjects.$modalBox.trigger( 'TemplateDataGeneratorDone', [ finalOutput ] );
-
-				return finalOutput;
 			};
 
-			modalButtons[btnCancel] = function () {
-				domObjects.$modalBox.dialog( 'close' );
-			};
+		},
 
-			return modalButtons;
-		}
+		/**
+		 * Load the editor screen.
+		 * @param {string} wikitext Wikitext string
+		 * @returns {jQuery|Object} Editor jQuery object or,
+		 *  if the json parsing failed, an error object.
+		 */
+		viewLoadEditor = function ( wikitext ) {
+			// Setup the dialog elements
+			viewSetupDialogDomElements();
 
-		/** Public Methods **/
+			// Reset editor
+			$modalBox.empty();
+			$modalBox.hide();
+			editAreaElements.$errorBox.empty().hide();
+
+			originalTemplateDataWikitext = wikitext;
+
+			modelLoadTemplateDataJson().then(
+				function () {
+					// Fill in editor data
+					$modalBox.append( viewBuildEditWindow() );
+
+					// Open the dialog
+					$modalBox.dialog( 'open' );
+				},
+				function () {
+					// Error reading json
+					editAreaElements.$errorBox
+						.text( mw.msg( 'templatedata-errormsg-jsonbadformat' ) )
+						.show();
+				}
+			);
+		},
+
+		destroyAllParameters = function () {
+			isSorted = false;
+			templateDataMetaModel = {};
+			paramsDataModel = {};
+			originalTemplateDataWikitext = '';
+			jsonOriginalObject = {};
+			templateParamNames = [];
+
+			$modalBox.empty();
+			$modalBox.hide();
+			editAreaElements.$errorBox.empty().hide();
+		};
+
+		/* Public functions */
+
 		return {
 			/**
-			 * Injects required DOM elements to the edit screen
+			 * Initialize the TemplateDataGenerator singleton.
+			 * Attach necessary elements to the edit page and
+			 * define the main variables.
+			 *
+			 * @param {jQuery} [$contentArea] The element to prepend
+			 *  the edit button to in the edit page.
+			 * @param {jQuery} [$textarea] The textarea containing
+			 *  the templatedata information, or the one where
+			 *  the templatedata should be outputted to.
+			 * @param {Object} [config] Optional configuration options
 			 */
-			init: function () {
-				paramBase = {
-					name: {
-						label: mw.msg( 'templatedata-modal-table-param-name' ),
-						dom: $( '<input>' )
-					},
-					aliases: {
-						label: mw.msg( 'templatedata-modal-table-param-aliases' ),
-						dom: $( '<input>' )
-					},
-					label: {
-						label: mw.msg( 'templatedata-modal-table-param-label' ),
-						dom: $( '<input>' )
-					},
-					description: {
-						label: mw.msg( 'templatedata-modal-table-param-desc' ),
-						dom: $( '<textarea>' )
-					},
-					type: {
-						label: mw.msg( 'templatedata-modal-table-param-type' ),
-						dom: $( '<select>' )
-					},
-					'default': {
-						label: mw.msg( 'templatedata-modal-table-param-default' ),
-						dom: $( '<textarea>' )
-					},
-					'required': {
-						label: mw.msg( 'templatedata-modal-table-param-required' ),
-						dom: $( '<input type="checkbox" />' )
-					},
-					delbutton: {
-						label: mw.msg( 'templatedata-modal-table-param-actions' ),
-						dom: $( '<button>' )
+			init: function ( $contentArea, $textarea, config ) {
+				$editTextArea = $textarea;
+
+				// Merge settings with default settings
+				config = config || {};
+				globalSettings = $.extend( defaultSettings, config );
+
+				fullPageName = mw.config.get( 'wgPageName' );
+				isPageSubLevel = globalSettings.fetchCodeFromSource && ( fullPageName.indexOf( '/' ) > -1 );
+
+				paramsDataModel = {};
+				templateDataMetaModel = {};
+
+				// If GUI is used, define it
+				if ( globalSettings.useGUI && $contentArea && $textarea ) {
+
+					// Define editable area elements
+					editAreaElements = {
+						/**
+						 * Define the edit button for the main template edit
+						 * area that will trigger the editor window.
+						 * @property {jQuery}
+						 */
+						$editButton: $( '<button>' )
 							.button()
-							.addClass( 'tdg-param-button-del buttonRed' )
-							.click( function () {
-								var paramid = $( this ).data( 'paramid' );
-									// Flag as DELETED in curr.paramDomElements[paramid] (property tdgDELETED)
-								if ( curr.paramDomElements[paramid] ) {
-									curr.paramDomElements[paramid].tdgMarkedForDeletion = true;
-								}
-								// Delete the DOM row from table:
-								// (Don't delete property from paramDomElements,
-								// so when we go over the DOM elements on 'apply' this
-								// parameter is recognized as marked for deletion)
-								$( '#param-' + paramid ).remove();
-							} )
-					}
-				};
-				paramTypes = {
-					'undefined': mw.msg( 'templatedata-modal-table-param-type-undefined' ),
-					'number': mw.msg( 'templatedata-modal-table-param-type-number' ),
-					'date': mw.msg( 'templatedata-modal-table-param-type-date' ),
-					'string': mw.msg( 'templatedata-modal-table-param-type-string' ),
-					'string/wiki-user-name': mw.msg( 'templatedata-modal-table-param-type-user' ),
-					'string/wiki-file-name': mw.msg( 'templatedata-modal-table-param-type-file' ),
-					'string/wiki-page-name': mw.msg( 'templatedata-modal-table-param-type-page' )
-				};
-				domObjects = {
-					$editButton: $( '<button>' )
-						.button()
-						.addClass( 'tdg-editscreen-main-button' )
-						.text( mw.msg( 'templatedata-editbutton' ) ),
-					$errorBox: $( '<div>' )
-						.addClass( 'tdg-editscreen-error-msg' )
-						.hide(),
-					$errorModalBox: $( '<div>' )
-						.addClass( 'tdg-errorbox' )
-						.hide(),
-					$modalBox: $( '<div>' )
+							.addClass( 'tdg-editscreen-main-button' )
+							.text( mw.msg( 'templatedata-editbutton' ) ),
+						/**
+						 * Define a link item that's attached next to the edit
+						 * button, leading to TemplateData official documentation.
+						 * @property {jQuery}
+						 */
+						$helpLink: $( '<a>' )
+							.addClass( 'tdg-editscreen-main-helplink' )
+							.text( mw.msg( 'templatedata-helplink' ) )
+							.attr( 'href', 'https://www.mediawiki.org/wiki/Extension:TemplateData' )
+							.attr( 'target', '_blank' ),
+						/**
+						 * Define the error box for the main template edit
+						 * area.
+						 * @property {jQuery}
+						 */
+						$errorBox: $( '<div>' )
+							.addClass( 'tdg-editscreen-error-msg' )
+							.hide()
+					};
+
+					// Define the dialog
+					$modalBox = $( '<div>' )
 						.addClass( 'tdg-editscreen-modal-form' )
 						.attr( 'id', 'modal-box' )
 						.attr( 'title', mw.msg( 'templatedata-modal-title' ) )
-						.hide(),
-					$modalTable: {},
-					wikitext: ''
-				};
-				curr = {
-					paramDomElements: {},
-					paramsJson: {}
-				};
-				// Return the objects to be added to the edit page
-				return domObjects;
-			},
+						.hide()
+						.dialog( {
+							autoOpen: false,
+							height: $( window ).height() * 0.8,
+							width: $( window ).width() * 0.8,
+							modal: true,
+							buttons: viewI18nEditorButtons(
+								mw.msg( 'templatedata-modal-button-apply' ),
+								mw.msg( 'templatedata-modal-button-cancel' )
+							),
+							close: function () {
+								$modalBox.empty();
+							}
+						} );
 
-			/**
-			 * Create the modal screen and populate it with existing
-			 * data, if available
-			 *
-			 * @param {jQuery} $wikitextBox Article edit textarea
-			 * @returns {jQuery} Modal div element
-			 */
-			createModal: function ( wikitext ) {
-				var $row,
-					paramObj,
-					$descBox;
+					// Define edit button action
+					editAreaElements.$editButton.click( function () {
+						viewLoadEditor( $editTextArea.val() );
+					} );
 
-				// Reset:
-				globalReset();
-				domObjects.wikitext = wikitext;
-				$descBox = $( '<textarea>' ).addClass( 'tdg-template-description' );
-				domObjects.$modalTable = createParamTableDOM();
+					// Attach elements to edit screen
+					$contentArea
+						.prepend(
+							editAreaElements.$editButton,
+							editAreaElements.$helpLink,
+							editAreaElements.$errorBox
+						);
 
-				// Parse JSON
-				curr.paramsJson = parseTemplateData( wikitext );
-				if ( !$.isEmptyObject( curr.paramsJson ) ) {
-					if ( curr.paramsJson.description ) {
-						if ( typeof curr.paramsJson.description === 'string' ) {
-							$descBox.text( curr.paramsJson.description );
-						} else {
-							$descBox
-								.prop( 'disabled', true )
-								.data( 'tdg-uneditable', true )
-								.val( mw.msg( 'brackets', mw.msg( 'templatedata-modal-table-param-uneditablefield' ) ) );
-						}
-					}
+					// Attach Event to editor window
+					$modalBox.on( 'TemplateDataGeneratorDone', function ( e, output ) {
+						$editTextArea.val( output );
+					} );
 
-					// Build the parameter row DOMs
-					for ( paramObj in curr.paramDomElements ) {
-						// Make the row
-						$row = translateParamToRowDom( curr.paramsJson, curr.paramDomElements[paramObj] );
-						domObjects.$modalTable.append( $row );
-					}
+					// Model events
+					$( document )
+						.on( 'tdgEventModelAddParameter', onModelAddParam )
+						.on( 'tdgEventModelDeleteParameter', onModelDeleteParam )
+						.on( 'tdgEventModelImportParameters', onModelImportParams );
 				}
-
-				// Build the Modal window
-				domObjects.$modalBox
-					.append( $( '<h3>' )
-						.addClass( 'tdg-title' )
-						.text( mw.msg( 'templatedata-modal-title-templatedesc' ) )
-					)
-					.append( $descBox )
-					.append( domObjects.$errorModalBox )
-					.append( $( '<h3>' )
-						.addClass( 'tdg-title' )
-						.text( mw.msg( 'templatedata-modal-title-templateparams' ) )
-					)
-					.append(
-						$( '<button>' )
-							.button()
-							.text( mw.msg( 'templatedata-modal-button-importParams' ) )
-							.addClass( 'tdg-addparam' )
-							.click( function () {
-								// TODO: Check that we're not in the /doc subpage
-								importTemplateParams( wikitext );
-							} ) )
-					.append( domObjects.$modalTable )
-					.append(
-						$( '<button>' )
-							.button()
-							.text( mw.msg( 'templatedata-modal-button-addparam' ) )
-							.addClass( 'tdg-addparam' )
-							.click( function () {
-								var newParam = addParam(),
-									$row = translateParamToRowDom( curr.paramsJson, newParam );
-
-								domObjects.$modalTable.append( $row );
-						} )
-					);
-
-				domObjects.$modalBox.dialog( {
-					autoOpen: false,
-					height: $( window ).height() * 0.8,
-					width: $( window ).width() * 0.8,
-					modal: true,
-					buttons: i18nModalButtons(
-						mw.msg( 'templatedata-modal-button-apply' ),
-						mw.msg( 'templatedata-modal-button-cancel' )
-					),
-					close: function () {
-						domObjects.$modalBox.empty();
-					}
-				} );
-
-				// Return the modal object
-				return domObjects.$modalBox;
 			},
-
-			/** Testing functions **/
-
 			/**
-			 * @private
-			 * @inheritDoc #parseTemplateData
+			 * Expose functions for unit tests
+			 * @property {Object}
 			 */
-			parseTemplateData: function ( wikitext ) {
-				return parseTemplateData( wikitext );
-			},
-
-			/**
-			 * @private
-			 * @inheritDoc #applyChangesToJSON
-			 */
-			applyChangesToJSON: function ( originalJsonObject, modalDomElements, doNotCheckForm ) {
-				return applyChangeToJSON( originalJsonObject, modalDomElements, doNotCheckForm );
-			},
-
-			/**
-			 * @private
-			 * @inheritDoc #amendWikitext
-			 */
-			amendWikitext: function ( newJsonObject, originalWikitext ) {
-				return amendWikitext( newJsonObject, originalWikitext );
-			},
-
-			/**
-			 * @private
-			 * @inheritDoc #translateParamToRowDom
-			 */
-			translateParamToRowDom: function ( paramsJson, paramAttrObj ) {
-				return translateParamToRowDom( paramsJson, paramAttrObj );
+			tests: {
+				modelAddParam: function ( paramName, paramObj ) {
+					modelAddParam( paramName, paramObj );
+				},
+				modelDeleteParam: function ( paramId ) {
+					modelDeleteParam( paramId );
+				},
+				modelUpdateParamAttribute: function ( paramId, attr, to ) {
+					modelUpdateParamAttribute( paramId, attr, to );
+				},
+				loadTemplateDataJson: function ( wikitext ) {
+					return modelLoadTemplateDataJson( wikitext );
+				},
+				modelOutputJsonString: function () {
+					return modelOutputJsonString();
+				},
+				getTDMeta: function () {
+					return templateDataMetaModel;
+				}
 			}
-
 		};
 	} )();
 }( jQuery, mediaWiki ) );

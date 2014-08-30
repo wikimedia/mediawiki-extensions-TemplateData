@@ -2,6 +2,7 @@
 	// Enforcing
 	"bitwise": true,
 	"eqeqeq": true,
+	"es3": true,
 	"freeze": true,
 	"latedef": true,
 	"noarg": true,
@@ -9,9 +10,6 @@
 	"undef": true,
 	"unused": true,
 	"strict": false,
-
-	// Relaxing
-	"es5": false,
 
 	// Environment
 	"browser": true,

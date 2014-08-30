@@ -7,266 +7,205 @@
 
 	QUnit.module( 'ext.templateData', QUnit.newMwEnvironment() );
 
-	var wikitext = 'Some initial test sentence.\n' +
-		'<templatedata>\n' +
-		'{\n' +
-		'	"description": "This is a description of the template.",\n' +
+	var originalWikitext = 'Some text here that is not templatedata information.' +
+		'<templatedata>' +
+		'{' +
+		'	"description": "Label unsigned comments in a conversation.",' +
+		'	"params": {' +
+		'		"user": {' +
+		'			"label": "Username",' +
+		'			"type": "wiki-user-name",' +
+		'			"required": true,' +
+		'			"description": "User name of person who forgot to sign their comment.",' +
+		'			"aliases": ["1"]' +
+		'		},' +
+		'		"date": {' +
+		'			"label": "Date",' +
+		'			"description": {' +
+		'				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."' +
+		'			},' +
+		'			"aliases": ["2"],' +
+		'			"suggested": true' +
+		'		},' +
+		'		"year": {' +
+		'			"label": "Year",' +
+		'			"type": "number"' +
+		'		},' +
+		'		"month": {' +
+		'			"label": "Month",' +
+		'			"inherits": "year"' +
+		'		},' +
+		'		"day": {' +
+		'			"label": "Day",' +
+		'			"inherits": "year"' +
+		'		},' +
+		'		"comment": {' +
+		'			"required": false' +
+		'		}' +
+		'	},' +
+		'	"sets": [' +
+		'		{' +
+		'			"label": "Date",' +
+		'			"params": ["year", "month", "day"]' +
+		'		}' +
+		'	]' +
+		'}' +
+		'</templatedata>' +
+		'Trailing text at the end.',
+	finalJsonStringOnly = '{\n' +
+		'	"description": "Label unsigned comments in a conversation.",\n' +
 		'	"params": {\n' +
 		'		"user": {\n' +
-		'			"label": "Username",\n' +
-		'			"type": "string/wiki-user-name",\n' +
-		'			"default": "some default value here.",\n' +
-		'			"required": true,\n' +
-		'			"description": { "en": "User who forgot to sign their comment." },\n' +
-		'			"aliases": ["1"]\n' +
+		'			"label": "New user label",\n' +
+		'			"type": "wiki-user-name",\n' +
+		'			"description": "User name of person who forgot to sign their comment.",\n' +
+		'			"aliases": [\n' +
+		'				"1"\n' +
+		'			]\n' +
 		'		},\n' +
 		'		"date": {\n' +
 		'			"label": "Date",\n' +
-		'			"aliases": ["2", "3"]\n' +
+		'			"description": {\n' +
+		'				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."\n' +
+		'			},\n' +
+		'			"aliases": [\n' +
+		'				"2"\n' +
+		'			],\n' +
+		'			"suggested": true\n' +
 		'		},\n' +
 		'		"year": {\n' +
 		'			"label": "Year",\n' +
 		'			"type": "number"\n' +
 		'		},\n' +
+		'		"month": {\n' +
+		'			"label": "Month",\n' +
+		'			"inherits": "year"\n' +
+		'		},\n' +
 		'		"comment": {\n' +
 		'			"required": false\n' +
+		'		},\n' +
+		'		"someNewParameter": {\n' +
+		'			"required": true\n' +
 		'		}\n' +
-		'	}\n' +
-		'}\n' +
-		'</templatedata>\n' +
-		'Some following sentence.';
+		'	},\n' +
+		'	"sets": [\n' +
+		'		{\n' +
+		'			"label": "Date",\n' +
+		'			"params": [\n' +
+		'				"year",\n' +
+		'				"month",\n' +
+		'				"day"\n' +
+		'			]\n' +
+		'		}\n' +
+		'	]\n' +
+		'}',
+	tdManualParamsObject = {
+		'user': {
+			// The parameter data model adds 'name' attribute
+			'name': 'user',
+			'label': 'Username',
+			'type': 'wiki-user-name',
+			'required': true,
+			'description': 'User name of person who forgot to sign their comment.',
+			'aliases': ['1']
+		},
+		'date': {
+			'name': 'date',
+			'label': 'Date',
+			'description': {
+				'en': 'Timestamp of when the comment was posted, in YYYY-MM-DD format.'
+			},
+			'aliases': ['2'],
+			'suggested': true
+		},
+		'year': {
+			'name': 'year',
+			'label': 'Year',
+			'type': 'number'
+		},
+		'month': {
+			'name': 'month',
+			'label': 'Month',
+			'inherits': 'year'
+		},
+		'day': {
+			'name': 'day',
+			'label': 'Day',
+			'inherits': 'year'
+		},
+		'comment': {
+			'name': 'comment',
+			'required': false
+		}
+	};
 
-	QUnit.test( 'TemplateData modal display', 11, function ( assert ) {
-		var $modalBox, tmplDataGenTest1;
+	/** Parameter data model tests **/
+	QUnit.asyncTest( 'TemplateData Parameter Model', 6, function ( assert ) {
+		var tdgTests;
 
-		tmplDataGenTest1 = mw.libs.templateDataGenerator;
-		tmplDataGenTest1.init();
+		mw.libs.templateDataGenerator.init( null, null, { 'useGUI': false, 'fetchCodeFromSource': false } );
+		tdgTests = mw.libs.templateDataGenerator.tests;
+		// Load data into model
 
-		$modalBox = tmplDataGenTest1.createModal( wikitext );
+		tdgTests.loadTemplateDataJson( originalWikitext ).done( function ( pmodel ) {
+			// Tests
+			assert.deepEqual(
+				tdManualParamsObject,
+				pmodel,
+				'Loading parameters data model'
+			);
 
-		// Tests
-		assert.equal(
-			$modalBox.find( '.tdg-template-description' ).val(),
-			'This is a description of the template.',
-			'Template description'
-		);
+			// Make sure description sticks
+			assert.equal(
+				tdgTests.getTDMeta().description,
+				'Label unsigned comments in a conversation.',
+				'Template description.'
+			);
 
-		assert.equal(
-			$modalBox.find( '.tdg-element-attr-name' ).length,
-			4,
-			'Number of parameters in edit modal table.'
-		);
+			// Change attributes
+			tdManualParamsObject.user.label = 'New user label';
+			delete tdManualParamsObject.user.required;
 
-		// Check for proper parsing
-		assert.equal(
-			$modalBox.find( '#param-user .tdg-element-attr-name' ).val(),
-			'user',
-			'Parameter details: name.'
-		);
+			tdgTests.modelUpdateParamAttribute( 'user', 'label', 'New user label' );
+			tdgTests.modelUpdateParamAttribute( 'user', 'required', false );
 
-		assert.equal(
-			$modalBox.find( '#param-date .tdg-element-attr-aliases' ).val(),
-			'2,3',
-			'Parameter details: aliases (multiple).'
-		);
+			assert.deepEqual(
+				tdManualParamsObject,
+				pmodel,
+				'Changing parameter attributes'
+			);
 
-		assert.equal(
-			$modalBox.find( '#param-user .tdg-element-attr-aliases' ).val(),
-			'1',
-			'Parameter details: aliases (single).'
-		);
+			// Add parameter
+			tdManualParamsObject.newparam = { 'name': 'someNewParameter', 'required': true };
+			tdgTests.modelAddParam( 'newparam', { 'name': 'someNewParameter', 'required': true } );
 
-		assert.equal(
-			$modalBox.find( '#param-user .tdg-element-attr-label' ).val(),
-			'Username',
-			'Parameter details: label.'
-		);
+			assert.deepEqual(
+				tdManualParamsObject,
+				pmodel,
+				'Adding a new parameter'
+			);
 
-		// HACK: This is commented-out because the functionality is temporarily disabled for blocks
-/*		assert.equal(
-			$modalBox.find( '#param-user .tdg-element-attr-description' ).val(),
-			'User who forgot to sign their comment.',
-			'Parameter details: description.'
-		);*/
-		assert.equal(
-			$modalBox.find( '#param-user .tdg-element-attr-description' ).data( 'tdg-uneditable' ),
-			true,
-			'Block description as object: parameter description.'
-		);
+			// Delete a parameter
+			delete tdManualParamsObject.day;
+			tdgTests.modelDeleteParam( 'day' );
 
-		assert.equal(
-			$modalBox.find( '#param-user .tdg-element-attr-type' ).val(),
-			'string/wiki-user-name',
-			'Parameter details: type.'
-		);
+			assert.deepEqual(
+				tdManualParamsObject,
+				pmodel,
+				'Deleting a parameter'
+			);
 
-		assert.equal(
-			$modalBox.find( '#param-user .tdg-element-attr-default' ).val(),
-			'some default value here.',
-			'Parameter details: default.'
-		);
+			// Outputting final templatedata string
+			assert.equal(
+				finalJsonStringOnly,
+				tdgTests.modelOutputJsonString(),
+				'Outputting templatedata json string from model'
+			);
 
-		assert.equal(
-			$modalBox.find( '#param-user .tdg-element-attr-required' ).prop( 'checked' ),
-			true,
-			'Parameter details: required.'
-		);
-
-		assert.equal(
-			$modalBox.find( '#param-year .tdg-element-attr-required' ).prop( 'checked' ),
-			false,
-			'Parameter details: non required.'
-		);
-	} );
-
-	QUnit.test( 'TemplateData JSON manipulation', 4, function ( assert ) {
-		var $modalDomElements, parsedJson, expectedTextResult,
-			exampleJson, changedParsedJson, reparsedJson,
-			tmplDataGenTest2 = mw.libs.templateDataGenerator,
-			origText = 'Some initial test sentence.\n' +
-				'<templatedata>\n' +
-				'{\n' +
-				'	"description": "This is a description of the template.",\n' +
-				'	"params": {\n' +
-				'		"user": {\n' +
-				'			"label": "Username",\n' +
-				'			"type": "string/wiki-user-name",\n' +
-				'			"default": "some default value here.",\n' +
-				'			"required": true,\n' +
-				'			"description": "User name of person who forgot to sign their comment.",\n' +
-				'			"aliases": ["1"]\n' +
-				'		},\n' +
-				'		"date": {\n' +
-				'			"label": "Date",\n' +
-				'			"aliases": ["2", "3"]\n' +
-				'		},\n' +
-				'		"year": {\n' +
-				'			"label": "Year",\n' +
-				'			"type": "number"\n' +
-				'		},\n' +
-				'		"comment": {\n' +
-				'			"required": false,\n' +
-				'			"somethingelse": "this should stay"\n' +
-				'		}\n' +
-				'	},\n' +
-				'	"testing": {\n' +
-				'		"something": {\n' +
-				'			"completely": "random"\n' +
-				'		}\n' +
-				'	}\n' +
-				'}\n' +
-				'</templatedata>\n' +
-				'Some following sentence.';
-
-		parsedJson = tmplDataGenTest2.parseTemplateData( origText );
-
-		assert.equal(
-			parsedJson.testing.something.completely,
-			'random',
-			'Parse original JSON and preserve all data.'
-		);
-
-		// Copy the parsed JSON object so we can manually
-		// manipulate it
-		changedParsedJson = $.extend( true, {}, parsedJson );
-
-		// Partial dom elements on purpose, to make sure
-		// that the rest of the json object, even fields that are
-		// not represented in the dom elements, are preserved
-		$modalDomElements = {
-			'user': {
-				'name': $( '<input>' ).val( 'user' ),
-				'label': $( '<input>' ).val( 'changed to another label' )
-			}
-		};
-
-		// Manually change the object we copied earlier to test against
-		changedParsedJson.params.user.label = 'changed to another label';
-
-		assert.deepEqual(
-			mw.libs.templateDataGenerator.applyChangesToJSON( parsedJson, $modalDomElements, true ),
-			changedParsedJson,
-			'Preserve parameters on edit.'
-		);
-
-		// Name change
-		// Notice, parsedJson also had its user.label change, so we have
-		// to do the same to our new test and change both label and name.
-		$modalDomElements = {
-			'user': {
-				'name': $( '<input>' ).val( 'anotherName' ),
-				'label': $( '<input>' ).val( 'changed to another label' )
-			}
-		};
-
-		// Copy the parsed JSON object so we can manually
-		// manipulate it
-		changedParsedJson = $.extend( true, {}, parsedJson );
-		changedParsedJson.params.anotherName = {};
-		$.extend( true, changedParsedJson.params.anotherName, parsedJson.params.user );
-		delete changedParsedJson.params.user;
-
-		// Re-parse the json so we can manipulate it in exampleJson
-		reparsedJson = mw.libs.templateDataGenerator.parseTemplateData( origText );
-
-		// Get the system's response to changing the name
-		exampleJson = mw.libs.templateDataGenerator.applyChangesToJSON( reparsedJson, $modalDomElements, true );
-
-		assert.deepEqual(
-			exampleJson,
-			changedParsedJson,
-			'Change parameter name.'
-		);
-
-		// Back to wikitext
-		// Since 'parsedJson' was changed in previous tests, we'll use it
-
-		expectedTextResult = 'Some initial test sentence.\n' +
-			'<templatedata>\n' +
-			'{\n' +
-			'	"description": "This is a description of the template.",\n' +
-			'	"params": {\n' +
-			'		"date": {\n' +
-			'			"label": "Date",\n' +
-			'			"aliases": [\n' +
-			'				"2",\n' +
-			'				"3"\n' +
-			'			]\n' +
-			'		},\n' +
-			'		"year": {\n' +
-			'			"label": "Year",\n' +
-			'			"type": "number"\n' +
-			'		},\n' +
-			'		"comment": {\n' +
-			'			"required": false,\n' +
-			'			"somethingelse": "this should stay"\n' +
-			'		},\n' +
-			'		"anotherName": {\n' +
-			'			"label": "changed to another label",\n' +
-			'			"type": "string/wiki-user-name",\n' +
-			'			"default": "some default value here.",\n' +
-			'			"required": true,\n' +
-			'			"description": "User name of person who forgot to sign their comment.",\n' +
-			'			"aliases": [\n' +
-			'				"1"\n' +
-			'			]\n' +
-			'		}\n' +
-			'	},\n' +
-			'	"testing": {\n' +
-			'		"something": {\n' +
-			'			"completely": "random"\n' +
-			'		}\n' +
-			'	}\n' +
-			'}\n' +
-			'</templatedata>\n' +
-			'Some following sentence.';
-
-		// Using 'exampleJson' with the previous name change and label change
-		assert.equal(
-			mw.libs.templateDataGenerator.amendWikitext( exampleJson, origText ),
-			expectedTextResult,
-			'Returning edited json into original wikitext.'
-		);
+		} )
+		.always( function () {
+			QUnit.start();
+		} );
 
 	} );
 

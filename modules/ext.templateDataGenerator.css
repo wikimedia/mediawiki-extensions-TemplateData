@@ -3,46 +3,48 @@
 	font-size: 120%;
 }
 
-.tdg-editTable {
+.tdg-editscreen-main-helplink {
+	margin-left: 15px;
+}
+
+.tdg-parameters-table {
 	width: 100%;
 }
 
-.tdg-editTable th, .tdg-editTable td{
-	padding:0;
+.tdg-editTable th,
+.tdg-parameters-table td {
+	padding: 0;
 }
 
-.tdg-editTable > tbody > tr {
-	vertical-align: top;
-}
-.tdg-editTable th {
+.tdg-parameters-table th {
 	text-align: left;
 }
 
-.tdg-editTable > tbody > tr > td:hover,
-.tdg-editTable > tbody > tr:hover > td {
+.tdg-parameters-table > tbody > tr:hover > td {
 	background-color: #BECDD4;
 }
 
-.tdg-editTable input,
-.tdg-editTable select,
-.tdg-editTable textarea,
-.tdg-template-description{
+.tdg-parameters-table input,
+.tdg-parameters-table select,
+.tdg-parameters-table textarea,
+.tdg-template-description {
 	background: transparent;
-	border: 1px solid #999999;
-	padding: 5px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	width: 100%;
 }
 
-.tdg-editTable input:not([type="checkbox"]),
-.tdg-editTable select,
-.tdg-editTable textarea{
+.tdg-parameters-table input:not([type="checkbox"]),
+.tdg-parameters-table select,
+.tdg-parameters-table textarea {
+	width: 100%;
+	border: 1px solid #999999;
+	padding: 5px;
 	height: 40px;
 }
 
-.tdg-editTable .tdg-title-delbutton, .tdg-title-required {
+.tdg-editTable .tdg-title-delbutton,
+.tdg-title-required {
 	width: 80px;
 }
 .tdg-editTable  .tdg-attr-required {
@@ -63,26 +65,25 @@
 	background-color: #F2CBCB;
 }
 
-/** Start small, grow on focus: */
-.tdg-title-name,
-.tdg-title-aliases,
-.tdg-title-label {
+.tdg-not-in-template {
+	background: #E6E6FF;
+}
+
+/* Start small, grow on focus: */
+.tdg-table-head-delbutton {
 	width: 100px;
 }
 
-.tdg-element-attr-name,
-.tdg-element-attr-aliases,
-.tdg-element-attr-label {
+.tdg-table-head-suggested,
+.tdg-table-head-required {
 	width: 100px;
 }
 
-.tdg-element-attr-name:focus,
-.tdg-element-attr-aliases:focus,
-.tdg-element-attr-label:focus {
-	width: 200px;
+textarea.param-type-input:focus,
+input[type="text"].param-type-input:focus {
+	min-width: 200px;
 }
 
-.tdg-element-attr-description:focus,
-.tdg-element-attr-default:focus {
+textarea.param-type-input:focus {
 	height: 70px;
 }
