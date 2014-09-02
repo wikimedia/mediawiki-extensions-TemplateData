@@ -62,6 +62,9 @@
 	@property {string} [inherits] Key to another object in `Root.params`.
 	 The current Param object will inherit from that one, with local properties
 	 overriding the inherited ones.
+	@property {Type} [autovalue] A dynamically generated default value such as today's
+	 date or the editing user's name. Should generally involve substitution,
+	 such as {{subst:CURRENTMONTHNAME}}.
 
 @structure {Object} Set
 	@property {InterfaceText} label Label of this set.
@@ -130,7 +133,8 @@
 			"description": {
 				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."
 			},
-			"aliases": ["2"]
+			"aliases": ["2"],
+			"autovalue": '{{subst:#time:Y-m-d}}'
 		},
 		"year": {
 			"label": "Year",

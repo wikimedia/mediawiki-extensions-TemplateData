@@ -25,6 +25,7 @@
 		'				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."' +
 		'			},' +
 		'			"aliases": ["2"],' +
+		'			"autovalue": "{{subst:CURRENTMONTHNAME}}",' +
 		'			"suggested": true' +
 		'		},' +
 		'		"year": {' +
@@ -71,6 +72,7 @@
 		'			"aliases": [\n' +
 		'				"2"\n' +
 		'			],\n' +
+		'			"autovalue": "{{subst:CURRENTMONTHNAME}}",\n' +
 		'			"suggested": true\n' +
 		'		},\n' +
 		'		"year": {\n' +
@@ -115,6 +117,7 @@
 			'description': {
 				'en': 'Timestamp of when the comment was posted, in YYYY-MM-DD format.'
 			},
+			'autovalue': '{{subst:CURRENTMONTHNAME}}',
 			'aliases': ['2'],
 			'suggested': true
 		},

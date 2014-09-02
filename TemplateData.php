@@ -95,6 +95,7 @@ $wgResourceModules['ext.templateDataGenerator.core'] = array(
 		'templatedata-modal-notice-import-numparams',
 		'templatedata-modal-table-param-actions',
 		'templatedata-modal-table-param-aliases',
+		'templatedata-modal-table-param-autovalue',
 		'templatedata-modal-table-param-default',
 		'templatedata-modal-table-param-desc',
 		'templatedata-modal-table-param-label',

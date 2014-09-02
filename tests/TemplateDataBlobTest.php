@@ -95,7 +95,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"suggested": false,
 							"deprecated": false,
 							"aliases": [],
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["foo"],
@@ -120,6 +121,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"label": null,
 							"description": null,
 							"default": "",
+							"autovalue": null,
 							"required": false,
 							"suggested": false,
 							"deprecated": false,
@@ -167,7 +169,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"aliases": [
 								"1"
 							],
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["nickname"],
@@ -207,7 +210,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"default": "example",
 							"deprecated": false,
 							"aliases": [],
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						},
 						"2d": {
 							"label": null,
@@ -219,7 +223,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"default": "overridden",
 							"deprecated": false,
 							"aliases": [],
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["1d", "2d"],
@@ -303,7 +308,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						},
 						"bar": {
 							"label": null,
@@ -313,7 +319,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						},
 						"quux": {
 							"label": null,
@@ -323,7 +330,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["foo", "bar", "quux"],
@@ -343,6 +351,51 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					]
 				}',
 				'status' => true
+			),
+			array(
+				'input' => '{
+					"description": "Testing some template description.",
+					"params": {
+						"bar": {
+							"label": "Bar label",
+							"description": "Bar description",
+							"default": "Baz",
+							"autovalue": "{{SomeTemplate}}",
+							"required": true,
+							"suggested": false,
+							"deprecated": false,
+							"aliases": [ "foo", "baz" ],
+							"type": "line"
+						}
+					}
+				}
+				',
+				'output' => '{
+					"description": {
+						"en": "Testing some template description."
+					},
+					"params": {
+						"bar": {
+							"label": {
+								"en": "Bar label"
+							},
+							"description": {
+								"en": "Bar description"
+							},
+							"default": "Baz",
+							"autovalue": "{{SomeTemplate}}",
+							"required": true,
+							"suggested": false,
+							"deprecated": false,
+							"aliases": [ "foo", "baz" ],
+							"type": "line"
+						}
+					},
+					"paramOrder": ["bar"],
+					"sets": []
+				}
+				',
+				'msg' => 'Parameter attributes preserve information.'
 			),
 			array(
 				// Should be long enough to trigger this condition after gzipping.
@@ -368,6 +421,42 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			$str = $m[1];
 		}
 		return $str;
+	}
+
+	private static function ksort( Array &$input ) {
+		ksort( $input );
+		foreach ( $input as $key => &$value ) {
+			if ( is_array( $value ) ) {
+				self::ksort( $value );
+			}
+		}
+	}
+
+	/**
+	 * PHPUnit'a assertEquals does weak comparison, use strict instead.
+	 *
+	 * There is a built-in assertSame, but that only strictly compares
+	 * the top level structure, not the invidual array values.
+	 *
+	 * so "array( 'a' => '' )" still equals "array( 'a' => null )"
+	 * because empty string equals null in PHP's weak comparison.
+	 *
+	 * @param mixed $expected
+	 * @param mixed $actual
+	 */
+	protected function assertStrictJsonEquals( $expected, $actual, $message = null ) {
+		// Lazy recursive strict comparison: Serialise to JSON and compare that
+		// Sort first to ensure key-order
+		$expected = json_decode( $expected, /* assoc = */ true );
+		$actual = json_decode( $actual, /* assoc = */ true );
+		self::ksort( $expected );
+		self::ksort( $actual );
+
+		$this->assertEquals(
+			FormatJson::encode( $expected, true ),
+			FormatJson::encode( $actual, true ),
+			$message
+		);
 	}
 
 	protected function assertTemplateData( Array $case ) {
@@ -402,7 +491,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'Status: ' . $case['msg']
 			);
 		}
-		$this->assertJsonStringEqualsJsonString(
+
+		$this->assertStrictJsonEquals(
 			$case['output'],
 			$actual,
 			$case['msg']
@@ -421,7 +511,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			);
 		}
 
-		$this->assertJsonStringEqualsJsonString(
+		$this->assertStrictJsonEquals(
 			$case['output'],
 			$t->getJSON(),
 			'Roundtrip: ' . $case['msg']
@@ -568,7 +658,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["foo"],
@@ -601,7 +692,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["foo"],
@@ -638,7 +730,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["foo"],
@@ -715,7 +808,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						},
 						"bar": {
 							"label": null,
@@ -725,7 +819,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						},
 						"baz": {
 							"label": null,
@@ -735,7 +830,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["foo", "bar", "baz"],
@@ -765,7 +861,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						},
 						"bar": {
 							"label": null,
@@ -775,7 +872,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						},
 						"baz": {
 							"label": null,
@@ -785,7 +883,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"deprecated": false,
 							"aliases": [],
 							"default": "",
-							"type": "unknown"
+							"type": "unknown",
+							"autovalue": null
 						}
 					},
 					"paramOrder": ["baz", "foo", "bar"],

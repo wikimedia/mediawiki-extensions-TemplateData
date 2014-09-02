@@ -1262,6 +1262,12 @@
 					label: 'templatedata-modal-table-param-default',
 					$element: $( '<input>' )
 				},
+				autovalue: {
+					selector: 'input',
+					type: 'wikitext',
+					label: 'templatedata-modal-table-param-autovalue',
+					$element: $( '<input>' )
+				},
 				required: {
 					selector: 'input[type="checkbox"]',
 					type: 'checkbox',

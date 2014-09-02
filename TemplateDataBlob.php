@@ -88,6 +88,7 @@ class TemplateDataBlob {
 			'description',
 			'deprecated',
 			'aliases',
+			'autovalue',
 			'default',
 			'inherits',
 			'type',
@@ -252,6 +253,20 @@ class TemplateDataBlob {
 				}
 			} else {
 				$paramObj->aliases = array();
+			}
+
+			// Param.autovalue
+			if ( isset( $paramObj->autovalue ) ) {
+				if ( !is_string( $paramObj->autovalue ) ) {
+					// TODO: Validate the autovalue values.
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.autovalue",
+						'string'
+					);
+				}
+			} else {
+				$paramObj->autovalue = null;
 			}
 
 			// Param.default
@@ -589,6 +604,11 @@ class TemplateDataBlob {
 			. Html::element(
 				'th',
 				array(),
+				wfMessage( 'templatedata-doc-param-autovalue' )->inLanguage( $lang )->text()
+			)
+			. Html::element(
+				'th',
+				array(),
 				wfMessage( 'templatedata-doc-param-status' )->inLanguage( $lang )->text()
 			)
 			. '</tr></thead>'
@@ -658,6 +678,16 @@ class TemplateDataBlob {
 				$paramObj->default !== '' ?
 					$paramObj->default :
 					wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
+			)
+			// Auto value
+			. Html::rawElement( 'td', array(
+					'class' => array(
+						'mw-templatedata-doc-muted' => $paramObj->autovalue === null
+					)
+				),
+				$paramObj->autovalue !== null ?
+					Html::element( 'code', array(), $paramObj->autovalue ) :
+					wfMessage( 'templatedata-doc-param-autovalue-empty' )->inLanguage( $lang )->escaped()
 			)
 			// Status
 			. Html::element( 'td', array(), wfMessage( $status )->inLanguage( $lang )->text() )
