@@ -7,7 +7,8 @@
 			"Siebrand",
 			"Sjoerddebruin",
 			"Southparkfan",
-			"Mar(c)"
+			"Mar(c)",
+			"Romaine"
 		]
 	},
 	"templatedata-desc": "Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)",
@@ -58,6 +59,7 @@
 	"templatedata-modal-table-param-type-line": "Regel",
 	"templatedata-modal-table-param-type-number": "Getal",
 	"templatedata-modal-table-param-type-string": "Tekenreeks",
+	"templatedata-modal-table-param-type-unbalanced-wikitext": "Ongebalanceerde wikitext",
 	"templatedata-modal-table-param-type-undefined": "Niet opgegeven",
 	"templatedata-modal-table-param-type-wiki-file-name": "Bestand",
 	"templatedata-modal-table-param-type-wiki-page-name": "Pagina",
