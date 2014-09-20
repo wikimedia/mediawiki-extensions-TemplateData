@@ -8,6 +8,7 @@
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
 	"templatedata-doc-desc-empty": "Sem descrição.",
+	"templatedata-doc-param-autovalue-empty": "vazio",
 	"templatedata-doc-param-default": "Padrão",
 	"templatedata-doc-param-default-empty": "vazio",
 	"templatedata-doc-param-desc": "Descrição",

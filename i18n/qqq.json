@@ -13,7 +13,7 @@
 	},
 	"templatedata-desc": "{{desc|name=Template Data|url=http://www.mediawiki.org/wiki/Extension:TemplateData}}",
 	"templatedata-doc-desc-empty": "Displayed when a template has no description (should be a valid sentence).\n{{Identical|No description}}",
-	"templatedata-doc-param-autovalue": "Used as column heading in the table for auto fill value.\n{{Related|Templatedata-doc-param}}\n",
+	"templatedata-doc-param-autovalue": "Used as column heading in the table for auto fill value.\n{{Related|Templatedata-doc-param}}",
 	"templatedata-doc-param-autovalue-empty": "Displayed when a template parameter has no auto filled value (should not be a full sentence, used in a table).\n{{Identical|Empty}}",
 	"templatedata-doc-param-default": "Used as column heading in the table.\n{{Related|Templatedata-doc-param}}\n{{Identical|Default}}",
 	"templatedata-doc-param-default-empty": "Displayed when a template parameter has no default value (should not be a full sentence, used in a table).\n{{Identical|Empty}}",
