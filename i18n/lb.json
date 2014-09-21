@@ -5,6 +5,7 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "Keng Beschreiwung.",
+	"templatedata-doc-param-autovalue-empty": "eidel",
 	"templatedata-doc-param-default": "Standard",
 	"templatedata-doc-param-default-empty": "eidel",
 	"templatedata-doc-param-desc": "Beschreiwung",
