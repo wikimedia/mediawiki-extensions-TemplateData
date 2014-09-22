@@ -7,11 +7,14 @@
 			"Sethladan",
 			"Mcervera",
 			"Vfrico",
-			"Macofe"
+			"Macofe",
+			"Eurodyne"
 		]
 	},
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
 	"templatedata-doc-desc-empty": "Sin descripción",
+	"templatedata-doc-param-autovalue": "Valor automático",
+	"templatedata-doc-param-autovalue-empty": "vacío",
 	"templatedata-doc-param-default": "Predeterminado",
 	"templatedata-doc-param-desc": "Descripción",
 	"templatedata-doc-param-desc-empty": "sin descripción",
@@ -35,6 +38,7 @@
 	"templatedata-modal-errormsg-import-noparams": "No se hallaron parámetros nuevos durante la importación.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Algunos parámetros no se importaron, porque ya existen en el editor: $1",
 	"templatedata-modal-table-param-actions": "Acciones",
+	"templatedata-modal-table-param-autovalue": "Valor automático",
 	"templatedata-modal-table-param-default": "Predeterminado",
 	"templatedata-modal-table-param-desc": "Descripción",
 	"templatedata-modal-table-param-label": "Etiquetar",

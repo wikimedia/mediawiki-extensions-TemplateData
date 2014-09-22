@@ -1,8 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"C5st4wr6ch"
+			"C5st4wr6ch",
+			"Ahdan"
 		]
 	},
-	"templatedata-modal-table-param-type-file": "Berkas"
+	"templatedata-doc-param-autovalue": "Isi otomatis",
+	"templatedata-doc-param-autovalue-empty": "kosong",
+	"templatedata-modal-table-param-autovalue": "Isi otomatis",
+	"templatedata-modal-table-param-type-wiki-file-name": "Berkas"
 }
