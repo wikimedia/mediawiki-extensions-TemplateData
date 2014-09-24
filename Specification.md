@@ -195,34 +195,34 @@ A list of one or more `Root.params` keys.
 
 One of the following:
 
-- `unknown`<br>
+- `unknown`<br/>
   When no type is specified.
-- `string`<br>
+- `string`<br/>
   Any textual value.
-- `number`<br>
+- `number`<br/>
   Any numerical value (without decimal points or thousand separators).
-- `boolean`<br>
+- `boolean`<br/>
   A boolean value ('1' for true, '0' for false, '' for unknown).
-- `date`<br>
+- `date`<br/>
   A date in ISO 8601 format, e.g. "2014-05-09" or "2014-05-09T16:01:12Z".
-- `wiki-page-name`<br>
+- `wiki-page-name`<br/>
   A valid MediaWiki page name for the current wiki. Doesn't have to exist,
   but if not, should be a valid page name to create.
-- `wiki-user-name`<br>
+- `wiki-user-name`<br/>
   A valid MediaWiki user name for the current wiki. Doesn't have to exist,
   but if not, should be a valid user name to create. Should not include any
   localised or standard namespace prefix ("Foo" not "User:Foo").
-- `wiki-file-name`<br>
+- `wiki-file-name`<br/>
   A valid MediaWiki file name for the current wiki. Doesn't have to exist,
   but if not, should be a valid file name to upload. Should not include any
   localised or standard namespace prefix ("Foo" not "File:Foo").
-- `content`<br>
+- `content`<br/>
   Page content (such as text style, links and images etc.).
-- `unbalanced-wikitext`<br>
+- `unbalanced-wikitext`<br/>
   Raw wikitext that should not be treated as standalone content because it
   is unbalanced (eg. templates concatenating incomplete wikitext as a bigger
   whole such as `{{echo|before=<u>|after=</u>}}`)
-- `line`<br>
+- `line`<br/>
   Short text field - use for names, labels, and other short-form fields.
 
 ### 3.5 InterfaceText
