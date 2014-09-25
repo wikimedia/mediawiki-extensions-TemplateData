@@ -1390,7 +1390,7 @@
 						$helpLink: $( '<a>' )
 							.addClass( 'tdg-editscreen-main-helplink' )
 							.text( mw.msg( 'templatedata-helplink' ) )
-							.attr( 'href', 'https://www.mediawiki.org/wiki/Extension:TemplateData' )
+							.attr( 'href', mw.msg( 'templatedata-helplink-target' ) )
 							.attr( 'target', '_blank' ),
 						/**
 						 * Define the error box for the main template edit
