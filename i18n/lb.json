@@ -28,6 +28,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Keng nei Parametere beim Import fonnt.",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Een neie Parameter gouf|$1 nei Parametere goufen}} importéiert.",
 	"templatedata-modal-table-param-actions": "Aktiounen",
+	"templatedata-modal-table-param-autovalue": "Automatesche Wäert",
 	"templatedata-modal-table-param-default": "Standard",
 	"templatedata-modal-table-param-desc": "Beschreiwung",
 	"templatedata-modal-table-param-label": "Etikett",
