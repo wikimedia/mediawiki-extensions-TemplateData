@@ -9,6 +9,8 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "Ei kuvausta.",
+	"templatedata-doc-param-autovalue": "Automaattinen arvo",
+	"templatedata-doc-param-autovalue-empty": "tyhjä",
 	"templatedata-doc-param-default": "Oletus",
 	"templatedata-doc-param-default-empty": "tyhjä",
 	"templatedata-doc-param-desc": "Kuvaus",
@@ -33,6 +35,7 @@
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|uusi parametri|uutta parametria}} tuotiin.",
 	"templatedata-modal-table-param-actions": "Toimenpiteet",
 	"templatedata-modal-table-param-aliases": "Aliakset (pilkulla erotettuna)",
+	"templatedata-modal-table-param-autovalue": "Automaattinen arvo",
 	"templatedata-modal-table-param-default": "Oletus",
 	"templatedata-modal-table-param-desc": "Kuvaus",
 	"templatedata-modal-table-param-label": "Nimiö",
