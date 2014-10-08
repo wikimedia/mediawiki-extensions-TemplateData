@@ -7,6 +7,7 @@
 	},
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
 	"templatedata-doc-desc-empty": "説明はありません。",
+	"templatedata-doc-param-autovalue-empty": "空",
 	"templatedata-doc-param-default": "既定",
 	"templatedata-doc-param-default-empty": "空",
 	"templatedata-doc-param-desc": "説明",
