@@ -874,9 +874,14 @@
 						);
 					} else {
 						// Add the <templatedata>
-						finalOutput = originalTemplateDataWikitext + '\n\n<templatedata>\n' +
+						finalOutput = originalTemplateDataWikitext + '\n<templatedata>\n' +
 							tdOutput +
 							'\n</templatedata>\n';
+
+						// If we are not in a subpage, add <noinclude> tags
+						if ( !isPageSubLevel ) {
+							finalOutput = '\n<noinclude>' + finalOutput + '</noinclude>\n';
+						}
 					}
 
 					$modalBox.trigger( 'TemplateDataGeneratorDone', [ finalOutput ] );
