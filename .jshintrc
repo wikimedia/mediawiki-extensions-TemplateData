@@ -2,7 +2,6 @@
 	// Enforcing
 	"bitwise": true,
 	"eqeqeq": true,
-	"es3": true,
 	"freeze": true,
 	"latedef": true,
 	"noarg": true,
@@ -11,12 +10,25 @@
 	"unused": true,
 	"strict": false,
 
+	// Relaxing
+	"es5": false,
+
 	// Environment
 	"browser": true,
+	"jquery": true,
 
 	"globals": {
-		"jQuery": false,
+		"mw": false,
+		"OO": false,
 		"QUnit": false,
-		"mediaWiki": false
+		"unicodeJS": false,
+		"jQuery": false,
+		"mediaWiki": false,
+		"TemplateDataModel": true,
+		"TemplateDataDialog": true,
+		"TemplateDataOptionWidget": true,
+		"TemplateDataOptionImportWidget": true,
+		"TemplateDataLanguageSearchWidget": true,
+		"TemplateDataLanguageResultWidget": true
 	}
 }

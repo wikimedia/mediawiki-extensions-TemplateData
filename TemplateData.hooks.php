@@ -34,11 +34,34 @@ class TemplateDataHooks {
 	) {
 		$testModules['qunit']['ext.templateData.test'] = array(
 			'scripts' => array( 'tests/ext.templateData.tests.js' ),
-			'dependencies' => array( 'ext.templateDataGenerator.core' ),
+			'dependencies' => array( 'ext.templateDataGenerator.data' ),
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'TemplateData',
 		);
 		return true;
+	}
+
+	/**
+	 * Conditionally register the jquery.uls.data module, in case they've already
+	 * been registered by the UniversalLanguageSelector extension.
+	 *
+	 * @param ResourceLoader $resourceLoader
+	 * @return boolean true
+	 */
+	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
+		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
+		if ( !isset( $resourceModules['jquery.uls.data'] ) ) {
+			$resourceLoader->register( array(
+				'jquery.uls.data' => array(
+					'localBasePath' => __DIR__,
+					'remoteExtPath' => 'TemplateData',
+					'scripts' => array(
+						'lib/jquery.uls/src/jquery.uls.data.js',
+						'lib/jquery.uls/src/jquery.uls.data.utils.js',
+					)
+				)
+			) );
+		}
 	}
 
 	/**

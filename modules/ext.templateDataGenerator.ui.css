@@ -1,0 +1,72 @@
+.tdg-editscreen-main {
+	margin-bottom: 1em;
+}
+
+.tdg-editscreen-main-helplink {
+	margin-left: 1em;
+}
+
+.tdg-editscreen-error-msg {
+	display: block;
+	padding: 0.5em;
+	margin-top: 0.5em;
+}
+
+.tdg-TemplateDataDialog-panels .oo-ui-panelLayout {
+	padding: 1em;
+}
+
+.successbox, .errorbox {
+	padding: .5em 1em
+}
+
+.tdg-editscreen-input-error input {
+	background-color: #FFA3A3;
+}
+
+.tdg-TemplateDataOptionWidget-param-name,
+.tdg-TemplateDataOptionWidget-param-aliases,
+.tdg-TemplateDataOptionWidget-param-description {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	/* HACK: Based on the expected width of this widget, using % produces unreliable results*/
+	max-width: 33em;
+}
+
+.tdg-TemplateDataOptionWidget-param-name {
+	font-weight: bold;
+}
+
+.tdg-TemplateDataOptionWidget-param-aliases {
+	float: right;
+	font-size: 0.9em;
+}
+
+.tdg-TemplateDataOptionWidget-param-alias {
+	border-radius: 0.3em;
+	padding: 0.125em 0.25em;
+	margin-left: 0.5em;
+	color: #999;
+	background-color: #eee;
+	border: solid 1px #ddd;
+}
+
+.tdg-TemplateDataOptionWidget-param-alias:first-child {
+	background-color: #fff;
+}
+
+.tdg-TemplateDataOptionWidget-paramList-param-description {
+	clear: both;
+	color: #555;
+}
+
+.oo-ui-icon-parameter {
+	/* @embed */
+	background-image: url(images/parameter-ltr.svg);
+}
+
+.oo-ui-icon-parameter-set {
+	/* @embed */
+	background-image: url(images/parameter-set-ltr.svg);
+}
