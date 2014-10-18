@@ -33,6 +33,7 @@
 	"templatedata-invalid-empty-array": "Property \"$1\" must have at least one value in its array.",
 	"templatedata-invalid-length": "Data too large to save ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|limit is}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Required property \"$1\" not found.",
+	"templatedata-invalid-param": "Invalid parameter \"$1\" for property \"$2\".",
 	"templatedata-invalid-parse": "Syntax error in JSON.",
 	"templatedata-invalid-type": "Property \"$1\" is expected to be of type \"$2\".",
 	"templatedata-invalid-unknown": "Unexpected property \"$1\".",

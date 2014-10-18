@@ -6,7 +6,7 @@
   <dt>This version</dt>
   <dd><a href="https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FTemplateData/master/Specification.md">https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FTemplateData/master/Specification.md</a></dd>
   <dt>Editors</dt>
-  <dd>Timo Tijhof, Trevor Parscal, James D. Forrester</dd>
+  <dd>Timo Tijhof, Trevor Parscal, James D. Forrester, Marielle Volz</dd>
 </dl>
 
 ***
@@ -82,6 +82,20 @@ List of groups of parameters that can be used together.
 Authors MUST ensure that the `sets` object contains only `Set` objects. Authors MAY include a parameter in multiple `Set` objects. Authors are NOT REQUIRED to reference each parameter in at least one `Set` object.
 
 A Consumer MAY encourage users to interact with parameters in a `Set` together (e.g. add, edit, or remove those parameters at once).
+
+#### 3.1.5 `maps`
+* Required
+* Value: `Object`
+
+An object describing which parameter(s) specific Consumers SHOULD use for some purpose.
+
+The `maps` property contains key–value pairs where the key identifies a given Consumer, and the value a `Map` object.
+
+Consumers are NOT REQUIRED to have a corresponding `Map` object.
+
+Consumers that look for a `Map` SHOULD publicly document their identifier key.
+
+Authors MUST ensure that the `maps` object contains only `Map` objects. Authors MAY include a parameter in multiple `Map` objects. Authors are NOT REQUIRED to reference each parameter in at least one `Map` object.
 
 ### 3.2 Param
 * Value: `Object`
@@ -231,6 +245,13 @@ One of the following:
 A free-form string (no wikitext) in the content-language of the wiki, or,
 an object containing those strings keyed by language code.
 
+### 3.6 Map
+* Value: `Object`
+
+Each key in a `Map` object can be arbitrary. The value must match a parameter name, a list of parameter names, or list containing lists of parameter names.
+
+The key corresponds to the name of a Consumer variable that relates to the specified parameter(s).
+
 ## 4 Examples
 
 ### 4.1 The "Unsigned" template
@@ -276,7 +297,19 @@ an object containing those strings keyed by language code.
 			"label": "Date",
 			"params": ["year", "month", "day"]
 		}
-	]
+	],
+	"maps": {
+		"ExampleConsumer": {
+			"foo": "user",
+			"bar": ["year", "month", "day"],
+			"quux": [
+				"date",
+				["day", "month"],
+				["month", "year"],
+				"year"
+			]
+		}
+	}
 }
 </pre>
 
