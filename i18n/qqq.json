@@ -30,7 +30,7 @@
 	"templatedata-editbutton": "The label of the button to manage templatedata, appearing above the editor field.",
 	"templatedata-errormsg-jsonbadformat": "Error message that appears in case the JSON string is not possible to parse. The user is asked to either correct the json syntax or delete the values between the &lt;templatedata&gt; tags and try again.",
 	"templatedata-helplink": "The label of the link to the TemplateData documentation, appearing above the editor field.",
-	"templatedata-helplink-target": "{{Optional}} The target of the link to the TemplateData documentation",
+	"templatedata-helplink-target": "{{ignore}} The target of the link to the TemplateData documentation",
 	"templatedata-invalid-duplicate-value": "Displayed when an array that must only contain unique values contains a duplicate.\n* $1 - name of property containing the duplicate\n* $2 - name of property with first occurrence of value\n* $3 - the value being duplicated",
 	"templatedata-invalid-empty-array": "Error message when a property that must be non-empty is empty. Parameters:\n* $1 - property name (\"paramOrder\" or \"sets.{$setNr}.params\")",
 	"templatedata-invalid-length": "Error message when generated JSON's length exceed database limits.\n* $1 - length of generated JSON\n* $2 - maximal allowed length",
