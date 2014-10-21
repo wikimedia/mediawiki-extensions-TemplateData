@@ -67,6 +67,7 @@ $wgResourceModules['ext.templateDataGenerator.editPage'] = array(
 	'messages' => array(
 		'templatedata-editbutton',
 		'templatedata-helplink',
+		'templatedata-helplink-target',
 		'templatedata-errormsg-jsonbadformat',
 	)
 );
