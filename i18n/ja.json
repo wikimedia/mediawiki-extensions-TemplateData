@@ -21,7 +21,7 @@
 	"templatedata-doc-param-status-suggested": "推奨",
 	"templatedata-doc-param-type": "型",
 	"templatedata-doc-params": "テンプレート引数",
-	"templatedata-editbutton": "テンプレートドキュメンテーションを管理",
+	"templatedata-editbutton": "テンプレートデータを管理",
 	"templatedata-errormsg-jsonbadformat": "不正な JSON 形式。修正するか、現在の <templatedata> タグを削除して作り直してください。",
 	"templatedata-helplink": "TemplateData に関する情報",
 	"templatedata-invalid-duplicate-value": "プロパティ「$1」(「$3」) は「$2」と重複しています。",

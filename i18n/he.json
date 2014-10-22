@@ -22,7 +22,7 @@
 	"templatedata-doc-param-status-suggested": "מוצע",
 	"templatedata-doc-param-type": "סוג",
 	"templatedata-doc-params": "פרמטרים של תבניות",
-	"templatedata-editbutton": "יצירת נתוני תבנית",
+	"templatedata-editbutton": "ניהול נתוני תבנית",
 	"templatedata-errormsg-jsonbadformat": "JSON בלתי־תקין. נא לתקן אותו או למחוק את הטקסט בין תגי <templatedata> ולנסות שוב.",
 	"templatedata-helplink": "מידע על נתוני תבנית (TemplateData)",
 	"templatedata-invalid-duplicate-value": "המאפיין \"$1\" (ערך: \"$3\") זהה למאפיין \"$2\".",

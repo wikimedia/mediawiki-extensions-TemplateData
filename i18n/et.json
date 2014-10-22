@@ -19,7 +19,7 @@
 	"templatedata-doc-param-status-suggested": "soovituslik",
 	"templatedata-doc-param-type": "Tüüp",
 	"templatedata-doc-params": "Malli parameetrid",
-	"templatedata-editbutton": "Halda malli dokumentatsiooni",
+	"templatedata-editbutton": "Halda malli andmeid",
 	"templatedata-errormsg-jsonbadformat": "Vigane JSONi vorming. Paranda see või kustuta praegused <templatedata>-sildid ja proovi uuesti.",
 	"templatedata-invalid-duplicate-value": "\"$1\" (\"$3\") on omaduse \"$2\" duplikaat.",
 	"templatedata-invalid-empty-array": "Omaduse \"$1\" massiiv peab sisaldama vähemalt üht väärtust.",
