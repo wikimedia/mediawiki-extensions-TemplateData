@@ -48,7 +48,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Error message that appears in the TemplateData generator GUI in case no template parameters were found during the import attempt.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Error message that appears when some parameters were not imported from the template code because they already exist in the editor.\n\nParameters:\n* $1 - list of parameters that were not imported",
 	"templatedata-modal-notice-import-numparams": "Message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.\n\nParameters:\n* $1 - number of parameters",
-	"templatedata-modal-table-param-actions": "Label for a table heading: Parameter actions in the table",
+	"templatedata-modal-table-param-actions": "Label for a table heading: Parameter actions in the table\n{{Identical|Action}}",
 	"templatedata-modal-table-param-aliases": "Label for a table heading: Aliases of the parameter, instruct the user to separate aliases with commas.",
 	"templatedata-modal-table-param-autovalue": "Label for a table heading: Parameter auto value in the table",
 	"templatedata-modal-table-param-default": "Label for a table heading: Default value of the parameter.\n{{Identical|Default}}",

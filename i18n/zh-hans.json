@@ -26,7 +26,7 @@
 	"templatedata-doc-param-status-suggested": "已建议",
 	"templatedata-doc-param-type": "类型",
 	"templatedata-doc-params": "模板参数",
-	"templatedata-editbutton": "管理模板文档",
+	"templatedata-editbutton": "管理模板数据",
 	"templatedata-errormsg-jsonbadformat": "无效JSON格式。请将其改正或删除<templatedata>标签然后重试。",
 	"templatedata-helplink": "有关模板参数的信息",
 	"templatedata-invalid-duplicate-value": "属性“$1”（“$3”）与“$2”重复。",
