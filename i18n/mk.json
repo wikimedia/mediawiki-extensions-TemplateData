@@ -20,7 +20,7 @@
 	"templatedata-doc-param-status-suggested": "предложен",
 	"templatedata-doc-param-type": "Тип",
 	"templatedata-doc-params": "Шаблонски параметри",
-	"templatedata-editbutton": "Раководење со шаблонска документација",
+	"templatedata-editbutton": "Раководење со TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Неисправен JSON-формат. Исправете го или избришете ги тековните ознаки <templatedata> и обидете се повторно.",
 	"templatedata-helplink": "Информации за ШаблонскиПодатоци",
 	"templatedata-invalid-duplicate-value": "Својството „$1“ („$3“) е дупликат на „$2“.",

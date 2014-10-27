@@ -4,9 +4,9 @@
 			"פוילישער"
 		]
 	},
-	"templatedata-doc-param-name": "פאראמעטער",
 	"templatedata-doc-param-default-empty": "ליידיק",
-	"templatedata-modal-table-param-type-file": "טעקע",
+	"templatedata-doc-param-name": "פאראמעטער",
 	"templatedata-modal-table-param-type-date": "דאַטע",
-	"templatedata-modal-table-param-type-page": "בלאַט"
+	"templatedata-modal-table-param-type-wiki-file-name": "טעקע",
+	"templatedata-modal-table-param-type-wiki-page-name": "בלאַט"
 }
