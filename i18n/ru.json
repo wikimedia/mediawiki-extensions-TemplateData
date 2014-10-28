@@ -43,7 +43,7 @@
 	"templatedata-modal-errormsg": "Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Во время импорта новые параметры не найдены.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Некоторые параметры не были импортированы, поскольку они уже существуют в редакторе: $1",
-	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новый параметр импортирован|новых параметров импортировано|новых параметра импортировано}}.",
+	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новый параметр импортирован|новых параметра импортировано|новых параметров импортировано}}.",
 	"templatedata-modal-table-param-actions": "Действия",
 	"templatedata-modal-table-param-aliases": "Псевдонимы (через запятую)",
 	"templatedata-modal-table-param-autovalue": "Авто-значение",
