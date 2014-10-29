@@ -9,6 +9,7 @@
 /**
  * @ingroup API
  * @emits error.code templatedata-corrupt
+ * @todo Support continuation (see I1a6e51cd)
  */
 class ApiTemplateData extends ApiBase {
 
@@ -117,6 +118,9 @@ class ApiTemplateData extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getParamDescription() {
 		return $this->getPageSet()->getParamDescription() + array(
 			'format' => 'The format of the output',
@@ -125,13 +129,29 @@ class ApiTemplateData extends ApiBase {
 		);
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getDescription() {
 		return 'Data stored by the TemplateData extension';
 	}
 
+	/**
+	 * @deprecated since MediaWiki core 1.25
+	 */
 	public function getExamples() {
 		return array(
 			'api.php?action=templatedata&titles=Template:Stub|Template:Example',
+		);
+	}
+
+	/**
+	 * @see ApiBase::getExamplesMessages()
+	 */
+	protected function getExamplesMessages() {
+		return array(
+			'action=templatedata&titles=Template:Stub|Template:Example'
+				=> 'apihelp-templatedata-example-1',
 		);
 	}
 
