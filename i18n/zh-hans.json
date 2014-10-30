@@ -10,6 +10,9 @@
 			"Cwek"
 		]
 	},
+	"apihelp-templatedata-example-1": "返回[[Template:Stub]]和[[Template:Example]]的数据",
+	"apihelp-templatedata-param-format": "输出格式。",
+	"apihelp-templatedata-param-lang": "返回此语言的本地化值。默认会返回所有可用翻译。",
 	"templatedata-desc": "实现模板参数的数据存储（使用JSON）",
 	"templatedata-doc-desc-empty": "没有说明。",
 	"templatedata-doc-param-autovalue": "自动值",

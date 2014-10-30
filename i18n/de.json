@@ -5,6 +5,10 @@
 			"Metalhead64"
 		]
 	},
+	"apihelp-templatedata-description": "Gespeicherte Daten von der Erweiterung „TemplateData“ abrufen.",
+	"apihelp-templatedata-example-1": "Daten für [[Template:Stub]] und [[Template:Example]] zurückgeben",
+	"apihelp-templatedata-param-format": "Das Format der Ausgabe.",
+	"apihelp-templatedata-param-lang": "Gibt lokalisierte Werte in dieser Sprache zurück. Standardmäßig werden alle verfügbaren Übersetzungen zurückgegeben.",
 	"templatedata-desc": "Ermöglicht mithilfe von JSON die Implementierung der Datenspeicherung für Vorlagenparameter",
 	"templatedata-doc-desc-empty": "Keine Beschreibung.",
 	"templatedata-doc-param-autovalue": "Autowert",

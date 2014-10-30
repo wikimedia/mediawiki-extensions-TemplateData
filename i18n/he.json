@@ -6,6 +6,10 @@
 			"תומר ט"
 		]
 	},
+	"apihelp-templatedata-description": "אחזור נתונים שאוחסנו בהרחבה TemplateData.",
+	"apihelp-templatedata-example-1": "החזרת נתונים עבר [[Template:Stub]] ו־[[Template:Example]].",
+	"apihelp-templatedata-param-format": "התסדיר של הפלט.",
+	"apihelp-templatedata-param-lang": "להחזיר ערכים מתורגמים בשפה הזאת. בררת המחדל היא להחזיר את כל התרגומים הזמינים.",
 	"templatedata-desc": "מימוש אחסון נתונים לפרמטרים של תבניות (באמצעות JSON)",
 	"templatedata-doc-desc-empty": "אין תיאור.",
 	"templatedata-doc-param-autovalue": "ערך אוטומטי",
