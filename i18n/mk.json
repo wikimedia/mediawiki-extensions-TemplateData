@@ -4,6 +4,10 @@
 			"Bjankuloski06"
 		]
 	},
+	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот TemplateData.",
+	"apihelp-templatedata-example-1": "Дај податоци за [[Template:Stub]] и [[Template:Example]]",
+	"apihelp-templatedata-param-format": "Формат на изводот.",
+	"apihelp-templatedata-param-lang": "Дај ги вредностите преведени на овој јазик. По основно се даваат сите расположиви преводи.",
 	"templatedata-desc": "Овозможува складирање на податоци за шаблонски параметри (користејќи JSON)",
 	"templatedata-doc-desc-empty": "Нема опис.",
 	"templatedata-doc-param-autovalue": "Автовредност",
