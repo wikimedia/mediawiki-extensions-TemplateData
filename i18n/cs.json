@@ -5,6 +5,10 @@
 			"Mormegil"
 		]
 	},
+	"apihelp-templatedata-description": "Načtení dat uložených rozšířením TemplateData.",
+	"apihelp-templatedata-example-1": "Vrátí data pro [[Template:Stub]] a [[Template:Example]]",
+	"apihelp-templatedata-param-format": "Formát výstupu.",
+	"apihelp-templatedata-param-lang": "Vrátí lokalizované hodnoty v daném jazyce. Implicitně se vrátí všechny dostupné překlady.",
 	"templatedata-desc": "Implementuje datové úložiště pro parametry šablon (pomocí JSON)",
 	"templatedata-doc-desc-empty": "Bez popisu.",
 	"templatedata-doc-param-autovalue": "Automatická hodnota",
