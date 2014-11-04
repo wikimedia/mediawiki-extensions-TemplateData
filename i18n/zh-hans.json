@@ -10,6 +10,7 @@
 			"Cwek"
 		]
 	},
+	"apihelp-templatedata-description": "获取由TemplateData扩展存储的数据。",
 	"apihelp-templatedata-example-1": "返回[[Template:Stub]]和[[Template:Example]]的数据",
 	"apihelp-templatedata-param-format": "输出格式。",
 	"apihelp-templatedata-param-lang": "返回此语言的本地化值。默认会返回所有可用翻译。",
