@@ -274,7 +274,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					]
 				}',
-				'status' => 'Invalid value for property "sets.0.params&#91;1&#93;".'
+				'status' => 'Invalid value for property "sets.0.params[1]".'
 			),
 			array(
 				'input' => '{
@@ -418,7 +418,9 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		// Based on wfMsgExt/parseinline
 		$m = array();
 		if ( preg_match( '/^<p>(.*)\n?<\/p>\n?$/sU', $str, $m ) ) {
-			$str = $m[1];
+			// Unescape char references for things like "[, "]" and "|" for
+			// cleaner test assertions and output
+			$str = Sanitizer::decodeCharReferences( $m[1] );
 		}
 		return $str;
 	}
@@ -903,7 +905,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"paramOrder": ["foo", "bar"]
 				}
 				',
-				'status' => 'Required property "paramOrder&#91;2&#93;" not found.',
+				'status' => 'Required property "paramOrder[2]" not found.',
 				'msg' => 'Incomplete paramOrder'
 			),
 			array(
@@ -916,7 +918,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"paramOrder": ["foo", "bar", "baz", "quux"]
 				}
 				',
-				'status' => 'Invalid value for property "paramOrder&#91;3&#93;".',
+				'status' => 'Invalid value for property "paramOrder[3]".',
 				'msg' => 'Unknown params in paramOrder'
 			),
 			array(
@@ -929,8 +931,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"paramOrder": ["foo", "bar", "baz", "bar"]
 				}
 				',
-				'status' => 'Property "paramOrder&#91;3&#93;" ("bar") is a duplicate of ' .
-					'"paramOrder&#91;1&#93;".',
+				'status' => 'Property "paramOrder[3]" ("bar") is a duplicate of ' .
+					'"paramOrder[1]".',
 				'msg' => 'Duplicate params in paramOrder'
 			),
 		);
