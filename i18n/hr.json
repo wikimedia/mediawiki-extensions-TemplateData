@@ -37,7 +37,7 @@
 	"templatedata-modal-errormsg": "Pronađene greške. Provjerite da nema praznih ili duplih imena parametara, te da ime ne sadrži \"$1\", \"$2\" ili \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Prilikom uvoza nije pronađen novi parametar.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Neki parametri nisu uvezeni, jer već postoje u uređivaču: $1",
-	"templatedata-modal-notice-import-numparams": "Uvezeno $1 {{PLURAL:$1|novi parametar|nova parametra|novih parametara}}.",
+	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Uvezen|Uvezena|Uvezeno}} $1 {{PLURAL:$1|novi parametar|nova parametra|novih parametara}}.",
 	"templatedata-modal-table-param-actions": "Radnje",
 	"templatedata-modal-table-param-aliases": "Pseudonimi (odvojeni zarezima)",
 	"templatedata-modal-table-param-autovalue": "Automatska vrijednost",
