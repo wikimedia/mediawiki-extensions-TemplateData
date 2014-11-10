@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот TemplateData.",
+	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот ШаблонскиПодатоци.",
 	"apihelp-templatedata-example-1": "Дај податоци за [[Template:Stub]] и [[Template:Example]]",
 	"apihelp-templatedata-param-format": "Формат на изводот.",
 	"apihelp-templatedata-param-lang": "Дај ги вредностите преведени на овој јазик. По основно се даваат сите расположиви преводи.",
@@ -24,7 +24,7 @@
 	"templatedata-doc-param-status-suggested": "предложен",
 	"templatedata-doc-param-type": "Тип",
 	"templatedata-doc-params": "Шаблонски параметри",
-	"templatedata-editbutton": "Раководење со TemplateData",
+	"templatedata-editbutton": "Раководење со ШаблонскиПодатоци",
 	"templatedata-errormsg-jsonbadformat": "Неисправен JSON-формат. Исправете го или избришете ги тековните ознаки <templatedata> и обидете се повторно.",
 	"templatedata-helplink": "Информации за ШаблонскиПодатоци",
 	"templatedata-invalid-duplicate-value": "Својството „$1“ („$3“) е дупликат на „$2“.",
