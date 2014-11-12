@@ -23,7 +23,7 @@
 	"templatedata-doc-param-status-required": "必填",
 	"templatedata-doc-param-status-suggested": "建議",
 	"templatedata-doc-param-type": "類型",
-	"templatedata-doc-params": "樣版參數",
+	"templatedata-doc-params": "樣板參數",
 	"templatedata-editbutton": "管理樣版文件",
 	"templatedata-errormsg-jsonbadformat": "錯誤的 JSON 格式。 您可以修正該格式，或者直接刪除目前的 <templatedata> 標籤再試一次。",
 	"templatedata-helplink": "有關 TemplateData 的資訊",
@@ -66,7 +66,7 @@
 	"templatedata-modal-table-param-type-wiki-page-name": "頁面",
 	"templatedata-modal-table-param-type-wiki-user-name": "使用者",
 	"templatedata-modal-table-param-uneditablefield": "不可編輯",
-	"templatedata-modal-title": "樣版文件編輯器",
+	"templatedata-modal-title": "樣板文件編輯器",
 	"templatedata-modal-title-templatedesc": "樣版描述",
 	"templatedata-modal-title-templateparams": "樣版參數"
 }
