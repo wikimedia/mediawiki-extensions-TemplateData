@@ -5,6 +5,7 @@
 			"Милан Јелисавчић"
 		]
 	},
+	"templatedata-doc-param-autovalue": "Аутоматска вредност",
 	"templatedata-doc-param-autovalue-empty": "празно",
 	"templatedata-doc-param-default": "Подразумевано",
 	"templatedata-doc-param-default-empty": "празно",
@@ -31,6 +32,7 @@
 	"templatedata-modal-button-importParams": "Увези параметре",
 	"templatedata-modal-errormsg-import-noparams": "Током увоза није пронађен ниједан нови параметар.",
 	"templatedata-modal-table-param-actions": "Радње",
+	"templatedata-modal-table-param-autovalue": "Аутоматска вредност",
 	"templatedata-modal-table-param-default": "Подразумевано",
 	"templatedata-modal-table-param-desc": "Опис",
 	"templatedata-modal-table-param-name": "Назив",
