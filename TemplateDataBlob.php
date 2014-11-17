@@ -574,7 +574,7 @@ class TemplateDataBlob {
 					$data->description :
 					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )->text()
 			)
-			. '<table class="wikitable mw-templatedata-doc-params">'
+			. '<table class="wikitable mw-templatedata-doc-params sortable">'
 			. Html::element(
 				'caption',
 				array(),
