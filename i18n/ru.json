@@ -8,6 +8,8 @@
 			"Striking Blue"
 		]
 	},
+	"apihelp-templatedata-example-1": "Возвращает данные для [[Template:Stub]] и [[Template:Example]]",
+	"apihelp-templatedata-param-format": "Формат вывода.",
 	"templatedata-desc": "Реализация хранилища данных для параметров шаблона (с помощью JSON)",
 	"templatedata-doc-desc-empty": "Нет описания.",
 	"templatedata-doc-param-autovalue": "Авто-значение",

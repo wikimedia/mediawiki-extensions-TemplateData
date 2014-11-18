@@ -5,6 +5,10 @@
 			"Jdforrester"
 		]
 	},
+	"apihelp-templatedata-description": "Hent data lagret av TemplateData-tillegget.",
+	"apihelp-templatedata-example-1": "Returner data fra [[Template:Stub]] og [[Template:Example]]",
+	"apihelp-templatedata-param-format": "Resultatformat.",
+	"apihelp-templatedata-param-lang": "Returner lokaliserte verdier på dette språket. Som standard returneres alle tilgjengelige oversettelser.",
 	"templatedata-desc": "Implementerer datalager for malparametre (med JSON)",
 	"templatedata-doc-desc-empty": "Ingen beskrivelse.",
 	"templatedata-doc-param-autovalue": "Autoverdi",
@@ -21,7 +25,7 @@
 	"templatedata-doc-param-status-suggested": "anbefalt",
 	"templatedata-doc-param-type": "Type",
 	"templatedata-doc-params": "Malparametre",
-	"templatedata-editbutton": "Håndter maldokumentasjon",
+	"templatedata-editbutton": "Håndter TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Ugyldig JSON-format. Korriger den, eller fjern de aktuelle <templatedata>-taggene og prøv igjen.",
 	"templatedata-helplink": "Informasjon om TemplateData",
 	"templatedata-invalid-duplicate-value": "Egenskapen «$1» («$3») er en duplikat av «$2».",

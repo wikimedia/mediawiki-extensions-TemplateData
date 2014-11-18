@@ -73,7 +73,7 @@
 	"templatedata-modal-table-param-type-wiki-file-name": "A possible parameter type: File\n{{Related|Templatedata-modal-table-param-type}}\n{{Identical|File}}",
 	"templatedata-modal-table-param-type-wiki-page-name": "A possible parameter type: Page\n{{Related|Templatedata-modal-table-param-type}}\n{{Identical|Page}}",
 	"templatedata-modal-table-param-type-wiki-user-name": "A possible parameter type: User\n{{Related|Templatedata-modal-table-param-type}}\n{{Identical|User}}",
-	"templatedata-modal-table-param-uneditablefield": "Placeholder text notifying the user the field is uneditable",
+	"templatedata-modal-table-param-uneditablefield": "Placeholder text notifying the user the field is uneditable\n{{Identical|Uneditable}}",
 	"templatedata-modal-title": "Title of the modal popup.",
 	"templatedata-modal-title-templatedesc": "The title for the template description textbox",
 	"templatedata-modal-title-templateparams": "The title for the template parameters table"
