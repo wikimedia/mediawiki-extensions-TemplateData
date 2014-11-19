@@ -34,6 +34,7 @@ class TemplateDataBlob {
 	 * @return TemplateDataBlob
 	 */
 	public static function newFromJSON( $json ) {
+
 		$tdb = new self( json_decode( $json ) );
 
 		$status = $tdb->parse();
@@ -46,6 +47,7 @@ class TemplateDataBlob {
 			$tdb->data->description = null;
 			$tdb->data->params = new stdClass();
 			$tdb->data->sets = array();
+			$tdb->data->maps = new stdClass();
 		}
 		$tdb->status = $status;
 		return $tdb;
@@ -79,6 +81,7 @@ class TemplateDataBlob {
 			'params',
 			'paramOrder',
 			'sets',
+			'maps',
 		);
 
 		static $paramKeys = array(
@@ -420,6 +423,77 @@ class TemplateDataBlob {
 			foreach ( $setObj->params as $i => $param ) {
 				if ( !isset( $data->params->$param ) ) {
 					return Status::newFatal( 'templatedata-invalid-value', "sets.{$setNr}.params[$i]" );
+				}
+			}
+		}
+
+		// Root.maps
+		if ( isset( $data->maps ) ) {
+			if ( !is_object( $data->maps ) ) {
+				return Status::newFatal( 'templatedata-invalid-type', 'maps', 'object' );
+			}
+		} else {
+			$data->maps = new stdClass();
+		}
+
+		foreach ( $data->maps as $consumerId => $map ) {
+			if ( !is_object( $map ) ) {
+				return Status::newFatal( 'templatedata-invalid-type', 'maps', 'object' );
+			}
+
+			foreach ( $map as $key => $value ) {
+				// Key is not validated as this is used by a third-party application
+				// Value must be 2d array of parameter names, 1d array of parameter names, or valid
+				// parameter name
+				if ( is_array( $value ) ) {
+					foreach ( $value as $key2 => $value2 ) {
+						if ( is_array( $value2 ) ) {
+							foreach ( $value2 as $key3 => $value3 ) {
+								if ( !is_string( $value3 ) ) {
+									return Status::newFatal(
+										'templatedata-invalid-type',
+										"maps.{$consumerId}.{$key}[$key2][$key3]",
+										'string'
+									);
+								}
+								if ( !isset( $data->params->$value3 ) ) {
+									return Status::newFatal(
+										'templatedata-invalid-param',
+										$value3,
+										"maps.{$consumerId}.{$key}"
+									);
+								}
+							}
+						} elseif ( is_string( $value2 ) ){
+							if ( !isset( $data->params->$value2 ) ) {
+								return Status::newFatal(
+									'templatedata-invalid-param',
+									$value2,
+									"maps.{$consumerId}.{$key}"
+								);
+							}
+						} else {
+							return Status::newFatal(
+								'templatedata-invalid-type',
+								"maps.{$consumerId}.{$key}[$key2]",
+								'string|array'
+							);
+						}
+					}
+				} elseif ( is_string( $value ) ) {
+					if ( !isset( $data->params->$value ) ) {
+						return Status::newFatal(
+							'templatedata-invalid-param',
+							$value,
+							"maps.{$consumerId}.{$key}"
+						);
+					}
+				} else {
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"maps.{$consumerId}.{$key}",
+						'string|array'
+					);
 				}
 			}
 		}

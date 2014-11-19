@@ -49,7 +49,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'status' => true,
@@ -100,7 +101,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["foo"],
-					"sets": []
+					"sets": [],
+					"maps": {}
 				}
 				',
 				'msg' => 'Optional properties are added if missing'
@@ -130,7 +132,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["comment"],
-					"sets": []
+					"sets": [],
+					"maps": {}
 				}
 				',
 				'msg' => 'Old string/* types are mapped to the unprefixed versions'
@@ -174,7 +177,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["nickname"],
-					"sets": []
+					"sets": [],
+					"maps": {}
 				}
 				',
 				'msg' => 'InterfaceText is expanded to langcode-keyed object, assuming content language'
@@ -228,7 +232,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["1d", "2d"],
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'msg' => 'The inherits property copies over properties from another parameter '
@@ -348,7 +353,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							},
 							"params": ["bar", "quux"]
 						}
-					]
+					],
+					"maps": {}
 				}',
 				'status' => true
 			),
@@ -392,10 +398,70 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["bar"],
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'msg' => 'Parameter attributes preserve information.'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+						},
+						"bar": {
+						}
+					},
+					"sets": [],
+					"maps": {
+						"application": {
+							"things": [
+								"foo",
+								["bar", "quux"]
+							]
+						}
+					}
+				}',
+				'status' => 'Invalid parameter "quux" for property "maps.application.things".'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+						},
+						"bar": {
+						}
+					},
+					"sets": [],
+					"maps": {
+						"application": {
+							"things": {
+								"appbar": "bar",
+								"appfoo": "foo"
+							}
+						}
+					}
+				}',
+				'status' => 'Property "maps.application.things" is expected to be of type "string|array".'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+						},
+						"bar": {
+						}
+					},
+					"sets": [],
+					"maps": {
+						"application": {
+							"things": [
+								[ true ]
+							]
+						}
+					}
+				}',
+				'status' => 'Property "maps.application.things[0][0]" is expected to be of type "string".'
 			),
 			array(
 				// Should be long enough to trigger this condition after gzipping.
@@ -403,7 +469,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
 					"params": {}
 				}',
-				'status' => 'Data too large to save (75,195 bytes, limit is 65,535)'
+				'status' => 'Data too large to save (75,204 bytes, limit is 65,535)'
 			),
 		);
 		$calls = array();
@@ -471,7 +537,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		}
 		if ( !isset( $case['output'] ) ) {
 			if ( is_string( $case['status'] ) ) {
-				$case['output'] = '{ "description": null, "params": {}, "sets": [] }';
+				$case['output'] = '{ "description": null, "params": {}, "sets": [], "maps": {} }';
 			} else {
 				$case['output'] = $case['input'];
 			}
@@ -560,7 +626,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "German",
 					"params": {},
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'lang' => 'de',
@@ -575,7 +642,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "Hi",
 					"params": {},
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'lang' => 'fr',
@@ -594,7 +662,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "Dutch",
 					"params": {},
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'lang' => 'fr',
@@ -612,7 +681,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'lang' => 'fr',
@@ -631,7 +701,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "German",
 					"params": {},
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'lang' => 'de-formal',
@@ -665,7 +736,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["foo"],
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'lang' => 'fr',
@@ -699,7 +771,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["foo"],
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'lang' => 'fr',
@@ -742,7 +815,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"label": "Spanish",
 							"params": ["foo"]
 						}
-					]
+					],
+					"maps": {}
 				}
 				',
 				'lang' => 'fr',
@@ -837,7 +911,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["foo", "bar", "baz"],
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'msg' => 'Normalisation adds paramOrder'
@@ -890,7 +965,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					},
 					"paramOrder": ["baz", "foo", "bar"],
-					"sets": []
+					"sets": [],
+					"maps" : {}
 				}
 				',
 				'msg' => 'Custom paramOrder'
