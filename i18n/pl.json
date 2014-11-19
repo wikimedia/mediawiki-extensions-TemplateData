@@ -32,6 +32,7 @@
 	"templatedata-invalid-empty-array": "Właściwość „$1” musi mieć w swojej tablicy co najmniej jedną wartość.",
 	"templatedata-invalid-length": "Tak dużych danych nie można zapisać ({{formatnum:$1}} {{PLURAL:$1|bajt|bajty|bajtów}}, ograniczenie wynosi {{formatnum:$2}} {{PLURAL:$2|bajt|bajty|bajtów}})",
 	"templatedata-invalid-missing": "Wymagana właściwość \"$1\" nie została znaleziona.",
+	"templatedata-invalid-param": "Błędny parametr „$1” dla właściwości „$2”.",
 	"templatedata-invalid-parse": "Błąd składni w JSON.",
 	"templatedata-invalid-type": "Właściwość \"$1\" powinna mieć typ \"$2\".",
 	"templatedata-invalid-unknown": "Nieoczekiwane właściwość \"$1\".",

@@ -32,6 +32,7 @@
 	"templatedata-invalid-empty-array": "Die Eigenschaft „$1“ muss mindestens einen Wert in ihrem Array haben.",
 	"templatedata-invalid-length": "Die Daten sind zu groß zum Speichern ({{PLURAL:$1|Ein Byte|{{formatnum:$1}} Bytes}}, {{PLURAL:$2|die Grenze ist}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Die erforderliche Eigenschaft „$1” wurde nicht gefunden.",
+	"templatedata-invalid-param": "Ungültiger Parameter „$1“ für die Eigenschaft „$2“.",
 	"templatedata-invalid-parse": "Syntaxfehler in JSON.",
 	"templatedata-invalid-type": "Für den Typ „$2” wird die Eigenschaft „$1” erwartet.",
 	"templatedata-invalid-unknown": "Unerwartete Eigenschaft „$1”.",

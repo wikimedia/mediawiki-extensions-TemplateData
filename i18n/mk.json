@@ -31,6 +31,7 @@
 	"templatedata-invalid-empty-array": "Својството „$1“ мора да има барем една вреднсот во стројот.",
 	"templatedata-invalid-length": "Податоците се преголеми за да се зачуваат ({{formatnum:$1}} {{PLURAL:$1|бајт|бајти}}, а {{PLURAL:$2|границата е}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Бараното својство „$1“ не е пронајдено.",
+	"templatedata-invalid-param": "Неважечки параметар „$1“ за својството „$2“.",
 	"templatedata-invalid-parse": "Синтаксна грешка во JSON.",
 	"templatedata-invalid-type": "Се очекува својството „$1“ да биде од типот „$2“.",
 	"templatedata-invalid-unknown": "Неочекувано својство „$1“.",
