@@ -33,6 +33,7 @@
 	"templatedata-invalid-empty-array": "למאפיין \"$1\" צריך להיות לפחות ערך אחד במערך שלו.",
 	"templatedata-invalid-length": "הנתונים גדולים מכדי לשמור ({{PLURAL:$1|בית אחד|{{formatnum:$1}} בתים}}, {{PLURAL:$2|המגבלה היא}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "המאפיין הדרוש \"$1\" לא נמצא.",
+	"templatedata-invalid-param": "פרמטר בלתי־תקין \"$1\" למאפיין \"$2\".",
 	"templatedata-invalid-parse": "שגיאת תחביר ב־JSON.",
 	"templatedata-invalid-type": "המאפיין \"$1\" אמור להיות מסוג \"$2\".",
 	"templatedata-invalid-unknown": "מאפיין בלתי־צפוי \"$1\".",

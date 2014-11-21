@@ -28,6 +28,7 @@
 	"templatedata-invalid-empty-array": "Omaduse \"$1\" massiiv peab sisaldama vähemalt üht väärtust.",
 	"templatedata-invalid-length": "Andmeid on salvestamiseks liiga palju ({{formatnum:$1}} {{PLURAL:$1|bait|baiti}}, {{PLURAL:$2|ülemmäär}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Nõutavat omadust \"$1\" ei leitud.",
+	"templatedata-invalid-param": "Vigane parameeter \"$1\" omaduse \"$2\" juures.",
 	"templatedata-invalid-parse": "JSONi süntaksitõrge",
 	"templatedata-invalid-type": "Eeldati, et omaduse \"$1\" tüüp on \"$2\".",
 	"templatedata-invalid-unknown": "Ootamatu omadus \"$1\".",
