@@ -873,14 +873,16 @@
 							'<templatedata>\n' + tdOutput + '\n</templatedata>'
 						);
 					} else {
-						// Add the <templatedata>
-						finalOutput = originalTemplateDataWikitext + '\n<templatedata>\n' +
-							tdOutput +
-							'\n</templatedata>\n';
-
-						// If we are not in a subpage, add <noinclude> tags
-						if ( !isPageSubLevel ) {
-							finalOutput = '\n<noinclude>' + finalOutput + '</noinclude>\n';
+						if ( isPageSubLevel ) {
+							// Add the <templatedata>
+							finalOutput = originalTemplateDataWikitext + '\n<templatedata>\n' +
+								tdOutput +
+								'\n</templatedata>\n';
+						} else {
+							// If we are not in a subpage, add <noinclude> tags
+							finalOutput = originalTemplateDataWikitext + '\n<noinclude>\n<templatedata>\n' +
+								tdOutput +
+								'\n</templatedata>\n</noinclude>\n';
 						}
 					}
 
