@@ -37,6 +37,7 @@
 	"templatedata-invalid-empty-array": "属性“$1”必须至少有一个值。",
 	"templatedata-invalid-length": "数据过大，无法保存（{{formatnum:$1}}{{PLURAL:$1|字节}}，{{PLURAL:$2|限制是}}{{formatnum:$2}}）",
 	"templatedata-invalid-missing": "未找到必需的属性“$1”。",
+	"templatedata-invalid-param": "无效参数“$1”被用于属性“$2”。",
 	"templatedata-invalid-parse": "JSON中语法错误。",
 	"templatedata-invalid-type": "属性“$1”的预期类型为“$2”。",
 	"templatedata-invalid-unknown": "意外的属性“$1”。",

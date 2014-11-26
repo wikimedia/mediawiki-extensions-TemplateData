@@ -7,6 +7,10 @@
 			"WikiPhoenix"
 		]
 	},
+	"apihelp-templatedata-description": "Hämta data som lagras av TemplateData-tillägget.",
+	"apihelp-templatedata-example-1": "Returnera data för [[Template:Stub]] och [[Template:Example]]",
+	"apihelp-templatedata-param-format": "Formatet för utdata.",
+	"apihelp-templatedata-param-lang": "Returnera lokaliserade värden på detta språk. Som standard returneras alla tillgängliga översättningar.",
 	"templatedata-desc": "Lagrar data för mallparametrar (med JSON)",
 	"templatedata-doc-desc-empty": "Ingen beskrivning.",
 	"templatedata-doc-param-autovalue": "Autovärde",
@@ -30,6 +34,7 @@
 	"templatedata-invalid-empty-array": "Egenskap \"$1\" måste ha minst ett värde i sin tabell.",
 	"templatedata-invalid-length": "Data för stor för att sparas ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}}, {{PLURAL:$2|gränsen är}} {{formatnum: $2}})",
 	"templatedata-invalid-missing": "Egenskapen \"$1\" krävs, men hittades inte.",
+	"templatedata-invalid-param": "Ogiltig parameter \"$1\" för egenskap \"$2\".",
 	"templatedata-invalid-parse": "Syntaxfel i JSON.",
 	"templatedata-invalid-type": "Egenskapen \"$1\" förväntas vara av typen \"$2\".",
 	"templatedata-invalid-unknown": "Oväntad egenskap \"$1\".",
