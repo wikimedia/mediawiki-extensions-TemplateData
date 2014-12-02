@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Otogi"
+		]
+	},
+	"templatedata-doc-params": "თარგის პარამეტრები",
+	"templatedata-editbutton": "TemplateData-ის მართვა",
+	"templatedata-helplink": "ინფორმაცია TemplateData-ის შესახებ",
+	"templatedata-modal-button-addparam": "პარამეტრის დამატება",
+	"templatedata-modal-button-importParams": "პარამეტრების იმპორტირება",
+	"templatedata-modal-title": "თარგის ინფოს რედაქტორი",
+	"templatedata-modal-title-templatedesc": "თარგის აღწერა"
+}
