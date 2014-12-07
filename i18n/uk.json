@@ -4,7 +4,8 @@
 			"Andriykopanytsia",
 			"Ата",
 			"Olion",
-			"VolodymyrF"
+			"VolodymyrF",
+			"Piramidion"
 		]
 	},
 	"templatedata-desc": "Реалізація сховища даних для параметрів шаблону (JSON)",
@@ -23,7 +24,7 @@
 	"templatedata-doc-param-status-suggested": "пропонований",
 	"templatedata-doc-param-type": "Тип",
 	"templatedata-doc-params": "Параметри шаблону",
-	"templatedata-editbutton": "Управління документацією шаблону",
+	"templatedata-editbutton": "Управління TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Невірний JSON-формат. Виправте його або вилучіть поточні теги <templatedata> і повторіть спробу.",
 	"templatedata-helplink": "Інформація про TemplateData",
 	"templatedata-invalid-duplicate-value": "Властивість \"$1\" (\"$3\") дублює \"$2\".",
