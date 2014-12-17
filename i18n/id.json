@@ -3,11 +3,12 @@
 		"authors": [
 			"C5st4wr6ch",
 			"Ahdan",
-			"William Surya Permana"
+			"William Surya Permana",
+			"Rizkiahmadz"
 		]
 	},
 	"apihelp-templatedata-description": "Ambil data yang disimpan oleh ekstensi DataTemplat.",
-	"apihelp-templatedata-example-1": "Data kembalian untuk [[Templat:Rintisan]] dan [[Templat:Contoh]]",
+	"apihelp-templatedata-example-1": "Kembalian Data untuk [[Template:Stub]] dan [[Template:Example]]",
 	"apihelp-templatedata-param-format": "Format keluaran.",
 	"apihelp-templatedata-param-lang": "Kembalikan nilai yang telah dilokalisasi dalam bahasa ini. Secara baku seluruh terjemahan yang tersedia akan dikembalikan.",
 	"templatedata-desc": "Implementasikan penyimpanan data untuk parameter templat (menggunakan JSON)",
