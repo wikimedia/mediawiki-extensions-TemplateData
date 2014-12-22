@@ -39,6 +39,7 @@ $wgHooks['ParserFirstCallInit'][] = 'TemplateDataHooks::onParserFirstCallInit';
 $wgHooks['PageContentSave'][] = 'TemplateDataHooks::onPageContentSave';
 $wgHooks['UnitTestsList'][] = 'TemplateDataHooks::onUnitTestsList';
 $wgHooks['ResourceLoaderTestModules'][] = 'TemplateDataHooks::onResourceLoaderTestModules';
+$wgHooks['ResourceLoaderRegisterModules'][] = 'TemplateDataHooks::onResourceLoaderRegisterModules';
 $wgHooks['EditPage::showEditForm:initial'][] = 'TemplateDataHooks::onEditPage';
 
 // Register APIs
@@ -62,7 +63,7 @@ $wgResourceModules['ext.templateDataGenerator.editPage'] = array(
 		'modules/ext.templateDataGenerator.editPage.js',
 	),
 	'dependencies' => array(
-		'ext.templateDataGenerator.core',
+		'ext.templateDataGenerator.ui',
 	),
 	'messages' => array(
 		'templatedata-editbutton',
@@ -72,53 +73,83 @@ $wgResourceModules['ext.templateDataGenerator.editPage'] = array(
 	)
 );
 
-$wgResourceModules['ext.templateDataGenerator.core'] = array(
+$wgResourceModules['ext.templateDataGenerator.data'] = array(
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'TemplateData',
-	'styles' => 'modules/ext.templateDataGenerator.css',
 	'scripts' => array(
-		'modules/ext.templateDataGenerator.core.js',
+		'modules/ext.templateDataGenerator.data.js'
 	),
 	'dependencies' => array(
-		'jquery.ui.dialog',
-		'jquery.ui.button',
-		'jquery.ui.sortable',
+		'oojs'
+	)
+);
+
+$wgResourceModules['ext.templateDataGenerator.ui'] = array(
+	'localBasePath' => $dir,
+	'remoteExtPath' => 'TemplateData',
+	'styles' => 'modules/ext.templateDataGenerator.ui.css',
+	'scripts' => array(
+		'modules/ext.templateDataGenerator.ui.js',
+		'modules/widgets/ext.templateDataGenerator.optionWidget.js',
+		'modules/widgets/ext.templateDataGenerator.optionImportWidget.js',
+		'modules/widgets/ext.templateDataGenerator.languageResultWidget.js',
+		'modules/widgets/ext.templateDataGenerator.languageSearchWidget.js',
+		'modules/ext.templateDataGenerator.ui.tdDialog.js',
+	),
+	'dependencies' => array(
+		'oojs-ui',
+		'ext.templateDataGenerator.data',
+		'jquery.uls.data'
 	),
 	'messages' => array(
+		'comma-separator',
+		'templatedata-modal-button-add-language',
 		'templatedata-modal-button-addparam',
 		'templatedata-modal-button-apply',
+		'templatedata-modal-button-back',
 		'templatedata-modal-button-cancel',
+		'templatedata-modal-button-changelang',
 		'templatedata-modal-button-delparam',
 		'templatedata-modal-button-importParams',
+		'templatedata-modal-button-saveparam',
+		'templatedata-modal-current-language',
 		'templatedata-modal-errormsg',
 		'templatedata-modal-errormsg-import-noparams',
 		'templatedata-modal-errormsg-import-paramsalreadyexist',
 		'templatedata-modal-notice-import-numparams',
+		'templatedata-modal-placeholder-paramkey',
+		'templatedata-modal-search-input-placeholder',
 		'templatedata-modal-table-param-actions',
 		'templatedata-modal-table-param-aliases',
 		'templatedata-modal-table-param-autovalue',
 		'templatedata-modal-table-param-default',
-		'templatedata-modal-table-param-desc',
+		'templatedata-modal-table-param-description',
+		'templatedata-modal-table-param-importoption',
+		'templatedata-modal-table-param-importoption-subtitle',
 		'templatedata-modal-table-param-label',
 		'templatedata-modal-table-param-name',
 		'templatedata-modal-table-param-required',
 		'templatedata-modal-table-param-suggested',
 		'templatedata-modal-table-param-type',
 		'templatedata-modal-table-param-type-boolean',
+		'templatedata-modal-table-param-type-boolean',
 		'templatedata-modal-table-param-type-content',
-		'templatedata-modal-table-param-type-wiki-file-name',
+		'templatedata-modal-table-param-type-date',
 		'templatedata-modal-table-param-type-line',
 		'templatedata-modal-table-param-type-number',
-		'templatedata-modal-table-param-type-boolean',
-		'templatedata-modal-table-param-type-date',
-		'templatedata-modal-table-param-type-wiki-page-name',
 		'templatedata-modal-table-param-type-string',
 		'templatedata-modal-table-param-type-unbalanced-wikitext',
 		'templatedata-modal-table-param-type-undefined',
+		'templatedata-modal-table-param-type-wiki-file-name',
+		'templatedata-modal-table-param-type-wiki-page-name',
 		'templatedata-modal-table-param-type-wiki-user-name',
 		'templatedata-modal-table-param-uneditablefield',
 		'templatedata-modal-title',
+		'templatedata-modal-title-addparam',
+		'templatedata-modal-title-choose-language',
+		'templatedata-modal-title-language',
 		'templatedata-modal-title-templatedesc',
+		'templatedata-modal-title-templateparam-details',
 		'templatedata-modal-title-templateparams',
 	)
 );
