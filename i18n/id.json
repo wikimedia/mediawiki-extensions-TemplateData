@@ -52,7 +52,7 @@
 	"templatedata-modal-table-param-aliases": "Alias (pisahkan dengan koma)",
 	"templatedata-modal-table-param-autovalue": "Nilai otomatis",
 	"templatedata-modal-table-param-default": "Baku",
-	"templatedata-modal-table-param-desc": "Keterangan",
+	"templatedata-modal-table-param-description": "Keterangan",
 	"templatedata-modal-table-param-label": "Label",
 	"templatedata-modal-table-param-name": "Nama",
 	"templatedata-modal-table-param-required": "Wajib diisi",
