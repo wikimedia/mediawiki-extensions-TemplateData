@@ -5,7 +5,8 @@
 			"Okras",
 			"Putnik",
 			"Amire80",
-			"Striking Blue"
+			"Striking Blue",
+			"Oashnic"
 		]
 	},
 	"apihelp-templatedata-example-1": "Возвращает данные для [[Template:Stub]] и [[Template:Example]]",
@@ -38,15 +39,21 @@
 	"templatedata-invalid-type": "Для свойства «$1» ожидается тип «$2».",
 	"templatedata-invalid-unknown": "Неожиданное свойство «$1».",
 	"templatedata-invalid-value": "Недопустимое значение для свойства «$1».",
+	"templatedata-modal-button-add-language": "Добавить язык",
 	"templatedata-modal-button-addparam": "Добавить параметр",
 	"templatedata-modal-button-apply": "Применить",
+	"templatedata-modal-button-back": "Назад",
 	"templatedata-modal-button-cancel": "Отмена",
+	"templatedata-modal-button-changelang": "Изменить язык",
 	"templatedata-modal-button-delparam": "Удалить",
 	"templatedata-modal-button-importParams": "Импортировать параметры",
+	"templatedata-modal-button-saveparam": "Сохранить",
 	"templatedata-modal-errormsg": "Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Во время импорта новые параметры не найдены.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Некоторые параметры не были импортированы, поскольку они уже существуют в редакторе: $1",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новый параметр импортирован|новых параметра импортировано|новых параметров импортировано}}.",
+	"templatedata-modal-placeholder-paramkey": "Имя параметра",
+	"templatedata-modal-search-input-placeholder": "Искать по названию языка или его коду",
 	"templatedata-modal-table-param-actions": "Действия",
 	"templatedata-modal-table-param-aliases": "Псевдонимы (через запятую)",
 	"templatedata-modal-table-param-autovalue": "Авто-значение",
@@ -70,6 +77,9 @@
 	"templatedata-modal-table-param-type-wiki-user-name": "Участник",
 	"templatedata-modal-table-param-uneditablefield": "Недоступно для редактирования",
 	"templatedata-modal-title": "Редактор шаблонов документов",
+	"templatedata-modal-title-addparam": "Добавить новый параметр",
+	"templatedata-modal-title-choose-language": "Выберите язык",
+	"templatedata-modal-title-language": "Язык",
 	"templatedata-modal-title-templatedesc": "Описание шаблона",
 	"templatedata-modal-title-templateparams": "Параметры шаблона"
 }

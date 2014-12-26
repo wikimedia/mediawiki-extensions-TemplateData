@@ -4,7 +4,14 @@
 			"Robin0van0der0vliet"
 		]
 	},
+	"templatedata-modal-button-add-language": "Taal tafoegje",
+	"templatedata-modal-button-back": "Foarige",
 	"templatedata-modal-button-cancel": "Annulearje",
+	"templatedata-modal-placeholder-paramkey": "Parameternamme",
+	"templatedata-modal-table-param-description": "Beskriuwing ($1)",
+	"templatedata-modal-table-param-label": "Label ($1)",
 	"templatedata-modal-table-param-name": "Namme",
-	"templatedata-modal-table-param-type-wiki-file-name": "Triem"
+	"templatedata-modal-table-param-type-wiki-file-name": "Triem",
+	"templatedata-modal-title-addparam": "Nije parameter tafoegje",
+	"templatedata-modal-title-language": "Taal"
 }

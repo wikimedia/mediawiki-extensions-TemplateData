@@ -4,5 +4,12 @@
 			"Geraki"
 		]
 	},
-	"templatedata-editbutton": "Διαχείριση TemplateData"
+	"templatedata-editbutton": "Διαχείριση TemplateData",
+	"templatedata-modal-button-add-language": "Προσθήκη γλώσσας",
+	"templatedata-modal-button-back": "Επιστροφή",
+	"templatedata-modal-current-language": "Τρέχουσα γλώσσα: $1",
+	"templatedata-modal-placeholder-paramkey": "Όνομα παραμέτρου",
+	"templatedata-modal-table-param-description": "Περιγραφή ($1)",
+	"templatedata-modal-title-addparam": "Προσθήκη νέας παραμέτρου",
+	"templatedata-modal-title-language": "Γλώσσα"
 }
