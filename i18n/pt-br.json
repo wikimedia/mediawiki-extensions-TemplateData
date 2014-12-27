@@ -5,7 +5,8 @@
 			"Luckas",
 			"555",
 			"Jefersonmoraes",
-			"He7d3r"
+			"He7d3r",
+			"Opraco"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
@@ -30,5 +31,7 @@
 	"templatedata-invalid-type": "A propriedade \"$1\" deveria ser do tipo \"$2\"",
 	"templatedata-invalid-unknown": "Propriedade inesperada: \"$1\".",
 	"templatedata-invalid-value": "Valor inválido para a propriedade \"$1\".",
-	"templatedata-modal-table-param-autovalue": "Valor automático"
+	"templatedata-modal-table-param-actions": "Ações",
+	"templatedata-modal-table-param-autovalue": "Valor automático",
+	"templatedata-modal-table-param-default": "Valor padrão"
 }

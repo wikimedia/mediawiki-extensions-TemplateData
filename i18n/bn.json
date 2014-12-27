@@ -3,7 +3,8 @@
 		"authors": [
 			"Aftab1995",
 			"Leemon2010",
-			"Tauhid16"
+			"Tauhid16",
+			"Aftabuzzaman"
 		]
 	},
 	"templatedata-doc-desc-empty": "বিবরণ নেই।",
@@ -26,14 +27,16 @@
 	"templatedata-invalid-parse": "জেএসওএন-এর মধ্যে বাক্যগঠনে ত্রুটি।",
 	"templatedata-modal-button-addparam": "প্যারামিটার যোগ করুন",
 	"templatedata-modal-button-apply": "প্রয়োগ",
+	"templatedata-modal-button-back": "পিছনে",
 	"templatedata-modal-button-cancel": "বাতিল",
 	"templatedata-modal-button-delparam": "সরান",
 	"templatedata-modal-button-importParams": "প্যারামিটার আমদানি",
+	"templatedata-modal-current-language": "বর্তমান ভাষা: $1",
 	"templatedata-modal-errormsg-import-noparams": "আমদানির সময় নতুন কোনো প্যারামিটার পাওয়া যায়নি।",
 	"templatedata-modal-notice-import-numparams": "$1টি নতুন {{PLURAL:$1|প্যারামিটার}} আমদানি করা হয়েছে।",
 	"templatedata-modal-table-param-actions": "কার্যসমূহ",
 	"templatedata-modal-table-param-default": "পূর্বনির্ধারিত",
-	"templatedata-modal-table-param-desc": "বিবরণ",
+	"templatedata-modal-table-param-description": "বিবরণ ($1)",
 	"templatedata-modal-table-param-label": "লেবেল",
 	"templatedata-modal-table-param-name": "নাম",
 	"templatedata-modal-table-param-required": "আবশ্যক",
@@ -52,6 +55,7 @@
 	"templatedata-modal-table-param-type-wiki-user-name": "ব্যবহারকারী",
 	"templatedata-modal-table-param-uneditablefield": "অ-সম্পাদনযোগ্য",
 	"templatedata-modal-title": "টেমপ্লেট নথিপত্র সম্পাদক",
+	"templatedata-modal-title-language": "ভাষা",
 	"templatedata-modal-title-templatedesc": "টেমপ্লেট বিবরণ",
 	"templatedata-modal-title-templateparams": "টেমপ্লেট প্যারামিটার"
 }
