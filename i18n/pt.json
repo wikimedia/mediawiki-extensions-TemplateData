@@ -4,7 +4,8 @@
 			"Helder.wiki",
 			"Imperadeiro98",
 			"Vitorvicentevalente",
-			"He7d3r"
+			"He7d3r",
+			"Ti4goc"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
@@ -37,7 +38,7 @@
 	"templatedata-modal-button-add-language": "Adicionar idioma",
 	"templatedata-modal-button-addparam": "Adicionar parâmetro",
 	"templatedata-modal-button-apply": "Aplicar",
-	"templatedata-modal-button-back": "Voltar",
+	"templatedata-modal-button-back": "Retroceder",
 	"templatedata-modal-button-cancel": "Cancelar",
 	"templatedata-modal-button-changelang": "Alterar idioma",
 	"templatedata-modal-button-delparam": "Remover informações de parâmetro",

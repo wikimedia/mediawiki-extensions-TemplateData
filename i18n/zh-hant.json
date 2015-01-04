@@ -39,7 +39,7 @@
 	"templatedata-modal-button-apply": "套用",
 	"templatedata-modal-button-back": "返回",
 	"templatedata-modal-button-cancel": "取消",
-	"templatedata-modal-button-delparam": "移除",
+	"templatedata-modal-button-delparam": "移除參數資訊",
 	"templatedata-modal-button-importParams": "匯入參數",
 	"templatedata-modal-errormsg": "發現錯誤，請確定沒有使用空白或重複的參數名稱，且參數名稱不包含 \"$1\"、\"$2\" 或 \"$3\"。",
 	"templatedata-modal-errormsg-import-noparams": "在匯入過程沒有找到新的參數。",
@@ -70,6 +70,6 @@
 	"templatedata-modal-title": "樣板文件編輯器",
 	"templatedata-modal-title-addparam": "加入新的參數",
 	"templatedata-modal-title-language": "語言",
-	"templatedata-modal-title-templatedesc": "樣板描述",
+	"templatedata-modal-title-templatedesc": "模板描述 ($1)",
 	"templatedata-modal-title-templateparams": "樣板參數"
 }
