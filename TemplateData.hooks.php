@@ -42,15 +42,16 @@ class TemplateDataHooks {
 	}
 
 	/**
-	 * Conditionally register the jquery.uls.data module, in case they've already
-	 * been registered by the UniversalLanguageSelector extension.
+	 * Conditionally register the jquery.uls.data module, in case they've already been
+	 * registered by the UniversalLanguageSelector extension or the VisualEditor extension.
 	 *
 	 * @param ResourceLoader $resourceLoader
 	 * @return boolean true
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
-		if ( !isset( $resourceModules['jquery.uls.data'] ) ) {
+		$name = 'jquery.uls.data';
+		if ( !isset( $resourceModules[$name] ) && !$resourceLoader->getModule( $name ) ) {
 			$resourceLoader->register( array(
 				'jquery.uls.data' => array(
 					'localBasePath' => __DIR__,
