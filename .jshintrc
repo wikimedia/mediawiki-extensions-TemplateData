@@ -29,6 +29,8 @@
 		"TemplateDataOptionWidget": true,
 		"TemplateDataOptionImportWidget": true,
 		"TemplateDataLanguageSearchWidget": true,
-		"TemplateDataLanguageResultWidget": true
+		"TemplateDataLanguageResultWidget": true,
+		"TemplateDataDragDropItemWidget": true,
+		"TemplateDataDragDropWidget": true
 	}
 }

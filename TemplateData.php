@@ -94,6 +94,8 @@ $wgResourceModules['ext.templateDataGenerator.ui'] = array(
 		'modules/widgets/ext.templateDataGenerator.optionImportWidget.js',
 		'modules/widgets/ext.templateDataGenerator.languageResultWidget.js',
 		'modules/widgets/ext.templateDataGenerator.languageSearchWidget.js',
+		'modules/widgets/ext.templateDataGenerator.dragDropItemWidget.js',
+		'modules/widgets/ext.templateDataGenerator.dragDropWidget.js',
 		'modules/ext.templateDataGenerator.ui.tdDialog.js',
 	),
 	'dependencies' => array(
@@ -149,6 +151,7 @@ $wgResourceModules['ext.templateDataGenerator.ui'] = array(
 		'templatedata-modal-title-addparam',
 		'templatedata-modal-title-choose-language',
 		'templatedata-modal-title-language',
+		'templatedata-modal-title-paramorder',
 		'templatedata-modal-title-templatedesc',
 		'templatedata-modal-title-templateparam-details',
 		'templatedata-modal-title-templateparams',

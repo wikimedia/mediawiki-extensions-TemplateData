@@ -17,6 +17,7 @@
 		this.params = {};
 		this.description = {};
 		this.paramOrder = [];
+		this.paramOrderChanged = false;
 		this.paramIdentifierCounter = 0;
 		this.setPageSubLevel( !!config.isPageSubLevel );
 		this.setFullPageName( config.fullPageName || '' );
@@ -266,8 +267,6 @@
 			// Get parameter list from the template source code
 			this.getParametersFromTemplateSource( tdString ).done( $.proxy( function ( params ) {
 				this.sourceCodeParameters = params;
-				this.setTemplateDescription( original.description );
-				this.setTemplateParamOrder( original.paramOrder );
 
 				// Mark existing parameters in the model
 				if ( original.params ) {
@@ -275,6 +274,12 @@
 						this.addParam( param, original.params[param] );
 					}
 				}
+				this.setTemplateDescription( original.description );
+				// Override the param order if it exists in the templatedata string
+				if ( original.paramOrder && original.paramOrder.length > 0 ) {
+					this.setTemplateParamOrder( original.paramOrder );
+				}
+
 				deferred.resolve();
 			}, this ) );
 		} else {
@@ -547,6 +552,9 @@
 			}
 		}
 
+		// Add to paramOrder
+		this.addKeyTemplateParamOrder( key );
+
 		// Trigger the add parameter event
 		this.emit( 'add-param', key, this.params[key] );
 		return true;
@@ -626,6 +634,7 @@
 	/**
 	 * Set template param order array.
 	 * @param {string[]} orderArray Parameter key array in order
+	 * @fires change-paramOrder
 	 */
 	TemplateDataModel.prototype.setTemplateParamOrder = function ( orderArray ) {
 		orderArray = orderArray || [];
@@ -633,6 +642,45 @@
 		// Copy the array
 		this.paramOrder = orderArray.slice();
 		this.emit( 'change-paramOrder', orderArray );
+	};
+
+	/**
+	 * Add a key to the end of the paramOrder
+	 * @param {string} key New key the add into the paramOrder
+	 * @fires add-paramOrder
+	 */
+	TemplateDataModel.prototype.addKeyTemplateParamOrder = function ( key ) {
+		if ( $.inArray( key, this.paramOrder ) === -1 ) {
+			this.paramOrder.push( key );
+			this.emit( 'add-paramOrder', key );
+		}
+	};
+
+	TemplateDataModel.prototype.reorderParamOrderKey = function ( key, newIndex ) {
+		var keyIndex = this.paramOrder.indexOf( key );
+		// Move the parameter
+		this.paramOrder.splice(
+			newIndex,
+			0,
+			this.paramOrder.splice( keyIndex, 1 )[0]
+		);
+
+		this.paramOrderChanged = true;
+
+		// Emit event
+		this.emit( 'change-paramOrder', this.paramOrder );
+	};
+
+	/**
+	 * Add a key to the end of the paramOrder
+	 * @param {string} key New key the add into the paramOrder
+	 */
+	TemplateDataModel.prototype.removeKeyTemplateParamOrder = function ( key ) {
+		var keyPos = $.inArray( key, this.paramOrder );
+		if ( keyPos > -1 ) {
+			this.paramOrder.splice( keyPos, 1 );
+			this.emit( 'change-paramOrder', this.paramOrder );
+		}
 	};
 
 	/**
@@ -699,6 +747,9 @@
 	 */
 	TemplateDataModel.prototype.deleteParam = function ( paramKey ) {
 		this.params[paramKey].deleted = true;
+		// Remove from paramOrder
+		this.removeKeyTemplateParamOrder( paramKey );
+		this.emit( 'delete-param', paramKey );
 	};
 
 	/**
@@ -822,9 +873,9 @@
 		}
 
 		// Param order
-		if ( this.paramOrder.length > 0 ) {
+		if ( original.paramOrder || this.paramOrderChanged ) {
 			result.paramOrder = this.paramOrder;
-		} else if ( result.paramOrder && this.paramOrder.length === 0 ) {
+		} else {
 			delete result.paramOrder;
 		}
 

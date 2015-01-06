@@ -7,7 +7,7 @@
 
 	QUnit.module( 'ext.templateData', QUnit.newMwEnvironment() );
 
-	var i, testVars, finalJsonStringOnly,
+	var i, testVars, finalJsonStringParams, finalJsonStringOnly, finalJsonStringOnlyParamOrder,
 		resultDescCurrLang = {},
 		resultDescMockLang = {},
 		resultDescBothLang = {},
@@ -67,12 +67,7 @@
 	resultDescCurrLang[currLanguage] = 'Some string here in ' + currLanguage + ' language.';
 	resultDescMockLang.blah = 'Some string here in blah language.';
 	resultDescBothLang = $.extend( {}, resultDescCurrLang, resultDescMockLang );
-	finalJsonStringOnly = '{\n' +
-		'	"description": {\n' +
-		'		"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
-		'		"blah": "Template description in some blah language."\n' +
-		'	},\n' +
-		'	"params": {\n' +
+	finalJsonStringParams = '	"params": {\n' +
 		'		"user": {\n' +
 		'			"label": "Username",\n' +
 		'			"type": "wiki-user-name",\n' +
@@ -122,7 +117,12 @@
 		'				"blah": "' + resultDescBothLang.blah + '"\n' +
 		'			}\n' +
 		'		}\n' +
-		'	},\n' +
+		'	},\n';
+	finalJsonStringOnly = '{\n' +
+		'	"description": {\n' +
+		'		"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
+		'		"blah": "Template description in some blah language."\n' +
+		'	},\n' + finalJsonStringParams +
 		'	"sets": [\n' +
 		'		{\n' +
 		'			"label": "Date",\n' +
@@ -132,6 +132,33 @@
 		'				"day"\n' +
 		'			]\n' +
 		'		}\n' +
+		'	]\n' +
+		'}';
+	finalJsonStringOnlyParamOrder = '{\n' +
+		'	"description": {\n' +
+		'		"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
+		'		"blah": "Template description in some blah language."\n' +
+		'	},\n' + finalJsonStringParams +
+		'	"sets": [\n' +
+		'		{\n' +
+		'			"label": "Date",\n' +
+		'			"params": [\n' +
+		'				"year",\n' +
+		'				"month",\n' +
+		'				"day"\n' +
+		'			]\n' +
+		'		}\n' +
+		'	],\n' +
+		'	"paramOrder": [\n' +
+		'		"date",\n' +
+		'		"year",\n' +
+		'		"user",\n' +
+		'		"month",\n' +
+		'		"comment",\n' +
+		'		"newParam1",\n' +
+		'		"newParam2",\n' +
+		'		"newParam3",\n' +
+		'		"newParam4"\n' +
 		'	]\n' +
 		'}';
 
@@ -464,7 +491,7 @@
 			// Change properties tests
 			paramChangeTest.length +
 			// Json output
-			1
+			2
 		);
 
 		model.loadModel( originalWikitext )
@@ -527,6 +554,15 @@
 					model.outputTemplateDataString(),
 					finalJsonStringOnly,
 					'Final templatedata output'
+				);
+
+				// Change order and verify result now has paramOrder
+				model.reorderParamOrderKey( 'user', 2 );
+				// Ouput a final templatedata string
+				assert.equal(
+					model.outputTemplateDataString(),
+					finalJsonStringOnlyParamOrder,
+					'Final templatedata output with paramOrder'
 				);
 
 			} )

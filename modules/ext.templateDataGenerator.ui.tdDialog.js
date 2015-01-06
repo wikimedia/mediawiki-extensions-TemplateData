@@ -61,7 +61,8 @@
 	 */
 	TemplateDataDialog.prototype.initialize = function () {
 		var templateParamsFieldset, languageFieldset,
-			addParamFieldlayout, languageFieldLayout;
+			addParamFieldlayout, languageFieldLayout,
+			paramOrderFieldset;
 
 		// Parent method
 		TemplateDataDialog.super.prototype.initialize.call( this );
@@ -124,6 +125,17 @@
 			items: [ languageFieldLayout, this.languagePanelButton ]
 		} );
 
+		// ParamOrder
+		this.paramOrderWidget = new TemplateDataDragDropWidget( {
+			$: this.$,
+			orientation: 'horizontal'
+		} );
+		paramOrderFieldset = new OO.ui.FieldsetLayout( {
+			$: this.$,
+			label: mw.msg( 'templatedata-modal-title-paramorder' ),
+			items: [ this.paramOrderWidget ]
+		} );
+
 		this.descriptionInput = new OO.ui.TextInputWidget( {
 			$: this.$,
 			multiline: true,
@@ -153,6 +165,7 @@
 				this.paramListNoticeLabel.$element,
 				languageFieldset.$element,
 				this.templateDescriptionFieldset.$element,
+				paramOrderFieldset.$element,
 				templateParamsFieldset.$element
 			);
 		this.paramEditNoticeLabel = new OO.ui.LabelWidget( { $: this.$ } );
@@ -196,6 +209,7 @@
 		this.newLanguageSearchWidget.connect( this, { select: 'newLanguageSearchWidgetSelect' } );
 		this.addParamButton.connect( this, { click: 'onAddParamButtonClick' } );
 		this.descriptionInput.connect( this, { change: 'onDescriptionInputChange' } );
+		this.paramOrderWidget.connect( this, { reorder: 'onParamOrderWidgetReorder' } );
 		this.languagePanelButton.connect( this, { click: 'onLanguagePanelButton' } );
 		this.languageDropdownWidget.getMenu().connect( this, { choose: 'onLanguageDropdownWidgetChoose' } );
 		this.paramSelectWidget.connect( this, { choose: 'onParamSelectWidgetChoose' } );
@@ -208,6 +222,47 @@
 	 */
 	TemplateDataDialog.prototype.onModelChangeDescription = function ( description ) {
 		this.descriptionInput.setValue( description );
+	};
+
+	/**
+	 * Respond to change of paramOrder from the model
+	 * @param {string[]} paramOrderArray The array of keys in order
+	 */
+	TemplateDataDialog.prototype.onModelChangeParamOrder = function ( paramOrderArray ) {
+		var i,
+			items = [];
+
+		this.paramOrderWidget.clearItems();
+		for ( i = 0; i < paramOrderArray.length; i++ ) {
+			items.push(
+				new TemplateDataDragDropItemWidget( {
+					$: this.$,
+					data: paramOrderArray[i],
+					label: paramOrderArray[i]
+				} )
+			);
+		}
+		this.paramOrderWidget.addItems( items );
+
+		// Refresh the parameter widget
+		this.repopulateParamSelectWidget();
+	};
+
+	/**
+	 * Respond to an addition of a key to the model paramOrder
+	 * @param {string} key Added key
+	 */
+	TemplateDataDialog.prototype.onModelAddKeyParamOrder = function ( key ) {
+		var dragItem = new TemplateDataDragDropItemWidget( {
+			$: this.$,
+			data: key,
+			label: key
+		} );
+		this.paramOrderWidget.addItems( [ dragItem ] );
+	};
+
+	TemplateDataDialog.prototype.onParamOrderWidgetReorder = function ( item, newIndex ) {
+		this.model.reorderParamOrderKey( item.getData(), newIndex );
 	};
 
 	/**
@@ -389,16 +444,18 @@
 	 * Empty and repopulate the parameter select widget.
 	 */
 	TemplateDataDialog.prototype.repopulateParamSelectWidget = function () {
-		var paramKey,
+		var i, paramKey,
 			missingParams = this.model.getMissingParams(),
-			paramList = this.model.getParams();
+			paramList = this.model.getParams(),
+			paramOrder = this.model.getTemplateParamOrder();
 
 		this.paramSelectWidget.clearItems();
+
 		// Update all param descriptions in the param select widget
-		this.paramSelectWidget.clearItems();
-		for ( paramKey in paramList ) {
-			if ( !paramList[paramKey].deleted ) {
-				this.addParamToSelectWidget( paramKey );
+		for ( i in paramOrder ) {
+			paramKey = paramList[paramOrder[i]];
+			if ( paramKey && !paramKey.deleted ) {
+				this.addParamToSelectWidget( paramOrder[i] );
 			}
 		}
 
@@ -550,9 +607,6 @@
 		return paramFieldset.$element;
 	};
 
-	TemplateDataDialog.prototype.onDeleteParamButtonClick = function () {
-	};
-
 	/**
 	 * Update the labels for parameter property inputs that include language, so
 	 * they show the currently used language.
@@ -667,7 +721,9 @@
 
 				// Events
 				this.model.connect( this, {
-					'change-description': 'onModelChangeDescription'
+					'change-description': 'onModelChangeDescription',
+					'change-paramOrder': 'onModelChangeParamOrder',
+					'add-paramOrder': 'onModelAddKeyParamOrder'
 				} );
 
 				// Load the model according to the string

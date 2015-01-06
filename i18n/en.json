@@ -83,6 +83,7 @@
 	"templatedata-modal-title-addparam": "Add new parameter",
 	"templatedata-modal-title-choose-language": "Choose language",
 	"templatedata-modal-title-language": "Language",
+	"templatedata-modal-title-paramorder": "Parameter order",
 	"templatedata-modal-title-templatedesc": "Template description ($1)",
 	"templatedata-modal-title-templateparam-details": "Parameter details: $1",
 	"templatedata-modal-title-templateparams": "Template parameters"

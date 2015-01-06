@@ -90,6 +90,7 @@
 	"templatedata-modal-title-addparam": "Title for add new parameter panel in the edit dialog.\n{{Identical|Add parameter}}",
 	"templatedata-modal-title-choose-language": "Title for the choose language panel in the edit dialog.",
 	"templatedata-modal-title-language": "Label for the language dropdown in the edit menu.\n{{Identical|Language}}",
+	"templatedata-modal-title-paramorder": "The title for the parameter order drag/drop widget in the edit dialog.",
 	"templatedata-modal-title-templatedesc": "The title for the template description textbox. $1 - currently used language.",
 	"templatedata-modal-title-templateparam-details": "The title for the parameter information section. $1: The parameter name.",
 	"templatedata-modal-title-templateparams": "The title for the template parameters table"
