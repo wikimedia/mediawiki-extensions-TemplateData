@@ -34,7 +34,7 @@
 	"templatedata-modal-table-param-actions": "Радње",
 	"templatedata-modal-table-param-autovalue": "Аутоматска вредност",
 	"templatedata-modal-table-param-default": "Подразумевано",
-	"templatedata-modal-table-param-desc": "Опис",
+	"templatedata-modal-table-param-description": "Опис ($1)",
 	"templatedata-modal-table-param-name": "Назив",
 	"templatedata-modal-table-param-required": "Обавезно",
 	"templatedata-modal-table-param-suggested": "Пожељно",
@@ -49,6 +49,6 @@
 	"templatedata-modal-table-param-type-wiki-page-name": "Страница",
 	"templatedata-modal-table-param-type-wiki-user-name": "Корисник",
 	"templatedata-modal-table-param-uneditablefield": "Није могуће уређивати",
-	"templatedata-modal-title-templatedesc": "Опис шаблона",
+	"templatedata-modal-title-templatedesc": "Опис шаблона ($1)",
 	"templatedata-modal-title-templateparams": "Параметри шаблона"
 }
