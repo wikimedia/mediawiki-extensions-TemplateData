@@ -20,10 +20,10 @@
 	"templatedata-modal-button-delparam": "Dzēst parametru",
 	"templatedata-modal-button-importParams": "Importēt parametrus",
 	"templatedata-modal-table-param-actions": "Darbības",
-	"templatedata-modal-table-param-desc": "Apraksts",
+	"templatedata-modal-table-param-description": "Apraksts ($1)",
 	"templatedata-modal-table-param-type-undefined": "Nav definēts",
 	"templatedata-modal-table-param-type-wiki-page-name": "Lapa",
 	"templatedata-modal-table-param-type-wiki-user-name": "Lietotājs",
-	"templatedata-modal-title-templatedesc": "Veidnes apraksts",
+	"templatedata-modal-title-templatedesc": "Veidnes apraksts ($1)",
 	"templatedata-modal-title-templateparams": "Veidnes parametri"
 }
