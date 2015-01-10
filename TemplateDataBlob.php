@@ -30,7 +30,7 @@ class TemplateDataBlob {
 	 * Accepts and handles user-provided data.
 	 *
 	 * @param string $json
-	 * @throws MWException
+	 * @throws Exception
 	 * @return TemplateDataBlob
 	 */
 	public static function newFromJSON( $json ) {
