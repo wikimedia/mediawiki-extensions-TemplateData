@@ -3,21 +3,25 @@
 		"authors": [
 			"Trncmvsr",
 			"Mavrikant",
-			"Violetanka"
+			"Violetanka",
+			"Sadrettin"
 		]
 	},
 	"templatedata-doc-param-autovalue": "Otomatik değer",
 	"templatedata-doc-param-autovalue-empty": "boş",
+	"templatedata-doc-params": "Şablon parametreleri",
 	"templatedata-editbutton": "Şablon belgelerini yönetme",
+	"templatedata-helplink": "TemplateData hakkında bilgi",
 	"templatedata-modal-button-addparam": "Değişken ekle",
 	"templatedata-modal-button-apply": "Uygula",
 	"templatedata-modal-button-cancel": "İptal",
 	"templatedata-modal-button-importParams": "Değişkenleri içe aktar",
 	"templatedata-modal-errormsg-import-noparams": "İçe aktarma sırasında yeni öznitelikler bulunamadı.",
+	"templatedata-modal-notice-import-numparams": "$1 yeni {{PLURAL:$1|parametre|parametre}} içe aktarıldı: $2",
 	"templatedata-modal-table-param-actions": "Eylemler",
 	"templatedata-modal-table-param-autovalue": "Otomatik değer",
 	"templatedata-modal-table-param-default": "Varsayılan",
-	"templatedata-modal-table-param-desc": "Açıklama",
+	"templatedata-modal-table-param-description": "Açıklama",
 	"templatedata-modal-table-param-label": "Etiket",
 	"templatedata-modal-table-param-name": "Ad",
 	"templatedata-modal-table-param-type": "Tür",
