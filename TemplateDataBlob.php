@@ -725,9 +725,7 @@ class TemplateDataBlob {
 			// Description
 			. Html::element( 'td', array(
 					'class' => array(
-						'mw-templatedata-doc-muted' => (
-							$paramObj->description === null && $paramObj->deprecated === false
-						)
+						'mw-templatedata-doc-muted' => ( $paramObj->description === null )
 					)
 				),
 				$paramObj->description !== null ?
