@@ -136,7 +136,7 @@
 			},
 			aliases: {
 				type: 'array',
-				delimiter: ','
+				delimiter: mw.msg( 'comma-separator' )
 			},
 			label: {
 				type: 'string',
@@ -210,7 +210,7 @@
 	 */
 	TemplateDataModel.static.splitAndTrimArray = function ( str, delim ) {
 		var arr = [];
-			delim = delim || ',';
+			delim = delim || mw.msg( 'comma-separator' );
 
 		$.each( str.split( delim ), function () {
 			var trimmed = $.trim( this );
@@ -231,9 +231,9 @@
 	TemplateDataModel.static.arrayUnionWithoutEmpty = function () {
 		var result = OO.simpleArrayUnion.apply( this, arguments );
 
-		// Filter empty strings
+		// Trim and filter empty strings
 		return result.filter( function ( i ) {
-			return i;
+			return $.trim( i );
 		} );
 	};
 
