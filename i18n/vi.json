@@ -27,7 +27,7 @@
 	"templatedata-doc-params": "Tham số bản mẫu",
 	"templatedata-editbutton": "Quản lý dữ liệu bản mẫu",
 	"templatedata-errormsg-jsonbadformat": "Mã JSON có lỗi cú pháp. Hãy sửa chữa nó hoặc xóa các thẻ <templatedata> hiện tại và thử lại.",
-	"templatedata-helplink": "Thông tin về TemplateData",
+	"templatedata-helplink": "Thông tin về Dữ liệu bản mẫu",
 	"templatedata-invalid-duplicate-value": "Thuộc tính “$1” (“$3”) là bản sao của “$2”.",
 	"templatedata-invalid-empty-array": "Thuộc tính “$1” phải có ít nhất một giá trị trong mảng.",
 	"templatedata-invalid-length": "Dữ liệu quá lớn để lưu ({{formatnum:$1}} byte, vượt quá hạn chế {{formatnum:$2}} byte)",
