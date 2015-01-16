@@ -316,6 +316,7 @@
 						'type',
 						'default',
 						'autovalue',
+						'deprecated',
 						'required',
 						'suggested'
 					],
