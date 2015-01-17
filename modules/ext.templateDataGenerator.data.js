@@ -170,6 +170,9 @@
 			autovalue: {
 				type: 'string'
 			},
+			deprecated: {
+				type: 'boolean'
+			},
 			required: {
 				type: 'boolean'
 			},

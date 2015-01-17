@@ -517,6 +517,7 @@
 					}
 					propInput.getMenu().addItems( typeItemArray );
 					break;
+				case 'deprecated':
 				case 'required':
 				case 'suggested':
 					propInput = new OO.ui.ToggleSwitchWidget( config );
