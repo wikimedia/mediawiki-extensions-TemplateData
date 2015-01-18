@@ -58,6 +58,7 @@
 	"templatedata-modal-table-param-aliases": "כינויים (מופרדים בפסיק)",
 	"templatedata-modal-table-param-autovalue": "ערך אוטומטי",
 	"templatedata-modal-table-param-default": "ערך התחלתי",
+	"templatedata-modal-table-param-deprecated": "מיושן",
 	"templatedata-modal-table-param-description": "תיאור ($1)",
 	"templatedata-modal-table-param-importoption": "הוספת {{PLURAL:$1|פרמטר מוצע אחד|$1 פרמטרים מוצעים}}",
 	"templatedata-modal-table-param-importoption-subtitle": "כולל: $1",

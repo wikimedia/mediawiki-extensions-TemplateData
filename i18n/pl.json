@@ -57,6 +57,7 @@
 	"templatedata-modal-table-param-aliases": "Aliasy (oddzielone przecinkami)",
 	"templatedata-modal-table-param-autovalue": "Wartość automatyczna",
 	"templatedata-modal-table-param-default": "Domyślnie",
+	"templatedata-modal-table-param-deprecated": "Przestarzały",
 	"templatedata-modal-table-param-description": "Opis ($1)",
 	"templatedata-modal-table-param-importoption": "Dodaj $1 {{PLURAL:$1|proponowany parametr|proponowane parametry|proponowanych parametrów}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Łącznie z: $1",

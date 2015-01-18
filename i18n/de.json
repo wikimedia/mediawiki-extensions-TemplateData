@@ -57,6 +57,7 @@
 	"templatedata-modal-table-param-aliases": "Aliasse (durch Kommas getrennt)",
 	"templatedata-modal-table-param-autovalue": "Autowert",
 	"templatedata-modal-table-param-default": "Standard",
+	"templatedata-modal-table-param-deprecated": "Veraltet",
 	"templatedata-modal-table-param-description": "Beschreibung ($1)",
 	"templatedata-modal-table-param-importoption": "{{PLURAL:$1|Einen vorgeschlagenen|$1 vorgeschlagene}} Parameter hinzufügen",
 	"templatedata-modal-table-param-importoption-subtitle": "Inklusive: $1",
