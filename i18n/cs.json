@@ -58,7 +58,7 @@
 	"templatedata-modal-table-param-aliases": "Aliasy (oddělené čárkou)",
 	"templatedata-modal-table-param-autovalue": "Automatická hodnota",
 	"templatedata-modal-table-param-default": "Výchozí",
-	"templatedata-modal-table-param-deprecated": "Zastaralé",
+	"templatedata-modal-table-param-deprecated": "Zastaralý",
 	"templatedata-modal-table-param-description": "Popis ($1)",
 	"templatedata-modal-table-param-importoption": "Přidat {{PLURAL:$1|$1 navržený parametr|$1 navržené parametry|$1 navržených parametrů}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Včetně: $1",

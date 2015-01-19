@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wizardist"
+			"Wizardist",
+			"Red Winged Duck"
 		]
 	},
 	"templatedata-desc": "Рэалізацыя сховішча зьвестак для парамэтраў шаблёнаў (праз JSON)",
@@ -11,6 +12,8 @@
 	"templatedata-doc-param-status": "Стан",
 	"templatedata-doc-param-type": "Тып",
 	"templatedata-doc-params": "Парамэтры шаблёнаў",
+	"templatedata-editbutton": "Кіраваньне TemplateData",
+	"templatedata-helplink": "Інфармацыя пра TemplateData",
 	"templatedata-invalid-length": "Завялікі для захаваньня памер зьвестак ({{formatnum:$1}} {{PLURAL:$1|байт|байта|байтаў}}, {{PLURAL:$2|абмежавана}} да {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Абавязковая ўласьцівасьць «$1» ня знойдзеная.",
 	"templatedata-invalid-parse": "Памылка сынтаксу ў JSON.",

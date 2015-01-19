@@ -49,6 +49,7 @@
 	"templatedata-modal-table-param-aliases": "別名 (逗號分隔)",
 	"templatedata-modal-table-param-autovalue": "自動值",
 	"templatedata-modal-table-param-default": "預設值",
+	"templatedata-modal-table-param-deprecated": "不建議使用",
 	"templatedata-modal-table-param-description": "描述 ($1)",
 	"templatedata-modal-table-param-label": "標籤 ($1)",
 	"templatedata-modal-table-param-name": "名稱",
