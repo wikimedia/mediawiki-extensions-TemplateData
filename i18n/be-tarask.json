@@ -19,5 +19,6 @@
 	"templatedata-invalid-parse": "Памылка сынтаксу ў JSON.",
 	"templatedata-invalid-type": "Уласьцівасьць «$1» вымагае тыпу «$2».",
 	"templatedata-invalid-unknown": "Нечаканая ўласьцівасьць «$1».",
-	"templatedata-invalid-value": "Няслушнае значэньне для ўласьцівасьці «$1»."
+	"templatedata-invalid-value": "Няслушнае значэньне для ўласьцівасьці «$1».",
+	"templatedata-modal-title": "Рэдактар дакумэнтацыі шаблёну"
 }
