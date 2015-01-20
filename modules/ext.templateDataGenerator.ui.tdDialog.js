@@ -327,7 +327,7 @@
 			allProps = TemplateDataModel.static.getAllProperties( true );
 
 		if ( property === 'type' ) {
-			value = this.propInputs[property].getSelectedItem() ? this.propInputs[property].getSelectedItem().getData() : 'undefined';
+			value = this.propInputs[property].getMenu().getSelectedItem() ? this.propInputs[property].getMenu().getSelectedItem().getData() : 'undefined';
 		}
 
 		// TODO: Validate the name
@@ -538,7 +538,7 @@
 			} );
 			// Event
 			if ( props === 'type' ) {
-				propInput.connect( this, { choose: [ 'onParamPropertyInputChange', props ] } );
+				propInput.getMenu().connect( this, { choose: [ 'onParamPropertyInputChange', props ] } );
 			} else {
 				propInput.connect( this, { change: [ 'onParamPropertyInputChange', props ] } );
 			}
