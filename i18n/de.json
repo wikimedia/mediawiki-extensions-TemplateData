@@ -82,6 +82,7 @@
 	"templatedata-modal-title-addparam": "Neuen Parameter hinzufügen",
 	"templatedata-modal-title-choose-language": "Sprache auswählen",
 	"templatedata-modal-title-language": "Sprache",
+	"templatedata-modal-title-paramorder": "Parameterreihenfolge",
 	"templatedata-modal-title-templatedesc": "Vorlagenbeschreibung ($1)",
 	"templatedata-modal-title-templateparam-details": "Einzelheiten zum Parameter $1",
 	"templatedata-modal-title-templateparams": "Vorlagenparameter"
