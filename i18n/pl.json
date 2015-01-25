@@ -82,6 +82,7 @@
 	"templatedata-modal-title-addparam": "Dodaj nowy parametr",
 	"templatedata-modal-title-choose-language": "Wybierz język",
 	"templatedata-modal-title-language": "Język",
+	"templatedata-modal-title-paramorder": "Kolejność parametrów",
 	"templatedata-modal-title-templatedesc": "Opis szablonu ($1)",
 	"templatedata-modal-title-templateparam-details": "Szczegóły parametrów: $1",
 	"templatedata-modal-title-templateparams": "Parametry szablonu"

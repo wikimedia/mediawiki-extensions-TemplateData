@@ -8,7 +8,8 @@
 			"Sjoerddebruin",
 			"Southparkfan",
 			"Mar(c)",
-			"Romaine"
+			"Romaine",
+			"Robin0van0der0vliet"
 		]
 	},
 	"templatedata-desc": "Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)",
@@ -50,7 +51,8 @@
 	"templatedata-modal-table-param-aliases": "Aliassen (door komma gescheiden)",
 	"templatedata-modal-table-param-autovalue": "Automatische waarde",
 	"templatedata-modal-table-param-default": "Standaard",
-	"templatedata-modal-table-param-desc": "Beschrijving",
+	"templatedata-modal-table-param-deprecated": "Verouderd",
+	"templatedata-modal-table-param-description": "Beschrijving",
 	"templatedata-modal-table-param-label": "Label",
 	"templatedata-modal-table-param-name": "Naam",
 	"templatedata-modal-table-param-required": "Vereist",

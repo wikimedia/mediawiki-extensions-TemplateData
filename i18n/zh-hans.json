@@ -87,6 +87,7 @@
 	"templatedata-modal-title-addparam": "添加新的参数",
 	"templatedata-modal-title-choose-language": "选择语言",
 	"templatedata-modal-title-language": "语言",
+	"templatedata-modal-title-paramorder": "参数排序",
 	"templatedata-modal-title-templatedesc": "模板说明（$1）",
 	"templatedata-modal-title-templateparam-details": "参数详细信息：$1",
 	"templatedata-modal-title-templateparams": "模板参数"

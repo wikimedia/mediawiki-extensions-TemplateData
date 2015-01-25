@@ -81,6 +81,7 @@
 	"templatedata-modal-title-addparam": "Додај нов параметар",
 	"templatedata-modal-title-choose-language": "Изберете јазик",
 	"templatedata-modal-title-language": "Јазик",
+	"templatedata-modal-title-paramorder": "Редослед на параметрите",
 	"templatedata-modal-title-templatedesc": "Опис на шаблонот ($1)",
 	"templatedata-modal-title-templateparam-details": "Подробности за параметарот: $1",
 	"templatedata-modal-title-templateparams": "Шаблонски параметри"
