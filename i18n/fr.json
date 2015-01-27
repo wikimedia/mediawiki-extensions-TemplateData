@@ -8,7 +8,8 @@
 			"Peter17",
 			"Verdy p",
 			"Solucer",
-			"Macofe"
+			"Macofe",
+			"Weft"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
@@ -41,7 +42,7 @@
 	"templatedata-modal-button-addparam": "Ajouter un paramètre",
 	"templatedata-modal-button-apply": "Appliquer",
 	"templatedata-modal-button-cancel": "Annuler",
-	"templatedata-modal-button-delparam": "Supprimer",
+	"templatedata-modal-button-delparam": "Supprimer le paramètre",
 	"templatedata-modal-button-importParams": "Importer les paramètres",
 	"templatedata-modal-errormsg": "Des erreurs ont été trouvées. Assurez-vous qu’il n’y a pas de noms de paramètre vides ou dupliqués, et que les noms de paramètres ne comprennent aucun « $1 », « $2 » ou « $3 ».",
 	"templatedata-modal-errormsg-import-noparams": "Aucun nouveau paramètre trouvé lors de l’import.",
@@ -51,8 +52,8 @@
 	"templatedata-modal-table-param-aliases": "Alias (séparés par des virgules)",
 	"templatedata-modal-table-param-autovalue": "Valeur automatique",
 	"templatedata-modal-table-param-default": "Par défaut",
-	"templatedata-modal-table-param-desc": "Description",
-	"templatedata-modal-table-param-label": "Libellé",
+	"templatedata-modal-table-param-description": "Description ($1)",
+	"templatedata-modal-table-param-label": "Libellé ($1)",
 	"templatedata-modal-table-param-name": "Nom",
 	"templatedata-modal-table-param-required": "Obligatoire",
 	"templatedata-modal-table-param-suggested": "Suggéré",
@@ -70,6 +71,6 @@
 	"templatedata-modal-table-param-type-wiki-user-name": "Utilisateur",
 	"templatedata-modal-table-param-uneditablefield": "Non modifiable",
 	"templatedata-modal-title": "Éditeur de la documentation du modèle",
-	"templatedata-modal-title-templatedesc": "Description du modèle",
+	"templatedata-modal-title-templatedesc": "Description du modèle ($1)",
 	"templatedata-modal-title-templateparams": "Paramètres du modèle"
 }
