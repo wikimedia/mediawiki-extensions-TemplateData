@@ -25,5 +25,6 @@
 	"templatedata-modal-button-cancel": "Скасаваць",
 	"templatedata-modal-title": "Рэдактар дакумэнтацыі шаблёну",
 	"templatedata-modal-title-language": "Мова",
-	"templatedata-modal-title-templatedesc": "Апісаньне шаблёну ($1)"
+	"templatedata-modal-title-templatedesc": "Апісаньне шаблёну ($1)",
+	"templatedata-modal-title-templateparams": "Парамэтры шаблёну"
 }

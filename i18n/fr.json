@@ -9,7 +9,8 @@
 			"Verdy p",
 			"Solucer",
 			"Macofe",
-			"Weft"
+			"Weft",
+			"Benjozork"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
@@ -71,6 +72,7 @@
 	"templatedata-modal-table-param-type-wiki-user-name": "Utilisateur",
 	"templatedata-modal-table-param-uneditablefield": "Non modifiable",
 	"templatedata-modal-title": "Éditeur de la documentation du modèle",
+	"templatedata-modal-title-paramorder": "Ordre des paramètres",
 	"templatedata-modal-title-templatedesc": "Description du modèle ($1)",
 	"templatedata-modal-title-templateparams": "Paramètres du modèle"
 }
