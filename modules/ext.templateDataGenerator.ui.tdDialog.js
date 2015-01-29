@@ -258,6 +258,7 @@
 			data: key,
 			label: key
 		} );
+
 		this.paramOrderWidget.addItems( [ dragItem ] );
 	};
 
@@ -437,6 +438,10 @@
 
 		if ( this.languageDropdownWidget ) {
 			this.languageDropdownWidget.getMenu().clearItems();
+		}
+
+		if ( this.paramOrderWidget ) {
+			this.paramOrderWidget.clearItems();
 		}
 	};
 
@@ -708,12 +713,12 @@
 	TemplateDataDialog.prototype.getSetupProcess = function ( data ) {
 		return TemplateDataDialog.super.prototype.getSetupProcess.call( this, data )
 			.next( function () {
+				this.reset();
 				// Hide the panels and display a spinner
 				this.$spinner.show();
 				this.panels.$element.hide();
 				this.toggleNoticeMessage( 'global', false );
 				this.toggleNoticeMessage( 'list', false );
-				this.reset();
 
 				// Start with parameter list
 				this.switchPanels( 'listParams' );
@@ -783,13 +788,9 @@
 	 * after initialization of the model.
 	 */
 	TemplateDataDialog.prototype.setupDetailsFromModel = function () {
-		// Reset parameter list
-		this.reset();
-
 		// Set up description
 		this.descriptionInput.setValue( this.model.getTemplateDescription( this.language ) );
-		// TODO: Set up paramOrder
-
+		// Repopulate the parameter list
 		this.repopulateParamSelectWidget();
 	};
 
