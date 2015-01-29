@@ -44,6 +44,7 @@
 	"templatedata-modal-button-changelang": "Смени јазик",
 	"templatedata-modal-button-delparam": "Отстрани информации за параметрите",
 	"templatedata-modal-button-importParams": "Увези параметри",
+	"templatedata-modal-button-restoreparam": "Поврати параметар",
 	"templatedata-modal-button-saveparam": "Зачувај",
 	"templatedata-modal-current-language": "Тековен јазик: $1",
 	"templatedata-modal-errormsg": "Пронајдов грешки. Проверете да не имате празни или дуплирани називи на параметрите. Во нив не треба да се содржат знаците „$1“, „$2“ и „$3“.",

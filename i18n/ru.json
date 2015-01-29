@@ -6,7 +6,8 @@
 			"Putnik",
 			"Amire80",
 			"Striking Blue",
-			"Oashnic"
+			"Oashnic",
+			"Eakarpov"
 		]
 	},
 	"apihelp-templatedata-example-1": "Возвращает данные для [[Template:Stub]] и [[Template:Example]]",
@@ -47,6 +48,7 @@
 	"templatedata-modal-button-changelang": "Изменить язык",
 	"templatedata-modal-button-delparam": "Удалить информацию о параметре",
 	"templatedata-modal-button-importParams": "Импортировать параметры",
+	"templatedata-modal-button-restoreparam": "Восстановить параметр.",
 	"templatedata-modal-button-saveparam": "Сохранить",
 	"templatedata-modal-errormsg": "Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Во время импорта новые параметры не найдены.",

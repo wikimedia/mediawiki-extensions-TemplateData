@@ -21,6 +21,7 @@
 	"templatedata-invalid-unknown": "Нечаканая ўласьцівасьць «$1».",
 	"templatedata-invalid-value": "Няслушнае значэньне для ўласьцівасьці «$1».",
 	"templatedata-modal-button-add-language": "Дадаць мову",
+	"templatedata-modal-button-addparam": "Дадаць парамэтар",
 	"templatedata-modal-button-apply": "Ужыць",
 	"templatedata-modal-button-cancel": "Скасаваць",
 	"templatedata-modal-title": "Рэдактар дакумэнтацыі шаблёну",

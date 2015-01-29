@@ -45,6 +45,7 @@
 	"templatedata-modal-button-changelang": "Sprache ändern",
 	"templatedata-modal-button-delparam": "Parameterinformationen entfernen",
 	"templatedata-modal-button-importParams": "Parameter importieren",
+	"templatedata-modal-button-restoreparam": "Parameter wiederherstellen",
 	"templatedata-modal-button-saveparam": "Speichern",
 	"templatedata-modal-current-language": "Aktuelle Sprache: $1",
 	"templatedata-modal-errormsg": "Es wurden Fehler gefunden. Stelle bitte sicher, dass keine Parameternamen leer oder doppelt sind und der Parametername kein „$1“, „$2“ oder „$3“ enthält.",

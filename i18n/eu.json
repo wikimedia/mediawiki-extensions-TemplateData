@@ -4,5 +4,16 @@
 			"Subi"
 		]
 	},
+	"templatedata-doc-param-desc": "Deskribapena",
+	"templatedata-modal-button-add-language": "Gehitu hizkuntza",
+	"templatedata-modal-button-addparam": "Gehitu parametroa",
+	"templatedata-modal-button-changelang": "Hizkuntza aldatu",
+	"templatedata-modal-button-saveparam": "Gorde",
+	"templatedata-modal-current-language": "Oraingo hizkuntza: $1",
+	"templatedata-modal-table-param-description": "Deskribapena ($1)",
+	"templatedata-modal-table-param-type-boolean": "Boolearra",
+	"templatedata-modal-table-param-type-date": "Data",
+	"templatedata-modal-title-choose-language": "Hizkuntza aukeratu",
+	"templatedata-modal-title-language": "Hizkuntza",
 	"templatedata-modal-title-paramorder": "Parametroen ordena"
 }

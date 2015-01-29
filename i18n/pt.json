@@ -44,6 +44,7 @@
 	"templatedata-modal-button-changelang": "Alterar idioma",
 	"templatedata-modal-button-delparam": "Remover informações de parâmetro",
 	"templatedata-modal-button-importParams": "Importar parâmetros",
+	"templatedata-modal-button-restoreparam": "Restaurar parâmetro",
 	"templatedata-modal-button-saveparam": "Gravar",
 	"templatedata-modal-current-language": "Idioma atual: $1",
 	"templatedata-modal-errormsg": "Erros encontrados. Por favor, certifique-se de que não há nomes de parâmetros vazios ou duplicados e que estes não incluem o nome do parâmetro \"$1\", \"$2\" ou \"$3\".",
