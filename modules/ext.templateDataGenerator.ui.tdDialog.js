@@ -207,6 +207,7 @@
 
 		// Events
 		this.newLanguageSearchWidget.connect( this, { select: 'newLanguageSearchWidgetSelect' } );
+		this.newParamInput.connect( this, { change: 'onAddParamInputChange' } );
 		this.addParamButton.connect( this, { click: 'onAddParamButtonClick' } );
 		this.descriptionInput.connect( this, { change: 'onDescriptionInputChange' } );
 		this.paramOrderWidget.connect( this, { reorder: 'onParamOrderWidgetReorder' } );
@@ -222,6 +223,15 @@
 	 */
 	TemplateDataDialog.prototype.onModelChangeDescription = function ( description ) {
 		this.descriptionInput.setValue( description );
+	};
+
+	TemplateDataDialog.prototype.onAddParamInputChange = function ( value ) {
+		if ( this.model.isParamExists( value ) && !this.model.isParamDeleted( value ) ) {
+			// Disable the add button
+			this.addParamButton.setDisabled( true );
+		} else {
+			this.addParamButton.setDisabled( false );
+		}
 	};
 
 	/**
@@ -343,18 +353,24 @@
 		// Validate parameter
 		if (
 			!newParamKey.match( allProps.name.restrict ) &&
-			$.inArray( newParamKey, this.model.getAllParamNames() ) === -1
+			this.model.isParamExists( newParamKey )
 		) {
-			// Add to model
-			if ( this.model.addParam( newParamKey ) ) {
-				// Add parameter to list
-				this.addParamToSelectWidget( newParamKey );
-				// Empty the parameter
-				this.newParamInput.setValue( '' );
-				// Go back to list
-				this.switchPanels( 'listParams' );
+			if ( this.model.isParamDeleted( newParamKey ) ) {
+				// Empty param
+				this.model.emptyParamData( newParamKey );
+			} else {
+				// Add to model
+				if ( this.model.addParam( newParamKey ) ) {
+					// Add parameter to list
+					this.addParamToSelectWidget( newParamKey );
+				}
 			}
 		}
+		// Reset the input
+		this.newParamInput.setValue( '' );
+
+		// Go back to list
+		this.switchPanels( 'listParams' );
 	};
 
 	/**

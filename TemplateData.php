@@ -113,6 +113,7 @@ $wgResourceModules['ext.templateDataGenerator.ui'] = array(
 		'templatedata-modal-button-changelang',
 		'templatedata-modal-button-delparam',
 		'templatedata-modal-button-importParams',
+		'templatedata-modal-button-restoreparam',
 		'templatedata-modal-button-saveparam',
 		'templatedata-modal-current-language',
 		'templatedata-modal-errormsg',

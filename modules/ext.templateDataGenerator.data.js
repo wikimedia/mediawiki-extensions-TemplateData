@@ -744,12 +744,41 @@
 	 * Don't actually delete the parameter so we can make sure it is removed
 	 * from the final output.
 	 * @param {string} paramKey Parameter key
+	 * @fires delete-param
 	 */
 	TemplateDataModel.prototype.deleteParam = function ( paramKey ) {
 		this.params[paramKey].deleted = true;
 		// Remove from paramOrder
 		this.removeKeyTemplateParamOrder( paramKey );
 		this.emit( 'delete-param', paramKey );
+	};
+
+	/**
+	 * Restore parameter by unmarking it as deleted.
+	 * @param {string} paramKey Parameter key
+	 * @fires add-param
+	 */
+	TemplateDataModel.prototype.restoreParam = function ( paramKey ) {
+		if ( this.params[paramKey] ) {
+			this.params[paramKey].deleted = false;
+			// Add back to paramOrder
+			this.addKeyTemplateParamOrder( paramKey );
+			this.emit( 'add-param', paramKey, this.params[paramKey] );
+		}
+	};
+
+	/**
+	 * Delete all data attached to a parameter
+	 * @param {string} paramKey Parameter key
+	 */
+	TemplateDataModel.prototype.emptyParamData = function ( paramKey ) {
+		if ( this.params[paramKey] ) {
+			// Delete all data and readd the parameter
+			delete this.params[paramKey];
+			this.addParam( paramKey );
+			// Mark this parameter as intentionally emptied
+			this.params[paramKey].emptied = true;
+		}
 	};
 
 	/**
@@ -781,6 +810,14 @@
 	 */
 	TemplateDataModel.prototype.getParams = function () {
 		return this.params;
+	};
+
+	TemplateDataModel.prototype.isParamDeleted = function ( key ) {
+		return this.params[key].deleted === true;
+	};
+
+	TemplateDataModel.prototype.isParamExists = function ( key ) {
+		return $.inArray( key, Object.keys( this.params ) ) > -1;
 	};
 
 	/**
@@ -893,6 +930,12 @@
 				continue;
 			}
 
+			// If the user intentionally empties a parameter, delete it from
+			// the result and treat it as a new parameter
+			if ( this.params[key].emptied ) {
+				delete result.params[key];
+			}
+
 			// Check if name was changed and change the key accordingly
 			name = this.params[key].name;
 			oldKey = key;
@@ -911,6 +954,7 @@
 				delete result.params[oldKey];
 				delete this.params[oldKey];
 			}
+
 			// Notice for clarity:
 			// Whether the parameter name was changed or not the following
 			// consistency with object keys will be observed:
@@ -939,6 +983,7 @@
 							result.params[name][prop] = this.params[key].type;
 						}
 						break;
+					case 'deprecated':
 					case 'required':
 					case 'suggested':
 						if ( !this.params[key][prop] ) {
@@ -952,12 +997,16 @@
 						}
 						break;
 					case 'aliases':
-						// Only add if there's anything inside the array
+						// Only update the aliases in if the new templatedata has an
+						// aliases array that isn't empty
 						if (
 							$.type( this.params[key][prop] ) === 'array' &&
 							this.params[key][prop].length > 0
 						) {
 							result.params[name][prop] = this.params[key][prop];
+						} else {
+							// If the new aliases array is empty, delete it from the original
+							delete result.params[name][prop];
 						}
 						break;
 					default:
