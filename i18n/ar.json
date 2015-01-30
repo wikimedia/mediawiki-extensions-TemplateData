@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"زكريا",
-			"Test Create account"
+			"Test Create account",
+			"Fatz"
 		]
 	},
 	"templatedata-desc": "تخزين بيانات وسائط القالب",
@@ -37,6 +38,7 @@
 	"templatedata-modal-button-cancel": "إلغاء",
 	"templatedata-modal-button-delparam": "إزالة",
 	"templatedata-modal-button-importParams": "استيراد وسيط",
+	"templatedata-modal-button-restoreparam": "استرجاع العامل المتغير",
 	"templatedata-modal-errormsg": "خطأ: تأكد من عدم وجود وسائط فارغة أو مكررة، ومن عدم تضمن اسم الوسيط للرموز \"$1\" و\"$2\" و\"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "ما من وسائط جديدة وجدت عند الاستيراد.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "لا تستورد بعض البارامترات، لوجودها سلفا في صندوق التحرير: $1.",
@@ -45,7 +47,7 @@
 	"templatedata-modal-table-param-aliases": "أسماء بديلة (بينها فواصل)",
 	"templatedata-modal-table-param-autovalue": "قيمة تلقائية",
 	"templatedata-modal-table-param-default": "غيابي",
-	"templatedata-modal-table-param-desc": "وصف",
+	"templatedata-modal-table-param-description": "وصف",
 	"templatedata-modal-table-param-label": "عنوان",
 	"templatedata-modal-table-param-name": "اسم",
 	"templatedata-modal-table-param-required": "مطلوب",
