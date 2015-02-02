@@ -27,7 +27,10 @@
 	"templatedata-modal-button-back": "Назад",
 	"templatedata-modal-button-cancel": "Скасаваць",
 	"templatedata-modal-button-restoreparam": "Аднавіць парамэтар",
+	"templatedata-modal-placeholder-paramkey": "Назва парамэтру",
+	"templatedata-modal-search-input-placeholder": "Шукаць паводле назвы або коду мовы",
 	"templatedata-modal-title": "Рэдактар дакумэнтацыі шаблёну",
+	"templatedata-modal-title-addparam": "Дадаць новы парамэтар",
 	"templatedata-modal-title-language": "Мова",
 	"templatedata-modal-title-templatedesc": "Апісаньне шаблёну ($1)",
 	"templatedata-modal-title-templateparams": "Парамэтры шаблёну"

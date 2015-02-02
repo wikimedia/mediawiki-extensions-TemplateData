@@ -75,6 +75,7 @@
 	"templatedata-modal-title": "Malli dokumentatsiooni redaktor",
 	"templatedata-modal-title-addparam": "Uue parameetri lisamine",
 	"templatedata-modal-title-language": "Keel",
+	"templatedata-modal-title-paramorder": "Parameetrite järjestus",
 	"templatedata-modal-title-templatedesc": "Malli kirjeldus ($1)",
 	"templatedata-modal-title-templateparams": "Malli parameetrid"
 }

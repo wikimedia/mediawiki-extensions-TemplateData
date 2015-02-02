@@ -29,6 +29,7 @@
 	"templatedata-modal-button-changelang": "Sprooch wiesselen",
 	"templatedata-modal-button-delparam": "Informatioun vum Parameter ewechhuelen",
 	"templatedata-modal-button-importParams": "Parameteren importéieren",
+	"templatedata-modal-button-restoreparam": "Parameter restauréieren",
 	"templatedata-modal-button-saveparam": "Späicheren",
 	"templatedata-modal-current-language": "Aktuell Sprooch: $1",
 	"templatedata-modal-errormsg-import-noparams": "Keng nei Parametere beim Import fonnt.",
