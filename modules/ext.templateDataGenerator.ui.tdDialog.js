@@ -60,8 +60,7 @@
 	 * @inheritDoc
 	 */
 	TemplateDataDialog.prototype.initialize = function () {
-		var templateParamsFieldset, languageFieldset,
-			addParamFieldlayout, languageFieldLayout,
+		var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout,
 			paramOrderFieldset;
 
 		// Parent method
@@ -115,15 +114,15 @@
 			$: this.$,
 			label: mw.msg( 'templatedata-modal-button-add-language' )
 		} );
-		languageFieldLayout = new OO.ui.FieldLayout( this.languageDropdownWidget, {
-			$: this.$,
-			align: 'left',
-			label: mw.msg( 'templatedata-modal-title-language' )
-		} );
-		languageFieldset = new OO.ui.FieldsetLayout( {
-			$: this.$,
-			items: [ languageFieldLayout, this.languagePanelButton ]
-		} );
+		languageActionFieldLayout = new OO.ui.ActionFieldLayout(
+			this.languageDropdownWidget,
+			this.languagePanelButton,
+			{
+				$: this.$,
+				align: 'left',
+				label: mw.msg( 'templatedata-modal-title-language' )
+			}
+		);
 
 		// ParamOrder
 		this.paramOrderWidget = new TemplateDataDragDropWidget( {
@@ -163,7 +162,7 @@
 			.addClass( 'tdg-templateDataDialog-listParamsPanel' )
 			.append(
 				this.paramListNoticeLabel.$element,
-				languageFieldset.$element,
+				languageActionFieldLayout.$element,
 				this.templateDescriptionFieldset.$element,
 				paramOrderFieldset.$element,
 				templateParamsFieldset.$element
@@ -327,19 +326,24 @@
 		var languageButton,
 			newLanguage = data.code;
 
-		if (
-			newLanguage &&
-			$.inArray( newLanguage, this.availableLanguages ) === -1
-		) {
-			// Add new language
-			this.availableLanguages.push( newLanguage );
-			languageButton = new OO.ui.OptionWidget( {
-				data: newLanguage,
-				$: this.$,
-				label: $.uls.data.getAutonym( newLanguage )
-			} );
-			this.languageDropdownWidget.getMenu().addItems( [ languageButton ] );
+		if ( newLanguage ) {
+			if ( $.inArray( newLanguage, this.availableLanguages ) === -1 ) {
+				// Add new language
+				this.availableLanguages.push( newLanguage );
+				languageButton = new OO.ui.OptionWidget( {
+					data: newLanguage,
+					$: this.$,
+					label: $.uls.data.getAutonym( newLanguage )
+				} );
+				this.languageDropdownWidget.getMenu().addItems( [ languageButton ] );
+			}
+
+			// Select the new item
+			this.languageDropdownWidget.getMenu().chooseItem(
+				this.languageDropdownWidget.getMenu().getItemFromData( newLanguage )
+			);
 		}
+
 		// Go to the main panel
 		this.switchPanels( 'listParams' );
 	};
