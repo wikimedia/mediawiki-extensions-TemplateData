@@ -10,7 +10,8 @@
 			"Solucer",
 			"Macofe",
 			"Weft",
-			"Benjozork"
+			"Benjozork",
+			"Element303"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
@@ -45,6 +46,7 @@
 	"templatedata-modal-button-cancel": "Annuler",
 	"templatedata-modal-button-delparam": "Supprimer le paramètre",
 	"templatedata-modal-button-importParams": "Importer les paramètres",
+	"templatedata-modal-button-restoreparam": "Restaurer les paramètres",
 	"templatedata-modal-errormsg": "Des erreurs ont été trouvées. Assurez-vous qu’il n’y a pas de noms de paramètre vides ou dupliqués, et que les noms de paramètres ne comprennent aucun « $1 », « $2 » ou « $3 ».",
 	"templatedata-modal-errormsg-import-noparams": "Aucun nouveau paramètre trouvé lors de l’import.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Certains paramètres n’ont pas été importés, car ils existent déjà dans l’éditeur : $1",

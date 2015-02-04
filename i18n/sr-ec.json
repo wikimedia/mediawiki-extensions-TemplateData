@@ -20,6 +20,7 @@
 	"templatedata-doc-param-type": "Врста",
 	"templatedata-doc-params": "Параметри шаблона",
 	"templatedata-editbutton": "Уреди TemplateData",
+	"templatedata-helplink": "Информације о TemplateData",
 	"templatedata-invalid-missing": "Обавезно својство „$1“ није пронађено.",
 	"templatedata-invalid-parse": "Синтаксна грешка у JSON-у.",
 	"templatedata-invalid-type": "Својство „$1“ би требало да је од „$2“ врсте.",
