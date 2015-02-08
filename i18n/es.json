@@ -8,7 +8,8 @@
 			"Mcervera",
 			"Vfrico",
 			"Macofe",
-			"Eurodyne"
+			"Eurodyne",
+			"JasterTDC"
 		]
 	},
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
@@ -38,6 +39,7 @@
 	"templatedata-modal-button-changelang": "Cambiar idioma",
 	"templatedata-modal-button-delparam": "Eliminar información del parámetro",
 	"templatedata-modal-button-importParams": "Importar parámetros",
+	"templatedata-modal-button-restoreparam": "Restaurar parámetro",
 	"templatedata-modal-button-saveparam": "Guardar",
 	"templatedata-modal-current-language": "Idioma actual: $1",
 	"templatedata-modal-errormsg": "Se encontraron errores. Asegúrate de que no haya nombres de parámetros vacíos o duplicados, y de que estos no incluyan «$1», «$2» ni «$3».",

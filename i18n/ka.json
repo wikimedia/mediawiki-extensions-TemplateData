@@ -14,6 +14,7 @@
 	"templatedata-modal-button-changelang": "ენის შეცვლა",
 	"templatedata-modal-button-delparam": "პარამეტრის ინფორმაციის წაშლა",
 	"templatedata-modal-button-importParams": "პარამეტრების იმპორტირება",
+	"templatedata-modal-button-restoreparam": "პარამეტრების აღდგენა",
 	"templatedata-modal-button-saveparam": "შენახვა",
 	"templatedata-modal-current-language": "ამჟამინდელი ენა: $1",
 	"templatedata-modal-placeholder-paramkey": "პარამეტრის სახელი",

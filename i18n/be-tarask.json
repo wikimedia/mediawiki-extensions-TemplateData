@@ -32,6 +32,7 @@
 	"templatedata-modal-search-input-placeholder": "Шукаць паводле назвы або коду мовы",
 	"templatedata-modal-table-param-importoption": "Дадаць $1 {{PLURAL:$1|прапанаваны парамэтар|прапанаваныя парамэтры|прапанаваных парамэтраў}}",
 	"templatedata-modal-table-param-importoption-subtitle": "У тым ліку: $1",
+	"templatedata-modal-table-param-name": "Назва",
 	"templatedata-modal-title": "Рэдактар дакумэнтацыі шаблёну",
 	"templatedata-modal-title-addparam": "Дадаць новы парамэтар",
 	"templatedata-modal-title-language": "Мова",
