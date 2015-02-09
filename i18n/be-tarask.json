@@ -30,6 +30,7 @@
 	"templatedata-modal-button-restoreparam": "Аднавіць парамэтар",
 	"templatedata-modal-placeholder-paramkey": "Назва парамэтру",
 	"templatedata-modal-search-input-placeholder": "Шукаць паводле назвы або коду мовы",
+	"templatedata-modal-table-param-aliases": "Псэўданімы (праз коску)",
 	"templatedata-modal-table-param-importoption": "Дадаць $1 {{PLURAL:$1|прапанаваны парамэтар|прапанаваныя парамэтры|прапанаваных парамэтраў}}",
 	"templatedata-modal-table-param-importoption-subtitle": "У тым ліку: $1",
 	"templatedata-modal-table-param-name": "Назва",
