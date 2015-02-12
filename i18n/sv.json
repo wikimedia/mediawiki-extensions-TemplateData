@@ -4,7 +4,8 @@
 			"Jopparn",
 			"Lokal Profil",
 			"Skalman",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Jenniesarina"
 		]
 	},
 	"apihelp-templatedata-description": "Hämta data som lagras av TemplateData-tillägget.",
@@ -44,6 +45,7 @@
 	"templatedata-modal-button-cancel": "Avbryt",
 	"templatedata-modal-button-delparam": "Ta bort",
 	"templatedata-modal-button-importParams": "Importera parametrar",
+	"templatedata-modal-button-restoreparam": "Återställ parameter",
 	"templatedata-modal-errormsg": "Fel hittades. Var god se till att det inte finns några tomma eller dubbla parameternamn, och att parameternamnet inte innehåller \"$1\", \"$2\" eller \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Inga nya parametrar hittades under import.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Vissa parametrar importerades inte, eftersom de redan finns i redigeraren: $1",
@@ -52,7 +54,7 @@
 	"templatedata-modal-table-param-aliases": "Alias (kommaseparerade)",
 	"templatedata-modal-table-param-autovalue": "Autovärde",
 	"templatedata-modal-table-param-default": "Standard",
-	"templatedata-modal-table-param-desc": "Beskrivning",
+	"templatedata-modal-table-param-description": "Beskrivning",
 	"templatedata-modal-table-param-label": "Etikett",
 	"templatedata-modal-table-param-name": "Namn",
 	"templatedata-modal-table-param-required": "Nödvändig",

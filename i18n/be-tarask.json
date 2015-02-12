@@ -39,6 +39,7 @@
 	"templatedata-modal-title": "Рэдактар дакумэнтацыі шаблёну",
 	"templatedata-modal-title-addparam": "Дадаць новы парамэтар",
 	"templatedata-modal-title-language": "Мова",
+	"templatedata-modal-title-paramorder": "Парадак парамэтраў",
 	"templatedata-modal-title-templatedesc": "Апісаньне шаблёну ($1)",
 	"templatedata-modal-title-templateparams": "Парамэтры шаблёну"
 }
