@@ -39,7 +39,7 @@
 	"templatedata-modal-button-delparam": "Параметран хаам дӀабаккхар",
 	"templatedata-modal-button-importParams": "Параметраш импорт ян",
 	"templatedata-modal-button-saveparam": "Ӏалашъе",
-	"templatedata-modal-errormsg": "Карийна гӀалаташ. Дехар до, параметрийн цӀераш еса юй а цхьатера юй «$1», «$2» я «$3» хьажар.",
+	"templatedata-modal-errormsg": "Карийна гӀалаташ. Дехар до, параметрийн цӀераш еса юй а цхьатерра юй «$1», «$2» я «$3» хьажар.",
 	"templatedata-modal-errormsg-import-noparams": "Импорт ечу хенахь керла параметраш цакарий.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Цхьайолу параметраш импорт цайина уьш тадар чохь йолуш йолу дела: $1",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|керла параметр импорт йина|керла параметраш импорт йина}}.",
