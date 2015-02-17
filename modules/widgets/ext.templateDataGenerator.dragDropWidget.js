@@ -11,12 +11,12 @@
  * @param {Object} [config] Configuration options
  * @cfg {OO.ui.OptionWidget[]} [items] Options to add
  */
-TemplateDataDragDropWidget = function TemplateDataDragDropWidget( config ) {
+mw.TemplateData.DragDropWidget = function mwTemplateDataDragDropWidget( config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
-	TemplateDataDragDropWidget.super.call( this, config );
+	mw.TemplateData.DragDropWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
@@ -27,14 +27,14 @@ TemplateDataDragDropWidget = function TemplateDataDragDropWidget( config ) {
 
 /* Setup */
 
-OO.inheritClass( TemplateDataDragDropWidget, OO.ui.Widget );
-OO.mixinClass( TemplateDataDragDropWidget, OO.ui.DraggableGroupElement );
+OO.inheritClass( mw.TemplateData.DragDropWidget, OO.ui.Widget );
+OO.mixinClass( mw.TemplateData.DragDropWidget, OO.ui.DraggableGroupElement );
 
 /**
  * Get an array of keys based on the current items, in order
  * @return {string[]} Array of keys
  */
-TemplateDataDragDropWidget.prototype.getKeyArray = function () {
+mw.TemplateData.DragDropWidget.prototype.getKeyArray = function () {
 	var i, len,
 		arr = [];
 
@@ -51,7 +51,7 @@ TemplateDataDragDropWidget.prototype.getKeyArray = function () {
  * @param {string} key Unique key
  * @param {[type]} newIndex New index
  */
-TemplateDataDragDropWidget.prototype.reorderKey = function ( key, newIndex ) {
+mw.TemplateData.DragDropWidget.prototype.reorderKey = function ( key, newIndex ) {
 	var i, len, item;
 
 	// Get the item that belongs to this key

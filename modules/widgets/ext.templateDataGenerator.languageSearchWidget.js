@@ -8,7 +8,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  */
-TemplateDataLanguageSearchWidget = function TemplateDataLanguageSearchWidget( config ) {
+mw.TemplateData.LanguageSearchWidget = function mwTemplateDataLanguageSearchWidget( config ) {
 	// Configuration intialization
 	config = $.extend( {
 		placeholder: mw.msg( 'templatedata-modal-search-input-placeholder' )
@@ -26,7 +26,7 @@ TemplateDataLanguageSearchWidget = function TemplateDataLanguageSearchWidget( co
 	for ( i = 0, l = languageCodes.length; i < l; i++ ) {
 		languageCode = languageCodes[i];
 		this.languageResultWidgets.push(
-			new TemplateDataLanguageResultWidget( {
+			new mw.TemplateData.LanguageResultWidget( {
 				data: {
 					code: languageCode,
 					name: $.uls.data.getAutonym( languageCode ),
@@ -43,14 +43,14 @@ TemplateDataLanguageSearchWidget = function TemplateDataLanguageSearchWidget( co
 
 /* Inheritance */
 
-OO.inheritClass( TemplateDataLanguageSearchWidget, OO.ui.SearchWidget );
+OO.inheritClass( mw.TemplateData.LanguageSearchWidget, OO.ui.SearchWidget );
 
 /* Methods */
 
 /**
  * @inheritdoc
  */
-TemplateDataLanguageSearchWidget.prototype.onQueryChange = function () {
+mw.TemplateData.LanguageSearchWidget.prototype.onQueryChange = function () {
 	// Parent method
 	OO.ui.SearchWidget.prototype.onQueryChange.call( this );
 
@@ -61,7 +61,7 @@ TemplateDataLanguageSearchWidget.prototype.onQueryChange = function () {
 /**
  * Update search results from current query
  */
-TemplateDataLanguageSearchWidget.prototype.addResults = function () {
+mw.TemplateData.LanguageSearchWidget.prototype.addResults = function () {
 	var i, iLen, j, jLen, languageResult, data, matchedProperty,
 		matchProperties = ['name', 'autonym', 'code'],
 		query = this.query.getValue().trim(),
@@ -107,6 +107,6 @@ TemplateDataLanguageSearchWidget.prototype.addResults = function () {
  * @param {string} value Text
  * @returns {string} Text escaped for use in regex
  */
-TemplateDataLanguageSearchWidget.static.escapeRegex = function ( value ) {
+mw.TemplateData.LanguageSearchWidget.static.escapeRegex = function ( value ) {
 	return value.replace( /[\-\[\]{}()*+?.,\\\^$\|#\s]/g, '\\$&' );
 };

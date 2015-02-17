@@ -77,6 +77,7 @@ $wgResourceModules['ext.templateDataGenerator.data'] = array(
 	'localBasePath' => $dir,
 	'remoteExtPath' => 'TemplateData',
 	'scripts' => array(
+		'modules/ext.templateDataGenerator.js',
 		'modules/ext.templateDataGenerator.data.js'
 	),
 	'dependencies' => array(

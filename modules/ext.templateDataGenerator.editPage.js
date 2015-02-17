@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * TemplateData Generator button fixture
 	 * The button will appear on Template namespaces only, above the edit textbox
@@ -27,4 +27,4 @@
 
 	} );
 
-}( jQuery, mediaWiki ) );
+}() );

@@ -20,17 +20,6 @@
 	"globals": {
 		"mw": false,
 		"OO": false,
-		"QUnit": false,
-		"unicodeJS": false,
-		"jQuery": false,
-		"mediaWiki": false,
-		"TemplateDataModel": true,
-		"TemplateDataDialog": true,
-		"TemplateDataOptionWidget": true,
-		"TemplateDataOptionImportWidget": true,
-		"TemplateDataLanguageSearchWidget": true,
-		"TemplateDataLanguageResultWidget": true,
-		"TemplateDataDragDropItemWidget": true,
-		"TemplateDataDragDropWidget": true
+		"QUnit": false
 	}
 }

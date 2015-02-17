@@ -8,7 +8,7 @@
  * @constructor
  * @param {Object} [config] Configuration options
  */
-TemplateDataLanguageResultWidget = function TemplateDataLanguageResultWidget( config ) {
+mw.TemplateData.LanguageResultWidget = function mwTemplateDataLanguageResultWidget( config ) {
 	// Parent constructor
 	OO.ui.OptionWidget.call( this, config );
 
@@ -21,7 +21,7 @@ TemplateDataLanguageResultWidget = function TemplateDataLanguageResultWidget( co
 
 /* Inheritance */
 
-OO.inheritClass( TemplateDataLanguageResultWidget, OO.ui.OptionWidget );
+OO.inheritClass( mw.TemplateData.LanguageResultWidget, OO.ui.OptionWidget );
 
 /* Methods */
 
@@ -32,7 +32,7 @@ OO.inheritClass( TemplateDataLanguageResultWidget, OO.ui.OptionWidget );
  * @param {string} [matchedProperty] Data property which matched the query text
  * @chainable
  */
-TemplateDataLanguageResultWidget.prototype.updateLabel = function ( query, matchedProperty ) {
+mw.TemplateData.LanguageResultWidget.prototype.updateLabel = function ( query, matchedProperty ) {
 	var $highlighted, data = this.getData();
 
 	// Reset text
@@ -59,7 +59,7 @@ TemplateDataLanguageResultWidget.prototype.updateLabel = function ( query, match
  * @param {string} query Query to find
  * @returns {jQuery} Text with query substring wrapped in highlighted span
  */
-TemplateDataLanguageResultWidget.prototype.highlightQuery = function ( text, query ) {
+mw.TemplateData.LanguageResultWidget.prototype.highlightQuery = function ( text, query ) {
 	var $result = this.$( '<span>' ),
 		offset = text.toLowerCase().indexOf( query.toLowerCase() );
 
