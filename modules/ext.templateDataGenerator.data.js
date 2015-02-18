@@ -61,17 +61,28 @@ OO.mixinClass( mw.TemplateData.Model, OO.EventEmitter );
 /**
  * Get information from the mediaWiki API
  * @param {string} page Page name
+ * @param {boolean} [getTemplateData] Fetch the templatedata in the page.
  * @return {jQuery.Promise} API promise
  */
-mw.TemplateData.Model.static.getApi = function ( page ) {
-	var api = new mw.Api();
-	return api.get( {
-		action: 'query',
-		prop: 'revisions',
-		rvprop: 'content',
-		indexpageids: '1',
-		titles: page
-	} );
+mw.TemplateData.Model.static.getApi = function ( page, getTemplateData ) {
+	var config,
+		api = new mw.Api(),
+		baseConfig = {
+			action: getTemplateData ? 'templatedata' : 'query',
+			titles: page
+		};
+	if ( getTemplateData ) {
+		config = $.extend( baseConfig, {
+			redirects: '1'
+		} );
+	} else {
+		config = $.extend( baseConfig, {
+			prop: 'revisions',
+			rvprop: 'content',
+			indexpageids: '1'
+		} );
+	}
+	return api.get( config );
 };
 
 /**

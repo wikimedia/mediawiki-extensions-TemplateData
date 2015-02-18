@@ -35,6 +35,7 @@
 	"templatedata-doc-params": "Used as caption for the table which has the following headings:\n* {{msg-mw|Templatedata-doc-param-name}}\n* {{msg-mw|Templatedata-doc-param-desc}}\n* {{msg-mw|Templatedata-doc-param-default}}\n* {{msg-mw|Templatedata-doc-param-status}}\n{{Identical|Template parameter}}",
 	"templatedata-editbutton": "The label of the button to manage templatedata, appearing above the editor field.",
 	"templatedata-errormsg-jsonbadformat": "Error message that appears in case the JSON string is not possible to parse. The user is asked to either correct the json syntax or delete the values between the &lt;templatedata&gt; tags and try again.",
+	"templatedata-exists-on-related-page": "A messaged that is displayed when there already is a templatedata string in a related page. $1: The page where templatedata already exists.",
 	"templatedata-helplink": "The label of the link to the TemplateData documentation, appearing above the editor field.",
 	"templatedata-helplink-target": "{{ignore}} The target of the link to the TemplateData documentation",
 	"templatedata-invalid-duplicate-value": "Displayed when an array that must only contain unique values contains a duplicate.\n* $1 - name of property containing the duplicate\n* $2 - name of property with first occurrence of value\n* $3 - the value being duplicated",

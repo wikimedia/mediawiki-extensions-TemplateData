@@ -10,6 +10,8 @@
 	'use strict';
 	mw.libs.tdgUi = ( function () {
 		var isPageSubLevel,
+			isDocPage,
+			pageName,
 			parentPage,
 			$textbox,
 			/**
@@ -28,13 +30,20 @@
 			 * Display error message in the edit window
 			 * @param {string} msg Message to display
 			 * @param {string} type Message type 'notice' or 'error'
+			 * @param {boolean} [parseHTML] The message should be parsed
 			 */
-			setNoticeMessage: function ( msg, type ) {
+			setNoticeMessage: function ( msg, type, parseHTML ) {
 				type = type || 'error';
 				editNoticeLabel.$element.toggleClass( 'errorbox', type === 'error' );
 
+				if ( parseHTML ) {
+					// OOUI's label elements do not parse strings and display them
+					// as-is. If the message contains html that should be parsed,
+					// we have to transform it into a jQuery object
+					msg = $( '<span>' ).append( $.parseHTML( msg ) );
+				}
 				editNoticeLabel.setLabel( msg );
-				editNoticeLabel.$element.show();
+				editNoticeLabel.toggle( true );
 			},
 
 			/**
@@ -42,7 +51,7 @@
 			 */
 			resetNoticeMessage: function () {
 				editNoticeLabel.setLabel( '' );
-				editNoticeLabel.$element.hide();
+				editNoticeLabel.toggle( false );
 			}
 		},
 
@@ -114,13 +123,15 @@
 			 *  current wikitext from.
 			 */
 			init: function ( $container, $editorTextbox, userConfig ) {
-				var editHelpButtonWidget,
+				var editHelpButtonWidget, relatedPage,
 					config = userConfig;
 
 				$textbox = $editorTextbox;
 
+				pageName = config.pageName;
 				parentPage = config.parentPage;
 				isPageSubLevel = !!config.isPageSubLevel;
+				isDocPage = !!config.isDocPage;
 
 				editOpenDialogButton = new OO.ui.ButtonWidget( {
 					label: mw.msg( 'templatedata-editbutton' )
@@ -143,6 +154,26 @@
 				windowManager = new OO.ui.WindowManager();
 				tdgDialog = new mw.TemplateData.Dialog( config );
 				windowManager.addWindows( [ tdgDialog ] );
+
+				// Check if there's already a templatedata in a related page
+				relatedPage = isDocPage ? parentPage : pageName + '/doc';
+				editOpenDialogButton.setDisabled( true );
+				mw.TemplateData.Model.static.getApi( relatedPage, true )
+					.then( function ( result ) {
+						var msg;
+						if ( !$.isEmptyObject( result.pages ) ) {
+							// HACK: Setting a link in the messages doesn't work. The bug report offers
+							// a somewhat hacky work around that includes setting a separate message
+							// to be parsed.
+							// https://phabricator.wikimedia.org/T49395#490610
+							msg = mw.message( 'templatedata-exists-on-related-page', relatedPage ).plain();
+							mw.messages.set( { 'templatedata-string-exists-hack-message': msg } );
+							msg = mw.message( 'templatedata-string-exists-hack-message' ).parse();
+
+							editArea.setNoticeMessage( msg, 'error', true );
+						}
+						editOpenDialogButton.setDisabled( false );
+					} );
 
 				// Prepend to container
 				$container

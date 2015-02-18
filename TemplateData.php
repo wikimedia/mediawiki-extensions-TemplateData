@@ -107,6 +107,7 @@ $wgResourceModules['ext.templateDataGenerator.ui'] = array(
 	'messages' => array(
 		'comma-separator',
 		'templatedata-doc-no-params-set',
+		'templatedata-exists-on-related-page',
 		'templatedata-modal-button-add-language',
 		'templatedata-modal-button-addparam',
 		'templatedata-modal-button-apply',
@@ -157,7 +158,7 @@ $wgResourceModules['ext.templateDataGenerator.ui'] = array(
 		'templatedata-modal-title-paramorder',
 		'templatedata-modal-title-templatedesc',
 		'templatedata-modal-title-templateparam-details',
-		'templatedata-modal-title-templateparams',
+		'templatedata-modal-title-templateparams'
 	)
 );
 
