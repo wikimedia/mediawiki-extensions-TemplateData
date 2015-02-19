@@ -224,7 +224,15 @@ mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( descripti
 };
 
 mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
-	if ( this.model.isParamExists( value ) && !this.model.isParamDeleted( value ) ) {
+	var allProps = mw.TemplateData.Model.static.getAllProperties( true );
+
+	if (
+		value.match( allProps.name.restrict ) ||
+		(
+			this.model.isParamExists( value ) &&
+			!this.model.isParamDeleted( value )
+		)
+	) {
 		// Disable the add button
 		this.addParamButton.setDisabled( true );
 	} else {
@@ -355,14 +363,11 @@ mw.TemplateData.Dialog.prototype.onAddParamButtonClick = function () {
 		allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
 	// Validate parameter
-	if (
-		!newParamKey.match( allProps.name.restrict ) &&
-		this.model.isParamExists( newParamKey )
-	) {
+	if ( !newParamKey.match( allProps.name.restrict ) ) {
 		if ( this.model.isParamDeleted( newParamKey ) ) {
 			// Empty param
 			this.model.emptyParamData( newParamKey );
-		} else {
+		} else if ( !this.model.isParamExists( newParamKey ) ) {
 			// Add to model
 			if ( this.model.addParam( newParamKey ) ) {
 				// Add parameter to list

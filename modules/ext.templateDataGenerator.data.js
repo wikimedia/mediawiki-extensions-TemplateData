@@ -812,7 +812,7 @@ mw.TemplateData.Model.prototype.getParams = function () {
 };
 
 mw.TemplateData.Model.prototype.isParamDeleted = function ( key ) {
-	return this.params[key].deleted === true;
+	return this.params[key] && this.params[key].deleted === true;
 };
 
 mw.TemplateData.Model.prototype.isParamExists = function ( key ) {
