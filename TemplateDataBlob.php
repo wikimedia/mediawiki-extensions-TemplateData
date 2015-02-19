@@ -688,7 +688,8 @@ class TemplateDataBlob {
 			. '</tr></thead>'
 			. '<tbody>';
 
-		foreach ( $data->params as $paramName => $paramObj ) {
+		foreach ( $data->paramOrder as $paramName ) {
+			$paramObj = $data->params->$paramName;
 			$description = '';
 			$default = '';
 
