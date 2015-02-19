@@ -11,6 +11,7 @@
 	"apihelp-templatedata-param-lang": "Return localized values in this language. By default all available translations are returned.",
 	"templatedata-desc": "Implement data storage for template parameters (using JSON)",
 	"templatedata-doc-desc-empty": "No description.",
+	"templatedata-doc-no-params-set": "No parameters specified",
 	"templatedata-doc-param-autovalue": "Auto value",
 	"templatedata-doc-param-autovalue-empty": "empty",
 	"templatedata-doc-param-default": "Default",

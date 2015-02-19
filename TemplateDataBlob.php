@@ -688,6 +688,18 @@ class TemplateDataBlob {
 			. '</tr></thead>'
 			. '<tbody>';
 
+		if ( count( (array)$data->params ) === 0 ) {
+			// Display no parameters message
+			$html .= '<tr>'
+			. Html::element( 'td',
+				array(
+					'class' => 'mw-templatedata-doc-muted',
+					'colspan' => 7
+				),
+				wfMessage( 'templatedata-doc-no-params-set' )->inLanguage( $lang )->text()
+			)
+			. '</tr>';
+		}
 		foreach ( $data->paramOrder as $paramName ) {
 			$paramObj = $data->params->$paramName;
 			$description = '';
