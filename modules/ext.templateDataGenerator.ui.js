@@ -1,4 +1,4 @@
-( function ( $, mw ) {
+( function () {
 	/**
 	 * TemplateData Generator data model.
 	 * This singleton is independent of any UI; it expects
@@ -141,7 +141,7 @@
 
 				// Dialog
 				windowManager = new OO.ui.WindowManager();
-				tdgDialog = new TemplateDataDialog( config );
+				tdgDialog = new mw.TemplateData.Dialog( config );
 				windowManager.addWindows( [ tdgDialog ] );
 
 				// Prepend to container
@@ -167,4 +167,4 @@
 			}
 		};
 	}() );
-}( jQuery, mediaWiki ) );
+}() );

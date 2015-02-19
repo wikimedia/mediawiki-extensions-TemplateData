@@ -2,7 +2,7 @@
  * TemplateData Generator GUI Unit Tests
  */
 
-( function ( $ ) {
+( function () {
 	'use strict';
 
 	QUnit.module( 'ext.templateData', QUnit.newMwEnvironment() );
@@ -12,7 +12,7 @@
 		resultDescMockLang = {},
 		resultDescBothLang = {},
 		currLanguage = mw.config.get( 'wgContentLanguage' ) || 'en',
-		model = new TemplateDataModel(),
+		model = new mw.TemplateData.Model(),
 		originalWikitext = 'Some text here that is not templatedata information.' +
 			'<templatedata>' +
 			'{' +
@@ -365,7 +365,7 @@
 		for ( i = 0; i < tests.compare.length; i++ ) {
 			testVars = tests.compare[i];
 			assert.equal(
-				TemplateDataModel.static.compare( testVars.obj1, testVars.obj2, testVars.allowSubset ),
+				mw.TemplateData.Model.static.compare( testVars.obj1, testVars.obj2, testVars.allowSubset ),
 				testVars.result,
 				testVars.msg
 			);
@@ -375,7 +375,7 @@
 		for ( i = 0; i < tests.splitAndTrimArray.length; i++ ) {
 			testVars = tests.splitAndTrimArray[i];
 			assert.deepEqual(
-				TemplateDataModel.static.splitAndTrimArray( testVars.string, testVars.delim ),
+				mw.TemplateData.Model.static.splitAndTrimArray( testVars.string, testVars.delim ),
 				testVars.result,
 				testVars.msg
 			);
@@ -385,7 +385,7 @@
 		for ( i = 0; i < tests.arrayUnionWithoutEmpty.length; i++ ) {
 			testVars = tests.arrayUnionWithoutEmpty[i];
 			assert.deepEqual(
-				TemplateDataModel.static.arrayUnionWithoutEmpty.apply( testVars, testVars.arrays ),
+				mw.TemplateData.Model.static.arrayUnionWithoutEmpty.apply( testVars, testVars.arrays ),
 				testVars.result,
 				testVars.msg
 			);
@@ -393,12 +393,12 @@
 
 		// Props
 		assert.deepEqual(
-			TemplateDataModel.static.getAllProperties( false ),
+			mw.TemplateData.Model.static.getAllProperties( false ),
 			tests.props.all,
 			'All properties'
 		);
 		assert.deepEqual(
-			TemplateDataModel.static.getPropertiesWithLanguage(),
+			mw.TemplateData.Model.static.getPropertiesWithLanguage(),
 			tests.props.language,
 			'Language properties'
 		);
@@ -571,4 +571,4 @@
 			} );
 	} );
 
-}( jQuery ) );
+}() );

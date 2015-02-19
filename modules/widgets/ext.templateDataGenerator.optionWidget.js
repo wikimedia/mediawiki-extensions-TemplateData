@@ -3,13 +3,13 @@
  * @extends {OO.ui.DecoratedOptionWidget}
  * @param {Object} config Dialog configuration object
  */
-TemplateDataOptionWidget = function TemplateDataOptionWidget( config ) {
+mw.TemplateData.OptionWidget = function mwTemplateDataOptionWidget( config ) {
 	var data;
 
 	config = config || {};
 	data = config.data || {};
 	// Parent constructor
-	TemplateDataOptionWidget.super.call( this, $.extend( {}, config, { data: data.key, icon: 'parameter' } ) );
+	mw.TemplateData.OptionWidget.super.call( this, $.extend( {}, config, { data: data.key, icon: 'parameter' } ) );
 
 	this.key = data.key;
 	this.name = data.name;
@@ -21,14 +21,14 @@ TemplateDataOptionWidget = function TemplateDataOptionWidget( config ) {
 	this.buildParamLabel();
 };
 
-OO.inheritClass( TemplateDataOptionWidget, OO.ui.DecoratedOptionWidget );
+OO.inheritClass( mw.TemplateData.OptionWidget, OO.ui.DecoratedOptionWidget );
 
 /**
  * Build the parameter label in the parameter select widget
  * @param {Object} paramData Parameter data
  * @return {jQuery} Label element
  */
-TemplateDataOptionWidget.prototype.buildParamLabel = function () {
+mw.TemplateData.OptionWidget.prototype.buildParamLabel = function () {
 	var i, len,
 		$paramName = this.$( '<div>' )
 			.addClass( 'tdg-TemplateDataOptionWidget-param-name' ),

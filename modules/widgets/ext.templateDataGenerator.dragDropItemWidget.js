@@ -9,12 +9,12 @@
  * @param {Mixed} data Option data
  * @param {Object} [config] Configuration options
  */
-TemplateDataDragDropItemWidget = function TemplateDataDragDropItemWidget( config ) {
+mw.TemplateData.DragDropItemWidget = function mwTemplateDataDragDropItemWidget( config ) {
 	// Configuration initialization
 	config = config || {};
 
 	// Parent constructor
-	TemplateDataDragDropItemWidget.super.call( this, $.extend( {}, { icon: 'parameter' }, config ) );
+	mw.TemplateData.DragDropItemWidget.super.call( this, $.extend( {}, { icon: 'parameter' }, config ) );
 
 	// Mixin constructors
 	OO.ui.DraggableElement.call( this, config );
@@ -26,5 +26,5 @@ TemplateDataDragDropItemWidget = function TemplateDataDragDropItemWidget( config
 
 /* Setup */
 
-OO.inheritClass( TemplateDataDragDropItemWidget, OO.ui.DecoratedOptionWidget );
-OO.mixinClass( TemplateDataDragDropItemWidget, OO.ui.DraggableElement );
+OO.inheritClass( mw.TemplateData.DragDropItemWidget, OO.ui.DecoratedOptionWidget );
+OO.mixinClass( mw.TemplateData.DragDropItemWidget, OO.ui.DraggableElement );
