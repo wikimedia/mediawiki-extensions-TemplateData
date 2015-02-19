@@ -158,19 +158,30 @@
 				// Check if there's already a templatedata in a related page
 				relatedPage = isDocPage ? parentPage : pageName + '/doc';
 				editOpenDialogButton.setDisabled( true );
-				mw.TemplateData.Model.static.getApi( relatedPage, true )
+				mw.TemplateData.Model.static.getApi( relatedPage )
 					.then( function ( result ) {
-						var msg;
-						if ( !$.isEmptyObject( result.pages ) ) {
-							// HACK: Setting a link in the messages doesn't work. The bug report offers
-							// a somewhat hacky work around that includes setting a separate message
-							// to be parsed.
-							// https://phabricator.wikimedia.org/T49395#490610
-							msg = mw.message( 'templatedata-exists-on-related-page', relatedPage ).plain();
-							mw.messages.set( { 'templatedata-string-exists-hack-message': msg } );
-							msg = mw.message( 'templatedata-string-exists-hack-message' ).parse();
+						var msg, matches, content,
+							response = result.query.pages[ result.query.pageids[0] ];
+						// HACK: When checking whether a related page (parent for /doc page or
+						// vice versa) already has a templatedata string, we shouldn't
+						// ask for the 'templatedata' action but rather the actual content
+						// of the related page, otherwise we get embedded templatedata and
+						// wrong information is presented.
+						if ( response.missing === undefined ) {
+							content = response.revisions[0]['*'];
+							matches = content.match( /<templatedata>/i );
+							// There's a templatedata string
+							if ( matches ) {
+								// HACK: Setting a link in the messages doesn't work. The bug report offers
+								// a somewhat hacky work around that includes setting a separate message
+								// to be parsed.
+								// https://phabricator.wikimedia.org/T49395#490610
+								msg = mw.message( 'templatedata-exists-on-related-page', relatedPage ).plain();
+								mw.messages.set( { 'templatedata-string-exists-hack-message': msg } );
+								msg = mw.message( 'templatedata-string-exists-hack-message' ).parse();
 
-							editArea.setNoticeMessage( msg, 'error', true );
+								editArea.setNoticeMessage( msg, 'error', true );
+							}
 						}
 						editOpenDialogButton.setDisabled( false );
 					} );
