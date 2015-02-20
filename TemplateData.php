@@ -163,6 +163,5 @@ $wgResourceModules['ext.templateDataGenerator.ui'] = array(
 
 /* Configuration */
 
-// Set this to true to use the template documentation
-// editor feature
-$wgTemplateDataUseGUI = false;
+// Set this to false to disable the template documentation editor feature
+$wgTemplateDataUseGUI = true;
