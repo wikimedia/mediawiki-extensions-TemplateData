@@ -11,6 +11,12 @@ $wgExtensionCredits['parserhook'][] = array(
 	'name' => 'TemplateData',
 	'author' => array(
 		'Timo Tijhof',
+		'Moriel Schottlender',
+		'James D. Forrester',
+		'Trevor Parscal',
+		'Bartosz Dziewoński',
+		'Marielle Volz',
+		'...'
 	),
 	'version' => '0.1.1',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:TemplateData',
