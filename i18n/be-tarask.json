@@ -40,6 +40,7 @@
 	"templatedata-modal-table-param-importoption-subtitle": "У тым ліку: $1",
 	"templatedata-modal-table-param-label": "Абазначэньне ($1)",
 	"templatedata-modal-table-param-name": "Назва",
+	"templatedata-modal-table-param-required": "Абавязковы",
 	"templatedata-modal-table-param-type": "Тып",
 	"templatedata-modal-table-param-type-undefined": "Нявызначаны",
 	"templatedata-modal-title": "Рэдактар дакумэнтацыі шаблёну",
