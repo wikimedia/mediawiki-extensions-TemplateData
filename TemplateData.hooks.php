@@ -7,6 +7,9 @@
  */
 
 class TemplateDataHooks {
+	public static function onSetup() {
+		wfUseMW( '1.22wmf18' );
+	}
 
 	/**
 	 * Register parser hooks

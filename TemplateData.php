@@ -6,11 +6,6 @@
  * @ingroup Extensions
  */
 
-if ( version_compare( $wgVersion, '1.22wmf18', '<' ) ) {
-	echo "Extension:TemplateData requires MediaWiki 1.22 or higher.\n";
-	exit( 1 );
-}
-
 $wgExtensionCredits['parserhook'][] = array(
 	'path' => __FILE__,
 	'name' => 'TemplateData',
@@ -41,6 +36,7 @@ $wgHooks['UnitTestsList'][] = 'TemplateDataHooks::onUnitTestsList';
 $wgHooks['ResourceLoaderTestModules'][] = 'TemplateDataHooks::onResourceLoaderTestModules';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'TemplateDataHooks::onResourceLoaderRegisterModules';
 $wgHooks['EditPage::showEditForm:initial'][] = 'TemplateDataHooks::onEditPage';
+$wgExtensionFunctions[] = 'TemplateDataHooks::onSetup';
 
 // Register APIs
 $wgAPIModules['templatedata'] = 'ApiTemplateData';
