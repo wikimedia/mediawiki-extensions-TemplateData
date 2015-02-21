@@ -64,7 +64,7 @@
 	"templatedata-modal-notice-import-numparams": "Message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.\n\nParameters:\n* $1 - number of parameters. $2 - list of parameters that were imported",
 	"templatedata-modal-placeholder-paramkey": "Placeholder for the input that contains new parameter name in the add parameter panel in the edit dialog.",
 	"templatedata-modal-search-input-placeholder": "Placeholder text for language search panel.",
-	"templatedata-modal-table-param-actions": "Label for a parameter property input: Parameter actions in the table",
+	"templatedata-modal-table-param-actions": "Label for a parameter property input: Parameter actions in the table\n{{Identical|Action}}",
 	"templatedata-modal-table-param-aliases": "Label for a parameter property input: Aliases of the parameter, instruct the user to separate aliases with commas.",
 	"templatedata-modal-table-param-autovalue": "Label for a parameter property input: Parameter auto value in the table",
 	"templatedata-modal-table-param-default": "Label for a parameter property input: Default value of the parameter.\n{{Identical|Default}}",
