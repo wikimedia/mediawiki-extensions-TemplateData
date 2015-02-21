@@ -840,7 +840,7 @@ mw.TemplateData.Model.prototype.setOriginalTemplateDataObject = function ( templ
 
 /**
  * Set is page sublevel
- * @param {Boolean} isSubLevel Page is sublevel
+ * @param {boolean} isSubLevel Page is sublevel
  */
 mw.TemplateData.Model.prototype.setPageSubLevel = function ( isSubLevel ) {
 	this.subLevel = isSubLevel;

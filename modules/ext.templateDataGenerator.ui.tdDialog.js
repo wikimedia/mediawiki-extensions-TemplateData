@@ -56,7 +56,7 @@ mw.TemplateData.Dialog.static.actions = [
 ];
 
 /**
- * @inheritDoc
+ * @inheritdoc
  */
 mw.TemplateData.Dialog.prototype.initialize = function () {
 	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout,
@@ -216,7 +216,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 
 /**
  * Respond to model change of description event
- * @param {jQuery.event} event Event details
+ * @param {jQuery.Event} event Event details
  * @param {string} description New description
  */
 mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( description ) {
@@ -665,7 +665,7 @@ mw.TemplateData.Dialog.prototype.getBodyHeight = function () {
 /**
  * Show or hide the notice message in the dialog with a set message.
  * @param {string} type Which notice label to show: 'list' or 'global'
- * @param {Boolean} isShowing Show or hide the message
+ * @param {boolean} isShowing Show or hide the message
  * @param {string} status Message status 'error' or 'success'
  * @param {string|string[]} noticeMessage The message to display
  */
@@ -732,7 +732,7 @@ mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () 
 };
 
 /**
- * @inheritDoc
+ * @inheritdoc
  */
 mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 	return mw.TemplateData.Dialog.super.prototype.getSetupProcess.call( this, data )
@@ -874,7 +874,7 @@ mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
 };
 
 /**
- * @inheritDoc
+ * @inheritdoc
  */
 mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'back' ) {
