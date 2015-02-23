@@ -11,11 +11,13 @@
 			"Macofe",
 			"Weft",
 			"Benjozork",
-			"Element303"
+			"Element303",
+			"Brenloch56"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
 	"templatedata-doc-desc-empty": "Aucune description.",
+	"templatedata-doc-no-params-set": "Pas de paramètres spécifiés",
 	"templatedata-doc-param-autovalue": "Valeur automatique",
 	"templatedata-doc-param-autovalue-empty": "vide",
 	"templatedata-doc-param-default": "Par défaut",
