@@ -49,6 +49,7 @@
 	"templatedata-modal-table-param-type-line": "Радок",
 	"templatedata-modal-table-param-type-number": "Лік",
 	"templatedata-modal-table-param-type-string": "Тэкст",
+	"templatedata-modal-table-param-type-unbalanced-wikitext": "Незбалянсаваны вікі-тэкст",
 	"templatedata-modal-table-param-type-undefined": "Нявызначаны",
 	"templatedata-modal-table-param-type-wiki-file-name": "Файл",
 	"templatedata-modal-title": "Рэдактар дакумэнтацыі шаблёну",
