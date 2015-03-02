@@ -1001,6 +1001,9 @@ mw.TemplateData.Model.prototype.outputTemplateDataString = function () {
 						// value before
 						if ( original.params[oldKey] && original.params[oldKey][prop] === false ) {
 							result.params[name][prop] = false;
+						} else {
+							// Otherwise, delete this value
+							delete result.params[name][prop];
 						}
 					} else {
 						result.params[name][prop] = this.params[key][prop];
