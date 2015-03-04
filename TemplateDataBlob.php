@@ -367,8 +367,7 @@ class TemplateDataBlob {
 				}
 				$seen[$param] = $i;
 			}
-
-		} elseif ( count( $paramNames ) >= 0 ) {
+		} else {
 			$data->paramOrder = $paramNames;
 		}
 
