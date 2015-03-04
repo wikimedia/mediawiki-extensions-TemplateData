@@ -127,6 +127,10 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 			type: 'string',
 			allowLanguages: true
 		},
+		example: {
+			type: 'string',
+			allowLanguages: true
+		},
 		type: {
 			type: 'select',
 			children: [

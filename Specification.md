@@ -186,6 +186,11 @@ The default value in wikitext (or description thereof) of a parameter as assumed
 
 Consumers SHOULD indicate this default value to the user when inserting or editing a template.
 
+#### 3.2.11 `example`
+* Value: `null` or `InterfaceText`
+
+An example text for the parameter, to help users fill in the proper value.
+
 ### 3.3 Set
 * Value: `Object`
 

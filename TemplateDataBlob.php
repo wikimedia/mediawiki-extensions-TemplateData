@@ -90,6 +90,7 @@ class TemplateDataBlob {
 			'required',
 			'suggested',
 			'description',
+			'example',
 			'deprecated',
 			'aliases',
 			'autovalue',
@@ -230,6 +231,21 @@ class TemplateDataBlob {
 				$paramObj->description = self::normaliseInterfaceText( $paramObj->description );
 			} else {
 				$paramObj->description = null;
+			}
+
+			// Param.example
+			if ( isset( $paramObj->example ) ) {
+				if ( !is_object( $paramObj->example ) && !is_string( $paramObj->example ) ) {
+					// TODO: Also validate that the keys are valid lang codes and the values strings.
+					return Status::newFatal(
+						'templatedata-invalid-type',
+						"params.{$paramName}.example",
+						'string|object'
+					);
+				}
+				$paramObj->example = self::normaliseInterfaceText( $paramObj->example );
+			} else {
+				$paramObj->example = null;
 			}
 
 			// Param.deprecated
