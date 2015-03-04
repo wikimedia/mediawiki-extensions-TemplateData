@@ -49,6 +49,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
+					"paramOrder": [],
 					"sets": [],
 					"maps" : {}
 				}
@@ -469,7 +470,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
 					"params": {}
 				}',
-				'status' => 'Data too large to save (75,204 bytes, limit is 65,535)'
+				'status' => 'Data too large to save (75,215 bytes, limit is 65,535)'
 			),
 		);
 		$calls = array();
@@ -537,7 +538,13 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		}
 		if ( !isset( $case['output'] ) ) {
 			if ( is_string( $case['status'] ) ) {
-				$case['output'] = '{ "description": null, "params": {}, "sets": [], "maps": {} }';
+				$case['output'] = '{
+					"description": null,
+					"params": {},
+					"sets": [],
+					"maps": {},
+					"paramOrder": []
+				}';
 			} else {
 				$case['output'] = $case['input'];
 			}
@@ -626,6 +633,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "German",
 					"params": {},
+					"paramOrder": [],
 					"sets": [],
 					"maps" : {}
 				}
@@ -641,6 +649,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'output' => '{
 					"description": "Hi",
+					"paramOrder": [],
 					"params": {},
 					"sets": [],
 					"maps" : {}
@@ -662,6 +671,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "Dutch",
 					"params": {},
+					"paramOrder": [],
 					"sets": [],
 					"maps" : {}
 				}
@@ -681,6 +691,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
+					"paramOrder": [],
 					"sets": [],
 					"maps" : {}
 				}
@@ -701,6 +712,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "German",
 					"params": {},
+					"paramOrder": [],
 					"sets": [],
 					"maps" : {}
 				}
@@ -983,6 +995,21 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'status' => 'Required property "paramOrder[2]" not found.',
 				'msg' => 'Incomplete paramOrder'
+			),
+			array(
+				'input' => '{
+					"params": {}
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {},
+					"paramOrder": [],
+					"sets": [],
+					"maps" : {}
+				}
+				',
+				'msg' => 'Empty parameter object produces empty array paramOrder'
 			),
 			array(
 				'input' => '{

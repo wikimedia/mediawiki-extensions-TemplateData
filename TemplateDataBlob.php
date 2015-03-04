@@ -46,6 +46,7 @@ class TemplateDataBlob {
 			$tdb->data = new stdClass();
 			$tdb->data->description = null;
 			$tdb->data->params = new stdClass();
+			$tdb->data->paramOrder = array();
 			$tdb->data->sets = array();
 			$tdb->data->maps = new stdClass();
 		}
@@ -344,10 +345,6 @@ class TemplateDataBlob {
 				return Status::newFatal( 'templatedata-invalid-type', 'paramOrder', 'array' );
 			}
 
-			if ( !count( $data->paramOrder ) ) {
-				return Status::newFatal( 'templatedata-invalid-empty-array', "paramOrder" );
-			}
-
 			if ( count( $data->paramOrder ) < count( $paramNames ) ) {
 				$i = count( $data->paramOrder );
 				return Status::newFatal( 'templatedata-invalid-missing', "paramOrder[$i]" );
@@ -371,7 +368,7 @@ class TemplateDataBlob {
 				$seen[$param] = $i;
 			}
 
-		} elseif ( count( $paramNames ) ) {
+		} elseif ( count( $paramNames ) >= 0 ) {
 			$data->paramOrder = $paramNames;
 		}
 
