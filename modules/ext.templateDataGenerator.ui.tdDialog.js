@@ -257,6 +257,30 @@ mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
 };
 
 /**
+ * Respond to model change property
+ * @param {string} paramKey Parameter key
+ * @param {string} property Property name
+ * @param {string} value Property value
+ * @param {string} [language] Language
+ */
+mw.TemplateData.Dialog.prototype.onModelChangeProperty = function ( paramKey, property, value, language ) {
+	var allProps = mw.TemplateData.Model.static.getAllProperties( true );
+	// Only update the input if it is the visible parameter key
+	// and we are in the edit parameters panel
+	if (
+		this.selectedParamKey === paramKey &&
+		this.panels.getCurrentItem() === this.editParamPanel
+	) {
+		if ( allProps[ property ].textValue ) {
+			// The textValue property depends on this property
+			// toggle its view
+			this.propFieldLayout[ allProps[ property ].textValue ].toggle( !!value );
+		}
+		this.changeParamPropertyInput( paramKey, property, value, language );
+	}
+};
+
+/**
  * Respond to change of paramOrder from the model
  * @param {string[]} paramOrderArray The array of keys in order
  */
@@ -464,11 +488,17 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
  */
 mw.TemplateData.Dialog.prototype.getParameterDetails = function ( paramKey ) {
 	var prop,
-		paramData = this.model.getParamData( paramKey );
+		paramData = this.model.getParamData( paramKey ),
+		allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
 	for ( prop in this.propInputs ) {
 		this.changeParamPropertyInput( paramKey, prop, paramData[prop], this.language );
+		// Show/hide dependents
+		if ( allProps[ prop ].textValue ) {
+			this.propFieldLayout[ allProps[ prop ].textValue ].toggle( !!paramData[prop] );
+		}
 	}
+
 };
 
 /**
@@ -644,6 +674,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 			align: 'left',
 			label: mw.msg( 'templatedata-modal-table-param-' + props )
 		} );
+
 		// Event
 		if ( props === 'type' ) {
 			propInput.getMenu().connect( this, { choose: [ 'onParamPropertyInputChange', props ] } );
@@ -775,6 +806,7 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			// Events
 			this.model.connect( this, {
 				'change-description': 'onModelChangeDescription',
+				'change-property': 'onModelChangeProperty',
 				'change-paramOrder': 'onModelChangeParamOrder',
 				'add-paramOrder': 'onModelAddKeyParamOrder'
 			} );

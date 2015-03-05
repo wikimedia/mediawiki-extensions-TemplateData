@@ -186,7 +186,14 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 			type: 'string'
 		},
 		deprecated: {
-			type: 'boolean'
+			type: 'boolean',
+			// This should only be defined for boolean properties.
+			// Define the property that represents the text value.
+			textValue: 'deprecatedValue'
+		},
+		deprecatedValue: {
+			type: 'string',
+			changesBooleanValue: 'deprecated'
 		},
 		required: {
 			type: 'boolean'
@@ -520,11 +527,12 @@ mw.TemplateData.Model.prototype.extractParametersFromTemplateCode = function ( t
  * @return {boolean} Parameter was added successfully
  */
 mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
-	var prop, name, lang,
+	var prop, name, lang, propToSet,
 		existingNames = this.getAllParamNames(),
 		data = $.extend( true, {}, paramData ),
 		language = this.getDefaultLanguage(),
-		propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage();
+		propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage(),
+		allProps = this.constructor.static.getAllProperties( true );
 
 	name = key;
 	// Check that the parameter is not already in the model
@@ -545,23 +553,43 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 	}
 
 	// Translate types
-	if ( this.params[key].type !== undefined ) {
+	if ( data.type !== undefined ) {
 		this.params[key].normalizedType = this.constructor.static.translateObsoleteParamTypes( this.params[key].type );
+	}
+
+	// Get the deprecated value
+	if ( $.type( data.deprecated ) === 'string' ) {
+		this.params[key].deprecatedValue = data.deprecated;
 	}
 
 	// Go over the rest of the data
 	if ( data ) {
 		for ( prop in data ) {
+			propToSet = prop;
 			if (
-				$.inArray( prop, propertiesWithLanguage ) !== -1 &&
+				// This is to make sure that forwards compatibility is achieved
+				// and the code doesn't die on properties that aren't valid
+				allProps[ prop ] &&
+				// Check if property should have its text represented in another internal property
+				// (for example, deprecated and deprecatedValue)
+				allProps[ prop ].textValue
+			) {
+				// Set the textValue property
+				propToSet = allProps[ prop ].textValue;
+				// Set the boolean value in the current property
+				this.setParamProperty( key, prop, !!data[prop], language );
+			}
+
+			if (
+				$.inArray( propToSet, propertiesWithLanguage ) !== -1 &&
 				$.isPlainObject( data[prop] )
 			) {
 				// Add all language properties
 				for ( lang in data[prop] ) {
-					this.setParamProperty( key, prop, data[prop], lang );
+					this.setParamProperty( key, propToSet, data[prop], lang );
 				}
 			} else {
-				this.setParamProperty( key, prop, data[prop], language );
+				this.setParamProperty( key, propToSet, data[prop], language );
 			}
 		}
 	}
@@ -716,13 +744,14 @@ mw.TemplateData.Model.prototype.getTemplateParamOrder = function () {
  */
 mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) {
 	var propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage(),
-		allProps = this.constructor.static.getAllProperties( true );
+		allProps = this.constructor.static.getAllProperties( true ),
+		status = false;
 
 	language = language || this.getDefaultLanguage();
 
 	if ( !allProps[prop] ) {
 		// The property isn't supported yet
-		return false;
+		return status;
 	}
 
 	if ( allProps[prop].type === 'array' && $.type( value ) === 'string' ) {
@@ -740,17 +769,23 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 		if ( !this.constructor.static.compare( this.params[paramKey][prop][language], value ) ) {
 			this.params[paramKey][prop][language] = value;
 			this.emit( 'change-property', paramKey, prop, value, language );
-			return true;
+			status = true;
 		}
 	} else {
 		// Compare without language
 		if ( !this.constructor.static.compare( this.params[paramKey][prop], value ) ) {
 			this.params[paramKey][prop] = value;
 			this.emit( 'change-property', paramKey, prop, value, language );
-			return true;
+			status = true;
 		}
 	}
-	return false;
+
+	if ( allProps[prop].changesBooleanValue ) {
+		// Also change the property this depends on
+		status = this.setParamProperty( paramKey, allProps[prop].changesBooleanValue, !!value, language );
+	}
+
+	return status;
 };
 
 /**
@@ -985,6 +1020,7 @@ mw.TemplateData.Model.prototype.outputTemplateDataString = function () {
 		// Go over all properties
 		for ( prop in allProps ) {
 			switch ( prop ) {
+				case 'deprecatedValue':
 				case 'name':
 					continue;
 				case 'type':
@@ -1010,7 +1046,13 @@ mw.TemplateData.Model.prototype.outputTemplateDataString = function () {
 							delete result.params[name][prop];
 						}
 					} else {
-						result.params[name][prop] = this.params[key][prop];
+						if ( prop === 'deprecated' ) {
+							result.params[name][prop] = this.params[key].deprecatedValue || true;
+							// Remove deprecatedValue
+							delete result.params[name].deprecatedValue;
+						} else {
+							result.params[name][prop] = this.params[key][prop];
+						}
 					}
 					break;
 				case 'aliases':
@@ -1040,6 +1082,7 @@ mw.TemplateData.Model.prototype.outputTemplateDataString = function () {
 								result.params[name][prop] = normalizedValue[defaultLang];
 							}
 						} else {
+							// Set up the result
 							result.params[name][prop] = this.params[key][prop];
 						}
 					}

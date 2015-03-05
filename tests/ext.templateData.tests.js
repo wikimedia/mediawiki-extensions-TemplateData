@@ -109,7 +109,8 @@
 		'		},\n' +
 		'		"newParam2": {},\n' +
 		'		"newParam3": {\n' +
-		'			"description": "Some string here in ' + currLanguage + ' language."\n' +
+		'			"description": "Some string here in ' + currLanguage + ' language.",\n' +
+		'			"deprecated": "This is deprecated."\n' +
 		'		},\n' +
 		'		"newParam4": {\n' +
 		'			"description": {\n' +
@@ -344,6 +345,7 @@
 						'default',
 						'autovalue',
 						'deprecated',
+						'deprecatedValue',
 						'required',
 						'suggested'
 					],
@@ -478,6 +480,16 @@
 					value: '',
 					result: $.extend( {}, paramAddTest[1].result, {
 						description: { 'blah': '' }
+					} ),
+					msg: 'Adding empty description in mock language.'
+				},
+				{
+					key: 'newParam3',
+					property: 'deprecatedValue',
+					value: 'This is deprecated.',
+					result: $.extend( {}, paramAddTest[2].result, {
+						deprecated: true,
+						deprecatedValue: 'This is deprecated.'
 					} ),
 					msg: 'Adding empty description in mock language.'
 				}
