@@ -16,7 +16,9 @@
 			parentPage,
 			$textbox,
 			// ooui Window Manager
+			sourceHandler,
 			tdgDialog,
+			messageDialog,
 			windowManager,
 			// Edit window elements
 			editOpenDialogButton,
@@ -61,13 +63,65 @@
 		onEditOpenDialogButton = function () {
 			// Reset notice message
 			editArea.resetNoticeMessage();
-			// Open the dialog
+
+			// Build the model
+			sourceHandler.buildModel( $textbox.val() )
+				.then(
+					// Success
+					function ( model ) {
+						openEditDialog( model );
+					},
+					// Failure
+					function () {
+						// Open a message dialog
+						windowManager.openWindow( messageDialog, {
+							title: mw.msg( 'templatedata-modal-title' ),
+							message: mw.msg( 'templatedata-errormsg-jsonbadformat' ),
+							actions: [
+								{
+									action: 'accept',
+									label: mw.msg( 'templatedata-modal-json-error-replace' ),
+									flags: [ 'primary', 'destructive' ]
+								},
+								{
+									action: 'reject',
+									label: OO.ui.deferMsg( 'ooui-dialog-message-reject' ),
+									flags: 'safe'
+								}
+							]
+						} )
+							.then( function ( opening ) {
+								return opening;
+							} )
+							.then( function ( opened ) {
+								return opened;
+							} )
+							.then( function ( data ) {
+								var model;
+								if ( data && data.action === 'accept' ) {
+									// Open the dialog with an empty model
+									model = new mw.TemplateData.Model.static.newFromObject(
+										{ params: {} },
+										sourceHandler.getTemplateSourceCodeParams()
+									);
+									openEditDialog( model );
+								}
+							} );
+					}
+				);
+		},
+
+		/**
+		 * Open the templatedata edit dialog
+		 *
+		 * @method openEditDialog
+		 * @param {mw.TemplateData.Model} dataModel The data model
+		 * associated with this edit dialog.
+		 */
+		openEditDialog = function ( dataModel ) {
+			// Open the edit dialog
 			windowManager.openWindow( tdgDialog, {
-				wikitext: $textbox.val(),
-				config: {
-					parentPage: parentPage,
-					isPageSubLevel: !!isPageSubLevel
-				}
+				model: dataModel
 			} );
 		},
 
@@ -157,11 +211,20 @@
 				// Dialog
 				windowManager = new OO.ui.WindowManager();
 				tdgDialog = new mw.TemplateData.Dialog( config );
-				windowManager.addWindows( [ tdgDialog ] );
+				messageDialog = new OO.ui.MessageDialog();
+				windowManager.addWindows( [ tdgDialog, messageDialog ] );
+
+				sourceHandler = new mw.TemplateData.SourceHandler( {
+					fullPageName: pageName,
+					parentPage: parentPage,
+					isPageSubLevel: isPageSubLevel
+				} );
 
 				// Check if there's already a templatedata in a related page
+				// TODO: Hard-coding 'doc' is dangerous for i18n. We need to find
+				// a better way to define 'related' pages for a template.
 				relatedPage = isDocPage ? parentPage : pageName + '/doc';
-				mw.TemplateData.Model.static.getApi( relatedPage )
+				sourceHandler.getApi( relatedPage )
 					.then( function ( result ) {
 						var msg, matches, content,
 							response = result.query.pages[ result.query.pageids[0] ];

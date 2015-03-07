@@ -777,7 +777,15 @@ mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () 
 mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 	return mw.TemplateData.Dialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
+			var i, language, languages, paramOrderArray,
+				items = [],
+				languageItems = [];
+
 			this.reset();
+
+			// The dialog must be supplied with a reference to a model
+			this.model = data.model;
+
 			// Hide the panels and display a spinner
 			this.$spinner.show();
 			this.panels.$element.hide();
@@ -786,7 +794,6 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 
 			// Start with parameter list
 			this.switchPanels( 'listParams' );
-			this.model = new mw.TemplateData.Model( data.config );
 
 			// Events
 			this.model.connect( this, {
@@ -795,54 +802,57 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 				'add-paramOrder': 'onModelAddKeyParamOrder'
 			} );
 
-			// Load the model according to the string
-			this.model.loadModel( data.wikitext )
-				.done( $.proxy( function () {
-					var i,
-						language = this.model.getDefaultLanguage(),
-						languageItems = [],
-						languages = this.model.getExistingLanguageCodes();
+			// Setup the dialog
+			this.setupDetailsFromModel();
 
-					this.setupDetailsFromModel();
+			languageItems = [];
+			language = this.model.getDefaultLanguage();
+			languages = this.model.getExistingLanguageCodes();
 
-					// Fill up the language selection
-					if (
-						languages.length === 0 ||
-						$.inArray( language, languages ) === -1
-					) {
-						// Add the default language
-						languageItems.push( new OO.ui.OptionWidget( {
-							data: language,
-							$: this.$,
-							label: $.uls.data.getAutonym( language )
-						} ) );
-						this.availableLanguages.push( language );
-					}
+			// Fill up the language selection
+			if (
+				languages.length === 0 ||
+				$.inArray( language, languages ) === -1
+			) {
+				// Add the default language
+				languageItems.push( new OO.ui.OptionWidget( {
+					data: language,
+					label: $.uls.data.getAutonym( language )
+				} ) );
+				this.availableLanguages.push( language );
+			}
 
-					// Add all available languages
-					for ( i = 0; i < languages.length; i++ ) {
-						languageItems.push( new OO.ui.OptionWidget( {
-							data: languages[i],
-							$: this.$,
-							label: $.uls.data.getAutonym( languages[i] )
-						} ) );
-						// Store available languages
-						this.availableLanguages.push( languages[i] );
-					}
-					this.languageDropdownWidget.getMenu().addItems( languageItems );
-					// Trigger the initial language choice
-					this.languageDropdownWidget.getMenu().chooseItem( this.languageDropdownWidget.getMenu().getItemFromData( language ) );
+			// Add all available languages
+			for ( i = 0; i < languages.length; i++ ) {
+				languageItems.push( new OO.ui.OptionWidget( {
+					data: languages[i],
+					label: $.uls.data.getAutonym( languages[i] )
+				} ) );
+				// Store available languages
+				this.availableLanguages.push( languages[i] );
+			}
+			this.languageDropdownWidget.getMenu().addItems( languageItems );
+			// Trigger the initial language choice
+			this.languageDropdownWidget.getMenu().chooseItem( this.languageDropdownWidget.getMenu().getItemFromData( language ) );
 
-					// Show the panel
-					this.$spinner.hide();
-					this.panels.$element.show();
-				}, this ) )
-				.fail( $.proxy( function () {
-					// Show error
-					this.actions.setMode( 'error' );
-					this.$spinner.hide();
-					this.toggleNoticeMessage( 'global', true, 'error', mw.msg( 'templatedata-errormsg-jsonbadformat' ) );
-				}, this ) );
+			// Populate the paramOrder widget
+			this.paramOrderWidget.clearItems();
+			paramOrderArray = this.model.getTemplateParamOrder();
+			for ( i = 0; i < paramOrderArray.length; i++ ) {
+				// Create a DragDrop widget
+				items.push(
+					new mw.TemplateData.DragDropItemWidget( {
+						$: this.$,
+						data: paramOrderArray[i],
+						label: paramOrderArray[i]
+					} )
+				);
+			}
+			this.paramOrderWidget.addItems( items );
+
+			// Show the panel
+			this.$spinner.hide();
+			this.panels.$element.show();
 
 		}, this );
 };

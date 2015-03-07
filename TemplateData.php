@@ -77,7 +77,8 @@ $wgResourceModules['ext.templateDataGenerator.data'] = array(
 	'remoteExtPath' => 'TemplateData',
 	'scripts' => array(
 		'modules/ext.templateDataGenerator.js',
-		'modules/ext.templateDataGenerator.data.js'
+		'modules/ext.templateDataGenerator.data.js',
+		'modules/ext.templateDataGenerator.sourceHandler.js'
 	),
 	'dependencies' => array(
 		'oojs'
@@ -121,6 +122,7 @@ $wgResourceModules['ext.templateDataGenerator.ui'] = array(
 		'templatedata-modal-errormsg',
 		'templatedata-modal-errormsg-import-noparams',
 		'templatedata-modal-errormsg-import-paramsalreadyexist',
+		'templatedata-modal-json-error-replace',
 		'templatedata-modal-notice-import-numparams',
 		'templatedata-modal-placeholder-paramkey',
 		'templatedata-modal-search-input-placeholder',

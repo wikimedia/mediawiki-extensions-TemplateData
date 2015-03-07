@@ -12,7 +12,6 @@
 		resultDescMockLang = {},
 		resultDescBothLang = {},
 		currLanguage = mw.config.get( 'wgContentLanguage' ) || 'en',
-		model = new mw.TemplateData.Model(),
 		originalWikitext = 'Some text here that is not templatedata information.' +
 			'<templatedata>' +
 			'{' +
@@ -409,6 +408,7 @@
 	// Test model load
 	QUnit.asyncTest( 'TemplateData model', function ( assert ) {
 		var i,
+			sourceHandler = new mw.TemplateData.SourceHandler(),
 			paramAddTest = [
 				{
 					key: 'newParam1',
@@ -515,8 +515,8 @@
 			2
 		);
 
-		model.loadModel( originalWikitext )
-			.done( function () {
+		sourceHandler.buildModel( originalWikitext )
+			.done( function ( model ) {
 
 				// Check description
 				assert.equal(
@@ -588,6 +588,41 @@
 
 			} )
 			.always( function () {
+				QUnit.start();
+			} );
+	} );
+
+	// Test model fail
+	QUnit.asyncTest( 'TemplateData sourceHandler', function ( assert ) {
+		var sourceHandler = new mw.TemplateData.SourceHandler(),
+			erronousString = '<templatedata>{\n' +
+				'	"params": {\n' +
+				// Open quote
+				'		"user: {\n' +
+				'			"label": "Username",\n' +
+				'			"type": "wiki-user-name",\n' +
+				'			"required": true,\n' +
+				'			"description": "User name of person who forgot to sign their comment.",\n' +
+				'			"aliases": [\n' +
+				'				"1"\n' +
+				'			]\n' +
+				'		},\n' +
+				'		"date": {\n' +
+				'			"label": "Date",\n' +
+				'			"description": {\n' +
+				// Forgotten quotes
+				'				en: "Timestamp of when the comment was posted, in YYYY-MM-DD format."\n' +
+				'			}\n' +
+				'			"suggested": true\n' +
+				'		}\n' +
+				'	}\n' +
+				'}</templatedata>';
+
+		QUnit.expect( 1 );
+
+		sourceHandler.buildModel( erronousString )
+			.always( function () {
+				assert.ok( this.state() === 'rejected', 'Promise rejected on erronous json string.' );
 				QUnit.start();
 			} );
 	} );

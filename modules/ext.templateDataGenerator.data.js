@@ -1,5 +1,5 @@
 /**
- * TemplateData Dialog
+ * TemplateData Model
  * @class
  * @mixins OO.EventEmitter
  *
@@ -12,22 +12,15 @@ mw.TemplateData.Model = function mwTemplateDataModel( config ) {
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 
-	// Config
-	this.setParentPage( config.parentPage );
-	this.setPageSubLevel( config.isPageSubLevel );
-
 	// Properties
 	this.params = {};
 	this.description = {};
 	this.paramOrder = [];
 	this.paramOrderChanged = false;
 	this.paramIdentifierCounter = 0;
-	this.setPageSubLevel( !!config.isPageSubLevel );
-	this.setFullPageName( config.fullPageName || '' );
 
 	this.originalTemplateDataObject = null;
 	this.sourceCodeParameters = [];
-	this.templateSourceCodePromise = null;
 };
 
 /* Setup */
@@ -61,33 +54,6 @@ OO.mixinClass( mw.TemplateData.Model, OO.EventEmitter );
  */
 
 /* Static Methods */
-
-/**
- * Get information from the mediaWiki API
- * @param {string} page Page name
- * @param {boolean} [getTemplateData] Fetch the templatedata in the page.
- * @return {jQuery.Promise} API promise
- */
-mw.TemplateData.Model.static.getApi = function ( page, getTemplateData ) {
-	var config,
-		api = new mw.Api(),
-		baseConfig = {
-			action: getTemplateData ? 'templatedata' : 'query',
-			titles: page
-		};
-	if ( getTemplateData ) {
-		config = $.extend( baseConfig, {
-			redirects: '1'
-		} );
-	} else {
-		config = $.extend( baseConfig, {
-			prop: 'revisions',
-			rvprop: 'content',
-			indexpageids: '1'
-		} );
-	}
-	return api.get( config );
-};
 
 /**
  * Compare two objects or strings
@@ -262,53 +228,42 @@ mw.TemplateData.Model.static.arrayUnionWithoutEmpty = function () {
 	} );
 };
 
-/* Methods */
-
 /**
- * Load the model from the template data string. If no templatedata tags
- * are available, the model will be initialized empty.
+ * Create a new mwTemplateData.Model from templatedata object.
  *
- * After loading the model itself, fetch the parameter list from the template
- * source code and update existing parameters in the model.
- *
- * @param {string} templateDataString Current page wikitext
+ * @param {Object} tdObject TemplateData parsed object
+ * @param {string[]} paramsInSource Parameter names found in template source
+ * @return {mw.TemplateData.Model} New model
  */
-mw.TemplateData.Model.prototype.loadModel = function ( tdString ) {
-	var original = {},
-		deferred = $.Deferred();
+mw.TemplateData.Model.static.newFromObject = function ( tdObject, paramsInSource ) {
+	var param,
+		model = new mw.TemplateData.Model();
 
-	// Store existing templatedata into the model
-	this.setOriginalTemplateDataObject( this.getModelFromString( tdString ) );
-	original = this.getOriginalTemplateDataObject();
+	model.setSourceCodeParameters( paramsInSource || [] );
 
-	// Initialize model
-	this.params = {};
+	// Store the original templatedata object for comparison later
+	model.setOriginalTemplateDataObject( tdObject );
 
-	if ( original ) {
-		// Get parameter list from the template source code
-		this.getParametersFromTemplateSource( tdString ).done( $.proxy( function ( params ) {
-			this.sourceCodeParameters = params;
+	// Initialize the model
+	model.params = {};
 
-			// Mark existing parameters in the model
-			if ( original.params ) {
-				for ( var param in original.params ) {
-					this.addParam( param, original.params[param] );
-				}
-			}
-			this.setTemplateDescription( original.description );
-			// Override the param order if it exists in the templatedata string
-			if ( original.paramOrder && original.paramOrder.length > 0 ) {
-				this.setTemplateParamOrder( original.paramOrder );
-			}
-
-			deferred.resolve();
-		}, this ) );
-	} else {
-		// Bad syntax for JSON
-		deferred.reject();
+	// Add params
+	if ( tdObject.params ) {
+		for ( param in tdObject.params ) {
+			model.addParam( param, tdObject.params[param] );
+		}
 	}
-	return deferred.promise();
+	model.setTemplateDescription( tdObject.description );
+
+	// Override the param order if it exists in the templatedata string
+	if ( tdObject.paramOrder && tdObject.paramOrder.length > 0 ) {
+		model.setTemplateParamOrder( tdObject.paramOrder );
+	}
+
+	return model;
 };
+
+/* Methods */
 
 /**
  * Go over the importable parameters and check if they are
@@ -370,35 +325,6 @@ mw.TemplateData.Model.prototype.importSourceCodeParameters = function () {
 };
 
 /**
- * Look for a templatedata json string and convert it into
- * the and object, if it exists.
- * @param {string} templateDataString Wikitext templatedata string
- * @return {Object|null} The parsed json string. Empty if no
- * templatedata string was found. Null if the json string
- * failed to parse.
- */
-mw.TemplateData.Model.prototype.getModelFromString = function ( templateDataString ) {
-	var parts;
-
-	parts = templateDataString.match(
-		/<templatedata>([\s\S]*?)<\/templatedata>/i
-	);
-
-	// Check if <templatedata> exists
-	if ( parts && parts[1] && $.trim( parts[1] ).length > 0 ) {
-		// Parse the json string
-		try {
-			return $.parseJSON( $.trim( parts[1] ) );
-		} catch ( err ) {
-			return null;
-		}
-	} else {
-		// Return empty model
-		return { params: {} };
-	}
-};
-
-/**
  * Retrieve all existing language codes in the current templatedata model
  * @return {string[]} Language codes in use
  */
@@ -430,94 +356,6 @@ mw.TemplateData.Model.prototype.getExistingLanguageCodes = function () {
 	}
 
 	return result;
-};
-
-/**
- * Retrieve parameters from the template code from source in this order:
- *
- * 1. Check if there's a template in the given 'wikitext' parameter. If not,
- * 2. Check if there's a template in the current page. If not,
- * 3. Check if the page is a subpage and go up a level to check for template code. If none found,
- * 4. Repeat until we are in the root of the template
- * 5. Save the name of the page where the template is taken from
- *
- * Cache the templateCodePromise so we don't have to do this all over again on each
- * template code request.
- *
- * @param {string} [wikitext] Optional. Source of the template.
- * @returns {jQuery.Promise} Promise resolving into template parameter array
- */
-mw.TemplateData.Model.prototype.getParametersFromTemplateSource = function ( templateDataString ) {
-	var params = [];
-
-	if ( !this.templateSourceCodePromise ) {
-		// Check given page text first
-		if ( templateDataString ) {
-			params = this.extractParametersFromTemplateCode( templateDataString );
-		}
-
-		if ( params.length > 0 ) {
-			// Cache list of parameters found in template source
-			this.sourceCodeParameters = params;
-			// There are parameters found; Resolve.
-			this.templateSourceCodePromise = $.Deferred().resolve( params );
-		} else {
-			// Try to find the template code
-			this.templateSourceCodePromise = $.Deferred();
-			if ( this.isPageSubLevel() && this.getParentPage() ) {
-				// Get the content of the parent
-				this.constructor.static.getApi( this.getParentPage() )
-					.done( $.proxy( function ( resp ) {
-						var pageContent = '';
-
-						// Verify that we have a sane response from the API.
-						// This is particularly important for unit tests, since the
-						// requested page from the API is the Qunit module and has no content
-						if (
-							resp.query.pages[resp.query.pageids[0]].revisions &&
-							resp.query.pages[resp.query.pageids[0]].revisions[0]
-						) {
-							pageContent = resp.query.pages[resp.query.pageids[0]].revisions[0]['*'];
-							// Get the parameters from the code
-							this.sourceCodeParameters = this.extractParametersFromTemplateCode( pageContent );
-						}
-						this.templateSourceCodePromise.resolve( this.sourceCodeParameters );
-					}, this ) )
-					.fail( $.proxy( function () {
-						// Resolve an empty parameters array
-						return this.templateSourceCodePromise.resolve( [] );
-					}, this ) );
-			} else {
-				// No template found. Resolve to empty array of parameters
-				this.templateSourceCodePromise.resolve( [] );
-			}
-		}
-	}
-
-	return this.templateSourceCodePromise;
-};
-
-/**
- * Retrieve template parameters from the template code.
- *
- * Adapted from https://he.wikipedia.org/wiki/MediaWiki:Gadget-TemplateParamWizard.js
- *
- * @param {string} templateSource Source of the template.
- * @returns {jQuery.Promise} A promise that resolves into an
- *  array of parameters that appear in the template code
- */
-mw.TemplateData.Model.prototype.extractParametersFromTemplateCode = function ( templateCode ) {
-	var matches,
-	paramNames = [],
-	paramExtractor = /{{3,}(.*?)[<|}]/mg;
-
-	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
-		if ( $.inArray( matches[1], paramNames ) === -1 ) {
-			paramNames.push( $.trim( matches[1] ) );
-		}
-	}
-
-	return paramNames;
 };
 
 /**
@@ -578,6 +416,12 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 				propToSet = allProps[ prop ].textValue;
 				// Set the boolean value in the current property
 				this.setParamProperty( key, prop, !!data[prop], language );
+				if ( $.type( data[prop] ) === 'boolean' ) {
+					// Only set the value of the dependent if the value is a string or
+					// language. Otherwise, if the value is boolean, keep the dependent
+					// empty.
+					continue;
+				}
 			}
 
 			if (
@@ -754,7 +598,8 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 	}
 
 	if ( allProps[prop].type === 'array' && $.type( value ) === 'string' ) {
-		value = this.constructor.static.splitAndTrimArray( value, allProps[prop].delimiter );
+		// When we split the string, we want to use a trimmed delimiter
+		value = this.constructor.static.splitAndTrimArray( value, $.trim( allProps[prop].delimiter ) );
 	}
 
 	// Check if the property is split by language code
@@ -781,7 +626,7 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 
 	if ( allProps[ prop ].textValue && value === false ) {
 		// Unset the text value if the boolean it depends on is false
-		status = this.setParamProperty( paramKey, allProps[prop].textValue, null, language );
+		status = this.setParamProperty( paramKey, allProps[prop].textValue, '', language );
 	}
 
 	return status;
@@ -877,14 +722,6 @@ mw.TemplateData.Model.prototype.setOriginalTemplateDataObject = function ( templ
 };
 
 /**
- * Set is page sublevel
- * @param {boolean} isSubLevel Page is sublevel
- */
-mw.TemplateData.Model.prototype.setPageSubLevel = function ( isSubLevel ) {
-	this.subLevel = isSubLevel;
-};
-
-/**
  * Get full page name
  * @param {string} pageName Page name
  */
@@ -898,14 +735,6 @@ mw.TemplateData.Model.prototype.setFullPageName = function ( pageName ) {
  */
 mw.TemplateData.Model.prototype.setParentPage = function ( parent ) {
 	this.parentPage = parent;
-};
-
-/**
- * Get is page sublevel
- * @return {boolean} Page is sublevel
- */
-mw.TemplateData.Model.prototype.isPageSubLevel = function () {
-	return this.subLevel;
 };
 
 /**
@@ -1157,4 +986,20 @@ mw.TemplateData.Model.prototype.isOutputInLanguageObject = function ( originalPr
 		return true;
 	}
 	return false;
+};
+
+/**
+ * Set the parameters that are available in the template source code
+ * @param {string[]} sourceParams Parameters available in template source
+ */
+mw.TemplateData.Model.prototype.setSourceCodeParameters = function ( sourceParams ) {
+	this.sourceCodeParameters = sourceParams;
+};
+
+/**
+ * Get the parameters that are available in the template source code
+ * @returns {string[]} Parameters available in template source
+ */
+mw.TemplateData.Model.prototype.getSourceCodeParameters = function () {
+	return this.sourceCodeParameters;
 };

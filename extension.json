@@ -70,7 +70,8 @@
 		"ext.templateDataGenerator.data": {
 			"scripts": [
 				"modules/ext.templateDataGenerator.js",
-				"modules/ext.templateDataGenerator.data.js"
+				"modules/ext.templateDataGenerator.data.js",
+				"modules/ext.templateDataGenerator.sourceHandler.js"
 			],
 			"dependencies": [
 				"oojs"
