@@ -1,5 +1,9 @@
 /**
  * TemplateData Dialog
+ * @class
+ * @mixins OO.EventEmitter
+ *
+ * @constructor
  * @param {Object} config Dialog configuration object
  */
 mw.TemplateData.Model = function mwTemplateDataModel( config ) {

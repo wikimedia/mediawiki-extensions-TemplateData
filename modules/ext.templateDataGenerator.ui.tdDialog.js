@@ -1,5 +1,10 @@
 /**
  * TemplateData Dialog
+ *
+ * @class
+ * @extends OO.ui.ProcessDialog
+ *
+ * @constructor
  * @param {Object} config Dialog configuration object
  */
 mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
@@ -56,7 +61,14 @@ mw.TemplateData.Dialog.static.actions = [
 ];
 
 /**
- * @inheritdoc
+ * Initialize window contents.
+ *
+ * The first time the window is opened, #initialize is called so that changes to the window that
+ * will persist between openings can be made. See #getSetupProcess for a way to make changes each
+ * time the window opens.
+ *
+ * @throws {Error} If not attached to a manager
+ * @chainable
  */
 mw.TemplateData.Dialog.prototype.initialize = function () {
 	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout,
@@ -223,6 +235,10 @@ mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( descripti
 	this.descriptionInput.setValue( description );
 };
 
+/**
+ * Respond to add param input change.
+ * @param {string} value New parameter name
+ */
 mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
 	var allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
@@ -278,12 +294,18 @@ mw.TemplateData.Dialog.prototype.onModelAddKeyParamOrder = function ( key ) {
 	this.paramOrderWidget.addItems( [ dragItem ] );
 };
 
+/**
+ * Respond to param order widget reorder event
+ * @param {mw.TemplateData.DragDropItemWidget} item Item reordered
+ * @param {number} newIndex New index of the item
+ */
 mw.TemplateData.Dialog.prototype.onParamOrderWidgetReorder = function ( item, newIndex ) {
 	this.model.reorderParamOrderKey( item.getData(), newIndex );
 };
 
 /**
  * Respond to description input change event
+ * @param {string} value Description value
  */
 mw.TemplateData.Dialog.prototype.onDescriptionInputChange = function ( value ) {
 	if ( this.model.getTemplateDescription() !== value ) {
@@ -732,7 +754,9 @@ mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () 
 };
 
 /**
- * @inheritdoc
+ * Get a process for setting up a window for use.
+ *
+ * @param {Object} [data] Dialog opening data
  */
 mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 	return mw.TemplateData.Dialog.super.prototype.getSetupProcess.call( this, data )
@@ -874,7 +898,10 @@ mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
 };
 
 /**
- * @inheritdoc
+ * Get a process for taking action.
+ *
+ * @param {string} [action] Symbolic name of action
+ * @return {OO.ui.Process} Action process
  */
 mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'back' ) {

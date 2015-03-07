@@ -1,33 +1,31 @@
 ( function () {
+	'use strict';
 	/**
 	 * TemplateData Generator data model.
 	 * This singleton is independent of any UI; it expects
 	 * a templatedata string, converts it into the object
 	 * model and manages it, fully event-driven.
 	 *
-	 * @author Moriel Schottlender
+	 * @class
+	 * @singleton
 	 */
-	'use strict';
 	mw.libs.tdgUi = ( function () {
 		var isPageSubLevel,
 			isDocPage,
 			pageName,
 			parentPage,
 			$textbox,
-			/**
-			 * ooui Window Manager
-			 */
+			// ooui Window Manager
 			tdgDialog,
 			windowManager,
-			/**
-			 * Edit window elements
-			 */
+			// Edit window elements
 			editOpenDialogButton,
 			editNoticeLabel,
 
 		editArea = {
 			/**
 			 * Display error message in the edit window
+			 *
 			 * @param {string} msg Message to display
 			 * @param {string} type Message type 'notice' or 'error'
 			 * @param {boolean} [parseHTML] The message should be parsed
@@ -57,6 +55,8 @@
 
 		/**
 		 * Respond to edit dialog button click.
+		 *
+		 * @method onEditOpenDialogButton
 		 */
 		onEditOpenDialogButton = function () {
 			// Reset notice message
@@ -73,6 +73,8 @@
 
 		/**
 		 * Respond to edit dialog apply event
+		 *
+		 * @method onDialogApply
 		 * @param {string} templateDataString New templatedata string
 		 */
 		onDialogApply = function ( templateDataString ) {
@@ -82,6 +84,8 @@
 		/**
 		 * Replace the old templatedata string with the new one, or
 		 * insert the new one into the page if an old one doesn't exist
+		 *
+		 * @method replaceTemplateData
 		 * @param {string} newTemplateData New templatedata string
 		 * @return {string} Full wikitext content with the new templatedata
 		 *  string.

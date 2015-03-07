@@ -49,7 +49,7 @@ mw.TemplateData.DragDropWidget.prototype.getKeyArray = function () {
  * Reorder the key into its new index. Find the item first, then add
  * it back in its new place.
  * @param {string} key Unique key
- * @param {[type]} newIndex New index
+ * @param {number} newIndex New index
  */
 mw.TemplateData.DragDropWidget.prototype.reorderKey = function ( key, newIndex ) {
 	var i, len, item;

@@ -48,7 +48,11 @@ OO.inheritClass( mw.TemplateData.LanguageSearchWidget, OO.ui.SearchWidget );
 /* Methods */
 
 /**
- * @inheritdoc
+ * Handle select widget select events.
+ *
+ * Clears existing results. Subclasses should repopulate items according to new query.
+ *
+ * @param {string} value New value
  */
 mw.TemplateData.LanguageSearchWidget.prototype.onQueryChange = function () {
 	// Parent method

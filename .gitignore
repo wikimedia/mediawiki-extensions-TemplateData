@@ -2,6 +2,7 @@
 *~
 *.kate-swp
 .*.swp
+/docs
 node_modules
 composer.lock
 vendor
