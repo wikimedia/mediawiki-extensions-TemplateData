@@ -146,7 +146,8 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 		},
 		'default': {
 			type: 'string',
-			multiline: true
+			multiline: true,
+			allowLanguages: true
 		},
 		autovalue: {
 			type: 'string'

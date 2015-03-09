@@ -180,7 +180,7 @@ A dynamically-generated default value in wikitext, such as today's date or the e
 Consumers MUST insert a parameter's autovalue by default if this parameter is used in a transclusion, and SHOULD indicate this value to the user and give them the opportunity to change the value.
 
 #### 3.2.10 `default`
-* Value: `string`
+* Value: `null` or `InterfaceText`
 
 The default value in wikitext (or description thereof) of a parameter as assumed by the template when the parameter is not present in a transclusion.
 

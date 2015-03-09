@@ -92,7 +92,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						"foo": {
 							"label": null,
 							"description": null,
-							"default": "",
+							"default": null,
 							"required": false,
 							"suggested": false,
 							"deprecated": false,
@@ -123,7 +123,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						"comment": {
 							"label": null,
 							"description": null,
-							"default": "",
+							"default": null,
 							"autovalue": null,
 							"required": false,
 							"suggested": false,
@@ -166,7 +166,9 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": {
 								"en": "User name of user who owns the badge"
 							},
-							"default": "Base page name of the host page",
+							"default": {
+								"en": "Base page name of the host page"
+							},
 							"required": false,
 							"suggested": true,
 							"deprecated": false,
@@ -212,7 +214,9 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							},
 							"required": true,
 							"suggested": false,
-							"default": "example",
+							"default": {
+								"en": "example"
+							},
 							"deprecated": false,
 							"aliases": [],
 							"type": "unknown",
@@ -225,7 +229,9 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							},
 							"required": true,
 							"suggested": false,
-							"default": "overridden",
+							"default": {
+								"en": "overridden"
+							},
 							"deprecated": false,
 							"aliases": [],
 							"type": "unknown",
@@ -313,7 +319,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						},
@@ -324,7 +330,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						},
@@ -335,7 +341,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						}
@@ -389,7 +395,9 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": {
 								"en": "Bar description"
 							},
-							"default": "Baz",
+							"default": {
+								"en": "Baz"
+							},
 							"autovalue": "{{SomeTemplate}}",
 							"required": true,
 							"suggested": false,
@@ -742,7 +750,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						}
@@ -754,6 +762,41 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'fr',
 				'msg' => 'Simple parameter label'
+			),
+			array(
+				'input' => '{
+					"params": {
+						"foo": {
+							"default": {
+								"fr": "French",
+								"en": "English"
+							}
+						}
+					}
+				}
+				',
+				'output' => '{
+					"description": null,
+					"params": {
+						"foo": {
+							"default": "French",
+							"required": false,
+							"suggested": false,
+							"description": null,
+							"deprecated": false,
+							"aliases": [],
+							"label": null,
+							"type": "unknown",
+							"autovalue": null
+						}
+					},
+					"paramOrder": ["foo"],
+					"sets": [],
+					"maps" : {}
+				}
+				',
+				'lang' => 'fr',
+				'msg' => 'Simple parameter default value'
 			),
 			array(
 				'input' => '{
@@ -777,7 +820,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						}
@@ -816,7 +859,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						}
@@ -895,7 +938,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						},
@@ -906,7 +949,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						},
@@ -917,7 +960,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						}
@@ -949,7 +992,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						},
@@ -960,7 +1003,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						},
@@ -971,7 +1014,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"description": null,
 							"deprecated": false,
 							"aliases": [],
-							"default": "",
+							"default": null,
 							"type": "unknown",
 							"autovalue": null
 						}

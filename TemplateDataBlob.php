@@ -275,15 +275,17 @@ class TemplateDataBlob {
 
 			// Param.default
 			if ( isset( $paramObj->default ) ) {
-				if ( !is_string( $paramObj->default ) ) {
+				if ( !is_object( $paramObj->default ) && !is_string( $paramObj->default ) ) {
+					// TODO: Also validate that the keys are valid lang codes and the values strings.
 					return Status::newFatal(
 						'templatedata-invalid-type',
 						"params.{$paramName}.default",
-						'string'
+						'string|object'
 					);
 				}
+				$paramObj->default = self::normaliseInterfaceText( $paramObj->default );
 			} else {
-				$paramObj->default = '';
+				$paramObj->default = null;
 			}
 
 			// Param.type
@@ -594,6 +596,11 @@ class TemplateDataBlob {
 			if ( $paramObj->description !== null ) {
 				$paramObj->description = self::getInterfaceTextInLanguage( $paramObj->description, $langCode );
 			}
+
+			// Param.default
+			if ( $paramObj->default !== null ) {
+				$paramObj->default = self::getInterfaceTextInLanguage( $paramObj->default, $langCode );
+			}
 		}
 
 		foreach ( $data->sets as $setObj ) {
@@ -753,10 +760,10 @@ class TemplateDataBlob {
 			// Default
 			. Html::element( 'td', array(
 					'class' => array(
-						'mw-templatedata-doc-muted' => $paramObj->default === ''
+						'mw-templatedata-doc-muted' => $paramObj->default === null
 					)
 				),
-				$paramObj->default !== '' ?
+				$paramObj->default !== null ?
 					$paramObj->default :
 					wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
 			)

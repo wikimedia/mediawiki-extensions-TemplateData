@@ -350,7 +350,8 @@
 					],
 					'language': [
 						'label',
-						'description'
+						'description',
+						'default'
 					]
 				}
 			};
