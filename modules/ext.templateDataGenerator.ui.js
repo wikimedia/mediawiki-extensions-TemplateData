@@ -161,7 +161,6 @@
 
 				// Check if there's already a templatedata in a related page
 				relatedPage = isDocPage ? parentPage : pageName + '/doc';
-				editOpenDialogButton.setDisabled( true );
 				mw.TemplateData.Model.static.getApi( relatedPage )
 					.then( function ( result ) {
 						var msg, matches, content,
@@ -187,7 +186,6 @@
 								editArea.setNoticeMessage( msg, 'error', true );
 							}
 						}
-						editOpenDialogButton.setDisabled( false );
 					} );
 
 				// Prepend to container
