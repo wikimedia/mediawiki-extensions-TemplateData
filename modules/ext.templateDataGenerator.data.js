@@ -748,7 +748,6 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 		status = false;
 
 	language = language || this.getDefaultLanguage();
-
 	if ( !allProps[prop] ) {
 		// The property isn't supported yet
 		return status;
@@ -780,9 +779,9 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 		}
 	}
 
-	if ( allProps[prop].changesBooleanValue ) {
-		// Also change the property this depends on
-		status = this.setParamProperty( paramKey, allProps[prop].changesBooleanValue, !!value, language );
+	if ( allProps[ prop ].textValue && value === false ) {
+		// Unset the text value if the boolean it depends on is false
+		status = this.setParamProperty( paramKey, allProps[prop].textValue, null, language );
 	}
 
 	return status;

@@ -485,13 +485,22 @@
 				},
 				{
 					key: 'newParam3',
+					property: 'deprecated',
+					value: true,
+					result: $.extend( {}, paramAddTest[2].result, {
+						deprecated: true
+					} ),
+					msg: 'Adding deprecated property (boolean).'
+				},
+				{
+					key: 'newParam3',
 					property: 'deprecatedValue',
 					value: 'This is deprecated.',
 					result: $.extend( {}, paramAddTest[2].result, {
 						deprecated: true,
 						deprecatedValue: 'This is deprecated.'
 					} ),
-					msg: 'Adding empty description in mock language.'
+					msg: 'Adding deprecated property (string).'
 				}
 			];
 

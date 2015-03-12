@@ -257,30 +257,6 @@ mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
 };
 
 /**
- * Respond to model change property
- * @param {string} paramKey Parameter key
- * @param {string} property Property name
- * @param {string} value Property value
- * @param {string} [language] Language
- */
-mw.TemplateData.Dialog.prototype.onModelChangeProperty = function ( paramKey, property, value, language ) {
-	var allProps = mw.TemplateData.Model.static.getAllProperties( true );
-	// Only update the input if it is the visible parameter key
-	// and we are in the edit parameters panel
-	if (
-		this.selectedParamKey === paramKey &&
-		this.panels.getCurrentItem() === this.editParamPanel
-	) {
-		if ( allProps[ property ].textValue ) {
-			// The textValue property depends on this property
-			// toggle its view
-			this.propFieldLayout[ allProps[ property ].textValue ].toggle( !!value );
-		}
-		this.changeParamPropertyInput( paramKey, property, value, language );
-	}
-};
-
-/**
  * Respond to change of paramOrder from the model
  * @param {string[]} paramOrderArray The array of keys in order
  */
@@ -469,12 +445,21 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 
 	this.propInputs[property].$element.toggleClass( 'tdg-editscreen-input-error', err );
 
+	// Check if there is a dependent input to activate
+	if ( allProps[ property ].textValue && this.propFieldLayout[ allProps[ property ].textValue ] ) {
+		// The textValue property depends on this property
+		// toggle its view
+		this.propFieldLayout[ allProps[ property ].textValue ].toggle( !!value );
+		this.propInputs[ allProps[ property ].textValue ].setValue( this.model.getParamProperty( this.selectedParamKey, allProps[ property ].textValue ) );
+	}
+
 	// Validate
 	$( '.tdg-TemplateDataDialog-paramInput' ).each( function () {
 		if ( $( this ).hasClass( 'tdg-editscreen-input-error' ) ) {
 			anyInputError = true;
 		}
 	} );
+
 	// Disable the 'back' button if there are any errors in the inputs
 	this.actions.setAbilities( { back: !anyInputError } );
 	if ( !err ) {
@@ -806,7 +791,6 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			// Events
 			this.model.connect( this, {
 				'change-description': 'onModelChangeDescription',
-				'change-property': 'onModelChangeProperty',
 				'change-paramOrder': 'onModelChangeParamOrder',
 				'add-paramOrder': 'onModelAddKeyParamOrder'
 			} );
