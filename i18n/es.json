@@ -51,6 +51,7 @@
 	"templatedata-modal-table-param-actions": "Acciones",
 	"templatedata-modal-table-param-autovalue": "Valor automático",
 	"templatedata-modal-table-param-default": "Predeterminado",
+	"templatedata-modal-table-param-deprecatedValue": "Guía desaconsejada",
 	"templatedata-modal-table-param-description": "Descripción ($1)",
 	"templatedata-modal-table-param-importoption": "Agregar $1 {{PLURAL:$1|parámetro sugerido|parámetros sugeridos}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Incluyendo: $1",

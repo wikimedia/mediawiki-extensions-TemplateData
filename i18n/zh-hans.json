@@ -66,6 +66,7 @@
 	"templatedata-modal-table-param-autovalue": "自动值",
 	"templatedata-modal-table-param-default": "默认值",
 	"templatedata-modal-table-param-deprecated": "不推荐使用",
+	"templatedata-modal-table-param-deprecatedValue": "弃用指导",
 	"templatedata-modal-table-param-description": "说明（$1）",
 	"templatedata-modal-table-param-importoption": "加入$1个建议的参数",
 	"templatedata-modal-table-param-importoption-subtitle": "包括：$1",
