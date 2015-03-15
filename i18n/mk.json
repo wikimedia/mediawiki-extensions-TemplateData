@@ -60,6 +60,7 @@
 	"templatedata-modal-table-param-autovalue": "Автовредност",
 	"templatedata-modal-table-param-default": "По основно",
 	"templatedata-modal-table-param-deprecated": "Застарен",
+	"templatedata-modal-table-param-deprecatedValue": "Застарено напатствие",
 	"templatedata-modal-table-param-description": "Опис ($1)",
 	"templatedata-modal-table-param-importoption": "Додај {{PLURAL:$1|еден предложен параметар|$1 предложени параметри}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Вклучувајќи: $1",
