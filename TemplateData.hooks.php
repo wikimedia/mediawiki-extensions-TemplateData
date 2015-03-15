@@ -8,7 +8,7 @@
 
 class TemplateDataHooks {
 	public static function onSetup() {
-		wfUseMW( '1.22wmf18' );
+		wfUseMW( '1.25wmf22' );
 	}
 
 	/**
@@ -54,7 +54,7 @@ class TemplateDataHooks {
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
 		$name = 'jquery.uls.data';
-		if ( !isset( $resourceModules[$name] ) && !$resourceLoader->getModule( $name ) ) {
+		if ( !isset( $resourceModules[$name] ) && !$resourceLoader->isModuleRegistered( $name ) ) {
 			$resourceLoader->register( array(
 				'jquery.uls.data' => array(
 					'localBasePath' => __DIR__,
