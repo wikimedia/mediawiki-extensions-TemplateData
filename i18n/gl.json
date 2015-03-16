@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Toliño",
-			"Breogan2008"
+			"Breogan2008",
+			"Banjo"
 		]
 	},
 	"apihelp-templatedata-description": "Obter os datos almacenador pola extensión TemplateData.",
@@ -11,6 +12,7 @@
 	"apihelp-templatedata-param-lang": "Devolver os valores localizados nesta lingua. Por defecto, devólvense todas as traducións dispoñibles.",
 	"templatedata-desc": "Inclúe un almacenamento de datos para os parámetros dos modelos (mediante JSON)",
 	"templatedata-doc-desc-empty": "Sen descrición.",
+	"templatedata-doc-no-params-set": "Sen parámetros especificados",
 	"templatedata-doc-param-autovalue": "Valor automático",
 	"templatedata-doc-param-autovalue-empty": "baleiro",
 	"templatedata-doc-param-default": "Por defecto",
