@@ -2,7 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Timo Tijhof",
-			"James D. Forrester"
+			"James D. Forrester",
+			"Moriel Schottlender",
+			"Marielle Volz"
 		]
 	},
 	"apihelp-templatedata-description": "Fetch data stored by the TemplateData extension.",
