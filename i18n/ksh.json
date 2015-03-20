@@ -26,7 +26,7 @@
 	"templatedata-doc-param-type": "Zoot",
 	"templatedata-doc-params": "Parammehtere för Schablohne<!-- https://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Templatedata-doc-params/ksh -->",
 	"templatedata-editbutton": "TemplateData  verwallde",
-	"templatedata-errormsg-jsonbadformat": "Kappodde Dahte em <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"JavaScript Object Notation\">JSON<i>-Fommaht.\nDonn se reparehre, udder schmiiß de <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">&lt;templatedata&gt;</code>-Befähle erus, un versöhg et norr_ens.",
+	"templatedata-errormsg-jsonbadformat": "Kappodde Dahte em <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"JavaScript Object Notation\">JSON<i>-Fommaht.\nDo kanns heh ophühre un de Dahte dann reparehre.\nUdder schmiiß de <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">&lt;templatedata&gt;</code>-Befähle erus, un versöhg et norr_ens.\nUdder maach wigger un tuusch de jäzejje <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\">TemplateData <i> jähje en neue us.",
 	"templatedata-exists-on-related-page": "Opjepaße: mer han ald ene TemplateData block en dä related Sigg „[[$1]]“.",
 	"templatedata-helplink": "Övver  TemplateData",
 	"templatedata-invalid-duplicate-value": "De Eijeschaff „$1“ („$3“) es desällve, wi „$2“.",

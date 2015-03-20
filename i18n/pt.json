@@ -52,6 +52,7 @@
 	"templatedata-modal-errormsg": "Erros encontrados. Por favor, certifique-se de que não há nomes de parâmetros vazios ou duplicados e que estes não incluem o nome do parâmetro \"$1\", \"$2\" ou \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Não foram encontrados novos parâmetros durante a importação.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Alguns dos parâmetros não foram importados porque já existem no editor: $1",
+	"templatedata-modal-json-error-replace": "Substituir",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|novo parâmetro foi importado|novos parâmetros foram importados}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Nome do parâmetro",
 	"templatedata-modal-search-input-placeholder": "Pesquisa por nome ou código de idioma",

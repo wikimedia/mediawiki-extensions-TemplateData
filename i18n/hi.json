@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Siddhartha Ghai"
+			"Siddhartha Ghai",
+			"Phoenix303"
 		]
 	},
 	"templatedata-desc": "साँचा प्राचलों के लिए डाटा स्टोरेज सुविधा प्रदान करता है (JSON के प्रयोग द्वारा)",
@@ -34,11 +35,12 @@
 	"templatedata-modal-button-importParams": "प्राचल आयात करें",
 	"templatedata-modal-errormsg": "त्रुटियाँ पाई गयीं। कृपया सुनिश्चित करें कि कोई भी प्राचल नाम खाली ना हों और प्रतिलिपियाँ ना हों, और प्राचल नामों में \"$1\", \"$2\" अथवा \"$3\" न हो।",
 	"templatedata-modal-errormsg-import-noparams": "आयात के समय कोई नये प्राचल नहीं पाए गये।",
+	"templatedata-modal-json-error-replace": "बदलें",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|नया प्राचल आयात किया गया|नये प्राचल आयत किये गये}}।",
 	"templatedata-modal-table-param-actions": "क्रियाएँ",
 	"templatedata-modal-table-param-aliases": "अन्य नाम (कोमा द्वारा अलग किये हुए)",
 	"templatedata-modal-table-param-default": "डिफ़ॉल्ट",
-	"templatedata-modal-table-param-desc": "विवरण",
+	"templatedata-modal-table-param-description": "विवरण",
 	"templatedata-modal-table-param-label": "लेबल",
 	"templatedata-modal-table-param-name": "नाम",
 	"templatedata-modal-table-param-required": "आवश्यक",
