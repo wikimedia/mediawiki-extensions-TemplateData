@@ -56,6 +56,7 @@
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Eine neuje Parramehter es|$1 neuje Parramehtere sin|Keine neuje Parramehter es}} empottehrt woode: $2",
 	"templatedata-modal-placeholder-paramkey": "Däm Parramehter singe Nahme",
 	"templatedata-modal-search-input-placeholder": "Söhk noh ene Schprohch udder enem Schprohcheköözel",
+	"templatedata-modal-table-param-autovalue": "Automattesche Wäät",
 	"templatedata-modal-table-param-default": "Schtandatt",
 	"templatedata-modal-table-param-deprecated": "Övverhollt",
 	"templatedata-modal-table-param-importoption": "Donn {{PLURAL:$1|eine neuje Parramehter|$1 neuje Parramehtere|kein neuje Parramehter}} derbei",

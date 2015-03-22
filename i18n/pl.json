@@ -51,6 +51,7 @@
 	"templatedata-modal-errormsg": "Znaleziono błędy. Proszę, upewnij się, że nazwy parametrów nie są puste, nie są zduplikowane i nie zawierają «$1», «$2» lub «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Nie znaleziono nowych parametrów podczas importu.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Niektóre parametry nie zostały zaimportowane, ponieważ już istnieją w edytorze: $1",
+	"templatedata-modal-json-error-replace": "Zamień",
 	"templatedata-modal-notice-import-numparams": "Zaimportowano {{PLURAL:$1|$1 nowy parametr|$1 nowe parametry|$1 nowych parametrów}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Nazwa parametru",
 	"templatedata-modal-search-input-placeholder": "Szukaj według nazwy języka lub jego kodu",
