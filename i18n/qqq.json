@@ -10,14 +10,15 @@
 			"Stryn",
 			"Timo Tijhof",
 			"James D. Forrester",
-			"Moriel Schottlender"
+			"Moriel Schottlender",
+			"Umherirrender"
 		]
 	},
 	"apihelp-templatedata-description": "{{doc-apihelp-description|templatedata}}",
 	"apihelp-templatedata-example-1": "{{doc-apihelp-example|templatedata}}",
 	"apihelp-templatedata-param-format": "{{doc-apihelp-param|templatedata|format}}",
 	"apihelp-templatedata-param-lang": "{{doc-apihelp-param|templatedata|lang}}",
-	"templatedata-desc": "{{desc|name=Template Data|url=http://www.mediawiki.org/wiki/Extension:TemplateData}}",
+	"templatedata-desc": "{{desc|name=Template Data|url=https://www.mediawiki.org/wiki/Extension:TemplateData}}",
 	"templatedata-doc-desc-empty": "Displayed when a template has no description (should be a valid sentence).\n{{Identical|No description}}",
 	"templatedata-doc-no-params-set": "A message shown when there are no parameters set in the TemplateData string.",
 	"templatedata-doc-param-autovalue": "Used as column heading in the table for auto fill value.\n{{Related|Templatedata-doc-param}}",
