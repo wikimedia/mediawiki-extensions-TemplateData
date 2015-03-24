@@ -756,7 +756,7 @@ mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () 
 	this.repopulateParamSelectWidget();
 
 	if ( response.existing.length > 0 ) {
-		combinedMessage.push( mw.msg( 'templatedata-modal-errormsg-import-paramsalreadyexist', response.existing.join( mw.msg( 'comma-separator' ) ) ) );
+		combinedMessage.push( mw.msg( 'templatedata-modal-errormsg-import-paramsalreadyexist', response.existing.join( mw.msg( 'comma-separator' ) ), response.existing.length ) );
 	}
 
 	if ( response.imported.length === 0 ) {
