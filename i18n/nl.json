@@ -9,7 +9,8 @@
 			"Southparkfan",
 			"Mar(c)",
 			"Romaine",
-			"Robin0van0der0vliet"
+			"Robin0van0der0vliet",
+			"MedShot"
 		]
 	},
 	"templatedata-desc": "Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)",
@@ -30,6 +31,7 @@
 	"templatedata-doc-params": "Sjabloonparameters",
 	"templatedata-editbutton": "Sjabloondocumentatie beheren",
 	"templatedata-errormsg-jsonbadformat": "Incorrecte JSON-opmaak. Corrigeer deze of verwijder de huidige labels <templatedata> en probeer het opnieuw.",
+	"templatedata-exists-on-related-page": "Let op: er is al een TemplateData blok op de verwante pagina \"[[$1]]\".",
 	"templatedata-helplink": "Informatie over TemplateData",
 	"templatedata-invalid-duplicate-value": "Eigenschap \"$1\" (\"$3\") is een duplicaat van \"$2\".",
 	"templatedata-invalid-empty-array": "Eigenschap \"$1\" moet ten minste één waarde in de verzameling hebben.",

@@ -60,7 +60,7 @@
 	"templatedata-modal-table-param-default": "Schtandatt",
 	"templatedata-modal-table-param-deprecated": "Övverhollt",
 	"templatedata-modal-table-param-importoption": "Donn {{PLURAL:$1|eine neuje Parramehter|$1 neuje Parramehtere|kein neuje Parramehter}} derbei",
-	"templatedata-modal-table-param-importoption-subtitle": "Enschlehße: $1",
+	"templatedata-modal-table-param-importoption-subtitle": "Enjeschloße: $1",
 	"templatedata-modal-table-param-name": "Nahme",
 	"templatedata-modal-table-param-required": "Nühdesch",
 	"templatedata-modal-table-param-suggested": "Vorjeschlonn",
