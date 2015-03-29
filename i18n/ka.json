@@ -10,7 +10,9 @@
 	"templatedata-helplink": "ინფორმაცია TemplateData-ის შესახებ",
 	"templatedata-modal-button-add-language": "ენის დამატება",
 	"templatedata-modal-button-addparam": "პარამეტრის დამატება",
+	"templatedata-modal-button-apply": "გამოყენება",
 	"templatedata-modal-button-back": "უკან",
+	"templatedata-modal-button-cancel": "გაუქმება",
 	"templatedata-modal-button-changelang": "ენის შეცვლა",
 	"templatedata-modal-button-delparam": "პარამეტრის ინფორმაციის წაშლა",
 	"templatedata-modal-button-importParams": "პარამეტრების იმპორტირება",
@@ -25,5 +27,6 @@
 	"templatedata-modal-title-addparam": "ახალი პარამეტრის დამატება",
 	"templatedata-modal-title-choose-language": "ენის არჩევა",
 	"templatedata-modal-title-templatedesc": "თარგის აღწერა ($1)",
-	"templatedata-modal-title-templateparam-details": "პარამეტრის დეტალები: $1"
+	"templatedata-modal-title-templateparam-details": "პარამეტრის დეტალები: $1",
+	"templatedata-modal-title-templateparams": "თარგის პარამეტრები"
 }

@@ -53,7 +53,7 @@
 	"templatedata-modal-current-language": "שפה נוכחית: $1",
 	"templatedata-modal-errormsg": "נמצאו שגיאות. נא לוודא ששמות הפרמטרים אינם ריקים ואינם חוזרים על עצמם, ושבשמות הפרמטרים לא מופיעים התווים \"$1\", \"$2\" או \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "לא נמצאו פרמטרים חדשים בעת הייבוא",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "פרמטרים מסוימים לא יובו מכיון שהם כבר קיימים בעורך: $1",
+	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|פרמטר אחד לא יובא, מכיוון שהוא כבר קיים בעורך|פרמטרים מסוימים לא יובו מכיוון שהם כבר קיימים}} בעורך: $1",
 	"templatedata-modal-json-error-replace": "החלפה",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|יובא פרמטר חדש אחד|יובאו $1 פרמטרים חדשים}}: $2",
 	"templatedata-modal-placeholder-paramkey": "שם הפרמטר",

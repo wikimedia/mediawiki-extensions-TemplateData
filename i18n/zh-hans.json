@@ -57,7 +57,7 @@
 	"templatedata-modal-current-language": "当前语言：$1",
 	"templatedata-modal-errormsg": "找到错误。请确信这里没有空或重复的参数名称，并且它们不包括“$1”“$2”或“$3”。",
 	"templatedata-modal-errormsg-import-noparams": "导入过程中找不到新的参数。",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "一些参数未导入，因为它们已存在于编辑器中：$1",
+	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|有1个|有些}}参数未导入，因为它们已存在于编辑器中：$1",
 	"templatedata-modal-json-error-replace": "替换",
 	"templatedata-modal-notice-import-numparams": "$1个新参数已导入：$2",
 	"templatedata-modal-placeholder-paramkey": "参数名称",

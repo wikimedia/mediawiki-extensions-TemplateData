@@ -6,7 +6,8 @@
 			"Vitorvicentevalente",
 			"He7d3r",
 			"Ti4goc",
-			"Imperadeiro90"
+			"Imperadeiro90",
+			"Fabulous"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
@@ -51,7 +52,7 @@
 	"templatedata-modal-current-language": "Idioma atual: $1",
 	"templatedata-modal-errormsg": "Erros encontrados. Por favor, certifique-se de que não há nomes de parâmetros vazios ou duplicados e que estes não incluem o nome do parâmetro \"$1\", \"$2\" ou \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Não foram encontrados novos parâmetros durante a importação.",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "Alguns dos parâmetros não foram importados porque já existem no editor: $1",
+	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Um parâmetro não foi importado, porque ele já existe|Alguns parâmetros não foram importados, já eles já existem}} no editor: $1",
 	"templatedata-modal-json-error-replace": "Substituir",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|novo parâmetro foi importado|novos parâmetros foram importados}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Nome do parâmetro",
