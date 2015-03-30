@@ -50,9 +50,10 @@
 	"templatedata-modal-button-importParams": "Импортировать параметры",
 	"templatedata-modal-button-restoreparam": "Восстановить параметр.",
 	"templatedata-modal-button-saveparam": "Сохранить",
+	"templatedata-modal-current-language": "Текущий язык: $1",
 	"templatedata-modal-errormsg": "Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Во время импорта новые параметры не найдены.",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "Некоторые параметры не были импортированы, поскольку они уже существуют в редакторе: $1",
+	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Один из параметров не был импортирован, поскольку он уже существует|Некоторые параметры не были импортированы, поскольку они уже существуют}} в редакторе: $1",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новый параметр импортирован|новых параметров импортировано|новых параметра импортировано}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Имя параметра",
 	"templatedata-modal-search-input-placeholder": "Искать по названию языка или его коду",
@@ -82,6 +83,8 @@
 	"templatedata-modal-title-addparam": "Добавить новый параметр",
 	"templatedata-modal-title-choose-language": "Выберите язык",
 	"templatedata-modal-title-language": "Язык",
+	"templatedata-modal-title-paramorder": "Порядок для параметров",
 	"templatedata-modal-title-templatedesc": "Описание шаблона ($1)",
+	"templatedata-modal-title-templateparam-details": "Описание параметра: $1",
 	"templatedata-modal-title-templateparams": "Параметры шаблона"
 }

@@ -7,7 +7,8 @@
 			"Woytecr",
 			"Wiochman",
 			"Matik7",
-			"WTM"
+			"WTM",
+			"VerMa"
 		]
 	},
 	"templatedata-desc": "Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)",
@@ -50,7 +51,7 @@
 	"templatedata-modal-current-language": "Aktualny język: $1",
 	"templatedata-modal-errormsg": "Znaleziono błędy. Proszę, upewnij się, że nazwy parametrów nie są puste, nie są zduplikowane i nie zawierają «$1», «$2» lub «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Nie znaleziono nowych parametrów podczas importu.",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "Niektóre parametry nie zostały zaimportowane, ponieważ już istnieją w edytorze: $1",
+	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Jeden parametr nie został zaimportowany|Niektóre parametry nie zostały zaimportowane}}, ponieważ już {{PLURAL:$1|istnieje|istnieją}} w edytorze: $1",
 	"templatedata-modal-json-error-replace": "Zamień",
 	"templatedata-modal-notice-import-numparams": "Zaimportowano {{PLURAL:$1|$1 nowy parametr|$1 nowe parametry|$1 nowych parametrów}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Nazwa parametru",

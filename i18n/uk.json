@@ -5,7 +5,8 @@
 			"Ата",
 			"Olion",
 			"VolodymyrF",
-			"Piramidion"
+			"Piramidion",
+			"Капитан Джон Шепард"
 		]
 	},
 	"templatedata-desc": "Реалізація сховища даних для параметрів шаблону (JSON)",
@@ -42,13 +43,13 @@
 	"templatedata-modal-button-importParams": "Імпортувати параметри",
 	"templatedata-modal-errormsg": "Виявлено помилки. Будь ласка, переконайтеся що імена параметрів не порожні або не дублюються і не містять «$1», «$2», або «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Не знайдено нових параметрів під час імпорту.",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "Ці параметри не було імпортовано, оскільки вони вже існують в редакторі: $1",
+	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Один з параметрів не був імпортований, оскільки він вже існує|Деякі параметри не були імпортовані, оскільки вони вже існують}} в редакторі: $1",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новий параметр імпортовано|нові параметри імпортовано|нових параметрів імпортовано}}.",
 	"templatedata-modal-table-param-actions": "Дії",
 	"templatedata-modal-table-param-aliases": "Псевдоніми (через кому)",
 	"templatedata-modal-table-param-autovalue": "Автозначення",
 	"templatedata-modal-table-param-default": "Стандартно",
-	"templatedata-modal-table-param-desc": "Опис",
+	"templatedata-modal-table-param-description": "Опис",
 	"templatedata-modal-table-param-label": "Позначення",
 	"templatedata-modal-table-param-name": "Ім'я",
 	"templatedata-modal-table-param-required": "Обов'язково",

@@ -20,6 +20,7 @@
 	"templatedata-modal-button-cancel": "Atcelt",
 	"templatedata-modal-button-delparam": "Dzēst parametru",
 	"templatedata-modal-button-importParams": "Importēt parametrus",
+	"templatedata-modal-json-error-replace": "Aizvietot",
 	"templatedata-modal-table-param-actions": "Darbības",
 	"templatedata-modal-table-param-description": "Apraksts ($1)",
 	"templatedata-modal-table-param-type-undefined": "Nav definēts",
