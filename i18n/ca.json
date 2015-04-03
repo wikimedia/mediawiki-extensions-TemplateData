@@ -19,7 +19,7 @@
 	"templatedata-doc-params": "Paràmetres de la plantilla",
 	"templatedata-modal-table-param-actions": "Accions",
 	"templatedata-modal-table-param-autovalue": "Valor automàtic",
-	"templatedata-modal-table-param-default": "Per defecte",
+	"templatedata-modal-table-param-default": "Per defecte ($1)",
 	"templatedata-modal-table-param-required": "Obligatori",
 	"templatedata-modal-table-param-type": "Tipus",
 	"templatedata-modal-table-param-type-date": "Data",

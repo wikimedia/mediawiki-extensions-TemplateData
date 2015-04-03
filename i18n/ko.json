@@ -49,7 +49,7 @@
 	"templatedata-modal-table-param-actions": "동작",
 	"templatedata-modal-table-param-aliases": "별명 (쉼표로 구분)",
 	"templatedata-modal-table-param-autovalue": "자동 값",
-	"templatedata-modal-table-param-default": "기본값",
+	"templatedata-modal-table-param-default": "기본값 ($1)",
 	"templatedata-modal-table-param-description": "설명",
 	"templatedata-modal-table-param-label": "레이블",
 	"templatedata-modal-table-param-name": "이름",

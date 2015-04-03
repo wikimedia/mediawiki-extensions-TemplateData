@@ -53,7 +53,7 @@
 	"templatedata-modal-table-param-actions": "Handlingar",
 	"templatedata-modal-table-param-aliases": "Alias (kommaseparerade)",
 	"templatedata-modal-table-param-autovalue": "Autovärde",
-	"templatedata-modal-table-param-default": "Standard",
+	"templatedata-modal-table-param-default": "Standard ($1)",
 	"templatedata-modal-table-param-description": "Beskrivning ($1)",
 	"templatedata-modal-table-param-label": "Etikett ($1)",
 	"templatedata-modal-table-param-name": "Namn",

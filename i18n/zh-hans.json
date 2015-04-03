@@ -65,7 +65,7 @@
 	"templatedata-modal-table-param-actions": "操作",
 	"templatedata-modal-table-param-aliases": "别名（逗号分隔）",
 	"templatedata-modal-table-param-autovalue": "自动值",
-	"templatedata-modal-table-param-default": "默认值",
+	"templatedata-modal-table-param-default": "默认值（$1）",
 	"templatedata-modal-table-param-deprecated": "不推荐使用",
 	"templatedata-modal-table-param-deprecatedValue": "弃用指导",
 	"templatedata-modal-table-param-description": "说明（$1）",
