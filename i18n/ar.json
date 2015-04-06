@@ -3,7 +3,8 @@
 		"authors": [
 			"زكريا",
 			"Test Create account",
-			"Fatz"
+			"Fatz",
+			"Yahya Sakhnini"
 		]
 	},
 	"templatedata-desc": "تخزين بيانات وسائط القالب",
@@ -46,7 +47,7 @@
 	"templatedata-modal-table-param-actions": "إجراءات",
 	"templatedata-modal-table-param-aliases": "أسماء بديلة (بينها فواصل)",
 	"templatedata-modal-table-param-autovalue": "قيمة تلقائية",
-	"templatedata-modal-table-param-default": "غيابي",
+	"templatedata-modal-table-param-default": "افتراضي ($1)",
 	"templatedata-modal-table-param-description": "وصف",
 	"templatedata-modal-table-param-label": "عنوان",
 	"templatedata-modal-table-param-name": "اسم",

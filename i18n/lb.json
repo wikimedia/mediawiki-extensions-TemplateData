@@ -39,7 +39,7 @@
 	"templatedata-modal-search-input-placeholder": "Nom Numm oder nom Code vun der Sprooch sichen",
 	"templatedata-modal-table-param-actions": "Aktiounen",
 	"templatedata-modal-table-param-autovalue": "Automatesche Wäert",
-	"templatedata-modal-table-param-default": "Standard",
+	"templatedata-modal-table-param-default": "Standard ($1)",
 	"templatedata-modal-table-param-deprecated": "Net méi aktuell",
 	"templatedata-modal-table-param-description": "Beschreiwung ($1)",
 	"templatedata-modal-table-param-importoption": "{{PLURAL:$1|E virgeschloene|$1 virgeschloe}} Parameter dobäisetzen",

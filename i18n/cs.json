@@ -61,7 +61,7 @@
 	"templatedata-modal-table-param-actions": "Akce",
 	"templatedata-modal-table-param-aliases": "Aliasy (oddělené čárkou)",
 	"templatedata-modal-table-param-autovalue": "Automatická hodnota",
-	"templatedata-modal-table-param-default": "Výchozí",
+	"templatedata-modal-table-param-default": "Výchozí ($1)",
 	"templatedata-modal-table-param-deprecated": "Zastaralý",
 	"templatedata-modal-table-param-deprecatedValue": "Pokyny k zastaralosti",
 	"templatedata-modal-table-param-description": "Popis ($1)",

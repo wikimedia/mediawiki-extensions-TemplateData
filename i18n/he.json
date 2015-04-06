@@ -61,7 +61,7 @@
 	"templatedata-modal-table-param-actions": "פעולות",
 	"templatedata-modal-table-param-aliases": "כינויים (מופרדים בפסיק)",
 	"templatedata-modal-table-param-autovalue": "ערך אוטומטי",
-	"templatedata-modal-table-param-default": "ערך התחלתי",
+	"templatedata-modal-table-param-default": "ערך התחלתי ($1)",
 	"templatedata-modal-table-param-deprecated": "מיושן",
 	"templatedata-modal-table-param-deprecatedValue": "הדרכה מיושנת",
 	"templatedata-modal-table-param-description": "תיאור ($1)",

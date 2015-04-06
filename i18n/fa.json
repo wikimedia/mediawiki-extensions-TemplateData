@@ -5,7 +5,8 @@
 			"Ebraminio",
 			"Fatemi127",
 			"Reza1615",
-			"Alirezaaa"
+			"Alirezaaa",
+			"Danialbehzadi"
 		]
 	},
 	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ TemplateData.",
@@ -62,7 +63,7 @@
 	"templatedata-modal-table-param-actions": "اقدامات",
 	"templatedata-modal-table-param-aliases": "نام‌های مستعار (با ویرگول جداشده)",
 	"templatedata-modal-table-param-autovalue": "مقدار خودکار",
-	"templatedata-modal-table-param-default": "پیش‌فرض",
+	"templatedata-modal-table-param-default": "پیش‌گزیده ($1)",
 	"templatedata-modal-table-param-deprecated": "منسوخ‌شده",
 	"templatedata-modal-table-param-description": "شرح ($1)",
 	"templatedata-modal-table-param-importoption": "افزودن $1 {{PLURAL:$1|پارامتر|پارامتر}} پیشنهادشده",
