@@ -59,7 +59,7 @@
 	"templatedata-modal-search-input-placeholder": "Pesquisa por nome ou código de idioma",
 	"templatedata-modal-table-param-actions": "Acções",
 	"templatedata-modal-table-param-aliases": "Nomes alternativos (separados por vírgula)",
-	"templatedata-modal-table-param-default": "Por defeito",
+	"templatedata-modal-table-param-default": "Padrão ($1)",
 	"templatedata-modal-table-param-deprecated": "Obsoleto",
 	"templatedata-modal-table-param-description": "Descrição ($1)",
 	"templatedata-modal-table-param-importoption": "$1 {{PLURAL:$1|parâmetro sugerido adicionado|parâmetros sugeridos adicionados}}",

@@ -62,7 +62,7 @@
 	"templatedata-modal-table-param-actions": "Accións",
 	"templatedata-modal-table-param-aliases": "Pseudónimos (separados por comas)",
 	"templatedata-modal-table-param-autovalue": "Valor automático",
-	"templatedata-modal-table-param-default": "Predeterminado",
+	"templatedata-modal-table-param-default": "Por defecto ($1)",
 	"templatedata-modal-table-param-deprecated": "Obsoleto",
 	"templatedata-modal-table-param-description": "Descrición ($1)",
 	"templatedata-modal-table-param-importoption": "Engadir {{PLURAL:$1|o parámetro suxerido|os $1 parámetros suxeridos}}",
