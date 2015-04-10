@@ -340,6 +340,7 @@
 						'aliases',
 						'label',
 						'description',
+						'example',
 						'type',
 						'default',
 						'autovalue',
@@ -351,6 +352,7 @@
 					'language': [
 						'label',
 						'description',
+						'example',
 						'default'
 					]
 				}

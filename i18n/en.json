@@ -67,6 +67,7 @@
 	"templatedata-modal-table-param-deprecated": "Deprecated",
 	"templatedata-modal-table-param-deprecatedValue": "Deprecated guidance",
 	"templatedata-modal-table-param-description": "Description ($1)",
+	"templatedata-modal-table-param-example": "Example ($1)",
 	"templatedata-modal-table-param-importoption": "Add $1 suggested {{PLURAL:$1|parameter|parameters}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Including: $1",
 	"templatedata-modal-table-param-label": "Label ($1)",

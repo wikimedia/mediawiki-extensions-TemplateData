@@ -133,6 +133,7 @@ $wgResourceModules['ext.templateDataGenerator.ui'] = array(
 		'templatedata-modal-table-param-deprecated',
 		'templatedata-modal-table-param-deprecatedValue',
 		'templatedata-modal-table-param-description',
+		'templatedata-modal-table-param-example',
 		'templatedata-modal-table-param-importoption',
 		'templatedata-modal-table-param-importoption-subtitle',
 		'templatedata-modal-table-param-label',
