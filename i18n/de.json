@@ -64,6 +64,7 @@
 	"templatedata-modal-table-param-deprecated": "Veraltet",
 	"templatedata-modal-table-param-deprecatedValue": "Veraltete Anleitung",
 	"templatedata-modal-table-param-description": "Beschreibung ($1)",
+	"templatedata-modal-table-param-example": "Beispiel ($1)",
 	"templatedata-modal-table-param-importoption": "{{PLURAL:$1|Einen vorgeschlagenen|$1 vorgeschlagene}} Parameter hinzufügen",
 	"templatedata-modal-table-param-importoption-subtitle": "Inklusive: $1",
 	"templatedata-modal-table-param-label": "Bezeichnung ($1)",

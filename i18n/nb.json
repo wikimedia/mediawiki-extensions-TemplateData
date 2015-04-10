@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Danmichaelo",
-			"Jdforrester"
+			"Jdforrester",
+			"Kingu"
 		]
 	},
 	"apihelp-templatedata-description": "Hent data lagret av TemplateData-tillegget.",
@@ -44,12 +45,13 @@
 	"templatedata-modal-errormsg": "Feil funnet. Sjekk at det ikke er tomme eller duplikate parameternavn, og at parameternavnet ikke inneholder «$1», «$2» eller «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Ingen nye parametre funnet under import.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Noen parametre ble ikke importert fordi de allerede finnes i editoren: $1",
+	"templatedata-modal-json-error-replace": "Erstatt",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Én ny parameter|$1 nye parametre}} ble importert.",
 	"templatedata-modal-table-param-actions": "Handlinger",
 	"templatedata-modal-table-param-aliases": "Kallenavn (kommaseparert)",
 	"templatedata-modal-table-param-autovalue": "Autoverdi",
 	"templatedata-modal-table-param-default": "Standard",
-	"templatedata-modal-table-param-desc": "Beskrivelse",
+	"templatedata-modal-table-param-description": "Beskrivelse",
 	"templatedata-modal-table-param-label": "Etikett",
 	"templatedata-modal-table-param-name": "Navn",
 	"templatedata-modal-table-param-required": "Påkrevd",

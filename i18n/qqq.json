@@ -74,7 +74,7 @@
 	"templatedata-modal-table-param-deprecated": "Label for a parameter property input: Deprecated status of the parameter.\n{{Identical|Deprecated}}",
 	"templatedata-modal-table-param-deprecatedValue": "Label for a parameter property input: Deprecated guidance of the parameter.",
 	"templatedata-modal-table-param-description": "Label for a parameter property input: Description of the parameter.\n\nParameters:\n* $1 - currently showing language\n{{Identical|Description}}",
-	"templatedata-modal-table-param-example": "Label for a parameter property input: Example value of the parameter.\n\nParameters:\n* $1 - currently showing language\n",
+	"templatedata-modal-table-param-example": "Label for a parameter property input: Example value of the parameter.\n\nParameters:\n* $1 - currently showing language",
 	"templatedata-modal-table-param-importoption": "Label for the import option in the parameter list in the edit dialog. $1 - number of suggested parameters that can be imported.",
 	"templatedata-modal-table-param-importoption-subtitle": "A list of suggested parameter names in the import option in the parameter list in the edit dialog. $1 - list (or partial list) of suggested parameter names to import.\n{{Identical|Including}}",
 	"templatedata-modal-table-param-label": "Label for a parameter property input: Label of the parameter.\n\nSee https://en.wikipedia.org/w/index.php?title=Template:Infobox_treaty/TemplateData&action=edit for example.\n\nParameters:\n* $1 - currently showing language\n{{Identical|Label}}",
