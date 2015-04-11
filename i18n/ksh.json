@@ -59,6 +59,7 @@
 	"templatedata-modal-table-param-autovalue": "Automattesche Wäät",
 	"templatedata-modal-table-param-default": "Schtandatt /$1)",
 	"templatedata-modal-table-param-deprecated": "Övverhollt",
+	"templatedata-modal-table-param-example": "Beijschpell ($1)",
 	"templatedata-modal-table-param-importoption": "Donn {{PLURAL:$1|eine neuje Parramehter|$1 neuje Parramehtere|kein neuje Parramehter}} derbei",
 	"templatedata-modal-table-param-importoption-subtitle": "Enjeschloße: $1",
 	"templatedata-modal-table-param-name": "Nahme",

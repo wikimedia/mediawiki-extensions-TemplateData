@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eminn"
+			"Eminn",
+			"Serkanland"
 		]
 	},
-	"templatedata-modal-button-cancel": "Ləğv et"
+	"templatedata-modal-button-cancel": "Ləğv et",
+	"templatedata-modal-table-param-example": "Misal ($1)"
 }

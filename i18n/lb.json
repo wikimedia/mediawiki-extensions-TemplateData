@@ -42,6 +42,7 @@
 	"templatedata-modal-table-param-default": "Standard ($1)",
 	"templatedata-modal-table-param-deprecated": "Net méi aktuell",
 	"templatedata-modal-table-param-description": "Beschreiwung ($1)",
+	"templatedata-modal-table-param-example": "Beispill ($1)",
 	"templatedata-modal-table-param-importoption": "{{PLURAL:$1|E virgeschloene|$1 virgeschloe}} Parameter dobäisetzen",
 	"templatedata-modal-table-param-importoption-subtitle": "Inklusiv: $1",
 	"templatedata-modal-table-param-label": "Etikett ($1)",
