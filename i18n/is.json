@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Snævar"
+			"Snævar",
+			"Sveinn í Felli"
 		]
 	},
 	"templatedata-doc-desc-empty": "Engin lýsing",
@@ -43,7 +44,8 @@
 	"templatedata-modal-table-param-aliases": "Samheiti (aðgreind með kommu)",
 	"templatedata-modal-table-param-autovalue": "Sjálfvirkt gildi",
 	"templatedata-modal-table-param-default": "Sjálfgefið",
-	"templatedata-modal-table-param-desc": "Lýsing",
+	"templatedata-modal-table-param-description": "Lýsing",
+	"templatedata-modal-table-param-example": "Dæmi ($1)",
 	"templatedata-modal-table-param-label": "Merkimiði",
 	"templatedata-modal-table-param-name": "Nafn",
 	"templatedata-modal-table-param-required": "Nauðsynleg",
