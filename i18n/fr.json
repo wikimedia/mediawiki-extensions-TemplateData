@@ -12,7 +12,8 @@
 			"Weft",
 			"Benjozork",
 			"Element303",
-			"Brenloch56"
+			"Brenloch56",
+			"Crochet.david"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
@@ -58,6 +59,7 @@
 	"templatedata-modal-table-param-autovalue": "Valeur automatique",
 	"templatedata-modal-table-param-default": "Par défaut",
 	"templatedata-modal-table-param-description": "Description ($1)",
+	"templatedata-modal-table-param-example": "Exemple ($1)",
 	"templatedata-modal-table-param-label": "Libellé ($1)",
 	"templatedata-modal-table-param-name": "Nom",
 	"templatedata-modal-table-param-required": "Obligatoire",
