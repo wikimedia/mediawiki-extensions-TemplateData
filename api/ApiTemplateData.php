@@ -90,6 +90,15 @@ class ApiTemplateData extends ApiBase {
 				$data = $tdb->getData();
 			}
 
+			// HACK: don't let ApiResult's formatversion=1 compatibility layer mangle our booleans
+			// to empty strings / absent properties
+			if ( defined( 'ApiResult::META_BC_BOOLS' ) ) {
+				foreach ( $data->params as &$param ) {
+					$param->{ApiResult::META_BC_BOOLS} = array( 'required', 'suggested', 'deprecated' );
+				}
+				unset( $param );
+			}
+
 			$resp[$row->pp_page] = array(
 				'title' => strval( $titles[$row->pp_page] ),
 			) + (array) $data;
