@@ -65,6 +65,7 @@
 	"templatedata-modal-table-param-default": "Por defecto ($1)",
 	"templatedata-modal-table-param-deprecated": "Obsoleto",
 	"templatedata-modal-table-param-description": "Descrición ($1)",
+	"templatedata-modal-table-param-example": "Exemplo ($1)",
 	"templatedata-modal-table-param-importoption": "Engadir {{PLURAL:$1|o parámetro suxerido|os $1 parámetros suxeridos}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Incluíndo: $1",
 	"templatedata-modal-table-param-label": "Etiqueta ($1)",
