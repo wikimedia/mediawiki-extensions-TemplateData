@@ -697,21 +697,6 @@ class TemplateDataBlob {
 			. Html::element(
 				'th',
 				array(),
-				wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )->text()
-			)
-			. Html::element(
-				'th',
-				array(),
-				wfMessage( 'templatedata-doc-param-example' )->inLanguage( $lang )->text()
-			)
-			. Html::element(
-				'th',
-				array(),
-				wfMessage( 'templatedata-doc-param-autovalue' )->inLanguage( $lang )->text()
-			)
-			. Html::element(
-				'th',
-				array(),
 				wfMessage( 'templatedata-doc-param-status' )->inLanguage( $lang )->text()
 			)
 			. '</tr></thead>'
@@ -765,15 +750,58 @@ class TemplateDataBlob {
 				Html::element( 'code', array(), $paramName ) . $aliases
 			)
 			// Description
-			. Html::element( 'td', array(
+			. Html::rawElement( 'td', array(
 					'class' => array(
 						'mw-templatedata-doc-muted' => ( $paramObj->description === null )
 					)
 				),
-				$paramObj->description !== null ?
+				Html::rawElement( 'p', array(),
+					$paramObj->description !== null ?
 					$paramObj->description :
 					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
 				)
+				. Html::rawElement( 'dl', array(),
+					Html::element( 'dt', array(),
+						wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )->text()
+					)
+					// Default
+					. Html::element( 'dd', array(
+							'class' => array(
+								'mw-templatedata-doc-muted' => $paramObj->default === null
+							)
+						),
+						$paramObj->default !== null ?
+							$paramObj->default :
+							wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
+					)
+					// Example
+					. Html::element( 'dt', array(),
+						wfMessage( 'templatedata-doc-param-example' )->inLanguage( $lang )->text()
+					)
+					. Html::element( 'dd', array(
+							'class' => array(
+								'mw-templatedata-doc-muted' => $paramObj->example === null
+							)
+						),
+						$paramObj->example !== null ?
+							$paramObj->example :
+							wfMessage( 'templatedata-doc-param-example-empty' )->inLanguage( $lang )->text()
+					)
+					// Auto value
+					. Html::element( 'dt', array(),
+						wfMessage( 'templatedata-doc-param-autovalue' )->inLanguage( $lang )->text()
+					)
+					. Html::rawElement( 'dd', array(
+							'class' => array(
+								'mw-templatedata-doc-muted' => $paramObj->autovalue === null
+							)
+						),
+						$paramObj->autovalue !== null ?
+							Html::element( 'code', array(), $paramObj->autovalue ) :
+							wfMessage( 'templatedata-doc-param-autovalue-empty' )->inLanguage( $lang )->escaped()
+					)
+				)
+			)
 			// Type
 			. Html::rawElement( 'td', array(
 					'class' => array(
@@ -782,36 +810,6 @@ class TemplateDataBlob {
 					)
 				),
 				Html::element( 'code', array(), $paramObj->type )
-			)
-			// Default
-			. Html::element( 'td', array(
-					'class' => array(
-						'mw-templatedata-doc-muted' => $paramObj->default === null
-					)
-				),
-				$paramObj->default !== null ?
-					$paramObj->default :
-					wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
-			)
-			// Example
-			. Html::element( 'td', array(
-					'class' => array(
-						'mw-templatedata-doc-muted' => $paramObj->example === null
-					)
-				),
-				$paramObj->example !== null ?
-					$paramObj->example :
-					wfMessage( 'templatedata-doc-param-example-empty' )->inLanguage( $lang )->text()
-			)
-			// Auto value
-			. Html::rawElement( 'td', array(
-					'class' => array(
-						'mw-templatedata-doc-muted' => $paramObj->autovalue === null
-					)
-				),
-				$paramObj->autovalue !== null ?
-					Html::element( 'code', array(), $paramObj->autovalue ) :
-					wfMessage( 'templatedata-doc-param-autovalue-empty' )->inLanguage( $lang )->escaped()
 			)
 			// Status
 			. Html::element( 'td', array(), wfMessage( $status )->inLanguage( $lang )->text() )
