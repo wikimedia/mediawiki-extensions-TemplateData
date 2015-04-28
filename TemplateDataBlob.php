@@ -617,6 +617,11 @@ class TemplateDataBlob {
 			if ( $paramObj->default !== null ) {
 				$paramObj->default = self::getInterfaceTextInLanguage( $paramObj->default, $langCode );
 			}
+
+			// Param.example
+			if ( $paramObj->example !== null ) {
+				$paramObj->example = self::getInterfaceTextInLanguage( $paramObj->example, $langCode );
+			}
 		}
 
 		foreach ( $data->sets as $setObj ) {
@@ -693,6 +698,11 @@ class TemplateDataBlob {
 				'th',
 				array(),
 				wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )->text()
+			)
+			. Html::element(
+				'th',
+				array(),
+				wfMessage( 'templatedata-doc-param-example' )->inLanguage( $lang )->text()
 			)
 			. Html::element(
 				'th',
@@ -782,6 +792,16 @@ class TemplateDataBlob {
 				$paramObj->default !== null ?
 					$paramObj->default :
 					wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
+			)
+			// Example
+			. Html::element( 'td', array(
+					'class' => array(
+						'mw-templatedata-doc-muted' => $paramObj->example === null
+					)
+				),
+				$paramObj->example !== null ?
+					$paramObj->example :
+					wfMessage( 'templatedata-doc-param-example-empty' )->inLanguage( $lang )->text()
 			)
 			// Auto value
 			. Html::rawElement( 'td', array(

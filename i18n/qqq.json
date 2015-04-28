@@ -25,6 +25,8 @@
 	"templatedata-doc-param-autovalue-empty": "Displayed when a template parameter has no auto filled value (should not be a full sentence, used in a table).\n{{Identical|Empty}}",
 	"templatedata-doc-param-default": "Used as column heading in the table.\n{{Related|Templatedata-doc-param}}\n{{Identical|Default}}",
 	"templatedata-doc-param-default-empty": "Displayed when a template parameter has no default value (should not be a full sentence, used in a table).\n{{Identical|Empty}}",
+	"templatedata-doc-param-example": "Used as column heading in the table.\n{{Related|Templatedata-doc-param}}\n{{Identical|Example}}",
+	"templatedata-doc-param-example-empty": "Displayed when a template parameter has no example value (should be short, used in a table).\n{{Identical|Empty}}",
 	"templatedata-doc-param-desc": "Used as column heading in the table.\n{{Related|Templatedata-doc-param}}\n{{Identical|Description}}",
 	"templatedata-doc-param-desc-empty": "Displayed when a template parameter has no description (should not be a full sentence, used in a table cell).\n{{Identical|No description}}",
 	"templatedata-doc-param-name": "Used as column heading in the table.\n{{Related|Templatedata-doc-param}}\n{{Identical|Parameter}}",

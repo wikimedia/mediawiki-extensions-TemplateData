@@ -18,6 +18,8 @@
 	"templatedata-doc-param-autovalue-empty": "empty",
 	"templatedata-doc-param-default": "Default",
 	"templatedata-doc-param-default-empty": "empty",
+	"templatedata-doc-param-example": "Example",
+	"templatedata-doc-param-example-empty": "empty",
 	"templatedata-doc-param-desc": "Description",
 	"templatedata-doc-param-desc-empty": "no description",
 	"templatedata-doc-param-name": "Parameter",
