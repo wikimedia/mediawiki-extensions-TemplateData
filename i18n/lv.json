@@ -10,6 +10,7 @@
 	"templatedata-doc-param-autovalue-empty": "Tukšs",
 	"templatedata-doc-param-default": "Noklusējuma vērtība",
 	"templatedata-doc-param-default-empty": "Tukšs",
+	"templatedata-doc-param-example": "Piemērs",
 	"templatedata-doc-param-desc": "Apraksts",
 	"templatedata-doc-param-name": "Parametrs",
 	"templatedata-doc-param-status-deprecated": "novecojis",

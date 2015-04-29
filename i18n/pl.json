@@ -16,6 +16,8 @@
 	"templatedata-doc-param-autovalue": "Wartość automatyczna",
 	"templatedata-doc-param-autovalue-empty": "puste",
 	"templatedata-doc-param-default": "Domyślne",
+	"templatedata-doc-param-example": "Przykład",
+	"templatedata-doc-param-example-empty": "puste",
 	"templatedata-doc-param-desc": "Opis",
 	"templatedata-doc-param-desc-empty": "brak opisu",
 	"templatedata-doc-param-name": "Parametr",
