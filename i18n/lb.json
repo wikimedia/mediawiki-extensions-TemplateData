@@ -9,6 +9,8 @@
 	"templatedata-doc-param-autovalue-empty": "eidel",
 	"templatedata-doc-param-default": "Standard",
 	"templatedata-doc-param-default-empty": "eidel",
+	"templatedata-doc-param-example": "Beispill",
+	"templatedata-doc-param-example-empty": "eidel",
 	"templatedata-doc-param-desc": "Beschreiwung",
 	"templatedata-doc-param-desc-empty": "keng Beschreiwung",
 	"templatedata-doc-param-name": "Parameter",
