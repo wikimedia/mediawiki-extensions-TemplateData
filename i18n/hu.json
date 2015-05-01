@@ -6,6 +6,8 @@
 			"Csega"
 		]
 	},
+	"apihelp-templatedata-example-1": "[[Template:Stub]] és [[Template:Example]] adatainak visszaadása",
+	"apihelp-templatedata-param-format": "Kimeneti formátum.",
 	"templatedata-desc": "A sablonok paraméterezését leíró adatokat tárol (JSON formátumban)",
 	"templatedata-doc-desc-empty": "Nincs leírás.",
 	"templatedata-doc-no-params-set": "Nincs paraméter megadva",
@@ -13,6 +15,8 @@
 	"templatedata-doc-param-autovalue-empty": "üres",
 	"templatedata-doc-param-default": "Alapértelmezett",
 	"templatedata-doc-param-default-empty": "üres",
+	"templatedata-doc-param-example": "Példa",
+	"templatedata-doc-param-example-empty": "üres",
 	"templatedata-doc-param-desc": "Leírás",
 	"templatedata-doc-param-desc-empty": "nincs leírás",
 	"templatedata-doc-param-name": "Paraméter",
@@ -61,6 +65,7 @@
 	"templatedata-modal-table-param-description": "Leírás ($1)",
 	"templatedata-modal-table-param-example": "Példa ($1)",
 	"templatedata-modal-table-param-importoption": "$1 ajánlott paraméter hozzáadása",
+	"templatedata-modal-table-param-importoption-subtitle": "Köztük: $1",
 	"templatedata-modal-table-param-label": "Címke ($1)",
 	"templatedata-modal-table-param-name": "Név",
 	"templatedata-modal-table-param-required": "Kötelező",
@@ -84,5 +89,6 @@
 	"templatedata-modal-title-language": "Nyelv",
 	"templatedata-modal-title-paramorder": "Paramétersorrend",
 	"templatedata-modal-title-templatedesc": "Sablon leírása ($1)",
+	"templatedata-modal-title-templateparam-details": "Paraméter részletei: $1",
 	"templatedata-modal-title-templateparams": "Sablonparaméterek"
 }
