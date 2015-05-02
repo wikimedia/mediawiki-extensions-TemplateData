@@ -16,6 +16,8 @@
 	"templatedata-doc-param-autovalue-empty": "vazio",
 	"templatedata-doc-param-default": "Padrão",
 	"templatedata-doc-param-default-empty": "vazio",
+	"templatedata-doc-param-example": "Exemplo",
+	"templatedata-doc-param-example-empty": "vazio",
 	"templatedata-doc-param-desc": "Descrição",
 	"templatedata-doc-param-desc-empty": "sem descrição",
 	"templatedata-doc-param-name": "Parâmetro",
