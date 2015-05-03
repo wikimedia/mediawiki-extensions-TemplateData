@@ -3,7 +3,8 @@
 		"authors": [
 			"Littledogboy",
 			"Mormegil",
-			"Jkjk"
+			"Jkjk",
+			"Cvanca"
 		]
 	},
 	"apihelp-templatedata-description": "Načtení dat uložených rozšířením TemplateData.",
@@ -17,6 +18,7 @@
 	"templatedata-doc-param-autovalue-empty": "prázdné",
 	"templatedata-doc-param-default": "Výchozí hodnota",
 	"templatedata-doc-param-default-empty": "prázdné",
+	"templatedata-doc-param-example": "Příklad",
 	"templatedata-doc-param-desc": "Popis",
 	"templatedata-doc-param-desc-empty": "prázdné",
 	"templatedata-doc-param-name": "Parametr",

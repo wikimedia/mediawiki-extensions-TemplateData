@@ -18,6 +18,8 @@
 	"templatedata-doc-param-autovalue-empty": "ריק",
 	"templatedata-doc-param-default": "ערך התחלתי",
 	"templatedata-doc-param-default-empty": "ריק",
+	"templatedata-doc-param-example": "דוגמה",
+	"templatedata-doc-param-example-empty": "ריק",
 	"templatedata-doc-param-desc": "תיאור",
 	"templatedata-doc-param-desc-empty": "אין תיאור",
 	"templatedata-doc-param-name": "פרמטר",
