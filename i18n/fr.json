@@ -23,6 +23,8 @@
 	"templatedata-doc-param-autovalue-empty": "vide",
 	"templatedata-doc-param-default": "Par défaut",
 	"templatedata-doc-param-default-empty": "vide",
+	"templatedata-doc-param-example": "Exemple",
+	"templatedata-doc-param-example-empty": "vide",
 	"templatedata-doc-param-desc": "Description",
 	"templatedata-doc-param-desc-empty": "aucune description",
 	"templatedata-doc-param-name": "Paramètre",

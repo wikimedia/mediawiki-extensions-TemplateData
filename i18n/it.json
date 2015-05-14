@@ -3,7 +3,8 @@
 		"authors": [
 			"Beta16",
 			"Nivit",
-			"Giuseppe Forte"
+			"Giuseppe Forte",
+			"Macofe"
 		]
 	},
 	"templatedata-desc": "Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)",
@@ -13,6 +14,8 @@
 	"templatedata-doc-param-autovalue-empty": "vuoto",
 	"templatedata-doc-param-default": "Predefinito",
 	"templatedata-doc-param-default-empty": "vuoto",
+	"templatedata-doc-param-example": "Esempio",
+	"templatedata-doc-param-example-empty": "vuota",
 	"templatedata-doc-param-desc": "Descrizione",
 	"templatedata-doc-param-desc-empty": "nessuna descrizione",
 	"templatedata-doc-param-name": "Parametro",
