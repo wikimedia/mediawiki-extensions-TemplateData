@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"XXN",
-			"Minisarm"
+			"Minisarm",
+			"ImGelu"
 		]
 	},
 	"apihelp-templatedata-description": "Obține date stocate de extensia TemplateData.",
@@ -68,7 +69,7 @@
 	"templatedata-modal-table-param-description": "Descriere ($1)",
 	"templatedata-modal-table-param-example": "Exemplu ($1)",
 	"templatedata-modal-table-param-importoption": "Adaugă $1 {{PLURAL:$1|parametru sugerat|parametri sugerați|de parametri sugerați}}",
-	"templatedata-modal-table-param-importoption-subtitle": "Incluzând: $1",
+	"templatedata-modal-table-param-importoption-subtitle": "Inclusiv: $1",
 	"templatedata-modal-table-param-label": "Etichetă ($1)",
 	"templatedata-modal-table-param-name": "Nume",
 	"templatedata-modal-table-param-required": "Obligatoriu",
