@@ -48,6 +48,7 @@
 	"templatedata-modal-button-cancel": "Annuleren",
 	"templatedata-modal-button-delparam": "Verwijderen",
 	"templatedata-modal-button-importParams": "Parameters importeren",
+	"templatedata-modal-button-saveparam": "Opslaan",
 	"templatedata-modal-errormsg": "Fouten gevonden. Zorg ervoor dat er geen lege of dubbele parameternamen zijn, en dat de parameternaam geen \"$1\", \"$2\" of \"$3\" bevat.",
 	"templatedata-modal-errormsg-import-noparams": "Geen nieuwe parameters gevonden tijdens het importeren.",
 	"templatedata-modal-notice-import-numparams": "Er {{PLURAL:$1|is één nieuwe parameter|zijn $1 nieuwe parameters}} geïmporteerd.",
