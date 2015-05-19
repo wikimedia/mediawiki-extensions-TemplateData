@@ -22,6 +22,7 @@
 	"templatedata-doc-param-autovalue-empty": "пусто",
 	"templatedata-doc-param-default": "По умолчанию",
 	"templatedata-doc-param-default-empty": "пусто",
+	"templatedata-doc-param-example": "Пример",
 	"templatedata-doc-param-desc": "Описание",
 	"templatedata-doc-param-desc-empty": "без описания",
 	"templatedata-doc-param-name": "Параметр",

@@ -26,7 +26,7 @@
 	"templatedata-doc-param-status-required": "nühdesch",
 	"templatedata-doc-param-status-suggested": "vorjeschlonn",
 	"templatedata-doc-param-type": "Zoot",
-	"templatedata-doc-params": "Parammehtere för Schablohne<!-- https://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Templatedata-doc-params/ksh -->",
+	"templatedata-doc-params": "Parammehtere för Schablohne",
 	"templatedata-editbutton": "TemplateData  verwallde",
 	"templatedata-errormsg-jsonbadformat": "Kappodde Dahte em <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\" title=\"JavaScript Object Notation\">JSON<i>-Fommaht.\nDo kanns heh ophühre un de Dahte dann reparehre.\nUdder schmiiß de <code lang=\"en\" xml:lang=\"en\" dir=\"ltr\">&lt;templatedata&gt;</code>-Befähle erus, un versöhg et norr_ens.\nUdder maach wigger un tuusch de jäzejje <i lang=\"en\" xml:lang=\"en\" dir=\"ltr\">TemplateData <i> jähje en neue us.",
 	"templatedata-exists-on-related-page": "Opjepaße: mer han ald ene TemplateData block en dä related Sigg „[[$1]]“.",
@@ -71,7 +71,7 @@
 	"templatedata-modal-table-param-type-boolean": "Joh/Näh",
 	"templatedata-modal-table-param-type-content": "Enhalld",
 	"templatedata-modal-table-param-type-date": "Dattom",
-	"templatedata-modal-table-param-type-line": "Reih <!-- https://translatewiki.net/wiki/Thread:Support/About_MediaWiki:Templatedata-modal-table-param-type-line/ksh -->",
+	"templatedata-modal-table-param-type-line": "Reih",
 	"templatedata-modal-table-param-type-number": "Nommer",
 	"templatedata-modal-table-param-type-string": "En ZeischeKätt",
 	"templatedata-modal-table-param-type-unbalanced-wikitext": "Onballangßehrte Wikkitäx",
@@ -85,5 +85,5 @@
 	"templatedata-modal-title-language": "Schprohch",
 	"templatedata-modal-title-paramorder": "De Reihejfollsch vun de Parrammehtere",
 	"templatedata-modal-title-templateparam-details": "Einzelheijte för dä Parramehter: $1",
-	"templatedata-modal-title-templateparams": "Parramehtere för di Schablohn"
+	"templatedata-modal-title-templateparams": "Parramehtere för di Schablohn\n<!--  https://translatewiki.net/wiki/Summary:Support/About_MediaWiki:Templatedata-modal-title-templateparams/ksh -->"
 }
