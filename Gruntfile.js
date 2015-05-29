@@ -11,6 +11,7 @@ module.exports = function ( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-banana-checker' );
 	grunt.loadNpmTasks( 'grunt-jscs-checker' );
+	var conf = grunt.file.readJSON( 'extension.json' );
 
 	grunt.initConfig( {
 		pkg: grunt.file.readJSON( 'package.json' ),
@@ -35,9 +36,7 @@ module.exports = function ( grunt ) {
 				'resources/*.css'
 			]
 		},
-		banana: {
-			all: 'i18n/'
-		},
+		banana: conf.MessagesDirs,
 		watch: {
 			files: [
 				'.{csslintrc,jscsrc,jshintignore,jshintrc}',
