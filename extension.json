@@ -14,9 +14,6 @@
 	"descriptionmsg": "templatedata-desc",
 	"license-name": "GPLv2",
 	"type": "parserhook",
-	"ExtensionMessagesFiles": {
-		"TemplateData": "TemplateData.i18n.php"
-	},
 	"APIModules": {
 		"templatedata": "ApiTemplateData"
 	},

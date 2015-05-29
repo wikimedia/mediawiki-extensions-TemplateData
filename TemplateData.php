@@ -30,7 +30,6 @@ $dir = __DIR__;
 
 // Register files
 $wgMessagesDirs['TemplateData'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['TemplateData'] = $dir . '/TemplateData.i18n.php';
 $wgAutoloadClasses['TemplateDataHooks'] = $dir . '/TemplateData.hooks.php';
 $wgAutoloadClasses['TemplateDataBlob'] = $dir . '/TemplateDataBlob.php';
 $wgAutoloadClasses['ApiTemplateData'] = $dir . '/api/ApiTemplateData.php';
