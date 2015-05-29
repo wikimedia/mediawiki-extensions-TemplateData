@@ -17,6 +17,14 @@
 	"APIModules": {
 		"templatedata": "ApiTemplateData"
 	},
+	"AutoloadClasses": {
+		"TemplateDataHooks": "TemplateData.hooks.php",
+		"TemplateDataBlob": "TemplateDataBlob.php",
+		"ApiTemplateData": "api/ApiTemplateData.php"
+	},
+	"ExtensionFunctions": [
+		"TemplateDataHooks::onSetup"
+	],
 	"Hooks": {
 		"ParserFirstCallInit": [
 			"TemplateDataHooks::onParserFirstCallInit"
@@ -41,9 +49,6 @@
 		"TemplateData": [
 			"i18n"
 		]
-	},
-	"config": {
-		"TemplateDataUseGUI": true
 	},
 	"ResourceModules": {
 		"ext.templateData": {
@@ -109,6 +114,7 @@
 				"templatedata-modal-errormsg",
 				"templatedata-modal-errormsg-import-noparams",
 				"templatedata-modal-errormsg-import-paramsalreadyexist",
+				"templatedata-modal-json-error-replace",
 				"templatedata-modal-notice-import-numparams",
 				"templatedata-modal-placeholder-paramkey",
 				"templatedata-modal-search-input-placeholder",
@@ -117,7 +123,9 @@
 				"templatedata-modal-table-param-autovalue",
 				"templatedata-modal-table-param-default",
 				"templatedata-modal-table-param-deprecated",
+				"templatedata-modal-table-param-deprecatedValue",
 				"templatedata-modal-table-param-description",
+				"templatedata-modal-table-param-example",
 				"templatedata-modal-table-param-importoption",
 				"templatedata-modal-table-param-importoption-subtitle",
 				"templatedata-modal-table-param-label",
@@ -153,12 +161,8 @@
 		"localBasePath": "",
 		"remoteExtPath": "TemplateData"
 	},
-	"ExtensionFunctions": [
-		"TemplateDataHooks::onSetup"
-	],
-	"AutoloadClasses": {
-		"TemplateDataHooks": "TemplateData.hooks.php",
-		"TemplateDataBlob": "TemplateDataBlob.php",
-		"ApiTemplateData": "api/ApiTemplateData.php"
-	}
+	"config": {
+		"TemplateDataUseGUI": true
+	},
+	"manifest_version": 1
 }
