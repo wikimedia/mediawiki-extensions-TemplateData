@@ -13,7 +13,8 @@
 			"Benjozork",
 			"Element303",
 			"Brenloch56",
-			"Crochet.david"
+			"Crochet.david",
+			"Mattho69"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
@@ -46,8 +47,10 @@
 	"templatedata-invalid-type": "La propriété « $1 » doit être de type « $2 ».",
 	"templatedata-invalid-unknown": "Propriété « $1 » non attendue.",
 	"templatedata-invalid-value": "Valeur non valide pour la propriété « $1 ».",
+	"templatedata-modal-button-add-language": "Ajouter des traductions",
 	"templatedata-modal-button-addparam": "Ajouter un paramètre",
 	"templatedata-modal-button-apply": "Appliquer",
+	"templatedata-modal-button-back": "Retour",
 	"templatedata-modal-button-cancel": "Annuler",
 	"templatedata-modal-button-delparam": "Supprimer le paramètre",
 	"templatedata-modal-button-importParams": "Importer les paramètres",
@@ -56,10 +59,13 @@
 	"templatedata-modal-errormsg-import-noparams": "Aucun nouveau paramètre trouvé lors de l’import.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "Certains paramètres n’ont pas été importés, car ils existent déjà dans l’éditeur : $1",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|nouveau paramètre a été importé|nouveaux paramètres ont été importés}}.",
+	"templatedata-modal-placeholder-paramkey": "Nom du paramètre",
+	"templatedata-modal-search-input-placeholder": "Rechercher par nom ou code de langue",
 	"templatedata-modal-table-param-actions": "Actions",
 	"templatedata-modal-table-param-aliases": "Alias (séparés par des virgules)",
 	"templatedata-modal-table-param-autovalue": "Valeur automatique",
 	"templatedata-modal-table-param-default": "Par défaut",
+	"templatedata-modal-table-param-deprecated": "Obsolète",
 	"templatedata-modal-table-param-description": "Description ($1)",
 	"templatedata-modal-table-param-example": "Exemple ($1)",
 	"templatedata-modal-table-param-label": "Libellé ($1)",
@@ -80,6 +86,8 @@
 	"templatedata-modal-table-param-type-wiki-user-name": "Utilisateur",
 	"templatedata-modal-table-param-uneditablefield": "Non modifiable",
 	"templatedata-modal-title": "Éditeur de la documentation du modèle",
+	"templatedata-modal-title-addparam": "Ajouter un paramètre",
+	"templatedata-modal-title-language": "Langue :",
 	"templatedata-modal-title-paramorder": "Ordre des paramètres",
 	"templatedata-modal-title-templatedesc": "Description du modèle ($1)",
 	"templatedata-modal-title-templateparams": "Paramètres du modèle"
