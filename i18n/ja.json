@@ -11,6 +11,8 @@
 	"templatedata-doc-param-autovalue-empty": "空",
 	"templatedata-doc-param-default": "既定",
 	"templatedata-doc-param-default-empty": "空",
+	"templatedata-doc-param-example": "例",
+	"templatedata-doc-param-example-empty": "空",
 	"templatedata-doc-param-desc": "説明",
 	"templatedata-doc-param-desc-empty": "説明なし",
 	"templatedata-doc-param-name": "引数",
