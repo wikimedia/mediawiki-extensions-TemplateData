@@ -62,7 +62,8 @@ class TemplateDataHooks {
 					'scripts' => array(
 						'lib/jquery.uls/src/jquery.uls.data.js',
 						'lib/jquery.uls/src/jquery.uls.data.utils.js',
-					)
+					),
+					'targets' => array( 'desktop', 'mobile' ),
 				)
 			) );
 		}
