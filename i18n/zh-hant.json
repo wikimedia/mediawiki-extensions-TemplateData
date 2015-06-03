@@ -6,10 +6,11 @@
 			"Liuxinyu970226",
 			"LNDDYL",
 			"Cwlin0416",
-			"Wehwei"
+			"Wehwei",
+			"Zhxy 519"
 		]
 	},
-	"templatedata-desc": "實現樣板參數的資料儲存 (使用 JSON)",
+	"templatedata-desc": "實現模板參數的資料儲存 (使用 JSON)",
 	"templatedata-doc-desc-empty": "沒有描述。",
 	"templatedata-doc-param-autovalue": "自動值",
 	"templatedata-doc-param-autovalue-empty": "空的",
