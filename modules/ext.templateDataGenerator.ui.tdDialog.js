@@ -560,7 +560,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 		if ( prop.type === 'select' ) {
 			propInput.selectItem( propInput.getItemFromData( value ) );
 		} else if ( prop.type === 'boolean' ) {
-				propInput.setValue( !!value );
+			propInput.setValue( !!value );
 		} else {
 			if ( $.inArray( propName, languageProps ) !== -1 ) {
 				propInput.setValue( value[lang] );

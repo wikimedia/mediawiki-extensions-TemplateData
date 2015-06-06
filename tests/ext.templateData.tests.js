@@ -165,7 +165,7 @@
 	// Test validation tools
 	QUnit.test( 'Validation tools', function ( assert ) {
 		var tests = {
-				'compare': [
+				compare: [
 					{
 						obj1: {},
 						obj2: [],
@@ -302,7 +302,7 @@
 						msg: 'Compare: complex objects subset'
 					}
 				],
-				'splitAndTrimArray': [
+				splitAndTrimArray: [
 					{
 						string: 'str1 , str2 ',
 						delim: ',',
@@ -322,7 +322,7 @@
 						msg: 'splitAndTrimArray: different delimeter'
 					}
 				],
-				'arrayUnionWithoutEmpty': [
+				arrayUnionWithoutEmpty: [
 					{
 						arrays: [ [ 'en', 'he', '' ], [ 'he', 'de', '' ], [ 'en', 'de' ] ],
 						result: [ 'en', 'he', 'de' ],
@@ -334,8 +334,8 @@
 						msg: 'arrayUnionWithoutEmpty: Remove empty values'
 					}
 				],
-				'props': {
-					'all': [
+				props: {
+					all: [
 						'name',
 						'aliases',
 						'label',
@@ -349,7 +349,7 @@
 						'required',
 						'suggested'
 					],
-					'language': [
+					language: [
 						'label',
 						'description',
 						'example',
@@ -482,7 +482,7 @@
 					language: 'blah',
 					value: '',
 					result: $.extend( {}, paramAddTest[1].result, {
-						description: { 'blah': '' }
+						description: { blah: '' }
 					} ),
 					msg: 'Adding empty description in mock language.'
 				},

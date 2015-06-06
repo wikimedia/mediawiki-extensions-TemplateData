@@ -206,7 +206,7 @@ mw.TemplateData.Model.static.getPropertiesWithLanguage = function () {
  */
 mw.TemplateData.Model.static.splitAndTrimArray = function ( str, delim ) {
 	var arr = [];
-		delim = delim || mw.msg( 'comma-separator' );
+	delim = delim || mw.msg( 'comma-separator' );
 
 	$.each( str.split( delim ), function () {
 		var trimmed = $.trim( this );
@@ -316,9 +316,9 @@ mw.TemplateData.Model.prototype.importSourceCodeParameters = function () {
 			$.inArray( this.sourceCodeParameters[i], existingArray ) === -1 &&
 			this.addParam( this.sourceCodeParameters[i] )
 		) {
-			importedArray.push( this.sourceCodeParameters[i]);
+			importedArray.push( this.sourceCodeParameters[i] );
 		} else {
-			skippedArray.push( this.sourceCodeParameters[i]);
+			skippedArray.push( this.sourceCodeParameters[i] );
 		}
 	}
 
