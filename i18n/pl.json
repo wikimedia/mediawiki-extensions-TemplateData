@@ -8,7 +8,8 @@
 			"Wiochman",
 			"Matik7",
 			"WTM",
-			"VerMa"
+			"VerMa",
+			"Devwebtel"
 		]
 	},
 	"templatedata-desc": "Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)",
@@ -28,7 +29,7 @@
 	"templatedata-doc-param-status-suggested": "sugerowany",
 	"templatedata-doc-param-type": "Typ",
 	"templatedata-doc-params": "Parametry szablonu",
-	"templatedata-editbutton": "Zarządzaj dokumentacją szablonu",
+	"templatedata-editbutton": "Zarządzaj danymi szablonu",
 	"templatedata-errormsg-jsonbadformat": "Nieprawidłowy format JSON. Popraw go lub usuń aktualne znaczniki <templatedata> i spróbuj ponownie.",
 	"templatedata-helplink": "Informacje o TemplateData",
 	"templatedata-invalid-duplicate-value": "Właściwość \"$1\" (\"$3\") jest duplikatem \"$2\".",
