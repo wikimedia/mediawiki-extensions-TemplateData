@@ -17,6 +17,10 @@
 			"Mattho69"
 		]
 	},
+	"apihelp-templatedata-description": "Récupérer les données stockées via l’extension TemplateData.",
+	"apihelp-templatedata-example-1": "Renvoyer les données pour [[Template:Stub]] et [[Template:Example]]",
+	"apihelp-templatedata-param-format": "Le format de la sortie.",
+	"apihelp-templatedata-param-lang": "Renvoyer les valeurs localisées dans cette langue. Par défaut, toutes les traductions disponibles sont renvoyées.",
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
 	"templatedata-doc-desc-empty": "Aucune description.",
 	"templatedata-doc-no-params-set": "Pas de paramètres spécifiés",
@@ -37,7 +41,7 @@
 	"templatedata-doc-param-type": "Type",
 	"templatedata-doc-params": "Paramètres du modèle",
 	"templatedata-editbutton": "Gérer TemplateData",
-	"templatedata-errormsg-jsonbadformat": "Mauvais format JSON. Corrigez-le, ou supprimez les balises actuelles <templatedata> et réessayez.",
+	"templatedata-errormsg-jsonbadformat": "Mauvais format JSON. Vous pouvez annuler cette opération pour le corriger, supprimer les balises actuelles <templatedata> et réessayer, ou continuer à remplacer le TemplateData actuel par un nouveau.",
 	"templatedata-exists-on-related-page": "Information : il y a déjà des TemplateDatas sur la page liée à l' [[$1]].",
 	"templatedata-helplink": "Informations sur TemplateData",
 	"templatedata-invalid-duplicate-value": "La propriété « $1 » (« $3 ») est un doublon de « $2 ».",
@@ -75,6 +79,7 @@
 	"templatedata-modal-table-param-deprecatedValue": "Raison de l'obsolescence",
 	"templatedata-modal-table-param-description": "Description ($1)",
 	"templatedata-modal-table-param-example": "Exemple ($1)",
+	"templatedata-modal-table-param-importoption": "Ajouter $1 {{PLURAL:$1|paramètre suggéré|paramètres suggérés}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Incluant : $1",
 	"templatedata-modal-table-param-label": "Libellé ($1)",
 	"templatedata-modal-table-param-name": "Nom",
