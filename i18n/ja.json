@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Fryed-peach",
-			"Shirayuki"
+			"Shirayuki",
+			"Sujiniku"
 		]
 	},
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
@@ -24,7 +25,7 @@
 	"templatedata-doc-param-type": "型",
 	"templatedata-doc-params": "テンプレート引数",
 	"templatedata-editbutton": "テンプレートデータを管理",
-	"templatedata-errormsg-jsonbadformat": "不正な JSON 形式。修正するか、現在の <templatedata> タグを削除して作り直してください。",
+	"templatedata-errormsg-jsonbadformat": "不正な JSON 形式。あなたは、この操作を取消しできます。修正するか、現在の <templatedata> タグを削除して作り直すか、TemplateData を新しい物に置き換えて続行するか、してください。",
 	"templatedata-helplink": "TemplateData に関する情報",
 	"templatedata-invalid-duplicate-value": "プロパティ「$1」(「$3」) は「$2」と重複しています。",
 	"templatedata-invalid-empty-array": "プロパティ「$1」は、その配列に少なくとも 1 つの値を入れてください。",
@@ -46,7 +47,7 @@
 	"templatedata-modal-current-language": "現在の言語: $1",
 	"templatedata-modal-errormsg": "エラーが見つかりました。引数名に空欄や重複したものがないか、引数名に「$1」や「$2」、「$3」が含まれていないか確認してください。",
 	"templatedata-modal-errormsg-import-noparams": "取り込み時に新しい引数は見つかりませんでした。",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "いくつかの引数は、既にエディター内に含まれているため取り込まれませんでした。$1",
+	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|一つの引数が、既にエディター内に含まれているため取り込まれませんでした。|いくつかの引数は、既にエディター内に含まれているため取り込まれませんでした。}}: $1",
 	"templatedata-modal-notice-import-numparams": "$1 個の{{PLURAL:$1|引数}}が新たに取り込まれました: $2",
 	"templatedata-modal-placeholder-paramkey": "引数名",
 	"templatedata-modal-table-param-actions": "操作",
