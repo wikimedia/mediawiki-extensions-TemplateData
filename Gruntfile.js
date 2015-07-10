@@ -15,7 +15,6 @@ module.exports = function ( grunt ) {
 	var conf = grunt.file.readJSON( 'extension.json' );
 
 	grunt.initConfig( {
-		pkg: grunt.file.readJSON( 'package.json' ),
 		jshint: {
 			options: {
 				jshintrc: true
