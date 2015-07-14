@@ -12,8 +12,10 @@
 			"Devwebtel"
 		]
 	},
+	"apihelp-templatedata-param-format": "Format danych wyjściowych.",
 	"templatedata-desc": "Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)",
 	"templatedata-doc-desc-empty": "Brak opisu.",
+	"templatedata-doc-no-params-set": "Nie podano parametrów",
 	"templatedata-doc-param-autovalue": "Wartość automatyczna",
 	"templatedata-doc-param-autovalue-empty": "puste",
 	"templatedata-doc-param-default": "Domyślne",
