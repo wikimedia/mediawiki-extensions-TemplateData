@@ -61,7 +61,7 @@
 	"templatedata-modal-errormsg-import-noparams": "在匯入過程沒有找到新的參數。",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "部份參數已經存在於編輯器，未被匯入：$1",
 	"templatedata-modal-json-error-replace": "取代",
-	"templatedata-modal-notice-import-numparams": "已匯入 $1 個{{PLURAL:$1|參數}}。",
+	"templatedata-modal-notice-import-numparams": "已匯入 $1 個{{PLURAL:$1|參數}}：$2",
 	"templatedata-modal-placeholder-paramkey": "參數名稱",
 	"templatedata-modal-search-input-placeholder": "依語言名稱或代碼搜尋",
 	"templatedata-modal-table-param-actions": "操作",
