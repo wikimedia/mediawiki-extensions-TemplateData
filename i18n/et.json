@@ -11,6 +11,8 @@
 	"templatedata-doc-param-autovalue-empty": "tühi",
 	"templatedata-doc-param-default": "Vaikimisi",
 	"templatedata-doc-param-default-empty": "tühi",
+	"templatedata-doc-param-example": "Näide",
+	"templatedata-doc-param-example-empty": "tühi",
 	"templatedata-doc-param-desc": "Kirjeldus",
 	"templatedata-doc-param-desc-empty": "kirjeldus puudub",
 	"templatedata-doc-param-name": "Parameeter",
@@ -78,5 +80,6 @@
 	"templatedata-modal-title-language": "Keel",
 	"templatedata-modal-title-paramorder": "Parameetrite järjestus",
 	"templatedata-modal-title-templatedesc": "Malli kirjeldus ($1)",
+	"templatedata-modal-title-templateparam-details": "Parameetri üksikasjad: $1",
 	"templatedata-modal-title-templateparams": "Malli parameetrid"
 }
