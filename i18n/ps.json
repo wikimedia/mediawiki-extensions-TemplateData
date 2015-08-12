@@ -7,9 +7,14 @@
 	"templatedata-doc-param-example": "بېلگه",
 	"templatedata-doc-param-example-empty": "تش",
 	"templatedata-doc-param-status": "دريځ",
+	"templatedata-editbutton": "TemplateData مهارول",
+	"templatedata-helplink": "د TemplateData اړونده مالومات",
+	"templatedata-modal-button-add-language": "ژبه ورگډول",
 	"templatedata-modal-button-cancel": "ناگارل",
 	"templatedata-modal-json-error-replace": "ځايناستول",
 	"templatedata-modal-table-param-default": "تلواليز ($1)",
 	"templatedata-modal-table-param-example": "بېلگه ($1)",
-	"templatedata-modal-title-language": "ژبه"
+	"templatedata-modal-title": "کينډۍ لاسوند سمونگر",
+	"templatedata-modal-title-language": "ژبه",
+	"templatedata-modal-title-templatedesc": "د کينډۍ څرگندونه ($1)"
 }
