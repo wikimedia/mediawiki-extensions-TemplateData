@@ -18,7 +18,7 @@
 	"apihelp-templatedata-param-format": "El formato de la salida.",
 	"apihelp-templatedata-param-lang": "Devolver valores localizados en este idioma. Por omisión, se devuelven todas las traducciones disponibles.",
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
-	"templatedata-doc-desc-empty": "Sin descripción",
+	"templatedata-doc-desc-empty": "Sin descripción.",
 	"templatedata-doc-no-params-set": "No hay parámetros especificados",
 	"templatedata-doc-param-autovalue": "Valor automático",
 	"templatedata-doc-param-autovalue-empty": "vacío",
