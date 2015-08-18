@@ -31,6 +31,8 @@
 	"templatedata-invalid-empty-array": "'A proprietà \"$1\" avess'a tenè almeno nu valore dint' 'a matrice soja.",
 	"templatedata-invalid-missing": "Proprietà addimannata \"$1\" nun truvata.",
 	"templatedata-invalid-param": "Parametro nun valido \"$1\" p' 'a proprietà \"$2\".",
+	"templatedata-invalid-parse": "Errore 'e sintasse dint' 'o JSON.",
+	"templatedata-invalid-type": "S'aspettava ca 'a proprietà \"$1\" fosse 'e tipo \"$2\".",
 	"templatedata-invalid-unknown": "Proprietà inaspettata \"$1\".",
 	"templatedata-invalid-value": "Valore invalido p' 'a proprietà \"$1\".",
 	"templatedata-modal-button-add-language": "Azzecca na lengua",
@@ -38,5 +40,11 @@
 	"templatedata-modal-button-apply": "Appreca",
 	"templatedata-modal-button-back": "Arreto",
 	"templatedata-modal-button-cancel": "Canciella",
-	"templatedata-modal-button-changelang": "Càgna lengua"
+	"templatedata-modal-button-changelang": "Càgna lengua",
+	"templatedata-modal-button-delparam": "Lèva nfurmaziune 'e parametre",
+	"templatedata-modal-button-importParams": "Importa parametre",
+	"templatedata-modal-button-restoreparam": "Arrepiglia parametre",
+	"templatedata-modal-button-saveparam": "Sarva",
+	"templatedata-modal-current-language": "Lengua 'e mò: $1",
+	"templatedata-modal-errormsg": "Errure truvate. Pe' piacere assicurateve ca nun ce stanno parametre dupprecate o abbacante, e ca 'e nomme 'e parametre nun appenneno \"$1\", \"$2\" o \"$3\"."
 }
