@@ -54,7 +54,7 @@
 	"templatedata-modal-table-param-default": "기본값 ($1)",
 	"templatedata-modal-table-param-description": "설명 ($1)",
 	"templatedata-modal-table-param-example": "예시 ($1)",
-	"templatedata-modal-table-param-label": "레이블",
+	"templatedata-modal-table-param-label": "레이블 ($1)",
 	"templatedata-modal-table-param-name": "이름",
 	"templatedata-modal-table-param-required": "필수",
 	"templatedata-modal-table-param-suggested": "제안",
