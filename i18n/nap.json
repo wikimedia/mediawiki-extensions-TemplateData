@@ -54,6 +54,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Nisciuno parametro truvato pe' tramente ca se faceva l'import.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Nu parametro nun se truvava, pecché esisteva già|Nu cierto nummero 'e parametre nun songo state mpurtate pecché so' già prisente}} dint'a ll'editore: $1",
 	"templatedata-modal-json-error-replace": "Sostituisce",
+	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|nuovo parametro è stato importato|nuove parametre songo state importate}}: $2.",
 	"templatedata-modal-placeholder-paramkey": "Nomme d' 'o parametro",
 	"templatedata-modal-search-input-placeholder": "Ascìa pe' nomme 'e lengua o codece",
 	"templatedata-modal-table-param-actions": "Aziune",
