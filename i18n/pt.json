@@ -7,7 +7,8 @@
 			"He7d3r",
 			"Ti4goc",
 			"Imperadeiro90",
-			"Fabulous"
+			"Fabulous",
+			"Cainamarques"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
@@ -65,7 +66,7 @@
 	"templatedata-modal-table-param-deprecated": "Obsoleto",
 	"templatedata-modal-table-param-description": "Descrição ($1)",
 	"templatedata-modal-table-param-example": "Exemplo ($1)",
-	"templatedata-modal-table-param-importoption": "$1 {{PLURAL:$1|parâmetro sugerido adicionado|parâmetros sugeridos adicionados}}",
+	"templatedata-modal-table-param-importoption": "Adicionar $1 {{PLURAL:$1|parâmetro sugerido|parâmetros sugeridos}}",
 	"templatedata-modal-table-param-importoption-subtitle": "A incluir: $1",
 	"templatedata-modal-table-param-label": "Etiqueta ($1)",
 	"templatedata-modal-table-param-name": "Nome",
