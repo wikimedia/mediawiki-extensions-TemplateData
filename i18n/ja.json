@@ -4,13 +4,14 @@
 			"Fryed-peach",
 			"Shirayuki",
 			"Sujiniku",
-			"Otokoume"
+			"Otokoume",
+			"2nd-player"
 		]
 	},
 	"apihelp-templatedata-description": "TemplateData 拡張機能によって保存されたデータを取得します。",
 	"apihelp-templatedata-example-1": "[[Template:Stub]]と[[Template:Example]]のデータを返します",
 	"apihelp-templatedata-param-format": "出力する形式。",
-	"apihelp-templatedata-param-lang": "この言語に地域化された値を返します。フォルトでは、すべてのサポートされている翻訳が返されます。",
+	"apihelp-templatedata-param-lang": "この言語に地域化された値を返します。既定では、すべてのサポートされている翻訳が返されます。",
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
 	"templatedata-doc-desc-empty": "説明はありません。",
 	"templatedata-doc-no-params-set": "パラメーターが指定されていません",
