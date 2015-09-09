@@ -8,7 +8,8 @@
 			"Striking Blue",
 			"Oashnic",
 			"Eakarpov",
-			"Mariya"
+			"Mariya",
+			"Sunpriat"
 		]
 	},
 	"apihelp-templatedata-description": "Получить данные, хранящиеся в расширении TemplateData.",
@@ -70,7 +71,7 @@
 	"templatedata-modal-table-param-autovalue": "Авто-значение",
 	"templatedata-modal-table-param-default": "По умолчанию ($1)",
 	"templatedata-modal-table-param-deprecated": "Устаревший",
-	"templatedata-modal-table-param-deprecatedValue": "Устаревшие рекомендации",
+	"templatedata-modal-table-param-deprecatedValue": "Пояснения к устареванию",
 	"templatedata-modal-table-param-description": "Описание ($1)",
 	"templatedata-modal-table-param-example": "Пример ($1)",
 	"templatedata-modal-table-param-importoption": "Добавить $1 {{PLURAL:$1|предложенный параметр|предложенных параметра|предложенных параметров}}",
