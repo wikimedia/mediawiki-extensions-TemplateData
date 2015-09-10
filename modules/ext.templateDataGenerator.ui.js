@@ -203,7 +203,7 @@
 				editHelpButtonWidget = new OO.ui.ButtonWidget( {
 					label: mw.msg( 'templatedata-helplink' ),
 					classes: [ 'tdg-editscreen-main-helplink' ],
-					href: 'https://www.mediawiki.org/wiki/Extension:TemplateData',
+					href: mw.msg( 'templatedata-helplink-target' ),
 					target: '_blank',
 					framed: false
 				} );
