@@ -91,7 +91,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.addParamPanel = new OO.ui.PanelLayout();
 
 	// Language panel
-	this.newLanguageSearchWidget = new mw.TemplateData.LanguageSearchWidget();
+	this.newLanguageSearch = new mw.TemplateData.LanguageSearchWidget();
 
 	// Add parameter panel
 	this.newParamInput = new OO.ui.TextInputWidget( {
@@ -170,7 +170,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.languagePanel.$element
 		.addClass( 'tdg-templateDataDialog-languagePanel' )
 		.append(
-			this.newLanguageSearchWidget.$element
+			this.newLanguageSearch.$element
 		);
 	this.addParamPanel.$element
 		.addClass( 'tdg-templateDataDialog-addParamPanel' )
@@ -195,13 +195,13 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	);
 
 	// Events
-	this.newLanguageSearchWidget.connect( this, { select: 'newLanguageSearchWidgetSelect' } );
+	this.newLanguageSearch.getResults().connect( this, { choose: 'onNewLanguageSearchResultsChoose' } );
 	this.newParamInput.connect( this, { change: 'onAddParamInputChange' } );
 	this.addParamButton.connect( this, { click: 'onAddParamButtonClick' } );
 	this.descriptionInput.connect( this, { change: 'onDescriptionInputChange' } );
 	this.paramOrderWidget.connect( this, { reorder: 'onParamOrderWidgetReorder' } );
 	this.languagePanelButton.connect( this, { click: 'onLanguagePanelButton' } );
-	this.languageDropdownWidget.getMenu().connect( this, { choose: 'onLanguageDropdownWidgetChoose' } );
+	this.languageDropdownWidget.getMenu().connect( this, { select: 'onLanguageDropdownWidgetSelect' } );
 	this.paramSelectWidget.connect( this, { choose: 'onParamSelectWidgetChoose' } );
 };
 
@@ -298,10 +298,11 @@ mw.TemplateData.Dialog.prototype.onLanguagePanelButton = function () {
 };
 
 /**
- * Respond to language select widget choose event
- * @param {OO.ui.OptionWidget} item Chosen item
+ * Respond to language select widget select event
+ *
+ * @param {OO.ui.OptionWidget} item Selected item
  */
-mw.TemplateData.Dialog.prototype.onLanguageDropdownWidgetChoose = function ( item ) {
+mw.TemplateData.Dialog.prototype.onLanguageDropdownWidgetSelect = function ( item ) {
 	var language = item ? item.getData() : this.language;
 
 	// Change current language
@@ -325,12 +326,13 @@ mw.TemplateData.Dialog.prototype.onLanguageDropdownWidgetChoose = function ( ite
 };
 
 /**
- * Respond to add language button
- * @param {Object} data Data from the selected option widget
+ * Handle choose events from the new language search widget
+ *
+ * @param {mw.TemplateData.LanguageResultWidget} item Chosen item
  */
-mw.TemplateData.Dialog.prototype.newLanguageSearchWidgetSelect = function ( data ) {
+mw.TemplateData.Dialog.prototype.onNewLanguageSearchResultsChoose = function ( item ) {
 	var languageButton,
-		newLanguage = data.code;
+		newLanguage = item.getData().code;
 
 	if ( newLanguage ) {
 		if ( $.inArray( newLanguage, this.availableLanguages ) === -1 ) {
@@ -344,9 +346,7 @@ mw.TemplateData.Dialog.prototype.newLanguageSearchWidgetSelect = function ( data
 		}
 
 		// Select the new item
-		this.languageDropdownWidget.getMenu().chooseItem(
-			this.languageDropdownWidget.getMenu().getItemFromData( newLanguage )
-		);
+		this.languageDropdownWidget.getMenu().selectItemByData( newLanguage );
 	}
 
 	// Go to the main panel
@@ -803,7 +803,7 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			}
 			this.languageDropdownWidget.getMenu().addItems( languageItems );
 			// Trigger the initial language choice
-			this.languageDropdownWidget.getMenu().chooseItem( this.languageDropdownWidget.getMenu().getItemFromData( language ) );
+			this.languageDropdownWidget.getMenu().selectItemByData( language );
 
 			// Populate the paramOrder widget
 			this.paramOrderWidget.clearItems();
@@ -888,6 +888,7 @@ mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
 			this.editParamPanel.$element.hide();
 			this.addParamPanel.$element.hide();
 			this.languagePanel.$element.show();
+			this.newLanguageSearch.query.focus();
 			break;
 	}
 };
