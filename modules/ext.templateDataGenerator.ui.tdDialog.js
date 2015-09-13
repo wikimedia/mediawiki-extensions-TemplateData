@@ -100,10 +100,14 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.addParamButton = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'templatedata-modal-button-addparam' )
 	} );
-	addParamFieldlayout = new OO.ui.FieldsetLayout( {
-		label: mw.msg( 'templatedata-modal-title-addparam' ),
-		items: [ this.newParamInput, this.addParamButton ]
-	} );
+	addParamFieldlayout = new OO.ui.ActionFieldLayout(
+		this.newParamInput,
+		this.addParamButton,
+		{
+			align: 'top',
+			label: mw.msg( 'templatedata-modal-title-addparam' )
+		}
+	);
 
 	// Param list panel (main)
 	this.languageDropdownWidget = new OO.ui.DropdownWidget();
