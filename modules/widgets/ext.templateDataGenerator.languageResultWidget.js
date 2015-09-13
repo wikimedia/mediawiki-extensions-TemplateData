@@ -14,8 +14,8 @@ mw.TemplateData.LanguageResultWidget = function mwTemplateDataLanguageResultWidg
 
 	// Initialization
 	this.$element.addClass( 'tdg-languageResultWidget' );
-	this.$name = this.$( '<div>' ).addClass( 'tdg-languageResultWidget-name' );
-	this.$otherMatch = this.$( '<div>' ).addClass( 'tdg-languageResultWidget-otherMatch' );
+	this.$name = $( '<div>' ).addClass( 'tdg-languageResultWidget-name' );
+	this.$otherMatch = $( '<div>' ).addClass( 'tdg-languageResultWidget-otherMatch' );
 	this.setLabel( this.$otherMatch.add( this.$name ) );
 };
 
@@ -60,7 +60,7 @@ mw.TemplateData.LanguageResultWidget.prototype.updateLabel = function ( query, m
  * @returns {jQuery} Text with query substring wrapped in highlighted span
  */
 mw.TemplateData.LanguageResultWidget.prototype.highlightQuery = function ( text, query ) {
-	var $result = this.$( '<span>' ),
+	var $result = $( '<span>' ),
 		offset = text.toLowerCase().indexOf( query.toLowerCase() );
 
 	if ( !query.length || offset === -1 ) {
@@ -68,7 +68,7 @@ mw.TemplateData.LanguageResultWidget.prototype.highlightQuery = function ( text,
 	}
 	$result.append(
 		document.createTextNode( text.slice( 0, offset ) ),
-		this.$( '<span>' )
+		$( '<span>' )
 			.addClass( 'tdg-languageResultWidget-highlight' )
 			.text( text.substr( offset, query.length ) ),
 		document.createTextNode( text.slice( offset + query.length ) )

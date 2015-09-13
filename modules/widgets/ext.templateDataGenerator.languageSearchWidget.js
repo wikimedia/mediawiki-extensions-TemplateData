@@ -31,8 +31,7 @@ mw.TemplateData.LanguageSearchWidget = function mwTemplateDataLanguageSearchWidg
 					code: languageCode,
 					name: $.uls.data.getAutonym( languageCode ),
 					autonym: $.uls.data.getAutonym( languageCode )
-				},
-				$: this.$
+				}
 			} )
 		);
 	}

@@ -80,56 +80,40 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.$spinner = this.$( '<div>' ).addClass( 'tdg-spinner' ).text( 'working...' );
 	this.$body.append( this.$spinner );
 
-	this.noticeLabel = new OO.ui.LabelWidget( { $: this.$ } );
+	this.noticeLabel = new OO.ui.LabelWidget();
 	this.noticeLabel.$element.hide();
 
-	this.panels = new OO.ui.StackLayout( { $: this.$, continuous: false } );
+	this.panels = new OO.ui.StackLayout( { continuous: false } );
 
-	this.listParamsPanel = new OO.ui.PanelLayout( {
-		$: this.$,
-		scrollable: true
-	} );
-	this.editParamPanel = new OO.ui.PanelLayout( {
-		$: this.$
-	} );
-	this.languagePanel = new OO.ui.PanelLayout( {
-		$: this.$
-	} );
-	this.addParamPanel = new OO.ui.PanelLayout( {
-		$: this.$
-	} );
+	this.listParamsPanel = new OO.ui.PanelLayout( { scrollable: true } );
+	this.editParamPanel = new OO.ui.PanelLayout();
+	this.languagePanel = new OO.ui.PanelLayout();
+	this.addParamPanel = new OO.ui.PanelLayout();
 
 	// Language panel
-	this.newLanguageSearchWidget = new mw.TemplateData.LanguageSearchWidget( {
-		$: this.$
-	} );
+	this.newLanguageSearchWidget = new mw.TemplateData.LanguageSearchWidget();
 
 	// Add parameter panel
 	this.newParamInput = new OO.ui.TextInputWidget( {
-		$: this.$,
 		placeholder: mw.msg( 'templatedata-modal-placeholder-paramkey' )
 	} );
 	this.addParamButton = new OO.ui.ButtonWidget( {
-		$: this.$,
 		label: mw.msg( 'templatedata-modal-button-addparam' )
 	} );
 	addParamFieldlayout = new OO.ui.FieldsetLayout( {
-		$: this.$,
 		label: mw.msg( 'templatedata-modal-title-addparam' ),
 		items: [ this.newParamInput, this.addParamButton ]
 	} );
 
 	// Param list panel (main)
-	this.languageDropdownWidget = new OO.ui.DropdownWidget( { $: this.$ } );
+	this.languageDropdownWidget = new OO.ui.DropdownWidget();
 	this.languagePanelButton = new OO.ui.ButtonWidget( {
-		$: this.$,
 		label: mw.msg( 'templatedata-modal-button-add-language' )
 	} );
 	languageActionFieldLayout = new OO.ui.ActionFieldLayout(
 		this.languageDropdownWidget,
 		this.languagePanelButton,
 		{
-			$: this.$,
 			align: 'left',
 			label: mw.msg( 'templatedata-modal-title-language' )
 		}
@@ -137,36 +121,31 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 
 	// ParamOrder
 	this.paramOrderWidget = new mw.TemplateData.DragDropWidget( {
-		$: this.$,
 		orientation: 'horizontal'
 	} );
 	paramOrderFieldset = new OO.ui.FieldsetLayout( {
-		$: this.$,
 		label: mw.msg( 'templatedata-modal-title-paramorder' ),
 		items: [ this.paramOrderWidget ]
 	} );
 
 	this.descriptionInput = new OO.ui.TextInputWidget( {
-		$: this.$,
 		multiline: true,
 		autosize: true
 	} );
 	this.templateDescriptionFieldset = new OO.ui.FieldsetLayout( {
-		$: this.$,
 		items: [ this.descriptionInput ]
 	} );
-	this.paramListNoticeLabel = new OO.ui.LabelWidget( { $: this.$ } );
+	this.paramListNoticeLabel = new OO.ui.LabelWidget();
 	this.paramListNoticeLabel.$element.hide();
 
 	this.paramSelectWidget = new OO.ui.SelectWidget();
 	templateParamsFieldset = new OO.ui.FieldsetLayout( {
-		$: this.$,
 		label: mw.msg( 'templatedata-modal-title-templateparams' )
 	} );
 	templateParamsFieldset.$element.append( this.paramSelectWidget.$element );
 
 	// Param details panel
-	this.$paramDetailsContainer = this.$( '<div>' )
+	this.$paramDetailsContainer = $( '<div>' )
 		.addClass( 'tdg-TemplateDataDialog-paramDetails' );
 
 	this.listParamsPanel.$element
@@ -178,7 +157,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 			paramOrderFieldset.$element,
 			templateParamsFieldset.$element
 		);
-	this.paramEditNoticeLabel = new OO.ui.LabelWidget( { $: this.$ } );
+	this.paramEditNoticeLabel = new OO.ui.LabelWidget();
 	this.paramEditNoticeLabel.$element.hide();
 	// Edit panel
 	this.editParamPanel.$element
@@ -268,7 +247,6 @@ mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function ( paramOrder
 	for ( i = 0; i < paramOrderArray.length; i++ ) {
 		items.push(
 			new mw.TemplateData.DragDropItemWidget( {
-				$: this.$,
 				data: paramOrderArray[i],
 				label: paramOrderArray[i]
 			} )
@@ -286,7 +264,6 @@ mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function ( paramOrder
  */
 mw.TemplateData.Dialog.prototype.onModelAddKeyParamOrder = function ( key ) {
 	var dragItem = new mw.TemplateData.DragDropItemWidget( {
-		$: this.$,
 		data: key,
 		label: key
 	} );
@@ -361,7 +338,6 @@ mw.TemplateData.Dialog.prototype.newLanguageSearchWidgetSelect = function ( data
 			this.availableLanguages.push( newLanguage );
 			languageButton = new OO.ui.OptionWidget( {
 				data: newLanguage,
-				$: this.$,
 				label: $.uls.data.getAutonym( newLanguage )
 			} );
 			this.languageDropdownWidget.getMenu().addItems( [ languageButton ] );
@@ -532,7 +508,6 @@ mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
 		this.paramSelectWidget.addItems( [
 			new mw.TemplateData.OptionImportWidget( {
 				data: 'tdg-importParameters',
-				$: this.$,
 				params: missingParams
 			} )
 		] );
@@ -596,8 +571,7 @@ mw.TemplateData.Dialog.prototype.addParamToSelectWidget = function ( paramKey ) 
 			name: data.name,
 			aliases: data.aliases,
 			description: this.model.getParamDescription( paramKey, this.language )
-		},
-		$: this.$
+		}
 	} );
 
 	this.paramSelectWidget.addItems( [ paramItem ] );
@@ -615,13 +589,10 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 	paramProperties = mw.TemplateData.Model.static.getAllProperties( true );
 
 	// Fieldset
-	paramFieldset = new OO.ui.FieldsetLayout( {
-		$: this.$
-	} );
+	paramFieldset = new OO.ui.FieldsetLayout();
 
 	for ( props in paramProperties ) {
 		config = {
-			$: this.$,
 			multiline: paramProperties[props].multiline
 		};
 		if ( paramProperties[props].multiline ) {
@@ -634,7 +605,6 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 				for ( type in paramProperties[props].children ) {
 					typeItemArray.push( new OO.ui.OptionWidget( {
 						data: paramProperties[props].children[type],
-						$: this.$,
 						label: mw.msg( 'templatedata-modal-table-param-type-' + paramProperties[props].children[type] )
 					} ) );
 				}
@@ -842,7 +812,6 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 				// Create a DragDrop widget
 				items.push(
 					new mw.TemplateData.DragDropItemWidget( {
-						$: this.$,
 						data: paramOrderArray[i],
 						label: paramOrderArray[i]
 					} )

@@ -30,11 +30,11 @@ OO.inheritClass( mw.TemplateData.OptionWidget, OO.ui.DecoratedOptionWidget );
  */
 mw.TemplateData.OptionWidget.prototype.buildParamLabel = function () {
 	var i, len,
-		$paramName = this.$( '<div>' )
+		$paramName = $( '<div>' )
 			.addClass( 'tdg-TemplateDataOptionWidget-param-name' ),
-		$aliases = this.$( '<div>' )
+		$aliases = $( '<div>' )
 			.addClass( 'tdg-TemplateDataOptionWidget-param-aliases' ),
-		$description = this.$( '<div>' )
+		$description = $( '<div>' )
 			.addClass( 'tdg-TemplateDataOptionWidget-param-description' );
 
 	$paramName.text( this.name );
@@ -43,7 +43,7 @@ mw.TemplateData.OptionWidget.prototype.buildParamLabel = function () {
 	if ( this.aliases !== undefined ) {
 		for ( i = 0, len = this.aliases.length; i < len; i++ ) {
 			$aliases.append(
-				this.$( '<span>' )
+				$( '<span>' )
 					.addClass( 'tdg-TemplateDataOptionWidget-param-alias' )
 					.text( this.aliases[i] )
 			);
