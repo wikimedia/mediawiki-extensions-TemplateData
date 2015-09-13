@@ -12,7 +12,8 @@
 			"James D. Forrester",
 			"Moriel Schottlender",
 			"Umherirrender",
-			"Nemo bis"
+			"Nemo bis",
+			"Purodha"
 		]
 	},
 	"apihelp-templatedata-description": "{{doc-apihelp-description|templatedata}}",
@@ -104,5 +105,5 @@
 	"templatedata-modal-title-paramorder": "The title for the parameter order drag/drop widget in the edit dialog.",
 	"templatedata-modal-title-templatedesc": "The title for the template description textbox. Parameters:\n* $1 - currently used language",
 	"templatedata-modal-title-templateparam-details": "The title for the parameter information section. Parameters:\n* $1 - The parameter name",
-	"templatedata-modal-title-templateparams": "The title for the template parameters table"
+	"templatedata-modal-title-templateparams": "The title for the template parameters table\nof a single template."
 }

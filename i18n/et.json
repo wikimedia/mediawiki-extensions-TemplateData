@@ -60,7 +60,7 @@
 	"templatedata-modal-table-param-autovalue": "Eeltäidetud",
 	"templatedata-modal-table-param-default": "Vaikeväärtus ($1)",
 	"templatedata-modal-table-param-deprecated": "Vananenud",
-	"templatedata-modal-table-param-deprecatedValue": "Vananenud juhtnöör",
+	"templatedata-modal-table-param-deprecatedValue": "Vananenud parameetri juhtnöör",
 	"templatedata-modal-table-param-description": "Kirjeldus ($1)",
 	"templatedata-modal-table-param-example": "Näide ($1)",
 	"templatedata-modal-table-param-importoption": "Lisa {{PLURAL:$1|üks pakutav parameeter|$1 pakutavat parameetrit}}",
