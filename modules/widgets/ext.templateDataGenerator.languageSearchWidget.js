@@ -35,6 +35,7 @@ mw.TemplateData.LanguageSearchWidget = function mwTemplateDataLanguageSearchWidg
 			} )
 		);
 	}
+	this.addResults();
 
 	// Initialization
 	this.$element.addClass( 'tdg-languageSearchWidget' );
