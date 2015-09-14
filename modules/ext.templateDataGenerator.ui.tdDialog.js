@@ -36,6 +36,12 @@ mw.TemplateData.Dialog.static.actions = [
 		modes: 'list'
 	},
 	{
+		action: 'done',
+		label: mw.msg( 'templatedata-modal-button-done' ),
+		flags: [ 'primary', 'progressive' ],
+		modes: 'edit'
+	},
+	{
 		action: 'add',
 		label: mw.msg( 'templatedata-modal-button-addparam' ),
 		flags: [ 'constructive' ],
@@ -56,7 +62,7 @@ mw.TemplateData.Dialog.static.actions = [
 		action: 'back',
 		label: mw.msg( 'templatedata-modal-button-back' ),
 		flags: 'safe',
-		modes: [ 'edit', 'language', 'add' ]
+		modes: [ 'language', 'add' ]
 	}
 ];
 
@@ -904,7 +910,7 @@ mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
  * @return {OO.ui.Process} Action process
  */
 mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
-	if ( action === 'back' ) {
+	if ( action === 'back' || action === 'done' ) {
 		return new OO.ui.Process( function () {
 			this.switchPanels( 'listParams' );
 		}, this );
