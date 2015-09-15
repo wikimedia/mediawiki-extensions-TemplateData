@@ -4,7 +4,8 @@
 			"Luckas",
 			"Toniher",
 			"Vriullop",
-			"Fitoschido"
+			"Fitoschido",
+			"Macofe"
 		]
 	},
 	"templatedata-doc-param-autovalue": "Valor automàtic",
@@ -17,6 +18,7 @@
 	"templatedata-doc-param-status-required": "obligatori",
 	"templatedata-doc-param-type": "Tipus",
 	"templatedata-doc-params": "Paràmetres de la plantilla",
+	"templatedata-modal-button-done": "Fet",
 	"templatedata-modal-table-param-actions": "Accions",
 	"templatedata-modal-table-param-autovalue": "Valor automàtic",
 	"templatedata-modal-table-param-default": "Per defecte ($1)",

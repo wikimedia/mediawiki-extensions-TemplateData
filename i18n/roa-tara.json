@@ -16,5 +16,6 @@
 	"templatedata-invalid-parse": "Errore de sindasse jndr'à JSON.",
 	"templatedata-invalid-type": "S'aspettave ca 'a probbietà \"$1\" ere de tipe \"$2\".",
 	"templatedata-invalid-unknown": "Probbietà inaspettate \"$1\".",
-	"templatedata-invalid-value": "Valore invalide pa probbietà \"$1\"."
+	"templatedata-invalid-value": "Valore invalide pa probbietà \"$1\".",
+	"templatedata-modal-button-done": "Fatte"
 }

@@ -8,7 +8,8 @@
 			"Ti4goc",
 			"Imperadeiro90",
 			"Fabulous",
-			"Cainamarques"
+			"Cainamarques",
+			"Macofe"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
@@ -49,6 +50,7 @@
 	"templatedata-modal-button-cancel": "Cancelar",
 	"templatedata-modal-button-changelang": "Alterar idioma",
 	"templatedata-modal-button-delparam": "Remover informações de parâmetro",
+	"templatedata-modal-button-done": "Feito",
 	"templatedata-modal-button-importParams": "Importar parâmetros",
 	"templatedata-modal-button-restoreparam": "Restaurar parâmetro",
 	"templatedata-modal-button-saveparam": "Gravar",

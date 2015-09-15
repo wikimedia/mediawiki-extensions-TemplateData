@@ -6,7 +6,8 @@
 			"Olion",
 			"VolodymyrF",
 			"Piramidion",
-			"Капитан Джон Шепард"
+			"Капитан Джон Шепард",
+			"Dars"
 		]
 	},
 	"apihelp-templatedata-description": "Отримати дані, що зберігаються розширенням TemplateData.",
@@ -52,6 +53,7 @@
 	"templatedata-modal-button-cancel": "Скасувати",
 	"templatedata-modal-button-changelang": "Змінити мову",
 	"templatedata-modal-button-delparam": "Вилучити інформацію про параметр",
+	"templatedata-modal-button-done": "Виконано",
 	"templatedata-modal-button-importParams": "Імпортувати параметри",
 	"templatedata-modal-button-restoreparam": "Відновити параметр",
 	"templatedata-modal-button-saveparam": "Зберегти",

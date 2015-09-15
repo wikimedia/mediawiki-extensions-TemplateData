@@ -49,6 +49,7 @@
 	"templatedata-modal-button-cancel": "キャンセル",
 	"templatedata-modal-button-changelang": "言語を変更",
 	"templatedata-modal-button-delparam": "引数情報を除去",
+	"templatedata-modal-button-done": "完了",
 	"templatedata-modal-button-importParams": "引数一覧を取り込む",
 	"templatedata-modal-button-restoreparam": "パラメーターを復元",
 	"templatedata-modal-button-saveparam": "保存",
