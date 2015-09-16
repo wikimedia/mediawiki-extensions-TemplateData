@@ -3,7 +3,8 @@
 		"authors": [
 			"Danmichaelo",
 			"Jdforrester",
-			"Kingu"
+			"Kingu",
+			"Tarjeimo"
 		]
 	},
 	"apihelp-templatedata-description": "Hent data lagret av TemplateData-tillegget.",
@@ -49,6 +50,7 @@
 	"templatedata-modal-button-cancel": "Avbryt",
 	"templatedata-modal-button-changelang": "Endre språk",
 	"templatedata-modal-button-delparam": "Fjern parameterinformasjon",
+	"templatedata-modal-button-done": "Ferdig",
 	"templatedata-modal-button-importParams": "Importer parametre",
 	"templatedata-modal-button-restoreparam": "Gjenopprett parameter",
 	"templatedata-modal-button-saveparam": "Lagre",

@@ -50,6 +50,7 @@
 	"templatedata-modal-button-cancel": "Anuluj",
 	"templatedata-modal-button-changelang": "Zmień język",
 	"templatedata-modal-button-delparam": "Usuń informację o parametrze",
+	"templatedata-modal-button-done": "Gotowe",
 	"templatedata-modal-button-importParams": "Importuj parametry",
 	"templatedata-modal-button-restoreparam": "Przywróć parametr",
 	"templatedata-modal-button-saveparam": "Zapisz",
