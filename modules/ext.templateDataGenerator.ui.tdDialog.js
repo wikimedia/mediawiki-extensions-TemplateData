@@ -217,7 +217,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 
 /**
  * Respond to model change of description event
- * @param {jQuery.Event} event Event details
+ *
  * @param {string} description New description
  */
 mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( description ) {
@@ -226,6 +226,7 @@ mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( descripti
 
 /**
  * Respond to add param input change.
+ *
  * @param {string} value New parameter name
  */
 mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
@@ -247,6 +248,7 @@ mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
 
 /**
  * Respond to change of paramOrder from the model
+ *
  * @param {string[]} paramOrderArray The array of keys in order
  */
 mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function ( paramOrderArray ) {
@@ -257,8 +259,8 @@ mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function ( paramOrder
 	for ( i = 0; i < paramOrderArray.length; i++ ) {
 		items.push(
 			new mw.TemplateData.DragDropItemWidget( {
-				data: paramOrderArray[i],
-				label: paramOrderArray[i]
+				data: paramOrderArray[ i ],
+				label: paramOrderArray[ i ]
 			} )
 		);
 	}
@@ -270,6 +272,7 @@ mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function ( paramOrder
 
 /**
  * Respond to an addition of a key to the model paramOrder
+ *
  * @param {string} key Added key
  */
 mw.TemplateData.Dialog.prototype.onModelAddKeyParamOrder = function ( key ) {
@@ -283,6 +286,7 @@ mw.TemplateData.Dialog.prototype.onModelAddKeyParamOrder = function ( key ) {
 
 /**
  * Respond to param order widget reorder event
+ *
  * @param {mw.TemplateData.DragDropItemWidget} item Item reordered
  * @param {number} newIndex New index of the item
  */
@@ -292,6 +296,7 @@ mw.TemplateData.Dialog.prototype.onParamOrderWidgetReorder = function ( item, ne
 
 /**
  * Respond to description input change event
+ *
  * @param {string} value Description value
  */
 mw.TemplateData.Dialog.prototype.onDescriptionInputChange = function ( value ) {
@@ -392,6 +397,7 @@ mw.TemplateData.Dialog.prototype.onAddParamButtonClick = function () {
 
 /**
  * Respond to choose event from the param select widget
+ *
  * @param {OO.ui.OptionWidget} item Parameter item
  */
 mw.TemplateData.Dialog.prototype.onParamSelectWidgetChoose = function ( item ) {
@@ -415,12 +421,12 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 		allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
 	if ( property === 'type' ) {
-		value = this.propInputs[property].getMenu().getSelectedItem() ? this.propInputs[property].getMenu().getSelectedItem().getData() : 'undefined';
+		value = this.propInputs[ property ].getMenu().getSelectedItem() ? this.propInputs[ property ].getMenu().getSelectedItem().getData() : 'undefined';
 	}
 
 	// TODO: Validate the name
-	if ( allProps[property].restrict ) {
-		if ( value.match( allProps[property].restrict ) ) {
+	if ( allProps[ property ].restrict ) {
+		if ( value.match( allProps[ property ].restrict ) ) {
 			// Error! Don't fix the model
 			err = true;
 			this.toggleNoticeMessage( 'edit', true, 'error', mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
@@ -429,7 +435,7 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 		}
 	}
 
-	this.propInputs[property].$element.toggleClass( 'tdg-editscreen-input-error', err );
+	this.propInputs[ property ].$element.toggleClass( 'tdg-editscreen-input-error', err );
 
 	// Check if there is a dependent input to activate
 	if ( allProps[ property ].textValue && this.propFieldLayout[ allProps[ property ].textValue ] ) {
@@ -455,6 +461,7 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 
 /**
  * Set the parameter details in the detail panel.
+ *
  * @param {Object} paramKey Parameter details
  */
 mw.TemplateData.Dialog.prototype.getParameterDetails = function ( paramKey ) {
@@ -463,10 +470,10 @@ mw.TemplateData.Dialog.prototype.getParameterDetails = function ( paramKey ) {
 		allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
 	for ( prop in this.propInputs ) {
-		this.changeParamPropertyInput( paramKey, prop, paramData[prop], this.language );
+		this.changeParamPropertyInput( paramKey, prop, paramData[ prop ], this.language );
 		// Show/hide dependents
 		if ( allProps[ prop ].textValue ) {
-			this.propFieldLayout[ allProps[ prop ].textValue ].toggle( !!paramData[prop] );
+			this.propFieldLayout[ allProps[ prop ].textValue ].toggle( !!paramData[ prop ] );
 		}
 	}
 
@@ -505,9 +512,9 @@ mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
 
 	// Update all param descriptions in the param select widget
 	for ( i in paramOrder ) {
-		paramKey = paramList[paramOrder[i]];
+		paramKey = paramList[ paramOrder[ i ] ];
 		if ( paramKey && !paramKey.deleted ) {
-			this.addParamToSelectWidget( paramOrder[i] );
+			this.addParamToSelectWidget( paramOrder[ i ] );
 		}
 	}
 
@@ -526,17 +533,18 @@ mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
 
 /**
  * Change parameter property
+ *
  * @param {string} paramKey Parameter key
  * @param {string} propName Property name
- * @param {string} propVal Property value
+ * @param {string} value Property value
  * @param {string} [lang] Language
  */
 mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value, lang ) {
 	var languageProps = mw.TemplateData.Model.static.getPropertiesWithLanguage(),
 		allProps = mw.TemplateData.Model.static.getAllProperties( true ),
-		prop = allProps[propName],
-		propInput = typeof this.propInputs[propName].getMenu === 'function' ?
-			this.propInputs[propName].getMenu() : this.propInputs[propName];
+		prop = allProps[ propName ],
+		propInput = typeof this.propInputs[ propName ].getMenu === 'function' ?
+			this.propInputs[ propName ].getMenu() : this.propInputs[ propName ];
 
 	lang = lang || this.language;
 
@@ -548,7 +556,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 			propInput.setValue( !!value );
 		} else {
 			if ( $.inArray( propName, languageProps ) !== -1 ) {
-				propInput.setValue( value[lang] );
+				propInput.setValue( value[ lang ] );
 			} else {
 				if ( prop.type === 'array' && $.type( value ) === 'array' ) {
 					value = value.join( prop.delimiter );
@@ -559,7 +567,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 	} else {
 		// Empty the input
 		if ( prop.type === 'select' ) {
-			propInput.selectItem( propInput.getItemFromData( prop['default'] ) );
+			propInput.selectItem( propInput.getItemFromData( prop[ 'default' ] ) );
 		} else {
 			propInput.setValue( '' );
 		}
@@ -568,8 +576,8 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 
 /**
  * Add parameter to the list
+ *
  * @param {string} paramKey Parameter key in the model
- * @param {Object} paramData Parameter data
  */
 mw.TemplateData.Dialog.prototype.addParamToSelectWidget = function ( paramKey ) {
 	var paramItem,
@@ -589,7 +597,8 @@ mw.TemplateData.Dialog.prototype.addParamToSelectWidget = function ( paramKey ) 
 
 /**
  * Create the information page about individual parameters
- * @returns {jQuery} Editable details page for the parameter
+ *
+ * @return {jQuery} Editable details page for the parameter
  */
 mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 	var props, type, propInput, config, paramProperties,
@@ -603,19 +612,19 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 
 	for ( props in paramProperties ) {
 		config = {
-			multiline: paramProperties[props].multiline
+			multiline: paramProperties[ props ].multiline
 		};
-		if ( paramProperties[props].multiline ) {
+		if ( paramProperties[ props ].multiline ) {
 			config.autosize = true;
 		}
 		// Create the property inputs
 		switch ( props ) {
 			case 'type':
 				propInput = new OO.ui.DropdownWidget( config );
-				for ( type in paramProperties[props].children ) {
+				for ( type in paramProperties[ props ].children ) {
 					typeItemArray.push( new OO.ui.OptionWidget( {
-						data: paramProperties[props].children[type],
-						label: mw.msg( 'templatedata-modal-table-param-type-' + paramProperties[props].children[type] )
+						data: paramProperties[ props ].children[ type ],
+						label: mw.msg( 'templatedata-modal-table-param-type-' + paramProperties[ props ].children[ type ] )
 					} ) );
 				}
 				propInput.getMenu().addItems( typeItemArray );
@@ -630,12 +639,12 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 				break;
 		}
 
-		this.propInputs[props] = propInput;
+		this.propInputs[ props ] = propInput;
 
 		propInput.$element
 			.addClass( 'tdg-TemplateDataDialog-paramInput tdg-TemplateDataDialog-paramList-' + props );
 
-		this.propFieldLayout[props] = new OO.ui.FieldLayout( propInput, {
+		this.propFieldLayout[ props ] = new OO.ui.FieldLayout( propInput, {
 			align: 'left',
 			label: mw.msg( 'templatedata-modal-table-param-' + props )
 		} );
@@ -647,7 +656,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 			propInput.connect( this, { change: [ 'onParamPropertyInputChange', props ] } );
 		}
 		// Append to parameter section
-		paramFieldset.$element.append( this.propFieldLayout[props].$element );
+		paramFieldset.$element.append( this.propFieldLayout[ props ].$element );
 	}
 	// Update parameter property fields with languages
 	this.updateParamDetailsLanguage( this.language );
@@ -657,6 +666,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 /**
  * Update the labels for parameter property inputs that include language, so
  * they show the currently used language.
+ *
  * @param {string} [lang] Language. If not used, will use currently defined
  *  language.
  */
@@ -666,14 +676,15 @@ mw.TemplateData.Dialog.prototype.updateParamDetailsLanguage = function ( lang ) 
 	lang = lang || this.language;
 
 	for ( i = 0; i < languageProps.length; i++ ) {
-		prop = languageProps[i];
+		prop = languageProps[ i ];
 		label = mw.msg( 'templatedata-modal-table-param-' + prop, lang );
-		this.propFieldLayout[prop].setLabel( label );
+		this.propFieldLayout[ prop ].setLabel( label );
 	}
 };
 
 /**
  * Override getBodyHeight to create a tall dialog relative to the screen.
+ *
  * @return {number} Body height
  */
 mw.TemplateData.Dialog.prototype.getBodyHeight = function () {
@@ -682,6 +693,7 @@ mw.TemplateData.Dialog.prototype.getBodyHeight = function () {
 
 /**
  * Show or hide the notice message in the dialog with a set message.
+ *
  * @param {string} type Which notice label to show: 'list' or 'global'
  * @param {boolean} isShowing Show or hide the message
  * @param {string} status Message status 'error' or 'success'
@@ -805,11 +817,11 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			// Add all available languages
 			for ( i = 0; i < languages.length; i++ ) {
 				languageItems.push( new OO.ui.OptionWidget( {
-					data: languages[i],
-					label: $.uls.data.getAutonym( languages[i] )
+					data: languages[ i ],
+					label: $.uls.data.getAutonym( languages[ i ] )
 				} ) );
 				// Store available languages
-				this.availableLanguages.push( languages[i] );
+				this.availableLanguages.push( languages[ i ] );
 			}
 			this.languageDropdownWidget.getMenu().addItems( languageItems );
 			// Trigger the initial language choice
@@ -822,8 +834,8 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 				// Create a DragDrop widget
 				items.push(
 					new mw.TemplateData.DragDropItemWidget( {
-						data: paramOrderArray[i],
-						label: paramOrderArray[i]
+						data: paramOrderArray[ i ],
+						label: paramOrderArray[ i ]
 					} )
 				);
 			}
@@ -849,6 +861,7 @@ mw.TemplateData.Dialog.prototype.setupDetailsFromModel = function () {
 
 /**
  * Switch between stack layout panels
+ *
  * @param {string} panel Panel key to switch to
  */
 mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {

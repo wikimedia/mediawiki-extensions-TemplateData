@@ -5,65 +5,67 @@
 ( function () {
 	'use strict';
 
+	var i, testVars, finalJsonStringParams, finalJsonStringOnly, finalJsonStringOnlyParamOrder,
+		resultDescCurrLang, resultDescMockLang, resultDescBothLang, currLanguage, originalWikitext;
+
 	QUnit.module( 'ext.templateData', QUnit.newMwEnvironment() );
 
-	var i, testVars, finalJsonStringParams, finalJsonStringOnly, finalJsonStringOnlyParamOrder,
-		resultDescCurrLang = {},
-		resultDescMockLang = {},
-		resultDescBothLang = {},
-		currLanguage = mw.config.get( 'wgContentLanguage' ) || 'en',
-		originalWikitext = 'Some text here that is not templatedata information.' +
-			'<templatedata>' +
-			'{' +
-			'	"description": {\n' +
-			'		"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
-			'		"blah": "Template description in some blah language."\n' +
-			'	},' +
-			'	"params": {' +
-			'		"user": {' +
-			'			"label": "Username",' +
-			'			"type": "wiki-user-name",' +
-			'			"required": true,' +
-			'			"description": "User name of person who forgot to sign their comment.",' +
-			'			"aliases": ["1"]' +
-			'		},' +
-			'		"date": {' +
-			'			"label": "Date",' +
-			'			"description": {' +
-			'				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."' +
-			'			},' +
-			'			"aliases": ["2"],' +
-			'			"autovalue": "{{subst:CURRENTMONTHNAME}}",' +
-			'			"suggested": true' +
-			'		},' +
-			'		"year": {' +
-			'			"label": "Year",' +
-			'			"type": "number"' +
-			'		},' +
-			'		"month": {' +
-			'			"label": "Month",' +
-			'			"inherits": "year"' +
-			'		},' +
-			'		"day": {' +
-			'			"label": "Day",' +
-			'			"inherits": "year"' +
-			'		},' +
-			'		"comment": {' +
-			'			"required": false' +
-			'		}' +
-			'	},' +
-			'	"sets": [' +
-			'		{' +
-			'			"label": "Date",' +
-			'			"params": ["year", "month", "day"]' +
-			'		}' +
-			'	]' +
-			'}' +
-			'</templatedata>' +
-			'Trailing text at the end.';
+	resultDescCurrLang = {};
+	resultDescMockLang = {};
+	resultDescBothLang = {};
+	currLanguage = mw.config.get( 'wgContentLanguage' ) || 'en';
+	originalWikitext = 'Some text here that is not templatedata information.' +
+		'<templatedata>' +
+		'{' +
+		'	"description": {\n' +
+		'		"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
+		'		"blah": "Template description in some blah language."\n' +
+		'	},' +
+		'	"params": {' +
+		'		"user": {' +
+		'			"label": "Username",' +
+		'			"type": "wiki-user-name",' +
+		'			"required": true,' +
+		'			"description": "User name of person who forgot to sign their comment.",' +
+		'			"aliases": ["1"]' +
+		'		},' +
+		'		"date": {' +
+		'			"label": "Date",' +
+		'			"description": {' +
+		'				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."' +
+		'			},' +
+		'			"aliases": ["2"],' +
+		'			"autovalue": "{{subst:CURRENTMONTHNAME}}",' +
+		'			"suggested": true' +
+		'		},' +
+		'		"year": {' +
+		'			"label": "Year",' +
+		'			"type": "number"' +
+		'		},' +
+		'		"month": {' +
+		'			"label": "Month",' +
+		'			"inherits": "year"' +
+		'		},' +
+		'		"day": {' +
+		'			"label": "Day",' +
+		'			"inherits": "year"' +
+		'		},' +
+		'		"comment": {' +
+		'			"required": false' +
+		'		}' +
+		'	},' +
+		'	"sets": [' +
+		'		{' +
+		'			"label": "Date",' +
+		'			"params": ["year", "month", "day"]' +
+		'		}' +
+		'	]' +
+		'}' +
+		'</templatedata>' +
+		'Trailing text at the end.';
 
 	// Prepare description language objects
-	resultDescCurrLang[currLanguage] = 'Some string here in ' + currLanguage + ' language.';
+	resultDescCurrLang[ currLanguage ] = 'Some string here in ' + currLanguage + ' language.';
 	resultDescMockLang.blah = 'Some string here in blah language.';
 	resultDescBothLang = $.extend( {}, resultDescCurrLang, resultDescMockLang );
 	finalJsonStringParams = '	"params": {\n' +
@@ -113,7 +115,7 @@
 		'		},\n' +
 		'		"newParam4": {\n' +
 		'			"description": {\n' +
-		'				"' + currLanguage + '": "' + resultDescBothLang[currLanguage] + '",\n' +
+		'				"' + currLanguage + '": "' + resultDescBothLang[ currLanguage ] + '",\n' +
 		'				"blah": "' + resultDescBothLang.blah + '"\n' +
 		'			}\n' +
 		'		}\n' +
@@ -367,7 +369,7 @@
 
 		// Compare
 		for ( i = 0; i < tests.compare.length; i++ ) {
-			testVars = tests.compare[i];
+			testVars = tests.compare[ i ];
 			assert.equal(
 				mw.TemplateData.Model.static.compare( testVars.obj1, testVars.obj2, testVars.allowSubset ),
 				testVars.result,
@@ -377,7 +379,7 @@
 
 		// Split and trim
 		for ( i = 0; i < tests.splitAndTrimArray.length; i++ ) {
-			testVars = tests.splitAndTrimArray[i];
+			testVars = tests.splitAndTrimArray[ i ];
 			assert.deepEqual(
 				mw.TemplateData.Model.static.splitAndTrimArray( testVars.string, testVars.delim ),
 				testVars.result,
@@ -387,7 +389,7 @@
 
 		// arrayUnionWithoutEmpty
 		for ( i = 0; i < tests.arrayUnionWithoutEmpty.length; i++ ) {
-			testVars = tests.arrayUnionWithoutEmpty[i];
+			testVars = tests.arrayUnionWithoutEmpty[ i ];
 			assert.deepEqual(
 				mw.TemplateData.Model.static.arrayUnionWithoutEmpty.apply( testVars, testVars.arrays ),
 				testVars.result,
@@ -449,8 +451,8 @@
 					key: 'newParam1',
 					property: 'description',
 					language: 'en',
-					value: resultDescCurrLang[currLanguage],
-					result: $.extend( {}, paramAddTest[0].result, {
+					value: resultDescCurrLang[ currLanguage ],
+					result: $.extend( {}, paramAddTest[ 0 ].result, {
 						description: resultDescCurrLang
 					} ),
 					msg: 'Adding description in current language.'
@@ -460,7 +462,7 @@
 					property: 'description',
 					language: 'blah',
 					value: resultDescMockLang.blah,
-					result: $.extend( {}, paramAddTest[0].result, {
+					result: $.extend( {}, paramAddTest[ 0 ].result, {
 						description: $.extend( {}, resultDescCurrLang, resultDescMockLang )
 					} ),
 					msg: 'Adding description in mock language.'
@@ -481,7 +483,7 @@
 					property: 'description',
 					language: 'blah',
 					value: '',
-					result: $.extend( {}, paramAddTest[1].result, {
+					result: $.extend( {}, paramAddTest[ 1 ].result, {
 						description: { blah: '' }
 					} ),
 					msg: 'Adding empty description in mock language.'
@@ -490,7 +492,7 @@
 					key: 'newParam3',
 					property: 'deprecated',
 					value: true,
-					result: $.extend( {}, paramAddTest[2].result, {
+					result: $.extend( {}, paramAddTest[ 2 ].result, {
 						deprecated: true
 					} ),
 					msg: 'Adding deprecated property (boolean).'
@@ -499,7 +501,7 @@
 					key: 'newParam3',
 					property: 'deprecatedValue',
 					value: 'This is deprecated.',
-					result: $.extend( {}, paramAddTest[2].result, {
+					result: $.extend( {}, paramAddTest[ 2 ].result, {
 						deprecated: true,
 						deprecatedValue: 'This is deprecated.'
 					} ),
@@ -542,31 +544,31 @@
 
 				for ( i = 0; i < paramAddTest.length; i++ ) {
 					// Add parameter
-					model.addParam( paramAddTest[i].key, paramAddTest[i].data );
+					model.addParam( paramAddTest[ i ].key, paramAddTest[ i ].data );
 
 					// Test new param data
 					assert.deepEqual(
-						model.getParamData( paramAddTest[i].key ),
-						paramAddTest[i].result,
-						paramAddTest[i].msg + ' (parameter data)'
+						model.getParamData( paramAddTest[ i ].key ),
+						paramAddTest[ i ].result,
+						paramAddTest[ i ].msg + ' (parameter data)'
 					);
 
 					// Check description in current language
 					assert.equal(
-						model.getParamDescription( paramAddTest[i].key, currLanguage ),
-						paramAddTest[i].description,
-						paramAddTest[i].msg + ' (description in current language)'
+						model.getParamDescription( paramAddTest[ i ].key, currLanguage ),
+						paramAddTest[ i ].description,
+						paramAddTest[ i ].msg + ' (description in current language)'
 					);
 				}
 
 				// Change parameter properties
 				for ( i = 0; i < paramChangeTest.length; i++ ) {
-					testVars = paramChangeTest[i];
+					testVars = paramChangeTest[ i ];
 					model.setParamProperty( testVars.key, testVars.property, testVars.value, testVars.language );
 					assert.deepEqual(
 						model.getParamData( testVars.key ),
-						paramChangeTest[i].result,
-						paramChangeTest[i].msg
+						paramChangeTest[ i ].result,
+						paramChangeTest[ i ].msg
 					);
 				}
 

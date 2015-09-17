@@ -151,7 +151,7 @@
 					/<templatedata>([\s\S]*?)<\/templatedata>/i
 				);
 
-			if ( parts && parts[1] ) {
+			if ( parts && parts[ 1 ] ) {
 				// <templatedata> exists. Replace it
 				finalOutput = fullWikitext.replace(
 					/(<templatedata>)([\s\S]*?)(<\/templatedata>)/i,
@@ -176,6 +176,7 @@
 		return {
 			/**
 			 * Initialize UI
+			 *
 			 * @param {jQuery} $container The container to attach UI buttons to
 			 * @param {jQuery} $editorTextbox The editor textbox to take the
 			 *  current wikitext from.
@@ -227,14 +228,14 @@
 				sourceHandler.getApi( relatedPage )
 					.then( function ( result ) {
 						var msg, matches, content,
-							response = result.query.pages[ result.query.pageids[0] ];
+							response = result.query.pages[ result.query.pageids[ 0 ] ];
 						// HACK: When checking whether a related page (parent for /doc page or
 						// vice versa) already has a templatedata string, we shouldn't
 						// ask for the 'templatedata' action but rather the actual content
 						// of the related page, otherwise we get embedded templatedata and
 						// wrong information is presented.
 						if ( response.missing === undefined ) {
-							content = response.revisions[0]['*'];
+							content = response.revisions[ 0 ][ '*' ];
 							matches = content.match( /<templatedata>/i );
 							// There's a templatedata string
 							if ( matches ) {

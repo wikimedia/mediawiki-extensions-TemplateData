@@ -34,7 +34,8 @@ OO.initClass( mw.TemplateData.SourceHandler );
 OO.mixinClass( mw.TemplateData.SourceHandler, OO.EventEmitter );
 
 /**
- * Get information from the mediaWiki API
+ * Get information from the MediaWiki API
+ *
  * @param {string} page Page name
  * @param {boolean} [getTemplateData] Fetch the templatedata in the page.
  * @return {jQuery.Promise} API promise
@@ -58,11 +59,11 @@ mw.TemplateData.SourceHandler.prototype.getApi = function ( page, getTemplateDat
 	}
 
 	// Cache
-	if ( !this.apiCache[page] || !this.apiCache[page][type] ) {
-		this.apiCache[page] = this.apiCache[page] || {};
-		this.apiCache[page][type] = api.get( config );
+	if ( !this.apiCache[ page ] || !this.apiCache[ page ][ type ] ) {
+		this.apiCache[ page ] = this.apiCache[ page ] || {};
+		this.apiCache[ page ][ type ] = api.get( config );
 	}
-	return this.apiCache[page][type];
+	return this.apiCache[ page ][ type ];
 };
 
 /**
@@ -132,10 +133,10 @@ mw.TemplateData.SourceHandler.prototype.getParametersFromTemplateSource = functi
 					// This is particularly important for unit tests, since the
 					// requested page from the API is the Qunit module and has no content
 					if (
-						resp.query.pages[resp.query.pageids[0]].revisions &&
-						resp.query.pages[resp.query.pageids[0]].revisions[0]
+						resp.query.pages[ resp.query.pageids[ 0 ] ].revisions &&
+						resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ]
 					) {
-						pageContent = resp.query.pages[resp.query.pageids[0]].revisions[0]['*'];
+						pageContent = resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ][ '*' ];
 					}
 					return sourceHandler.extractParametersFromTemplateCode( pageContent );
 				},
@@ -158,7 +159,7 @@ mw.TemplateData.SourceHandler.prototype.getParametersFromTemplateSource = functi
  *
  * Adapted from https://he.wikipedia.org/wiki/MediaWiki:Gadget-TemplateParamWizard.js
  *
- * @param {string} templateSource Source of the template.
+ * @param {string} templateCode Source of the template.
  * @return {jQuery.Promise} A promise that resolves into an
  *  array of parameters that appear in the template code
  */
@@ -168,8 +169,8 @@ mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = func
 	paramExtractor = /{{3,}(.*?)[<|}]/mg;
 
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
-		if ( $.inArray( matches[1], paramNames ) === -1 ) {
-			paramNames.push( $.trim( matches[1] ) );
+		if ( $.inArray( matches[ 1 ], paramNames ) === -1 ) {
+			paramNames.push( $.trim( matches[ 1 ] ) );
 		}
 	}
 
@@ -193,10 +194,10 @@ mw.TemplateData.SourceHandler.prototype.parseModelFromString = function ( templa
 	);
 
 	// Check if <templatedata> exists
-	if ( parts && parts[1] && $.trim( parts[1] ).length > 0 ) {
+	if ( parts && parts[ 1 ] && $.trim( parts[ 1 ] ).length > 0 ) {
 		// Parse the json string
 		try {
-			return $.parseJSON( $.trim( parts[1] ) );
+			return $.parseJSON( $.trim( parts[ 1 ] ) );
 		} catch ( err ) {
 			return null;
 		}
@@ -208,6 +209,7 @@ mw.TemplateData.SourceHandler.prototype.parseModelFromString = function ( templa
 
 /**
  * Set the page as a sub page of the main template
+ *
  * @param {boolean} isSubLevel Page is sublevel
  */
 mw.TemplateData.SourceHandler.prototype.setPageSubLevel = function ( isSubLevel ) {
@@ -216,6 +218,7 @@ mw.TemplateData.SourceHandler.prototype.setPageSubLevel = function ( isSubLevel 
 
 /**
  * Set the page as a sub page of the main template
+ *
  * @return {boolean} Page is sublevel
  */
 mw.TemplateData.SourceHandler.prototype.isPageSubLevel = function () {
@@ -224,6 +227,7 @@ mw.TemplateData.SourceHandler.prototype.isPageSubLevel = function () {
 
 /**
  * Get full page name
+ *
  * @param {string} pageName Page name
  */
 mw.TemplateData.SourceHandler.prototype.setFullPageName = function ( pageName ) {
@@ -232,6 +236,7 @@ mw.TemplateData.SourceHandler.prototype.setFullPageName = function ( pageName ) 
 
 /**
  * Get page full name
+ *
  * @return {string} Page full name
  */
 mw.TemplateData.SourceHandler.prototype.getFullPageName = function () {
@@ -240,7 +245,8 @@ mw.TemplateData.SourceHandler.prototype.getFullPageName = function () {
 
 /**
  * Set parent page
- * @param {string} Parent page
+ *
+ * @param {string} parent Parent page
  */
 mw.TemplateData.SourceHandler.prototype.setParentPage = function ( parent ) {
 	this.parentPage = parent || '' ;
@@ -248,6 +254,7 @@ mw.TemplateData.SourceHandler.prototype.setParentPage = function ( parent ) {
 
 /**
  * Get parent page
+ *
  * @return {string} Parent page
  */
 mw.TemplateData.SourceHandler.prototype.getParentPage = function () {
@@ -256,6 +263,7 @@ mw.TemplateData.SourceHandler.prototype.getParentPage = function () {
 
 /**
  * Set template source code parameters
+ *
  * @param {string[]} params Parameters from the template source code
  */
 mw.TemplateData.SourceHandler.prototype.setTemplateSourceCodeParams = function ( params ) {
@@ -264,6 +272,7 @@ mw.TemplateData.SourceHandler.prototype.setTemplateSourceCodeParams = function (
 
 /**
  * Set template source code parameters
+ *
  * @return {string[]} Parameters from the template source code
  */
 mw.TemplateData.SourceHandler.prototype.getTemplateSourceCodeParams = function () {
