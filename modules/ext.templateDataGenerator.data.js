@@ -142,6 +142,7 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 				'date',
 				'wiki-page-name',
 				'string',
+				'wiki-template-name',
 				'unbalanced-wikitext',
 				'undefined',
 				'wiki-user-name'

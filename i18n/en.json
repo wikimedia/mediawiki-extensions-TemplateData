@@ -88,6 +88,7 @@
 	"templatedata-modal-table-param-type-undefined": "Undefined",
 	"templatedata-modal-table-param-type-wiki-file-name": "File",
 	"templatedata-modal-table-param-type-wiki-page-name": "Page",
+	"templatedata-modal-table-param-type-wiki-template-name": "Template",
 	"templatedata-modal-table-param-type-wiki-user-name": "User",
 	"templatedata-modal-table-param-uneditablefield": "Uneditable",
 	"templatedata-modal-title": "Template documentation editor",

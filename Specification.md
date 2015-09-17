@@ -235,6 +235,10 @@ One of the following:
   A valid MediaWiki file name for the current wiki. Doesn't have to exist,
   but if not, should be a valid file name to upload. Should not include any
   localised or standard namespace prefix ("Foo" not "File:Foo").
+- `wiki-template-name`<br/>
+  A valid MediaWiki template name for the current wiki. Doesn't have to exist,
+  but if not, should be a valid template name to create. Should not include any
+  localised or standard namespace prefix ("Foo" not "Template:Foo").
 - `content`<br/>
   Page content (such as text style, links and images etc.).
 - `unbalanced-wikitext`<br/>
