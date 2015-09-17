@@ -108,6 +108,7 @@ class TemplateDataBlob {
 			'date',
 			'unbalanced-wikitext',
 			'unknown',
+			'url',
 			'wiki-page-name',
 			'wiki-user-name',
 			'wiki-file-name',

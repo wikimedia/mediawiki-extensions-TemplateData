@@ -224,6 +224,9 @@ One of the following:
   A boolean value ('1' for true, '0' for false, '' for unknown).
 - `date`<br/>
   A date in ISO 8601 format, e.g. "2014-05-09" or "2014-05-09T16:01:12Z".
+- `url`<br/>
+  A URL, including protocol, e.g. "http://www.example.org",
+  "https://example.org", or "//example.org".
 - `wiki-page-name`<br/>
   A valid MediaWiki page name for the current wiki. Doesn't have to exist,
   but if not, should be a valid page name to create.

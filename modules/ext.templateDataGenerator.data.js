@@ -145,6 +145,7 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 				'wiki-template-name',
 				'unbalanced-wikitext',
 				'undefined',
+				'url',
 				'wiki-user-name'
 			],
 			'default': 'undefined'

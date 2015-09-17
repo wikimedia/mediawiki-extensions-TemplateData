@@ -86,6 +86,7 @@
 	"templatedata-modal-table-param-type-string": "String",
 	"templatedata-modal-table-param-type-unbalanced-wikitext": "Unbalanced wikitext",
 	"templatedata-modal-table-param-type-undefined": "Undefined",
+	"templatedata-modal-table-param-type-url": "URL",
 	"templatedata-modal-table-param-type-wiki-file-name": "File",
 	"templatedata-modal-table-param-type-wiki-page-name": "Page",
 	"templatedata-modal-table-param-type-wiki-template-name": "Template",

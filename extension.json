@@ -139,6 +139,7 @@
 				"templatedata-modal-table-param-type-string",
 				"templatedata-modal-table-param-type-unbalanced-wikitext",
 				"templatedata-modal-table-param-type-undefined",
+				"templatedata-modal-table-param-type-url",
 				"templatedata-modal-table-param-type-wiki-file-name",
 				"templatedata-modal-table-param-type-wiki-page-name",
 				"templatedata-modal-table-param-type-wiki-template-name",
