@@ -53,6 +53,7 @@
 	"templatedata-modal-button-cancel": "取消",
 	"templatedata-modal-button-changelang": "更改语言",
 	"templatedata-modal-button-delparam": "移除参数信息",
+	"templatedata-modal-button-done": "完成",
 	"templatedata-modal-button-importParams": "导入参数",
 	"templatedata-modal-button-restoreparam": "恢复参数",
 	"templatedata-modal-button-saveparam": "保存",
