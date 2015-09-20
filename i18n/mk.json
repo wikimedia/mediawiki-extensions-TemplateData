@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот ШаблонскиПодатоци.",
+	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот Шаблонски податоци.",
 	"apihelp-templatedata-example-1": "Дај податоци за [[Template:Stub]] и [[Template:Example]]",
 	"apihelp-templatedata-param-format": "Формат на изводот.",
 	"apihelp-templatedata-param-lang": "Дај ги вредностите преведени на овој јазик. По основно се даваат сите расположиви преводи.",
@@ -27,10 +27,10 @@
 	"templatedata-doc-param-status-suggested": "предложен",
 	"templatedata-doc-param-type": "Тип",
 	"templatedata-doc-params": "Шаблонски параметри",
-	"templatedata-editbutton": "Раководење со ШаблонскиПодатоци",
-	"templatedata-errormsg-jsonbadformat": "Неисправен JSON-формат. Можете да ја откажете операцијава за да ја исправите, да ги избришете тековните ознаки <templatedata> и да се обидете повторно. Можете и да продолжите заменувајќи го тековниот ШаблонскиПодатоци со нов.",
-	"templatedata-exists-on-related-page": "Имајте на ум: веќе постои блок со ШаблонскиПодатоци  на поврзаната страница „[[$1]]“.",
-	"templatedata-helplink": "Информации за ШаблонскиПодатоци",
+	"templatedata-editbutton": "Раководење со шаблонски податоци",
+	"templatedata-errormsg-jsonbadformat": "Неисправен JSON-формат. Можете да ја откажете операцијава за да ја исправите, да ги избришете тековните ознаки <templatedata> и да се обидете повторно. Можете и да продолжите заменувајќи ги тековните шаблонски податоци со нови.",
+	"templatedata-exists-on-related-page": "Имајте на ум: веќе постои блок со шаблонски податоци  на поврзаната страница „[[$1]]“.",
+	"templatedata-helplink": "Информации за шаблонски податоци",
 	"templatedata-invalid-duplicate-value": "Својството „$1“ („$3“) е дупликат на „$2“.",
 	"templatedata-invalid-empty-array": "Својството „$1“ мора да има барем една вреднсот во стројот.",
 	"templatedata-invalid-length": "Податоците се преголеми за да се зачуваат ({{formatnum:$1}} {{PLURAL:$1|бајт|бајти}}, а {{PLURAL:$2|границата е}} {{formatnum:$2}})",
