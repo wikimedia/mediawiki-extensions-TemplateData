@@ -5,7 +5,8 @@
 			"Lokal Profil",
 			"Skalman",
 			"WikiPhoenix",
-			"Jenniesarina"
+			"Jenniesarina",
+			"Ainali"
 		]
 	},
 	"apihelp-templatedata-description": "Hämta data som lagras av TemplateData-tillägget.",
@@ -51,6 +52,7 @@
 	"templatedata-modal-button-cancel": "Avbryt",
 	"templatedata-modal-button-changelang": "Ändra språk",
 	"templatedata-modal-button-delparam": "Ta bort parameterinformation",
+	"templatedata-modal-button-done": "Klar",
 	"templatedata-modal-button-importParams": "Importera parametrar",
 	"templatedata-modal-button-restoreparam": "Återställ parameter",
 	"templatedata-modal-button-saveparam": "Spara",

@@ -41,7 +41,7 @@
 	"templatedata-modal-button-addparam": "변수 추가",
 	"templatedata-modal-button-apply": "적용",
 	"templatedata-modal-button-cancel": "취소",
-	"templatedata-modal-button-delparam": "제거",
+	"templatedata-modal-button-delparam": "변수 정보 제거",
 	"templatedata-modal-button-importParams": "변수 가져오기",
 	"templatedata-modal-current-language": "현재 언어: $1",
 	"templatedata-modal-errormsg": "오류를 찾았습니다. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  \"$1\", \"$2\", \"$3\" 기호가 포함되지 않도록 하세요.",
