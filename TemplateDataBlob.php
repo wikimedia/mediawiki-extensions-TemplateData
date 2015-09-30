@@ -111,6 +111,7 @@ class TemplateDataBlob {
 			'wiki-page-name',
 			'wiki-user-name',
 			'wiki-file-name',
+			'wiki-template-name',
 		);
 
 		static $typeCompatMap = array(
