@@ -5,7 +5,8 @@
 			"Test Create account",
 			"Fatz",
 			"Yahya Sakhnini",
-			"Meno25"
+			"Meno25",
+			"محمد أحمد عبد الفتاح"
 		]
 	},
 	"templatedata-desc": "تخزين بيانات وسائط القالب",
@@ -44,9 +45,11 @@
 	"templatedata-modal-button-cancel": "إلغاء",
 	"templatedata-modal-button-changelang": "تغيير اللغة",
 	"templatedata-modal-button-delparam": "إزالة",
+	"templatedata-modal-button-done": "نفذ",
 	"templatedata-modal-button-importParams": "استيراد وسيط",
 	"templatedata-modal-button-restoreparam": "استرجاع العامل المتغير",
 	"templatedata-modal-button-saveparam": "احفظ",
+	"templatedata-modal-current-language": "اللغة الحالية: $1",
 	"templatedata-modal-errormsg": "خطأ: تأكد من عدم وجود وسائط فارغة أو مكررة، ومن عدم تضمن اسم الوسيط للرموز \"$1\" و\"$2\" و\"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "ما من وسائط جديدة وجدت عند الاستيراد.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "لا تستورد بعض البارامترات، لوجودها سلفا في صندوق التحرير: $1.",
@@ -76,6 +79,8 @@
 	"templatedata-modal-table-param-type-wiki-user-name": "مستخدم",
 	"templatedata-modal-table-param-uneditablefield": "لا يعدل",
 	"templatedata-modal-title": "محرر توثيق القالب",
+	"templatedata-modal-title-choose-language": "اختر لغة",
+	"templatedata-modal-title-language": "اللغة",
 	"templatedata-modal-title-templatedesc": "وصف القالب",
 	"templatedata-modal-title-templateparams": "وسائط القالب"
 }
