@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот Шаблонски податоци.",
+	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот „Шаблонски податоци“ (TemplateData).",
 	"apihelp-templatedata-example-1": "Дај податоци за [[Template:Stub]] и [[Template:Example]]",
 	"apihelp-templatedata-param-format": "Формат на изводот.",
 	"apihelp-templatedata-param-lang": "Дај ги вредностите преведени на овој јазик. По основно се даваат сите расположиви преводи.",
@@ -82,8 +82,10 @@
 	"templatedata-modal-table-param-type-string": "Низа",
 	"templatedata-modal-table-param-type-unbalanced-wikitext": "Неврамнотежен викитекст",
 	"templatedata-modal-table-param-type-undefined": "Неодреден",
+	"templatedata-modal-table-param-type-url": "URL",
 	"templatedata-modal-table-param-type-wiki-file-name": "Податотека",
 	"templatedata-modal-table-param-type-wiki-page-name": "Страница",
+	"templatedata-modal-table-param-type-wiki-template-name": "Шаблон",
 	"templatedata-modal-table-param-type-wiki-user-name": "Корисник",
 	"templatedata-modal-table-param-uneditablefield": "Неуредливо",
 	"templatedata-modal-title": "Уредник на шаблонска документација",

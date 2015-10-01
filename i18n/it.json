@@ -86,6 +86,7 @@
 	"templatedata-modal-table-param-type-string": "Stringa",
 	"templatedata-modal-table-param-type-unbalanced-wikitext": "Wikitesto sbilanciato",
 	"templatedata-modal-table-param-type-undefined": "Non definito",
+	"templatedata-modal-table-param-type-url": "URL",
 	"templatedata-modal-table-param-type-wiki-file-name": "File",
 	"templatedata-modal-table-param-type-wiki-page-name": "Pagina",
 	"templatedata-modal-table-param-type-wiki-user-name": "Utente",
