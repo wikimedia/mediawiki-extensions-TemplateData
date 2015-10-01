@@ -150,7 +150,7 @@ class TemplateDataHooks {
 
 		$parser->getOutput()->setProperty( 'templatedata', $ti->getJSONForDatabase() );
 
-		$parser->getOutput()->addModules( 'ext.templateData' );
+		$parser->getOutput()->addModuleStyles( 'ext.templateData' );
 
 		return $ti->getHtml( $parser->getOptions()->getUserLangObj() );
 	}
