@@ -89,6 +89,7 @@
 	"templatedata-modal-table-param-type-undefined": "Odefinierad",
 	"templatedata-modal-table-param-type-wiki-file-name": "Fil",
 	"templatedata-modal-table-param-type-wiki-page-name": "Sida",
+	"templatedata-modal-table-param-type-wiki-template-name": "Mall",
 	"templatedata-modal-table-param-type-wiki-user-name": "Användare",
 	"templatedata-modal-table-param-uneditablefield": "Icke-redigerbar",
 	"templatedata-modal-title": "Malldokumentationsredigerare",

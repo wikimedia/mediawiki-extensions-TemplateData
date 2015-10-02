@@ -6,5 +6,6 @@
 		]
 	},
 	"templatedata-doc-param-example-empty": "vala",
-	"templatedata-modal-table-param-example": "Mînak ($1)"
+	"templatedata-modal-table-param-example": "Mînak ($1)",
+	"templatedata-modal-table-param-type-url": "URL"
 }
