@@ -47,6 +47,7 @@ class TemplateDataBlob {
 			$tdb->data->description = null;
 			$tdb->data->params = new stdClass();
 			$tdb->data->paramOrder = array();
+			$tdb->data->format = 'inline';
 			$tdb->data->sets = array();
 			$tdb->data->maps = new stdClass();
 		}
@@ -83,6 +84,7 @@ class TemplateDataBlob {
 			'paramOrder',
 			'sets',
 			'maps',
+			'format',
 		);
 
 		static $paramKeys = array(
@@ -115,6 +117,11 @@ class TemplateDataBlob {
 			'wiki-template-name',
 		);
 
+		static $formats = array(
+			'block',
+			'inline'
+		);
+
 		static $typeCompatMap = array(
 			'string/line' => 'line',
 			'string/wiki-page-name' => 'wiki-page-name',
@@ -144,6 +151,18 @@ class TemplateDataBlob {
 			$data->description = self::normaliseInterfaceText( $data->description );
 		} else {
 			$data->description = null;
+		}
+
+		// Root.format
+		if ( isset( $data->format ) ) {
+			if ( !in_array( $data->format, $formats ) ) {
+				return Status::newFatal(
+					'templatedata-invalid-format',
+					'format'
+				);
+			}
+		} else {
+			$data->format = 'inline';
 		}
 
 		// Root.params
@@ -673,6 +692,12 @@ class TemplateDataBlob {
 				$data->description !== null ?
 					$data->description :
 					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )->text()
+			)
+			. Html::element(
+				'p',
+				array(),
+				// Messages: templatedata-modal-format-inline, templatedata-modal-format-block
+				wfMessage( 'templatedata-doc-format-' . $data->format )->inLanguage( $lang )->text()
 			)
 			. '<table class="wikitable mw-templatedata-doc-params sortable">'
 			. Html::element(

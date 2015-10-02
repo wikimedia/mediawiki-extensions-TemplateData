@@ -97,6 +97,29 @@ Consumers that look for a `Map` SHOULD publicly document their identifier key.
 
 Authors MUST ensure that the `maps` object contains only `Map` objects. Authors MAY include a parameter in multiple `Map` objects. Authors are NOT REQUIRED to reference each parameter in at least one `Map` object.
 
+#### 3.1.6 `format`
+* Value: `string` of either `inline` or `block`
+* Default: `inline`
+
+How the template's wikitext representation SHOULD be laid out. Authors MAY choose to use this parameter to express that a template will be better understood by other human readers of the wikitext representation if a template is in one form or the other.
+
+If the parameter is set to `block`, Consumers SHOULD create a wikitext representation with a single newline after the template invocation and each parameter value, a single space between each pipe and its subsequent parameter key, and a space either side of the assignment separator between the parameter key and value, like so:
+
+```
+{{Foo
+| bar = baz
+| qux = quux
+}}
+```
+
+If the parameter is set to `inline`, Consumers SHOULD create a wikitext representation with no whitespace, like so:
+
+```
+{{Foo|bar=baz|qux=quux}}
+```
+
+In the absence of the parameter being set, the system will supply `inline` as a fallback value. Authors are RECOMMENDED to set `inline` explicitly if they actively chose to use the template that way.
+
 ### 3.2 Param
 * Value: `Object`
 

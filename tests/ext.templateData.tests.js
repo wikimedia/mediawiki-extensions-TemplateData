@@ -134,7 +134,8 @@
 		'				"day"\n' +
 		'			]\n' +
 		'		}\n' +
-		'	]\n' +
+		'	],\n' +
+		'	"format": "inline"\n' +
 		'}';
 	finalJsonStringOnlyParamOrder = '{\n' +
 		'	"description": {\n' +
@@ -161,7 +162,8 @@
 		'		"newParam2",\n' +
 		'		"newParam3",\n' +
 		'		"newParam4"\n' +
-		'	]\n' +
+		'	],\n' +
+		'	"format": "inline"\n' +
 		'}';
 
 	// Test validation tools
@@ -628,6 +630,32 @@
 		sourceHandler.buildModel( erronousString )
 			.always( function () {
 				assert.ok( this.state() === 'rejected', 'Promise rejected on erronous json string.' );
+				QUnit.start();
+			} );
+	} );
+
+	// Test model gets default format
+	QUnit.asyncTest( 'TemplateData sourceHandler adding default format', function ( assert ) {
+		var sourceHandler = new mw.TemplateData.SourceHandler(),
+			simpleTemplateDataNoFormat = '<templatedata>{\n' +
+				'	"params": {}\n' +
+				'}</templatedata>',
+			simpleTemplateDataDefaultFormat = '{\n' +
+				'	"params": {},\n' +
+				'	"format": "inline"\n' + // default format
+				'}';
+
+		QUnit.expect( 1 );
+
+		sourceHandler.buildModel( simpleTemplateDataNoFormat )
+			.done( function ( model ) {
+				assert.equal(
+					model.outputTemplateDataString(),
+					simpleTemplateDataDefaultFormat,
+					'Final templatedata output'
+				);
+			} )
+			.always( function () {
 				QUnit.start();
 			} );
 	} );
