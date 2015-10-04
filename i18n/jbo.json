@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gleki"
+			"Gleki",
+			"KSFT"
 		]
 	},
-	"templatedata-modal-button-cancel": "kansele"
+	"templatedata-modal-button-cancel": "kansele",
+	"templatedata-modal-table-param-type-wiki-template-name": "lo morna"
 }
