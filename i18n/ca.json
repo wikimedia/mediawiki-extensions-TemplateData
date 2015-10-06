@@ -25,5 +25,7 @@
 	"templatedata-modal-table-param-required": "Obligatori",
 	"templatedata-modal-table-param-type": "Tipus",
 	"templatedata-modal-table-param-type-date": "Data",
+	"templatedata-modal-table-param-type-url": "URL",
+	"templatedata-modal-table-param-type-wiki-template-name": "Plantilla",
 	"templatedata-modal-table-param-type-wiki-user-name": "Usuari"
 }
