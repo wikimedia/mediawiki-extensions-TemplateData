@@ -81,6 +81,7 @@
 	"templatedata-modal-table-param-type-string": "文字列",
 	"templatedata-modal-table-param-type-unbalanced-wikitext": "ウィキテキストの一部",
 	"templatedata-modal-table-param-type-undefined": "未定義",
+	"templatedata-modal-table-param-type-url": "URL",
 	"templatedata-modal-table-param-type-wiki-file-name": "ファイル",
 	"templatedata-modal-table-param-type-wiki-page-name": "ページ",
 	"templatedata-modal-table-param-type-wiki-template-name": "テンプレート",
