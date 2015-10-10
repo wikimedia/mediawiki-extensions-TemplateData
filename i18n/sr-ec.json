@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Milicevic01",
-			"Милан Јелисавчић"
+			"Милан Јелисавчић",
+			"Сербијана"
 		]
 	},
 	"templatedata-doc-desc-empty": "Нема описа.",
@@ -61,8 +62,10 @@
 	"templatedata-modal-table-param-type-number": "Број",
 	"templatedata-modal-table-param-type-string": "Текст",
 	"templatedata-modal-table-param-type-undefined": "Недефинисано",
+	"templatedata-modal-table-param-type-url": "Адреса",
 	"templatedata-modal-table-param-type-wiki-file-name": "Датотека",
 	"templatedata-modal-table-param-type-wiki-page-name": "Страница",
+	"templatedata-modal-table-param-type-wiki-template-name": "Шаблон",
 	"templatedata-modal-table-param-type-wiki-user-name": "Корисник",
 	"templatedata-modal-table-param-uneditablefield": "Није могуће уређивати",
 	"templatedata-modal-title-addparam": "Додај нови параметар",
