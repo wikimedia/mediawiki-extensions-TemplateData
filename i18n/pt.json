@@ -9,12 +9,18 @@
 			"Imperadeiro90",
 			"Fabulous",
 			"Cainamarques",
-			"Macofe"
+			"Macofe",
+			"Fúlvio"
 		]
 	},
+	"apihelp-templatedata-description": "Obtém dados armazenados pela extensão TemplateData.",
+	"apihelp-templatedata-example-1": "Retorna dados para [[Template:Stub]] e [[Template:Example]]",
+	"apihelp-templatedata-param-format": "O formato de saída.",
+	"apihelp-templatedata-param-lang": "Retorna valores localizados nesta língua. Por defeito, todas as traduções disponíveis são retornados.",
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
 	"templatedata-doc-desc-empty": "Sem descrição.",
 	"templatedata-doc-no-params-set": "Sem parâmetros especificados",
+	"templatedata-doc-param-autovalue": "Valor automático",
 	"templatedata-doc-param-autovalue-empty": "vazio",
 	"templatedata-doc-param-default": "Padrão",
 	"templatedata-doc-param-default-empty": "vazio",
@@ -64,6 +70,7 @@
 	"templatedata-modal-search-input-placeholder": "Pesquisa por nome ou código de idioma",
 	"templatedata-modal-table-param-actions": "Acções",
 	"templatedata-modal-table-param-aliases": "Nomes alternativos (separados por vírgula)",
+	"templatedata-modal-table-param-autovalue": "Valor automático",
 	"templatedata-modal-table-param-default": "Padrão ($1)",
 	"templatedata-modal-table-param-deprecated": "Obsoleto",
 	"templatedata-modal-table-param-description": "Descrição ($1)",
@@ -78,6 +85,7 @@
 	"templatedata-modal-table-param-type-boolean": "Booleano",
 	"templatedata-modal-table-param-type-content": "Conteúdo",
 	"templatedata-modal-table-param-type-date": "Data",
+	"templatedata-modal-table-param-type-line": "Linha",
 	"templatedata-modal-table-param-type-number": "Número",
 	"templatedata-modal-table-param-type-string": "String",
 	"templatedata-modal-table-param-type-undefined": "Indefinido",
@@ -91,6 +99,7 @@
 	"templatedata-modal-title-addparam": "Adicionar novo parâmetro",
 	"templatedata-modal-title-choose-language": "Escolher idioma",
 	"templatedata-modal-title-language": "Idioma",
+	"templatedata-modal-title-paramorder": "Ordem de parâmetro",
 	"templatedata-modal-title-templatedesc": "Descrição de predefinição ($1)",
 	"templatedata-modal-title-templateparam-details": "Detalhes do parâmetro: $1",
 	"templatedata-modal-title-templateparams": "Parâmetros de predefinição"
