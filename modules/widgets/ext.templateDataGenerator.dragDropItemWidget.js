@@ -3,7 +3,7 @@
  *
  * @class
  * @extends OO.ui.OptionWidget
- * @mixins OO.ui.DraggableElement
+ * @mixins OO.ui.mixin.DraggableElement
  *
  * @constructor
  * @param {Mixed} data Option data
@@ -17,7 +17,7 @@ mw.TemplateData.DragDropItemWidget = function mwTemplateDataDragDropItemWidget( 
 	mw.TemplateData.DragDropItemWidget.super.call( this, $.extend( {}, { icon: 'parameter' }, config ) );
 
 	// Mixin constructors
-	OO.ui.DraggableElement.call( this, config );
+	OO.ui.mixin.DraggableElement.call( this, config );
 
 	// Initialization
 	this.$element
@@ -27,4 +27,4 @@ mw.TemplateData.DragDropItemWidget = function mwTemplateDataDragDropItemWidget( 
 /* Setup */
 
 OO.inheritClass( mw.TemplateData.DragDropItemWidget, OO.ui.DecoratedOptionWidget );
-OO.mixinClass( mw.TemplateData.DragDropItemWidget, OO.ui.DraggableElement );
+OO.mixinClass( mw.TemplateData.DragDropItemWidget, OO.ui.mixin.DraggableElement );

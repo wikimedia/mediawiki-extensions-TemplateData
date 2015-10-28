@@ -5,7 +5,7 @@
  *
  * @class
  * @extends OO.ui.Widget
- * @mixins OO.ui.DraggableGroupElement
+ * @mixins OO.ui.mixin.DraggableGroupElement
  *
  * @constructor
  * @param {Object} [config] Configuration options
@@ -19,7 +19,7 @@ mw.TemplateData.DragDropWidget = function mwTemplateDataDragDropWidget( config )
 	mw.TemplateData.DragDropWidget.super.call( this, config );
 
 	// Mixin constructors
-	OO.ui.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
+	OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 	// Initialization
 	this.$element.addClass( 'tdg-TemplateDataDragDropWidget' );
@@ -28,7 +28,7 @@ mw.TemplateData.DragDropWidget = function mwTemplateDataDragDropWidget( config )
 /* Setup */
 
 OO.inheritClass( mw.TemplateData.DragDropWidget, OO.ui.Widget );
-OO.mixinClass( mw.TemplateData.DragDropWidget, OO.ui.DraggableGroupElement );
+OO.mixinClass( mw.TemplateData.DragDropWidget, OO.ui.mixin.DraggableGroupElement );
 
 /**
  * Get an array of keys based on the current items, in order
