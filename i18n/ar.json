@@ -29,6 +29,7 @@
 	"templatedata-doc-params": "وسائط القالب",
 	"templatedata-editbutton": "توثيق القالب",
 	"templatedata-errormsg-jsonbadformat": "خطأ في تنسيق JSON. أصلح الخطأ أو أزل وسوم <templatedata> وأعد المحاولة.",
+	"templatedata-exists-on-related-page": "يوجد جدول لوسائط هذا القالب في \"[[$1]]\".",
 	"templatedata-helplink": "معلومات",
 	"templatedata-invalid-duplicate-value": "الخاصية \"$1\" (\"$3\") مكررة عن \"$2\".",
 	"templatedata-invalid-empty-array": "يجب أن تعطى للخاصية \"$1\" على الأقل قيمة واحدة في مصفوفتها.",
