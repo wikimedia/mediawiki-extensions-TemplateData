@@ -7,6 +7,7 @@
 	},
 	"templatedata-editbutton": "साचा दस्तऐवजीकरणाचे व्यवस्थापन",
 	"templatedata-errormsg-jsonbadformat": "वाईट JSON प्रारुप.एकतर ते सुधरवा किंवा सध्याची <templatedata> खूणपताका वगळून पुन्हा प्रयत्न करा.",
+	"templatedata-helplink": "साच्याच्या डाटाबद्दलची माहिती",
 	"templatedata-invalid-length": "माहिती जतन करण्यास बरीच मोठी आहे({{formatnum:$1}} {{PLURAL:$1|बाईट|बाईट्स}}, {{PLURAL:$2|मर्यादा}} {{formatnum:$2}} आहे)",
 	"templatedata-modal-button-addparam": "प्राचल (पॅरामीटर) जोडा",
 	"templatedata-modal-button-apply": "लागू करा",
