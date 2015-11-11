@@ -51,6 +51,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"params": {},
 					"paramOrder": [],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -104,6 +105,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["foo"],
 					"sets": [],
+					"format": "inline",
 					"maps": {}
 				}
 				',
@@ -136,6 +138,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["comment"],
 					"sets": [],
+					"format": "inline",
 					"maps": {}
 				}
 				',
@@ -185,6 +188,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["nickname"],
 					"sets": [],
+					"format": "inline",
 					"maps": {}
 				}
 				',
@@ -246,6 +250,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["1d", "2d"],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -370,6 +375,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"params": ["bar", "quux"]
 						}
 					],
+					"format": "inline",
 					"maps": {}
 				}',
 				'status' => true
@@ -421,6 +427,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["bar"],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -486,12 +493,21 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'status' => 'Property "maps.application.things[0][0]" is expected to be of type "string".'
 			),
 			array(
+				'input' => '{
+					"params": {
+						"foo": {}
+					},
+					"format": "meshuggah format"
+				}',
+				'status' => 'Property "format" is expected to be "inline" or "block".'
+			),
+			array(
 				// Should be long enough to trigger this condition after gzipping.
 				'input' => '{
 					"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
 					"params": {}
 				}',
-				'status' => 'Data too large to save (75,215 bytes, limit is 65,535)'
+				'status' => 'Data too large to save (75,230 bytes, limit is 65,535)'
 			),
 		);
 		$calls = array();
@@ -564,6 +580,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"params": {},
 					"sets": [],
 					"maps": {},
+					"format": "inline",
 					"paramOrder": []
 				}';
 			} else {
@@ -656,6 +673,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"params": {},
 					"paramOrder": [],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -673,6 +691,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"paramOrder": [],
 					"params": {},
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -694,6 +713,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"params": {},
 					"paramOrder": [],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -714,6 +734,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"params": {},
 					"paramOrder": [],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -735,6 +756,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"params": {},
 					"paramOrder": [],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -771,6 +793,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["foo"],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -807,6 +830,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["foo"],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -843,6 +867,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["foo"],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -888,6 +913,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"params": ["foo"]
 						}
 					],
+					"format": "inline",
 					"maps": {}
 				}
 				',
@@ -987,6 +1013,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["foo", "bar", "baz"],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -1044,6 +1071,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"paramOrder": ["baz", "foo", "bar"],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',
@@ -1072,6 +1100,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"params": {},
 					"paramOrder": [],
 					"sets": [],
+					"format": "inline",
 					"maps" : {}
 				}
 				',

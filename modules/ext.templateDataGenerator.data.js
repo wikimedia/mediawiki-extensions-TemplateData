@@ -17,9 +17,9 @@ mw.TemplateData.Model = function mwTemplateDataModel( config ) {
 	this.params = {};
 	this.description = {};
 	this.paramOrder = [];
+	this.format = 'inline';
 	this.paramOrderChanged = false;
 	this.paramIdentifierCounter = 0;
-
 	this.originalTemplateDataObject = null;
 	this.sourceCodeParameters = [];
 };
@@ -272,6 +272,10 @@ mw.TemplateData.Model.static.newFromObject = function ( tdObject, paramsInSource
 	// Override the param order if it exists in the templatedata string
 	if ( tdObject.paramOrder && tdObject.paramOrder.length > 0 ) {
 		model.setTemplateParamOrder( tdObject.paramOrder );
+	}
+
+	if ( tdObject.format ) {
+		model.setTemplateFormat( tdObject.format );
 	}
 
 	return model;
@@ -555,6 +559,20 @@ mw.TemplateData.Model.prototype.setTemplateParamOrder = function ( orderArray ) 
 };
 
 /**
+ * Set template format.
+ *
+ * @param {string} [format='inline'] Preferred format
+ * @fires change-format
+ */
+mw.TemplateData.Model.prototype.setTemplateFormat = function ( format ) {
+	format = format || 'inline';
+	if ( this.format !== format ) {
+		this.format = format;
+		this.emit( 'change-format', format );
+	}
+};
+
+/**
  * Add a key to the end of the paramOrder
  *
  * @param {string} key New key the add into the paramOrder
@@ -602,6 +620,15 @@ mw.TemplateData.Model.prototype.removeKeyTemplateParamOrder = function ( key ) {
  */
 mw.TemplateData.Model.prototype.getTemplateParamOrder = function () {
 	return this.paramOrder;
+};
+
+/**
+ * Retrieve the template preferred format
+ *
+ * @return {string} Preferred format
+ */
+mw.TemplateData.Model.prototype.getTemplateFormat = function () {
+	return this.format;
 };
 
 /**
@@ -833,6 +860,9 @@ mw.TemplateData.Model.prototype.outputTemplateDataString = function () {
 	} else {
 		delete result.paramOrder;
 	}
+
+	// Format
+	result.format = this.format;
 
 	// Attach sets as-is for now
 	// TODO: Work properly with sets

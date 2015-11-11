@@ -78,7 +78,7 @@ mw.TemplateData.Dialog.static.actions = [
  */
 mw.TemplateData.Dialog.prototype.initialize = function () {
 	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout,
-		paramOrderFieldset;
+		paramOrderFieldset, templateFormatFieldSet;
 
 	// Parent method
 	mw.TemplateData.Dialog.super.prototype.initialize.call( this );
@@ -120,6 +120,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.languagePanelButton = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'templatedata-modal-button-add-language' )
 	} );
+
 	languageActionFieldLayout = new OO.ui.ActionFieldLayout(
 		this.languageDropdownWidget,
 		this.languagePanelButton,
@@ -154,6 +155,24 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	} );
 	templateParamsFieldset.$element.append( this.paramSelectWidget.$element );
 
+	this.templateFormatSelectWidget = new OO.ui.ButtonSelectWidget();
+	this.templateFormatSelectWidget.addItems( [
+		// TODO: add nice icons?
+		new OO.ui.ButtonOptionWidget( {
+			data: 'inline',
+			label: mw.msg( 'templatedata-modal-format-inline' )
+		} ),
+		new OO.ui.ButtonOptionWidget( {
+			data: 'block',
+			label: mw.msg( 'templatedata-modal-format-block' )
+		} )
+	] );
+
+	templateFormatFieldSet = new OO.ui.FieldsetLayout( {
+		label: mw.msg( 'templatedata-modal-title-templateformat' )
+	} );
+	templateFormatFieldSet.$element.append( this.templateFormatSelectWidget.$element );
+
 	// Param details panel
 	this.$paramDetailsContainer = $( '<div>' )
 		.addClass( 'tdg-TemplateDataDialog-paramDetails' );
@@ -164,6 +183,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 			this.paramListNoticeLabel.$element,
 			languageActionFieldLayout.$element,
 			this.templateDescriptionFieldset.$element,
+			templateFormatFieldSet.$element,
 			paramOrderFieldset.$element,
 			templateParamsFieldset.$element
 		);
@@ -213,6 +233,8 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.languagePanelButton.connect( this, { click: 'onLanguagePanelButton' } );
 	this.languageDropdownWidget.getMenu().connect( this, { select: 'onLanguageDropdownWidgetSelect' } );
 	this.paramSelectWidget.connect( this, { choose: 'onParamSelectWidgetChoose' } );
+	this.templateFormatSelectWidget.connect( this, { choose: 'onTemplateFormatSelectWidgetChoose' } );
+
 };
 
 /**
@@ -413,6 +435,14 @@ mw.TemplateData.Dialog.prototype.onParamSelectWidgetChoose = function ( item ) {
 		this.getParameterDetails( paramKey );
 		this.switchPanels( 'editParam' );
 	}
+};
+/**
+ * Respond to choose event from the template format select widget
+ *
+ * @param {OO.ui.OptionWidget} item Format item
+ */
+mw.TemplateData.Dialog.prototype.onTemplateFormatSelectWidgetChoose = function ( item ) {
+	this.model.setTemplateFormat( item.getData() );
 };
 
 mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
@@ -855,6 +885,10 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 mw.TemplateData.Dialog.prototype.setupDetailsFromModel = function () {
 	// Set up description
 	this.descriptionInput.setValue( this.model.getTemplateDescription( this.language ) );
+
+	// Set up format
+	this.templateFormatSelectWidget.selectItemByData( this.model.getTemplateFormat() );
+
 	// Repopulate the parameter list
 	this.repopulateParamSelectWidget();
 };
