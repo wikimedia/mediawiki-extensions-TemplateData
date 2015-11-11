@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sudo77(new)"
+			"Sudo77(new)",
+			"Teslaton"
 		]
 	},
 	"templatedata-desc": "Implementuje dátové úložisko pre parametre šablón (pomocou JSON)",
@@ -58,11 +59,18 @@
 	"templatedata-modal-table-param-type-string": "Reťazec",
 	"templatedata-modal-table-param-type-unbalanced-wikitext": "Nevyvážený wikitext",
 	"templatedata-modal-table-param-type-undefined": "Nedefinovaná",
+	"templatedata-modal-table-param-type-url": "URL",
 	"templatedata-modal-table-param-type-wiki-file-name": "Súbor",
 	"templatedata-modal-table-param-type-wiki-page-name": "Stránka",
+	"templatedata-modal-table-param-type-wiki-template-name": "Šablóna",
 	"templatedata-modal-table-param-type-wiki-user-name": "Používateľ",
 	"templatedata-modal-table-param-uneditablefield": "Neupraviteľné",
 	"templatedata-modal-title": "Editor dokumentácie šablóny",
+	"templatedata-modal-title-addparam": "Pridať nový parameter",
+	"templatedata-modal-title-choose-language": "Výber jazyka",
+	"templatedata-modal-title-language": "Jazyk",
+	"templatedata-modal-title-paramorder": "Poradie parametrov",
 	"templatedata-modal-title-templatedesc": "Popis šablóny",
+	"templatedata-modal-title-templateparam-details": "Podrobnosti k parametru $1",
 	"templatedata-modal-title-templateparams": "Parametre šablóny"
 }
