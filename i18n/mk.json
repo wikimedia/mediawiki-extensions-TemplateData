@@ -10,6 +10,8 @@
 	"apihelp-templatedata-param-lang": "Дај ги вредностите преведени на овој јазик. По основно се даваат сите расположиви преводи.",
 	"templatedata-desc": "Овозможува складирање на податоци за шаблонски параметри (користејќи JSON)",
 	"templatedata-doc-desc-empty": "Нема опис.",
+	"templatedata-doc-format-inline": "Овој шаблон претпочита параметрите да се форматирани во ред.",
+	"templatedata-doc-format-block": "Овој шаблон претпочита параметрите да се форматирани во блок.",
 	"templatedata-doc-no-params-set": "Нема укажано параметри.",
 	"templatedata-doc-param-autovalue": "Автовредност",
 	"templatedata-doc-param-autovalue-empty": "празно",
@@ -33,6 +35,7 @@
 	"templatedata-helplink": "Информации за шаблонски податоци",
 	"templatedata-invalid-duplicate-value": "Својството „$1“ („$3“) е дупликат на „$2“.",
 	"templatedata-invalid-empty-array": "Својството „$1“ мора да има барем една вреднсот во стројот.",
+	"templatedata-invalid-format": "Се очекува својсвтото „$1“ да биде „inline“ или „block“.",
 	"templatedata-invalid-length": "Податоците се преголеми за да се зачуваат ({{formatnum:$1}} {{PLURAL:$1|бајт|бајти}}, а {{PLURAL:$2|границата е}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Бараното својство „$1“ не е пронајдено.",
 	"templatedata-invalid-param": "Неважечки параметар „$1“ за својството „$2“.",
@@ -55,6 +58,8 @@
 	"templatedata-modal-errormsg": "Пронајдов грешки. Проверете да не имате празни или дуплирани називи на параметрите. Во нив не треба да се содржат знаците „$1“, „$2“ и „$3“.",
 	"templatedata-modal-errormsg-import-noparams": "Не пронајдов нови параметри во увозот.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Не увезов еден параметар, бидејќи истиот веќе постои|Не увезов некои параметри, бидејќи истите веќе постојат}} во уредникот: $1",
+	"templatedata-modal-format-inline": "Во ред",
+	"templatedata-modal-format-block": "Блок",
 	"templatedata-modal-json-error-replace": "Замени",
 	"templatedata-modal-notice-import-numparams": "Увезов {{PLURAL:$1|еден нов параметар|$1 нови параметри}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Назив на параметарот",
@@ -94,6 +99,7 @@
 	"templatedata-modal-title-language": "Јазик",
 	"templatedata-modal-title-paramorder": "Редослед на параметрите",
 	"templatedata-modal-title-templatedesc": "Опис на шаблонот ($1)",
+	"templatedata-modal-title-templateformat": "Претпочитана сроченост во шаблонот",
 	"templatedata-modal-title-templateparam-details": "Подробности за параметарот: $1",
 	"templatedata-modal-title-templateparams": "Шаблонски параметри"
 }

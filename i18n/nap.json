@@ -11,6 +11,8 @@
 	"apihelp-templatedata-param-lang": "Tuorna valure localizzate dint'a sta lengua. Pe na mpustaziona predefinita songo mmustate tutt' 'e traduziune a disposizione.",
 	"templatedata-desc": "Mplementasse 'a funziona 'astipà date pe' parametre 'e template (ausanno JSON)",
 	"templatedata-doc-desc-empty": "Nisciuna descrizione.",
+	"templatedata-doc-format-inline": "Stu template preferisce furmattaziona 'n linea 'e parametre.",
+	"templatedata-doc-format-block": "Stu template preferisce 'a furmattazione a blocco 'e parametre.",
 	"templatedata-doc-no-params-set": "Nisciuno parametro specificato",
 	"templatedata-doc-param-autovalue": "Valore automatico",
 	"templatedata-doc-param-autovalue-empty": "abbacante",
@@ -34,6 +36,7 @@
 	"templatedata-helplink": "Nfurmaziune ncopp' 'o TemplateData",
 	"templatedata-invalid-duplicate-value": "'A proprietà \"$1\" (\"$3\") è nu dupprecato 'e \"$2\".",
 	"templatedata-invalid-empty-array": "'A proprietà \"$1\" avess'a tenè almeno nu valore dint' 'a matrice soja.",
+	"templatedata-invalid-format": "Proprietà \"$1\" avess'a essere \"inline\" o \"block\".",
 	"templatedata-invalid-length": "Date troppo grosse pe' sarvà ({{formatnum:$1}} {{PLURAL:$1|byte}}, {{PLURAL:$2|'o lemmeto è}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Proprietà addimannata \"$1\" nun truvata.",
 	"templatedata-invalid-param": "Parametro nun valido \"$1\" p' 'a proprietà \"$2\".",
@@ -56,6 +59,8 @@
 	"templatedata-modal-errormsg": "Errure truvate. Pe' piacere assicurateve ca nun ce stanno parametre dupprecate o abbacante, e ca 'e nomme 'e parametre nun appenneno \"$1\", \"$2\" o \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Nisciuno parametro truvato pe' tramente ca se faceva l'import.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Nu parametro nun se truvava, pecché esisteva già|Nu cierto nummero 'e parametre nun songo state mpurtate pecché so' già prisente}} dint'a ll'editore: $1",
+	"templatedata-modal-format-inline": "'N linea",
+	"templatedata-modal-format-block": "Blocco",
 	"templatedata-modal-json-error-replace": "Sostituisce",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|nuovo parametro è stato importato|nuove parametre songo state importate}}: $2.",
 	"templatedata-modal-placeholder-paramkey": "Nomme d' 'o parametro",
@@ -95,6 +100,7 @@
 	"templatedata-modal-title-language": "Lengua",
 	"templatedata-modal-title-paramorder": "Ordine dint' 'o password",
 	"templatedata-modal-title-templatedesc": "Descrizione template ($1)",
+	"templatedata-modal-title-templateformat": "Furmattaziona preferita 'e template",
 	"templatedata-modal-title-templateparam-details": "Dettaglie d' 'o parametro: $1",
 	"templatedata-modal-title-templateparams": "Parametre d' 'o template"
 }

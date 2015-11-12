@@ -58,6 +58,8 @@
 	"templatedata-modal-errormsg": "Producíronse varios erros. Asegúrese de que non hai nomes de parámetros baleiros ou duplicados e de que o nome do parámetro non inclúe os caracteres \"$1\", \"$2\" ou \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Non se atopou ningún parámetro novo durante a importación.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Un parámetro non se importou porque xa existe|Algúns parámetros non se importaron porque xa existen}} no editor: $1",
+	"templatedata-modal-format-inline": "En liña",
+	"templatedata-modal-format-block": "Bloque",
 	"templatedata-modal-json-error-replace": "Substituír",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Importouse $1 parámetro novo|Importáronse $1 parámetros novos}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Nome do parámetro",

@@ -13,7 +13,8 @@
 			"Moriel Schottlender",
 			"Umherirrender",
 			"Nemo bis",
-			"Purodha"
+			"Purodha",
+			"Amire80"
 		]
 	},
 	"apihelp-templatedata-description": "{{doc-apihelp-description|templatedata}}",
@@ -48,7 +49,7 @@
 	"templatedata-helplink-target": "{{ignore}} The target of the link to the TemplateData documentation",
 	"templatedata-invalid-duplicate-value": "Displayed when an array that must only contain unique values contains a duplicate.\n* $1 - name of property containing the duplicate\n* $2 - name of property with first occurrence of value\n* $3 - the value being duplicated",
 	"templatedata-invalid-empty-array": "Error message when a property that must be non-empty is empty. Parameters:\n* $1 - property name (\"paramOrder\" or \"sets.{$setNr}.params\")",
-	"templatedata-invalid-format": "Error message when format property gets an unexpected value.",
+	"templatedata-invalid-format": "{{Doc-important|Don't translate \"inline\" and \"block\".}}\n\nError message when format property gets an unexpected value.",
 	"templatedata-invalid-length": "Error message when generated JSON's length exceed database limits.\n* $1 - length of generated JSON\n* $2 - maximal allowed length",
 	"templatedata-invalid-missing": "Error message when a required property is not found.\n* $1 - name of property. e.g. \"params\"\n* $2 - type of property (Unused)",
 	"templatedata-invalid-param": "Error message for when the supplied parameter is invalid.\n* $1 - name of parameter. e.g. \"username\"\n* $2 - name of property. e.g. maps property \"applicationUser\"",

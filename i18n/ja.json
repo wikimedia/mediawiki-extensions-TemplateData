@@ -57,6 +57,8 @@
 	"templatedata-modal-errormsg": "エラーが見つかりました。引数名に空欄や重複したものがないか、引数名に「$1」や「$2」、「$3」が含まれていないか確認してください。",
 	"templatedata-modal-errormsg-import-noparams": "取り込み時に新しい引数は見つかりませんでした。",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|一つの引数が、既にエディター内に含まれているため取り込まれませんでした。|いくつかの引数は、既にエディター内に含まれているため取り込まれませんでした。}}: $1",
+	"templatedata-modal-format-inline": "インライン",
+	"templatedata-modal-format-block": "ブロック",
 	"templatedata-modal-json-error-replace": "置換",
 	"templatedata-modal-notice-import-numparams": "$1 個の{{PLURAL:$1|引数}}が新たに取り込まれました: $2",
 	"templatedata-modal-placeholder-paramkey": "引数名",

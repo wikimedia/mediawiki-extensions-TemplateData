@@ -13,6 +13,8 @@
 	"apihelp-templatedata-param-lang": "להחזיר ערכים מתורגמים בשפה הזאת. בררת המחדל היא להחזיר את כל התרגומים הזמינים.",
 	"templatedata-desc": "מימוש אחסון נתונים לפרמטרים של תבניות (באמצעות JSON)",
 	"templatedata-doc-desc-empty": "אין תיאור.",
+	"templatedata-doc-format-inline": "התבנית הזאת מעדיפה עיצוב פרמטרים בשורה אחת.",
+	"templatedata-doc-format-block": "התבנית הזאת מעדיפה עיצוב פרמטרים בתור פסקה.",
 	"templatedata-doc-no-params-set": "לא סופקו פרמטרים",
 	"templatedata-doc-param-autovalue": "ערך אוטומטי",
 	"templatedata-doc-param-autovalue-empty": "ריק",
@@ -36,6 +38,7 @@
 	"templatedata-helplink": "מידע על נתוני תבנית (TemplateData)",
 	"templatedata-invalid-duplicate-value": "המאפיין \"$1\" (ערך: \"$3\") זהה למאפיין \"$2\".",
 	"templatedata-invalid-empty-array": "למאפיין \"$1\" צריך להיות לפחות ערך אחד במערך שלו.",
+	"templatedata-invalid-format": "המאפיין \"$1\" אמור להיות \"inline\" (בשורה) או \"block\" (בפסקה).",
 	"templatedata-invalid-length": "הנתונים גדולים מכדי לשמור ({{PLURAL:$1|בית אחד|{{formatnum:$1}} בתים}}, {{PLURAL:$2|המגבלה היא}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "המאפיין הדרוש \"$1\" לא נמצא.",
 	"templatedata-invalid-param": "פרמטר בלתי־תקין \"$1\" למאפיין \"$2\".",
@@ -58,6 +61,8 @@
 	"templatedata-modal-errormsg": "נמצאו שגיאות. נא לוודא ששמות הפרמטרים אינם ריקים ואינם חוזרים על עצמם, ושבשמות הפרמטרים לא מופיעים התווים \"$1\", \"$2\" או \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "לא נמצאו פרמטרים חדשים בעת הייבוא.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|פרמטר אחד לא יובא, מכיוון שהוא כבר קיים בעורך|פרמטרים מסוימים לא יובאו מכיוון שהם כבר קיימים}} בעורך: $1",
+	"templatedata-modal-format-inline": "בשורה",
+	"templatedata-modal-format-block": "בפסקה",
 	"templatedata-modal-json-error-replace": "החלפה",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|יובא פרמטר חדש אחד|יובאו $1 פרמטרים חדשים}}: $2",
 	"templatedata-modal-placeholder-paramkey": "שם הפרמטר",
@@ -97,6 +102,7 @@
 	"templatedata-modal-title-language": "שפה",
 	"templatedata-modal-title-paramorder": "סדר הפרמטרים",
 	"templatedata-modal-title-templatedesc": "תיאור התבנית ($1)",
+	"templatedata-modal-title-templateformat": "העיצוב המועדף לתבנית",
 	"templatedata-modal-title-templateparam-details": "פרטי הפרמטר: $1",
 	"templatedata-modal-title-templateparams": "פרמטרי תבנית"
 }

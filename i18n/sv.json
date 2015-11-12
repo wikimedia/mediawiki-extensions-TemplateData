@@ -60,6 +60,8 @@
 	"templatedata-modal-errormsg": "Fel hittades. Var god se till att det inte finns några tomma eller dubbla parameternamn, och att parameternamnet inte innehåller \"$1\", \"$2\" eller \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Inga nya parametrar hittades under import.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|En parameter importerades inte, eftersom den|Vissa parametrar importerades inte, eftersom de}} redan finns i redigeraren: $1",
+	"templatedata-modal-format-inline": "Inline",
+	"templatedata-modal-format-block": "Block",
 	"templatedata-modal-json-error-replace": "Ersätt",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|ny parameter|nya parametrar}} importerades: $2",
 	"templatedata-modal-placeholder-paramkey": "Parameternamn",
@@ -98,6 +100,7 @@
 	"templatedata-modal-title-language": "Språk",
 	"templatedata-modal-title-paramorder": "Parameterordning",
 	"templatedata-modal-title-templatedesc": "Mallbeskrivning ($1)",
+	"templatedata-modal-title-templateformat": "Föredraget mallformat",
 	"templatedata-modal-title-templateparam-details": "Parameterdetaljer: $1",
 	"templatedata-modal-title-templateparams": "Mallparametrar"
 }
