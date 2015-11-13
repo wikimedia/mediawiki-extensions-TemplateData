@@ -79,13 +79,3 @@
 	/* @embed */
 	background-image: url(images/parameter-set-ltr.svg);
 }
-
-.oo-ui-icon-template-format-block {
-	/* @embed */
-	background-image: url(images/block-ltr.svg);
-}
-
-.oo-ui-icon-template-format-inline {
-	/* @embed */
-	background-image: url(images/inline.svg);
-}
