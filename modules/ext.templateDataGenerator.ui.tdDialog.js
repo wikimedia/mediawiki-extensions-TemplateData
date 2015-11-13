@@ -583,7 +583,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 		if ( prop.type === 'select' ) {
 			propInput.selectItem( propInput.getItemFromData( value ) );
 		} else if ( prop.type === 'boolean' ) {
-			propInput.setValue( !!value );
+			propInput.setSelected( !!value );
 		} else {
 			if ( $.inArray( propName, languageProps ) !== -1 ) {
 				propInput.setValue( value[ lang ] );
@@ -598,6 +598,8 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 		// Empty the input
 		if ( prop.type === 'select' ) {
 			propInput.selectItem( propInput.getItemFromData( prop[ 'default' ] ) );
+		} else if ( prop.type === 'boolean' ) {
+			propInput.setSelected( false );
 		} else {
 			propInput.setValue( '' );
 		}
@@ -662,7 +664,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 			case 'deprecated':
 			case 'required':
 			case 'suggested':
-				propInput = new OO.ui.ToggleSwitchWidget( config );
+				propInput = new OO.ui.CheckboxInputWidget( config );
 				break;
 			default:
 				propInput = new OO.ui.TextInputWidget( config );
