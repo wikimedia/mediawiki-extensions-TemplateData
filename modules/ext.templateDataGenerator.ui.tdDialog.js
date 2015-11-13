@@ -157,13 +157,14 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 
 	this.templateFormatSelectWidget = new OO.ui.ButtonSelectWidget();
 	this.templateFormatSelectWidget.addItems( [
-		// TODO: add nice icons?
 		new OO.ui.ButtonOptionWidget( {
 			data: 'inline',
+			icon: 'template-format-inline',
 			label: mw.msg( 'templatedata-modal-format-inline' )
 		} ),
 		new OO.ui.ButtonOptionWidget( {
 			data: 'block',
+			icon: 'template-format-block',
 			label: mw.msg( 'templatedata-modal-format-block' )
 		} )
 	] );
