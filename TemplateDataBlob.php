@@ -693,17 +693,26 @@ class TemplateDataBlob {
 					$data->description :
 					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )->text()
 			)
-			. Html::element(
-				'p',
-				array(),
-				// Messages: templatedata-modal-format-inline, templatedata-modal-format-block
-				wfMessage( 'templatedata-doc-format-' . $data->format )->inLanguage( $lang )->text()
-			)
 			. '<table class="wikitable mw-templatedata-doc-params sortable">'
-			. Html::element(
+			. Html::rawElement(
 				'caption',
 				array(),
-				wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )->text()
+				Html::element(
+					'p',
+					array(),
+					wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )->text()
+				)
+				. Html::rawElement(
+					'p',
+					array(),
+					new OOUI\IconWidget( array( 'icon' => 'template-format-' . $data->format ) )
+					. Html::element(
+						'span',
+						array( 'class' => 'mw-templatedata-format' ),
+						// Messages: templatedata-modal-format-inline, templatedata-modal-format-block
+						wfMessage( 'templatedata-doc-format-' . $data->format )->inLanguage( $lang )->text()
+					)
+				)
 			)
 			. '<thead><tr>'
 			. Html::element(

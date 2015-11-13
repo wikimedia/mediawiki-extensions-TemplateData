@@ -14,7 +14,26 @@
 	color: #777;
 }
 
+.mw-templatedata-doc-params .oo-ui-widget {
+	font-size: 0.9143em;
+}
+
+.mw-templatedata-format {
+	font-weight: normal;
+	font-size: 0.85em;
+}
+
 .mw-templatedata-doc-param-name,
 .mw-templatedata-doc-param-type {
 	white-space: nowrap;
+}
+
+.oo-ui-icon-template-format-block {
+	/* @embed */
+	background-image: url(../modules/images/block-ltr.svg);
+}
+
+.oo-ui-icon-template-format-inline {
+	/* @embed */
+	background-image: url(../modules/images/inline.svg);
 }

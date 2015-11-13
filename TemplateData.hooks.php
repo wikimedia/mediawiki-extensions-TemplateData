@@ -136,6 +136,7 @@ class TemplateDataHooks {
 	 * @return string: HTML to insert in the page.
 	 */
 	public static function render( $input, $args, $parser, $frame ) {
+		$parser->enableOOUI();
 		$ti = TemplateDataBlob::newFromJSON( $input );
 
 		$status = $ti->getStatus();
