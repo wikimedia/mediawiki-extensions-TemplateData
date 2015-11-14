@@ -12,6 +12,8 @@
 	"apihelp-templatedata-param-lang": "Grąžinti lokalizuotas reikšmes šia kalba. Numatyta grąžinti visus prieinamus vertimus.",
 	"templatedata-desc": "Įgyvendinti šio šablono parametrų duomenų talpinimą (naudojant JSON)",
 	"templatedata-doc-desc-empty": "Nėra aprašymo.",
+	"templatedata-doc-format-inline": "Šiam šablonui rekomenduotinas parametrų formatavimas paeiliui.",
+	"templatedata-doc-format-block": "Šiam šablonui rekomenduotinas parametrų formatavimas bloku.",
 	"templatedata-doc-no-params-set": "Nėra nurodytų parametrų",
 	"templatedata-doc-param-autovalue": "Automatinė reikšmė",
 	"templatedata-doc-param-autovalue-empty": "tuščia",
@@ -35,6 +37,7 @@
 	"templatedata-helplink": "Žinios apie šablonų valdymo įrankį",
 	"templatedata-invalid-duplicate-value": "Savybė \"$1\" (\"$3\") yra dublikatas \"$2\".",
 	"templatedata-invalid-empty-array": "Savybė \"$1\" turi turėti bent vieną reikšme savo masyve.",
+	"templatedata-invalid-format": "Savybės \"$1\" reikšmė turėtų būti \"inline\" arba \"block\".",
 	"templatedata-invalid-length": "Data per ilga išsaugojimui ({{formatnum:$1}} {{PLURAL:$1|baitas|baitai}}, {{PLURAL:$2|limitas yra}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Nerasta privaloma savybė \"$1\".",
 	"templatedata-invalid-param": "Netinkamas parametras \"$1\" savybei \"$2\".",
@@ -57,6 +60,8 @@
 	"templatedata-modal-errormsg": "Rasta klaidų. Prašome įsitikinti, kad nėra tuščių arba pasikartojančių parametrų vardų ir kad parametrų varduose nėra \"$1\", \"$2\" arba \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Importavimo metu nerasta naujų parametrų.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Vienas parametras nebuvo importuotas, nes jis jau egzistuoja|Kažkiek parametrų nebuvo importuoti, nes jie jau egzistuoja}} redaktoriuje: $1",
+	"templatedata-modal-format-inline": "Paeiliui",
+	"templatedata-modal-format-block": "Blokas",
 	"templatedata-modal-json-error-replace": "Pakeisti",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|naujas parametras buvo importuotas|nauji parametrai buvo importuoti}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Parametro pavadinimas",
@@ -96,6 +101,7 @@
 	"templatedata-modal-title-language": "Kalba",
 	"templatedata-modal-title-paramorder": "Parametrų eiliškumas",
 	"templatedata-modal-title-templatedesc": "Šablono aprašymas ($1)",
+	"templatedata-modal-title-templateformat": "Rekomenduotinas šablono formatas",
 	"templatedata-modal-title-templateparam-details": "Parametro išsami informacija: $1",
 	"templatedata-modal-title-templateparams": "Šablono parametrai"
 }

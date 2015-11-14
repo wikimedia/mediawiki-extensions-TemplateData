@@ -61,6 +61,8 @@
 	"templatedata-modal-errormsg": "發現錯誤，請確定沒有使用空白或重複的參數名稱，且參數名稱不包含 \"$1\"、\"$2\" 或 \"$3\"。",
 	"templatedata-modal-errormsg-import-noparams": "在匯入過程沒有找到新的參數。",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "部份參數已經存在於編輯器，未被匯入：$1",
+	"templatedata-modal-format-inline": "行內",
+	"templatedata-modal-format-block": "區塊",
 	"templatedata-modal-json-error-replace": "取代",
 	"templatedata-modal-notice-import-numparams": "已匯入 $1 個{{PLURAL:$1|參數}}：$2",
 	"templatedata-modal-placeholder-paramkey": "參數名稱",
