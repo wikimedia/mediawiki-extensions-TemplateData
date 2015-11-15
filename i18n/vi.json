@@ -11,6 +11,8 @@
 	"apihelp-templatedata-param-lang": "Cho ra các giá trị địa phương hóa cho ngôn ngỮ này. Theo mặc định, tất cả các bản dịch có sẵn được cho ra.",
 	"templatedata-desc": "Lưu trữ dữ liệu cho tham số bản mẫu (qua JSON)",
 	"templatedata-doc-desc-empty": "Không có miêu tả.",
+	"templatedata-doc-format-inline": "Bản mẫu này gợi ý định dạng các tham số ở dạng nội tuyến.",
+	"templatedata-doc-format-block": "Bản mẫu này gợi ý định dạng các tham số ở dạng khối.",
 	"templatedata-doc-no-params-set": "Không định rõ tham số",
 	"templatedata-doc-param-autovalue": "Giá trị tự động",
 	"templatedata-doc-param-autovalue-empty": "trống",
@@ -34,6 +36,7 @@
 	"templatedata-helplink": "Thông tin về Dữ liệu bản mẫu",
 	"templatedata-invalid-duplicate-value": "Thuộc tính “$1” (“$3”) là bản sao của “$2”.",
 	"templatedata-invalid-empty-array": "Thuộc tính “$1” phải có ít nhất một giá trị trong mảng.",
+	"templatedata-invalid-format": "Thuộc tính “$1” phải là “inline” (nội tuyến) hoặc “block” (khối).",
 	"templatedata-invalid-length": "Dữ liệu quá lớn để lưu ({{formatnum:$1}} byte, vượt quá hạn chế {{formatnum:$2}} byte)",
 	"templatedata-invalid-missing": "Không tìm thấy thuộc tính bắt buộc “$1”.",
 	"templatedata-invalid-param": "Tham số “$1” không hợp lệ cho thuộc tính “$2”.",
@@ -56,6 +59,8 @@
 	"templatedata-modal-errormsg": "Đã xuất hiện lỗi. Xin hãy chắc chắn rằng không có tên tham số để trống hoặc thừa và rằng tên tham số không có “$1”, “$2”, “$3”.",
 	"templatedata-modal-errormsg-import-noparams": "Không tìm thấy tham số mới khi nhập.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Một|Một số}} tham số không được nhập vì đã tồn tại trong trình soạn thảo: $1",
+	"templatedata-modal-format-inline": "Nội tuyến",
+	"templatedata-modal-format-block": "Khối",
 	"templatedata-modal-json-error-replace": "Thay thế",
 	"templatedata-modal-notice-import-numparams": "Đã nhập $1 tham số mới: $2",
 	"templatedata-modal-placeholder-paramkey": "Tên tham số",
@@ -95,6 +100,7 @@
 	"templatedata-modal-title-language": "Ngôn ngữ",
 	"templatedata-modal-title-paramorder": "Thứ tự tham số",
 	"templatedata-modal-title-templatedesc": "Miêu tả bản mẫu ($1)",
+	"templatedata-modal-title-templateformat": "Định dạng gợi ý của bản mẫu",
 	"templatedata-modal-title-templateparam-details": "Chi tiết tham số: $1",
 	"templatedata-modal-title-templateparams": "Tham số bản mẫu"
 }

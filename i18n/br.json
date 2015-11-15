@@ -29,6 +29,7 @@
 	"templatedata-modal-button-importParams": "Enporzhiañ arventennoù",
 	"templatedata-modal-button-saveparam": "Enrollañ",
 	"templatedata-modal-current-language": "Yezh red : $1",
+	"templatedata-modal-format-block": "Stankañ",
 	"templatedata-modal-notice-import-numparams": "Enporzhiet eo bet {{PLURAL:$1|Un|$1}} arventenn nevez.",
 	"templatedata-modal-placeholder-paramkey": "Anv an arventenn",
 	"templatedata-modal-table-param-actions": "Oberoù",

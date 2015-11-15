@@ -36,6 +36,7 @@
 	"templatedata-modal-button-saveparam": "Späicheren",
 	"templatedata-modal-current-language": "Aktuell Sprooch: $1",
 	"templatedata-modal-errormsg-import-noparams": "Keng nei Parametere beim Import fonnt.",
+	"templatedata-modal-format-block": "Block",
 	"templatedata-modal-json-error-replace": "Ersetzen",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Een neie Parameter gouf|$1 nei Parametere goufen}} importéiert: $2",
 	"templatedata-modal-placeholder-paramkey": "Numm vum Parameter",
