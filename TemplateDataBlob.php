@@ -817,7 +817,7 @@ class TemplateDataBlob {
 						'mw-templatedata-doc-muted' => ( $paramObj->description === null )
 					)
 				),
-				Html::rawElement( 'p', array(),
+				Html::element( 'p', array(),
 					$paramObj->description !== null ?
 					$paramObj->description :
 					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
