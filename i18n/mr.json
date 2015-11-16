@@ -56,7 +56,7 @@
 	"templatedata-modal-errormsg-import-noparams": "आयाती दरम्यान काही नविन प्राचले(पॅरामिटर्स) सापडली नाहीत.",
 	"templatedata-modal-errormsg-import-paramsalreadyexist": "संपादक: $1 मध्ये {{PLURAL:$1|एक प्राचल आयात केला गेला नाही कारण तो पूर्वीच अस्तित्वात आहे|काही प्राचल आयात केल्या गेले नाहीत कारण ते पूर्वीच अस्तित्वात आहेत}}",
 	"templatedata-modal-json-error-replace": "अदलीबदली करा",
-	"templatedata-modal-notice-import-numparams": "$1 नविन {{PLURAL:$1|प्राचल आयात केल्या गेले |आयात केल्या गेलीत}}.",
+	"templatedata-modal-notice-import-numparams": "$1 नविन {{PLURAL:$1|प्राचल आयात केल्या गेला |आयात केल्या गेलीत}}:$2",
 	"templatedata-modal-placeholder-paramkey": "प्राचलाचे नाव",
 	"templatedata-modal-search-input-placeholder": "भाषेच्या नावाने किंवा भाषासंकेताने शोधा",
 	"templatedata-modal-table-param-actions": "क्रिया",
