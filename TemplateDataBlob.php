@@ -779,7 +779,7 @@ class TemplateDataBlob {
 			. Html::element( 'th', array(),
 				$paramObj->label !== null ?
 					$paramObj->label :
-					ucfirst( $paramName )
+					$lang->ucfirst( $paramName )
 			)
 			// Parameters and aliases
 			. Html::rawElement( 'td', array( 'class' => 'mw-templatedata-doc-param-name' ),
