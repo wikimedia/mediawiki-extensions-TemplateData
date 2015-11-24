@@ -6,11 +6,14 @@
 			"아라",
 			"Bluemersen",
 			"SeoJeongHo",
-			"Hwangjy9"
+			"Hwangjy9",
+			"IRTC1015"
 		]
 	},
 	"templatedata-desc": "(JSON을 사용하여) 틀 변수에 대한 데이터 저장소를 구현합니다",
 	"templatedata-doc-desc-empty": "설명이 없습니다.",
+	"templatedata-doc-format-inline": "이 틀은 한 줄로 쓰는 것이 권장됩니다.",
+	"templatedata-doc-format-block": "이 틀은 변수마다 줄바꿈을 하여 쓰는 것이 권장됩니다.",
 	"templatedata-doc-no-params-set": "설정된 변수가 없음",
 	"templatedata-doc-param-autovalue": "자동 값",
 	"templatedata-doc-param-autovalue-empty": "비었음",
