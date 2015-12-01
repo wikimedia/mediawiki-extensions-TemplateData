@@ -15,7 +15,7 @@
 	"templatedata-helplink": "د TemplateData اړونده مالومات",
 	"templatedata-modal-button-add-language": "ژبه ورگډول",
 	"templatedata-modal-button-cancel": "ناگارل",
-	"templatedata-modal-button-changelang": "ژبه بدلولو",
+	"templatedata-modal-button-changelang": "ژبه بدلول",
 	"templatedata-modal-button-done": "ترسره شو",
 	"templatedata-modal-button-saveparam": "خوندي کول",
 	"templatedata-modal-format-inline": "پر ليکه",
@@ -31,8 +31,10 @@
 	"templatedata-modal-table-param-type-number": "شمېره",
 	"templatedata-modal-table-param-type-wiki-file-name": "دوتنه",
 	"templatedata-modal-table-param-type-wiki-page-name": "مخ",
+	"templatedata-modal-table-param-type-wiki-template-name": "کينډۍ",
 	"templatedata-modal-table-param-type-wiki-user-name": "کارن",
 	"templatedata-modal-title": "کينډۍ لاسوند سمونگر",
+	"templatedata-modal-title-choose-language": "ژبه ټاکل",
 	"templatedata-modal-title-language": "ژبه",
 	"templatedata-modal-title-templatedesc": "د کينډۍ څرگندونه ($1)"
 }
