@@ -22,6 +22,7 @@
 	"templatedata-modal-format-block": "بنديز لگول",
 	"templatedata-modal-json-error-replace": "ځايناستول",
 	"templatedata-modal-table-param-default": "تلواليز ($1)",
+	"templatedata-modal-table-param-description": "څرگندونه ($1)",
 	"templatedata-modal-table-param-example": "بېلگه ($1)",
 	"templatedata-modal-table-param-name": "نوم",
 	"templatedata-modal-table-param-required": "اړين مالومات",

@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Subi",
-			"Sator"
+			"Sator",
+			"An13sa"
 		]
 	},
 	"templatedata-doc-param-desc": "Deskribapena",
@@ -11,6 +12,7 @@
 	"templatedata-modal-button-changelang": "Hizkuntza aldatu",
 	"templatedata-modal-button-saveparam": "Gorde",
 	"templatedata-modal-current-language": "Oraingo hizkuntza: $1",
+	"templatedata-modal-format-inline": "Linean",
 	"templatedata-modal-search-input-placeholder": "Bilatu hizkuntza izenaren edo kodearen arabera",
 	"templatedata-modal-table-param-description": "Deskribapena ($1)",
 	"templatedata-modal-table-param-label": "Etiketa ($1)",
