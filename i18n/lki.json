@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lakzon"
+		]
+	},
+	"templatedata-doc-desc-empty": "بدون توصیف.",
+	"templatedata-doc-param-desc": "توضیحۀل",
+	"templatedata-doc-param-desc-empty": "بدون توصیف",
+	"templatedata-modal-table-param-description": "شرح ($1)",
+	"templatedata-modal-table-param-label": "برچسب ($1)"
+}
