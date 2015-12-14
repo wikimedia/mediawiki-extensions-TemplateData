@@ -14,7 +14,8 @@
 			"Element303",
 			"Brenloch56",
 			"Crochet.david",
-			"Mattho69"
+			"Mattho69",
+			"Orlodrim"
 		]
 	},
 	"apihelp-templatedata-description": "Récupérer les données stockées via l’extension TemplateData.",
@@ -23,8 +24,8 @@
 	"apihelp-templatedata-param-lang": "Renvoyer les valeurs localisées dans cette langue. Par défaut, toutes les traductions disponibles sont renvoyées.",
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
 	"templatedata-doc-desc-empty": "Aucune description.",
-	"templatedata-doc-format-inline": "Ce modèle préfère la mise en forme « inline » des paramètres.",
-	"templatedata-doc-format-block": "Ce modèle préfère la mise en forme « block » des paramètres.",
+	"templatedata-doc-format-inline": "La mise en forme sur une seule ligne est préférée pour ce modèle.",
+	"templatedata-doc-format-block": "La mise en forme multiligne est préférée pour ce modèle.",
 	"templatedata-doc-no-params-set": "Pas de paramètres spécifiés",
 	"templatedata-doc-param-autovalue": "Valeur automatique",
 	"templatedata-doc-param-autovalue-empty": "vide",
