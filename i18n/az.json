@@ -3,7 +3,8 @@
 		"authors": [
 			"Eminn",
 			"Serkanland",
-			"Dağlı95"
+			"Dağlı95",
+			"Wertuose"
 		]
 	},
 	"apihelp-templatedata-param-format": "Çıxış formatı.",
@@ -29,6 +30,7 @@
 	"templatedata-errormsg-jsonbadformat": "Pis JSON formatı. Əgər bu əməliyyat düzgün aparılıbsa, siz bildirişi ləğv edərək <templatedata> teqlərini silib və yenidən yükləyə bilərsiniz və yaxud davam edərək cari TemplateData-nı yenisi ilə əvəzləyə bilərsiniz.",
 	"templatedata-exists-on-related-page": "Xahiş edirik nəzərə alın: TemplateDta bloku artıq \"[[$1]]\" səhifəsinə əlavə edilib.",
 	"templatedata-helplink": "TemplateData haqqında məlumat",
+	"templatedata-invalid-length": "Məlumat yaddaşda saxlamaq üçün çox böyükdür ({{formatnum:$1}} bayt, {{PLURAL:$2|limit:}}  {{formatnum:$2}})",
 	"templatedata-invalid-parse": "JSON-da sintaksis səhv.",
 	"templatedata-invalid-value": "\"$1\"xüsusiyyəti üçün xətalı dəyər.",
 	"templatedata-modal-button-add-language": "Dil əlavə et",
