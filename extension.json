@@ -107,6 +107,7 @@
 				"templatedata-modal-button-importParams",
 				"templatedata-modal-button-restoreparam",
 				"templatedata-modal-button-saveparam",
+				"templatedata-modal-confirmcancel",
 				"templatedata-modal-current-language",
 				"templatedata-modal-errormsg",
 				"templatedata-modal-errormsg-import-noparams",

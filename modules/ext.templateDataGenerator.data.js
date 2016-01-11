@@ -54,6 +54,10 @@ OO.mixinClass( mw.TemplateData.Model, OO.EventEmitter );
  * @param {...Mixed} value Property value
  */
 
+/**
+ * @event change
+ */
+
 /* Static Methods */
 
 /**
@@ -385,6 +389,8 @@ mw.TemplateData.Model.prototype.getExistingLanguageCodes = function () {
  * @param {string} key Parameter key
  * @param {Object} [paramData] Parameter data
  * @return {boolean} Parameter was added successfully
+ * @fires add-param
+ * @fires change
  */
 mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 	var prop, name, lang, propToSet,
@@ -465,6 +471,7 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 
 	// Trigger the add parameter event
 	this.emit( 'add-param', key, this.params[ key ] );
+	this.emit( 'change' );
 	return true;
 };
 
@@ -491,6 +498,7 @@ mw.TemplateData.Model.prototype.getAllParamNames = function () {
  * @param {Object} [language] Description language, if supplied. If not given,
  *  will default to the wiki language.
  * @fires change-description
+ * @fires change
  */
 mw.TemplateData.Model.prototype.setTemplateDescription = function ( desc, language ) {
 	language = language || this.getDefaultLanguage();
@@ -503,6 +511,7 @@ mw.TemplateData.Model.prototype.setTemplateDescription = function ( desc, langua
 			this.description[ language ] = desc;
 			this.emit( 'change-description', desc, language );
 		}
+		this.emit( 'change' );
 	}
 };
 
@@ -549,6 +558,7 @@ mw.TemplateData.Model.prototype.getDefaultLanguage = function () {
  *
  * @param {string[]} orderArray Parameter key array in order
  * @fires change-paramOrder
+ * @fires change
  */
 mw.TemplateData.Model.prototype.setTemplateParamOrder = function ( orderArray ) {
 	orderArray = orderArray || [];
@@ -556,6 +566,7 @@ mw.TemplateData.Model.prototype.setTemplateParamOrder = function ( orderArray ) 
 	// Copy the array
 	this.paramOrder = orderArray.slice();
 	this.emit( 'change-paramOrder', orderArray );
+	this.emit( 'change' );
 };
 
 /**
@@ -563,12 +574,14 @@ mw.TemplateData.Model.prototype.setTemplateParamOrder = function ( orderArray ) 
  *
  * @param {string} [format='inline'] Preferred format
  * @fires change-format
+ * @fires change
  */
 mw.TemplateData.Model.prototype.setTemplateFormat = function ( format ) {
 	format = format || 'inline';
 	if ( this.format !== format ) {
 		this.format = format;
 		this.emit( 'change-format', format );
+		this.emit( 'change' );
 	}
 };
 
@@ -577,14 +590,22 @@ mw.TemplateData.Model.prototype.setTemplateFormat = function ( format ) {
  *
  * @param {string} key New key the add into the paramOrder
  * @fires add-paramOrder
+ * @fires change
  */
 mw.TemplateData.Model.prototype.addKeyTemplateParamOrder = function ( key ) {
 	if ( $.inArray( key, this.paramOrder ) === -1 ) {
 		this.paramOrder.push( key );
 		this.emit( 'add-paramOrder', key );
+		this.emit( 'change' );
 	}
 };
 
+/**
+ * TODO: document
+ *
+ * @fires change-paramOrder
+ * @fires change
+ */
 mw.TemplateData.Model.prototype.reorderParamOrderKey = function ( key, newIndex ) {
 	var keyIndex = this.paramOrder.indexOf( key );
 	// Move the parameter
@@ -598,18 +619,22 @@ mw.TemplateData.Model.prototype.reorderParamOrderKey = function ( key, newIndex 
 
 	// Emit event
 	this.emit( 'change-paramOrder', this.paramOrder );
+	this.emit( 'change' );
 };
 
 /**
  * Add a key to the end of the paramOrder
  *
  * @param {string} key New key the add into the paramOrder
+ * @fires change-paramOrder
+ * @fires change
  */
 mw.TemplateData.Model.prototype.removeKeyTemplateParamOrder = function ( key ) {
 	var keyPos = $.inArray( key, this.paramOrder );
 	if ( keyPos > -1 ) {
 		this.paramOrder.splice( keyPos, 1 );
 		this.emit( 'change-paramOrder', this.paramOrder );
+		this.emit( 'change' );
 	}
 };
 
@@ -640,6 +665,7 @@ mw.TemplateData.Model.prototype.getTemplateFormat = function () {
  * @param {string} [language] Value language
  * @return {boolean} Operation was successful
  * @fires change-property
+ * @fires change
  */
 mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) {
 	var propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage(),
@@ -668,6 +694,7 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 		if ( !this.constructor.static.compare( this.params[ paramKey ][ prop ][ language ], value ) ) {
 			this.params[ paramKey ][ prop ][ language ] = value;
 			this.emit( 'change-property', paramKey, prop, value, language );
+			this.emit( 'change' );
 			status = true;
 		}
 	} else {
@@ -675,6 +702,7 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 		if ( !this.constructor.static.compare( this.params[ paramKey ][ prop ], value ) ) {
 			this.params[ paramKey ][ prop ] = value;
 			this.emit( 'change-property', paramKey, prop, value, language );
+			this.emit( 'change' );
 			status = true;
 		}
 	}
@@ -694,12 +722,14 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
  *
  * @param {string} paramKey Parameter key
  * @fires delete-param
+ * @fires change
  */
 mw.TemplateData.Model.prototype.deleteParam = function ( paramKey ) {
 	this.params[ paramKey ].deleted = true;
 	// Remove from paramOrder
 	this.removeKeyTemplateParamOrder( paramKey );
 	this.emit( 'delete-param', paramKey );
+	this.emit( 'change' );
 };
 
 /**
@@ -707,6 +737,7 @@ mw.TemplateData.Model.prototype.deleteParam = function ( paramKey ) {
  *
  * @param {string} paramKey Parameter key
  * @fires add-param
+ * @fires change
  */
 mw.TemplateData.Model.prototype.restoreParam = function ( paramKey ) {
 	if ( this.params[ paramKey ] ) {
@@ -714,6 +745,7 @@ mw.TemplateData.Model.prototype.restoreParam = function ( paramKey ) {
 		// Add back to paramOrder
 		this.addKeyTemplateParamOrder( paramKey );
 		this.emit( 'add-param', paramKey, this.params[ paramKey ] );
+		this.emit( 'change' );
 	}
 };
 

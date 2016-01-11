@@ -68,6 +68,7 @@
 	"templatedata-modal-button-importParams": "Label of the import button",
 	"templatedata-modal-button-restoreparam": "Label for the button to restore a previously deleted parameter in the edit dialog.",
 	"templatedata-modal-button-saveparam": "Label for the button to save parameter details in the templatedata edit dialog.\n{{Identical|Save}}",
+	"templatedata-modal-confirmcancel": "Prompt shown to the user when they attempt to cancel the templatedata edit dialog after making changes.",
 	"templatedata-modal-current-language": "Label displaying the current language in the edit dialog. Parameters:\n* $1 - currently showing language\n{{Identical|Current language}}",
 	"templatedata-modal-errormsg": "Error message that appears in the TemplateData generator GUI in case there are empty, duplicate or invalid parameter names.\n\nInvalid characters are supplied as parameters to avoid parsing errors in translation strings.\n\nParameters:\n* $1 - pipe (<code>|</code>)\n* $2 - equal sign (<code>=</code>)\n* $3 - double curly brackets (<code><nowiki>}}</nowiki></code>)",
 	"templatedata-modal-errormsg-import-noparams": "Error message that appears in the TemplateData generator GUI in case no template parameters were found during the import attempt.",

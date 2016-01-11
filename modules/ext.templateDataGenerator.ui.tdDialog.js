@@ -12,6 +12,7 @@ mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
 	mw.TemplateData.Dialog.super.call( this, config );
 
 	this.model = null;
+	this.modified = false;
 	this.language = null;
 	this.availableLanguages = [];
 	this.selectedParamKey = '';
@@ -305,6 +306,13 @@ mw.TemplateData.Dialog.prototype.onModelAddKeyParamOrder = function ( key ) {
 	} );
 
 	this.paramOrderWidget.addItems( [ dragItem ] );
+};
+
+/**
+ * Respond to a change in the model
+ */
+mw.TemplateData.Dialog.prototype.onModelChange = function () {
+	this.modified = true;
 };
 
 /**
@@ -810,6 +818,7 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 
 			// The dialog must be supplied with a reference to a model
 			this.model = data.model;
+			this.modified = false;
 
 			// Hide the panels and display a spinner
 			this.$spinner.show();
@@ -824,7 +833,8 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			this.model.connect( this, {
 				'change-description': 'onModelChangeDescription',
 				'change-paramOrder': 'onModelChangeParamOrder',
-				'add-paramOrder': 'onModelAddKeyParamOrder'
+				'add-paramOrder': 'onModelAddKeyParamOrder',
+				change: 'onModelChange'
 			} );
 
 			// Setup the dialog
@@ -980,6 +990,19 @@ mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
 		return new OO.ui.Process( function () {
 			this.emit( 'apply', this.model.outputTemplateDataString() );
 			this.close( { action: action } );
+		}, this );
+	}
+	if ( !action && this.modified ) {
+		return new OO.ui.Process( function () {
+			var dialog = this;
+			return OO.ui.confirm( mw.msg( 'templatedata-modal-confirmcancel' ) )
+				.then( function ( result ) {
+					if ( result ) {
+						dialog.close();
+					} else {
+						return $.Deferred().resolve().promise();
+					}
+				} );
 		}, this );
 	}
 	// Fallback to parent handler
