@@ -72,7 +72,7 @@ class TemplateDataBlob {
 	/**
 	 * Parse the data, normalise it and validate it.
 	 *
-	 * See spec.templatedata.json for the expected format of the JSON object.
+	 * See Specification.md for the expected format of the JSON object.
 	 * @return Status
 	 */
 	private function parse() {
