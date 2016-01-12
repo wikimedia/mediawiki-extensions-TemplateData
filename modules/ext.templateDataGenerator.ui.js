@@ -158,16 +158,19 @@
 					'<templatedata>\n' + newTemplateData + '\n</templatedata>'
 				);
 			} else {
-				if ( isPageSubLevel ) {
-					// Add the <templatedata>
-					finalOutput = fullWikitext + '\n<templatedata>\n' +
+				finalOutput = fullWikitext;
+				if ( fullWikitext.substr( -1 ) !== '\n' ) {
+					finalOutput += '\n';
+				}
+
+				if ( !isPageSubLevel ) {
+					finalOutput += '<noinclude>\n';
+				}
+				finalOutput += '<templatedata>\n' +
 						newTemplateData +
 						'\n</templatedata>\n';
-				} else {
-					// If we are not in a subpage, add <noinclude> tags
-					finalOutput = fullWikitext + '\n<noinclude>\n<templatedata>\n' +
-						newTemplateData +
-						'\n</templatedata>\n</noinclude>\n';
+				if ( !isPageSubLevel ) {
+					finalOutput += '</noinclude>\n';
 				}
 			}
 			return finalOutput;
