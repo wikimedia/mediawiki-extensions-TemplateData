@@ -147,6 +147,7 @@
 		replaceTemplateData = function ( newTemplateData ) {
 			var finalOutput,
 				fullWikitext = $textbox.val(),
+				endNoIncludeLength = '</noinclude>'.length,
 				parts = fullWikitext.match(
 					/<templatedata>([\s\S]*?)<\/templatedata>/i
 				);
@@ -159,12 +160,16 @@
 				);
 			} else {
 				finalOutput = fullWikitext;
-				if ( fullWikitext.substr( -1 ) !== '\n' ) {
+				if ( finalOutput.substr( -1 ) !== '\n' ) {
 					finalOutput += '\n';
 				}
 
 				if ( !isPageSubLevel ) {
-					finalOutput += '<noinclude>\n';
+					if ( finalOutput.substr( -endNoIncludeLength - 1 ) === '</noinclude>\n' ) {
+						finalOutput = finalOutput.substr( 0, finalOutput.length - endNoIncludeLength - 1 );
+					} else {
+						finalOutput += '<noinclude>\n';
+					}
 				}
 				finalOutput += '<templatedata>\n' +
 						newTemplateData +
