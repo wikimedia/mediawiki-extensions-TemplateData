@@ -4,7 +4,8 @@
 			"Littledogboy",
 			"Mormegil",
 			"Jkjk",
-			"Cvanca"
+			"Cvanca",
+			"Matěj Suchánek"
 		]
 	},
 	"apihelp-templatedata-description": "Načtení dat uložených rozšířením TemplateData.",
@@ -55,6 +56,7 @@
 	"templatedata-modal-button-importParams": "Importovat parametry",
 	"templatedata-modal-button-restoreparam": "Obnovit parametr",
 	"templatedata-modal-button-saveparam": "Uložit",
+	"templatedata-modal-confirmcancel": "Opravdu chcete odejít? Všechny změny budou ztraceny.",
 	"templatedata-modal-current-language": "Aktuální jazyk: $1",
 	"templatedata-modal-errormsg": "Nalezeny chyby. Ujistěte se, že neexistuje prázdný nebo duplicitní název parametru a že názvy parametrů neobsahují „$1“, „$2“ nebo „$3“.",
 	"templatedata-modal-errormsg-import-noparams": "Při importu nenalezeny žádné nové parametry.",

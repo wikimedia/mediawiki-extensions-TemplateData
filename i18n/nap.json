@@ -55,6 +55,7 @@
 	"templatedata-modal-button-importParams": "Importa parametre",
 	"templatedata-modal-button-restoreparam": "Arrepiglia parametre",
 	"templatedata-modal-button-saveparam": "Sarva",
+	"templatedata-modal-confirmcancel": "Site sicuro/a ca vulite cancellà chesto? Tuttuquante 'e cagnamiente se lassassero a sperdere.",
 	"templatedata-modal-current-language": "Lengua 'e mò: $1",
 	"templatedata-modal-errormsg": "Errure truvate. Pe' piacere assicurateve ca nun ce stanno parametre dupprecate o abbacante, e ca 'e nomme 'e parametre nun appenneno \"$1\", \"$2\" o \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Nisciuno parametro truvato pe' tramente ca se faceva l'import.",

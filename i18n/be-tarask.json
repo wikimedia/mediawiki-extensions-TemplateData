@@ -3,7 +3,8 @@
 		"authors": [
 			"Wizardist",
 			"Red Winged Duck",
-			"Jim-by"
+			"Jim-by",
+			"Renessaince"
 		]
 	},
 	"templatedata-desc": "Рэалізацыя сховішча зьвестак для парамэтраў шаблёнаў (праз JSON)",
@@ -28,6 +29,7 @@
 	"templatedata-modal-button-cancel": "Скасаваць",
 	"templatedata-modal-button-delparam": "Выдаліць інфармацыю пра парамэтар",
 	"templatedata-modal-button-restoreparam": "Аднавіць парамэтар",
+	"templatedata-modal-confirmcancel": "Вы насамрэч жадаеце скасаваць? Усе зьмены будуць страчаныя.",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новы парамэтар быў імпартаваны|новыя парамэтры былі імпартаваныя|новых парамэтраў былі імпартаваныя}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Назва парамэтру",
 	"templatedata-modal-search-input-placeholder": "Шукаць паводле назвы або коду мовы",
