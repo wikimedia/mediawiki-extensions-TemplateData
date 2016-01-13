@@ -9,7 +9,6 @@
 	},
 	"apihelp-templatedata-description": "Fetch data stored by the TemplateData extension.",
 	"apihelp-templatedata-example-1": "Return data for [[Template:Stub]] and [[Template:Example]]",
-	"apihelp-templatedata-param-format": "The format of the output.",
 	"apihelp-templatedata-param-lang": "Return localized values in this language. By default all available translations are returned.",
 	"templatedata-desc": "Implement data storage for template parameters (using JSON)",
 	"templatedata-doc-desc-empty": "No description.",

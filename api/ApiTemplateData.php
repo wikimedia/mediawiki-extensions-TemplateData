@@ -12,21 +12,21 @@
  * @todo Support continuation (see I1a6e51cd)
  */
 class ApiTemplateData extends ApiBase {
-
 	/**
-	 * Override built-in handling of format parameter.
-	 * Only JSON is supported.
-	 *
-	 * @return ApiFormatBase
+	 * For backwards compatibility, this module needs to output format=json when
+	 * no format is specified.
+	 * @return ApiFormatBase|null
 	 */
 	public function getCustomPrinter() {
-		$params = $this->extractRequestParams();
-		$format = $params['format'];
-		$allowed = array( 'json', 'jsonfm' );
-		if ( in_array( $format, $allowed ) ) {
-			return $this->getMain()->createPrinterByName( $format );
+		if ( $this->getMain()->getVal( 'format' ) === null ) {
+			$this->setWarning(
+				"The default output format will change to jsonfm in the future." .
+				" Please specify format=json explicitly."
+			);
+			$this->logFeatureUsage( 'action=templatedata&!format' );
+			return $this->getMain()->createPrinterByName( 'json' );
 		}
-		return $this->getMain()->createPrinterByName( $allowed[0] );
+		return null;
 	}
 
 	/**
@@ -97,12 +97,20 @@ class ApiTemplateData extends ApiBase {
 					$param->{ApiResult::META_BC_BOOLS} = array( 'required', 'suggested', 'deprecated' );
 				}
 				unset( $param );
+
+				$data->params->{ApiResult::META_TYPE} = 'kvp';
+				$data->params->{ApiResult::META_KVP_KEY_NAME} = 'key';
+				$data->params->{ApiResult::META_INDEXED_TAG_NAME} = 'param';
+				ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
 			}
 
 			$resp[$row->pp_page] = array(
 				'title' => strval( $titles[$row->pp_page] ),
 			) + (array) $data;
 		}
+
+		ApiResult::setArrayType( $resp, 'kvp', 'id' );
+		ApiResult::setIndexedTagName( $resp, 'page' );
 
 		// Set top level element
 		$result->addValue( null, 'pages', (object) $resp );
@@ -119,10 +127,6 @@ class ApiTemplateData extends ApiBase {
 
 	public function getAllowedParams( $flags = 0 ) {
 		return $this->getPageSet()->getFinalParams( $flags ) + array(
-			'format' => array(
-				ApiBase::PARAM_DFLT => 'json',
-				ApiBase::PARAM_TYPE => array( 'json', 'jsonfm' ),
-			),
 			'lang' => null
 		);
 	}
@@ -132,7 +136,6 @@ class ApiTemplateData extends ApiBase {
 	 */
 	public function getParamDescription() {
 		return $this->getPageSet()->getParamDescription() + array(
-			'format' => 'The format of the output',
 			'lang' => 'Return localized values in this language (by default all available' .
 				' translations are returned)',
 		);
