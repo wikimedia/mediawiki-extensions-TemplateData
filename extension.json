@@ -87,6 +87,7 @@
 			],
 			"dependencies": [
 				"oojs-ui",
+				"ext.templateData",
 				"ext.templateDataGenerator.data",
 				"jquery.uls.data"
 			],
