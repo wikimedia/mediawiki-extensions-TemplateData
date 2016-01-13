@@ -236,7 +236,7 @@
 					{
 						obj1: {
 							param1: {
-								type: 'undefined',
+								type: 'unknown',
 								aliases: [ 'alias2', 'alias1', 'alias3' ],
 								description: 'Some description',
 								required: true,
@@ -248,7 +248,7 @@
 						},
 						obj2: {
 							param1: {
-								type: 'undefined',
+								type: 'unknown',
 								aliases: [ 'alias2', 'alias1', 'alias3' ],
 								description: 'Some description',
 								required: true,
@@ -265,7 +265,7 @@
 					{
 						obj1: {
 							param1: {
-								type: 'undefined',
+								type: 'unknown',
 								aliases: [ 'alias1', 'alias2', 'alias3' ],
 								description: 'Some description',
 								required: true,

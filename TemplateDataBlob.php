@@ -865,13 +865,22 @@ class TemplateDataBlob {
 				)
 			)
 			// Type
-			. Html::rawElement( 'td', array(
+			. Html::element( 'td', array(
 					'class' => array(
 						'mw-templatedata-doc-param-type',
 						'mw-templatedata-doc-muted' => $paramObj->type === 'unknown'
 					)
 				),
-				Html::element( 'code', array(), $paramObj->type )
+
+				// Known messages, for grepping:
+				// templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
+				// templatedata-doc-param-type-date, templatedata-doc-param-type-line,
+				// templatedata-doc-param-type-number, templatedata-doc-param-type-string,
+				// templatedata-doc-param-type-unbalanced-wikitext, templatedata-doc-param-type-unknown,
+				// templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
+				// templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
+				// templatedata-doc-param-type-wiki-user-name
+				wfMessage( 'templatedata-doc-param-type-' . $paramObj->type )->inLanguage( $lang )->text()
 			)
 			// Status
 			. Html::element(

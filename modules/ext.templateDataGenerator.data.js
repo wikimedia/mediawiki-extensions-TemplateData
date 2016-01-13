@@ -152,11 +152,11 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 				'string',
 				'wiki-template-name',
 				'unbalanced-wikitext',
-				'undefined',
+				'unknown',
 				'url',
 				'wiki-user-name'
 			],
-			'default': 'undefined'
+			'default': 'unknown'
 		},
 		'default': {
 			type: 'string',
@@ -959,9 +959,12 @@ mw.TemplateData.Model.prototype.outputTemplateData = function () {
 					// Only include type if the original included type
 					// or if the current type is not undefined
 					if (
-						original.type !== undefined ||
-						this.params[ key ].type !== 'undefined'
+						original.params[ key ] &&
+						original.params[ key ].type !== 'unknown' &&
+						this.params[ key ].type === 'unknown'
 					) {
+						result.params[ name ][ prop ] = undefined;
+					} else {
 						result.params[ name ][ prop ] = this.params[ key ].type;
 					}
 					break;

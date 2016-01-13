@@ -428,7 +428,7 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 		allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
 	if ( property === 'type' ) {
-		value = this.propInputs[ property ].getMenu().getSelectedItem() ? this.propInputs[ property ].getMenu().getSelectedItem().getData() : 'undefined';
+		value = this.propInputs[ property ].getMenu().getSelectedItem() ? this.propInputs[ property ].getMenu().getSelectedItem().getData() : 'unknown';
 	}
 
 	// TODO: Validate the name
@@ -630,7 +630,16 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 				for ( type in paramProperties[ props ].children ) {
 					typeItemArray.push( new OO.ui.MenuOptionWidget( {
 						data: paramProperties[ props ].children[ type ],
-						label: mw.msg( 'templatedata-modal-table-param-type-' + paramProperties[ props ].children[ type ] )
+
+						// Known messages, for grepping:
+						// templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
+						// templatedata-doc-param-type-date, templatedata-doc-param-type-line,
+						// templatedata-doc-param-type-number, templatedata-doc-param-type-string,
+						// templatedata-doc-param-type-unbalanced-wikitext, templatedata-doc-param-type-unknown,
+						// templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
+						// templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
+						// templatedata-doc-param-type-wiki-user-name
+						label: mw.msg( 'templatedata-doc-param-type-' + paramProperties[ props ].children[ type ] )
 					} ) );
 				}
 				propInput.getMenu().addItems( typeItemArray );
