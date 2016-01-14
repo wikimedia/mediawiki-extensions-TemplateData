@@ -54,6 +54,7 @@
 	"templatedata-modal-button-importParams": "Importar parámetros",
 	"templatedata-modal-button-restoreparam": "Restaurar parámetru",
 	"templatedata-modal-button-saveparam": "Guardar",
+	"templatedata-modal-confirmcancel": "¿Tas seguro de que quies encaboxar? Los cambeos van perdese.",
 	"templatedata-modal-current-language": "Llingua actual: $1",
 	"templatedata-modal-errormsg": "Atopáronse errores. Compruebe que nun hai nomes de parámetru baleros o duplicaos, y que'l nome del parámetru nun incluye \"$1\", \"$2\" o \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Nun s'alcontraron parámetros nuevos demientres la importación.",

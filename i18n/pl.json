@@ -55,6 +55,7 @@
 	"templatedata-modal-button-importParams": "Importuj parametry",
 	"templatedata-modal-button-restoreparam": "Przywróć parametr",
 	"templatedata-modal-button-saveparam": "Zapisz",
+	"templatedata-modal-confirmcancel": "Czy na pewno chcesz zrezygnować? Wszelkie zmiany zostaną utracone.",
 	"templatedata-modal-current-language": "Aktualny język: $1",
 	"templatedata-modal-errormsg": "Znaleziono błędy. Proszę, upewnij się, że nazwy parametrów nie są puste, nie są zduplikowane i nie zawierają «$1», «$2» lub «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Nie znaleziono nowych parametrów podczas importu.",
