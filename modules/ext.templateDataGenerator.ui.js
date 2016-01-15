@@ -29,12 +29,14 @@
 			 * Display error message in the edit window
 			 *
 			 * @param {string} msg Message to display
-			 * @param {string} type Message type 'notice' or 'error'
+			 * @param {string} [type='error'] Message type 'notice' or 'warning' or 'error'
 			 * @param {boolean} [parseHTML] The message should be parsed
 			 */
 			setNoticeMessage: function ( msg, type, parseHTML ) {
 				type = type || 'error';
-				editNoticeLabel.$element.toggleClass( 'errorbox', type === 'error' );
+				editNoticeLabel.$element
+					.toggleClass( 'errorbox', type === 'error' )
+					.toggleClass( 'warningbox', type === 'warning' );
 
 				if ( parseHTML ) {
 					// OOUI's label elements do not parse strings and display them
@@ -250,7 +252,7 @@
 								mw.messages.set( { 'templatedata-string-exists-hack-message': msg } );
 								msg = mw.message( 'templatedata-string-exists-hack-message' ).parse();
 
-								editArea.setNoticeMessage( msg, 'error', true );
+								editArea.setNoticeMessage( msg, 'warning', true );
 							}
 						}
 					} );
