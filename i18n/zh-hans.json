@@ -60,6 +60,7 @@
 	"templatedata-modal-button-importParams": "导入参数",
 	"templatedata-modal-button-restoreparam": "恢复参数",
 	"templatedata-modal-button-saveparam": "保存",
+	"templatedata-modal-confirmcancel": "您确定要取消么？任何更改将会丢失。",
 	"templatedata-modal-current-language": "当前语言：$1",
 	"templatedata-modal-errormsg": "找到错误。请确信这里没有空或重复的参数名称，并且它们不包括“$1”“$2”或“$3”。",
 	"templatedata-modal-errormsg-import-noparams": "导入过程中找不到新的参数。",
