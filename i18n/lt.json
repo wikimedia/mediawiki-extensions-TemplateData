@@ -56,6 +56,7 @@
 	"templatedata-modal-button-importParams": "Importuoti parametrus",
 	"templatedata-modal-button-restoreparam": "Atkurti parametrą",
 	"templatedata-modal-button-saveparam": "Išsaugoti",
+	"templatedata-modal-confirmcancel": "Ar tikrai norite atšaukti? Bet kokie pakeitimai bus prarasti.",
 	"templatedata-modal-current-language": "Dabartinė kalba: $1",
 	"templatedata-modal-errormsg": "Rasta klaidų. Prašome įsitikinti, kad nėra tuščių arba pasikartojančių parametrų vardų ir kad parametrų varduose nėra \"$1\", \"$2\" arba \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Importavimo metu nerasta naujų parametrų.",
