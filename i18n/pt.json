@@ -60,6 +60,7 @@
 	"templatedata-modal-button-importParams": "Importar parâmetros",
 	"templatedata-modal-button-restoreparam": "Restaurar parâmetro",
 	"templatedata-modal-button-saveparam": "Gravar",
+	"templatedata-modal-confirmcancel": "Tem certeza de que deseja cancelar? Quaisquer alterações serão perdidas.",
 	"templatedata-modal-current-language": "Idioma atual: $1",
 	"templatedata-modal-errormsg": "Erros encontrados. Por favor, certifique-se de que não há nomes de parâmetros vazios ou duplicados e que estes não incluem o nome do parâmetro \"$1\", \"$2\" ou \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Não foram encontrados novos parâmetros durante a importação.",
