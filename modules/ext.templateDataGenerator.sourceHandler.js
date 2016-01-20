@@ -160,8 +160,7 @@ mw.TemplateData.SourceHandler.prototype.getParametersFromTemplateSource = functi
  * Adapted from https://he.wikipedia.org/wiki/MediaWiki:Gadget-TemplateParamWizard.js
  *
  * @param {string} templateCode Source of the template.
- * @return {jQuery.Promise} A promise that resolves into an
- *  array of parameters that appear in the template code
+ * @return {string[]} An array of parameters that appear in the template code
  */
 mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateCode ) {
 	var matches,
