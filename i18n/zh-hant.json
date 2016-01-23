@@ -101,6 +101,6 @@
 	"templatedata-modal-title-language": "語言",
 	"templatedata-modal-title-paramorder": "參數順序",
 	"templatedata-modal-title-templatedesc": "模板描述 ($1)",
-	"templatedata-modal-title-templateparam-details": "參數詳細資訊：$1",
+	"templatedata-modal-title-templateparam-details": "參數詳細資料：$1",
 	"templatedata-modal-title-templateparams": "模板參數"
 }
