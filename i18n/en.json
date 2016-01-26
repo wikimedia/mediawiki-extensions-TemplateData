@@ -62,7 +62,6 @@
 	"templatedata-modal-current-language": "Current language: $1",
 	"templatedata-modal-errormsg": "Errors found. Please make sure there are no empty or duplicate parameter names, and that the parameter name does not include \"$1\", \"$2\" or \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "No new parameters found during import.",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|One parameter was not imported, because it already exists|Some parameters were not imported, because they already exist}} in the editor: $1",
 	"templatedata-modal-format-inline": "Inline",
 	"templatedata-modal-format-block": "Block",
 	"templatedata-modal-json-error-replace": "Replace",
