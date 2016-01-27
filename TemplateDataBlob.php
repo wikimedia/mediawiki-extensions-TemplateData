@@ -21,7 +21,17 @@ class TemplateDataBlob {
 	private $data;
 
 	/**
-	 * @var Status: Cache of TemplateDataBlob::parse
+	 * @var string|null In-object cache for getJSON()
+	 */
+	private $json = null;
+
+	/**
+	 * @var string|null In-object cache for getJSONForDatabase()
+	 */
+	private $jsonDB = null;
+
+	/**
+	 * @var Status Cache of TemplateDataBlob::parse
 	 */
 	private $status;
 
@@ -40,6 +50,10 @@ class TemplateDataBlob {
 		$status = $tdb->parse();
 
 		if ( !$status->isOK() ) {
+			// Reset in-object caches
+			$tdb->json = null;
+			$tdb->jsonDB = null;
+
 			// If data is invalid, replace with the minimal valid blob.
 			// This is to make sure that, if something forgets to check the status first,
 			// we don't end up with invalid data in the database.
@@ -602,8 +616,9 @@ class TemplateDataBlob {
 	 * @return object
 	 */
 	public function getData() {
-		// TODO: Returned by reference. Data is a private member. Use clone instead?
-		return $this->data;
+		// Return deep clone so callers can't modify data. Needed for getDataInLanguage().
+		// Modification must clear 'json' and 'jsonDB' in-object cache.
+		return unserialize( serialize( $this->data ) );
 	}
 
 	/**
@@ -614,9 +629,7 @@ class TemplateDataBlob {
 	 * @return object
 	 */
 	public function getDataInLanguage( $langCode ) {
-		// Deep clone, also need to clone ->params and all interfacetext objects
-		// within param properties.
-		$data = unserialize( serialize( $this->data ) );
+		$data = $this->getData();
 
 		// Root.description
 		if ( $data->description !== null ) {
@@ -667,14 +680,22 @@ class TemplateDataBlob {
 	 * @return string JSON
 	 */
 	public function getJSON() {
-		return json_encode( $this->data );
+		if ( $this->json === null ) {
+			// Cache for repeat calls
+			$this->json = json_encode( $this->data );
+		}
+		return $this->json;
 	}
 
 	/**
-	 * @return string JSON, gzip-compressed
+	 * @return string JSON (gzip compressed)
 	 */
 	public function getJSONForDatabase() {
-		return gzencode( $this->getJSON() );
+		if ( $this->jsonDB === null ) {
+			// Cache for repeat calls
+			$this->jsonDB = gzencode( $this->getJSON() );
+		}
+		return $this->jsonDB;
 	}
 
 	public function getHtml( Language $lang ) {
