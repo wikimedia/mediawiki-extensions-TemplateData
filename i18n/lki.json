@@ -7,7 +7,6 @@
 	},
 	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ TemplateData.",
 	"apihelp-templatedata-example-1": "برگرداندن داده‌های [[Template:Stub]] و [[Template:Example]]",
-	"apihelp-templatedata-param-format": "قالب خروجی.",
 	"templatedata-doc-desc-empty": "بدون توصیف.",
 	"templatedata-doc-param-autovalue-empty": "خالی/پةتی",
 	"templatedata-doc-param-default": "پیش‌فرض",
