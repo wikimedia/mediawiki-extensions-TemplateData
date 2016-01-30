@@ -62,6 +62,8 @@
 	"templatedata-modal-current-language": "Huidige taal: $1",
 	"templatedata-modal-errormsg": "Fouten gevonden. Zorg ervoor dat er geen lege of dubbele parameternamen zijn, en dat de parameternaam geen \"$1\", \"$2\" of \"$3\" bevat.",
 	"templatedata-modal-errormsg-import-noparams": "Geen nieuwe parameters gevonden tijdens het importeren.",
+	"templatedata-modal-format-inline": "In lijn",
+	"templatedata-modal-format-block": "Blok",
 	"templatedata-modal-json-error-replace": "Vervangen",
 	"templatedata-modal-notice-import-numparams": "Er {{PLURAL:$1|is één nieuwe parameter|zijn $1 nieuwe parameters}} geïmporteerd: $2",
 	"templatedata-modal-placeholder-paramkey": "Parameternaam",
