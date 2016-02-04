@@ -40,6 +40,7 @@
 	"templatedata-modal-button-saveparam": "Sačuvaj",
 	"templatedata-modal-current-language": "Trenutni jezik: $1",
 	"templatedata-modal-errormsg-import-noparams": "Tokom uvoza nije pronađen nijedan novi parametar.",
+	"templatedata-modal-format-block": "Blok",
 	"templatedata-modal-json-error-replace": "Zameni",
 	"templatedata-modal-placeholder-paramkey": "Naziv parametra",
 	"templatedata-modal-search-input-placeholder": "Pretraži po imenu ili kodu jezika",
