@@ -386,7 +386,7 @@ mw.TemplateData.Dialog.prototype.onNewLanguageSearchResultsChoose = function ( i
 		if ( $.inArray( newLanguage, this.availableLanguages ) === -1 ) {
 			// Add new language
 			this.availableLanguages.push( newLanguage );
-			languageButton = new OO.ui.OptionWidget( {
+			languageButton = new OO.ui.MenuOptionWidget( {
 				data: newLanguage,
 				label: $.uls.data.getAutonym( newLanguage )
 			} );
@@ -665,7 +665,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 			case 'type':
 				propInput = new OO.ui.DropdownWidget( config );
 				for ( type in paramProperties[ props ].children ) {
-					typeItemArray.push( new OO.ui.OptionWidget( {
+					typeItemArray.push( new OO.ui.MenuOptionWidget( {
 						data: paramProperties[ props ].children[ type ],
 						label: mw.msg( 'templatedata-modal-table-param-type-' + paramProperties[ props ].children[ type ] )
 					} ) );
@@ -850,7 +850,7 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 				$.inArray( language, languages ) === -1
 			) {
 				// Add the default language
-				languageItems.push( new OO.ui.OptionWidget( {
+				languageItems.push( new OO.ui.MenuOptionWidget( {
 					data: language,
 					label: $.uls.data.getAutonym( language )
 				} ) );
@@ -859,7 +859,7 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 
 			// Add all available languages
 			for ( i = 0; i < languages.length; i++ ) {
-				languageItems.push( new OO.ui.OptionWidget( {
+				languageItems.push( new OO.ui.MenuOptionWidget( {
 					data: languages[ i ],
 					label: $.uls.data.getAutonym( languages[ i ] )
 				} ) );
