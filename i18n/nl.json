@@ -58,7 +58,7 @@
 	"templatedata-modal-button-importParams": "Parameters importeren",
 	"templatedata-modal-button-restoreparam": "Parameter herstellen",
 	"templatedata-modal-button-saveparam": "Opslaan",
-	"templatedata-modal-confirmcancel": "Weet u zeker dat u wilt annuleren? Alle wijzigingen zullen verloren gaan.",
+	"templatedata-modal-confirmcancel": "Weet u zeker dat u wilt annuleren? Alle wijzigingen gaan verloren.",
 	"templatedata-modal-current-language": "Huidige taal: $1",
 	"templatedata-modal-errormsg": "Fouten gevonden. Zorg ervoor dat er geen lege of dubbele parameternamen zijn, en dat de parameternaam geen \"$1\", \"$2\" of \"$3\" bevat.",
 	"templatedata-modal-errormsg-import-noparams": "Geen nieuwe parameters gevonden tijdens het importeren.",
