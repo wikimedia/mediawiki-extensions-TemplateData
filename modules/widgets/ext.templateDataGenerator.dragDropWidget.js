@@ -16,7 +16,7 @@ mw.TemplateData.DragDropWidget = function mwTemplateDataDragDropWidget( config )
 	config = config || {};
 
 	// Parent constructor
-	mw.TemplateData.DragDropWidget.super.call( this, config );
+	mw.TemplateData.DragDropWidget.parent.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
@@ -32,6 +32,7 @@ OO.mixinClass( mw.TemplateData.DragDropWidget, OO.ui.mixin.DraggableGroupElement
 
 /**
  * Get an array of keys based on the current items, in order
+ *
  * @return {string[]} Array of keys
  */
 mw.TemplateData.DragDropWidget.prototype.getKeyArray = function () {
@@ -39,7 +40,7 @@ mw.TemplateData.DragDropWidget.prototype.getKeyArray = function () {
 		arr = [];
 
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		arr.push( this.items[i].getData() );
+		arr.push( this.items[ i ].getData() );
 	}
 
 	return arr;
@@ -48,6 +49,7 @@ mw.TemplateData.DragDropWidget.prototype.getKeyArray = function () {
 /**
  * Reorder the key into its new index. Find the item first, then add
  * it back in its new place.
+ *
  * @param {string} key Unique key
  * @param {number} newIndex New index
  */
@@ -56,8 +58,8 @@ mw.TemplateData.DragDropWidget.prototype.reorderKey = function ( key, newIndex )
 
 	// Get the item that belongs to this key
 	for ( i = 0, len = this.items.length; i < len; i++ ) {
-		if ( this.items[i].getData() === key ) {
-			item = this.items[i];
+		if ( this.items[ i ].getData() === key ) {
+			item = this.items[ i ];
 		}
 	}
 

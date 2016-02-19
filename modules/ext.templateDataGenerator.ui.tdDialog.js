@@ -9,7 +9,7 @@
  */
 mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
 	// Parent constructor
-	mw.TemplateData.Dialog.super.call( this, config );
+	mw.TemplateData.Dialog.parent.call( this, config );
 
 	this.model = null;
 	this.modified = false;
@@ -22,6 +22,8 @@ mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataDialog' );
 };
+
+/* Inheritance */
 
 OO.inheritClass( mw.TemplateData.Dialog, OO.ui.ProcessDialog );
 

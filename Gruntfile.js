@@ -21,8 +21,8 @@ module.exports = function ( grunt ) {
 				jshintrc: true
 			},
 			all: [
-				'modules/*.js',
-				'tests/*.js'
+				'modules/**/*.js',
+				'tests/**/*.js'
 			]
 		},
 		jscs: {

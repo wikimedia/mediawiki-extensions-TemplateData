@@ -29,8 +29,8 @@ mw.TemplateData.SourceHandler = function MWTemplateDataSourceHander( config ) {
 	this.setFullPageName( config.fullPageName );
 };
 
-/* Setup */
-OO.initClass( mw.TemplateData.SourceHandler );
+/* Inheritance */
+
 OO.mixinClass( mw.TemplateData.SourceHandler, OO.EventEmitter );
 
 /**

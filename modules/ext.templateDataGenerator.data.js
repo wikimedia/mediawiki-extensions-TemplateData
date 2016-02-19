@@ -24,8 +24,8 @@ mw.TemplateData.Model = function mwTemplateDataModel( config ) {
 	this.sourceCodeParameters = [];
 };
 
-/* Setup */
-OO.initClass( mw.TemplateData.Model );
+/* Inheritance */
+
 OO.mixinClass( mw.TemplateData.Model, OO.EventEmitter );
 
 /* Events */
