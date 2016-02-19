@@ -22,7 +22,7 @@ mw.TemplateData.DragDropWidget = function mwTemplateDataDragDropWidget( config )
 	OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
 
 	// Initialization
-	this.$element.addClass( 'tdg-TemplateDataDragDropWidget' );
+	this.$element.addClass( 'tdg-templateDataDragDropWidget' );
 };
 
 /* Setup */

@@ -12,7 +12,7 @@
 	margin-top: 0.5em;
 }
 
-.tdg-TemplateDataDialog-panels .oo-ui-panelLayout {
+.tdg-templateDataDialog-panels .oo-ui-panelLayout {
 	padding: 1em;
 }
 
@@ -24,9 +24,13 @@
 	background-color: #FFA3A3;
 }
 
-.tdg-TemplateDataOptionWidget-param-name,
-.tdg-TemplateDataOptionWidget-param-aliases,
-.tdg-TemplateDataOptionWidget-param-description {
+.tdg-templateDataOptionWidget {
+	padding-right: 0.5em;
+}
+
+.tdg-templateDataOptionWidget-param-name,
+.tdg-templateDataOptionWidget-param-aliases,
+.tdg-templateDataOptionWidget-param-description {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -34,16 +38,16 @@
 	max-width: 33em;
 }
 
-.tdg-TemplateDataOptionWidget-param-name {
+.tdg-templateDataOptionWidget-param-name {
 	font-weight: bold;
 }
 
-.tdg-TemplateDataOptionWidget-param-aliases {
+.tdg-templateDataOptionWidget-param-aliases {
 	float: right;
 	font-size: 0.9em;
 }
 
-.tdg-TemplateDataOptionWidget-param-alias {
+.tdg-templateDataOptionWidget-param-alias {
 	border-radius: 0.3em;
 	padding: 0.125em 0.25em;
 	margin-left: 0.5em;
@@ -52,11 +56,11 @@
 	border: solid 1px #ddd;
 }
 
-.tdg-TemplateDataOptionWidget-param-alias:first-child {
+.tdg-templateDataOptionWidget-param-alias:first-child {
 	background-color: #fff;
 }
 
-.tdg-TemplateDataOptionWidget-paramList-param-description {
+.tdg-templateDataOptionWidget-paramList-param-description {
 	clear: both;
 	color: #555;
 }

@@ -21,7 +21,7 @@ mw.TemplateData.DragDropItemWidget = function mwTemplateDataDragDropItemWidget( 
 
 	// Initialization
 	this.$element
-		.addClass( 'tdg-TemplateDataDragDropItemWidget' );
+		.addClass( 'tdg-templateDataDragDropItemWidget' );
 };
 
 /* Setup */

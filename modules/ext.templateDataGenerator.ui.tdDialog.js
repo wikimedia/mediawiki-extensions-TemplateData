@@ -20,7 +20,7 @@ mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
 	this.propFieldLayout = {};
 
 	// Initialize
-	this.$element.addClass( 'tdg-TemplateDataDialog' );
+	this.$element.addClass( 'tdg-templateDataDialog' );
 };
 
 OO.inheritClass( mw.TemplateData.Dialog, OO.ui.ProcessDialog );
@@ -177,7 +177,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 
 	// Param details panel
 	this.$paramDetailsContainer = $( '<div>' )
-		.addClass( 'tdg-TemplateDataDialog-paramDetails' );
+		.addClass( 'tdg-templateDataDialog-paramDetails' );
 
 	this.listParamsPanel.$element
 		.addClass( 'tdg-templateDataDialog-listParamsPanel' )
@@ -215,7 +215,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 		this.addParamPanel
 	] );
 	this.panels.setItem( this.listParamsPanel );
-	this.panels.$element.addClass( 'tdg-TemplateDataDialog-panels' );
+	this.panels.$element.addClass( 'tdg-templateDataDialog-panels' );
 
 	// Build param details panel
 	this.$paramDetailsContainer.append( this.createParamDetails() );
@@ -485,7 +485,7 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 	}
 
 	// Validate
-	$( '.tdg-TemplateDataDialog-paramInput' ).each( function () {
+	$( '.tdg-templateDataDialog-paramInput' ).each( function () {
 		if ( $( this ).hasClass( 'tdg-editscreen-input-error' ) ) {
 			anyInputError = true;
 		}
@@ -683,7 +683,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 		this.propInputs[ props ] = propInput;
 
 		propInput.$element
-			.addClass( 'tdg-TemplateDataDialog-paramInput tdg-TemplateDataDialog-paramList-' + props );
+			.addClass( 'tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-' + props );
 
 		this.propFieldLayout[ props ] = new OO.ui.FieldLayout( propInput, {
 			align: 'left',

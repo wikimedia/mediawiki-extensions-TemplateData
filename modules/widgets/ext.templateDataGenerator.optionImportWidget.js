@@ -26,9 +26,9 @@ OO.inheritClass( mw.TemplateData.OptionImportWidget, OO.ui.DecoratedOptionWidget
 mw.TemplateData.OptionImportWidget.prototype.buildParamLabel = function () {
 	var paramNames = this.params.slice( 0, 9 ).join( mw.msg( 'comma-separator' ) ),
 		$paramName = $( '<div>' )
-			.addClass( 'tdg-TemplateDataOptionWidget-param-name' ),
+			.addClass( 'tdg-templateDataOptionWidget-param-name' ),
 		$description = $( '<div>' )
-			.addClass( 'tdg-TemplateDataOptionWidget-param-description' );
+			.addClass( 'tdg-templateDataOptionWidget-param-description' );
 
 	$paramName.text( mw.msg( 'templatedata-modal-table-param-importoption', this.params.length ) );
 	$description.text( mw.msg( 'templatedata-modal-table-param-importoption-subtitle', paramNames ) );

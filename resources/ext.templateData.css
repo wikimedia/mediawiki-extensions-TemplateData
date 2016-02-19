@@ -1,30 +1,30 @@
-.mw-templatedata-doc-params tbody > tr > th {
+.mw-templateData-doc-params tbody > tr > th {
 	text-align: left;
 	font-weight: normal;
 }
 
-.mw-templatedata-doc-param-alias {
+.mw-templateData-doc-param-alias {
 	color: #777;
 	display: block;
 	margin-left: 1em;
 }
 
-.mw-templatedata-doc-muted {
+.mw-templateData-doc-muted {
 	font-style: italic;
 	color: #777;
 }
 
-.mw-templatedata-doc-params .oo-ui-widget {
+.mw-templateData-doc-params .oo-ui-widget {
 	font-size: 0.9143em;
 }
 
-.mw-templatedata-format {
+.mw-templateData-format {
 	font-weight: normal;
 	font-size: 0.85em;
 }
 
-.mw-templatedata-doc-param-name,
-.mw-templatedata-doc-param-type {
+.mw-templateData-doc-param-name,
+.mw-templateData-doc-param-type {
 	white-space: nowrap;
 }
 
