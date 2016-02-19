@@ -50,6 +50,7 @@ OO.inheritClass( mw.TemplateData.LanguageSearchWidget, OO.ui.SearchWidget );
 /* Methods */
 
 /**
+ * FIXME: this should be inheritdoc
  */
 mw.TemplateData.LanguageSearchWidget.prototype.onQueryChange = function () {
 	// Parent method
