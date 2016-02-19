@@ -72,6 +72,10 @@
 	color: #777;
 }
 
+.tdg-languageResultWidget-highlight {
+	font-weight: bold;
+}
+
 /* Icons */
 
 .oo-ui-icon-parameter {

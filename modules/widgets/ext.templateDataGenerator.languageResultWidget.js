@@ -10,7 +10,7 @@
  */
 mw.TemplateData.LanguageResultWidget = function mwTemplateDataLanguageResultWidget( config ) {
 	// Parent constructor
-	OO.ui.OptionWidget.call( this, config );
+	mw.TemplateData.LanguageResultWidget.parent.call( this, config );
 
 	// Initialization
 	this.$element.addClass( 'tdg-languageResultWidget' );
@@ -41,7 +41,7 @@ mw.TemplateData.LanguageResultWidget.prototype.updateLabel = function ( query, m
 
 	// Highlight where applicable
 	if ( matchedProperty ) {
-		$highlighted = this.highlightQuery( data[matchedProperty], query );
+		$highlighted = this.constructor.static.highlightQuery( data[ matchedProperty ], query );
 		if ( matchedProperty === 'name' ) {
 			this.$name.empty().append( $highlighted );
 		} else {
@@ -55,11 +55,13 @@ mw.TemplateData.LanguageResultWidget.prototype.updateLabel = function ( query, m
 /**
  * Highlight text where a substring query matches
  *
+ * Copied from ve#highlightQuery
+ *
  * @param {string} text Text
  * @param {string} query Query to find
- * @returns {jQuery} Text with query substring wrapped in highlighted span
+ * @return {jQuery} Text with query substring wrapped in highlighted span
  */
-mw.TemplateData.LanguageResultWidget.prototype.highlightQuery = function ( text, query ) {
+mw.TemplateData.LanguageResultWidget.static.highlightQuery = function ( text, query ) {
 	var $result = $( '<span>' ),
 		offset = text.toLowerCase().indexOf( query.toLowerCase() );
 
@@ -70,7 +72,7 @@ mw.TemplateData.LanguageResultWidget.prototype.highlightQuery = function ( text,
 		document.createTextNode( text.slice( 0, offset ) ),
 		$( '<span>' )
 			.addClass( 'tdg-languageResultWidget-highlight' )
-			.text( text.substr( offset, query.length ) ),
+			.text( text.slice( offset, offset + query.length ) ),
 		document.createTextNode( text.slice( offset + query.length ) )
 	);
 	return $result.contents();

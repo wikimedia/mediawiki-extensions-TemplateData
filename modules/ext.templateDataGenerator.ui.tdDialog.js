@@ -836,6 +836,8 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			// Setup the dialog
 			this.setupDetailsFromModel();
 
+			this.newLanguageSearch.addResults();
+
 			languageItems = [];
 			language = this.model.getDefaultLanguage();
 			languages = this.model.getExistingLanguageCodes();
