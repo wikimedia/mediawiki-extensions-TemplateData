@@ -24,13 +24,17 @@
 	background-color: #FFA3A3;
 }
 
-.tdg-templateDataOptionWidget {
+.tdg-templateDataParamWidget {
 	padding-right: 0.5em;
 }
 
-.tdg-templateDataOptionWidget-param-name,
-.tdg-templateDataOptionWidget-param-aliases,
-.tdg-templateDataOptionWidget-param-description {
+.tdg-templateDataParamWidget .oo-ui-iconElement-icon {
+	opacity: 0.2;
+}
+
+.tdg-templateDataParamWidget-param-name,
+.tdg-templateDataParamWidget-param-aliases,
+.tdg-templateDataParamWidget-param-description {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -38,16 +42,16 @@
 	max-width: 33em;
 }
 
-.tdg-templateDataOptionWidget-param-name {
+.tdg-templateDataParamWidget-param-name {
 	font-weight: bold;
 }
 
-.tdg-templateDataOptionWidget-param-aliases {
+.tdg-templateDataParamWidget-param-aliases {
 	float: right;
 	font-size: 0.9em;
 }
 
-.tdg-templateDataOptionWidget-param-alias {
+.tdg-templateDataParamWidget-param-alias {
 	border-radius: 0.3em;
 	padding: 0.125em 0.25em;
 	margin-left: 0.5em;
@@ -56,13 +60,22 @@
 	border: solid 1px #ddd;
 }
 
-.tdg-templateDataOptionWidget-param-alias:first-child {
+.tdg-templateDataParamWidget-param-alias:first-child {
 	background-color: #fff;
 }
 
-.tdg-templateDataOptionWidget-paramList-param-description {
+.tdg-templateDataParamWidget-paramList-param-description {
 	clear: both;
 	color: #555;
+}
+
+.tdg-templateDataParamImportWidget {
+	margin-top: 1em;
+}
+
+.tdg-templateDataParamImportWidget > .oo-ui-buttonElement-button {
+	text-align: left;
+	font-weight: normal;
 }
 
 /* mw.TemplateData.LanguageSearchWidget */

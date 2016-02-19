@@ -80,8 +80,7 @@ mw.TemplateData.Dialog.static.actions = [
  * @chainable
  */
 mw.TemplateData.Dialog.prototype.initialize = function () {
-	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout,
-		paramOrderFieldset, templateFormatFieldSet;
+	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout, templateFormatFieldSet;
 
 	// Parent method
 	mw.TemplateData.Dialog.super.prototype.initialize.call( this );
@@ -133,15 +132,6 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 		}
 	);
 
-	// ParamOrder
-	this.paramOrderWidget = new mw.TemplateData.DragDropWidget( {
-		orientation: 'horizontal'
-	} );
-	paramOrderFieldset = new OO.ui.FieldsetLayout( {
-		label: mw.msg( 'templatedata-modal-title-paramorder' ),
-		items: [ this.paramOrderWidget ]
-	} );
-
 	this.descriptionInput = new OO.ui.TextInputWidget( {
 		multiline: true,
 		autosize: true
@@ -152,11 +142,12 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.paramListNoticeLabel = new OO.ui.LabelWidget();
 	this.paramListNoticeLabel.$element.hide();
 
-	this.paramSelectWidget = new OO.ui.SelectWidget();
+	this.paramSelect = new mw.TemplateData.ParamSelectWidget();
 	templateParamsFieldset = new OO.ui.FieldsetLayout( {
 		label: mw.msg( 'templatedata-modal-title-templateparams' )
 	} );
-	templateParamsFieldset.$element.append( this.paramSelectWidget.$element );
+	this.paramImport = new mw.TemplateData.ParamImportWidget();
+	templateParamsFieldset.$element.append( this.paramSelect.$element, this.paramImport.$element );
 
 	this.templateFormatSelectWidget = new OO.ui.ButtonSelectWidget();
 	this.templateFormatSelectWidget.addItems( [
@@ -188,7 +179,6 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 			languageActionFieldLayout.$element,
 			this.templateDescriptionFieldset.$element,
 			templateFormatFieldSet.$element,
-			paramOrderFieldset.$element,
 			templateParamsFieldset.$element
 		);
 	this.paramEditNoticeLabel = new OO.ui.LabelWidget();
@@ -233,10 +223,13 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.newParamInput.connect( this, { change: 'onAddParamInputChange' } );
 	this.addParamButton.connect( this, { click: 'onAddParamButtonClick' } );
 	this.descriptionInput.connect( this, { change: 'onDescriptionInputChange' } );
-	this.paramOrderWidget.connect( this, { reorder: 'onParamOrderWidgetReorder' } );
 	this.languagePanelButton.connect( this, { click: 'onLanguagePanelButton' } );
 	this.languageDropdownWidget.getMenu().connect( this, { select: 'onLanguageDropdownWidgetSelect' } );
-	this.paramSelectWidget.connect( this, { choose: 'onParamSelectWidgetChoose' } );
+	this.paramSelect.connect( this, {
+		choose: 'onParamSelectChoose',
+		reorder: 'onParamSelectReorder'
+	} );
+	this.paramImport.connect( this, { click: 'importParametersFromTemplateCode' } );
 	this.templateFormatSelectWidget.connect( this, { choose: 'onTemplateFormatSelectWidgetChoose' } );
 
 };
@@ -273,41 +266,13 @@ mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
 };
 
 /**
- * Respond to change of paramOrder from the model
+ * Respond to change of param order from the model
  *
- * @param {string[]} paramOrderArray The array of keys in order
+ * @param {...string[]} paramOrderArray The array of keys in order
  */
-mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function ( paramOrderArray ) {
-	var i,
-		items = [];
-
-	this.paramOrderWidget.clearItems();
-	for ( i = 0; i < paramOrderArray.length; i++ ) {
-		items.push(
-			new mw.TemplateData.DragDropItemWidget( {
-				data: paramOrderArray[ i ],
-				label: paramOrderArray[ i ]
-			} )
-		);
-	}
-	this.paramOrderWidget.addItems( items );
-
+mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function () {
 	// Refresh the parameter widget
 	this.repopulateParamSelectWidget();
-};
-
-/**
- * Respond to an addition of a key to the model paramOrder
- *
- * @param {string} key Added key
- */
-mw.TemplateData.Dialog.prototype.onModelAddKeyParamOrder = function ( key ) {
-	var dragItem = new mw.TemplateData.DragDropItemWidget( {
-		data: key,
-		label: key
-	} );
-
-	this.paramOrderWidget.addItems( [ dragItem ] );
 };
 
 /**
@@ -320,10 +285,10 @@ mw.TemplateData.Dialog.prototype.onModelChange = function () {
 /**
  * Respond to param order widget reorder event
  *
- * @param {mw.TemplateData.DragDropItemWidget} item Item reordered
+ * @param {mw.TemplateData.ParamWidget} item Item reordered
  * @param {number} newIndex New index of the item
  */
-mw.TemplateData.Dialog.prototype.onParamOrderWidgetReorder = function ( item, newIndex ) {
+mw.TemplateData.Dialog.prototype.onParamSelectReorder = function ( item, newIndex ) {
 	this.model.reorderParamOrderKey( item.getData(), newIndex );
 };
 
@@ -433,20 +398,16 @@ mw.TemplateData.Dialog.prototype.onAddParamButtonClick = function () {
  *
  * @param {OO.ui.OptionWidget} item Parameter item
  */
-mw.TemplateData.Dialog.prototype.onParamSelectWidgetChoose = function ( item ) {
+mw.TemplateData.Dialog.prototype.onParamSelectChoose = function ( item ) {
 	var paramKey = item.getData();
 
-	if ( paramKey === 'tdg-importParameters' ) {
-		// Import
-		this.importParametersFromTemplateCode();
-	} else {
-		this.selectedParamKey = paramKey;
+	this.selectedParamKey = paramKey;
 
-		// Fill in parameter detail
-		this.getParameterDetails( paramKey );
-		this.switchPanels( 'editParam' );
-	}
+	// Fill in parameter detail
+	this.getParameterDetails( paramKey );
+	this.switchPanels( 'editParam' );
 };
+
 /**
  * Respond to choose event from the template format select widget
  *
@@ -526,17 +487,13 @@ mw.TemplateData.Dialog.prototype.getParameterDetails = function ( paramKey ) {
 mw.TemplateData.Dialog.prototype.reset = function () {
 	this.language = null;
 	this.availableLanguages = [];
-	if ( this.paramSelectWidget ) {
-		this.paramSelectWidget.clearItems();
+	if ( this.paramSelect ) {
+		this.paramSelect.clearItems();
 		this.selectedParamKey = '';
 	}
 
 	if ( this.languageDropdownWidget ) {
 		this.languageDropdownWidget.getMenu().clearItems();
-	}
-
-	if ( this.paramOrderWidget ) {
-		this.paramOrderWidget.clearItems();
 	}
 };
 
@@ -549,7 +506,7 @@ mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
 		paramList = this.model.getParams(),
 		paramOrder = this.model.getTemplateParamOrder();
 
-	this.paramSelectWidget.clearItems();
+	this.paramSelect.clearItems();
 
 	// Update all param descriptions in the param select widget
 	for ( i in paramOrder ) {
@@ -562,13 +519,11 @@ mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
 	// Check if there are potential parameters to add
 	// from the template source code
 	if ( missingParams.length > 0 ) {
-		// Add a final option
-		this.paramSelectWidget.addItems( [
-			new mw.TemplateData.OptionImportWidget( {
-				data: 'tdg-importParameters',
-				params: missingParams
-			} )
-		] );
+		this.paramImport
+			.toggle( true )
+			.buildParamLabel( missingParams );
+	} else {
+		this.paramImport.toggle( false );
 	}
 };
 
@@ -626,7 +581,7 @@ mw.TemplateData.Dialog.prototype.addParamToSelectWidget = function ( paramKey ) 
 	var paramItem,
 		data = this.model.getParamData( paramKey );
 
-	paramItem = new mw.TemplateData.OptionWidget( {
+	paramItem = new mw.TemplateData.ParamWidget( {
 		data: {
 			key: paramKey,
 			name: data.name,
@@ -635,7 +590,7 @@ mw.TemplateData.Dialog.prototype.addParamToSelectWidget = function ( paramKey ) 
 		}
 	} );
 
-	this.paramSelectWidget.addItems( [ paramItem ] );
+	this.paramSelect.addItems( [ paramItem ] );
 };
 
 /**
@@ -808,8 +763,7 @@ mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () 
 mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 	return mw.TemplateData.Dialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
-			var i, language, languages, paramOrderArray,
-				items = [],
+			var i, language, languages,
 				languageItems = [];
 
 			this.reset();
@@ -831,7 +785,6 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			this.model.connect( this, {
 				'change-description': 'onModelChangeDescription',
 				'change-paramOrder': 'onModelChangeParamOrder',
-				'add-paramOrder': 'onModelAddKeyParamOrder',
 				change: 'onModelChange'
 			} );
 
@@ -870,20 +823,6 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			// Trigger the initial language choice
 			this.languageDropdownWidget.getMenu().selectItemByData( language );
 
-			// Populate the paramOrder widget
-			this.paramOrderWidget.clearItems();
-			paramOrderArray = this.model.getTemplateParamOrder();
-			for ( i = 0; i < paramOrderArray.length; i++ ) {
-				// Create a DragDrop widget
-				items.push(
-					new mw.TemplateData.DragDropItemWidget( {
-						data: paramOrderArray[ i ],
-						label: paramOrderArray[ i ]
-					} )
-				);
-			}
-			this.paramOrderWidget.addItems( items );
-
 			// Show the panel
 			this.$spinner.hide();
 			this.panels.$element.show();
@@ -919,7 +858,7 @@ mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
 			// Reset message
 			this.toggleNoticeMessage( 'list', false );
 			// Deselect parameter
-			this.paramSelectWidget.selectItem( null );
+			this.paramSelect.selectItem( null );
 			// Repopulate the list to account for any changes
 			if ( this.model ) {
 				this.repopulateParamSelectWidget();
@@ -934,7 +873,7 @@ mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
 			this.actions.setMode( 'edit' );
 			this.panels.setItem( this.editParamPanel );
 			// Deselect parameter
-			this.paramSelectWidget.selectItem( null );
+			this.paramSelect.selectItem( null );
 			// Hide/show panels
 			this.listParamsPanel.$element.hide();
 			this.languagePanel.$element.hide();
