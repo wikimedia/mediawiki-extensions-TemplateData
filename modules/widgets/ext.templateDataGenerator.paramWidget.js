@@ -5,13 +5,11 @@
  * @extends {OO.ui.DecoratedOptionWidget}
  * @mixins OO.ui.mixin.DraggableElement
  *
- * @param {Object} config Dialog configuration object
+ * @param {Object} data Parameter data
+ * @param {Object} [config] Configuration object
  */
-mw.TemplateData.ParamWidget = function mwTemplateDataParamWidget( config ) {
-	var data;
-
+mw.TemplateData.ParamWidget = function mwTemplateDataParamWidget( data, config ) {
 	config = config || {};
-	data = config.data || {};
 
 	// Parent constructor
 	mw.TemplateData.ParamWidget.parent.call( this, $.extend( {}, config, { data: data.key, icon: 'menu' } ) );
@@ -20,8 +18,8 @@ mw.TemplateData.ParamWidget = function mwTemplateDataParamWidget( config ) {
 	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$icon } ) );
 
 	this.key = data.key;
-	this.name = data.name;
-	this.aliases = data.aliases;
+	this.label = data.label;
+	this.aliases = data.aliases || [];
 	this.description = data.description;
 
 	// Initialize
@@ -40,6 +38,7 @@ OO.mixinClass( mw.TemplateData.ParamWidget, OO.ui.mixin.DraggableElement );
  */
 mw.TemplateData.ParamWidget.prototype.buildParamLabel = function () {
 	var i, len,
+		keys = this.aliases.slice(),
 		$paramName = $( '<div>' )
 			.addClass( 'tdg-templateDataParamWidget-param-name' ),
 		$aliases = $( '<div>' )
@@ -47,17 +46,17 @@ mw.TemplateData.ParamWidget.prototype.buildParamLabel = function () {
 		$description = $( '<div>' )
 			.addClass( 'tdg-templateDataParamWidget-param-description' );
 
-	$paramName.text( this.name );
+	keys.unshift( this.key );
+
+	$paramName.text( this.label || this.key );
 	$description.text( this.description );
 
-	if ( this.aliases !== undefined ) {
-		for ( i = 0, len = this.aliases.length; i < len; i++ ) {
-			$aliases.append(
-				$( '<span>' )
-					.addClass( 'tdg-templateDataParamWidget-param-alias' )
-					.text( this.aliases[ i ] )
-			);
-		}
+	for ( i = 0, len = keys.length; i < len; i++ ) {
+		$aliases.append(
+			$( '<span>' )
+				.addClass( 'tdg-templateDataParamWidget-param-alias' )
+				.text( keys[ i ] )
+		);
 	}
 
 	this.setLabel( $paramName.add( $aliases ).add( $description ) );

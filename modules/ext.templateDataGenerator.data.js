@@ -529,19 +529,16 @@ mw.TemplateData.Model.prototype.getTemplateDescription = function ( language ) {
 };
 
 /**
- * Get a specific parameter's description
+ * Get a specific parameter's localized property
  *
  * @param {string} paramKey Parameter key
+ * @param {string} property Property name
  * @param {string} [language] Optional language key
- * @return {string} Parameter description in given language.
+ * @return {string} Parameter property in specified language
  */
-mw.TemplateData.Model.prototype.getParamDescription = function ( paramKey, language ) {
+mw.TemplateData.Model.prototype.getParamValue = function ( paramKey, property, language ) {
 	language = language || this.getDefaultLanguage();
-	if ( this.params[ paramKey ] && this.params[ paramKey ].description ) {
-		// Return description in this language or fall back
-		return this.params[ paramKey ].description[ language ] || '';
-	}
-	return '';
+	return OO.getProp( this.params, paramKey, property, language ) || '';
 };
 
 /**
