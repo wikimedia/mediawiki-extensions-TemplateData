@@ -131,10 +131,10 @@
 		 * Respond to edit dialog apply event
 		 *
 		 * @method onDialogApply
-		 * @param {string} templateDataString New templatedata string
+		 * @param {Object} templateData New templatedata
 		 */
-		onDialogApply = function ( templateDataString ) {
-			$textbox.val( replaceTemplateData( templateDataString ) );
+		onDialogApply = function ( templateData ) {
+			$textbox.val( replaceTemplateData( templateData ) );
 		},
 
 		/**
@@ -142,7 +142,7 @@
 		 * insert the new one into the page if an old one doesn't exist
 		 *
 		 * @method replaceTemplateData
-		 * @param {string} newTemplateData New templatedata string
+		 * @param {Object} newTemplateData New templatedata
 		 * @return {string} Full wikitext content with the new templatedata
 		 *  string.
 		 */
@@ -158,7 +158,7 @@
 				// <templatedata> exists. Replace it
 				finalOutput = fullWikitext.replace(
 					/(<templatedata>)([\s\S]*?)(<\/templatedata>)/i,
-					'<templatedata>\n' + newTemplateData + '\n</templatedata>'
+					'<templatedata>\n' + JSON.stringify( newTemplateData, null, '\t' ) + '\n</templatedata>'
 				);
 			} else {
 				finalOutput = fullWikitext;
@@ -174,7 +174,7 @@
 					}
 				}
 				finalOutput += '<templatedata>\n' +
-						newTemplateData +
+						JSON.stringify( newTemplateData, null, '\t' ) +
 						'\n</templatedata>\n';
 				if ( !isPageSubLevel ) {
 					finalOutput += '</noinclude>\n';

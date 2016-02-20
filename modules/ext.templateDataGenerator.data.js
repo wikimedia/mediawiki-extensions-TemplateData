@@ -858,11 +858,11 @@ mw.TemplateData.Model.prototype.getOriginalTemplateDataObject = function () {
 };
 
 /**
- * Process the current model and output it as a complete templatedata string
+ * Process the current model and output it
  *
- * @return {string} Templatedata String
+ * @return {Object} Templatedata object
  */
-mw.TemplateData.Model.prototype.outputTemplateDataString = function () {
+mw.TemplateData.Model.prototype.outputTemplateData = function () {
 	var param, paramKey, key, prop, oldKey, name, compareOrig, normalizedValue,
 		allProps = this.constructor.static.getAllProperties( true ),
 		original = this.getOriginalTemplateDataObject(),
@@ -1018,7 +1018,7 @@ mw.TemplateData.Model.prototype.outputTemplateDataString = function () {
 			}
 		}
 	}
-	return JSON.stringify( result, null, '\t' );
+	return result;
 };
 
 /**
