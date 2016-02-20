@@ -59,5 +59,5 @@ mw.TemplateData.ParamWidget.prototype.buildParamLabel = function () {
 		);
 	}
 
-	this.setLabel( $paramName.add( $aliases ).add( $description ) );
+	this.setLabel( $aliases.add( $paramName ).add( $description ) );
 };
