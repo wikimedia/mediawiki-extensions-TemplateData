@@ -608,9 +608,9 @@ mw.TemplateData.Model.prototype.addKeyTemplateParamOrder = function ( key ) {
  */
 mw.TemplateData.Model.prototype.reorderParamOrderKey = function ( key, newIndex ) {
 	var keyIndex = this.paramOrder.indexOf( key );
-	// Move the parameter
+	// Move the parameter, account for left shift if moving forwards
 	this.paramOrder.splice(
-		newIndex,
+		newIndex - ( newIndex > keyIndex ? 1 : 0 ),
 		0,
 		this.paramOrder.splice( keyIndex, 1 )[ 0 ]
 	);

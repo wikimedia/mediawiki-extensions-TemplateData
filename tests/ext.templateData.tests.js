@@ -5,7 +5,7 @@
 ( function () {
 	'use strict';
 
-	var i, testVars, finalJsonStringParams, finalJsonStringOnly, finalJsonStringOnlyParamOrder,
+	var i, testVars, finalJsonStringParams, finalJsonStringOnly,
 		resultDescCurrLang, resultDescMockLang, resultDescBothLang, currLanguage, originalWikitext;
 
 	QUnit.module( 'ext.templateData', QUnit.newMwEnvironment() );
@@ -134,34 +134,6 @@
 		'				"day"\n' +
 		'			]\n' +
 		'		}\n' +
-		'	],\n' +
-		'	"format": "inline"\n' +
-		'}';
-	finalJsonStringOnlyParamOrder = '{\n' +
-		'	"description": {\n' +
-		'		"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
-		'		"blah": "Template description in some blah language."\n' +
-		'	},\n' + finalJsonStringParams +
-		'	"sets": [\n' +
-		'		{\n' +
-		'			"label": "Date",\n' +
-		'			"params": [\n' +
-		'				"year",\n' +
-		'				"month",\n' +
-		'				"day"\n' +
-		'			]\n' +
-		'		}\n' +
-		'	],\n' +
-		'	"paramOrder": [\n' +
-		'		"date",\n' +
-		'		"year",\n' +
-		'		"user",\n' +
-		'		"month",\n' +
-		'		"comment",\n' +
-		'		"newParam1",\n' +
-		'		"newParam2",\n' +
-		'		"newParam3",\n' +
-		'		"newParam4"\n' +
 		'	],\n' +
 		'	"format": "inline"\n' +
 		'}';
@@ -519,7 +491,7 @@
 			// Change properties tests
 			paramChangeTest.length +
 			// Json output
-			2
+			3
 		);
 
 		sourceHandler.buildModel( originalWikitext )
@@ -584,12 +556,19 @@
 					'Final templatedata output'
 				);
 
-				// Change order and verify result now has paramOrder
-				model.reorderParamOrderKey( 'user', 2 );
-				// Ouput a final templatedata string
-				assert.equal(
-					model.outputTemplateDataString(),
-					finalJsonStringOnlyParamOrder,
+				// Move 'user' to offset 3 (in original array), i.e. after 'year'
+				model.reorderParamOrderKey( 'user', 3 );
+				assert.deepEqual(
+					model.paramOrder,
+					[ 'date', 'year', 'user', 'month', 'comment', 'newParam1', 'newParam2', 'newParam3', 'newParam4' ],
+					'Final templatedata output with paramOrder'
+				);
+
+				// Move 'month' to offset 2, i.e. after 'year'
+				model.reorderParamOrderKey( 'month', 2 );
+				assert.deepEqual(
+					model.paramOrder,
+					[ 'date', 'year', 'month', 'user', 'comment', 'newParam1', 'newParam2', 'newParam3', 'newParam4' ],
 					'Final templatedata output with paramOrder'
 				);
 
