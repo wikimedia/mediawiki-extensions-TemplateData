@@ -14,6 +14,10 @@
 	color: #777;
 }
 
+.mw-templatedata-doc-param-status-required {
+	font-weight: bold;
+}
+
 .mw-templateData-doc-params .oo-ui-widget {
 	font-size: 0.9143em;
 }

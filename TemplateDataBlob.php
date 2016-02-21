@@ -785,10 +785,12 @@ class TemplateDataBlob {
 				}
 			}
 
+			$statusClass = '';
 			if ( $paramObj->deprecated ) {
 				$status = 'templatedata-doc-param-status-deprecated';
 			} elseif ( $paramObj->required ) {
 				$status = 'templatedata-doc-param-status-required';
+				$statusClass = 'mw-templatedata-doc-param-status-required';
 			} elseif ( $paramObj->suggested ) {
 				$status = 'templatedata-doc-param-status-suggested';
 			} else {
@@ -869,7 +871,11 @@ class TemplateDataBlob {
 				Html::element( 'code', array(), $paramObj->type )
 			)
 			// Status
-			. Html::element( 'td', array(), wfMessage( $status )->inLanguage( $lang )->text() )
+			. Html::element(
+				'td',
+				[ 'class' => $statusClass ],
+				wfMessage( $status )->inLanguage( $lang )->text()
+			)
 			. '</tr>';
 		}
 		$html .= '</tbody></table>'
