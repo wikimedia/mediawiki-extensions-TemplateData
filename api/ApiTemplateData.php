@@ -132,32 +132,6 @@ class ApiTemplateData extends ApiBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return $this->getPageSet()->getParamDescription() + array(
-			'lang' => 'Return localized values in this language (by default all available' .
-				' translations are returned)',
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Data stored by the TemplateData extension';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		return array(
-			'api.php?action=templatedata&titles=Template:Stub|Template:Example',
-		);
-	}
-
-	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
