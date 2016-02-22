@@ -32,6 +32,11 @@
 	opacity: 0.2;
 }
 
+/* Hover events sometimes fire while dragging, so limit to highlighted widgets */
+.tdg-templateDataParamWidget.oo-ui-optionWidget-highlighted .oo-ui-iconElement-icon:hover {
+	opacity: 0.5;
+}
+
 .tdg-templateDataParamWidget-param-name,
 .tdg-templateDataParamWidget-param-aliases,
 .tdg-templateDataParamWidget-param-description {
