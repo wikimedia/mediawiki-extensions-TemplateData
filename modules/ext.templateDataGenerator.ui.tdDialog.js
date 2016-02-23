@@ -925,7 +925,7 @@ mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
 	}
 	if ( action === 'apply' ) {
 		return new OO.ui.Process( function () {
-			this.emit( 'apply', this.model.outputTemplateDataString() );
+			this.emit( 'apply', this.model.outputTemplateData() );
 			this.close( { action: action } );
 		}, this );
 	}

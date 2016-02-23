@@ -5,7 +5,7 @@
 ( function () {
 	'use strict';
 
-	var i, testVars, finalJsonStringParams, finalJsonStringOnly,
+	var i, testVars, finalJsonParams, finalJson,
 		resultDescCurrLang, resultDescMockLang, resultDescBothLang, currLanguage, originalWikitext;
 
 	QUnit.module( 'ext.templateData', QUnit.newMwEnvironment() );
@@ -32,7 +32,7 @@
 		'		"date": {' +
 		'			"label": "Date",' +
 		'			"description": {' +
-		'				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."' +
+		'				"' + currLanguage + '": "Timestamp of when the comment was posted, in YYYY-MM-DD format."' +
 		'			},' +
 		'			"aliases": ["2"],' +
 		'			"autovalue": "{{subst:CURRENTMONTHNAME}}",' +
@@ -68,75 +68,83 @@
 	resultDescCurrLang[ currLanguage ] = 'Some string here in ' + currLanguage + ' language.';
 	resultDescMockLang.blah = 'Some string here in blah language.';
 	resultDescBothLang = $.extend( {}, resultDescCurrLang, resultDescMockLang );
-	finalJsonStringParams = '	"params": {\n' +
-		'		"user": {\n' +
-		'			"label": "Username",\n' +
-		'			"type": "wiki-user-name",\n' +
-		'			"required": true,\n' +
-		'			"description": "User name of person who forgot to sign their comment.",\n' +
-		'			"aliases": [\n' +
-		'				"1"\n' +
-		'			]\n' +
-		'		},\n' +
-		'		"date": {\n' +
-		'			"label": "Date",\n' +
-		'			"description": {\n' +
-		'				"en": "Timestamp of when the comment was posted, in YYYY-MM-DD format."\n' +
-		'			},\n' +
-		'			"aliases": [\n' +
-		'				"2"\n' +
-		'			],\n' +
-		'			"autovalue": "{{subst:CURRENTMONTHNAME}}",\n' +
-		'			"suggested": true\n' +
-		'		},\n' +
-		'		"year": {\n' +
-		'			"label": "Year",\n' +
-		'			"type": "number"\n' +
-		'		},\n' +
-		'		"month": {\n' +
-		'			"label": "Month",\n' +
-		'			"inherits": "year"\n' +
-		'		},\n' +
-		'		"comment": {\n' +
-		'			"required": false,\n' +
-		'			"type": "wiki-page-name"\n' +
-		'		},\n' +
-		'		"newParam1": {\n' +
-		'			"description": {\n' +
-		'				"' + currLanguage + '": "Some string here in ' + currLanguage + ' language.",\n' +
-		'				"blah": "Some string here in blah language."\n' +
-		'			},\n' +
-		'			"required": true\n' +
-		'		},\n' +
-		'		"newParam2": {},\n' +
-		'		"newParam3": {\n' +
-		'			"description": "Some string here in ' + currLanguage + ' language.",\n' +
-		'			"deprecated": "This is deprecated."\n' +
-		'		},\n' +
-		'		"newParam4": {\n' +
-		'			"description": {\n' +
-		'				"' + currLanguage + '": "' + resultDescBothLang[ currLanguage ] + '",\n' +
-		'				"blah": "' + resultDescBothLang.blah + '"\n' +
-		'			}\n' +
-		'		}\n' +
-		'	},\n';
-	finalJsonStringOnly = '{\n' +
-		'	"description": {\n' +
-		'		"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
-		'		"blah": "Template description in some blah language."\n' +
-		'	},\n' + finalJsonStringParams +
-		'	"sets": [\n' +
-		'		{\n' +
-		'			"label": "Date",\n' +
-		'			"params": [\n' +
-		'				"year",\n' +
-		'				"month",\n' +
-		'				"day"\n' +
-		'			]\n' +
-		'		}\n' +
-		'	],\n' +
-		'	"format": "inline"\n' +
-		'}';
+	finalJsonParams = {
+		user: {
+			label: 'Username',
+			type: 'wiki-user-name',
+			required: true,
+			description: 'User name of person who forgot to sign their comment.',
+			aliases: [ '1' ]
+		},
+		date: {
+			label: 'Date',
+			description: {
+				// currLanguage goes here
+			},
+			aliases: [ '2' ],
+			autovalue: '{{subst:CURRENTMONTHNAME}}',
+			suggested: true,
+			type: undefined
+		},
+		year: {
+			label: 'Year',
+			type: 'number'
+		},
+		month: {
+			label: 'Month',
+			inherits: 'year',
+			type: undefined
+		},
+		comment: {
+			required: false,
+			type: 'wiki-page-name'
+		},
+		newParam1: {
+			description: {
+				blah: 'Some string here in blah language.'
+			},
+			required: true,
+			type: undefined
+		},
+		newParam2: {
+			description: undefined,
+			type: undefined
+		},
+		newParam3: {
+			description: 'Some string here in ' + currLanguage + ' language.',
+			deprecated: 'This is deprecated.',
+			type: undefined
+		},
+		newParam4: {
+			description: {
+				// currLanguage goes here
+				blah: resultDescBothLang.blah
+			},
+			type: undefined
+		}
+	};
+	finalJsonParams.date.description[ currLanguage ] = 'Timestamp of when the comment was posted, in YYYY-MM-DD format.';
+	finalJsonParams.newParam1.description[ currLanguage ] = 'Some string here in ' + currLanguage + ' language.';
+	finalJsonParams.newParam4.description[ currLanguage ] = resultDescBothLang[ currLanguage ];
+
+	finalJson = {
+		description: {
+			blah: 'Template description in some blah language.'
+		},
+		params: finalJsonParams,
+		sets: [
+			{
+				label: 'Date',
+				params: [
+					'year',
+					'month',
+					'day'
+				]
+			}
+		],
+		format: 'inline'
+	};
+	finalJson.description[ currLanguage ] = 'Label unsigned comments in a conversation.';
 
 	// Test validation tools
 	QUnit.test( 'Validation tools', function ( assert ) {
@@ -344,7 +352,7 @@
 		// Compare
 		for ( i = 0; i < tests.compare.length; i++ ) {
 			testVars = tests.compare[ i ];
-			assert.equal(
+			assert.strictEqual(
 				mw.TemplateData.Model.static.compare( testVars.obj1, testVars.obj2, testVars.allowSubset ),
 				testVars.result,
 				testVars.msg
@@ -424,7 +432,7 @@
 				{
 					key: 'newParam1',
 					property: 'description',
-					language: 'en',
+					language: currLanguage,
 					value: resultDescCurrLang[ currLanguage ],
 					result: $.extend( {}, paramAddTest[ 0 ].result, {
 						description: resultDescCurrLang
@@ -498,12 +506,12 @@
 			.done( function ( model ) {
 
 				// Check description
-				assert.equal(
+				assert.strictEqual(
 					model.getTemplateDescription(),
 					'Label unsigned comments in a conversation.',
 					'Description in default language.'
 				);
-				assert.equal(
+				assert.strictEqual(
 					model.getTemplateDescription( 'blah' ),
 					'Template description in some blah language.',
 					'Description in mock language.'
@@ -528,7 +536,7 @@
 					);
 
 					// Check description in current language
-					assert.equal(
+					assert.strictEqual(
 						model.getParamValue( paramAddTest[ i ].key, 'description', currLanguage ),
 						paramAddTest[ i ].description,
 						paramAddTest[ i ].msg + ' (description in current language)'
@@ -549,10 +557,10 @@
 				// Delete parameter
 				model.deleteParam( 'day' );
 
-				// Ouput a final templatedata string
-				assert.equal(
-					model.outputTemplateDataString(),
-					finalJsonStringOnly,
+				// Ouput a final templatedata
+				assert.deepEqual(
+					model.outputTemplateData(),
+					finalJson,
 					'Final templatedata output'
 				);
 
@@ -597,7 +605,7 @@
 				'			"label": "Date",\n' +
 				'			"description": {\n' +
 				// Forgotten quotes
-				'				en: "Timestamp of when the comment was posted, in YYYY-MM-DD format."\n' +
+				'				' + currLanguage + ': "Timestamp of when the comment was posted, in YYYY-MM-DD format."\n' +
 				'			}\n' +
 				'			"suggested": true\n' +
 				'		}\n' +
@@ -608,7 +616,7 @@
 
 		sourceHandler.buildModel( erronousString )
 			.always( function () {
-				assert.ok( this.state() === 'rejected', 'Promise rejected on erronous json string.' );
+				assert.strictEqual( this.state(), 'rejected', 'Promise rejected on erronous json string.' );
 				QUnit.start();
 			} );
 	} );
@@ -619,17 +627,17 @@
 			simpleTemplateDataNoFormat = '<templatedata>{\n' +
 				'	"params": {}\n' +
 				'}</templatedata>',
-			simpleTemplateDataDefaultFormat = '{\n' +
-				'	"params": {},\n' +
-				'	"format": "inline"\n' + // default format
-				'}';
+			simpleTemplateDataDefaultFormat = {
+				params: {},
+				format: 'inline'
+			};
 
 		QUnit.expect( 1 );
 
 		sourceHandler.buildModel( simpleTemplateDataNoFormat )
 			.done( function ( model ) {
-				assert.equal(
-					model.outputTemplateDataString(),
+				assert.deepEqual(
+					model.outputTemplateData(),
 					simpleTemplateDataDefaultFormat,
 					'Final templatedata output'
 				);
