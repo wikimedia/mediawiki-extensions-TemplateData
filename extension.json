@@ -77,12 +77,11 @@
 			"styles": "modules/ext.templateDataGenerator.ui.css",
 			"scripts": [
 				"modules/ext.templateDataGenerator.ui.js",
-				"modules/widgets/ext.templateDataGenerator.optionWidget.js",
-				"modules/widgets/ext.templateDataGenerator.optionImportWidget.js",
+				"modules/widgets/ext.templateDataGenerator.paramSelectWidget.js",
+				"modules/widgets/ext.templateDataGenerator.paramWidget.js",
+				"modules/widgets/ext.templateDataGenerator.paramImportWidget.js",
 				"modules/widgets/ext.templateDataGenerator.languageResultWidget.js",
 				"modules/widgets/ext.templateDataGenerator.languageSearchWidget.js",
-				"modules/widgets/ext.templateDataGenerator.dragDropItemWidget.js",
-				"modules/widgets/ext.templateDataGenerator.dragDropWidget.js",
 				"modules/ext.templateDataGenerator.ui.tdDialog.js"
 			],
 			"dependencies": [
