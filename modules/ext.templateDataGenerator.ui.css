@@ -38,8 +38,6 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	/* HACK: Based on the expected width of this widget, using % produces unreliable results*/
-	max-width: 33em;
 }
 
 .tdg-templateDataParamWidget-param-name {
@@ -49,6 +47,10 @@
 .tdg-templateDataParamWidget-param-aliases {
 	float: right;
 	font-size: 0.9em;
+}
+
+.tdg-templateDataParamWidget-param-description {
+	color: #666;
 }
 
 .tdg-templateDataParamWidget-param-alias {
