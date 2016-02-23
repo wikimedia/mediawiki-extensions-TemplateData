@@ -529,7 +529,7 @@
 
 					// Check description in current language
 					assert.equal(
-						model.getParamDescription( paramAddTest[ i ].key, currLanguage ),
+						model.getParamValue( paramAddTest[ i ].key, 'description', currLanguage ),
 						paramAddTest[ i ].description,
 						paramAddTest[ i ].msg + ' (description in current language)'
 					);

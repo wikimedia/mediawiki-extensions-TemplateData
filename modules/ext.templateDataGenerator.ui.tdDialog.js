@@ -582,12 +582,10 @@ mw.TemplateData.Dialog.prototype.addParamToSelectWidget = function ( paramKey ) 
 		data = this.model.getParamData( paramKey );
 
 	paramItem = new mw.TemplateData.ParamWidget( {
-		data: {
-			key: paramKey,
-			name: data.name,
-			aliases: data.aliases,
-			description: this.model.getParamDescription( paramKey, this.language )
-		}
+		key: paramKey,
+		label: this.model.getParamValue( paramKey, 'label', this.language ),
+		aliases: data.aliases,
+		description: this.model.getParamValue( paramKey, 'description', this.language )
 	} );
 
 	this.paramSelect.addItems( [ paramItem ] );
