@@ -150,14 +150,14 @@
 			var finalOutput,
 				fullWikitext = $textbox.val(),
 				endNoIncludeLength = '</noinclude>'.length,
-				parts = fullWikitext.match(
-					/<templatedata>([\s\S]*?)<\/templatedata>/i
-				);
+				// NB: This pattern contains no matching groups: (). This avoids
+				// corruption if the template data JSON contains $1 etc.
+				templatedataPattern = /<templatedata>[\s\S]*?<\/templatedata>/i;
 
-			if ( parts && parts[ 1 ] ) {
+			if ( fullWikitext.match( templatedataPattern ) ) {
 				// <templatedata> exists. Replace it
 				finalOutput = fullWikitext.replace(
-					/(<templatedata>)([\s\S]*?)(<\/templatedata>)/i,
+					templatedataPattern,
 					'<templatedata>\n' + JSON.stringify( newTemplateData, null, '\t' ) + '\n</templatedata>'
 				);
 			} else {
