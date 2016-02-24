@@ -482,10 +482,14 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
  * @return {string[]} Used parameter names
  */
 mw.TemplateData.Model.prototype.getAllParamNames = function () {
-	var param,
+	var key, param,
 		result = [];
-	for ( param in this.params ) {
-		result.push( this.params[ param ].name );
+	for ( key in this.params ) {
+		param = this.params[ key ];
+		result.push( param.name );
+		if ( param.aliases ) {
+			result = result.concat( param.aliases );
+		}
 	}
 
 	return result;
