@@ -18,6 +18,7 @@ mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
 	this.selectedParamKey = '';
 	this.propInputs = {};
 	this.propFieldLayout = {};
+	this.isSetup = false;
 
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataDialog' );
@@ -501,10 +502,15 @@ mw.TemplateData.Dialog.prototype.reset = function () {
  * Empty and repopulate the parameter select widget.
  */
 mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
-	var i, paramKey,
-		missingParams = this.model.getMissingParams(),
-		paramList = this.model.getParams(),
-		paramOrder = this.model.getTemplateParamOrder();
+	var i, paramKey, missingParams, paramList, paramOrder;
+
+	if ( !this.isSetup ) {
+		return;
+	}
+
+	missingParams = this.model.getMissingParams();
+	paramList = this.model.getParams();
+	paramOrder = this.model.getTemplateParamOrder();
 
 	this.paramSelect.clearItems();
 
@@ -764,6 +770,8 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			var i, language, languages,
 				languageItems = [];
 
+			this.isSetup = false;
+
 			this.reset();
 
 			// The dialog must be supplied with a reference to a model
@@ -820,6 +828,10 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			this.languageDropdownWidget.getMenu().addItems( languageItems );
 			// Trigger the initial language choice
 			this.languageDropdownWidget.getMenu().selectItemByData( language );
+
+			this.isSetup = true;
+
+			this.repopulateParamSelectWidget();
 
 			// Show the panel
 			this.$spinner.hide();
