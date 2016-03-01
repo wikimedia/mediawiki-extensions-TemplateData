@@ -17,7 +17,7 @@ mw.TemplateData.Model = function mwTemplateDataModel( config ) {
 	this.params = {};
 	this.description = {};
 	this.paramOrder = [];
-	this.format = 'inline';
+	this.format = null;
 	this.paramOrderChanged = false;
 	this.paramIdentifierCounter = 0;
 	this.originalTemplateDataObject = null;
@@ -278,7 +278,7 @@ mw.TemplateData.Model.static.newFromObject = function ( tdObject, paramsInSource
 		model.setTemplateParamOrder( tdObject.paramOrder );
 	}
 
-	if ( tdObject.format ) {
+	if ( tdObject.format !== undefined ) {
 		model.setTemplateFormat( tdObject.format );
 	}
 
@@ -573,12 +573,12 @@ mw.TemplateData.Model.prototype.setTemplateParamOrder = function ( orderArray ) 
 /**
  * Set template format.
  *
- * @param {string} [format='inline'] Preferred format
+ * @param {string|null} [format=null] Preferred format
  * @fires change-format
  * @fires change
  */
 mw.TemplateData.Model.prototype.setTemplateFormat = function ( format ) {
-	format = format || 'inline';
+	format = format !== undefined ? format : null;
 	if ( this.format !== format ) {
 		this.format = format;
 		this.emit( 'change-format', format );
@@ -651,7 +651,7 @@ mw.TemplateData.Model.prototype.getTemplateParamOrder = function () {
 /**
  * Retrieve the template preferred format
  *
- * @return {string} Preferred format
+ * @return {string|null} Preferred format
  */
 mw.TemplateData.Model.prototype.getTemplateFormat = function () {
 	return this.format;

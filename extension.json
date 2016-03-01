@@ -113,6 +113,7 @@
 				"templatedata-modal-errormsg-import-noparams",
 				"templatedata-modal-format-inline",
 				"templatedata-modal-format-block",
+				"templatedata-modal-format-null",
 				"templatedata-modal-json-error-replace",
 				"templatedata-modal-notice-import-numparams",
 				"templatedata-modal-placeholder-paramkey",

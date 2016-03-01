@@ -61,7 +61,7 @@ class TemplateDataBlob {
 			$tdb->data->description = null;
 			$tdb->data->params = new stdClass();
 			$tdb->data->paramOrder = array();
-			$tdb->data->format = 'inline';
+			$tdb->data->format = null;
 			$tdb->data->sets = array();
 			$tdb->data->maps = new stdClass();
 		}
@@ -132,6 +132,7 @@ class TemplateDataBlob {
 		);
 
 		static $formats = array(
+			null,
 			'block',
 			'inline'
 		);
@@ -176,7 +177,7 @@ class TemplateDataBlob {
 				);
 			}
 		} else {
-			$data->format = 'inline';
+			$data->format = null;
 		}
 
 		// Root.params
@@ -723,17 +724,19 @@ class TemplateDataBlob {
 					array(),
 					wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )->text()
 				)
-				. Html::rawElement(
-					'p',
-					array(),
-					new OOUI\IconWidget( array( 'icon' => 'template-format-' . $data->format ) )
-					. Html::element(
-						'span',
-						array( 'class' => 'mw-templatedata-format' ),
-						// Messages: templatedata-modal-format-inline, templatedata-modal-format-block
-						wfMessage( 'templatedata-doc-format-' . $data->format )->inLanguage( $lang )->text()
-					)
-				)
+				. ( $data->format !== null ?
+					Html::rawElement(
+						'p',
+						array(),
+						new OOUI\IconWidget( array( 'icon' => 'template-format-' . $data->format ) )
+						. Html::element(
+							'span',
+							array( 'class' => 'mw-templatedata-format' ),
+							// Messages: templatedata-modal-format-inline, templatedata-modal-format-block
+							wfMessage( 'templatedata-doc-format-' . $data->format )->inLanguage( $lang )->text()
+						)
+					) :
+					'' )
 			)
 			. '<thead><tr>'
 			. Html::element(
