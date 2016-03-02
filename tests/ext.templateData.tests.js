@@ -142,7 +142,7 @@
 				]
 			}
 		],
-		format: 'inline'
+		format: null
 	};
 	finalJson.description[ currLanguage ] = 'Label unsigned comments in a conversation.';
 
@@ -629,7 +629,7 @@
 				'}</templatedata>',
 			simpleTemplateDataDefaultFormat = {
 				params: {},
-				format: 'inline'
+				format: null
 			};
 
 		QUnit.expect( 1 );

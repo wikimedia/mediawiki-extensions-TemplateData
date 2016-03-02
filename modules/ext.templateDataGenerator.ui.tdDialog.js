@@ -161,6 +161,10 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 			data: 'block',
 			icon: 'template-format-block',
 			label: mw.msg( 'templatedata-modal-format-block' )
+		} ),
+		new OO.ui.ButtonOptionWidget( {
+			data: null,
+			label: mw.msg( 'templatedata-modal-format-null' )
 		} )
 	] );
 
