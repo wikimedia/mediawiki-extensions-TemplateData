@@ -65,6 +65,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Не знайдено нових параметрів під час імпорту.",
 	"templatedata-modal-format-inline": "Вбудований",
 	"templatedata-modal-format-block": "Блоковий",
+	"templatedata-modal-format-null": "Невизначено",
 	"templatedata-modal-json-error-replace": "Замінити",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новий параметр імпортовано|нові параметри імпортовано|нових параметрів імпортовано}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Назва параметра",
