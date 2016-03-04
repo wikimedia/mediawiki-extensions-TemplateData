@@ -73,7 +73,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Error message that appears in the TemplateData generator GUI in case no template parameters were found during the import attempt.",
 	"templatedata-modal-format-inline": "Label for inline format\n{{Identical|Inline}}",
 	"templatedata-modal-format-block": "Label for block format\n{{Identical|Block}}",
-	"templatedata-modal-format-null": "Label for null format",
+	"templatedata-modal-format-null": "Label for null format\n{{Identical|Unspecified}}",
 	"templatedata-modal-json-error-replace": "Label for the button in the error message, agreeing to replace the existing faulty TemplateData string with a new one.\n{{Identical|Replace}}",
 	"templatedata-modal-notice-import-numparams": "Message that appears in the TemplateData generator GUI showing how many new parameters were imported into the GUI from an existing template.\n\nParameters:\n* $1 - number of parameters\n* $2 - list of parameters that were imported",
 	"templatedata-modal-placeholder-paramkey": "Placeholder for the input that contains new parameter name in the add parameter panel in the edit dialog.",

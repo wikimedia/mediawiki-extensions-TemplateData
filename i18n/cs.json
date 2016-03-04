@@ -5,7 +5,8 @@
 			"Mormegil",
 			"Jkjk",
 			"Cvanca",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Danny B."
 		]
 	},
 	"apihelp-templatedata-description": "Načtení dat uložených rozšířením TemplateData.",
@@ -63,6 +64,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Při importu nenalezeny žádné nové parametry.",
 	"templatedata-modal-format-inline": "V řádce",
 	"templatedata-modal-format-block": "Blok",
+	"templatedata-modal-format-null": "Neurčeno",
 	"templatedata-modal-json-error-replace": "Nahradit",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Byl naimportován $1 nový parametr|Byly naimportovány $1 nové parametry|Bylo naimportováno $1 nových parametrů}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Jméno parametru",
