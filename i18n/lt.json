@@ -3,12 +3,12 @@
 		"authors": [
 			"Hugo.arg",
 			"Pofka",
-			"Albertas"
+			"Albertas",
+			"Zygimantus"
 		]
 	},
 	"apihelp-templatedata-description": "Gauti duomenis, saugomus TemplateData plėtinio.",
 	"apihelp-templatedata-example-1": "Grąžinti šablonų [[Template:Stub]] ir [[Template:Example]] duomenis",
-	"apihelp-templatedata-param-format": "Išeigos formatas.",
 	"apihelp-templatedata-param-lang": "Grąžinti lokalizuotas reikšmes šia kalba. Numatyta grąžinti visus prieinamus vertimus.",
 	"templatedata-desc": "Įgyvendinti šio šablono parametrų duomenų talpinimą (naudojant JSON)",
 	"templatedata-doc-desc-empty": "Nėra aprašymo.",
@@ -60,9 +60,9 @@
 	"templatedata-modal-current-language": "Dabartinė kalba: $1",
 	"templatedata-modal-errormsg": "Rasta klaidų. Prašome įsitikinti, kad nėra tuščių arba pasikartojančių parametrų vardų ir kad parametrų varduose nėra \"$1\", \"$2\" arba \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Importavimo metu nerasta naujų parametrų.",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|Vienas parametras nebuvo importuotas, nes jis jau egzistuoja|Kažkiek parametrų nebuvo importuoti, nes jie jau egzistuoja}} redaktoriuje: $1",
 	"templatedata-modal-format-inline": "Paeiliui",
 	"templatedata-modal-format-block": "Blokas",
+	"templatedata-modal-format-null": "Nenurodyta",
 	"templatedata-modal-json-error-replace": "Pakeisti",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|naujas parametras buvo importuotas|nauji parametrai buvo importuoti}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Parametro pavadinimas",
