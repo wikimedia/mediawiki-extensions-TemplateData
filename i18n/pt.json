@@ -67,6 +67,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Não foram encontrados novos parâmetros durante a importação.",
 	"templatedata-modal-format-inline": "Em linha",
 	"templatedata-modal-format-block": "Bloco",
+	"templatedata-modal-format-null": "Não especificado",
 	"templatedata-modal-json-error-replace": "Substituir",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|novo parâmetro foi importado|novos parâmetros foram importados}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Nome do parâmetro",

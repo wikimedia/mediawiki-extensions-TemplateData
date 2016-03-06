@@ -6,7 +6,8 @@
 			"Skalman",
 			"WikiPhoenix",
 			"Jenniesarina",
-			"Ainali"
+			"Ainali",
+			"Rockyfelle"
 		]
 	},
 	"apihelp-templatedata-description": "Hämta data som lagras av TemplateData-tillägget.",
@@ -64,6 +65,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Inga nya parametrar hittades under import.",
 	"templatedata-modal-format-inline": "Inline",
 	"templatedata-modal-format-block": "Block",
+	"templatedata-modal-format-null": "Ospecifierat",
 	"templatedata-modal-json-error-replace": "Ersätt",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|ny parameter|nya parametrar}} importerades: $2",
 	"templatedata-modal-placeholder-paramkey": "Parameternamn",

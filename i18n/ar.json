@@ -58,6 +58,7 @@
 	"templatedata-modal-errormsg-import-noparams": "ما من وسائط جديدة وجدت عند الاستيراد.",
 	"templatedata-modal-format-inline": "على نفس السطر",
 	"templatedata-modal-format-block": "منع",
+	"templatedata-modal-format-null": "غير محدد",
 	"templatedata-modal-json-error-replace": "استبدال",
 	"templatedata-modal-notice-import-numparams": "قد استورد {{PLURAL:$1|وسيط جديد|وسيط واحد جديد|وسيطان جديدان|$1 وسائط جديدة|$1 وسيطا جديدا|$1 وسيط جديد}}.",
 	"templatedata-modal-placeholder-paramkey": "اسم المعامل",
