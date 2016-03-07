@@ -5,12 +5,12 @@
 			"Shirayuki",
 			"Sujiniku",
 			"Otokoume",
-			"2nd-player"
+			"2nd-player",
+			"Ridmevo"
 		]
 	},
 	"apihelp-templatedata-description": "TemplateData 拡張機能によって保存されたデータを取得します。",
 	"apihelp-templatedata-example-1": "[[Template:Stub]]と[[Template:Example]]のデータを返します",
-	"apihelp-templatedata-param-format": "出力する形式。",
 	"apihelp-templatedata-param-lang": "この言語に地域化された値を返します。既定では、すべてのサポートされている翻訳が返されます。",
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
 	"templatedata-doc-desc-empty": "説明はありません。",
@@ -56,9 +56,9 @@
 	"templatedata-modal-current-language": "現在の言語: $1",
 	"templatedata-modal-errormsg": "エラーが見つかりました。引数名に空欄や重複したものがないか、引数名に「$1」や「$2」、「$3」が含まれていないか確認してください。",
 	"templatedata-modal-errormsg-import-noparams": "取り込み時に新しい引数は見つかりませんでした。",
-	"templatedata-modal-errormsg-import-paramsalreadyexist": "{{PLURAL:$1|一つの引数が、既にエディター内に含まれているため取り込まれませんでした。|いくつかの引数は、既にエディター内に含まれているため取り込まれませんでした。}}: $1",
 	"templatedata-modal-format-inline": "インライン",
 	"templatedata-modal-format-block": "ブロック",
+	"templatedata-modal-format-null": "未定義",
 	"templatedata-modal-json-error-replace": "置換",
 	"templatedata-modal-notice-import-numparams": "$1 個の{{PLURAL:$1|引数}}が新たに取り込まれました: $2",
 	"templatedata-modal-placeholder-paramkey": "引数名",
