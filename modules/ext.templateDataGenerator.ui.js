@@ -58,6 +58,20 @@
 		},
 
 		/**
+		 * Open the templatedata edit dialog
+		 *
+		 * @method openEditDialog
+		 * @param {mw.TemplateData.Model} dataModel The data model
+		 * associated with this edit dialog.
+		 */
+		openEditDialog = function ( dataModel ) {
+			// Open the edit dialog
+			windowManager.openWindow( tdgDialog, {
+				model: dataModel
+			} );
+		},
+
+		/**
 		 * Respond to edit dialog button click.
 		 *
 		 * @method onEditOpenDialogButton
@@ -114,30 +128,6 @@
 		},
 
 		/**
-		 * Open the templatedata edit dialog
-		 *
-		 * @method openEditDialog
-		 * @param {mw.TemplateData.Model} dataModel The data model
-		 * associated with this edit dialog.
-		 */
-		openEditDialog = function ( dataModel ) {
-			// Open the edit dialog
-			windowManager.openWindow( tdgDialog, {
-				model: dataModel
-			} );
-		},
-
-		/**
-		 * Respond to edit dialog apply event
-		 *
-		 * @method onDialogApply
-		 * @param {Object} templateData New templatedata
-		 */
-		onDialogApply = function ( templateData ) {
-			$textbox.val( replaceTemplateData( templateData ) );
-		},
-
-		/**
 		 * Replace the old templatedata string with the new one, or
 		 * insert the new one into the page if an old one doesn't exist
 		 *
@@ -181,6 +171,16 @@
 				}
 			}
 			return finalOutput;
+		},
+
+		/**
+		 * Respond to edit dialog apply event
+		 *
+		 * @method onDialogApply
+		 * @param {Object} templateData New templatedata
+		 */
+		onDialogApply = function ( templateData ) {
+			$textbox.val( replaceTemplateData( templateData ) );
 		};
 
 		return {
