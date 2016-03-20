@@ -1,7 +1,4 @@
 {
 	"preset": "wikimedia",
-
-	"es3": true,
-	"disallowQuotedKeysInObjects": "allButReserved",
-	"requireDotNotation": { "allExcept": [ "keywords" ] }
+	"es3": true
 }
