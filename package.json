@@ -1,20 +1,9 @@
 {
-  "name": "templatedata",
   "private": true,
   "scripts": {
     "test": "grunt test",
     "doc": "jsduck"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://gerrit.wikimedia.org/r/p/mediawiki/extensions/TemplateData.git"
-  },
-  "licenses": [
-    {
-      "type": "GPL v2+",
-      "url": "https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FTemplateData.git/master/COPYING"
-    }
-  ],
   "devDependencies": {
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
