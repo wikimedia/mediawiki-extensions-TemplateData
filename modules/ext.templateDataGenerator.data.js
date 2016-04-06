@@ -895,7 +895,11 @@ mw.TemplateData.Model.prototype.outputTemplateData = function () {
 	}
 
 	// Format
-	result.format = this.format;
+	if ( this.format === null ) {
+		delete result.format;
+	} else {
+		result.format = this.format;
+	}
 
 	// Attach sets as-is for now
 	// TODO: Work properly with sets
