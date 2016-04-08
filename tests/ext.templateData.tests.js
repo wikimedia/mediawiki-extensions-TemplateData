@@ -141,8 +141,7 @@
 					'day'
 				]
 			}
-		],
-		format: null
+		]
 	};
 	finalJson.description[ currLanguage ] = 'Label unsigned comments in a conversation.';
 
@@ -628,8 +627,7 @@
 				'	"params": {}\n' +
 				'}</templatedata>',
 			simpleTemplateDataDefaultFormat = {
-				params: {},
-				format: null
+				params: {}
 			};
 
 		QUnit.expect( 1 );
