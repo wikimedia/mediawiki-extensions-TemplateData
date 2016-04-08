@@ -121,6 +121,9 @@
 				blah: resultDescBothLang.blah
 			},
 			type: undefined
+		},
+		newParam5: {
+			type: 'wiki-page-name'
 		}
 	};
 	finalJsonParams.date.description[ currLanguage ] = 'Timestamp of when the comment was posted, in YYYY-MM-DD format.';
@@ -425,6 +428,13 @@
 					result: { name: 'newParam4', description: resultDescBothLang },
 					description: 'Some string here in ' + currLanguage + ' language.',
 					msg: 'Adding parameter with language prop: original with multiple languages.'
+				},
+				{
+					key: 'newParam5',
+					data: { type: 'string/wiki-page-name' },
+					result: { name: 'newParam5', type: 'wiki-page-name' },
+					description: '',
+					msg: 'Adding parameter with obsolete type'
 				}
 			],
 			paramChangeTest = [
@@ -567,7 +577,7 @@
 				model.reorderParamOrderKey( 'user', 3 );
 				assert.deepEqual(
 					model.paramOrder,
-					[ 'date', 'year', 'user', 'month', 'comment', 'newParam1', 'newParam2', 'newParam3', 'newParam4' ],
+					[ 'date', 'year', 'user', 'month', 'comment', 'newParam1', 'newParam2', 'newParam3', 'newParam4', 'newParam5' ],
 					'Final templatedata output with paramOrder'
 				);
 
@@ -575,7 +585,7 @@
 				model.reorderParamOrderKey( 'month', 2 );
 				assert.deepEqual(
 					model.paramOrder,
-					[ 'date', 'year', 'month', 'user', 'comment', 'newParam1', 'newParam2', 'newParam3', 'newParam4' ],
+					[ 'date', 'year', 'month', 'user', 'comment', 'newParam1', 'newParam2', 'newParam3', 'newParam4', 'newParam5' ],
 					'Final templatedata output with paramOrder'
 				);
 

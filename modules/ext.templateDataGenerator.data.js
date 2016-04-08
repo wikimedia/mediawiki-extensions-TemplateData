@@ -420,7 +420,8 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 
 	// Translate types
 	if ( data.type !== undefined ) {
-		this.params[ key ].normalizedType = this.constructor.static.translateObsoleteParamTypes( this.params[ key ].type );
+		data.type = this.constructor.static.translateObsoleteParamTypes( data.type );
+		this.params[ key ].type = data.type;
 	}
 
 	// Get the deprecated value
