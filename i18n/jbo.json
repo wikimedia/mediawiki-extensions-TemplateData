@@ -5,6 +5,7 @@
 			"KSFT"
 		]
 	},
-	"templatedata-modal-button-cancel": "kansele",
-	"templatedata-modal-table-param-type-wiki-template-name": "lo morna"
+	"templatedata-doc-param-type-unknown": ".i na djuno",
+	"templatedata-doc-param-type-wiki-template-name": "lo morna",
+	"templatedata-modal-button-cancel": "kansele"
 }

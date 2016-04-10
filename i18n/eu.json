@@ -7,6 +7,11 @@
 		]
 	},
 	"templatedata-doc-param-desc": "Deskribapena",
+	"templatedata-doc-param-type-boolean": "Boolearra",
+	"templatedata-doc-param-type-date": "Data",
+	"templatedata-doc-param-type-url": "URL",
+	"templatedata-doc-param-type-wiki-template-name": "Txantiloi",
+	"templatedata-doc-params": "Txantiloiaren parametroak",
 	"templatedata-modal-button-add-language": "Gehitu hizkuntza",
 	"templatedata-modal-button-addparam": "Gehitu parametroa",
 	"templatedata-modal-button-changelang": "Hizkuntza aldatu",
@@ -16,12 +21,9 @@
 	"templatedata-modal-search-input-placeholder": "Bilatu hizkuntza izenaren edo kodearen arabera",
 	"templatedata-modal-table-param-description": "Deskribapena ($1)",
 	"templatedata-modal-table-param-label": "Etiketa ($1)",
-	"templatedata-modal-table-param-type-boolean": "Boolearra",
-	"templatedata-modal-table-param-type-date": "Data",
-	"templatedata-modal-table-param-type-url": "URL",
-	"templatedata-modal-table-param-type-wiki-template-name": "Txantiloi",
 	"templatedata-modal-title-choose-language": "Hizkuntza aukeratu",
 	"templatedata-modal-title-language": "Hizkuntza",
 	"templatedata-modal-title-paramorder": "Parametroen ordena",
-	"templatedata-modal-title-templatedesc": "Txatiloiaren deskripzioa ($1)"
+	"templatedata-modal-title-templatedesc": "Txatiloiaren deskripzioa ($1)",
+	"templatedata-modal-title-templateformat": "Txantiloiaren formatu gogokoena"
 }
