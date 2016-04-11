@@ -9,7 +9,7 @@
 	"apihelp-templatedata-description": "Gespeicherte Daten von der Erweiterung „TemplateData“ abrufen.",
 	"apihelp-templatedata-example-1": "Daten für [[Template:Stub]] und [[Template:Example]] zurückgeben",
 	"apihelp-templatedata-param-lang": "Gibt lokalisierte Werte in dieser Sprache zurück. Standardmäßig werden alle verfügbaren Übersetzungen zurückgegeben.",
-	"templatedata-desc": "Ermöglicht die Speicherung von Vorlagenparametern mithilfe von JSON",
+	"templatedata-desc": "Ermöglicht die Speicherung von Vorlagenparametern (als JSON)",
 	"templatedata-doc-desc-empty": "Keine Beschreibung.",
 	"templatedata-doc-format-inline": "Diese Vorlage bevorzugt Inline-Formatierung von Parametern.",
 	"templatedata-doc-format-block": "Diese Vorlage bevorzugt Blockformatierung von Parametern.",
