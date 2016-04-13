@@ -8,11 +8,18 @@
 			"Sayginer"
 		]
 	},
+	"apihelp-templatedata-example-1": "[[Template:Stub]] ve [[Template:Example]] belgelemelerine geri dön.",
 	"templatedata-doc-param-autovalue": "Otomatik değer",
 	"templatedata-doc-param-autovalue-empty": "boş",
+	"templatedata-doc-param-type-date": "Tarih",
+	"templatedata-doc-param-type-number": "Sayı",
+	"templatedata-doc-param-type-string": "Dize",
+	"templatedata-doc-param-type-wiki-page-name": "Sayfa",
+	"templatedata-doc-param-type-wiki-template-name": "Şablon",
+	"templatedata-doc-param-type-wiki-user-name": "Kullanıcı",
 	"templatedata-doc-params": "Şablon parametreleri",
-	"templatedata-editbutton": "Şablon belgelerini yönetme",
-	"templatedata-helplink": "TemplateData hakkında bilgi",
+	"templatedata-editbutton": "Şablon belgelemesini düzenle",
+	"templatedata-helplink": "Şablon belgeleme hakkında bilgi",
 	"templatedata-modal-button-addparam": "Değişken ekle",
 	"templatedata-modal-button-apply": "Uygula",
 	"templatedata-modal-button-cancel": "İptal",
@@ -27,11 +34,7 @@
 	"templatedata-modal-table-param-label": "Etiket",
 	"templatedata-modal-table-param-name": "Ad",
 	"templatedata-modal-table-param-type": "Tür",
-	"templatedata-modal-table-param-type-date": "Tarih",
-	"templatedata-modal-table-param-type-number": "Sayı",
-	"templatedata-modal-table-param-type-string": "Dize",
-	"templatedata-modal-table-param-type-wiki-page-name": "Sayfa",
-	"templatedata-modal-table-param-type-wiki-user-name": "Kullanıcı",
-	"templatedata-modal-title": "Belge şablonu düzenleyicisi",
-	"templatedata-modal-title-templatedesc": "Şablon açıklaması"
+	"templatedata-modal-title": "Şablon belgeleme düzenleyicisi",
+	"templatedata-modal-title-templatedesc": "Şablon açıklaması ($1)",
+	"templatedata-modal-title-templateparams": "Şablon parametreleri"
 }
