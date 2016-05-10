@@ -60,9 +60,9 @@ class TemplateDataBlob {
 			$tdb->data = new stdClass();
 			$tdb->data->description = null;
 			$tdb->data->params = new stdClass();
-			$tdb->data->paramOrder = array();
+			$tdb->data->paramOrder = [];
 			$tdb->data->format = null;
-			$tdb->data->sets = array();
+			$tdb->data->sets = [];
 			$tdb->data->maps = new stdClass();
 		}
 		$tdb->status = $status;
@@ -92,16 +92,16 @@ class TemplateDataBlob {
 	private function parse() {
 		$data = $this->data;
 
-		static $rootKeys = array(
+		static $rootKeys = [
 			'description',
 			'params',
 			'paramOrder',
 			'sets',
 			'maps',
 			'format',
-		);
+		];
 
-		static $paramKeys = array(
+		static $paramKeys = [
 			'label',
 			'required',
 			'suggested',
@@ -113,9 +113,9 @@ class TemplateDataBlob {
 			'default',
 			'inherits',
 			'type',
-		);
+		];
 
-		static $types = array(
+		static $types = [
 			'content',
 			'line',
 			'number',
@@ -129,20 +129,20 @@ class TemplateDataBlob {
 			'wiki-user-name',
 			'wiki-file-name',
 			'wiki-template-name',
-		);
+		];
 
-		static $formats = array(
+		static $formats = [
 			null,
 			'block',
 			'inline'
-		);
+		];
 
-		static $typeCompatMap = array(
+		static $typeCompatMap = [
 			'string/line' => 'line',
 			'string/wiki-page-name' => 'wiki-page-name',
 			'string/wiki-user-name' => 'wiki-user-name',
 			'string/wiki-file-name' => 'wiki-file-name',
-		);
+		];
 
 		if ( $data === null ) {
 			return Status::newFatal( 'templatedata-invalid-parse' );
@@ -193,7 +193,7 @@ class TemplateDataBlob {
 		// We need this to determine whether a property was originally set
 		// to decide whether 'inherits' will add it or not.
 		$unnormalizedParams = unserialize( serialize( $data->params ) );
-		$paramNames = array();
+		$paramNames = [];
 
 		foreach ( $data->params as $paramName => $paramObj ) {
 			if ( !is_object( $paramObj ) ) {
@@ -308,7 +308,7 @@ class TemplateDataBlob {
 					);
 				}
 			} else {
-				$paramObj->aliases = array();
+				$paramObj->aliases = [];
 			}
 
 			// Param.autovalue
@@ -406,7 +406,7 @@ class TemplateDataBlob {
 
 			// Validate each of the values corresponds to a parameter and that there are no
 			// duplicates
-			$seen = array();
+			$seen = [];
 			foreach ( $data->paramOrder as $i => $param ) {
 				if ( !isset( $data->params->$param ) ) {
 					return Status::newFatal( 'templatedata-invalid-value', "paramOrder[$i]" );
@@ -431,7 +431,7 @@ class TemplateDataBlob {
 				return Status::newFatal( 'templatedata-invalid-type', 'sets', 'array' );
 			}
 		} else {
-			$data->sets = array();
+			$data->sets = [];
 		}
 
 		foreach ( $data->sets as $setNr => $setObj ) {
@@ -702,15 +702,15 @@ class TemplateDataBlob {
 	public function getHtml( Language $lang ) {
 		$data = $this->getDataInLanguage( $lang->getCode() );
 		$html =
-			Html::openElement( 'div', array( 'class' => 'mw-templatedata-doc-wrap' ) )
+			Html::openElement( 'div', [ 'class' => 'mw-templatedata-doc-wrap' ] )
 			. Html::element(
 				'p',
-				array(
-					'class' => array(
+				[
+					'class' => [
 						'mw-templatedata-doc-desc',
 						'mw-templatedata-doc-muted' => $data->description === null,
-					)
-				),
+					]
+				],
 				$data->description !== null ?
 					$data->description :
 					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )->text()
@@ -718,20 +718,20 @@ class TemplateDataBlob {
 			. '<table class="wikitable mw-templatedata-doc-params sortable">'
 			. Html::rawElement(
 				'caption',
-				array(),
+				[],
 				Html::element(
 					'p',
-					array(),
+					[],
 					wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )->text()
 				)
 				. ( $data->format !== null ?
 					Html::rawElement(
 						'p',
-						array(),
-						new OOUI\IconWidget( array( 'icon' => 'template-format-' . $data->format ) )
+						[],
+						new OOUI\IconWidget( [ 'icon' => 'template-format-' . $data->format ] )
 						. Html::element(
 							'span',
-							array( 'class' => 'mw-templatedata-format' ),
+							[ 'class' => 'mw-templatedata-format' ],
 							// Messages: templatedata-modal-format-inline, templatedata-modal-format-block
 							wfMessage( 'templatedata-doc-format-' . $data->format )->inLanguage( $lang )->text()
 						)
@@ -741,22 +741,22 @@ class TemplateDataBlob {
 			. '<thead><tr>'
 			. Html::element(
 				'th',
-				array( 'colspan' => 2 ),
+				[ 'colspan' => 2 ],
 				wfMessage( 'templatedata-doc-param-name' )->inLanguage( $lang )->text()
 			)
 			. Html::element(
 				'th',
-				array(),
+				[],
 				wfMessage( 'templatedata-doc-param-desc' )->inLanguage( $lang )->text()
 			)
 			. Html::element(
 				'th',
-				array(),
+				[],
 				wfMessage( 'templatedata-doc-param-type' )->inLanguage( $lang )->text()
 			)
 			. Html::element(
 				'th',
-				array(),
+				[],
 				wfMessage( 'templatedata-doc-param-status' )->inLanguage( $lang )->text()
 			)
 			. '</tr></thead>'
@@ -766,10 +766,10 @@ class TemplateDataBlob {
 			// Display no parameters message
 			$html .= '<tr>'
 			. Html::element( 'td',
-				array(
+				[
 					'class' => 'mw-templatedata-doc-muted',
 					'colspan' => 7
-				),
+				],
 				wfMessage( 'templatedata-doc-no-params-set' )->inLanguage( $lang )->text()
 			)
 			. '</tr>';
@@ -782,9 +782,9 @@ class TemplateDataBlob {
 			$aliases = '';
 			if ( count( $paramObj->aliases ) ) {
 				foreach ( $paramObj->aliases as $alias ) {
-					$aliases .= Html::element( 'code', array(
+					$aliases .= Html::element( 'code', [
 						'class' => 'mw-templatedata-doc-param-alias'
-					), $alias );
+					], $alias );
 				}
 			}
 
@@ -802,75 +802,75 @@ class TemplateDataBlob {
 
 			$html .= '<tr>'
 			// Label
-			. Html::element( 'th', array(),
+			. Html::element( 'th', [],
 				$paramObj->label !== null ?
 					$paramObj->label :
 					$lang->ucfirst( $paramName )
 			)
 			// Parameters and aliases
-			. Html::rawElement( 'td', array( 'class' => 'mw-templatedata-doc-param-name' ),
-				Html::element( 'code', array(), $paramName ) . $aliases
+			. Html::rawElement( 'td', [ 'class' => 'mw-templatedata-doc-param-name' ],
+				Html::element( 'code', [], $paramName ) . $aliases
 			)
 			// Description
-			. Html::rawElement( 'td', array(
-					'class' => array(
+			. Html::rawElement( 'td', [
+					'class' => [
 						'mw-templatedata-doc-muted' => ( $paramObj->description === null )
-					)
-				),
-				Html::rawElement( 'p', array(),
+					]
+				],
+				Html::rawElement( 'p', [],
 					$paramObj->description !== null ?
 					$paramObj->description :
 					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
 				)
-				. Html::rawElement( 'dl', array(),
-					Html::element( 'dt', array(),
+				. Html::rawElement( 'dl', [],
+					Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )->text()
 					)
 					// Default
-					. Html::element( 'dd', array(
-							'class' => array(
+					. Html::element( 'dd', [
+							'class' => [
 								'mw-templatedata-doc-muted' => $paramObj->default === null
-							)
-						),
+							]
+						],
 						$paramObj->default !== null ?
 							$paramObj->default :
 							wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
 					)
 					// Example
-					. Html::element( 'dt', array(),
+					. Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-example' )->inLanguage( $lang )->text()
 					)
-					. Html::element( 'dd', array(
-							'class' => array(
+					. Html::element( 'dd', [
+							'class' => [
 								'mw-templatedata-doc-muted' => $paramObj->example === null
-							)
-						),
+							]
+						],
 						$paramObj->example !== null ?
 							$paramObj->example :
 							wfMessage( 'templatedata-doc-param-example-empty' )->inLanguage( $lang )->text()
 					)
 					// Auto value
-					. Html::element( 'dt', array(),
+					. Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-autovalue' )->inLanguage( $lang )->text()
 					)
-					. Html::rawElement( 'dd', array(
-							'class' => array(
+					. Html::rawElement( 'dd', [
+							'class' => [
 								'mw-templatedata-doc-muted' => $paramObj->autovalue === null
-							)
-						),
+							]
+						],
 						$paramObj->autovalue !== null ?
-							Html::element( 'code', array(), $paramObj->autovalue ) :
+							Html::element( 'code', [], $paramObj->autovalue ) :
 							wfMessage( 'templatedata-doc-param-autovalue-empty' )->inLanguage( $lang )->escaped()
 					)
 				)
 			)
 			// Type
-			. Html::element( 'td', array(
-					'class' => array(
+			. Html::element( 'td', [
+					'class' => [
 						'mw-templatedata-doc-param-type',
 						'mw-templatedata-doc-muted' => $paramObj->type === 'unknown'
-					)
-				),
+					]
+				],
 
 				// Known messages, for grepping:
 				// templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,

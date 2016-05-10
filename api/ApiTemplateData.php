@@ -56,21 +56,21 @@ class ApiTemplateData extends ApiBase {
 		$titles = $pageSet->getGoodTitles(); // page_id => Title object
 
 		if ( !count( $titles ) ) {
-			$result->addValue( null, 'pages', (object) array() );
+			$result->addValue( null, 'pages', (object) [] );
 			return;
 		}
 
 		$db = $this->getDB();
 		$res = $db->select( 'page_props',
-			array( 'pp_page', 'pp_value' ), array(
+			[ 'pp_page', 'pp_value' ], [
 				'pp_page' => array_keys( $titles ),
 				'pp_propname' => 'templatedata'
-			),
+			],
 			__METHOD__,
-			array( 'ORDER BY', 'pp_page' )
+			[ 'ORDER BY', 'pp_page' ]
 		);
 
-		$resp = array();
+		$resp = [];
 
 		foreach ( $res as $row ) {
 			$rawData = $row->pp_value;
@@ -94,7 +94,7 @@ class ApiTemplateData extends ApiBase {
 			// to empty strings / absent properties
 			if ( defined( 'ApiResult::META_BC_BOOLS' ) ) {
 				foreach ( $data->params as &$param ) {
-					$param->{ApiResult::META_BC_BOOLS} = array( 'required', 'suggested', 'deprecated' );
+					$param->{ApiResult::META_BC_BOOLS} = [ 'required', 'suggested', 'deprecated' ];
 				}
 				unset( $param );
 
@@ -104,9 +104,9 @@ class ApiTemplateData extends ApiBase {
 				ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
 			}
 
-			$resp[$row->pp_page] = array(
+			$resp[$row->pp_page] = [
 				'title' => strval( $titles[$row->pp_page] ),
-			) + (array) $data;
+			] + (array) $data;
 		}
 
 		ApiResult::setArrayType( $resp, 'kvp', 'id' );
@@ -126,19 +126,19 @@ class ApiTemplateData extends ApiBase {
 	}
 
 	public function getAllowedParams( $flags = 0 ) {
-		return $this->getPageSet()->getFinalParams( $flags ) + array(
+		return $this->getPageSet()->getFinalParams( $flags ) + [
 			'lang' => null
-		);
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=templatedata&titles=Template:Stub|Template:Example'
 				=> 'apihelp-templatedata-example-1',
-		);
+		];
 	}
 
 	public function getHelpUrls() {

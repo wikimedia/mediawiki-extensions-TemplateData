@@ -8,10 +8,10 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	protected function setUp() {
 		parent::setUp();
 
-		$this->setMwGlobals( array(
+		$this->setMwGlobals( [
 			'wgLanguageCode' => 'en',
 			'wgContLang' => Language::factory( 'en' ),
-		) );
+		] );
 	}
 
 	/**
@@ -35,13 +35,13 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	}
 
 	public static function provideParse() {
-		$cases = array(
-			array(
+		$cases = [
+			[
 				'input' => '[]
 				',
 				'status' => 'Property "templatedata" is expected to be of type "object".'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {}
 				}
@@ -57,8 +57,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'status' => true,
 				'msg' => 'Minimal valid blob'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {},
 					"foo": "bar"
@@ -66,21 +66,21 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'status' => 'Unexpected property "foo".',
 				'msg' => 'Unknown properties'
-			),
-			array(
+			],
+			[
 				'input' => '{}',
 				'status' => 'Required property "params" not found.',
 				'msg' => 'Empty object'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"foo": "bar"
 				}
 				',
 				'status' => 'Unexpected property "foo".',
 				'msg' => 'Unknown properties invalidate the blob'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {}
@@ -110,8 +110,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'msg' => 'Optional properties are added if missing'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"comment": {
@@ -143,8 +143,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'msg' => 'Old string/* types are mapped to the unprefixed versions'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"description": "User badge MediaWiki developers.",
 					"params": {
@@ -193,8 +193,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'msg' => 'InterfaceText is expanded to langcode-keyed object, assuming content language'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"description": "Document the documenter.",
 					"params": {
@@ -256,8 +256,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'msg' => 'The inherits property copies over properties from another parameter '
 					. '(preserving overides)'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {},
 					"sets": [
@@ -267,8 +267,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					]
 				}',
 				'status' => 'Required property "sets.0.params" not found.'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -281,8 +281,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					]
 				}',
 				'status' => 'Required property "sets.0.label" not found.'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -298,8 +298,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					]
 				}',
 				'status' => 'Invalid value for property "sets.0.params[1]".'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -379,8 +379,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"maps": {}
 				}',
 				'status' => true
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"description": "Testing some template description.",
 					"params": {
@@ -432,8 +432,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'msg' => 'Parameter attributes preserve information.'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -452,8 +452,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					}
 				}',
 				'status' => 'Invalid parameter "quux" for property "maps.application.things".'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -472,8 +472,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					}
 				}',
 				'status' => 'Property "maps.application.things" is expected to be of type "string|array".'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -491,8 +491,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					}
 				}',
 				'status' => 'Property "maps.application.things[0][0]" is expected to be of type "string".'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {}
@@ -500,19 +500,19 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"format": "meshuggah format"
 				}',
 				'status' => 'Property "format" is expected to be "inline" or "block".'
-			),
-			array(
+			],
+			[
 				// Should be long enough to trigger this condition after gzipping.
 				'input' => '{
 					"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
 					"params": {}
 				}',
 				'status' => 'Data too large to save (75,226 bytes, limit is 65,535)'
-			),
-		);
-		$calls = array();
+			],
+		];
+		$calls = [];
 		foreach ( $cases as $case ) {
-			$calls[] = array( $case );
+			$calls[] = [ $case ];
 		}
 		return $calls;
 	}
@@ -520,7 +520,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	protected static function getStatusText( Status $status ) {
 		$str = $status->getHtml();
 		// Based on wfMessage()->parse
-		$m = array();
+		$m = [];
 		if ( preg_match( '/^<p>(.*)\n?<\/p>\n?$/sU', $str, $m ) ) {
 			// Unescape char references for things like "[, "]" and "|" for
 			// cleaner test assertions and output
@@ -529,7 +529,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		return $str;
 	}
 
-	private static function ksort( Array &$input ) {
+	private static function ksort( array &$input ) {
 		ksort( $input );
 		foreach ( $input as $key => &$value ) {
 			if ( is_array( $value ) ) {
@@ -565,7 +565,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		);
 	}
 
-	protected function assertTemplateData( Array $case ) {
+	protected function assertTemplateData( array $case ) {
 		// Expand defaults
 		if ( !isset( $case['status'] ) ) {
 			$case['status'] = true;
@@ -635,7 +635,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider provideParse
 	 */
-	public function testParse( Array $case ) {
+	public function testParse( array $case ) {
 		$this->assertTemplateData( $case );
 	}
 
@@ -656,8 +656,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	}
 
 	public static function provideGetDataInLanguage() {
-		$cases = array(
-			array(
+		$cases = [
+			[
 				'input' => '{
 					"description": {
 						"de": "German",
@@ -679,8 +679,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'de',
 				'msg' => 'Simple description'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"description": "Hi",
 					"params": {}
@@ -698,8 +698,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'lang' => 'fr',
 				'msg' => 'Non multi-language value returned as is (expands to { "en": value } for' .
 					' content-lang, "fr" falls back to "en")'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"description": {
 						"nl": "Dutch",
@@ -719,8 +719,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'fr',
 				'msg' => 'Try content language before giving up on user language and fallbacks'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"description": {
 						"es": "Spanish",
@@ -740,8 +740,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'fr',
 				'msg' => 'Description is optional, use null if no suitable fallback'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"description": {
 						"de": "German",
@@ -762,8 +762,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'de-formal',
 				'msg' => '"de-formal" falls back to "de"'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -799,8 +799,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'fr',
 				'msg' => 'Simple parameter label'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -836,8 +836,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'fr',
 				'msg' => 'Simple parameter default value'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -873,8 +873,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'fr',
 				'msg' => 'Parameter label is optional, use null if no matching fallback'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {}
@@ -919,11 +919,11 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'lang' => 'fr',
 				'msg' => 'Set label is not optional, choose first available key as final fallback'
-			),
-		);
-		$calls = array();
+			],
+		];
+		$calls = [];
 		foreach ( $cases as $case ) {
-			$calls[] = array( $case );
+			$calls[] = [ $case ];
 		}
 		return $calls;
 	}
@@ -931,14 +931,14 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider provideGetDataInLanguage
 	 */
-	public function testGetDataInLanguage( Array $case ) {
+	public function testGetDataInLanguage( array $case ) {
 
 		// Change content-language to be non-English so we can distinguish between the
 		// last 'en' fallback and the content language in our tests
-		$this->setMwGlobals( array(
+		$this->setMwGlobals( [
 			'wgLanguageCode' => 'nl',
 			'wgContLang' => Language::factory( 'nl' ),
-		) );
+		] );
 
 		if ( !isset( $case['msg'] ) ) {
 			$case['msg'] = is_string( $case['status'] ) ? $case['status'] : 'TemplateData assertion';
@@ -961,8 +961,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	}
 
 	public static function provideParamOrder() {
-		$cases = array(
-			array(
+		$cases = [
+			[
 				'input' => '{
 					"params": {
 						"foo": {},
@@ -1018,8 +1018,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'msg' => 'Normalisation adds paramOrder'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {},
@@ -1076,8 +1076,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'msg' => 'Custom paramOrder'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {},
@@ -1089,8 +1089,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'status' => 'Required property "paramOrder[2]" not found.',
 				'msg' => 'Incomplete paramOrder'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {}
 				}
@@ -1105,8 +1105,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'msg' => 'Empty parameter object produces empty array paramOrder'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {},
@@ -1118,8 +1118,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'status' => 'Invalid value for property "paramOrder[3]".',
 				'msg' => 'Unknown params in paramOrder'
-			),
-			array(
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {},
@@ -1132,11 +1132,11 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'status' => 'Property "paramOrder[3]" ("bar") is a duplicate of ' .
 					'"paramOrder[1]".',
 				'msg' => 'Duplicate params in paramOrder'
-			),
-		);
-		$calls = array();
+			],
+		];
+		$calls = [];
 		foreach ( $cases as $case ) {
-			$calls[] = array( $case );
+			$calls[] = [ $case ];
 		}
 		return $calls;
 	}
@@ -1144,7 +1144,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	/**
 	 * @dataProvider provideParamOrder
 	 */
-	public function testParamOrder( Array $case ) {
+	public function testParamOrder( array $case ) {
 		$this->assertTemplateData( $case );
 	}
 }

@@ -11,7 +11,7 @@ class TemplateDataHooks {
 	 * Register parser hooks
 	 */
 	public static function onParserFirstCallInit( &$parser ) {
-		$parser->setHook( 'templatedata', array( 'TemplateDataHooks', 'render' ) );
+		$parser->setHook( 'templatedata', [ 'TemplateDataHooks', 'render' ] );
 		return true;
 	}
 
@@ -31,12 +31,12 @@ class TemplateDataHooks {
 		array &$testModules,
 		ResourceLoader &$resourceLoader
 	) {
-		$testModules['qunit']['ext.templateData.test'] = array(
-			'scripts' => array( 'tests/ext.templateData.tests.js' ),
-			'dependencies' => array( 'ext.templateDataGenerator.data' ),
+		$testModules['qunit']['ext.templateData.test'] = [
+			'scripts' => [ 'tests/ext.templateData.tests.js' ],
+			'dependencies' => [ 'ext.templateDataGenerator.data' ],
 			'localBasePath' => __DIR__ ,
 			'remoteExtPath' => 'TemplateData',
-		);
+		];
 		return true;
 	}
 
@@ -51,17 +51,17 @@ class TemplateDataHooks {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
 		$name = 'jquery.uls.data';
 		if ( !isset( $resourceModules[$name] ) && !$resourceLoader->isModuleRegistered( $name ) ) {
-			$resourceLoader->register( array(
-				'jquery.uls.data' => array(
+			$resourceLoader->register( [
+				'jquery.uls.data' => [
 					'localBasePath' => __DIR__,
 					'remoteExtPath' => 'TemplateData',
-					'scripts' => array(
+					'scripts' => [
 						'lib/jquery.uls/src/jquery.uls.data.js',
 						'lib/jquery.uls/src/jquery.uls.data.utils.js',
-					),
-					'targets' => array( 'desktop', 'mobile' ),
-				)
-			) );
+					],
+					'targets' => [ 'desktop', 'mobile' ],
+				]
+			] );
 		}
 	}
 
