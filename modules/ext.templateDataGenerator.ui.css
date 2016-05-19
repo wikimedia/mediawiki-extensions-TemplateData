@@ -16,12 +16,13 @@
 	padding: 1em;
 }
 
-.successbox, .errorbox {
-	padding: .5em 1em
+.successbox,
+.errorbox {
+	padding: 0.5em 1em;
 }
 
 .tdg-editscreen-input-error input {
-	background-color: #FFA3A3;
+	background-color: #ffa3a3;
 }
 
 .tdg-templateDataParamWidget {
@@ -100,10 +101,10 @@
 
 .oo-ui-icon-parameter {
 	/* @embed */
-	background-image: url(images/parameter-ltr.svg);
+	background-image: url( images/parameter-ltr.svg );
 }
 
 .oo-ui-icon-parameter-set {
 	/* @embed */
-	background-image: url(images/parameter-set-ltr.svg);
+	background-image: url( images/parameter-set-ltr.svg );
 }
