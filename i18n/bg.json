@@ -1,14 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Vodnokon4e"
+			"Vodnokon4e",
+			"Лорд Бъмбъри"
 		]
 	},
-	"templatedata-modal-table-param-type-url": "URL адрес",
-	"templatedata-modal-table-param-type-wiki-file-name": "Файл",
-	"templatedata-modal-table-param-type-wiki-page-name": "Страница",
-	"templatedata-modal-table-param-type-wiki-template-name": "Шаблон",
-	"templatedata-modal-table-param-type-wiki-user-name": "Потребител",
+	"templatedata-doc-param-type-url": "URL адрес",
+	"templatedata-doc-param-type-wiki-file-name": "Файл",
+	"templatedata-doc-param-type-wiki-page-name": "Страница",
+	"templatedata-doc-param-type-wiki-template-name": "Шаблон",
+	"templatedata-doc-param-type-wiki-user-name": "Потребител",
+	"templatedata-modal-button-done": "Готово",
 	"templatedata-modal-title-choose-language": "Избор на език",
 	"templatedata-modal-title-language": "Език"
 }
