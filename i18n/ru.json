@@ -9,7 +9,8 @@
 			"Oashnic",
 			"Eakarpov",
 			"Mariya",
-			"Sunpriat"
+			"Sunpriat",
+			"Ivan Pozdeev"
 		]
 	},
 	"apihelp-templatedata-description": "Получить данные, хранящиеся в расширении TemplateData.",
@@ -36,12 +37,12 @@
 	"templatedata-doc-param-status-suggested": "предложенный",
 	"templatedata-doc-param-type": "Тип",
 	"templatedata-doc-param-type-boolean": "Логическое значение",
-	"templatedata-doc-param-type-content": "Содержание",
+	"templatedata-doc-param-type-content": "Викитекст",
 	"templatedata-doc-param-type-date": "Дата",
-	"templatedata-doc-param-type-line": "Строка",
+	"templatedata-doc-param-type-line": "Строка (короткая)",
 	"templatedata-doc-param-type-number": "Число",
-	"templatedata-doc-param-type-string": "Строка",
-	"templatedata-doc-param-type-unbalanced-wikitext": "Несбалансированный вики-текст",
+	"templatedata-doc-param-type-string": "Строка (произвольной длины)",
+	"templatedata-doc-param-type-unbalanced-wikitext": "Несбалансированный викитекст",
 	"templatedata-doc-param-type-unknown": "Неизвестно",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "Файл",
