@@ -6,7 +6,8 @@
 			"Stryn",
 			"Pxos",
 			"MrTapsa",
-			"Monni95"
+			"Monni95",
+			"Lliehu"
 		]
 	},
 	"apihelp-templatedata-param-lang": "Palauta lokalisoidut arvot tällä kielellä. Oletuksena kaikki käännökset palautetaan.",
@@ -44,7 +45,7 @@
 	"templatedata-doc-param-type-wiki-template-name": "Malline",
 	"templatedata-doc-param-type-wiki-user-name": "Käyttäjä",
 	"templatedata-doc-params": "Mallineen parametrit",
-	"templatedata-editbutton": "Hallitse TemplateData:a",
+	"templatedata-editbutton": "Hallitse TemplateDataa",
 	"templatedata-exists-on-related-page": "Huomaa: Liittyvällä sivulla \"[[$1]]\" on jo TemplateData-lohko.",
 	"templatedata-helplink": "Tietoa TemplateDatasta",
 	"templatedata-invalid-duplicate-value": "Ominaisuus \"$1\" (\"$3\") on ominaisuuden \"$2\" kaksoiskappale.",
