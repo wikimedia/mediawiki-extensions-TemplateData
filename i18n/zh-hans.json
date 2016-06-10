@@ -7,7 +7,8 @@
 			"Xiaomingyan",
 			"Yfdyh000",
 			"Mywood",
-			"Cwek"
+			"Cwek",
+			"Arthur2e5"
 		]
 	},
 	"apihelp-templatedata-description": "获取由TemplateData扩展存储的数据。",
@@ -28,7 +29,7 @@
 	"templatedata-doc-param-desc-empty": "无描述",
 	"templatedata-doc-param-name": "参数",
 	"templatedata-doc-param-status": "状态",
-	"templatedata-doc-param-status-deprecated": "不推荐使用",
+	"templatedata-doc-param-status-deprecated": "已弃用",
 	"templatedata-doc-param-status-optional": "可选",
 	"templatedata-doc-param-status-required": "必填",
 	"templatedata-doc-param-status-suggested": "推荐",
@@ -87,7 +88,7 @@
 	"templatedata-modal-table-param-aliases": "别名（逗号分隔）",
 	"templatedata-modal-table-param-autovalue": "自动值",
 	"templatedata-modal-table-param-default": "默认值（$1）",
-	"templatedata-modal-table-param-deprecated": "不推荐使用",
+	"templatedata-modal-table-param-deprecated": "已弃用",
 	"templatedata-modal-table-param-deprecatedValue": "弃用指导",
 	"templatedata-modal-table-param-description": "说明（$1）",
 	"templatedata-modal-table-param-example": "例子（$1）",
