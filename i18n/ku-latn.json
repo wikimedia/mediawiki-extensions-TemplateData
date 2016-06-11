@@ -14,6 +14,11 @@
 	"templatedata-doc-param-status-optional": "girêdayî daxwazê",
 	"templatedata-doc-param-status-suggested": "pêşniyarkirî",
 	"templatedata-doc-param-type": "Cure",
+	"templatedata-doc-param-type-date": "Dîrok",
+	"templatedata-doc-param-type-url": "URL",
+	"templatedata-doc-param-type-wiki-page-name": "Rûpel",
+	"templatedata-doc-param-type-wiki-template-name": "Şablon",
+	"templatedata-doc-param-type-wiki-user-name": "Bikarhêner",
 	"templatedata-modal-button-back": "Paşve",
 	"templatedata-modal-button-cancel": "Betal bike",
 	"templatedata-modal-button-changelang": "Zimanê biguherîne",
@@ -22,11 +27,6 @@
 	"templatedata-modal-json-error-replace": "Bixe şûnê",
 	"templatedata-modal-table-param-example": "Mînak ($1)",
 	"templatedata-modal-table-param-name": "Nav",
-	"templatedata-modal-table-param-type-date": "Dîrok",
-	"templatedata-modal-table-param-type-url": "URL",
-	"templatedata-modal-table-param-type-wiki-page-name": "Rûpel",
-	"templatedata-modal-table-param-type-wiki-template-name": "Şablon",
-	"templatedata-modal-table-param-type-wiki-user-name": "Bikarhêner",
 	"templatedata-modal-title-choose-language": "Zimanekî hilbijêre",
 	"templatedata-modal-title-language": "Ziman"
 }
