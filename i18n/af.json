@@ -44,7 +44,7 @@
 	"templatedata-editbutton": "Bestuur Sjabloondata",
 	"templatedata-errormsg-jsonbadformat": "Ongewenste JSON-formaat. Jy kan die proses stop om dit reg te maak, verwyder die huidige <templatedata>-merkers en probeer weer, of gaan voort om die huidige TemplateData met 'n nuwe een te vervang.",
 	"templatedata-exists-on-related-page": "Neem kennis: daar bestaan reeds 'n TemplateData-blok in die bestaande bladsy \"[[$1]]\".",
-	"templatedata-helplink": "Inligting oor TemplateData",
+	"templatedata-helplink": "Inligting oor Sjabloondata",
 	"templatedata-invalid-duplicate-value": "Eienskap \"$1\" (\"$3\") is 'n duplikaat van \"$2\".",
 	"templatedata-invalid-empty-array": "Eienskap \"$1\" moet ten minste een waarde in die versameling hê.",
 	"templatedata-invalid-format": "Eienskap \"$1\" moet \"inlyn\" of \"blok\" wees.",
