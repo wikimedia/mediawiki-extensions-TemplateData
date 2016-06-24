@@ -1,13 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Y-M D"
+			"Y-M D",
+			"Pymouss"
 		]
 	},
 	"templatedata-doc-desc-empty": "Deskrivadur ebet.",
+	"templatedata-doc-param-autovalue": "Talvoud emgefreek",
 	"templatedata-doc-param-autovalue-empty": "goullo",
 	"templatedata-doc-param-default": "Dre ziouer",
 	"templatedata-doc-param-default-empty": "goullo",
+	"templatedata-doc-param-example": "Skouer",
+	"templatedata-doc-param-example-empty": "goullo",
 	"templatedata-doc-param-desc": "Deskrivadur",
 	"templatedata-doc-param-desc-empty": "deskrivadur ebet",
 	"templatedata-doc-param-name": "Arventenn",
@@ -19,6 +23,7 @@
 	"templatedata-doc-param-type": "Seurt",
 	"templatedata-doc-param-type-number": "Niver",
 	"templatedata-doc-param-type-string": "Neudennad",
+	"templatedata-doc-param-type-unknown": "Dianav",
 	"templatedata-doc-param-type-wiki-file-name": "Restr",
 	"templatedata-doc-param-type-wiki-page-name": "Pajenn",
 	"templatedata-doc-param-type-wiki-user-name": "Implijer",
@@ -31,6 +36,7 @@
 	"templatedata-modal-button-cancel": "Nullañ",
 	"templatedata-modal-button-changelang": "Cheñch yezh",
 	"templatedata-modal-button-delparam": "Lemel an arvetenn",
+	"templatedata-modal-button-done": "Echu",
 	"templatedata-modal-button-importParams": "Enporzhiañ arventennoù",
 	"templatedata-modal-button-saveparam": "Enrollañ",
 	"templatedata-modal-current-language": "Yezh red : $1",
@@ -45,6 +51,7 @@
 	"templatedata-modal-table-param-required": "Rekis",
 	"templatedata-modal-table-param-suggested": "Kinniget",
 	"templatedata-modal-table-param-type": "Seurt",
+	"templatedata-modal-title": "Embanner teuliadur ar patrom",
 	"templatedata-modal-title-addparam": "Ouzhpennañ un arventenn nevez",
 	"templatedata-modal-title-choose-language": "Dibab ar yezh",
 	"templatedata-modal-title-language": "Yezh",
