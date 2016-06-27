@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Marmase",
-			"Mirzali"
+			"Mirzali",
+			"Kumkumuk"
 		]
 	},
 	"templatedata-doc-desc-empty": "Arezekerdış çıniyo.",
@@ -15,5 +16,7 @@
 	"templatedata-doc-param-status-optional": "opsiyonel",
 	"templatedata-doc-param-status-required": "lazım",
 	"templatedata-doc-param-type": "Babet",
-	"templatedata-doc-params": "parametrey şablonan"
+	"templatedata-doc-params": "parametrey şablonan",
+	"templatedata-editbutton": "Malumata şablon bıvurnê",
+	"templatedata-helplink": "Heqdê malumata şablon Zanışiye"
 }
