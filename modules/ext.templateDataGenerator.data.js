@@ -672,7 +672,8 @@ mw.TemplateData.Model.prototype.getTemplateFormat = function () {
 mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) {
 	var propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage(),
 		allProps = this.constructor.static.getAllProperties( true ),
-		status = false;
+		status = false,
+		oldValue;
 
 	language = language || this.getDefaultLanguage();
 	if ( !allProps[ prop ] ) {
@@ -702,9 +703,34 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 	} else {
 		// Compare without language
 		if ( !this.constructor.static.compare( this.params[ paramKey ][ prop ], value ) ) {
-			this.params[ paramKey ][ prop ] = value;
+			oldValue = this.params[ paramKey ][ prop ];
+
+			if ( prop === 'name' ) {
+				// See if the parameters already has something with this new key
+				if ( this.params[ value ] ) {
+					// Change the key to be something else
+					value += this.getNewValidParameterKey( value );
+				}
+				// Copy param details to new name
+				this.params[ value ] = this.params[ oldValue ];
+				// Delete the old param
+				this.params[ oldValue ] = { deleted: true };
+
+				this.params[ value ][ prop ] = value;
+			} else {
+				this.params[ paramKey ][ prop ] = value;
+			}
+
 			this.emit( 'change-property', paramKey, prop, value, language );
 			this.emit( 'change' );
+
+			if ( prop === 'name' ) {
+				this.paramOrder[ this.paramOrder.indexOf( oldValue ) ] = value;
+				this.paramOrderChanged = true;
+				this.emit( 'change-paramOrder', this.paramOrder );
+				this.emit( 'change' );
+			}
+
 			status = true;
 		}
 	}
@@ -868,7 +894,7 @@ mw.TemplateData.Model.prototype.getOriginalTemplateDataObject = function () {
  * @return {Object} Templatedata object
  */
 mw.TemplateData.Model.prototype.outputTemplateData = function () {
-	var param, paramKey, key, prop, oldKey, name, compareOrig, normalizedValue,
+	var paramKey, key, prop, oldKey, name, compareOrig, normalizedValue,
 		allProps = this.constructor.static.getAllProperties( true ),
 		original = this.getOriginalTemplateDataObject(),
 		result = $.extend( true, {}, this.getOriginalTemplateDataObject() ),
@@ -925,21 +951,6 @@ mw.TemplateData.Model.prototype.outputTemplateData = function () {
 		// Check if name was changed and change the key accordingly
 		name = this.params[ key ].name;
 		oldKey = key;
-		if ( key !== this.params[ key ].name ) {
-			key = this.params[ key ].name;
-			// See if the parameters already has something with this new key
-			if ( this.params[ key ] ) {
-				// Change the key to be something else
-				key += this.getNewValidParameterKey( key );
-			}
-			// Copy param details to new name in the model
-			this.params[ key ] = this.params[ oldKey ];
-			// Update the references to the key and param data
-			param = result.params[ name ];
-			// Delete the old param in both the result and model param
-			delete result.params[ oldKey ];
-			delete this.params[ oldKey ];
-		}
 
 		// Notice for clarity:
 		// Whether the parameter name was changed or not the following
@@ -1046,7 +1057,7 @@ mw.TemplateData.Model.prototype.getNewValidParameterKey = function ( key ) {
 		// Change the key to be something else
 		key += this.paramIdentifierCounter;
 		this.paramIdentifierCounter++;
-		this.getNewValidParameterKey( key );
+		return this.getNewValidParameterKey( key );
 	} else {
 		return key;
 	}
