@@ -34,6 +34,7 @@
 	"templatedata-doc-param-type-number": "Број",
 	"templatedata-doc-param-type-string": "Низа",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Неврамнотежен викитекст",
+	"templatedata-doc-param-type-unknown": "Непознат",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "Податотека",
 	"templatedata-doc-param-type-wiki-page-name": "Страница",
