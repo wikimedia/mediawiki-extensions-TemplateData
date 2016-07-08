@@ -12,11 +12,13 @@
 			"Robin0van0der0vliet",
 			"MedShot",
 			"HanV",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Dinosaur918"
 		]
 	},
 	"templatedata-desc": "Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)",
 	"templatedata-doc-desc-empty": "Geen beschrijving.",
+	"templatedata-doc-format-inline": "Dit sjabloon prefereert horizontaal in lijn geformateerde parameters.",
 	"templatedata-doc-format-block": "Dit sjabloon prefereert verticaal als blok geformateerde parameters.",
 	"templatedata-doc-no-params-set": "Geen parameters opgegeven",
 	"templatedata-doc-param-autovalue": "Automatische waarde",
@@ -77,6 +79,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Geen nieuwe parameters gevonden tijdens het importeren.",
 	"templatedata-modal-format-inline": "In lijn",
 	"templatedata-modal-format-block": "Blok",
+	"templatedata-modal-format-null": "Niet gespecificeerd",
 	"templatedata-modal-json-error-replace": "Vervangen",
 	"templatedata-modal-notice-import-numparams": "Er {{PLURAL:$1|is één nieuwe parameter|zijn $1 nieuwe parameters}} geïmporteerd: $2",
 	"templatedata-modal-placeholder-paramkey": "Parameternaam",
@@ -102,6 +105,7 @@
 	"templatedata-modal-title-language": "Taal",
 	"templatedata-modal-title-paramorder": "Parametervolgorde",
 	"templatedata-modal-title-templatedesc": "Sjabloonbeschrijving ($1)",
+	"templatedata-modal-title-templateformat": "Gewenste sjabloonformatering",
 	"templatedata-modal-title-templateparam-details": "Parameterdetails: $1",
 	"templatedata-modal-title-templateparams": "Sjabloonparameters"
 }
