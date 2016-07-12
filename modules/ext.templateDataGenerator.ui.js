@@ -180,7 +180,35 @@
 		 * @param {Object} templateData New templatedata
 		 */
 		onDialogApply = function ( templateData ) {
-			$textbox.val( replaceTemplateData( templateData ) );
+			if (
+				Object.keys( templateData ).length > 1 ||
+				Object.keys( templateData.params ).length > 0
+			) {
+				$textbox.val( replaceTemplateData( templateData ) );
+			} else {
+				windowManager.closeWindow( windowManager.getCurrentWindow() );
+				windowManager.openWindow( messageDialog, {
+					title: mw.msg( 'templatedata-modal-title' ),
+					message: mw.msg( 'templatedata-errormsg-insertblank' ),
+					actions: [
+						{
+							label: mw.msg( 'templatedata-modal-button-cancel' ),
+							flags: [ 'primary', 'safe' ]
+						},
+						{
+							action: 'apply',
+							label: mw.msg( 'templatedata-modal-button-apply' )
+						}
+					]
+				} )
+					.then( function ( opening ) { return opening; } )
+					.then( function ( opened ) { return opened; } )
+					.then( function ( data ) {
+						if ( data && data.action === 'apply' ) {
+							$textbox.val( replaceTemplateData( templateData ) );
+						}
+					} );
+			}
 		};
 
 		return {
