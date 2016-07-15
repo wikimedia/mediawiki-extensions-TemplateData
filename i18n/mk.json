@@ -78,7 +78,7 @@
 	"templatedata-modal-placeholder-paramkey": "Назив на параметарот",
 	"templatedata-modal-search-input-placeholder": "Пребарување по јазици или јаз. код",
 	"templatedata-modal-table-param-actions": "Дејства",
-	"templatedata-modal-table-param-aliases": "Алијаси (одделени со запирки)",
+	"templatedata-modal-table-param-aliases": "Истозначници (одделени со запирки)",
 	"templatedata-modal-table-param-autovalue": "Автовредност",
 	"templatedata-modal-table-param-default": "По основно ($1)",
 	"templatedata-modal-table-param-deprecated": "Застарен",
