@@ -94,7 +94,7 @@
 	"templatedata-modal-table-param-deprecatedValue": "Пояснения к устареванию",
 	"templatedata-modal-table-param-description": "Описание ($1)",
 	"templatedata-modal-table-param-example": "Пример ($1)",
-	"templatedata-modal-table-param-importoption": "Добавить $1 {{PLURAL:$1|предложенный параметр|предложенных параметров|предложенных параметра}}",
+	"templatedata-modal-table-param-importoption": "Добавить $1 {{PLURAL:$1|предложенный параметр|предложенных параметра|предложенных параметров}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Включая: $1",
 	"templatedata-modal-table-param-label": "Обозначение ($1)",
 	"templatedata-modal-table-param-name": "Имя",
