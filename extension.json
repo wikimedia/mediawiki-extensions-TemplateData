@@ -32,9 +32,6 @@
 		"PageContentSave": [
 			"TemplateDataHooks::onPageContentSave"
 		],
-		"UnitTestsList": [
-			"TemplateDataHooks::onUnitTestsList"
-		],
 		"ResourceLoaderTestModules": [
 			"TemplateDataHooks::onResourceLoaderTestModules"
 		],
