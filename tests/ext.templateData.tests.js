@@ -144,7 +144,8 @@
 					'day'
 				]
 			}
-		]
+		],
+		format: 'inline'
 	};
 	finalJson.description[ currLanguage ] = 'Label unsigned comments in a conversation.';
 
@@ -507,6 +508,8 @@
 			2 * paramAddTest.length +
 			// Change properties tests
 			paramChangeTest.length +
+			// Format tests
+			8 +
 			// Json output
 			3
 		);
@@ -565,6 +568,29 @@
 
 				// Delete parameter
 				model.deleteParam( 'day' );
+
+				// Format checks
+				assert.deepEqual(
+					model.getTemplateFormat(),
+					null,
+					'Initial template format (unspecified)'
+				);
+				[
+					'\n{{_ |\n__ = __}}',
+					'{{_|_=_\n}}\n',
+					'{{_|_=_}}', // No newlines
+					'\n{{  __  \n|\n  __  =  __\n  }}\n', // Max newlines/ws
+					null,
+					'block',
+					'inline'
+				].forEach( function ( f ) {
+					model.setTemplateFormat( f );
+					assert.deepEqual(
+						model.getTemplateFormat(),
+						f,
+						'Set template format to ' + JSON.stringify( f )
+					);
+				} );
 
 				// Ouput a final templatedata
 				assert.deepEqual(

@@ -132,9 +132,8 @@ class TemplateDataBlob {
 		];
 
 		static $formats = [
-			null,
-			'block',
-			'inline'
+			'block' => "{{_\n| _ = _\n}}",
+			'inline' => '{{_|_=_}}',
 		];
 
 		static $typeCompatMap = [
@@ -169,8 +168,13 @@ class TemplateDataBlob {
 		}
 
 		// Root.format
-		if ( isset( $data->format ) ) {
-			if ( !in_array( $data->format, $formats ) ) {
+		if ( isset( $data->format ) && $data->format !== null ) {
+			$f = isset( $formats[$data->format] ) ? $formats[$data->format] :
+				$data->format;
+			if (
+				!is_string( $f ) ||
+				!preg_match( '/^\n?\{\{ *_+ *\n?\|\n? *_+ *= *_+\n? *\}\}\n?$/', $f )
+			) {
 				return Status::newFatal(
 					'templatedata-invalid-format',
 					'format'
@@ -701,6 +705,13 @@ class TemplateDataBlob {
 
 	public function getHtml( Language $lang ) {
 		$data = $this->getDataInLanguage( $lang->getCode() );
+		if ( $data->format === null ) {
+			$formatMsg = null;
+		} elseif ( isset( $formats[$data->format] ) ) {
+			$formatMsg = $data->format;
+		} else {
+			$formatMsg = 'custom';
+		}
 		$html =
 			Html::openElement( 'div', [ 'class' => 'mw-templatedata-doc-wrap' ] )
 			. Html::element(
@@ -724,16 +735,19 @@ class TemplateDataBlob {
 					[],
 					wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )->text()
 				)
-				. ( $data->format !== null ?
+				. ( $formatMsg !== null ?
 					Html::rawElement(
 						'p',
 						[],
-						new OOUI\IconWidget( [ 'icon' => 'template-format-' . $data->format ] )
+						new OOUI\IconWidget( [ 'icon' => 'template-format-' . $formatMsg ] )
 						. Html::element(
 							'span',
 							[ 'class' => 'mw-templatedata-format' ],
-							// Messages: templatedata-modal-format-inline, templatedata-modal-format-block
-							wfMessage( 'templatedata-doc-format-' . $data->format )->inLanguage( $lang )->text()
+							// Messages that can be used here:
+							// * templatedata-doc-format-block
+							// * templatedata-doc-format-custom
+							// * templatedata-doc-format-inline
+							wfMessage( 'templatedata-doc-format-' . $formatMsg )->inLanguage( $lang )->text()
 						)
 					) :
 					'' )

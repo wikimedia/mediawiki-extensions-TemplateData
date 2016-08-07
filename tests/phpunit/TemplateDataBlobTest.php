@@ -499,7 +499,75 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"format": "meshuggah format"
 				}',
-				'status' => 'Property "format" is expected to be "inline" or "block".'
+				'status' => 'Property "format" is expected to be "inline", "block", or a valid format string.'
+			],
+			[
+				'input' => '{
+					"params": {},
+					"format": "inline"
+				}',
+				'output' => '{
+					"description": null,
+					"params": {},
+					"paramOrder": [],
+					"sets": [],
+					"format": "inline",
+					"maps": {}
+				}
+				',
+				'msg' => '"inline" is a valid format string',
+				'status' => true
+			],
+			[
+				'input' => '{
+					"params": {},
+					"format": "block"
+				}',
+				'output' => '{
+					"description": null,
+					"params": {},
+					"paramOrder": [],
+					"sets": [],
+					"format": "block",
+					"maps": {}
+				}
+				',
+				'msg' => '"block" is a valid format string',
+				'status' => true
+			],
+			[
+				'input' => '{
+					"params": {},
+					"format": "{{_ |\n ___ = _}}"
+				}',
+				'output' => '{
+					"description": null,
+					"params": {},
+					"paramOrder": [],
+					"sets": [],
+					"format": "{{_ |\n ___ = _}}",
+					"maps": {}
+				}
+				',
+				'msg' => 'Custom parameter format string (1)',
+				'status' => true
+			],
+			[
+				'input' => '{
+					"params": {},
+					"format": "{{_|_=_\n}}\n"
+				}',
+				'output' => '{
+					"description": null,
+					"params": {},
+					"paramOrder": [],
+					"sets": [],
+					"format": "{{_|_=_\n}}\n",
+					"maps": {}
+				}
+				',
+				'msg' => 'Custom parameter format string (2)',
+				'status' => true
 			],
 			[
 				// Should be long enough to trigger this condition after gzipping.

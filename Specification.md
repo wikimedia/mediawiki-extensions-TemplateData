@@ -98,25 +98,14 @@ Consumers that look for a `Map` SHOULD publicly document their identifier key.
 Authors MUST ensure that the `maps` object contains only `Map` objects. Authors MAY include a parameter in multiple `Map` objects. Authors are NOT REQUIRED to reference each parameter in at least one `Map` object.
 
 #### 3.1.6 `format`
-* Value: `null` or `string` of either `'inline'` or `'block'`
+* Value: `null` or `FormatString` or `string` of either `'inline'` or `'block'`
 * Default: `null`
 
 How the template's wikitext representation SHOULD be laid out. Authors MAY choose to use this parameter to express that a template will be better understood by other human readers of the wikitext representation if a template is in one form or the other.
 
-If the parameter is set to `'block'`, Consumers SHOULD create a wikitext representation with a single newline after the template invocation and each parameter value, a single space between each pipe and its subsequent parameter key, and a space either side of the assignment separator between the parameter key and value, like so:
+If the parameter is set to `'block'`, it MUST be interpreted as the format string `'{{_\n| _ = _\n}}'`.  If the parameter is set to `'inline'` it MUST be interpreted as the format string `'{{_|_=_}}'`.
 
-```
-{{Foo
-| bar = baz
-| qux = quux
-}}
-```
-
-If the parameter is set to `'inline'`, Consumers SHOULD create a wikitext representation with no whitespace, like so:
-
-```
-{{Foo|bar=baz|qux=quux}}
-```
+If the parameter is not null, Consumers SHOULD create a wikitext representation corresponding to the given format string, as described in section 3.7.
 
 If the parameter is set to `null`, Consumers SHOULD create the same representation as for `'inline'` format for new template transclusions, and SHOULD attempt to use the same formatting for new parameters as for existing ones for existing transclusions that are edited.
 
@@ -288,6 +277,87 @@ an object containing those strings keyed by language code.
 Each key in a `Map` object can be arbitrary. The value must match a parameter name, a list of parameter names, or list containing lists of parameter names.
 
 The key corresponds to the name of a Consumer variable that relates to the specified parameter(s).
+
+### 3.7 FormatString
+* Value: `string`
+
+A format string describes how whitespace should be added to a template instantiation in wikitext.  A format string looks like `{{_|_=_}}`, with optional whitespace and extended underscores.  Formally, its structure is given by the following grammar:
+```
+FormatString = StartFormat ParameterFormat EndFormat
+StartFormat = nl? "{{" ws* Hole ws*
+ParameterFormat = nl? "|" nl? ws* Hole ws* "=" ws* Hole
+EndFormat = nl? ws* "}}" nl?
+Hole = "_"+
+ws = " "
+nl = "\n"
+```
+
+To format a template invocation according to the format string, first split it in three parts, corresponding to `StartFormat`, `ParameterFormat`, and `EndFormat` in the grammar above.  In the following, to "replace the `Hole`" with some value means to first pad a non-empty value with spaces on the right until it is at least as many characters long as the replaced underscore sequence.  Zero-length values are not padded.
+
+Begin with `StartFormat`, and replace the `Hole` with the name of the template to create the "output string".  If `StartFormat` begins with a newline and template is already at the start of a line (the character preceding this template invocation is a newline or the template is at the start of the output), delete the initial newline from the output string.
+
+For each parameter, append the `ParameterFormat` to the output string after replacing the first `Hole` with the name of the parameter and the second `Hole` with the value of the parameter.
+
+Finally, append the `EndFormat` to the output string.
+
+Some example format strings:
+
+Inline formatting: `{{_|_=_}}`
+```
+{{Foo|bar=baz|qux=quux}}{{Bar}}
+```
+
+Block formatting: `{{_\n| _ = _\n}}`
+```
+{{Foo
+| bar = baz
+| qux = quux
+}}{{Bar
+}}
+```
+
+No space before the parameter name, each template on its own line: `\n{{_\n|_ = _\n}}\n`
+```
+{{Foo
+|bar = baz
+|qux = quux
+}}
+{{Bar
+}}
+```
+
+Indent each parameter: `{{_\n |_ = _\n}}`
+```
+{{Foo
+ |bar = baz
+ |qux = quux
+}}{{Bar
+}}
+```
+
+Align all parameter names to a given length: `{{_\n|_______________ = _\n}}\n`
+```
+{{Foo
+|bar             = baz
+|qux             = quux
+|veryverylongparameter = bat
+}}
+{{Bar
+}}
+```
+
+Pipe characters at the end of the previous line: `{{_|\n  _______________ = _}}`
+```
+{{Foo|
+  bar             = baz|
+  qux             = quux}}{{Bar}}
+```
+
+Inline style with more spaces, must be at start of line: `\n{{_ | _ = _}}`
+```
+{{Foo | bar = baz | qux = quux}}
+{{Bar }}
+```
 
 ## 4 Examples
 

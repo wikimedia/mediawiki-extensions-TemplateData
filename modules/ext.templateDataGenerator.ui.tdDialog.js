@@ -153,6 +153,10 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.templateFormatSelectWidget = new OO.ui.ButtonSelectWidget();
 	this.templateFormatSelectWidget.addItems( [
 		new OO.ui.ButtonOptionWidget( {
+			data: null,
+			label: mw.msg( 'templatedata-modal-format-null' )
+		} ),
+		new OO.ui.ButtonOptionWidget( {
 			data: 'inline',
 			icon: 'template-format-inline',
 			label: mw.msg( 'templatedata-modal-format-inline' )
@@ -163,15 +167,26 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 			label: mw.msg( 'templatedata-modal-format-block' )
 		} ),
 		new OO.ui.ButtonOptionWidget( {
-			data: null,
-			label: mw.msg( 'templatedata-modal-format-null' )
+			data: 'custom',
+			icon: 'advanced',
+			label: mw.msg( 'templatedata-modal-format-custom' )
 		} )
 	] );
+	this.templateFormatInputWidget = new OO.ui.TextInputWidget( {
+		placeholder: mw.msg( 'templatedata-modal-format-placeholder' )
+	} );
 
 	templateFormatFieldSet = new OO.ui.FieldsetLayout( {
 		label: mw.msg( 'templatedata-modal-title-templateformat' )
 	} );
-	templateFormatFieldSet.$element.append( this.templateFormatSelectWidget.$element );
+	templateFormatFieldSet.addItems( [
+		new OO.ui.FieldLayout( this.templateFormatSelectWidget, {
+		} ),
+		new OO.ui.FieldLayout( this.templateFormatInputWidget, {
+			align: 'top',
+			label: mw.msg( 'templatedata-modal-title-templateformatstring' )
+		} )
+	] );
 
 	// Param details panel
 	this.$paramDetailsContainer = $( '<div>' )
@@ -236,6 +251,10 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	} );
 	this.paramImport.connect( this, { click: 'importParametersFromTemplateCode' } );
 	this.templateFormatSelectWidget.connect( this, { choose: 'onTemplateFormatSelectWidgetChoose' } );
+	this.templateFormatInputWidget.connect( this, {
+		change: 'onTemplateFormatInputWidgetChange',
+		enter: 'onTemplateFormatInputWidgetEnter'
+	} );
 
 };
 
@@ -434,7 +453,67 @@ mw.TemplateData.Dialog.prototype.onParamSelectChoose = function ( item ) {
  * @param {OO.ui.OptionWidget} item Format item
  */
 mw.TemplateData.Dialog.prototype.onTemplateFormatSelectWidgetChoose = function ( item ) {
-	this.model.setTemplateFormat( item.getData() );
+	var format = item.getData(),
+		shortcuts = {
+			inline: '{{_|_=_}}',
+			block: '{{_\n| _ = _\n}}'
+		};
+	if ( format !== 'custom' ) {
+		this.model.setTemplateFormat( format );
+		this.templateFormatInputWidget.setDisabled( true );
+		if ( format !== null ) {
+			this.templateFormatInputWidget.setValue(
+				this.formatToDisplay( shortcuts[ format ] )
+			);
+		}
+	} else {
+		this.templateFormatInputWidget.setDisabled( false );
+		this.onTemplateFormatInputWidgetChange(
+			this.templateFormatInputWidget.getValue()
+		);
+	}
+};
+
+mw.TemplateData.Dialog.prototype.formatToDisplay = function ( s ) {
+	// Use '↵' (\u21b5) as a fancy newline (which doesn't start a new line).
+	return s.replace( /\n/g, '\u21b5' );
+};
+mw.TemplateData.Dialog.prototype.displayToFormat = function ( s ) {
+	// Allow user to type \n or \\n (literal backslash, n) for a new line.
+	return s.replace( /\n|\\n|\u21b5/g, '\n' );
+};
+
+/**
+ * Respond to change event from the template format input widget
+ *
+ * @param {string} value Input widget value
+ */
+mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetChange = function ( value ) {
+	var item = this.templateFormatSelectWidget.getSelectedItem(),
+		format,
+		newValue;
+	if ( item.getData() === 'custom' ) {
+		// Convert literal newlines or backslash-n to our fancy character
+		// replacement.
+		format = this.displayToFormat( value );
+		newValue = this.formatToDisplay( format );
+		if ( newValue !== value ) {
+			this.templateFormatInputWidget.setValue( newValue );
+			// Will recurse to actually set value in model.
+		} else {
+			this.model.setTemplateFormat( format );
+		}
+	}
+};
+
+/**
+ * Respond to enter event from the template format input widget
+ */
+mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetEnter = function () {
+	/* Synthesize a '\n' when enter is pressed. */
+	this.templateFormatInputWidget.insertContent(
+		this.formatToDisplay( '\n' )
+	);
 };
 
 mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
@@ -874,11 +953,21 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
  * after initialization of the model.
  */
 mw.TemplateData.Dialog.prototype.setupDetailsFromModel = function () {
+	var format;
+
 	// Set up description
 	this.descriptionInput.setValue( this.model.getTemplateDescription( this.language ) );
 
 	// Set up format
-	this.templateFormatSelectWidget.selectItemByData( this.model.getTemplateFormat() );
+	format = this.model.getTemplateFormat();
+	if ( format === 'inline' || format === 'block' || format === null ) {
+		this.templateFormatSelectWidget.selectItemByData( format );
+		this.templateFormatInputWidget.setDisabled( true );
+	} else {
+		this.templateFormatSelectWidget.selectItemByData( 'custom' );
+		this.templateFormatInputWidget.setValue( this.formatToDisplay( format ) );
+		this.templateFormatInputWidget.setDisabled( false );
+	}
 
 	// Repopulate the parameter list
 	this.repopulateParamSelectWidget();
