@@ -15,6 +15,7 @@
 	"templatedata-modal-button-add-language": "Gehitu hizkuntza",
 	"templatedata-modal-button-addparam": "Gehitu parametroa",
 	"templatedata-modal-button-changelang": "Hizkuntza aldatu",
+	"templatedata-modal-button-done": "Egina",
 	"templatedata-modal-button-saveparam": "Gorde",
 	"templatedata-modal-current-language": "Oraingo hizkuntza: $1",
 	"templatedata-modal-format-inline": "Linean",
