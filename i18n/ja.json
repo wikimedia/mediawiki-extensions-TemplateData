@@ -67,7 +67,7 @@
 	"templatedata-modal-button-importParams": "引数一覧を取り込む",
 	"templatedata-modal-button-restoreparam": "パラメーターを復元",
 	"templatedata-modal-button-saveparam": "保存",
-	"templatedata-modal-confirmcancel": "すべての変更が失われますが、キャンセルしてもよろしいですか？",
+	"templatedata-modal-confirmcancel": "すべての変更を破棄してもよろしいですか？",
 	"templatedata-modal-current-language": "現在の言語: $1",
 	"templatedata-modal-errormsg": "エラーが見つかりました。引数名に空欄や重複したものがないか、引数名に「$1」や「$2」、「$3」が含まれていないか確認してください。",
 	"templatedata-modal-errormsg-import-noparams": "取り込み時に新しい引数は見つかりませんでした。",

@@ -69,7 +69,7 @@
 	"templatedata-modal-button-importParams": "ייבוא פרמטרים",
 	"templatedata-modal-button-restoreparam": "שחזור פרמטר",
 	"templatedata-modal-button-saveparam": "שמירה",
-	"templatedata-modal-confirmcancel": "האם באמת לבטל? כל השינויים יאבדו.",
+	"templatedata-modal-confirmcancel": "האם ברצונך לבטל את השינויים שביצעת?",
 	"templatedata-modal-current-language": "שפה נוכחית: $1",
 	"templatedata-modal-errormsg": "נמצאו שגיאות. נא לוודא ששמות הפרמטרים אינם ריקים ואינם חוזרים על עצמם, ושבשמות הפרמטרים לא מופיעים התווים \"$1\", \"$2\" או \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "לא נמצאו פרמטרים חדשים בעת הייבוא.",
