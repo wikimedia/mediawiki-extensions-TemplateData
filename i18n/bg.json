@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Vodnokon4e",
-			"Лорд Бъмбъри"
+			"Лорд Бъмбъри",
+			"StanProg"
 		]
 	},
 	"templatedata-doc-param-type-url": "URL адрес",
@@ -11,6 +12,7 @@
 	"templatedata-doc-param-type-wiki-template-name": "Шаблон",
 	"templatedata-doc-param-type-wiki-user-name": "Потребител",
 	"templatedata-modal-button-done": "Готово",
+	"templatedata-modal-button-saveparam": "Съхраняване",
 	"templatedata-modal-title-choose-language": "Избор на език",
 	"templatedata-modal-title-language": "Език"
 }

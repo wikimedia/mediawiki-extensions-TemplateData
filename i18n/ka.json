@@ -50,6 +50,7 @@
 	"templatedata-modal-button-importParams": "პარამეტრების იმპორტირება",
 	"templatedata-modal-button-restoreparam": "პარამეტრების აღდგენა",
 	"templatedata-modal-button-saveparam": "შენახვა",
+	"templatedata-modal-confirmcancel": "გსურთ გააუქმოთ თქვენ მიერ შეტანილი ცვლილებები?",
 	"templatedata-modal-current-language": "ამჟამინდელი ენა: $1",
 	"templatedata-modal-errormsg-import-noparams": "იმპორტისას ახალი პარამეტრები არ არის ნაპოვნი.",
 	"templatedata-modal-format-inline": "შიგნით",
