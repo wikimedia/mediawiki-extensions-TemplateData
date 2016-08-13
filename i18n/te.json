@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Veeven",
-			"Kiranmayee"
+			"Kiranmayee",
+			"Chaduvari"
 		]
 	},
 	"templatedata-doc-param-default": "అప్రమేయం",
 	"templatedata-doc-param-desc": "వివరణ",
 	"templatedata-doc-param-name": "పరామితి",
 	"templatedata-doc-param-status": "స్థితి",
+	"templatedata-doc-param-type-date": "తేదీ",
 	"templatedata-doc-params": "మూస పరామితులు",
-	"templatedata-modal-table-param-type-date": "తేదీ"
+	"templatedata-modal-confirmcancel": "మీ మార్పులను తోసిపుచ్చాలనే మీరు నిశ్చయించుకున్నారా?"
 }
