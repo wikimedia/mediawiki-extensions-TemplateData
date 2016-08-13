@@ -281,6 +281,21 @@ mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function () {
 };
 
 /**
+ * Respond to change of param property from the model
+ *
+ * @param {string} paramKey Parameter key
+ * @param {string} prop Property name
+ * @param {...Mixed} value Property value
+ * @param {string} [language] Value language
+ */
+mw.TemplateData.Dialog.prototype.onModelChangeProperty = function ( paramKey, prop, value ) {
+	// Refresh the parameter widget
+	if ( paramKey === this.selectedParamKey && prop === 'name' ) {
+		this.selectedParamKey = value;
+	}
+};
+
+/**
  * Respond to a change in the model
  */
 mw.TemplateData.Dialog.prototype.onModelChange = function () {
@@ -804,6 +819,7 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			this.model.connect( this, {
 				'change-description': 'onModelChangeDescription',
 				'change-paramOrder': 'onModelChangeParamOrder',
+				'change-property': 'onModelChangeProperty',
 				change: 'onModelChange'
 			} );
 
