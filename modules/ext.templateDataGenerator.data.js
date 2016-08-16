@@ -709,7 +709,7 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 				// See if the parameters already has something with this new key
 				if ( this.params[ value ] && !this.params[ value ].deleted ) {
 					// Change the key to be something else
-					value += this.getNewValidParameterKey( value );
+					value = this.getNewValidParameterKey( value );
 				}
 				// Copy param details to new name
 				this.params[ value ] = this.params[ oldValue ];
