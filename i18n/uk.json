@@ -49,6 +49,7 @@
 	"templatedata-doc-params": "Параметри шаблону",
 	"templatedata-editbutton": "Управління TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Невірний JSON-формат. Ви можете скасувати цю операцію аби виправити його, вилучити поточні теги <templatedata> і повторити спробу, або ж продовжити й замінити поточний блок TemplateData новим.",
+	"templatedata-errormsg-insertblank": "Ви впевнені, що хочете додати блок TemplateData без інформації?",
 	"templatedata-exists-on-related-page": "Будь ласка, зверніть увагу: на пов'язаній сторінці «[[$1]]» вже є блок TemplateData.",
 	"templatedata-helplink": "Інформація про TemplateData",
 	"templatedata-invalid-duplicate-value": "Властивість \"$1\" (\"$3\") дублює \"$2\".",
