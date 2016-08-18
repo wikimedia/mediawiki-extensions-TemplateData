@@ -705,9 +705,9 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 		if ( !this.constructor.static.compare( this.params[ paramKey ][ prop ], value ) ) {
 			oldValue = this.params[ paramKey ][ prop ];
 
-			if ( prop === 'name' ) {
+			if ( prop === 'name' && oldValue !== value ) {
 				// See if the parameters already has something with this new key
-				if ( this.params[ value ] ) {
+				if ( this.params[ value ] && !this.params[ value ].deleted ) {
 					// Change the key to be something else
 					value += this.getNewValidParameterKey( value );
 				}
