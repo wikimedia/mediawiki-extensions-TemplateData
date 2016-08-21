@@ -4,7 +4,8 @@
 			"Hugo.arg",
 			"Pofka",
 			"Albertas",
-			"Zygimantus"
+			"Zygimantus",
+			"Eitvys200"
 		]
 	},
 	"apihelp-templatedata-description": "Gauti duomenis, saugomus TemplateData plėtinio.",
@@ -37,6 +38,7 @@
 	"templatedata-doc-param-type-number": "Skaičius",
 	"templatedata-doc-param-type-string": "Simbolių eilutė",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Nesubalansuotas viki tekstas",
+	"templatedata-doc-param-type-unknown": "Nežinoma",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "Failas",
 	"templatedata-doc-param-type-wiki-page-name": "Puslapis",
@@ -68,7 +70,7 @@
 	"templatedata-modal-button-importParams": "Importuoti parametrus",
 	"templatedata-modal-button-restoreparam": "Atkurti parametrą",
 	"templatedata-modal-button-saveparam": "Išsaugoti",
-	"templatedata-modal-confirmcancel": "Ar tikrai norite atšaukti? Bet kokie pakeitimai bus prarasti.",
+	"templatedata-modal-confirmcancel": "Ar tikrai norite atšaukti keitimus?",
 	"templatedata-modal-current-language": "Dabartinė kalba: $1",
 	"templatedata-modal-errormsg": "Rasta klaidų. Prašome įsitikinti, kad nėra tuščių arba pasikartojančių parametrų vardų ir kad parametrų varduose nėra \"$1\", \"$2\" arba \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Importavimo metu nerasta naujų parametrų.",
