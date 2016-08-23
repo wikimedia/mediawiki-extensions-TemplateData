@@ -220,7 +220,7 @@
 			 *  current wikitext from.
 			 */
 			init: function ( $container, $editorTextbox, userConfig ) {
-				var editHelpButtonWidget, relatedPage,
+				var $helpLink, relatedPage,
 					config = userConfig;
 
 				$textbox = $editorTextbox;
@@ -239,13 +239,13 @@
 				} )
 					.toggle( false );
 
-				editHelpButtonWidget = new OO.ui.ButtonWidget( {
-					label: mw.msg( 'templatedata-helplink' ),
-					classes: [ 'tdg-editscreen-main-helplink' ],
-					href: mw.msg( 'templatedata-helplink-target' ),
-					target: '_blank',
-					framed: false
-				} );
+				$helpLink = $( '<a>' )
+					.attr( {
+						href: mw.msg( 'templatedata-helplink-target' ),
+						target: '_blank'
+					} )
+					.addClass( 'tdg-editscreen-main-helplink' )
+					.text( mw.msg( 'templatedata-helplink' ) );
 
 				// Dialog
 				windowManager = new OO.ui.WindowManager();
@@ -297,7 +297,7 @@
 							.addClass( 'tdg-editscreen-main' )
 							.append(
 								editOpenDialogButton.$element,
-								editHelpButtonWidget.$element,
+								$helpLink,
 								editNoticeLabel.$element
 							)
 					);
