@@ -75,7 +75,7 @@
 	"templatedata-modal-button-importParams": "Импортировать параметры",
 	"templatedata-modal-button-restoreparam": "Восстановить параметр",
 	"templatedata-modal-button-saveparam": "Сохранить",
-	"templatedata-modal-confirmcancel": "Вы уверены, что хотите отменить? Любые изменения будут потеряны.",
+	"templatedata-modal-confirmcancel": "Вы уверены, что хотите отменить внесённые изменения?",
 	"templatedata-modal-current-language": "Текущий язык: $1",
 	"templatedata-modal-errormsg": "Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Во время импорта новые параметры не найдены.",
