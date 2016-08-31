@@ -15,7 +15,7 @@
 	"license-name": "GPL-2.0",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.25.0"
+		"MediaWiki": ">= 1.26.0"
 	},
 	"APIModules": {
 		"templatedata": "ApiTemplateData"
