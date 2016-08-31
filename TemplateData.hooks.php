@@ -127,18 +127,18 @@ class TemplateDataHooks {
 	 * @return string: HTML to insert in the page.
 	 */
 	public static function render( $input, $args, $parser, $frame ) {
-		$parser->enableOOUI();
 		$ti = TemplateDataBlob::newFromJSON( $input );
 
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
 			$parser->getOutput()->ext_templatedata_status = $status;
-			return '<div class="errorbox">' . $status->getHtml() . '</div>';
+			return '<div class="errorbox">' . $status->getHTML() . '</div>';
 		}
 
 		$parser->getOutput()->setProperty( 'templatedata', $ti->getJSONForDatabase() );
 
 		$parser->getOutput()->addModuleStyles( 'ext.templateData' );
+		$parser->enableOOUI();
 
 		return $ti->getHtml( $parser->getOptions()->getUserLangObj() );
 	}
