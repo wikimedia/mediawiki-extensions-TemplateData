@@ -82,7 +82,9 @@
 				"modules/ext.templateDataGenerator.ui.tdDialog.js"
 			],
 			"dependencies": [
-				"oojs-ui",
+				"oojs-ui-core",
+				"oojs-ui-widgets",
+				"oojs-ui-windows",
 				"ext.templateData",
 				"ext.templateDataGenerator.data",
 				"jquery.uls.data"
