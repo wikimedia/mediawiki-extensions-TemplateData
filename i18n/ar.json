@@ -11,6 +11,7 @@
 			"Shbib Al-Subaie"
 		]
 	},
+	"apihelp-templatedata-description": "اجلب البيانات المخزنة بواسطة الامتداد TemplateData.",
 	"apihelp-templatedata-example-1": "إرجاع البيانات ل[[Template:Stub]] و [[Template:Example]]",
 	"templatedata-desc": "تخزين بيانات وسائط القالب",
 	"templatedata-doc-desc-empty": "لا وصف.",
@@ -46,6 +47,7 @@
 	"templatedata-doc-params": "وسائط القالب",
 	"templatedata-editbutton": "توثيق القالب",
 	"templatedata-errormsg-jsonbadformat": "صيغة JSON سيئة. أنت يمكنك إلغاء هذه العملية حتى يمكنك تصحيح الخطأ، أو حذف وسوم <templatedata> الحالية والمحاولة مرة أخرى، أو الاستمرار في استبدال الTemplateData الحالية بواحدة جديدة.",
+	"templatedata-errormsg-insertblank": "هل أنت متأكد أنك تريد إدخال TemplateData بدون معلومات؟",
 	"templatedata-exists-on-related-page": "يوجد جدول لوسائط هذا القالب في \"[[$1]]\".",
 	"templatedata-helplink": "معلومات",
 	"templatedata-invalid-duplicate-value": "الخاصية \"$1\" (\"$3\") مكررة عن \"$2\".",
@@ -88,6 +90,7 @@
 	"templatedata-modal-table-param-deprecatedValue": "إرشاد مستغنى عنه",
 	"templatedata-modal-table-param-description": "وصف ($1)",
 	"templatedata-modal-table-param-example": "مثال ($1)",
+	"templatedata-modal-table-param-importoption": "أضف $1 {{PLURAL:$1|معامل مقترح|معاملات مقترحة}}",
 	"templatedata-modal-table-param-importoption-subtitle": "يشمل: $1",
 	"templatedata-modal-table-param-label": "عنوان ($1)",
 	"templatedata-modal-table-param-name": "اسم",
