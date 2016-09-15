@@ -3,7 +3,8 @@
 		"authors": [
 			"Marmase",
 			"Mirzali",
-			"Kumkumuk"
+			"Kumkumuk",
+			"Asmen"
 		]
 	},
 	"templatedata-doc-desc-empty": "Arezekerdış çıniyo.",
@@ -16,6 +17,7 @@
 	"templatedata-doc-param-status-optional": "opsiyonel",
 	"templatedata-doc-param-status-required": "lazım",
 	"templatedata-doc-param-type": "Babet",
+	"templatedata-doc-param-type-wiki-page-name": "Pele",
 	"templatedata-doc-params": "parametrey şablonan",
 	"templatedata-editbutton": "Malumata şablon bıvurnê",
 	"templatedata-helplink": "Heqdê malumata şablon Zanışiye"

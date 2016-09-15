@@ -3,7 +3,8 @@
 		"authors": [
 			"Tacsipacsi",
 			"Tgr",
-			"Csega"
+			"Csega",
+			"Bináris"
 		]
 	},
 	"apihelp-templatedata-example-1": "[[Template:Stub]] és [[Template:Example]] adatainak visszaadása",
@@ -44,7 +45,7 @@
 	"templatedata-editbutton": "TemplateData kezelése",
 	"templatedata-errormsg-jsonbadformat": "Hibás JSON formátum. Visszaléphetsz, hogy kijavíthasd, kitörölheted a <templatedata> szakaszt vagy folytathatod és kicserélheted a jelenlegi TemplateDatát egy újra.",
 	"templatedata-exists-on-related-page": "Figyelem: már létezik egy TemplateData-blokk a kapcsolódó „[[$1]]” lapon.",
-	"templatedata-helplink": "Információk a TemplateData-ról",
+	"templatedata-helplink": "Információk a TemplateDatáról",
 	"templatedata-invalid-duplicate-value": "A(z) „$1” tulajdonság („$3”) a(z) „$2” tulajdonság duplikátuma.",
 	"templatedata-invalid-empty-array": "A(z) „$1” tulajdonság nem lehet üres",
 	"templatedata-invalid-format": "A(z) „$1” tulajdonság várt értéke „inline” vagy „block”.",
