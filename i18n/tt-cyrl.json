@@ -4,5 +4,6 @@
 			"Ильнар"
 		]
 	},
-	"templatedata-doc-param-example": "Мисал"
+	"templatedata-doc-param-example": "Мисал",
+	"templatedata-doc-param-type-date": "Дата"
 }
