@@ -92,17 +92,15 @@ class ApiTemplateData extends ApiBase {
 
 			// HACK: don't let ApiResult's formatversion=1 compatibility layer mangle our booleans
 			// to empty strings / absent properties
-			if ( defined( 'ApiResult::META_BC_BOOLS' ) ) {
-				foreach ( $data->params as &$param ) {
-					$param->{ApiResult::META_BC_BOOLS} = [ 'required', 'suggested', 'deprecated' ];
-				}
-				unset( $param );
-
-				$data->params->{ApiResult::META_TYPE} = 'kvp';
-				$data->params->{ApiResult::META_KVP_KEY_NAME} = 'key';
-				$data->params->{ApiResult::META_INDEXED_TAG_NAME} = 'param';
-				ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
+			foreach ( $data->params as &$param ) {
+				$param->{ApiResult::META_BC_BOOLS} = [ 'required', 'suggested', 'deprecated' ];
 			}
+			unset( $param );
+
+			$data->params->{ApiResult::META_TYPE} = 'kvp';
+			$data->params->{ApiResult::META_KVP_KEY_NAME} = 'key';
+			$data->params->{ApiResult::META_INDEXED_TAG_NAME} = 'param';
+			ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
 
 			$resp[$row->pp_page] = [
 				'title' => strval( $titles[$row->pp_page] ),
