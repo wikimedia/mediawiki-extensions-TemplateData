@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"MaGa"
+			"MaGa",
+			"Ex13"
 		]
 	},
 	"templatedata-doc-desc-empty": "Nema opisa.",
@@ -66,13 +67,13 @@
 	"templatedata-modal-table-param-actions": "Radnje",
 	"templatedata-modal-table-param-aliases": "Pseudonimi (odvojeni zarezima)",
 	"templatedata-modal-table-param-autovalue": "Automatska vrijednost",
-	"templatedata-modal-table-param-default": "Zadano",
+	"templatedata-modal-table-param-default": "Zadano ($1)",
 	"templatedata-modal-table-param-deprecated": "Zastarjelo",
 	"templatedata-modal-table-param-description": "Opis ($1)",
 	"templatedata-modal-table-param-example": "Primjer ($1)",
 	"templatedata-modal-table-param-importoption": "Dodaj $1 {{PLURAL:$1|predloženi parametar|predložena parametra|predloženih parametara}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Uključujući: $1",
-	"templatedata-modal-table-param-label": "Oznaka",
+	"templatedata-modal-table-param-label": "Oznaka ($1)",
 	"templatedata-modal-table-param-name": "Ime",
 	"templatedata-modal-table-param-required": "Obvezno",
 	"templatedata-modal-table-param-suggested": "Predloženo",
@@ -83,7 +84,7 @@
 	"templatedata-modal-title-choose-language": "Odaberite jezik",
 	"templatedata-modal-title-language": "Jezik",
 	"templatedata-modal-title-paramorder": "Redoslijed parametra",
-	"templatedata-modal-title-templatedesc": "Opis predloška",
+	"templatedata-modal-title-templatedesc": "Opis predloška ($1)",
 	"templatedata-modal-title-templateformat": "Poželjni format predloška",
 	"templatedata-modal-title-templateparams": "Parametri predloška"
 }
