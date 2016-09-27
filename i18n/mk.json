@@ -47,7 +47,7 @@
 	"templatedata-exists-on-related-page": "Имајте на ум: веќе постои блок со шаблонски податоци  на поврзаната страница „[[$1]]“.",
 	"templatedata-helplink": "Информации за шаблонски податоци",
 	"templatedata-invalid-duplicate-value": "Својството „$1“ („$3“) е дупликат на „$2“.",
-	"templatedata-invalid-empty-array": "Својството „$1“ мора да има барем една вреднсот во стројот.",
+	"templatedata-invalid-empty-array": "Својството „$1“ мора да има барем една вредност во стројот.",
 	"templatedata-invalid-format": "Се очекува својсвтото „$1“ да биде „inline“ или „block“.",
 	"templatedata-invalid-length": "Податоците се преголеми за да се зачуваат ({{formatnum:$1}} {{PLURAL:$1|бајт|бајти}}, а {{PLURAL:$2|границата е}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Бараното својство „$1“ не е пронајдено.",
