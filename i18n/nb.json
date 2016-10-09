@@ -4,7 +4,8 @@
 			"Danmichaelo",
 			"Jdforrester",
 			"Kingu",
-			"Tarjeimo"
+			"Tarjeimo",
+			"Jon Harald Søby"
 		]
 	},
 	"apihelp-templatedata-description": "Hent data lagret av TemplateData-tillegget.",
@@ -37,6 +38,7 @@
 	"templatedata-doc-param-type-number": "Tall",
 	"templatedata-doc-param-type-string": "Streng",
 	"templatedata-doc-param-type-unbalanced-wikitext": "ubalansert wikitekst",
+	"templatedata-doc-param-type-unknown": "Ukjent",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "Fil",
 	"templatedata-doc-param-type-wiki-page-name": "Side",
@@ -45,6 +47,7 @@
 	"templatedata-doc-params": "Malparametre",
 	"templatedata-editbutton": "Rediger TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Ugyldig JSON-format. Du kan avbryte denne operasjonen for å korrigere eller fjerne TemplateData-innholdet.",
+	"templatedata-errormsg-insertblank": "Er du sikker på at du vil sette inn TemplateData uten informasjon?",
 	"templatedata-exists-on-related-page": "Merk: Det finnes allerede en TemplateData-blokk på den tilknyttede siden «[[$1]]».",
 	"templatedata-helplink": "Informasjon om TemplateData",
 	"templatedata-invalid-duplicate-value": "Egenskapen «$1» («$3») er en duplikat av «$2».",
@@ -68,7 +71,7 @@
 	"templatedata-modal-button-importParams": "Importer parametre",
 	"templatedata-modal-button-restoreparam": "Gjenopprett parameter",
 	"templatedata-modal-button-saveparam": "Lagre",
-	"templatedata-modal-confirmcancel": "Sikker på at du ønsker å avbryte? Alle endringer vil gå tapt.",
+	"templatedata-modal-confirmcancel": "Sikker på at du ønsker å avbryte?",
 	"templatedata-modal-current-language": "Nåværende språk: $1",
 	"templatedata-modal-errormsg": "Feil funnet. Sjekk at det ikke er tomme eller duplikate parameternavn, og at parameternavnet ikke inneholder «$1», «$2» eller «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Ingen nye parametre funnet under import.",
