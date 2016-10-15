@@ -80,7 +80,7 @@
 	"templatedata-modal-errormsg-import-noparams": "导入过程中找不到新的参数。",
 	"templatedata-modal-format-inline": "行内",
 	"templatedata-modal-format-block": "块",
-	"templatedata-modal-format-null": "未指明",
+	"templatedata-modal-format-null": "未指定",
 	"templatedata-modal-json-error-replace": "替换",
 	"templatedata-modal-notice-import-numparams": "$1个新参数已导入：$2",
 	"templatedata-modal-placeholder-paramkey": "参数名称",
