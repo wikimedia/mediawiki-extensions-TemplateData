@@ -74,6 +74,7 @@
 	"templatedata-modal-errormsg-import-noparams": "在匯入過程沒有找到新的參數。",
 	"templatedata-modal-format-inline": "行內",
 	"templatedata-modal-format-block": "區塊",
+	"templatedata-modal-format-null": "未指定",
 	"templatedata-modal-json-error-replace": "取代",
 	"templatedata-modal-notice-import-numparams": "已匯入 $1 個{{PLURAL:$1|參數}}：$2",
 	"templatedata-modal-placeholder-paramkey": "參數名稱",
