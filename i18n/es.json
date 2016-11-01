@@ -83,6 +83,8 @@
 	"templatedata-modal-current-language": "Idioma actual: $1",
 	"templatedata-modal-errormsg": "Se encontraron errores. Asegúrate de que no haya nombres de parámetros vacíos o duplicados, y de que estos no incluyan «$1», «$2» ni «$3».",
 	"templatedata-modal-errormsg-import-noparams": "No se hallaron parámetros nuevos durante la importación.",
+	"templatedata-modal-format-inline": "En renglón",
+	"templatedata-modal-format-block": "Bloque",
 	"templatedata-modal-format-null": "No especificado",
 	"templatedata-modal-json-error-replace": "Reemplazar",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Se importó $1 parámetro nuevo|Se importaron $1 parámetros nuevos}}: $2",
