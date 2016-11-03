@@ -19,11 +19,9 @@ class ApiTemplateData extends ApiBase {
 	 */
 	public function getCustomPrinter() {
 		if ( $this->getMain()->getVal( 'format' ) === null ) {
-			$this->setWarning(
-				"The default output format will change to jsonfm in the future." .
-				" Please specify format=json explicitly."
+			$this->addDeprecation(
+				'apiwarn-templatedata-deprecation-format', 'action=templatedata&!format'
 			);
-			$this->logFeatureUsage( 'action=templatedata&!format' );
 			return $this->getMain()->createPrinterByName( 'json' );
 		}
 		return null;
@@ -46,7 +44,7 @@ class ApiTemplateData extends ApiBase {
 		if ( is_null( $params['lang'] ) ) {
 			$langCode = false;
 		} elseif ( !Language::isValidCode( $params['lang'] ) ) {
-			$this->dieUsage( 'Invalid language code for parameter lang', 'invalidlang' );
+			$this->dieWithError( [ 'apierror-invalidlang', 'lang' ] );
 		} else {
 			$langCode = $params['lang'];
 		}
@@ -78,9 +76,8 @@ class ApiTemplateData extends ApiBase {
 			$status = $tdb->getStatus();
 
 			if ( !$status->isOK() ) {
-				$this->dieUsage(
-					'Page #' . intval( $row->pp_page ) . ' templatedata contains invalid data: '
-						. $status->getMessage(), 'templatedata-corrupt'
+				$this->dieWithError(
+					[ 'apierror-templatedata-corrupt', intval( $row->pp_page ), $status->getMessage() ]
 				);
 			}
 

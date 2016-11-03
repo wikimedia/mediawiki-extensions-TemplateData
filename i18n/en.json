@@ -10,6 +10,8 @@
 	"apihelp-templatedata-description": "Fetch data stored by the TemplateData extension.",
 	"apihelp-templatedata-example-1": "Return data for [[Template:Stub]] and [[Template:Example]]",
 	"apihelp-templatedata-param-lang": "Return localized values in this language. By default all available translations are returned.",
+	"apierror-templatedata-corrupt": "Page #$1 templatedata contains invalid data: $2",
+	"apiwarn-templatedata-deprecation-format": "The default output format will change to <kbd>jsonfm</kbd> in the future. Please specify <kbd>format=json</kbd> explicitly.",
 	"templatedata-desc": "Implement data storage for template parameters (using JSON)",
 	"templatedata-doc-desc-empty": "No description.",
 	"templatedata-doc-format-inline": "This template prefers inline formatting of parameters.",
