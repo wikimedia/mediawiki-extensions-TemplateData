@@ -50,7 +50,7 @@
 	"templatedata-doc-param-type-wiki-page-name": "Имя страницы",
 	"templatedata-doc-param-type-wiki-template-name": "Имя шаблона",
 	"templatedata-doc-param-type-wiki-user-name": "Имя участника",
-	"templatedata-doc-params": "Параметры шаблона",
+	"templatedata-doc-params": "Параметры шаблона:",
 	"templatedata-editbutton": "Управление TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Некорректный формат JSON. Вы можете отменить эту операцию, чтобы исправить его, удалить текущие теги <templatedata> и повторить попытку, или же можете продолжить, чтобы заменить текущий TemplateData новым.",
 	"templatedata-exists-on-related-page": "Обратите внимание: уже имеется блок TemplateData на связанной странице «[[$1]]».",
