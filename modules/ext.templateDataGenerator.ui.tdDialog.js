@@ -588,7 +588,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 	} else {
 		// Empty the input
 		if ( prop.type === 'select' ) {
-			propInput.selectItem( propInput.getItemFromData( prop[ 'default' ] ) );
+			propInput.selectItem( propInput.getItemFromData( prop.default ) );
 		} else if ( prop.type === 'boolean' ) {
 			propInput.setSelected( false );
 		} else {

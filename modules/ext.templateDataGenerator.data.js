@@ -5,11 +5,8 @@
  * @mixins OO.EventEmitter
  *
  * @constructor
- * @param {Object} config Dialog configuration object
  */
-mw.TemplateData.Model = function mwTemplateDataModel( config ) {
-	config = config || {};
-
+mw.TemplateData.Model = function mwTemplateDataModel() {
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 

@@ -88,7 +88,7 @@ mw.TemplateData.SourceHandler.prototype.buildModel = function ( wikitext ) {
 	return this.getParametersFromTemplateSource( wikitext )
 		// This is always successful by definition
 		.then( function ( templateSourceCodeParams ) {
-			return new mw.TemplateData.Model.static.newFromObject(
+			return mw.TemplateData.Model.static.newFromObject(
 				tdObject,
 				templateSourceCodeParams
 			);
@@ -164,8 +164,8 @@ mw.TemplateData.SourceHandler.prototype.getParametersFromTemplateSource = functi
  */
 mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateCode ) {
 	var matches,
-	paramNames = [],
-	paramExtractor = /{{3,}(.*?)[<|}]/mg;
+		paramNames = [],
+		paramExtractor = /{{3,}(.*?)[<|}]/mg;
 
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
 		if ( $.inArray( matches[ 1 ], paramNames ) === -1 ) {
@@ -248,7 +248,7 @@ mw.TemplateData.SourceHandler.prototype.getFullPageName = function () {
  * @param {string} parent Parent page
  */
 mw.TemplateData.SourceHandler.prototype.setParentPage = function ( parent ) {
-	this.parentPage = parent || '' ;
+	this.parentPage = parent || '';
 };
 
 /**

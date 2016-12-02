@@ -23,6 +23,8 @@
 			// Edit window elements
 			editOpenDialogButton,
 			editNoticeLabel,
+			editArea, openEditDialog, onEditOpenDialogButton,
+			replaceTemplateData, onDialogApply;
 
 		editArea = {
 			/**
@@ -116,7 +118,7 @@
 								var model;
 								if ( data && data.action === 'accept' ) {
 									// Open the dialog with an empty model
-									model = new mw.TemplateData.Model.static.newFromObject(
+									model = mw.TemplateData.Model.static.newFromObject(
 										{ params: {} },
 										sourceHandler.getTemplateSourceCodeParams()
 									);
