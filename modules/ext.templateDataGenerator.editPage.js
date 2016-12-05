@@ -41,8 +41,7 @@
 		// Textbox wikitext editor
 		if ( $textbox.length ) {
 			// Prepare the editor
-			target = new mw.TemplateData.TextareaTarget( $textbox ),
-			mw.libs.tdgUi.init( target, config );
+			target = new mw.TemplateData.TextareaTarget( $textbox, config );
 			$( '#mw-content-text' ).prepend( target.$element );
 		}
 
