@@ -12,3 +12,8 @@
  * @class jQuery.Promise
  * <http://api.jquery.com/Types/#Promise>
  */
+
+/**
+ * @class ve.ui.Surface
+ * <https://doc.wikimedia.org/VisualEditor/master/#!/api/ve.ui.Surface>
+ */
