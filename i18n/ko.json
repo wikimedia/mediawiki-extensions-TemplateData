@@ -70,7 +70,7 @@
 	"templatedata-modal-button-importParams": "변수 가져오기",
 	"templatedata-modal-button-restoreparam": "변수 복구하기",
 	"templatedata-modal-button-saveparam": "저장",
-	"templatedata-modal-confirmcancel": "변경 사항을 버리시겠습니까?",
+	"templatedata-modal-confirmcancel": "변경사항을 버리시겠습니까?",
 	"templatedata-modal-current-language": "현재 언어: $1",
 	"templatedata-modal-errormsg": "오류를 찾았습니다. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  \"$1\", \"$2\", \"$3\" 기호가 포함되지 않도록 하세요.",
 	"templatedata-modal-errormsg-import-noparams": "가져오는 중 새로운 매개변수를 찾지 못 했습니다.",
