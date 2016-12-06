@@ -1,5 +1,6 @@
 ( function () {
 	'use strict';
+
 	/**
 	 * TemplateData Generator data model.
 	 * This singleton is independent of any UI; it expects
@@ -14,17 +15,17 @@
 			isDocPage,
 			pageName,
 			parentPage,
-			$textbox,
+			target,
+			originalWikitext,
 			// ooui Window Manager
 			sourceHandler,
 			tdgDialog,
-			messageDialog,
-			windowManager,
 			// Edit window elements
 			editOpenDialogButton,
 			editNoticeLabel,
 			editArea, openEditDialog, onEditOpenDialogButton,
-			replaceTemplateData, onDialogApply;
+			replaceTemplateData, onDialogApply,
+			windowManager = OO.ui.getWindowManager();
 
 		editArea = {
 			/**
@@ -82,8 +83,10 @@
 			// Reset notice message
 			editArea.resetNoticeMessage();
 
+			originalWikitext = target.getWikitext();
+
 			// Build the model
-			sourceHandler.buildModel( $textbox.val() )
+			sourceHandler.buildModel( originalWikitext )
 				.then(
 					// Success
 					function ( model ) {
@@ -92,9 +95,10 @@
 					// Failure
 					function () {
 						// Open a message dialog
-						windowManager.openWindow( messageDialog, {
+						windowManager.openWindow( 'messageDialog', {
 							title: mw.msg( 'templatedata-modal-title' ),
 							message: mw.msg( 'templatedata-errormsg-jsonbadformat' ),
+							verbose: true,
 							actions: [
 								{
 									action: 'accept',
@@ -107,24 +111,21 @@
 									flags: 'safe'
 								}
 							]
-						} )
-							.then( function ( opening ) {
-								return opening;
-							} )
-							.then( function ( opened ) {
-								return opened;
-							} )
-							.then( function ( data ) {
-								var model;
-								if ( data && data.action === 'accept' ) {
-									// Open the dialog with an empty model
-									model = mw.TemplateData.Model.static.newFromObject(
-										{ params: {} },
-										sourceHandler.getTemplateSourceCodeParams()
-									);
-									openEditDialog( model );
-								}
+						} ).then( function ( opened ) {
+							return opened.then( function ( closing ) {
+								return closing.then( function ( data ) {
+									var model;
+									if ( data && data.action === 'accept' ) {
+										// Open the dialog with an empty model
+										model = mw.TemplateData.Model.static.newFromObject(
+											{ params: {} },
+											sourceHandler.getTemplateSourceCodeParams()
+										);
+										openEditDialog( model );
+									}
+								} );
 							} );
+						} );
 					}
 				);
 		},
@@ -140,20 +141,19 @@
 		 */
 		replaceTemplateData = function ( newTemplateData ) {
 			var finalOutput,
-				fullWikitext = $textbox.val(),
 				endNoIncludeLength = '</noinclude>'.length,
 				// NB: This pattern contains no matching groups: (). This avoids
 				// corruption if the template data JSON contains $1 etc.
 				templatedataPattern = /<templatedata>[\s\S]*?<\/templatedata>/i;
 
-			if ( fullWikitext.match( templatedataPattern ) ) {
+			if ( originalWikitext.match( templatedataPattern ) ) {
 				// <templatedata> exists. Replace it
-				finalOutput = fullWikitext.replace(
+				finalOutput = originalWikitext.replace(
 					templatedataPattern,
 					'<templatedata>\n' + JSON.stringify( newTemplateData, null, '\t' ) + '\n</templatedata>'
 				);
 			} else {
-				finalOutput = fullWikitext;
+				finalOutput = originalWikitext;
 				if ( finalOutput.substr( -1 ) !== '\n' ) {
 					finalOutput += '\n';
 				}
@@ -186,10 +186,10 @@
 				Object.keys( templateData ).length > 1 ||
 				Object.keys( templateData.params ).length > 0
 			) {
-				$textbox.val( replaceTemplateData( templateData ) );
+				target.setWikitext( replaceTemplateData( templateData ) );
 			} else {
 				windowManager.closeWindow( windowManager.getCurrentWindow() );
-				windowManager.openWindow( messageDialog, {
+				windowManager.openWindow( 'messageDialog', {
 					title: mw.msg( 'templatedata-modal-title' ),
 					message: mw.msg( 'templatedata-errormsg-insertblank' ),
 					actions: [
@@ -207,7 +207,7 @@
 					.then( function ( opened ) { return opened; } )
 					.then( function ( data ) {
 						if ( data && data.action === 'apply' ) {
-							$textbox.val( replaceTemplateData( templateData ) );
+							target.setWikitext( replaceTemplateData( templateData ) );
 						}
 					} );
 			}
@@ -217,15 +217,14 @@
 			/**
 			 * Initialize UI
 			 *
-			 * @param {jQuery} $container The container to attach UI buttons to
-			 * @param {jQuery} $editorTextbox The editor textbox to take the
-			 *  current wikitext from.
+			 * @param {mw.TemplateData.Target} target Edit UI target
+			 * @param {Object} userConfig Config options
 			 */
-			init: function ( $container, $editorTextbox, userConfig ) {
+			init: function ( editTarget, userConfig ) {
 				var $helpLink, relatedPage,
 					config = userConfig;
 
-				$textbox = $editorTextbox;
+				target = editTarget;
 
 				pageName = config.pageName;
 				parentPage = config.parentPage;
@@ -250,10 +249,8 @@
 					.text( mw.msg( 'templatedata-helplink' ) );
 
 				// Dialog
-				windowManager = new OO.ui.WindowManager();
 				tdgDialog = new mw.TemplateData.Dialog( config );
-				messageDialog = new OO.ui.MessageDialog();
-				windowManager.addWindows( [ tdgDialog, messageDialog ] );
+				windowManager.addWindows( [ tdgDialog ] );
 
 				sourceHandler = new mw.TemplateData.SourceHandler( {
 					fullPageName: pageName,
@@ -292,19 +289,12 @@
 						}
 					} );
 
-				// Prepend to container
-				$container
-					.prepend(
-						$( '<div>' )
-							.addClass( 'tdg-editscreen-main' )
-							.append(
-								editOpenDialogButton.$element,
-								$helpLink,
-								editNoticeLabel.$element
-							)
+				target.$element
+					.append(
+						editOpenDialogButton.$element,
+						$helpLink,
+						editNoticeLabel.$element
 					);
-				$( 'body' )
-					.append( windowManager.$element );
 
 				// UI events
 				editOpenDialogButton.connect( this, { click: onEditOpenDialogButton } );
