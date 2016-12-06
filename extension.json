@@ -50,7 +50,10 @@
 	"ResourceModules": {
 		"ext.templateData": {
 			"styles": "resources/ext.templateData.css",
-			"position": "top"
+			"position": "top",
+			"dependencies": [
+				"ext.templateData.images"
+			]
 		},
 		"ext.templateDataGenerator.editPage": {
 			"scripts": [
@@ -87,7 +90,8 @@
 				"oojs-ui-windows",
 				"ext.templateData",
 				"ext.templateDataGenerator.data",
-				"jquery.uls.data"
+				"jquery.uls.data",
+				"ext.templateDataGenerator.ui.images"
 			],
 			"messages": [
 				"comma-separator",
@@ -159,6 +163,47 @@
 				"templatedata-helplink",
 				"templatedata-helplink-target"
 			]
+		},
+		"ext.templateData.images": {
+			"class": "ResourceLoaderImageModule",
+			"selectorWithVariant": ".oo-ui-icon-{name}.oo-ui-image-invert",
+			"selectorWithoutVariant": ".oo-ui-icon-{name}",
+			"variants": {
+				"invert": {
+					"color": "#FFFFFF",
+					"global": true
+				}
+			},
+			"images": {
+				"template-format-block": {
+					"file": {
+						"ltr": "modules/images/block-rtl.svg",
+						"rtl": "modules/images/block-ltr.svg"
+					}
+				},
+				"template-format-inline": {
+					"file": "modules/images/inline.svg"
+				}
+			}
+		},
+		"ext.templateDataGenerator.ui.images": {
+			"class": "ResourceLoaderImageModule",
+			"selectorWithVariant": ".oo-ui-icon-{name}.oo-ui-image-invert",
+			"selectorWithoutVariant": ".oo-ui-icon-{name}",
+			"variants": {
+				"invert": {
+					"color": "#FFFFFF",
+					"global": true
+				}
+			},
+			"images": {
+				"parameter-set": {
+					"file": {
+						"ltr": "modules/images/parameter-set-ltr.svg",
+						"rtl": "modules/images/parameter-set-rtl.svg"
+					}
+				}
+			}
 		}
 	},
 	"ResourceFileModulePaths": {
