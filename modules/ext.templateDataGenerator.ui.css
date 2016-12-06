@@ -96,15 +96,3 @@
 .tdg-languageResultWidget-highlight {
 	font-weight: bold;
 }
-
-/* Icons */
-
-.oo-ui-icon-parameter {
-	/* @embed */
-	background-image: url( images/parameter-ltr.svg );
-}
-
-.oo-ui-icon-parameter-set {
-	/* @embed */
-	background-image: url( images/parameter-set-ltr.svg );
-}
