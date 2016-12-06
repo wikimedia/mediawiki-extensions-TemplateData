@@ -41,7 +41,8 @@ mw.TemplateData.Target = function mwTemplateDataTarget( config ) {
 		.addClass( 'tdg-editscreen-main-helplink' )
 		.text( mw.msg( 'templatedata-helplink' ) );
 
-	this.windowManager = OO.ui.getWindowManager();
+	this.windowManager = new OO.ui.WindowManager();
+	$( 'body' ).append( this.windowManager.$element );
 
 	// Dialog
 	this.tdgDialog = new mw.TemplateData.Dialog( config );
@@ -124,6 +125,14 @@ mw.TemplateData.Target.prototype.getWikitext = null;
 mw.TemplateData.Target.prototype.setWikitext = null;
 
 /**
+ * Destroy the target
+ */
+mw.TemplateData.Target.prototype.destroy = function () {
+	this.windowManager.destroy();
+	this.$element.remove();
+};
+
+/**
  * Display error message in the edit window
  *
  * @method setNoticeMessage
@@ -194,7 +203,7 @@ mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
 			// Failure
 			function () {
 				// Open a message dialog
-				target.windowManager.openWindow( 'messageDialog', {
+				OO.ui.getWindowManager().openWindow( 'messageDialog', {
 					title: mw.msg( 'templatedata-modal-title' ),
 					message: mw.msg( 'templatedata-errormsg-jsonbadformat' ),
 					verbose: true,
@@ -290,7 +299,7 @@ mw.TemplateData.Target.prototype.onDialogApply = function ( templateData ) {
 		this.setWikitext( this.replaceTemplateData( templateData ) );
 	} else {
 		this.windowManager.closeWindow( this.windowManager.getCurrentWindow() );
-		this.windowManager.openWindow( 'messageDialog', {
+		OO.ui.getWindowManager().openWindow( 'messageDialog', {
 			title: mw.msg( 'templatedata-modal-title' ),
 			message: mw.msg( 'templatedata-errormsg-insertblank' ),
 			actions: [
