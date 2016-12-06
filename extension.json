@@ -74,7 +74,6 @@
 			"styles": "modules/ext.templateDataGenerator.ui.css",
 			"scripts": [
 				"modules/ext.templateDataGenerator.target.js",
-				"modules/ext.templateDataGenerator.ui.js",
 				"modules/widgets/ext.templateDataGenerator.paramSelectWidget.js",
 				"modules/widgets/ext.templateDataGenerator.paramWidget.js",
 				"modules/widgets/ext.templateDataGenerator.paramImportWidget.js",
