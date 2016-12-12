@@ -14,6 +14,8 @@
 	"apihelp-templatedata-description": "获取由TemplateData扩展存储的数据。",
 	"apihelp-templatedata-example-1": "返回[[Template:Stub]]和[[Template:Example]]的数据",
 	"apihelp-templatedata-param-lang": "返回此语言的本地化值。默认会返回所有可用翻译。",
+	"apierror-templatedata-corrupt": "页面#$1模板数据包含无效数据：$2",
+	"apiwarn-templatedata-deprecation-format": "默认输出格式今后将更改为<kbd>jsonfm</kbd>。请明确指定<kbd>format=json</kbd>。",
 	"templatedata-desc": "实现模板参数的数据存储（使用JSON）",
 	"templatedata-doc-desc-empty": "无描述。",
 	"templatedata-doc-format-inline": "此模板首选参数行内格式。",

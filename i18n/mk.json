@@ -7,6 +7,8 @@
 	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот „Шаблонски податоци“ (TemplateData).",
 	"apihelp-templatedata-example-1": "Дај податоци за [[Template:Stub]] и [[Template:Example]]",
 	"apihelp-templatedata-param-lang": "Дај ги вредностите преведени на овој јазик. По основно се даваат сите расположиви преводи.",
+	"apierror-templatedata-corrupt": "Страницата бр. $1 содржи неважечки шаблонски податоци: $2",
+	"apiwarn-templatedata-deprecation-format": "Стандардниот изводен формат во иднина ќе се смени на <kbd>jsonfm</kbd>. Изрично укажувајте <kbd>format=json</kbd>.",
 	"templatedata-desc": "Овозможува складирање на податоци за шаблонски параметри (користејќи JSON)",
 	"templatedata-doc-desc-empty": "Нема опис.",
 	"templatedata-doc-format-inline": "Овој шаблон претпочита параметрите да се форматирани во ред.",

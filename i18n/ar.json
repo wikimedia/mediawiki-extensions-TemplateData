@@ -15,6 +15,8 @@
 	"apihelp-templatedata-description": "اجلب البيانات المخزنة بواسطة الامتداد TemplateData.",
 	"apihelp-templatedata-example-1": "إرجاع البيانات ل[[Template:Stub]] و [[Template:Example]]",
 	"apihelp-templatedata-param-lang": "أرجع قيم مترجمة بهذه اللغة. افتراضيا كل الترجمات المتوفرة يتم إرجاعها.",
+	"apierror-templatedata-corrupt": "بيانات القالب للصفحة #$1 تحتوي على بيانات غير صحيحة: $2",
+	"apiwarn-templatedata-deprecation-format": "صيغة الخرج الافتراضية ستتغير إلى <kbd>jsonfm</kbd> في المستقبل. من فضلك حدد <kbd>format=json</kbd> صراحة.",
 	"templatedata-desc": "تخزين بيانات وسائط القالب",
 	"templatedata-doc-desc-empty": "لا وصف.",
 	"templatedata-doc-format-inline": "هذا القالب يفضل التنسيق بنفس السطر للوسائط.",
