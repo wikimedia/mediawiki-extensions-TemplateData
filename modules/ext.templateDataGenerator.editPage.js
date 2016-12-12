@@ -7,6 +7,8 @@
 	 */
 	'use strict';
 
+	/* global ve */
+
 	$( function () {
 		var pieces, isDocPage, target,
 			pageName = mw.config.get( 'wgPageName' ),
@@ -44,6 +46,20 @@
 			target = new mw.TemplateData.TextareaTarget( $textbox, config );
 			$( '#mw-content-text' ).prepend( target.$element );
 		}
+		// Visual editor source mode
+		mw.hook( 've.activationComplete' ).add( function () {
+			var surface = ve.init.target.getSurface();
+			if ( surface.getMode() === 'source' ) {
+				target = new mw.TemplateData.VETarget( surface, config );
+				$( '.ve-init-mw-desktopArticleTarget-originalContent' ).prepend( target.$element );
+			}
+		} );
+		mw.hook( 've.deactivate' ).add( function () {
+			if ( target ) {
+				target.destroy();
+				target = null;
+			}
+		} );
 
 	} );
 

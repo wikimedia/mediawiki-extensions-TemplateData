@@ -351,3 +351,35 @@ mw.TemplateData.TextareaTarget.prototype.getWikitext = function () {
 mw.TemplateData.TextareaTarget.prototype.setWikitext = function ( newWikitext ) {
 	this.$textarea.val( newWikitext );
 };
+
+/* global ve */
+
+/**
+ * VisualEditor target
+ *
+ * @class
+ * @extends mw.TemplateData.Target
+ *
+ * @constructor
+ * @param {ve.ui.Surface} surface VE surface
+ * @param {Object} config Configuration options
+ */
+mw.TemplateData.VETarget = function mwTemplateDataVETarget( surface, config ) {
+	// Parent constructor
+	mw.TemplateData.VETarget.super.call( this, config );
+
+	this.surface = surface;
+};
+
+/* Inheritance */
+
+OO.inheritClass( mw.TemplateData.VETarget, mw.TemplateData.Target );
+
+mw.TemplateData.VETarget.prototype.getWikitext = function () {
+	return this.surface.getDom();
+};
+
+mw.TemplateData.VETarget.prototype.setWikitext = function ( newWikitext ) {
+	this.surface.getModel().getLinearFragment( new ve.Range( 0, this.surface.getModel().getDocument().data.getLength() ) )
+		.insertContent( newWikitext );
+};
