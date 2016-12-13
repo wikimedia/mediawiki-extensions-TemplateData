@@ -16,12 +16,14 @@
 			"Crochet.david",
 			"Mattho69",
 			"Orlodrim",
-			"The RedBurn"
+			"The RedBurn",
+			"Wladek92"
 		]
 	},
 	"apihelp-templatedata-description": "Récupérer les données stockées via l’extension TemplateData.",
 	"apihelp-templatedata-example-1": "Renvoyer les données pour [[Template:Stub]] et [[Template:Example]]",
 	"apihelp-templatedata-param-lang": "Renvoyer les valeurs localisées dans cette langue. Par défaut, toutes les traductions disponibles sont renvoyées.",
+	"apierror-templatedata-corrupt": "Le modèle de données de la page $1 contient des données invalides: $2",
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
 	"templatedata-doc-desc-empty": "Aucune description.",
 	"templatedata-doc-format-inline": "La mise en forme sur une seule ligne est préférée pour ce modèle.",

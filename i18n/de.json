@@ -9,6 +9,8 @@
 	"apihelp-templatedata-description": "Gespeicherte Daten von der Erweiterung „TemplateData“ abrufen.",
 	"apihelp-templatedata-example-1": "Daten für [[Template:Stub]] und [[Template:Example]] zurückgeben",
 	"apihelp-templatedata-param-lang": "Gibt lokalisierte Werte in dieser Sprache zurück. Standardmäßig werden alle verfügbaren Übersetzungen zurückgegeben.",
+	"apierror-templatedata-corrupt": "Die Vorlagendaten der Seite $1 enthalten ungültige Daten: $2",
+	"apiwarn-templatedata-deprecation-format": "Das Standard-Ausgabeformat wird in Zukunft in <kbd>jsonfm</kbd> geändert. Bitte <kbd>format=json</kbd> ausdrücklich angeben.",
 	"templatedata-desc": "Ermöglicht die Speicherung von Vorlagenparametern (als JSON)",
 	"templatedata-doc-desc-empty": "Keine Beschreibung.",
 	"templatedata-doc-format-inline": "Diese Vorlage bevorzugt Inline-Formatierung von Parametern.",
