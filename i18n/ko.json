@@ -77,6 +77,7 @@
 	"templatedata-modal-errormsg": "오류를 찾았습니다. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  \"$1\", \"$2\", \"$3\" 기호가 포함되지 않도록 하세요.",
 	"templatedata-modal-errormsg-import-noparams": "가져오는 중 새로운 매개변수를 찾지 못 했습니다.",
 	"templatedata-modal-format-block": "블록",
+	"templatedata-modal-format-custom": "사용자 지정",
 	"templatedata-modal-format-inline": "줄",
 	"templatedata-modal-json-error-replace": "바꾸기",
 	"templatedata-modal-notice-import-numparams": "새 {{PLURAL:$1|변수}} $1개를 가져왔습니다: $2",

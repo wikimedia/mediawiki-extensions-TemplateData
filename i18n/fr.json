@@ -24,6 +24,7 @@
 	"apihelp-templatedata-example-1": "Renvoyer les données pour [[Template:Stub]] et [[Template:Example]]",
 	"apihelp-templatedata-param-lang": "Renvoyer les valeurs localisées dans cette langue. Par défaut, toutes les traductions disponibles sont renvoyées.",
 	"apierror-templatedata-corrupt": "Le modèle de données de la page $1 contient des données invalides: $2",
+	"apiwarn-templatedata-deprecation-format": "Le format de sortie par défaut sera changé en <kbd>jsonfm</kbd> dans l'avenir. Veuillez spécifier <kbd>format=json</kbd> explicitement.",
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
 	"templatedata-doc-desc-empty": "Aucune description.",
 	"templatedata-doc-format-block": "La mise en forme multiligne est préférée pour ce modèle.",

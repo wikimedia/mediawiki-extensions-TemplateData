@@ -6,7 +6,8 @@
 			"Jkjk",
 			"Cvanca",
 			"Matěj Suchánek",
-			"Danny B."
+			"Danny B.",
+			"Dvorapa"
 		]
 	},
 	"apihelp-templatedata-description": "Načtení dat uložených rozšířením TemplateData.",
@@ -14,8 +15,8 @@
 	"apihelp-templatedata-param-lang": "Vrátí lokalizované hodnoty v daném jazyce. Implicitně se vrátí všechny dostupné překlady.",
 	"templatedata-desc": "Implementuje datové úložiště pro parametry šablon (pomocí JSON)",
 	"templatedata-doc-desc-empty": "Bez popisu.",
-	"templatedata-doc-format-inline": "Tato šablona upřednostňuje parametry formátované v jediném řádku.",
 	"templatedata-doc-format-block": "Tato šablona upřednostňuje parametry formátované v bloku.",
+	"templatedata-doc-format-inline": "Tato šablona upřednostňuje parametry formátované v jediném řádku.",
 	"templatedata-doc-no-params-set": "Nebyly uvedeny žádné parametry",
 	"templatedata-doc-param-autovalue": "Automatická hodnota",
 	"templatedata-doc-param-autovalue-empty": "prázdné",
@@ -53,7 +54,7 @@
 	"templatedata-helplink": "Informace o TemplateData",
 	"templatedata-invalid-duplicate-value": "Vlastnost „$1“ („$3“) je duplicita k „$2“.",
 	"templatedata-invalid-empty-array": "Vlastnost „$1“ musí ve svém poli obsahovat alespoň jednu hodnotu.",
-	"templatedata-invalid-format": "U vlastnosti „$1“ se očekává hodnota „inline“ nebo „block“",
+	"templatedata-invalid-format": "U vlastnosti „$1“ se očekává hodnota „inline“, „block“ nebo platná hodnota formátu",
 	"templatedata-invalid-length": "Takto velká data nelze uložit ({{formatnum:$1}} {{PLURAL:$1|bajt|bajty|bajtů}}, limit je {{formatnum:$2}} {{PLURAL:$2|bajt|bajty|bajtů}})",
 	"templatedata-invalid-missing": "Nenalezena vyžadovaná vlastnost „$1“.",
 	"templatedata-invalid-param": "Chybný parametr „$1“ pro vlastnost „$2“",
@@ -76,8 +77,8 @@
 	"templatedata-modal-current-language": "Aktuální jazyk: $1",
 	"templatedata-modal-errormsg": "Nalezeny chyby. Ujistěte se, že neexistuje prázdný nebo duplicitní název parametru a že názvy parametrů neobsahují „$1“, „$2“ nebo „$3“.",
 	"templatedata-modal-errormsg-import-noparams": "Při importu nenalezeny žádné nové parametry.",
-	"templatedata-modal-format-inline": "V řádce",
 	"templatedata-modal-format-block": "Blok",
+	"templatedata-modal-format-inline": "V řádce",
 	"templatedata-modal-format-null": "Neurčeno",
 	"templatedata-modal-json-error-replace": "Nahradit",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Byl naimportován $1 nový parametr|Byly naimportovány $1 nové parametry|Bylo naimportováno $1 nových parametrů}}: $2",
