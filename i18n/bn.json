@@ -8,8 +8,8 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "বিবরণ নেই।",
-	"templatedata-doc-format-inline": "এই টেমপ্লেটটি প্যারামিটারের একই সরলরেখা বিন্যাসন পছন্দ করে।",
 	"templatedata-doc-format-block": "এই টেমপ্লেটটি প্যারামিটারের ব্লক বিন্যাসন পছন্দ করে।",
+	"templatedata-doc-format-inline": "এই টেমপ্লেটটি প্যারামিটারের একই সরলরেখা বিন্যাসন পছন্দ করে।",
 	"templatedata-doc-no-params-set": "কোন প্যারামিটার নির্দিষ্ট করা হয়নি",
 	"templatedata-doc-param-autovalue": "স্বয়ংক্রিয় মান",
 	"templatedata-doc-param-autovalue-empty": "খালি",
@@ -59,8 +59,9 @@
 	"templatedata-modal-current-language": "বর্তমান ভাষা: $1",
 	"templatedata-modal-errormsg": "ত্রুটি পাওয়া গেছে। দয়া করে নিশ্চিত করুন যে এখানে কোন খালি বা সদৃশ প্যারামিটারের নাম নেই, এবং প্যারামিটারের নামে \"$1\", \"$2\" বা \"$3\" অন্তর্ভুক্ত করা হয় নি।",
 	"templatedata-modal-errormsg-import-noparams": "আমদানির সময় নতুন কোনো প্যারামিটার পাওয়া যায়নি।",
-	"templatedata-modal-format-inline": "একই সরলরেখা",
 	"templatedata-modal-format-block": "ব্লক",
+	"templatedata-modal-format-custom": "স্বনির্ধারিত",
+	"templatedata-modal-format-inline": "একই সরলরেখা",
 	"templatedata-modal-format-null": "অনির্দিষ্ট",
 	"templatedata-modal-json-error-replace": "প্রতিস্থাপন",
 	"templatedata-modal-notice-import-numparams": "$1টি নতুন {{PLURAL:$1|প্যারামিটার}} আমদানি করা হয়েছে: $2",
@@ -89,6 +90,7 @@
 	"templatedata-modal-title-paramorder": "প্যারামিটারের আদেশ",
 	"templatedata-modal-title-templatedesc": "টেমপ্লেটের বিবরণ ($1)",
 	"templatedata-modal-title-templateformat": "টেমপ্লেটের পছন্দের বিন্যাস",
+	"templatedata-modal-title-templateformatstring": "স্বনির্ধারিত বিন্যাস স্ট্রিং",
 	"templatedata-modal-title-templateparam-details": "প্যারামিটারের বিস্তারিত: $1",
 	"templatedata-modal-title-templateparams": "টেমপ্লেট প্যারামিটার"
 }
