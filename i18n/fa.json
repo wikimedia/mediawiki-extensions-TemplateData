@@ -8,7 +8,8 @@
 			"Alirezaaa",
 			"Danialbehzadi",
 			"Dalba",
-			"AzorAhai"
+			"AzorAhai",
+			"Arash.pt"
 		]
 	},
 	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ TemplateData.",
@@ -16,8 +17,8 @@
 	"apihelp-templatedata-param-lang": "برگرداندن مقادیر محلی به این زبان. به طور پیش‌فرض همهٔ ترجمه‌های موجود برگردانده شده‌اند.",
 	"templatedata-desc": "پیاده‌سازی ذخیره‌سازی داده‌های پارامترهای الگو (با استفاده از جی‌سن)",
 	"templatedata-doc-desc-empty": "بدون توصیف.",
-	"templatedata-doc-format-inline": "استفاده از قالب‌بندی درون‌خطی برای پارامترهای این الگو ارجح است.",
 	"templatedata-doc-format-block": "استفاده از قالب‌بندی قطعه‌ای برای پارامترهای این الگو ارجح است.",
+	"templatedata-doc-format-inline": "استفاده از قالب‌بندی درون‌خطی برای پارامترهای این الگو ارجح است.",
 	"templatedata-doc-no-params-set": "هیچ پارامتری مشخص نشده‌است",
 	"templatedata-doc-param-autovalue": "مقدار خودکار",
 	"templatedata-doc-param-autovalue-empty": "خالی",
@@ -73,6 +74,7 @@
 	"templatedata-modal-current-language": "زبان کنونی: $1",
 	"templatedata-modal-errormsg": "خطاهایی پیدا شدند. لطفاً مطمئن شوید که هیچ نام پارامتری خالی یا تکراری نیست، و اینکه نام پارامتر شامل «$1»، «$2» یا «$3» نیست.",
 	"templatedata-modal-errormsg-import-noparams": "هیچ پارامتر تازه‌ای طی واردکردن پیدا نشد.",
+	"templatedata-modal-format-custom": "سفارشی",
 	"templatedata-modal-json-error-replace": "جایگزینی",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|پارامتر|پارامتر}} تازه وارد شد: $2",
 	"templatedata-modal-placeholder-paramkey": "نام پارامتر",
