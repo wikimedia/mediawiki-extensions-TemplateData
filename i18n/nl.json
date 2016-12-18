@@ -13,13 +13,14 @@
 			"MedShot",
 			"HanV",
 			"Robin van der Vliet",
-			"Dinosaur918"
+			"Dinosaur918",
+			"Mainframe98"
 		]
 	},
 	"templatedata-desc": "Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)",
 	"templatedata-doc-desc-empty": "Geen beschrijving.",
-	"templatedata-doc-format-inline": "Dit sjabloon prefereert horizontaal in lijn geformateerde parameters.",
 	"templatedata-doc-format-block": "Dit sjabloon prefereert verticaal als blok geformateerde parameters.",
+	"templatedata-doc-format-inline": "Dit sjabloon prefereert horizontaal in lijn geformateerde parameters.",
 	"templatedata-doc-no-params-set": "Geen parameters opgegeven",
 	"templatedata-doc-param-autovalue": "Automatische waarde",
 	"templatedata-doc-param-autovalue-empty": "leeg",
@@ -77,8 +78,9 @@
 	"templatedata-modal-current-language": "Huidige taal: $1",
 	"templatedata-modal-errormsg": "Fouten gevonden. Zorg ervoor dat er geen lege of dubbele parameternamen zijn, en dat de parameternaam geen \"$1\", \"$2\" of \"$3\" bevat.",
 	"templatedata-modal-errormsg-import-noparams": "Geen nieuwe parameters gevonden tijdens het importeren.",
-	"templatedata-modal-format-inline": "In lijn",
 	"templatedata-modal-format-block": "Blok",
+	"templatedata-modal-format-custom": "Aangepast",
+	"templatedata-modal-format-inline": "In lijn",
 	"templatedata-modal-format-null": "Niet gespecificeerd",
 	"templatedata-modal-json-error-replace": "Vervangen",
 	"templatedata-modal-notice-import-numparams": "Er {{PLURAL:$1|is één nieuwe parameter|zijn $1 nieuwe parameters}} geïmporteerd: $2",

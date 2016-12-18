@@ -15,8 +15,8 @@
 	"apihelp-templatedata-param-lang": "Returnera lokaliserade värden på detta språk. Som standard returneras alla tillgängliga översättningar.",
 	"templatedata-desc": "Lagrar data för mallparametrar (med JSON)",
 	"templatedata-doc-desc-empty": "Ingen beskrivning.",
-	"templatedata-doc-format-inline": "Denna mall föredrar inline-formatering av parametrar.",
 	"templatedata-doc-format-block": "Denna mall föredrar blockformatering av parametrar.",
+	"templatedata-doc-format-inline": "Denna mall föredrar inline-formatering av parametrar.",
 	"templatedata-doc-no-params-set": "Inga parametrar angivna",
 	"templatedata-doc-param-autovalue": "Autovärde",
 	"templatedata-doc-param-autovalue-empty": "tom",
@@ -76,8 +76,9 @@
 	"templatedata-modal-current-language": "Aktuellt språk: $1",
 	"templatedata-modal-errormsg": "Fel hittades. Var god se till att det inte finns några tomma eller dubbla parameternamn, och att parameternamnet inte innehåller \"$1\", \"$2\" eller \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Inga nya parametrar hittades under import.",
-	"templatedata-modal-format-inline": "Inline",
 	"templatedata-modal-format-block": "Block",
+	"templatedata-modal-format-custom": "Anpassad",
+	"templatedata-modal-format-inline": "Inline",
 	"templatedata-modal-format-null": "Ospecifierat",
 	"templatedata-modal-json-error-replace": "Ersätt",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|ny parameter|nya parametrar}} importerades: $2",
@@ -106,6 +107,7 @@
 	"templatedata-modal-title-paramorder": "Parameterordning",
 	"templatedata-modal-title-templatedesc": "Mallbeskrivning ($1)",
 	"templatedata-modal-title-templateformat": "Föredraget mallformat",
+	"templatedata-modal-title-templateformatstring": "Anpassad formatsträng",
 	"templatedata-modal-title-templateparam-details": "Parameterdetaljer: $1",
 	"templatedata-modal-title-templateparams": "Mallparametrar"
 }
