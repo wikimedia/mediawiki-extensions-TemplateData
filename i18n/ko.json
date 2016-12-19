@@ -53,7 +53,7 @@
 	"templatedata-helplink": "틀데이터에 대한 정보",
 	"templatedata-invalid-duplicate-value": "\"$1\" (\"$3\") 속성은 \"$2\" 속성과 중복됩니다.",
 	"templatedata-invalid-empty-array": "속성 \"$1\"은 배열에서 적어도 하나 이상의 값을 갖고 있어야 합니다.",
-	"templatedata-invalid-format": "속성 \"$1\"은 \"inline\" 또는 \"block\"이어야 합니다.",
+	"templatedata-invalid-format": "\"$1\" 속성은 \"inline\", \"block\" 또는 유효한 형식의 문자열이어야 합니다.",
 	"templatedata-invalid-length": "저장하기에 데이터가 너무 큽니다 ({{formatnum:$1}} {{PLURAL:$1|바이드}}, {{PLURAL:$2|제한은}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "필요한 \"$1\" 속성을 찾을 수 없습니다.",
 	"templatedata-invalid-param": "속성 \"$2\"에 대해 변수 \"$1\"이 잘못되었습니다.",

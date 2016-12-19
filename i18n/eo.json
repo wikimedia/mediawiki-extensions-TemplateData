@@ -3,7 +3,8 @@
 		"authors": [
 			"Luckas",
 			"KuboF",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"Psychoslave"
 		]
 	},
 	"templatedata-desc": "Realigas datuman deponejon por ŝablonaj parametroj (uzante JSON)",
@@ -35,7 +36,7 @@
 	"templatedata-doc-param-type-wiki-page-name": "Paĝo",
 	"templatedata-doc-param-type-wiki-user-name": "Uzanto",
 	"templatedata-doc-params": "Ŝablonaj parametroj",
-	"templatedata-editbutton": "Manaĝi ŜablonDatumojn",
+	"templatedata-editbutton": "Administri ŜablonDatumojn",
 	"templatedata-helplink": "Informoj pri ŜablonDatumoj",
 	"templatedata-invalid-parse": "Sintaksa eraro en JSON.",
 	"templatedata-modal-button-add-language": "Aldoni lingvon",
