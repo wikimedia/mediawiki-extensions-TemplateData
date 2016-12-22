@@ -16,6 +16,7 @@
 	"templatedata-desc": "Lagrar data för mallparametrar (med JSON)",
 	"templatedata-doc-desc-empty": "Ingen beskrivning.",
 	"templatedata-doc-format-block": "Denna mall föredrar blockformatering av parametrar.",
+	"templatedata-doc-format-custom": "Denna mall har anpassad formatering.",
 	"templatedata-doc-format-inline": "Denna mall föredrar inline-formatering av parametrar.",
 	"templatedata-doc-no-params-set": "Inga parametrar angivna",
 	"templatedata-doc-param-autovalue": "Autovärde",
