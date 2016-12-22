@@ -296,9 +296,9 @@ To format a template invocation according to the format string, first split it i
 
 Begin with `StartFormat`, and replace the `Hole` with the name of the template to create the "output string".  If `StartFormat` begins with a newline and template is already at the start of a line (the character preceding this template invocation is a newline or the template is at the start of the output), delete the initial newline from the output string.
 
-For each parameter, append the `ParameterFormat` to the output string after replacing the first `Hole` with the name of the parameter and the second `Hole` with the value of the parameter.
+For each parameter, if `ParameterFormat` begins with a newline and the last character in the output string is a newline, then delete the last character in the output string.  Then append `ParameterFormat` to the output string after replacing the first `Hole` with the name of the parameter and the second `Hole` with the value of the parameter.
 
-Finally, append the `EndFormat` to the output string.
+Finally, if `EndFormat` begins with a newline and the last character in the output string is a newline, then delete the last character in the output string.  Append the `EndFormat` to the output string.
 
 Some example format strings:
 
