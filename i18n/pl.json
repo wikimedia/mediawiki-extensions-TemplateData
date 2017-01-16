@@ -10,7 +10,8 @@
 			"WTM",
 			"VerMa",
 			"Devwebtel",
-			"Ency"
+			"Ency",
+			"Maćko"
 		]
 	},
 	"apihelp-templatedata-description": "Zobacz dane zapisane w rozszerzeniu TemplateData.",
@@ -44,7 +45,7 @@
 	"templatedata-doc-param-type-date": "Data",
 	"templatedata-doc-param-type-line": "Linia",
 	"templatedata-doc-param-type-number": "Liczba",
-	"templatedata-doc-param-type-string": "Łańcuch",
+	"templatedata-doc-param-type-string": "ciąg znaków",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Niezbalansowany wikitekst",
 	"templatedata-doc-param-type-unknown": "Nieznany",
 	"templatedata-doc-param-type-url": "URL",
