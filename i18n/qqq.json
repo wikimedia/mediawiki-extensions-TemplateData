@@ -14,7 +14,8 @@
 			"Umherirrender",
 			"Nemo bis",
 			"Purodha",
-			"Amire80"
+			"Amire80",
+			"Deryck Chan"
 		]
 	},
 	"apihelp-templatedata-description": "{{doc-apihelp-description|templatedata}}",
@@ -24,7 +25,7 @@
 	"apiwarn-templatedata-deprecation-format": "{{doc-apierror}}",
 	"templatedata-desc": "{{desc|name=Template Data|url=https://www.mediawiki.org/wiki/Extension:TemplateData}}",
 	"templatedata-doc-desc-empty": "Displayed when a template has no description (should be a valid sentence).\n{{Identical|No description}}",
-	"templatedata-doc-format-block": "Use block formatting of the template parameters in wikitext.",
+	"templatedata-doc-format-block": "Use block formatting of the template parameters in wikitext, i.e.\n\n<pre><nowiki>{{Template name\n| p1 = v1\n| p2 = v2\n}}</nowiki></pre>\n\nas opposed to <nowiki>{{Template name|p1=v1|p2=v2}}</nowiki> (\"inline\")",
 	"templatedata-doc-format-custom": "Use custom formatting of the template in wikitext.",
 	"templatedata-doc-format-inline": "Use inline formatting of the template parameters in wikitext.",
 	"templatedata-doc-no-params-set": "A message shown when there are no parameters set in the TemplateData string.",
