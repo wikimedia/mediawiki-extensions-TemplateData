@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Luckas",
-			"Pikne"
+			"Pikne",
+			"Cumbril"
 		]
 	},
 	"templatedata-desc": "Võimaldab JSONi abil malli parameetrite andmeid talletada.",
 	"templatedata-doc-desc-empty": "Kirjeldus puudub.",
 	"templatedata-doc-format-block": "Selle malli juures eelistatakse parameetrite vormistamist plokina.",
+	"templatedata-doc-format-custom": "Sellel mallil on kohandatud vorming.",
 	"templatedata-doc-format-inline": "Selle malli juures eelistatakse parameetrite tekstisisest vormistust.",
 	"templatedata-doc-no-params-set": "Ühtegi parameetrit pole määratud.",
 	"templatedata-doc-param-autovalue": "Etteantud väärtus",

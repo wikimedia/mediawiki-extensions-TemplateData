@@ -18,7 +18,9 @@
 	"templatedata-invalid-unknown": "Proprietat « $1 » pas esperada.",
 	"templatedata-invalid-value": "Valor invalida per la proprietat « $1 ».",
 	"templatedata-modal-button-add-language": "Apondre una lenga",
+	"templatedata-modal-button-addparam": "Apondre un paramètre",
 	"templatedata-modal-button-changelang": "Cambiar de lenga",
 	"templatedata-modal-current-language": "Lenga actuala : $1",
+	"templatedata-modal-title-addparam": "Apondre un paramètre",
 	"templatedata-modal-title-choose-language": "Causir una lenga"
 }
