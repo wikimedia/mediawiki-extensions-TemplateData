@@ -70,8 +70,10 @@
 	"templatedata-modal-errormsg": "Leidub tõrkeid. Palun veendu, et ükski parameetri nimi pole tühi ega topelt ning et parameetrite nimed ei sisalda märke \"$1\", \"$2\" ega \"$3\".",
 	"templatedata-modal-errormsg-import-noparams": "Importimisel ei leitud uusi parameetreid.",
 	"templatedata-modal-format-block": "Plokk",
+	"templatedata-modal-format-custom": "Kohandatud",
 	"templatedata-modal-format-inline": "Tekstisisene",
 	"templatedata-modal-format-null": "Määramata",
+	"templatedata-modal-format-placeholder": "Malli parameetrite vormingusõne",
 	"templatedata-modal-json-error-replace": "Asenda",
 	"templatedata-modal-notice-import-numparams": "Imporditud {{PLURAL:$1|üks uus parameeter|$1 uut parameetrit}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Parameetri nimi",
@@ -99,6 +101,7 @@
 	"templatedata-modal-title-paramorder": "Parameetrite järjestus",
 	"templatedata-modal-title-templatedesc": "Malli kirjeldus ($1)",
 	"templatedata-modal-title-templateformat": "Malli vormingu eelistus",
+	"templatedata-modal-title-templateformatstring": "Kohandatud vormingusõne",
 	"templatedata-modal-title-templateparam-details": "Parameetri üksikasjad: $1",
 	"templatedata-modal-title-templateparams": "Malli parameetrid"
 }
