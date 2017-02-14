@@ -75,7 +75,7 @@
 	"templatedata-modal-button-restoreparam": "Gjenopprett parameter",
 	"templatedata-modal-button-saveparam": "Lagre",
 	"templatedata-modal-confirmcancel": "Sikker på at du ønsker å avbryte?",
-	"templatedata-modal-current-language": "Nåværende språk: $1",
+	"templatedata-modal-current-language": "Gjeldende språk: $1",
 	"templatedata-modal-errormsg": "Feil funnet. Sjekk at det ikke er tomme eller duplikate parameternavn, og at parameternavnet ikke inneholder «$1», «$2» eller «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Ingen nye parametre funnet under import.",
 	"templatedata-modal-format-block": "Blokk",
