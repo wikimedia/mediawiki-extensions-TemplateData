@@ -11,8 +11,11 @@
 	"templatedata-doc-param-type-wiki-page-name": "Страница",
 	"templatedata-doc-param-type-wiki-template-name": "Шаблон",
 	"templatedata-doc-param-type-wiki-user-name": "Потребител",
+	"templatedata-modal-button-add-language": "Добавяне на език",
+	"templatedata-modal-button-back": "Назад",
 	"templatedata-modal-button-done": "Готово",
 	"templatedata-modal-button-saveparam": "Съхраняване",
+	"templatedata-modal-current-language": "Текущ език: $1",
 	"templatedata-modal-title-choose-language": "Избор на език",
 	"templatedata-modal-title-language": "Език"
 }
