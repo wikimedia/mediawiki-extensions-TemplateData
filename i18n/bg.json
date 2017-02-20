@@ -6,6 +6,7 @@
 			"StanProg"
 		]
 	},
+	"templatedata-doc-param-type-date": "Дата",
 	"templatedata-doc-param-type-url": "URL адрес",
 	"templatedata-doc-param-type-wiki-file-name": "Файл",
 	"templatedata-doc-param-type-wiki-page-name": "Страница",
