@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Y-M D",
-			"Pymouss"
+			"Pymouss",
+			"Fulup"
 		]
 	},
 	"templatedata-doc-desc-empty": "Deskrivadur ebet.",
@@ -44,6 +45,7 @@
 	"templatedata-modal-notice-import-numparams": "Enporzhiet eo bet {{PLURAL:$1|Un|$1}} arventenn nevez.",
 	"templatedata-modal-placeholder-paramkey": "Anv an arventenn",
 	"templatedata-modal-table-param-actions": "Oberoù",
+	"templatedata-modal-table-param-aliases": "Aliasoù (dispartiet gant ur skej)",
 	"templatedata-modal-table-param-default": "Dre ziouer",
 	"templatedata-modal-table-param-description": "Deskrivadur ($1)",
 	"templatedata-modal-table-param-label": "Tikedenn ($1)",
