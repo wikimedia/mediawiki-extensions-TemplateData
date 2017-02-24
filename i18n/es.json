@@ -22,6 +22,7 @@
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
 	"templatedata-doc-desc-empty": "Sin descripción.",
 	"templatedata-doc-format-block": "Se prefiere introducir los parámetros de esta plantilla en el formato de bloque.",
+	"templatedata-doc-format-custom": "Esta plantilla contiene formato personalizado.",
 	"templatedata-doc-format-inline": "Se prefiere introducir los parámetros de esta plantilla en el formato de una misma línea.",
 	"templatedata-doc-no-params-set": "No hay parámetros especificados",
 	"templatedata-doc-param-autovalue": "Valor automático",
