@@ -5,7 +5,8 @@
 			"Nivit",
 			"Giuseppe Forte",
 			"Macofe",
-			"Gianfranco"
+			"Gianfranco",
+			"Fringio"
 		]
 	},
 	"apihelp-templatedata-description": "Cerca fra i dati memorizzati dall'estensione TemplateData.",
@@ -14,6 +15,7 @@
 	"templatedata-desc": "Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)",
 	"templatedata-doc-desc-empty": "Nessuna descrizione.",
 	"templatedata-doc-format-block": "Questo template preferisce la formattazione a blocco dei parametri.",
+	"templatedata-doc-format-custom": "Questo template ha una formattazione personalizzata",
 	"templatedata-doc-format-inline": "Questo template preferisce la formattazione in linea dei parametri.",
 	"templatedata-doc-no-params-set": "Nessun parametro specificato",
 	"templatedata-doc-param-autovalue": "Valore automatico",
