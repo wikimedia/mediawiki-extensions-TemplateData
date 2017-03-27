@@ -59,6 +59,7 @@
 	"templatedata-invalid-empty-array": "Eigenschap \"$1\" moet ten minste één waarde in de verzameling hebben.",
 	"templatedata-invalid-length": "Te veel gegevens om op te slaan ({{formatnum:$1}} {{PLURAL:$1|byte|bytes}} opgegeven, de {{PLURAL:$2|limiet is}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Vereiste eigenschap \"$1\" niet gevonden.",
+	"templatedata-invalid-param": "Ongeldige parameter \"$1\" voor eigenschap \"$2\".",
 	"templatedata-invalid-parse": "Syntaxisfout in JSON.",
 	"templatedata-invalid-type": "De verwachting is dat eigenschap \"$1\" van het type \"$2\" is.",
 	"templatedata-invalid-unknown": "Onverwachte eigenschap \"$1\".",
