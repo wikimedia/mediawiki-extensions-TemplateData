@@ -345,13 +345,6 @@
 			}
 		};
 
-		QUnit.expect(
-			tests.compare.length +
-			tests.splitAndTrimArray.length +
-			tests.arrayUnionWithoutEmpty.length +
-			Object.keys( tests.props ).length
-		);
-
 		// Compare
 		for ( i = 0; i < tests.compare.length; i++ ) {
 			testVars = tests.compare[ i ];
@@ -396,7 +389,7 @@
 	} );
 
 	// Test model load
-	QUnit.asyncTest( 'TemplateData model', function ( assert ) {
+	QUnit.test( 'TemplateData model', function ( assert ) {
 		var i,
 			sourceHandler = new mw.TemplateData.SourceHandler(),
 			paramAddTest = [
@@ -501,20 +494,7 @@
 				}
 			];
 
-		QUnit.expect(
-			// Description and parameter list
-			3 +
-			// Add parameter tests
-			2 * paramAddTest.length +
-			// Change properties tests
-			paramChangeTest.length +
-			// Format tests
-			8 +
-			// Json output
-			3
-		);
-
-		sourceHandler.buildModel( originalWikitext )
+		return sourceHandler.buildModel( originalWikitext )
 			.done( function ( model ) {
 
 				// Check description
@@ -615,14 +595,11 @@
 					'Final templatedata output with paramOrder'
 				);
 
-			} )
-			.always( function () {
-				QUnit.start();
 			} );
 	} );
 
 	// Test model fail
-	QUnit.asyncTest( 'TemplateData sourceHandler', function ( assert ) {
+	QUnit.test( 'TemplateData sourceHandler', function ( assert ) {
 		var sourceHandler = new mw.TemplateData.SourceHandler(),
 			erronousString = '<templatedata>{\n' +
 				'	"params": {\n' +
@@ -645,19 +622,19 @@
 				'			"suggested": true\n' +
 				'		}\n' +
 				'	}\n' +
-				'}</templatedata>';
+				'}</templatedata>',
+			done = assert.async(),
+			promise;
 
-		QUnit.expect( 1 );
-
-		sourceHandler.buildModel( erronousString )
-			.always( function () {
-				assert.strictEqual( this.state(), 'rejected', 'Promise rejected on erronous json string.' );
-				QUnit.start();
-			} );
+		promise = sourceHandler.buildModel( erronousString );
+		promise.always( function () {
+			assert.strictEqual( promise.state(), 'rejected', 'Promise rejected on erronous json string.' );
+			done();
+		} );
 	} );
 
 	// Test model gets default format
-	QUnit.asyncTest( 'TemplateData sourceHandler adding default format', function ( assert ) {
+	QUnit.test( 'TemplateData sourceHandler adding default format', function ( assert ) {
 		var sourceHandler = new mw.TemplateData.SourceHandler(),
 			simpleTemplateDataNoFormat = '<templatedata>{\n' +
 				'	"params": {}\n' +
@@ -666,18 +643,13 @@
 				params: {}
 			};
 
-		QUnit.expect( 1 );
-
-		sourceHandler.buildModel( simpleTemplateDataNoFormat )
+		return sourceHandler.buildModel( simpleTemplateDataNoFormat )
 			.done( function ( model ) {
 				assert.deepEqual(
 					model.outputTemplateData(),
 					simpleTemplateDataDefaultFormat,
 					'Final templatedata output'
 				);
-			} )
-			.always( function () {
-				QUnit.start();
 			} );
 	} );
 

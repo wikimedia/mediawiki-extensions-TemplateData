@@ -196,7 +196,7 @@ mw.TemplateData.SourceHandler.prototype.parseModelFromString = function ( templa
 	if ( parts && parts[ 1 ] && $.trim( parts[ 1 ] ).length > 0 ) {
 		// Parse the json string
 		try {
-			return $.parseJSON( $.trim( parts[ 1 ] ) );
+			return JSON.parse( $.trim( parts[ 1 ] ) );
 		} catch ( err ) {
 			return null;
 		}
