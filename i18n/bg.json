@@ -73,6 +73,7 @@
 	"templatedata-modal-table-param-deprecated": "Непрепоръчителен",
 	"templatedata-modal-table-param-description": "Описание ($1)",
 	"templatedata-modal-table-param-example": "Пример ($1)",
+	"templatedata-modal-table-param-importoption-subtitle": "Включително: $1",
 	"templatedata-modal-table-param-name": "Име",
 	"templatedata-modal-table-param-required": "Задължителен",
 	"templatedata-modal-table-param-suggested": "Предложен",
@@ -81,5 +82,8 @@
 	"templatedata-modal-title-choose-language": "Избор на език",
 	"templatedata-modal-title-language": "Език",
 	"templatedata-modal-title-paramorder": "Ред на параметрите",
+	"templatedata-modal-title-templatedesc": "Описание на шаблона ($1)",
+	"templatedata-modal-title-templateformat": "Предпочтитан формат на шаблона",
+	"templatedata-modal-title-templateparam-details": "Описание на параметра: $1",
 	"templatedata-modal-title-templateparams": "Параметри на шаблона"
 }
