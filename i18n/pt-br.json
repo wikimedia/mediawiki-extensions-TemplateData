@@ -8,7 +8,8 @@
 			"He7d3r",
 			"Opraco",
 			"Araceletorres",
-			"Cainamarques"
+			"Cainamarques",
+			"Felipe L. Ewald"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
@@ -34,6 +35,7 @@
 	"templatedata-doc-param-type-date": "Data",
 	"templatedata-doc-param-type-line": "Linha",
 	"templatedata-doc-param-type-number": "Número",
+	"templatedata-doc-param-type-unknown": "Desconhecido",
 	"templatedata-doc-param-type-wiki-file-name": "Arquivo",
 	"templatedata-doc-param-type-wiki-page-name": "Página",
 	"templatedata-doc-param-type-wiki-user-name": "Usuário",
