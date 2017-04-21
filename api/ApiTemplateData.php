@@ -52,56 +52,80 @@ class ApiTemplateData extends ApiBase {
 		$pageSet = $this->getPageSet();
 		$pageSet->execute();
 		$titles = $pageSet->getGoodTitles(); // page_id => Title object
+		$missingTitles = $pageSet->getMissingTitles(); // page_id => Title object
 
-		if ( !count( $titles ) ) {
+		$legacyMode = !$this->getParameter( 'doNotIgnoreMissingTitles' );
+
+		if ( !count( $titles ) && ( $legacyMode || !count( $missingTitles ) ) ) {
 			$result->addValue( null, 'pages', (object) [] );
 			return;
 		}
 
-		$db = $this->getDB();
-		$res = $db->select( 'page_props',
-			[ 'pp_page', 'pp_value' ], [
-				'pp_page' => array_keys( $titles ),
-				'pp_propname' => 'templatedata'
-			],
-			__METHOD__,
-			[ 'ORDER BY', 'pp_page' ]
-		);
-
 		$resp = [];
 
-		foreach ( $res as $row ) {
-			$rawData = $row->pp_value;
-			$tdb = TemplateDataBlob::newFromDatabase( $rawData );
-			$status = $tdb->getStatus();
-
-			if ( !$status->isOK() ) {
-				$this->dieWithError(
-					[ 'apierror-templatedata-corrupt', intval( $row->pp_page ), $status->getMessage() ]
-				);
+		if ( $legacyMode ) {
+			$this->addDeprecation(
+				'apiwarn-templatedata-deprecation-legacyMode', 'action=templatedata&!doNotIgnoreMissingTitles'
+			);
+		} else {
+			foreach ( $missingTitles as $missingTitleId => $missingTitle ) {
+				$resp[ $missingTitleId ] = [ 'title' => $missingTitle, 'missing' => true ];
 			}
 
-			if ( $langCode ) {
-				$data = $tdb->getDataInLanguage( $langCode );
-			} else {
-				$data = $tdb->getData();
+			foreach ( $titles as $titleId => $title ) {
+				$resp[ $titleId ] = [ 'title' => $title, 'notemplatedata' => true ];
 			}
+		}
 
-			// HACK: don't let ApiResult's formatversion=1 compatibility layer mangle our booleans
-			// to empty strings / absent properties
-			foreach ( $data->params as &$param ) {
-				$param->{ApiResult::META_BC_BOOLS} = [ 'required', 'suggested', 'deprecated' ];
+		if ( count( $titles ) ) {
+			$db = $this->getDB();
+			$res = $db->select( 'page_props',
+				[ 'pp_page', 'pp_value' ], [
+					'pp_page' => array_keys( $titles ),
+					'pp_propname' => 'templatedata'
+				],
+				__METHOD__,
+				[ 'ORDER BY', 'pp_page' ]
+			);
+
+			foreach ( $res as $row ) {
+				$rawData = $row->pp_value;
+				$tdb = TemplateDataBlob::newFromDatabase( $rawData );
+				$status = $tdb->getStatus();
+
+				if ( !$status->isOK() ) {
+					$this->dieWithError(
+						[ 'apierror-templatedata-corrupt', intval( $row->pp_page ), $status->getMessage() ]
+					);
+				}
+
+				if ( $langCode ) {
+					$data = $tdb->getDataInLanguage( $langCode );
+				} else {
+					$data = $tdb->getData();
+				}
+
+				// HACK: don't let ApiResult's formatversion=1 compatibility layer mangle our booleans
+				// to empty strings / absent properties
+				foreach ( $data->params as &$param ) {
+					$param->{ApiResult::META_BC_BOOLS} = [ 'required', 'suggested', 'deprecated' ];
+				}
+				unset( $param );
+
+				$data->params->{ApiResult::META_TYPE} = 'kvp';
+				$data->params->{ApiResult::META_KVP_KEY_NAME} = 'key';
+				$data->params->{ApiResult::META_INDEXED_TAG_NAME} = 'param';
+				ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
+
+				if ( count( $data ) ) {
+					if ( !$legacyMode ) {
+						unset( $resp[$row->pp_page]['notemplatedata'] );
+					} else {
+						$resp[ $row->pp_page ] = [ 'title' => $titles[ $row->pp_page ] ];
+					}
+					$resp[$row->pp_page] += (array) $data;
+				}
 			}
-			unset( $param );
-
-			$data->params->{ApiResult::META_TYPE} = 'kvp';
-			$data->params->{ApiResult::META_KVP_KEY_NAME} = 'key';
-			$data->params->{ApiResult::META_INDEXED_TAG_NAME} = 'param';
-			ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
-
-			$resp[$row->pp_page] = [
-				'title' => strval( $titles[$row->pp_page] ),
-			] + (array) $data;
 		}
 
 		ApiResult::setArrayType( $resp, 'kvp', 'id' );
@@ -122,6 +146,7 @@ class ApiTemplateData extends ApiBase {
 
 	public function getAllowedParams( $flags = 0 ) {
 		return $this->getPageSet()->getFinalParams( $flags ) + [
+			'doNotIgnoreMissingTitles' => false,
 			'lang' => null
 		];
 	}
@@ -131,8 +156,10 @@ class ApiTemplateData extends ApiBase {
 	 */
 	protected function getExamplesMessages() {
 		return [
-			'action=templatedata&titles=Template:Stub|Template:Example'
+			'action=templatedata&titles=Template:Stub|Template:Example&doNotIgnoreMissingTitles=1'
 				=> 'apihelp-templatedata-example-1',
+			'action=templatedata&titles=Template:Stub|Template:Example&doNotIgnoreMissingTitles=0'
+				=> 'apihelp-templatedata-example-2',
 		];
 	}
 
