@@ -64,9 +64,11 @@ class ApiTemplateData extends ApiBase {
 		$resp = [];
 
 		if ( $legacyMode ) {
+			/* Deprecation hidden until Wikimedia extensions and services have been converted.
 			$this->addDeprecation(
 				'apiwarn-templatedata-deprecation-legacyMode', 'action=templatedata&!doNotIgnoreMissingTitles'
 			);
+			*/
 		} else {
 			foreach ( $missingTitles as $missingTitleId => $missingTitle ) {
 				$resp[ $missingTitleId ] = [ 'title' => $missingTitle, 'missing' => true ];
