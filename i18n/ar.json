@@ -13,9 +13,12 @@
 		]
 	},
 	"apihelp-templatedata-description": "اجلب البيانات المخزنة بواسطة الامتداد TemplateData.",
-	"apihelp-templatedata-example-1": "إرجاع البيانات ل[[Template:Stub]] و [[Template:Example]]",
+	"apihelp-templatedata-example-1": "إرجاع بيانات القالب ل[[Template:Stub]] و [[Template:Example]]، مع النتائج لو كان القالبان غير موجودين أو موجودين لكن بدون بيانات قالب.",
+	"apihelp-templatedata-example-2": "يرجع بيانات القالب ل[[Template:Stub]] و [[Template:Example]]، بدون نتائج لو كان القالبان غير موجودين أو موجودين لكن بدون بيانات قالب",
+	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "يرجع البيانات حول العناوين حتى لو كانت مفقودة أو تفتقد بيانات القالب. افتراضيا (للتوافق مع الإصدار القديم) فالعناوين يتم إرجاعها فقط لو كانت موجودة وتمتلك بيانات قالب.",
 	"apihelp-templatedata-param-lang": "أرجع قيم مترجمة بهذه اللغة. افتراضيا كل الترجمات المتوفرة يتم إرجاعها.",
 	"apierror-templatedata-corrupt": "بيانات القالب للصفحة #$1 تحتوي على بيانات غير صحيحة: $2",
+	"apiwarn-templatedata-deprecation-legacyMode": "الناتج الافتراضي سيتغير ليتضمن العناوين المفقودة في المستقبل. من فضلك حدد <kbd>doNotIgnoreMissingTitles=1</kbd> صراحة.",
 	"apiwarn-templatedata-deprecation-format": "صيغة الخرج الافتراضية ستتغير إلى <kbd>jsonfm</kbd> في المستقبل. من فضلك حدد <kbd>format=json</kbd> صراحة.",
 	"templatedata-desc": "تخزين بيانات وسائط القالب",
 	"templatedata-doc-desc-empty": "لا وصف.",
