@@ -101,7 +101,7 @@
 	"templatedata-modal-table-param-description": "Descripción ($1)",
 	"templatedata-modal-table-param-example": "Ejemplo ($1)",
 	"templatedata-modal-table-param-importoption": "Agregar $1 {{PLURAL:$1|parámetro sugerido|parámetros sugeridos}}",
-	"templatedata-modal-table-param-importoption-subtitle": "Incluyendo: $1",
+	"templatedata-modal-table-param-importoption-subtitle": "Incluidos: $1",
 	"templatedata-modal-table-param-label": "Etiqueta ($1)",
 	"templatedata-modal-table-param-name": "Nombre",
 	"templatedata-modal-table-param-required": "Obligatorio",
