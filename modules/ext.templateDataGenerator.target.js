@@ -154,7 +154,7 @@ mw.TemplateData.Target.prototype.setNoticeMessage = function ( msg, type, parseH
 	}
 	this.editNoticeLabel.setLabel( msg );
 	this.editNoticeLabel.toggle( true );
-},
+};
 
 /**
  * Reset the error message in the edit window
