@@ -64,7 +64,7 @@
 	"templatedata-modal-table-param-default": "डिफ़ॉल्ट",
 	"templatedata-modal-table-param-description": "विवरण",
 	"templatedata-modal-table-param-example": "उदाहरण ($1)",
-	"templatedata-modal-table-param-label": "लेबल",
+	"templatedata-modal-table-param-label": "लेबल ($1)",
 	"templatedata-modal-table-param-name": "नाम",
 	"templatedata-modal-table-param-required": "आवश्यक",
 	"templatedata-modal-table-param-suggested": "सुझावित",
@@ -72,6 +72,6 @@
 	"templatedata-modal-title": "साँचा प्रलेखन सम्पादक",
 	"templatedata-modal-title-choose-language": "भाषा चुनें",
 	"templatedata-modal-title-language": "भाषा",
-	"templatedata-modal-title-templatedesc": "साँचा विवरण",
+	"templatedata-modal-title-templatedesc": "साँचा विवरण ($1)",
 	"templatedata-modal-title-templateparams": "साँचा प्राचल"
 }
