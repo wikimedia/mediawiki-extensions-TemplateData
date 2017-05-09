@@ -9,9 +9,12 @@
 		]
 	},
 	"apihelp-templatedata-description": "Hent data lagret av TemplateData-tillegget.",
-	"apihelp-templatedata-example-1": "Returner data fra [[Template:Stub]] og [[Template:Example]]",
+	"apihelp-templatedata-example-1": "Returner TemplateData for [[Template:Stub]] og [[Template:Example]], gir resultater hvis malene ikke eksisterer eller eksisterer, men ikke har TemplateData",
+	"apihelp-templatedata-example-2": "Returner TemplateData for [[Template:Stub]] og [[Template:Example]], gir ingen resultater hvis malene ikke eksisterer eller eksisterer, men ikke har TemplateData",
+	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "Returnerer data om titler selv om de ikke eksisterer eller mangler TemplateData. Som standard (for bakoverkompabilitet) returneres kun hvis de eksisterer og har TemplateData.",
 	"apihelp-templatedata-param-lang": "Returner lokaliserte verdier på dette språket. Som standard returneres alle tilgjengelige oversettelser.",
 	"apierror-templatedata-corrupt": "Siden #$1s templatedata inneholder ugyldige data: $2",
+	"apiwarn-templatedata-deprecation-legacyMode": "Standardresultatet vil endres til å inkludere titler som ikke eksisterer i fremtiden. Du gjør derfor lurt i å sette <kbd>doNotIgnoreMissingTitles=1</kbd> eksplisitt.",
 	"apiwarn-templatedata-deprecation-format": "Standardresultatets format vil bli endret til <kbd>jsonfm</kbd> i fremtiden. Vennligst angi <kbd>format=json</kbd> eskplisitt.",
 	"templatedata-desc": "Implementerer datalager for malparametre (med JSON)",
 	"templatedata-doc-desc-empty": "Ingen beskrivelse.",
