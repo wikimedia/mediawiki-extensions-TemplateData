@@ -50,10 +50,7 @@
 	"ResourceModules": {
 		"ext.templateData": {
 			"styles": "resources/ext.templateData.css",
-			"position": "top",
-			"dependencies": [
-				"ext.templateData.images"
-			]
+			"position": "top"
 		},
 		"ext.templateDataGenerator.editPage": {
 			"scripts": [
@@ -89,6 +86,7 @@
 				"oojs-ui-widgets",
 				"oojs-ui-windows",
 				"ext.templateData",
+				"ext.templateData.images",
 				"ext.templateDataGenerator.data",
 				"jquery.uls.data",
 				"ext.templateDataGenerator.ui.images"
