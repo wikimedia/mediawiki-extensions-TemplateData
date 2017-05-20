@@ -20,6 +20,7 @@
 	"templatedata-doc-param-status-deprecated": "डेप्रिकेटिड",
 	"templatedata-doc-param-status-optional": "वैकल्पिक",
 	"templatedata-doc-param-status-required": "आवश्यक",
+	"templatedata-doc-param-status-suggested": "सुझावित",
 	"templatedata-doc-param-type": "प्रकार",
 	"templatedata-doc-param-type-boolean": "बूलियन",
 	"templatedata-doc-param-type-content": "सामग्री",
