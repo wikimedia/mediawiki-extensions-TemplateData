@@ -106,7 +106,7 @@
 	"templatedata-modal-title-language": "언어",
 	"templatedata-modal-title-paramorder": "변수 순서",
 	"templatedata-modal-title-templatedesc": "틀 설명 ($1)",
-	"templatedata-modal-title-templateformat": "권장되는 틀 형식",
+	"templatedata-modal-title-templateformat": "제안되는 위키텍스트 형식",
 	"templatedata-modal-title-templateparam-details": "변수 상세 정보: $1",
 	"templatedata-modal-title-templateparams": "틀 변수"
 }

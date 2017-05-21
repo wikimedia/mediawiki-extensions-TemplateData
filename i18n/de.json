@@ -110,7 +110,7 @@
 	"templatedata-modal-title-language": "Sprache",
 	"templatedata-modal-title-paramorder": "Parameterreihenfolge",
 	"templatedata-modal-title-templatedesc": "Vorlagenbeschreibung ($1)",
-	"templatedata-modal-title-templateformat": "Bevorzugtes Vorlagenformat",
+	"templatedata-modal-title-templateformat": "Vorgeschlagene Wikitext-Formatierung",
 	"templatedata-modal-title-templateformatstring": "Benutzerdefiniertes-Format-Zeichenfolge",
 	"templatedata-modal-title-templateparam-details": "Einzelheiten zum Parameter $1",
 	"templatedata-modal-title-templateparams": "Vorlagenparameter"
