@@ -112,7 +112,7 @@
 	"templatedata-modal-title-language": "Language",
 	"templatedata-modal-title-paramorder": "Parameter order",
 	"templatedata-modal-title-templatedesc": "Template description ($1)",
-	"templatedata-modal-title-templateformat": "Template preferred format",
+	"templatedata-modal-title-templateformat": "Suggested wikitext formatting",
 	"templatedata-modal-title-templateformatstring": "Custom format string",
 	"templatedata-modal-title-templateparam-details": "Parameter details: $1",
 	"templatedata-modal-title-templateparams": "Template parameters"
