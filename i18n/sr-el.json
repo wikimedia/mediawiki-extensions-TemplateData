@@ -31,6 +31,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Korisnik",
 	"templatedata-doc-params": "Parametri šablona",
 	"templatedata-editbutton": "Uredi TemplateData",
+	"templatedata-exists-on-related-page": "Napomena: Već postoji TemplateData blok na povezanoj stranici „[[$1]]”.",
 	"templatedata-helplink": "Informacije za TemplateData",
 	"templatedata-invalid-missing": "Obavezno svojstvo „$1“ nije pronađeno.",
 	"templatedata-invalid-parse": "Sintaksna greška u JSON-u.",

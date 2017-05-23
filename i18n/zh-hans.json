@@ -116,7 +116,7 @@
 	"templatedata-modal-title-language": "语言",
 	"templatedata-modal-title-paramorder": "参数排序",
 	"templatedata-modal-title-templatedesc": "模板说明（$1）",
-	"templatedata-modal-title-templateformat": "模板首选格式",
+	"templatedata-modal-title-templateformat": "建议的wiki文本格式",
 	"templatedata-modal-title-templateformatstring": "自定义格式字符串",
 	"templatedata-modal-title-templateparam-details": "参数详细信息：$1",
 	"templatedata-modal-title-templateparams": "模板参数"

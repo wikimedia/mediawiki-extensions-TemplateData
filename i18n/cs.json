@@ -108,7 +108,7 @@
 	"templatedata-modal-title-language": "Jazyk",
 	"templatedata-modal-title-paramorder": "Pořadí parametrů",
 	"templatedata-modal-title-templatedesc": "Popis šablony ($1)",
-	"templatedata-modal-title-templateformat": "Preferovaný formát šablony",
+	"templatedata-modal-title-templateformat": "Navrhované formátování wikitextu",
 	"templatedata-modal-title-templateparam-details": "Podrobnosti k parametru $1",
 	"templatedata-modal-title-templateparams": "Parametry šablony"
 }

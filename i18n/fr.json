@@ -124,7 +124,7 @@
 	"templatedata-modal-title-language": "Langue :",
 	"templatedata-modal-title-paramorder": "Ordre des paramètres",
 	"templatedata-modal-title-templatedesc": "Description du modèle ($1)",
-	"templatedata-modal-title-templateformat": "Mise en forme préférée du modèle",
+	"templatedata-modal-title-templateformat": "Mise en forme suggérée du wikitexte",
 	"templatedata-modal-title-templateformatstring": "Chaîne de format personnalisé",
 	"templatedata-modal-title-templateparam-details": "Détails des paramètres : $1",
 	"templatedata-modal-title-templateparams": "Paramètres du modèle"
