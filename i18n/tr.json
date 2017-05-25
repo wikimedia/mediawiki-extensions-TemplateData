@@ -5,7 +5,8 @@
 			"Mavrikant",
 			"Violetanka",
 			"Sadrettin",
-			"Sayginer"
+			"Sayginer",
+			"Bulgu"
 		]
 	},
 	"apihelp-templatedata-example-1": "[[Template:Stub]] ve [[Template:Example]] belgelemelerine geri dön.",
@@ -29,9 +30,9 @@
 	"templatedata-modal-table-param-actions": "Eylemler",
 	"templatedata-modal-table-param-autovalue": "Otomatik değer",
 	"templatedata-modal-table-param-default": "Varsayılan ($1)",
-	"templatedata-modal-table-param-description": "Açıklama",
+	"templatedata-modal-table-param-description": "Açıklama ($1)",
 	"templatedata-modal-table-param-example": "Örnek ($1)",
-	"templatedata-modal-table-param-label": "Etiket",
+	"templatedata-modal-table-param-label": "Etiket ($1)",
 	"templatedata-modal-table-param-name": "Ad",
 	"templatedata-modal-table-param-type": "Tür",
 	"templatedata-modal-title": "Şablon belgeleme düzenleyicisi",

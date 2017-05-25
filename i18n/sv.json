@@ -107,7 +107,7 @@
 	"templatedata-modal-title-language": "Språk",
 	"templatedata-modal-title-paramorder": "Parameterordning",
 	"templatedata-modal-title-templatedesc": "Mallbeskrivning ($1)",
-	"templatedata-modal-title-templateformat": "Föredraget mallformat",
+	"templatedata-modal-title-templateformat": "Föreslaget wikitextformat",
 	"templatedata-modal-title-templateformatstring": "Anpassad formatsträng",
 	"templatedata-modal-title-templateparam-details": "Parameterdetaljer: $1",
 	"templatedata-modal-title-templateparams": "Mallparametrar"
