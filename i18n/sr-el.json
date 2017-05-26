@@ -79,7 +79,7 @@
 	"templatedata-modal-title-language": "Jezik",
 	"templatedata-modal-title-paramorder": "Redosled parametara",
 	"templatedata-modal-title-templatedesc": "Opis šablona ($1)",
-	"templatedata-modal-title-templateformat": "Prеdloženi format šablona",
+	"templatedata-modal-title-templateformat": "Preferirani format šablona",
 	"templatedata-modal-title-templateformatstring": "String za prilagođeni format",
 	"templatedata-modal-title-templateparams": "Parametri šablona"
 }

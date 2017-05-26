@@ -100,7 +100,7 @@
 	"templatedata-modal-title-language": "Jezik",
 	"templatedata-modal-title-paramorder": "Redoslijed parametra",
 	"templatedata-modal-title-templatedesc": "Opis šablona ($1)",
-	"templatedata-modal-title-templateformat": "Preferirani format šablona",
+	"templatedata-modal-title-templateformat": "Predloženi format wikiteksta",
 	"templatedata-modal-title-templateparam-details": "Detalji o parametru: $1",
 	"templatedata-modal-title-templateparams": "Parametri šablona"
 }
