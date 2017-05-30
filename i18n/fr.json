@@ -17,7 +17,8 @@
 			"Mattho69",
 			"Orlodrim",
 			"The RedBurn",
-			"Wladek92"
+			"Wladek92",
+			"Urhixidur"
 		]
 	},
 	"apihelp-templatedata-description": "Récupérer les données stockées via l’extension TemplateData.",
@@ -44,7 +45,7 @@
 	"templatedata-doc-param-desc-empty": "aucune description",
 	"templatedata-doc-param-name": "Paramètre",
 	"templatedata-doc-param-status": "Statut",
-	"templatedata-doc-param-status-deprecated": "obsolète",
+	"templatedata-doc-param-status-deprecated": "désuet",
 	"templatedata-doc-param-status-optional": "facultatif",
 	"templatedata-doc-param-status-required": "obligatoire",
 	"templatedata-doc-param-status-suggested": "suggéré",
@@ -106,7 +107,7 @@
 	"templatedata-modal-table-param-aliases": "Alias (séparés par des virgules)",
 	"templatedata-modal-table-param-autovalue": "Valeur automatique",
 	"templatedata-modal-table-param-default": "Par défaut ($1)",
-	"templatedata-modal-table-param-deprecated": "Obsolète",
+	"templatedata-modal-table-param-deprecated": "Désuet",
 	"templatedata-modal-table-param-deprecatedValue": "Raison de l'obsolescence",
 	"templatedata-modal-table-param-description": "Description ($1)",
 	"templatedata-modal-table-param-example": "Exemple ($1)",
