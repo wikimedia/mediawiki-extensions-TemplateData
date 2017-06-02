@@ -88,7 +88,7 @@
 	"templatedata-modal-title-language": "Језик",
 	"templatedata-modal-title-paramorder": "Редослед параметара",
 	"templatedata-modal-title-templatedesc": "Опис шаблона ($1)",
-	"templatedata-modal-title-templateformat": "Преферирани формат шаблона",
+	"templatedata-modal-title-templateformat": "Предложено форматирање викитекста",
 	"templatedata-modal-title-templateformatstring": "Стринг за прилагођени формат",
 	"templatedata-modal-title-templateparams": "Параметри шаблона"
 }
