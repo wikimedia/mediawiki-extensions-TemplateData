@@ -85,6 +85,8 @@
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"oojs-ui-windows",
+				"oojs-ui.styles.icons-layout",
+				"oojs-ui.styles.icons-interactions",
 				"ext.templateData",
 				"ext.templateData.images",
 				"ext.templateDataGenerator.data",
