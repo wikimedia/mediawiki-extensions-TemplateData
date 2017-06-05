@@ -10,8 +10,8 @@
 	},
 	"templatedata-desc": "Implementa emmagatzematge de dades pels paràmetres de plantilles (utilitzant JSON)",
 	"templatedata-doc-desc-empty": "Cap descripció.",
-	"templatedata-doc-format-inline": "Aquesta plantilla prefereix el format de paràmetres en la mateixa línia.",
 	"templatedata-doc-format-block": "Aquesta plantilla prefereix el format dels paràmetres en diferents línies.",
+	"templatedata-doc-format-inline": "Aquesta plantilla prefereix el format de paràmetres en la mateixa línia.",
 	"templatedata-doc-no-params-set": "Cap paràmetre especificat",
 	"templatedata-doc-param-autovalue": "Valor automàtic",
 	"templatedata-doc-param-autovalue-empty": "buit",
@@ -62,8 +62,8 @@
 	"templatedata-modal-button-saveparam": "Desa",
 	"templatedata-modal-confirmcancel": "Esteu segurs que voleu descartar els canvis?",
 	"templatedata-modal-current-language": "Llengua actual: $1",
-	"templatedata-modal-format-inline": "En ratlla",
 	"templatedata-modal-format-block": "Multilineal",
+	"templatedata-modal-format-inline": "En ratlla",
 	"templatedata-modal-format-null": "No especificat",
 	"templatedata-modal-json-error-replace": "Reemplaça",
 	"templatedata-modal-placeholder-paramkey": "Nom del paràmetre",
@@ -86,7 +86,7 @@
 	"templatedata-modal-title-language": "Llengua",
 	"templatedata-modal-title-paramorder": "Ordre de paràmetres",
 	"templatedata-modal-title-templatedesc": "Descripció de la plantilla ($1)",
-	"templatedata-modal-title-templateformat": "Format preferit de la plantilla",
+	"templatedata-modal-title-templateformat": "Format de codi suggerit",
 	"templatedata-modal-title-templateparam-details": "Detalls del paràmetre: $1",
 	"templatedata-modal-title-templateparams": "Paràmetres de la plantilla"
 }
