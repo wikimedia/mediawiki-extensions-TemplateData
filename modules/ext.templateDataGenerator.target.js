@@ -219,20 +219,16 @@ mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
 							flags: 'safe'
 						}
 					]
-				} ).then( function ( opened ) {
-					return opened.then( function ( closing ) {
-						return closing.then( function ( data ) {
-							var model;
-							if ( data && data.action === 'accept' ) {
-								// Open the dialog with an empty model
-								model = mw.TemplateData.Model.static.newFromObject(
-									{ params: {} },
-									target.sourceHandler.getTemplateSourceCodeParams()
-								);
-								target.openEditDialog( model );
-							}
-						} );
-					} );
+				} ).closed.then( function ( data ) {
+					var model;
+					if ( data && data.action === 'accept' ) {
+						// Open the dialog with an empty model
+						model = mw.TemplateData.Model.static.newFromObject(
+							{ params: {} },
+							target.sourceHandler.getTemplateSourceCodeParams()
+						);
+						target.openEditDialog( model );
+					}
 				} );
 			}
 		);
@@ -312,14 +308,11 @@ mw.TemplateData.Target.prototype.onDialogApply = function ( templateData ) {
 					label: mw.msg( 'templatedata-modal-button-apply' )
 				}
 			]
-		} )
-			.then( function ( opening ) { return opening; } )
-			.then( function ( opened ) { return opened; } )
-			.then( function ( data ) {
-				if ( data && data.action === 'apply' ) {
-					target.setWikitext( target.replaceTemplateData( templateData ) );
-				}
-			} );
+		} ).closed.then( function ( data ) {
+			if ( data && data.action === 'apply' ) {
+				target.setWikitext( target.replaceTemplateData( templateData ) );
+			}
+		} );
 	}
 };
 
