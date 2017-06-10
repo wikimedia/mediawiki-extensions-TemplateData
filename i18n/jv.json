@@ -44,7 +44,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Panganggo",
 	"templatedata-doc-params": "Paramèter cithakan",
 	"templatedata-editbutton": "Kemunah DataCithakan",
-	"templatedata-errormsg-jsonbadformat": "Format JSON ala. Panjenengan bisa murungaké lelakon iki supaya bisa didandani, busakana tag <templatedata> iki lan jajalana manèh, utawa lanjutana ngganti TemplateData iki karo sing anyar.",
+	"templatedata-errormsg-jsonbadformat": "Format JSON ala. Panjenengan bisa murungaké tumindak iki supaya bisa didandani, busaken tenger <templatedata> iki lan jajalen manèh, utawa bacuten ngganti TemplateData iki karo sing anyar.",
 	"templatedata-errormsg-insertblank": "Panjenengan yakin arep nglebokaké DataCithakan tanpa diwènèhi informasi?",
 	"templatedata-exists-on-related-page": "Gatèkaké: babagan DataCithakan wis ana ing kaca sing magepokan \"[[$1]]\".",
 	"templatedata-helplink": "Katerangan ngenani DataCithakan",
