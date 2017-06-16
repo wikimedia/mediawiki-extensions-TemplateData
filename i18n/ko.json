@@ -13,6 +13,7 @@
 			"Revi"
 		]
 	},
+	"apihelp-templatedata-summary": "TemplateData 확장 기능에 의해 저장된 데이터를 가져옵니다.",
 	"apierror-templatedata-corrupt": "페이지 #$1 틀데이터는 유효하지 않은 데이터가 포함되어 있습니다: $2",
 	"templatedata-desc": "(JSON을 사용하여) 틀 변수에 대한 데이터 저장소를 구현합니다",
 	"templatedata-doc-desc-empty": "설명이 없습니다.",

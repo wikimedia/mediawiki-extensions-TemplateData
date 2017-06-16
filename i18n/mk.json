@@ -5,6 +5,7 @@
 		]
 	},
 	"apihelp-templatedata-description": "Преземање на податоци складирани од додатокот „Шаблонски податоци“ (TemplateData).",
+	"apihelp-templatedata-summary": "Преземање на податоци складирани од додатокот „Шаблонски податоци“ (TemplateData).",
 	"apihelp-templatedata-example-1": "Дај податоци за [[Template:Stub]] и [[Template:Example]], со исходот ако шаблоните не постојат или постојат, но немаат шаблонски податоци",
 	"apihelp-templatedata-example-2": "Дај податоци за [[Template:Stub]] и [[Template:Example]], без исходот ако шаблоните не постојат или постојат, но немаат шаблонски податоци",
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "Давај податоци за наслови дури и ако ги нема или немаат шаблонски податоци. По основно (за назадна складност) се даваат само насловите што постојат и имаат шаблонски податоци.",
@@ -108,7 +109,7 @@
 	"templatedata-modal-title-language": "Јазик",
 	"templatedata-modal-title-paramorder": "Редослед на параметрите",
 	"templatedata-modal-title-templatedesc": "Опис на шаблонот ($1)",
-	"templatedata-modal-title-templateformat": "Претпочитана сроченост во шаблонот",
+	"templatedata-modal-title-templateformat": "Предложено форматирање на викитекстот",
 	"templatedata-modal-title-templateformatstring": "Низа во прилагодфен формат",
 	"templatedata-modal-title-templateparam-details": "Подробности за параметарот: $1",
 	"templatedata-modal-title-templateparams": "Шаблонски параметри"

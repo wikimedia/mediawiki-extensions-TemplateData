@@ -15,6 +15,7 @@
 		]
 	},
 	"apihelp-templatedata-description": "Obtém dados armazenados pela extensão TemplateData.",
+	"apihelp-templatedata-summary": "Obtém dados armazenados pela extensão TemplateData.",
 	"apihelp-templatedata-example-1": "Devolver TemplateData de [[Template:Stub]] e [[Template:Example]], com resultados se as predefinições não existem ou existem mas não contêm TemplateData",
 	"apihelp-templatedata-example-2": "Devolver TemplateData de [[Template:Stub]] e [[Template:Example]], sem resultados se as predefinições não existem ou existem mas não contêm TemplateData",
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "Devolver dados sobre os títulos, mesmo se estes não existem ou não contêm TemplateData. Por omissão (para compatibilidade com versões anteriores) os títulos só são devolvidos se existirem e contiverem TemplateData.",
