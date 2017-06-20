@@ -44,7 +44,6 @@ class TemplateDataBlob {
 	 * @return TemplateDataBlob
 	 */
 	public static function newFromJSON( $json ) {
-
 		$tdb = new self( json_decode( $json ) );
 
 		$status = $tdb->parse();
@@ -518,7 +517,7 @@ class TemplateDataBlob {
 									);
 								}
 							}
-						} elseif ( is_string( $value2 ) ){
+						} elseif ( is_string( $value2 ) ) {
 							if ( !isset( $data->params->$value2 ) ) {
 								return Status::newFatal(
 									'templatedata-invalid-param',

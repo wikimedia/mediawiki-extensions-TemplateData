@@ -70,7 +70,6 @@ class TemplateDataHooks {
 	public static function onPageContentSave( &$page, &$user, &$content, &$summary, $minor,
 		$watchthis, $sectionanchor, &$flags, &$status
 	) {
-
 		// The PageContentSave hook provides raw $text, but not $parser because at this stage
 		// the page is not actually parsed yet. Which means we can't know whether self::render()
 		// got a valid tag or not. Looking at $text directly is not a solution either as

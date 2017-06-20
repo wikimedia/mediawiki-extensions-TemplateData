@@ -697,7 +697,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			$t->getJSON(),
 			'Roundtrip: ' . $case['msg']
 		);
-
 	}
 
 	/**
@@ -1000,7 +999,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	 * @dataProvider provideGetDataInLanguage
 	 */
 	public function testGetDataInLanguage( array $case ) {
-
 		// Change content-language to be non-English so we can distinguish between the
 		// last 'en' fallback and the content language in our tests
 		$this->setMwGlobals( [

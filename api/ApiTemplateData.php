@@ -57,7 +57,7 @@ class ApiTemplateData extends ApiBase {
 		$legacyMode = !$this->getParameter( 'doNotIgnoreMissingTitles' );
 
 		if ( !count( $titles ) && ( $legacyMode || !count( $missingTitles ) ) ) {
-			$result->addValue( null, 'pages', (object) [] );
+			$result->addValue( null, 'pages', (object)[] );
 			return;
 		}
 
@@ -125,7 +125,7 @@ class ApiTemplateData extends ApiBase {
 					} else {
 						$resp[ $row->pp_page ] = [ 'title' => $titles[ $row->pp_page ] ];
 					}
-					$resp[$row->pp_page] += (array) $data;
+					$resp[$row->pp_page] += (array)$data;
 				}
 			}
 		}
@@ -134,7 +134,7 @@ class ApiTemplateData extends ApiBase {
 		ApiResult::setIndexedTagName( $resp, 'page' );
 
 		// Set top level element
-		$result->addValue( null, 'pages', (object) $resp );
+		$result->addValue( null, 'pages', (object)$resp );
 
 		$values = $pageSet->getNormalizedTitlesAsResult();
 		if ( $values ) {
