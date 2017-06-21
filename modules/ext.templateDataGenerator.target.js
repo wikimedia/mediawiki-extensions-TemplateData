@@ -203,7 +203,7 @@ mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
 			// Failure
 			function () {
 				// Open a message dialog
-				OO.ui.getWindowManager().openWindow( 'messageDialog', {
+				OO.ui.getWindowManager().openWindow( 'message', {
 					title: mw.msg( 'templatedata-modal-title' ),
 					message: mw.msg( 'templatedata-errormsg-jsonbadformat' ),
 					verbose: true,
@@ -295,7 +295,7 @@ mw.TemplateData.Target.prototype.onDialogApply = function ( templateData ) {
 		this.setWikitext( this.replaceTemplateData( templateData ) );
 	} else {
 		this.windowManager.closeWindow( this.windowManager.getCurrentWindow() );
-		OO.ui.getWindowManager().openWindow( 'messageDialog', {
+		OO.ui.getWindowManager().openWindow( 'message', {
 			title: mw.msg( 'templatedata-modal-title' ),
 			message: mw.msg( 'templatedata-errormsg-insertblank' ),
 			actions: [
