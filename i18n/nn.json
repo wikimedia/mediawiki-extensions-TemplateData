@@ -4,11 +4,18 @@
 			"Njardarlogar"
 		]
 	},
+	"templatedata-doc-desc-empty": "Inga skildring.",
+	"templatedata-doc-param-example": "Døme",
+	"templatedata-doc-param-desc": "Skildring",
+	"templatedata-doc-param-status-optional": "valfri",
+	"templatedata-doc-param-status-required": "påkravd",
 	"templatedata-editbutton": "Handsam maldokumentasjon",
 	"templatedata-helplink": "Informasjon om maldokumentasjonutvidinga",
 	"templatedata-modal-button-apply": "Bruk",
 	"templatedata-modal-button-cancel": "Bryt av",
 	"templatedata-modal-button-changelang": "Endra språk",
+	"templatedata-modal-table-param-description": "Skildring ($1)",
+	"templatedata-modal-table-param-example": "Døme ($1)",
 	"templatedata-modal-title": "Endring av maldokumentasjon",
 	"templatedata-modal-title-addparam": "Legg til ny parameter",
 	"templatedata-modal-title-choose-language": "Vel språk",
