@@ -133,8 +133,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 		}
 	);
 
-	this.descriptionInput = new OO.ui.TextInputWidget( {
-		multiline: true,
+	this.descriptionInput = new OO.ui.MultilineTextInputWidget( {
 		autosize: true
 	} );
 	this.templateDescriptionFieldset = new OO.ui.FieldsetLayout( {
@@ -744,7 +743,13 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 				propInput = new OO.ui.CheckboxInputWidget( config );
 				break;
 			default:
-				propInput = new OO.ui.TextInputWidget( config );
+				if ( config.multiline === true ) {
+					delete config.multiline;
+					propInput = new OO.ui.MultilineTextInputWidget( config );
+				} else {
+					delete config.multiline;
+					propInput = new OO.ui.TextInputWidget( config );
+				}
 				break;
 		}
 
