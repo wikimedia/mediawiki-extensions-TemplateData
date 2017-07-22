@@ -75,6 +75,7 @@
 	"templatedata-modal-placeholder-paramkey": "Nome do parâmetro",
 	"templatedata-modal-search-input-placeholder": "Buscar por nome ou código de idioma",
 	"templatedata-modal-table-param-actions": "Ações",
+	"templatedata-modal-table-param-aliases": "Nomes alternativos (separados por vírgula)",
 	"templatedata-modal-table-param-autovalue": "Valor automático",
 	"templatedata-modal-table-param-default": "Padrão ($1)",
 	"templatedata-modal-table-param-deprecated": "Obsoleto",
