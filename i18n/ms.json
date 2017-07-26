@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Anakmalaysia"
+			"Anakmalaysia",
+			"Jeluang Terluang"
 		]
 	},
 	"templatedata-desc": "Melaksanakan storan data bagi parameter templat (menggunakan JSON)",
@@ -13,7 +14,7 @@
 	"templatedata-doc-param-status": "Status",
 	"templatedata-doc-param-type": "Jenis",
 	"templatedata-doc-params": "Parameter templat",
-	"templatedata-invalid-length": "Data terlalu besar untuk menyimpan ({{formatnum:$1}} {{PLURAL:$1|bait}}, {{PLURAL:$2|hadnya}} adalah {{formatnum:$2}})",
+	"templatedata-invalid-length": "Data terlalu besar untuk disimpan ({{formatnum:$1}} {{PLURAL:$1|bait}}, {{PLURAL:$2|hadnya}} ialah {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Sifat \"$1\" yang dikehendaki tidak dijumpai.",
 	"templatedata-invalid-parse": "Ralat sintaks dalam JSON.",
 	"templatedata-invalid-type": "Sifat \"$1\" dijangka jenis \"$2\".",
