@@ -6,7 +6,8 @@
 			"Sujiniku",
 			"Otokoume",
 			"2nd-player",
-			"Ridmevo"
+			"Ridmevo",
+			"Translatealcd"
 		]
 	},
 	"apihelp-templatedata-description": "TemplateData 拡張機能によって保存されたデータを取得します。",
@@ -31,7 +32,7 @@
 	"templatedata-doc-param-status-suggested": "推奨",
 	"templatedata-doc-param-type": "型",
 	"templatedata-doc-param-type-boolean": "ブール値",
-	"templatedata-doc-param-type-content": "ウィキテキスト",
+	"templatedata-doc-param-type-content": "內容",
 	"templatedata-doc-param-type-date": "日時",
 	"templatedata-doc-param-type-line": "行",
 	"templatedata-doc-param-type-number": "数値",
@@ -71,8 +72,8 @@
 	"templatedata-modal-current-language": "現在の言語: $1",
 	"templatedata-modal-errormsg": "エラーが見つかりました。引数名に空欄や重複したものがないか、引数名に「$1」や「$2」、「$3」が含まれていないか確認してください。",
 	"templatedata-modal-errormsg-import-noparams": "取り込み時に新しい引数は見つかりませんでした。",
-	"templatedata-modal-format-inline": "インライン",
 	"templatedata-modal-format-block": "ブロック",
+	"templatedata-modal-format-inline": "インライン",
 	"templatedata-modal-format-null": "未定義",
 	"templatedata-modal-json-error-replace": "置換",
 	"templatedata-modal-notice-import-numparams": "$1 個の{{PLURAL:$1|引数}}が新たに取り込まれました: $2",
