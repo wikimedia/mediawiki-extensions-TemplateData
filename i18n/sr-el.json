@@ -7,6 +7,7 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "Nema opisa.",
+	"templatedata-doc-no-params-set": "Nema određenih parametara",
 	"templatedata-doc-param-autovalue": "Automatska vrednost",
 	"templatedata-doc-param-autovalue-empty": "prazno",
 	"templatedata-doc-param-default": "Podrazumevano",

@@ -12,6 +12,7 @@
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "Врати податке о насловима чак и ако недостају или немају TemplateData. Подразумевано (за компатибилност) наслови су се само враћају ако постоје и имају TemplateData.",
 	"apiwarn-templatedata-deprecation-legacyMode": "Подразумевани испис ће се изменити да укључи недостајуће наслове у будућности. Одредите <kbd>doNotIgnoreMissingTitles=1</kbd> експлицитно.",
 	"templatedata-doc-desc-empty": "Нема описа.",
+	"templatedata-doc-no-params-set": "Нема одређених параметара",
 	"templatedata-doc-param-autovalue": "Аутоматска вредност",
 	"templatedata-doc-param-autovalue-empty": "празно",
 	"templatedata-doc-param-default": "Подразумевано",
