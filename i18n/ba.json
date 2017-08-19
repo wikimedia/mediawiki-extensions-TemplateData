@@ -4,7 +4,8 @@
 			"Азат Хәлилов",
 			"Аҡҡашҡа",
 			"Янмурза Баки",
-			"Лилиә"
+			"Лилиә",
+			"Ләйсән"
 		]
 	},
 	"apihelp-templatedata-description": "TemplateData киңәйтеүендә һаҡланыусы мәғлүмәттәрҙе алырға.",
@@ -64,12 +65,12 @@
 	"templatedata-modal-button-importParams": "Параметрҙарҙы индерергә.",
 	"templatedata-modal-button-restoreparam": "Параметрҙы яңыртырға",
 	"templatedata-modal-button-saveparam": "Һаҡларға",
-	"templatedata-modal-confirmcancel": "Кире алырға уйлайһығыҙмы? Үҙгәртеүҙәрегеҙ юғаласаҡ.",
+	"templatedata-modal-confirmcancel": "Һеҙ ысынлап та индергән үҙгәртеүҙәрҙе кире алырға уйланығыҙмы?",
 	"templatedata-modal-current-language": "Ағымдағы тел: $1",
 	"templatedata-modal-errormsg": "Хаталар табылды. Параметрҙарҙың исемдәре буш түгел икәнен, ҡабатланмағанын һәм «$1», «$2» йә «$3» булмағанын ҡарағыҙ.",
 	"templatedata-modal-errormsg-import-noparams": "Индергән ваҡытта яңы параметрҙар табылманы",
-	"templatedata-modal-format-inline": "Һыҙылған",
 	"templatedata-modal-format-block": "Блок",
+	"templatedata-modal-format-inline": "Һыҙылған",
 	"templatedata-modal-json-error-replace": "Алмаштырырға",
 	"templatedata-modal-placeholder-paramkey": "Параметр исеме",
 	"templatedata-modal-search-input-placeholder": "Телдең атамһынан йәки уның кодынан эҙләргә.",
