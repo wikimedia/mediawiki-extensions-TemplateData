@@ -57,7 +57,7 @@ class TemplateDataHooks {
 	}
 
 	/**
-	 * @param Page &$page
+	 * @param WikiPage &$page
 	 * @param User &$user
 	 * @param Content &$content
 	 * @param string &$summary
@@ -66,6 +66,7 @@ class TemplateDataHooks {
 	 * @param $sectionanchor
 	 * @param &$flags
 	 * @param Status &$status
+	 * @return bool
 	 */
 	public static function onPageContentSave( &$page, &$user, &$content, &$summary, $minor,
 		$watchthis, $sectionanchor, &$flags, &$status
@@ -84,13 +85,11 @@ class TemplateDataHooks {
 		$format = $content->getContentHandler()->getDefaultFormat();
 		$editInfo = $page->prepareContentForEdit( $content, null, $user, $format );
 
-		if ( isset( $editInfo->output->ext_templatedata_status ) ) {
-			$validation = $editInfo->output->ext_templatedata_status;
-			if ( !$validation->isOK() ) {
-				// Abort edit, show error message from TemplateDataBlob::getStatus
-				$status->merge( $validation );
-				return false;
-			}
+		$templateDataStatus = $editInfo->output->getExtensionData( 'TemplateDataStatus' );
+		if ( $templateDataStatus instanceof Status && !$templateDataStatus->isOK() ) {
+			// Abort edit, show error message from TemplateDataBlob::getStatus
+			$status->merge( $templateDataStatus );
+			return false;
 		}
 		return true;
 	}
@@ -102,10 +101,10 @@ class TemplateDataHooks {
 	 * @param OutputPage $output
 	 * @return bool
 	 */
-	public static function onEditPage( $editPage, $output ) {
+	public static function onEditPage( EditPage $editPage, OutputPage $output ) {
 		global $wgTemplateDataUseGUI;
 		if ( $wgTemplateDataUseGUI ) {
-			if ( $output->getTitle()->getNamespace() === NS_TEMPLATE ) {
+			if ( $output->getTitle()->inNamespace( NS_TEMPLATE ) ) {
 				$output->addModules( 'ext.templateDataGenerator.editPage' );
 			}
 		}
@@ -130,7 +129,7 @@ class TemplateDataHooks {
 
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
-			$parser->getOutput()->ext_templatedata_status = $status;
+			$parser->getOutput()->setExtensionData( 'TemplateDataStatus', $status );
 			return '<div class="errorbox">' . $status->getHTML() . '</div>';
 		}
 
