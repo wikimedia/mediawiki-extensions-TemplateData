@@ -1,8 +1,46 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bunukwiki"
+			"Bunukwiki",
+			"Tokoabibi"
 		]
 	},
-	"templatedata-modal-button-cancel": "palawpes"
+	"templatedata-doc-param-autovalue": "kinatudung",
+	"templatedata-doc-param-autovalue-empty": "inayi’",
+	"templatedata-doc-param-default": "pataayaw tu kawaw",
+	"templatedata-doc-param-default-empty": "nayi’",
+	"templatedata-doc-param-example-empty": "inayi’",
+	"templatedata-doc-param-desc": "patahkal",
+	"templatedata-doc-param-status": "setyitase",
+	"templatedata-doc-param-status-optional": "u pili’ay sasulitan",
+	"templatedata-doc-param-status-required": "suliten aca",
+	"templatedata-doc-param-status-suggested": "patahkal nizateng",
+	"templatedata-doc-param-type-boolean": "Pulin-sueyi",
+	"templatedata-doc-param-type-content": "lacul",
+	"templatedata-doc-param-type-date": "demiad",
+	"templatedata-doc-param-type-line": "silsil",
+	"templatedata-doc-param-type-number": "sueyi",
+	"templatedata-doc-param-type-string": "sulisulitan",
+	"templatedata-doc-param-type-unknown": "caay kapulita",
+	"templatedata-doc-param-type-url": "URL",
+	"templatedata-doc-param-type-wiki-page-name": "kasabelih",
+	"templatedata-doc-param-type-wiki-user-name": "misaungayay",
+	"templatedata-modal-button-apply": "caedung",
+	"templatedata-modal-button-back": "tatiku",
+	"templatedata-modal-button-cancel": "palawpes",
+	"templatedata-modal-button-done": "pahezek",
+	"templatedata-modal-button-saveparam": "suped",
+	"templatedata-modal-format-block": "malangat",
+	"templatedata-modal-format-custom": "pakuniza misanga’",
+	"templatedata-modal-format-inline": "ilabu nu tusil",
+	"templatedata-modal-json-error-replace": "balic",
+	"templatedata-modal-table-param-actions": "saungay",
+	"templatedata-modal-table-param-autovalue": "kinatudung",
+	"templatedata-modal-table-param-default": "pataayaw tu kawaw ($1)",
+	"templatedata-modal-table-param-description": "patahkal  ($1)",
+	"templatedata-modal-table-param-example": "tinaku ($1)",
+	"templatedata-modal-table-param-label": "aazihen paya ($1)",
+	"templatedata-modal-table-param-name": "kalungangan",
+	"templatedata-modal-table-param-required": "suliten aca",
+	"templatedata-modal-table-param-suggested": "patahkal nizateng"
 }
