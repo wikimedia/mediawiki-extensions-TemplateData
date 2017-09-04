@@ -13,7 +13,7 @@
 	"templatedata-doc-param-desc": "patahkal",
 	"templatedata-doc-param-status": "setyitase",
 	"templatedata-doc-param-status-optional": "u pili’ay sasulitan",
-	"templatedata-doc-param-status-required": "suliten aca",
+	"templatedata-doc-param-status-required": "maydih",
 	"templatedata-doc-param-status-suggested": "patahkal nizateng",
 	"templatedata-doc-param-type-boolean": "Pulin-sueyi",
 	"templatedata-doc-param-type-content": "lacul",
@@ -41,6 +41,6 @@
 	"templatedata-modal-table-param-example": "tinaku ($1)",
 	"templatedata-modal-table-param-label": "aazihen paya ($1)",
 	"templatedata-modal-table-param-name": "kalungangan",
-	"templatedata-modal-table-param-required": "suliten aca",
+	"templatedata-modal-table-param-required": "maydih",
 	"templatedata-modal-table-param-suggested": "patahkal nizateng"
 }
