@@ -1,12 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Translatealcd"
+			"Translatealcd",
+			"Hitaypayan"
 		]
 	},
 	"templatedata-doc-param-status-suggested": "bniq na kay’",
 	"templatedata-doc-param-type-wiki-file-name": "Biru’ na zayzyuwaw",
+	"templatedata-editbutton": "Kklahang sa yaya’ na kkbalay sa ana nanu’",
 	"templatedata-modal-button-back": "’bzinah",
+	"templatedata-modal-button-delparam": "Laxiy quw chansu’ na ggalan kinbaq zayzyuwaw",
 	"templatedata-modal-button-saveparam": "Cucun",
-	"templatedata-modal-table-param-suggested": "Bniq na kay’"
+	"templatedata-modal-table-param-deprecatedValue": "Wal phngagun na psbaq",
+	"templatedata-modal-table-param-suggested": "Bniq na kay’",
+	"templatedata-modal-title-addparam": "Twangiy giqas na Chansu’"
 }
