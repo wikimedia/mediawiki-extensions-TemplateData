@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Bunukwiki",
-			"Tokoabibi"
+			"Tokoabibi",
+			"Benel"
 		]
 	},
 	"templatedata-doc-param-autovalue": "kinatudung",
@@ -25,10 +26,14 @@
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-page-name": "kasabelih",
 	"templatedata-doc-param-type-wiki-user-name": "misaungayay",
+	"templatedata-modal-button-add-language": "micunus tu kamu",
+	"templatedata-modal-button-addparam": "micunus aazihen a sulyang",
 	"templatedata-modal-button-apply": "caedung",
 	"templatedata-modal-button-back": "tatiku",
 	"templatedata-modal-button-cancel": "palawpes",
+	"templatedata-modal-button-changelang": "misaimed tu kamu",
 	"templatedata-modal-button-done": "pahezek",
+	"templatedata-modal-button-importParams": "pacumuden aazihen a sulyang",
 	"templatedata-modal-button-saveparam": "suped",
 	"templatedata-modal-format-block": "malangat",
 	"templatedata-modal-format-custom": "pakuniza misanga’",
