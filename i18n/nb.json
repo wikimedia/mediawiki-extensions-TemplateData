@@ -112,7 +112,7 @@
 	"templatedata-modal-title-language": "Språk",
 	"templatedata-modal-title-paramorder": "Parameter-rekkefølge",
 	"templatedata-modal-title-templatedesc": "Malbeskrivelse ($1)",
-	"templatedata-modal-title-templateformat": "Foretrukket format for formatering av parametere",
+	"templatedata-modal-title-templateformat": "Foreslått wikitekstformatering",
 	"templatedata-modal-title-templateformatstring": "Egendefinert formatstreng",
 	"templatedata-modal-title-templateparam-details": "Parameterdetaljer: $1",
 	"templatedata-modal-title-templateparams": "Malparametre"
