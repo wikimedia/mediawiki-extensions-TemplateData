@@ -44,6 +44,7 @@
 	"templatedata-modal-button-importParams": "pacumuden aazihen a sulyang",
 	"templatedata-modal-button-restoreparam": "patikuay aazihan a sulyang",
 	"templatedata-modal-button-saveparam": "suped",
+	"templatedata-modal-current-language": "ayza a kamu：$1",
 	"templatedata-modal-format-block": "milangat",
 	"templatedata-modal-format-custom": "pakuniza misanga’",
 	"templatedata-modal-format-inline": "ilabu nu tusil",
