@@ -52,6 +52,7 @@
 	"templatedata-modal-json-error-replace": "balic",
 	"templatedata-modal-placeholder-paramkey": "kalungangan nu aazihen a sulyang",
 	"templatedata-modal-table-param-actions": "saungay",
+	"templatedata-modal-table-param-aliases": "pacimilay ngangan (wdi-bacu palaliyas)",
 	"templatedata-modal-table-param-autovalue": "kinatudung",
 	"templatedata-modal-table-param-default": "pataayaw tu kawaw ($1)",
 	"templatedata-modal-table-param-deprecated": "caay patahkal nizateng  pisaungay",
@@ -68,5 +69,7 @@
 	"templatedata-modal-title-addparam": "micunus baluhay aazihen a sulyang",
 	"templatedata-modal-title-choose-language": "mipili’ kamu",
 	"templatedata-modal-title-paramorder": "kasalaylay nu aazihen a sulyang",
+	"templatedata-modal-title-templatedesc": "taazihan-mitudung sapuelac ($1)",
+	"templatedata-modal-title-templateparam-details": "aazihen a sulyang pulita  kalunasulitan: $1",
 	"templatedata-modal-title-templateparams": "taazihan mitudung aazihen a sulyang"
 }

@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Octahedron80"
+			"Octahedron80",
+			"Ans"
 		]
 	},
 	"apihelp-templatedata-description": "ดึงข้อมูลที่บันทึกโดยส่วนขยายข้อมูลแม่แบบ",
@@ -57,7 +58,7 @@
 	"templatedata-modal-table-param-autovalue": "ค่าอัตโนมัติ",
 	"templatedata-modal-table-param-default": "ค่าปริยาย",
 	"templatedata-modal-table-param-description": "คำอธิบาย",
-	"templatedata-modal-table-param-label": "ป้ายฉลาก",
+	"templatedata-modal-table-param-label": "ป้ายชื่อ ($1)",
 	"templatedata-modal-table-param-name": "ชื่อ",
 	"templatedata-modal-table-param-required": "จำเป็น",
 	"templatedata-modal-table-param-suggested": "แนะนำ",
