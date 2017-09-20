@@ -172,7 +172,7 @@ class TemplateDataBlob {
 				$data->format;
 			if (
 				!is_string( $f ) ||
-				!preg_match( '/^\n?\{\{ *_+ *\n?\|\n? *_+ *= *_+\n? *\}\}\n?$/', $f )
+				!preg_match( '/^\n?\{\{ *_+\n? *\|\n? *_+ *= *_+\n? *\}\}\n?$/', $f )
 			) {
 				return Status::newFatal(
 					'templatedata-invalid-format',
