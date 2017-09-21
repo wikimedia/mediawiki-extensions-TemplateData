@@ -284,8 +284,8 @@ The key corresponds to the name of a Consumer variable that relates to the speci
 A format string describes how whitespace should be added to a template instantiation in wikitext.  A format string looks like `{{_|_=_}}`, with optional whitespace and extended underscores.  Formally, its structure is given by the following grammar:
 ```
 FormatString = StartFormat ParameterFormat EndFormat
-StartFormat = nl? "{{" ws* Hole ws*
-ParameterFormat = nl? "|" nl? ws* Hole ws* "=" ws* Hole
+StartFormat = nl? "{{" ws* Hole
+ParameterFormat = nl? ws* "|" nl? ws* Hole ws* "=" ws* Hole
 EndFormat = nl? ws* "}}" nl?
 Hole = "_"+
 ws = " "
