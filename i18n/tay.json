@@ -32,14 +32,18 @@
 	"templatedata-doc-param-type-wiki-page-name": "Zzngayan",
 	"templatedata-doc-param-type-wiki-template-name": "Yaya’ na kkbalay nn nanu’",
 	"templatedata-doc-param-type-wiki-user-name": "Mning",
+	"templatedata-doc-params": "Chansu’ na yaya’ na kkbalay nn-nanu’",
 	"templatedata-editbutton": "Kklahang sa yaya’ na kkbalay sa ana nanu’",
+	"templatedata-modal-button-add-language": "Twangiy kay’",
 	"templatedata-modal-button-addparam": "Twangiy sa chansu",
 	"templatedata-modal-button-apply": "Siy galiy",
 	"templatedata-modal-button-back": "’bzinah",
 	"templatedata-modal-button-cancel": "Laxan",
+	"templatedata-modal-button-changelang": "Sbah kay’",
 	"templatedata-modal-button-delparam": "Laxiy quw chansu’ na ggalan kinbaq zayzyuwaw",
 	"templatedata-modal-button-done": "Tmasuq",
 	"templatedata-modal-button-importParams": "Pgwah tay qsahuy sa chansu’",
+	"templatedata-modal-button-restoreparam": "Psbzinah quw chansu’",
 	"templatedata-modal-button-saveparam": "Cucun",
 	"templatedata-modal-format-block": "Rhzyal",
 	"templatedata-modal-format-custom": "Sinpung nanak",
@@ -61,5 +65,7 @@
 	"templatedata-modal-table-param-type": "Gluw na mmntnaq",
 	"templatedata-modal-table-param-uneditablefield": "Laxiy sr’ciy miru’",
 	"templatedata-modal-title-addparam": "Twangiy giqas na Chansu’",
-	"templatedata-modal-title-paramorder": "Gaga’ ptgaygyutan na chansu’"
+	"templatedata-modal-title-choose-language": "Wazyaw kay’",
+	"templatedata-modal-title-paramorder": "Gaga’ ptgaygyutan na chansu’",
+	"templatedata-modal-title-templateparams": "Chansu’ na yaya’ na kkbalay nn-nanu’"
 }
