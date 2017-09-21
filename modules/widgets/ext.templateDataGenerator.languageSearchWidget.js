@@ -121,7 +121,7 @@ mw.TemplateData.LanguageSearchWidget.prototype.addResults = function () {
 
 	this.results.addItems( items );
 	if ( hasQuery ) {
-		this.results.highlightItem( this.results.getFirstSelectableItem() );
+		this.results.highlightItem( this.results.findFirstSelectableItem() );
 	}
 };
 
