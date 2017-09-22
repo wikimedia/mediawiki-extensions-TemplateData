@@ -6,6 +6,7 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "Ungat pinqzyuwan.",
+	"templatedata-doc-no-params-set": "Ini’ niya’ pintrnganiy maha chansu’ na nanu’",
 	"templatedata-doc-param-autovalue": "Rima’ sni’ kya na biru’",
 	"templatedata-doc-param-autovalue-empty": "ungat ana nanu’",
 	"templatedata-doc-param-default": "Pinnama’ smi’",
@@ -58,6 +59,7 @@
 	"templatedata-modal-table-param-deprecatedValue": "Wal phngagun na psbaq",
 	"templatedata-modal-table-param-description": "Myawsu’ ($1)",
 	"templatedata-modal-table-param-example": "Pinkaykita’ naha’ sa ppslungan ($1)",
+	"templatedata-modal-table-param-importoption-subtitle": "Kwara’ kin na: $1",
 	"templatedata-modal-table-param-label": "Qinlah lalu’ ($1)",
 	"templatedata-modal-table-param-name": "Lalu’ qinlah lalu’",
 	"templatedata-modal-table-param-required": "Siykiy brwan",
