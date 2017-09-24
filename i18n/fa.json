@@ -9,7 +9,8 @@
 			"Danialbehzadi",
 			"Dalba",
 			"AzorAhai",
-			"Arash.pt"
+			"Arash.pt",
+			"Ladsgroup"
 		]
 	},
 	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ TemplateData.",
@@ -43,8 +44,10 @@
 	"templatedata-doc-param-type-string": "رشته",
 	"templatedata-doc-param-type-unbalanced-wikitext": "ویکی‌متن نامتوازن",
 	"templatedata-doc-param-type-unknown": "ناشناخته",
+	"templatedata-doc-param-type-url": "نشانی اینترنتی",
 	"templatedata-doc-param-type-wiki-file-name": "پرونده",
 	"templatedata-doc-param-type-wiki-page-name": "صفحه",
+	"templatedata-doc-param-type-wiki-template-name": "الگو",
 	"templatedata-doc-param-type-wiki-user-name": "کاربر",
 	"templatedata-doc-params": "پارامترهای الگو",
 	"templatedata-editbutton": "مدیریت TemplateData",
@@ -74,6 +77,7 @@
 	"templatedata-modal-current-language": "زبان کنونی: $1",
 	"templatedata-modal-errormsg": "خطاهایی پیدا شدند. لطفاً مطمئن شوید که هیچ نام پارامتری خالی یا تکراری نیست، و اینکه نام پارامتر شامل «$1»، «$2» یا «$3» نیست.",
 	"templatedata-modal-errormsg-import-noparams": "هیچ پارامتر تازه‌ای طی واردکردن پیدا نشد.",
+	"templatedata-modal-format-block": "بستن",
 	"templatedata-modal-format-custom": "سفارشی",
 	"templatedata-modal-json-error-replace": "جایگزینی",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|پارامتر|پارامتر}} تازه وارد شد: $2",
@@ -85,6 +89,7 @@
 	"templatedata-modal-table-param-default": "پیش‌گزیده ($1)",
 	"templatedata-modal-table-param-deprecated": "منسوخ‌شده",
 	"templatedata-modal-table-param-description": "شرح ($1)",
+	"templatedata-modal-table-param-example": "مثال ($1)",
 	"templatedata-modal-table-param-importoption": "افزودن $1 {{PLURAL:$1|پارامتر|پارامتر}} پیشنهادشده",
 	"templatedata-modal-table-param-importoption-subtitle": "شامل: $1",
 	"templatedata-modal-table-param-label": "برچسب ($1)",
