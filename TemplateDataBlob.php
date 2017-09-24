@@ -561,7 +561,8 @@ class TemplateDataBlob {
 
 	/**
 	 * Normalise a InterfaceText field in the TemplateData blob.
-	 * @return stdClass|string $text
+	 * @param stdClass|string $text
+	 * @return stdClass|string
 	 */
 	protected static function normaliseInterfaceText( $text ) {
 		if ( is_string( $text ) ) {
