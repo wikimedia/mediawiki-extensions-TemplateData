@@ -9,6 +9,8 @@
 class TemplateDataHooks {
 	/**
 	 * Register parser hooks
+	 * @param Parser &$parser
+	 * @return bool
 	 */
 	public static function onParserFirstCallInit( &$parser ) {
 		$parser->setHook( 'templatedata', [ 'TemplateDataHooks', 'render' ] );
@@ -17,6 +19,9 @@ class TemplateDataHooks {
 
 	/**
 	 * Register qunit unit tests
+	 * @param array &$testModules
+	 * @param ResourceLoader &$resourceLoader
+	 * @return bool
 	 */
 	public static function onResourceLoaderTestModules(
 		array &$testModules,
@@ -35,7 +40,7 @@ class TemplateDataHooks {
 	 * Conditionally register the jquery.uls.data module, in case they've already been
 	 * registered by the UniversalLanguageSelector extension or the VisualEditor extension.
 	 *
-	 * @param ResourceLoader $resourceLoader
+	 * @param ResourceLoader &$resourceLoader
 	 * @return boolean true
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
@@ -61,10 +66,10 @@ class TemplateDataHooks {
 	 * @param User &$user
 	 * @param Content &$content
 	 * @param string &$summary
-	 * @param $minor
+	 * @param bool $minor
 	 * @param bool|null $watchthis
-	 * @param $sectionanchor
-	 * @param &$flags
+	 * @param string $sectionanchor
+	 * @param int &$flags
 	 * @param Status &$status
 	 * @return bool
 	 */
