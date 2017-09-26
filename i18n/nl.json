@@ -14,12 +14,14 @@
 			"HanV",
 			"Robin van der Vliet",
 			"Dinosaur918",
-			"Mainframe98"
+			"Mainframe98",
+			"Mbch331"
 		]
 	},
 	"templatedata-desc": "Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)",
 	"templatedata-doc-desc-empty": "Geen beschrijving.",
 	"templatedata-doc-format-block": "Dit sjabloon prefereert verticaal als blok geformateerde parameters.",
+	"templatedata-doc-format-custom": "Dit sjabloon heeft een aangepaste opmaak.",
 	"templatedata-doc-format-inline": "Dit sjabloon prefereert horizontaal in lijn geformateerde parameters.",
 	"templatedata-doc-no-params-set": "Geen parameters opgegeven",
 	"templatedata-doc-param-autovalue": "Automatische waarde",
