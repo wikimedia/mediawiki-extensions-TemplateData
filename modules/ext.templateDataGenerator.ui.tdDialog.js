@@ -36,7 +36,7 @@ mw.TemplateData.Dialog.static.actions = [
 	{
 		action: 'apply',
 		label: mw.msg( 'templatedata-modal-button-apply' ),
-		flags: [ 'primary', 'constructive' ],
+		flags: [ 'primary', 'progressive' ],
 		modes: 'list'
 	},
 	{
@@ -48,7 +48,7 @@ mw.TemplateData.Dialog.static.actions = [
 	{
 		action: 'add',
 		label: mw.msg( 'templatedata-modal-button-addparam' ),
-		flags: [ 'constructive' ],
+		flags: [ 'progressive' ],
 		modes: 'list'
 	},
 	{
