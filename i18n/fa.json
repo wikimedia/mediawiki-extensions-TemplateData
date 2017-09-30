@@ -79,6 +79,8 @@
 	"templatedata-modal-errormsg-import-noparams": "هیچ پارامتر تازه‌ای طی واردکردن پیدا نشد.",
 	"templatedata-modal-format-block": "بستن",
 	"templatedata-modal-format-custom": "سفارشی",
+	"templatedata-modal-format-inline": "درخط",
+	"templatedata-modal-format-null": "نامشخص",
 	"templatedata-modal-json-error-replace": "جایگزینی",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|پارامتر|پارامتر}} تازه وارد شد: $2",
 	"templatedata-modal-placeholder-paramkey": "نام پارامتر",
