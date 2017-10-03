@@ -11,7 +11,7 @@
 mw.TemplateData.LanguageSearchWidget = function mwTemplateDataLanguageSearchWidget( config ) {
 	var i, l, languageCode, languageCodes;
 
-	// Configuration intialization
+	// Configuration initialization
 	config = $.extend( {
 		placeholder: mw.msg( 'templatedata-modal-search-input-placeholder' )
 	}, config );
@@ -91,19 +91,21 @@ mw.TemplateData.LanguageSearchWidget.prototype.addResults = function () {
 	var i, iLen, j, jLen, languageResult, data, matchedProperty,
 		matchProperties = [ 'name', 'autonym', 'code' ],
 		query = this.query.getValue().trim(),
-		matcher = new RegExp( '^' + this.constructor.static.escapeRegex( query ), 'i' ),
+		compare = window.Intl && Intl.Collator ?
+			new Intl.Collator( this.lang, { sensitivity: 'base' } ).compare :
+			function ( a, b ) { return a.toLowerCase() === b.toLowerCase() ? 0 : 1; },
 		hasQuery = !!query.length,
 		items = [];
 
 	this.results.clearItems();
 
-	for ( i = 0, iLen = this.languageResultWidgets.length; i < iLen; i++ ) {
-		languageResult = this.languageResultWidgets[ i ];
+	for ( i = 0, iLen = this.filteredLanguageResultWidgets.length; i < iLen; i++ ) {
+		languageResult = this.filteredLanguageResultWidgets[ i ];
 		data = languageResult.getData();
 		matchedProperty = null;
 
 		for ( j = 0, jLen = matchProperties.length; j < jLen; j++ ) {
-			if ( matcher.test( data[ matchProperties[ j ] ] ) ) {
+			if ( data[ matchProperties[ j ] ] && compare( data[ matchProperties[ j ] ].slice( 0, query.length ), query ) === 0 ) {
 				matchedProperty = matchProperties[ j ];
 				break;
 			}
@@ -112,7 +114,7 @@ mw.TemplateData.LanguageSearchWidget.prototype.addResults = function () {
 		if ( query === '' || matchedProperty ) {
 			items.push(
 				languageResult
-					.updateLabel( query, matchedProperty )
+					.updateLabel( query, matchedProperty, compare )
 					.setSelected( false )
 					.setHighlighted( false )
 			);
@@ -123,16 +125,4 @@ mw.TemplateData.LanguageSearchWidget.prototype.addResults = function () {
 	if ( hasQuery ) {
 		this.results.highlightItem( this.results.findFirstSelectableItem() );
 	}
-};
-
-/**
- * Escape regex.
- *
- * Ported from Languagefilter#escapeRegex in jquery.uls.
- *
- * @param {string} value Text
- * @return {string} Text escaped for use in regex
- */
-mw.TemplateData.LanguageSearchWidget.static.escapeRegex = function ( value ) {
-	return value.replace( /[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&' );
 };
