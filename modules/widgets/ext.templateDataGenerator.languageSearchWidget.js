@@ -134,5 +134,5 @@ mw.TemplateData.LanguageSearchWidget.prototype.addResults = function () {
  * @return {string} Text escaped for use in regex
  */
 mw.TemplateData.LanguageSearchWidget.static.escapeRegex = function ( value ) {
-	return value.replace( /[\-\[\]{}()*+?.,\\\^$\|#\s]/g, '\\$&' );
+	return value.replace( /[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&' );
 };

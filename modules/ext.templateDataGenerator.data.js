@@ -118,7 +118,7 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 		name: {
 			type: 'string',
 			// Validation regex
-			restrict: /[\|=]|}}/
+			restrict: /[|=]|}}/
 		},
 		aliases: {
 			type: 'array',
