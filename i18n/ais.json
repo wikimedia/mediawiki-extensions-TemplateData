@@ -6,6 +6,7 @@
 			"Benel"
 		]
 	},
+	"templatedata-desc": "malaheci taazihan-mitudung aazihen-sulyang a kalunasulitan misuped (pisaungay JSON)",
 	"templatedata-doc-desc-empty": "inayi’ sapuelac.",
 	"templatedata-doc-no-params-set": "caayhen matuzu’ay aazihen a sulyang",
 	"templatedata-doc-param-autovalue": "kinatudung",
@@ -37,7 +38,9 @@
 	"templatedata-helplink": "mahizaay TemplateData a cesyun",
 	"templatedata-invalid-empty-array": "susin \"$1\" papazengan tu nisulitan anu inayi’ i cacay a sulyang",
 	"templatedata-invalid-missing": "caay katepa suliten naca a susin \"$1\".",
+	"templatedata-invalid-param": "pabeli susin \"$2\" a aazihen-sulyang \"$1\" la’cus.",
 	"templatedata-invalid-parse": "JSON kamu-saklul mungangaw.",
+	"templatedata-invalid-type": "susin \"$1\" talaayaway mazateng  nikalahizaan ku \"$2\".",
 	"templatedata-invalid-unknown": "talibahalay a susin \"$1\".",
 	"templatedata-invalid-value": "susin \"$1\" a sulyang la’cus.",
 	"templatedata-modal-button-add-language": "micunus tu kamu",
