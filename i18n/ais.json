@@ -6,6 +6,8 @@
 			"Benel"
 		]
 	},
+	"apihelp-templatedata-description": "maala nay TemplateData sacunus suped a kalunasulitan.",
+	"apihelp-templatedata-param-lang": "maminay pisaungay tina kamu a sanuniyazu’en kalunasulitan. pataayaw tu kawaw amaminay tu  sacahamin kapahay a belih.",
 	"templatedata-desc": "malaheci taazihan-mitudung aazihen-sulyang a kalunasulitan misuped (pisaungay JSON)",
 	"templatedata-doc-desc-empty": "inayi’ sapuelac.",
 	"templatedata-doc-no-params-set": "caayhen matuzu’ay aazihen a sulyang",
@@ -36,6 +38,7 @@
 	"templatedata-doc-params": "taazihan mitudung aazihen a sulyang",
 	"templatedata-editbutton": "kuwan taazihan mitudung  kalunasulitan",
 	"templatedata-helplink": "mahizaay TemplateData a cesyun",
+	"templatedata-invalid-duplicate-value": "susin \"$1\" (\"$3\") atu \"$2\" misaliyaw.",
 	"templatedata-invalid-empty-array": "susin \"$1\" papazengan tu nisulitan anu inayi’ i cacay a sulyang",
 	"templatedata-invalid-missing": "caay katepa suliten naca a susin \"$1\".",
 	"templatedata-invalid-param": "pabeli susin \"$2\" a aazihen-sulyang \"$1\" la’cus.",
@@ -61,6 +64,7 @@
 	"templatedata-modal-format-inline": "ilabu nu tusil",
 	"templatedata-modal-format-null": "caay henay misaheci",
 	"templatedata-modal-json-error-replace": "balic",
+	"templatedata-modal-notice-import-numparams": "pacumud tu $1 {{PLURAL:$1|aazihen-sulyang}}: $2",
 	"templatedata-modal-placeholder-paramkey": "kalungangan nu aazihen a sulyang",
 	"templatedata-modal-search-input-placeholder": "kilul kamu kalungangan saca kodo mikilim",
 	"templatedata-modal-table-param-actions": "saungay",
