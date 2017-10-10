@@ -17,7 +17,7 @@
 	"templatedata-desc": "Implementuje datové úložiště pro parametry šablon (pomocí JSON)",
 	"templatedata-doc-desc-empty": "Bez popisu.",
 	"templatedata-doc-format-block": "Tato šablona upřednostňuje parametry formátované v bloku.",
-	"templatedata-doc-format-custom": "Tato šablona má nastavený styl formátování.",
+	"templatedata-doc-format-custom": "Tato šablona má vlastní formátování.",
 	"templatedata-doc-format-inline": "Tato šablona upřednostňuje parametry formátované v jediném řádku.",
 	"templatedata-doc-no-params-set": "Nebyly uvedeny žádné parametry",
 	"templatedata-doc-param-autovalue": "Automatická hodnota",
