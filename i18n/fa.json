@@ -10,11 +10,12 @@
 			"Dalba",
 			"AzorAhai",
 			"Arash.pt",
-			"Ladsgroup"
+			"Ladsgroup",
+			"Huji"
 		]
 	},
 	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ TemplateData.",
-	"apihelp-templatedata-example-1": "برگرداندن داده‌های [[Template:Stub]] و [[Template:Example]]",
+	"apihelp-templatedata-example-1": "برگرداندن داده‌های الگو برای [[Template:Stub]] و [[Template:Example]]، به همراه نتیجه اگر که الگو موجود نیست یا موجود است اما داده‌های الگو موجود نیست",
 	"apihelp-templatedata-param-lang": "برگرداندن مقادیر محلی به این زبان. به طور پیش‌فرض همهٔ ترجمه‌های موجود برگردانده شده‌اند.",
 	"templatedata-desc": "پیاده‌سازی ذخیره‌سازی داده‌های پارامترهای الگو (با استفاده از جی‌سن)",
 	"templatedata-doc-desc-empty": "بدون توصیف.",
