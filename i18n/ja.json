@@ -15,6 +15,8 @@
 	"apihelp-templatedata-param-lang": "この言語に地域化された値を返します。既定では、すべてのサポートされている翻訳が返されます。",
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
 	"templatedata-doc-desc-empty": "説明はありません。",
+	"templatedata-doc-format-block": "このテンプレートは、パラメータを複数行に分けて記述することが推奨されています。",
+	"templatedata-doc-format-inline": "このテンプレートは、パラメータを1行で記述することが推奨されています。",
 	"templatedata-doc-no-params-set": "パラメーターが指定されていません",
 	"templatedata-doc-param-autovalue": "自動入力値",
 	"templatedata-doc-param-autovalue-empty": "空",
