@@ -4,7 +4,7 @@
 
 <dl>
   <dt>This version</dt>
-  <dd><a href="https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FTemplateData/master/Specification.md">https://git.wikimedia.org/blob/mediawiki%2Fextensions%2FTemplateData/master/Specification.md</a></dd>
+  <dd><a href="https://phabricator.wikimedia.org/diffusion/ETDA/browse/master/Specification.md">https://phabricator.wikimedia.org/diffusion/ETDA/browse/master/Specification.md</a></dd>
   <dt>Editors</dt>
   <dd>Timo Tijhof, Trevor Parscal, James D. Forrester, Marielle Volz, Moriel Schottlender, C.Scott Ananian, eranroz</dd>
 </dl>
