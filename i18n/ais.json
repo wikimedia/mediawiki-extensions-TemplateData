@@ -37,6 +37,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "misaungayay",
 	"templatedata-doc-params": "taazihan mitudung aazihen a sulyang",
 	"templatedata-editbutton": "kuwan taazihan mitudung  kalunasulitan",
+	"templatedata-exists-on-related-page": "kapiazihen: izaay tu i kasabelih \"[[$1]]\" mahizaay u TemplateData atilad.",
 	"templatedata-helplink": "mahizaay TemplateData a cesyun",
 	"templatedata-invalid-duplicate-value": "susin \"$1\" (\"$3\") atu \"$2\" misaliyaw.",
 	"templatedata-invalid-empty-array": "susin \"$1\" papazengan tu nisulitan anu inayi’ i cacay a sulyang",
