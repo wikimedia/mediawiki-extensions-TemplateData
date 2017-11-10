@@ -6,8 +6,8 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "Nav apraksta.",
-	"templatedata-doc-format-inline": "Šai veidnei parametrus pieņemts izmantot vienā rindā.",
 	"templatedata-doc-format-block": "Šai veidnei parametrus pieņemts izmantot bloka formā.",
+	"templatedata-doc-format-inline": "Šai veidnei parametrus pieņemts izmantot vienā rindā.",
 	"templatedata-doc-no-params-set": "Parametri nav norādīti",
 	"templatedata-doc-param-autovalue": "Automātiskā vērtība",
 	"templatedata-doc-param-autovalue-empty": "Tukšs",
@@ -27,7 +27,7 @@
 	"templatedata-doc-param-type-boolean": "Būla",
 	"templatedata-doc-param-type-content": "Saturs",
 	"templatedata-doc-param-type-date": "Datums",
-	"templatedata-doc-param-type-line": "Līnija",
+	"templatedata-doc-param-type-line": "Īss teksts",
 	"templatedata-doc-param-type-number": "Skaitlis",
 	"templatedata-doc-param-type-string": "Teksts",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Nesabalansēts vikiteksts",
@@ -54,8 +54,8 @@
 	"templatedata-modal-confirmcancel": "Vai tiešām atcelt? Visas izmaiņas tika pazaudētas.",
 	"templatedata-modal-current-language": "Pašreizējā valoda: $1",
 	"templatedata-modal-errormsg-import-noparams": "Importa laikā nav atrasti jauni parametri.",
-	"templatedata-modal-format-inline": "Vienā rindā",
 	"templatedata-modal-format-block": "Bloks",
+	"templatedata-modal-format-inline": "Vienā rindā",
 	"templatedata-modal-format-null": "Nav norādīts",
 	"templatedata-modal-json-error-replace": "Aizvietot",
 	"templatedata-modal-placeholder-paramkey": "Parametra nosaukums",
@@ -82,7 +82,7 @@
 	"templatedata-modal-title-language": "Valoda",
 	"templatedata-modal-title-paramorder": "Parametru secība",
 	"templatedata-modal-title-templatedesc": "Veidnes apraksts ($1)",
-	"templatedata-modal-title-templateformat": "Veidnes vēlamais formāts",
+	"templatedata-modal-title-templateformat": "Ieteiktas vikiteksta noformējums",
 	"templatedata-modal-title-templateparam-details": "Parametra detaļas: $1",
 	"templatedata-modal-title-templateparams": "Veidnes parametri"
 }
