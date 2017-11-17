@@ -42,5 +42,12 @@
 	"templatedata-invalid-type": "S'aspettave ca 'a probbietà \"$1\" ere de tipe \"$2\".",
 	"templatedata-invalid-unknown": "Probbietà inaspettate \"$1\".",
 	"templatedata-invalid-value": "Valore invalide pa probbietà \"$1\".",
-	"templatedata-modal-button-done": "Fatte"
+	"templatedata-modal-button-add-language": "Aggiunge 'na lènghe",
+	"templatedata-modal-button-addparam": "Aggiunge 'nu parametre",
+	"templatedata-modal-button-apply": "Appleche",
+	"templatedata-modal-button-back": "Rrete",
+	"templatedata-modal-button-cancel": "Annulle",
+	"templatedata-modal-button-changelang": "Cange 'a lènghe",
+	"templatedata-modal-button-done": "Fatte",
+	"templatedata-modal-button-saveparam": "Reggìstre"
 }
