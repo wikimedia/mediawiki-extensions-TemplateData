@@ -79,6 +79,7 @@
 	"templatedata-modal-table-param-deprecatedValue": "mapasatezepay a pasubana’",
 	"templatedata-modal-table-param-description": "sapuelac  ($1)",
 	"templatedata-modal-table-param-example": "tinaku ($1)",
+	"templatedata-modal-table-param-importoption": "micunus $1 nabalucu’an a {{PLURAL:$1|aazihen-sulyang}}",
 	"templatedata-modal-table-param-importoption-subtitle": "yamalyilu: $1",
 	"templatedata-modal-table-param-label": "aazihen paya ($1)",
 	"templatedata-modal-table-param-name": "kalungangan",
