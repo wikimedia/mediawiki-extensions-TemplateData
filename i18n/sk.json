@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Sudo77(new)",
-			"Teslaton"
+			"Teslaton",
+			"TomášPolonec"
 		]
 	},
 	"templatedata-desc": "Implementuje dátové úložisko pre parametre šablón (pomocou JSON)",
@@ -60,7 +61,7 @@
 	"templatedata-modal-table-param-label": "Štítok",
 	"templatedata-modal-table-param-name": "Meno",
 	"templatedata-modal-table-param-required": "Povinný",
-	"templatedata-modal-table-param-suggested": "Doporučené",
+	"templatedata-modal-table-param-suggested": "Odporučené",
 	"templatedata-modal-table-param-type": "Typ",
 	"templatedata-modal-table-param-uneditablefield": "Neupraviteľné",
 	"templatedata-modal-title": "Editor dokumentácie šablóny",
