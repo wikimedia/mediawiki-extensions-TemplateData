@@ -25,6 +25,6 @@
 	"templatedata-invalid-type": "Disgwylir i'r briodwedd \"$1\" fod o'r math \"$2\".",
 	"templatedata-invalid-unknown": "Priodwedd annisgwyl, \"$1\".",
 	"templatedata-invalid-value": "Gwerth annilys i'r briodwedd \"$1\".",
-	"templatedata-modal-format-inline": "Mewn-lein",
-	"templatedata-modal-format-block": "Bloc"
+	"templatedata-modal-format-block": "Bloc",
+	"templatedata-modal-format-inline": "Mewn-lein"
 }

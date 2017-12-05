@@ -5,7 +5,7 @@
 			"Anj.balaji"
 		]
 	},
-	"templatedata-modal-table-param-example": "எடுத்துக்காட்டு ($1)",
-	"templatedata-modal-table-param-type-url": "உரலி",
-	"templatedata-modal-table-param-type-wiki-template-name": "ஆதாரப் படிமம்"
+	"templatedata-doc-param-type-url": "உரலி",
+	"templatedata-doc-param-type-wiki-template-name": "ஆதாரப் படிமம்",
+	"templatedata-modal-table-param-example": "எடுத்துக்காட்டு ($1)"
 }
