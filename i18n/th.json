@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Octahedron80",
-			"Ans"
+			"Ans",
+			"Horus"
 		]
 	},
 	"apihelp-templatedata-description": "ดึงข้อมูลที่บันทึกโดยส่วนขยายข้อมูลแม่แบบ",
@@ -48,7 +49,7 @@
 	"templatedata-modal-button-addparam": "เพิ่มพารามิเตอร์",
 	"templatedata-modal-button-apply": "ใช้งาน",
 	"templatedata-modal-button-cancel": "ยกเลิก",
-	"templatedata-modal-button-delparam": "นำออก",
+	"templatedata-modal-button-delparam": "ลบสารสนเทศตัวแปรเสริม",
 	"templatedata-modal-button-importParams": "นำเข้าพารามิเตอร์",
 	"templatedata-modal-errormsg": "พบความผิดพลาด กรุณาแน่ใจว่าไม่มีชื่อพารามิเตอร์ที่ว่างหรือซ้ำกัน และชื่อพารามิเตอร์ต้องไม่มี \"$1\", \"$2\" หรือ \"$3\"",
 	"templatedata-modal-errormsg-import-noparams": "ไม่พบพารามิเตอร์ใหม่ระหว่างการนำเข้า",
