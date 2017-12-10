@@ -73,7 +73,7 @@ class TemplateDataHooks {
 	 * @param Status &$status
 	 * @return bool
 	 */
-	public static function onPageContentSave( &$page, &$user, &$content, &$summary, $minor,
+	public static function onPageContentSave( WikiPage &$page, &$user, &$content, &$summary, $minor,
 		$watchthis, $sectionanchor, &$flags, &$status
 	) {
 		// The PageContentSave hook provides raw $text, but not $parser because at this stage
