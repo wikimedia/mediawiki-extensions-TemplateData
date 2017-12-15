@@ -21,7 +21,7 @@
 		"templatedata": "ApiTemplateData"
 	},
 	"AutoloadClasses": {
-		"TemplateDataHooks": "TemplateData.hooks.php",
+		"TemplateDataHooks": "TemplateDataHooks.php",
 		"TemplateDataBlob": "TemplateDataBlob.php",
 		"ApiTemplateData": "api/ApiTemplateData.php"
 	},
