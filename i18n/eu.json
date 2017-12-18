@@ -3,7 +3,8 @@
 		"authors": [
 			"Subi",
 			"Sator",
-			"An13sa"
+			"An13sa",
+			"Mikel Ibaiba"
 		]
 	},
 	"templatedata-doc-param-autovalue": "Balio automatikoa",
@@ -74,7 +75,7 @@
 	"templatedata-modal-title-language": "Hizkuntza",
 	"templatedata-modal-title-paramorder": "Parametroen ordena",
 	"templatedata-modal-title-templatedesc": "Txatiloiaren deskripzioa ($1)",
-	"templatedata-modal-title-templateformat": "Txantiloiaren formatu gogokoena",
+	"templatedata-modal-title-templateformat": "Wikitesturako proposatutako formatua",
 	"templatedata-modal-title-templateparam-details": "Parametro xehetasunak:$1",
 	"templatedata-modal-title-templateparams": "Txantiloiaren parametroak"
 }
