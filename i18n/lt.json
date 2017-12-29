@@ -5,7 +5,8 @@
 			"Pofka",
 			"Albertas",
 			"Zygimantus",
-			"Eitvys200"
+			"Eitvys200",
+			"Manvydasz"
 		]
 	},
 	"apihelp-templatedata-description": "Gauti duomenis, saugomus TemplateData plėtinio.",
@@ -104,7 +105,7 @@
 	"templatedata-modal-title-language": "Kalba",
 	"templatedata-modal-title-paramorder": "Parametrų eiliškumas",
 	"templatedata-modal-title-templatedesc": "Šablono aprašymas ($1)",
-	"templatedata-modal-title-templateformat": "Rekomenduotinas šablono formatas",
+	"templatedata-modal-title-templateformat": "Siūlomas vikiteksto formatavimas",
 	"templatedata-modal-title-templateparam-details": "Parametro išsami informacija: $1",
 	"templatedata-modal-title-templateparams": "Šablono parametrai"
 }
