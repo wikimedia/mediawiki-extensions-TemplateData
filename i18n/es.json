@@ -17,6 +17,7 @@
 		]
 	},
 	"apihelp-templatedata-description": "Obtener datos almacenados por la extensión TemplateData.",
+	"apihelp-templatedata-summary": "Recuperar datos almacenados por la extensión TemplateData.",
 	"apihelp-templatedata-example-1": "Devolver datos de [[Template:Stub]] y [[Template:Example]]",
 	"apihelp-templatedata-param-lang": "Devolver valores localizados en este idioma. Por omisión, se devuelven todas las traducciones disponibles.",
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
