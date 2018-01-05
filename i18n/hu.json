@@ -5,7 +5,8 @@
 			"Tgr",
 			"Csega",
 			"Bináris",
-			"Urbalazs"
+			"Urbalazs",
+			"Máté"
 		]
 	},
 	"apihelp-templatedata-description": "A TemplateData kiterjesztés által tárolt adatok lekérdezése.",
@@ -39,7 +40,7 @@
 	"templatedata-doc-param-type-date": "Dátum",
 	"templatedata-doc-param-type-line": "Sor",
 	"templatedata-doc-param-type-number": "Szám",
-	"templatedata-doc-param-type-string": "Szöveg",
+	"templatedata-doc-param-type-string": "Karakterlánc",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Kiegyensúlyozatlan wikiszöveg",
 	"templatedata-doc-param-type-unknown": "Ismeretlen",
 	"templatedata-doc-param-type-url": "URL",
