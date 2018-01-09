@@ -488,7 +488,7 @@ mw.TemplateData.Dialog.prototype.displayToFormat = function ( s ) {
  * @param {string} value Input widget value
  */
 mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetChange = function ( value ) {
-	var item = this.templateFormatSelectWidget.getSelectedItem(),
+	var item = this.templateFormatSelectWidget.findSelectedItem(),
 		format,
 		newValue;
 	if ( item.getData() === 'custom' ) {
@@ -521,7 +521,7 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 		allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
 	if ( property === 'type' ) {
-		value = this.propInputs[ property ].getMenu().getSelectedItem() ? this.propInputs[ property ].getMenu().getSelectedItem().getData() : 'unknown';
+		value = this.propInputs[ property ].getMenu().findSelectedItem() ? this.propInputs[ property ].getMenu().findSelectedItem().getData() : 'unknown';
 	}
 
 	// TODO: Validate the name
