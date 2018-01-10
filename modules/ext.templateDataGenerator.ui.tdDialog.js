@@ -650,7 +650,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 	if ( value !== undefined ) {
 		// Change the actual input
 		if ( prop.type === 'select' ) {
-			propInput.selectItem( propInput.getItemFromData( value ) );
+			propInput.selectItem( propInput.findItemFromData( value ) );
 		} else if ( prop.type === 'boolean' ) {
 			propInput.setSelected( !!value );
 		} else {
@@ -666,7 +666,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 	} else {
 		// Empty the input
 		if ( prop.type === 'select' ) {
-			propInput.selectItem( propInput.getItemFromData( prop.default ) );
+			propInput.selectItem( propInput.findItemFromData( prop.default ) );
 		} else if ( prop.type === 'boolean' ) {
 			propInput.setSelected( false );
 		} else {
