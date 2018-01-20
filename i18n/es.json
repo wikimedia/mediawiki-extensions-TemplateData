@@ -116,6 +116,7 @@
 	"templatedata-modal-title-paramorder": "Orden de parámetros",
 	"templatedata-modal-title-templatedesc": "Descripción de la plantilla ($1)",
 	"templatedata-modal-title-templateformat": "Formato de wikitexto sugerido",
+	"templatedata-modal-title-templateformatstring": "Cadena de formato personalizado",
 	"templatedata-modal-title-templateparam-details": "Detalles del parámetro: $1",
 	"templatedata-modal-title-templateparams": "Parámetros de la plantilla"
 }
