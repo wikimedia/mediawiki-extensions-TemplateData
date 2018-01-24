@@ -66,6 +66,7 @@
 	"templatedata-modal-button-restoreparam": "צוריקשטעלן פאראמעטער",
 	"templatedata-modal-button-saveparam": "אויפֿהיטן",
 	"templatedata-modal-current-language": "אקטועלע שפראך: $1",
+	"templatedata-modal-errormsg": "געטראפֿן פֿעלער. זייט אזוי גוט און שטעלט פֿעסט אז ס׳זענען נישט פֿאראן קיין ליידיגע אדער געטאפלטע פאראמעטער נען, און אז דער פאראמעטער נאמען שליסט נישט איין קיין  \"$1\", \"$2\" אדער \"$3\".",
 	"templatedata-modal-format-block": "בלאקירן",
 	"templatedata-modal-format-custom": "באניצער דעפינירט",
 	"templatedata-modal-format-null": "אומספעציפירט",
