@@ -338,11 +338,11 @@ mw.TemplateData.TextareaTarget = function mwTemplateDataTextareaTarget( $textare
 OO.inheritClass( mw.TemplateData.TextareaTarget, mw.TemplateData.Target );
 
 mw.TemplateData.TextareaTarget.prototype.getWikitext = function () {
-	return this.$textarea.val();
+	return this.$textarea.textSelection( 'getContents' );
 };
 
 mw.TemplateData.TextareaTarget.prototype.setWikitext = function ( newWikitext ) {
-	this.$textarea.val( newWikitext );
+	this.$textarea.textSelection( 'setContents', newWikitext );
 };
 
 /* global ve */
