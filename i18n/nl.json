@@ -110,7 +110,7 @@
 	"templatedata-modal-title-language": "Taal",
 	"templatedata-modal-title-paramorder": "Parametervolgorde",
 	"templatedata-modal-title-templatedesc": "Sjabloonbeschrijving ($1)",
-	"templatedata-modal-title-templateformat": "Gewenste sjabloonformatering",
+	"templatedata-modal-title-templateformat": "Voorgestelde wikitext-opmaak",
 	"templatedata-modal-title-templateparam-details": "Parameterdetails: $1",
 	"templatedata-modal-title-templateparams": "Sjabloonparameters"
 }
