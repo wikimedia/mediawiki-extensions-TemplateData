@@ -49,8 +49,7 @@
 	},
 	"ResourceModules": {
 		"ext.templateData": {
-			"styles": "resources/ext.templateData.css",
-			"position": "top"
+			"styles": "resources/ext.templateData.css"
 		},
 		"ext.templateDataGenerator.editPage": {
 			"scripts": [
