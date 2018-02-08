@@ -516,7 +516,7 @@ mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetEnter = function () 
 };
 
 mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
-	var err = false,
+	var err = [],
 		anyInputError = false,
 		allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
@@ -524,18 +524,24 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 		value = this.propInputs[ property ].getMenu().findSelectedItem() ? this.propInputs[ property ].getMenu().findSelectedItem().getData() : 'unknown';
 	}
 
-	// TODO: Validate the name
-	if ( allProps[ property ].restrict ) {
-		if ( value.match( allProps[ property ].restrict ) ) {
-			// Error! Don't fix the model
-			err = true;
-			this.toggleNoticeMessage( 'edit', true, 'error', mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
-		} else {
-			this.toggleNoticeMessage( 'edit', false );
+	if ( property === 'name' ) {
+		if ( value.length === 0 ) {
+			err.push( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
+		}
+		if ( value !== this.selectedParamKey && this.model.getAllParamNames().indexOf( value ) !== -1 ) {
+			// We're changing the name. Make sure it doesn't conflict.
+			err.push( mw.msg( 'templatedata-modal-errormsg-duplicate-name' ) );
 		}
 	}
 
-	this.propInputs[ property ].$element.toggleClass( 'tdg-editscreen-input-error', err );
+	if ( allProps[ property ].restrict ) {
+		if ( value.match( allProps[ property ].restrict ) ) {
+			// Error! Don't fix the model
+			err.push( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
+		}
+	}
+
+	this.propInputs[ property ].$element.toggleClass( 'tdg-editscreen-input-error', !!err.length );
 
 	// Check if there is a dependent input to activate
 	if ( allProps[ property ].textValue && this.propFieldLayout[ allProps[ property ].textValue ] ) {
@@ -546,15 +552,14 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 	}
 
 	// Validate
-	$( '.tdg-templateDataDialog-paramInput' ).each( function () {
-		if ( $( this ).hasClass( 'tdg-editscreen-input-error' ) ) {
-			anyInputError = true;
-		}
-	} );
+	anyInputError = !!$( '.tdg-templateDataDialog-paramInput.tdg-editscreen-input-error' ).length;
 
-	// Disable the 'back' button if there are any errors in the inputs
-	this.actions.setAbilities( { back: !anyInputError } );
-	if ( !err ) {
+	// Disable the 'done' button if there are any errors in the inputs
+	this.actions.setAbilities( { done: !anyInputError } );
+	if ( err.length ) {
+		this.toggleNoticeMessage( 'edit', true, 'error', err.length === 1 ? err[ 0 ] : err );
+	} else {
+		this.toggleNoticeMessage( 'edit', false );
 		this.model.setParamProperty( this.selectedParamKey, property, value, this.language );
 	}
 };
@@ -808,7 +813,9 @@ mw.TemplateData.Dialog.prototype.getBodyHeight = function () {
 /**
  * Show or hide the notice message in the dialog with a set message.
  *
- * @param {string} type Which notice label to show: 'list' or 'global'
+ * Hides all other notices messages when called, not just the one specified.
+ *
+ * @param {string} type Which notice label to show: 'list', 'edit' or 'global'; defaults to 'list'
  * @param {boolean} isShowing Show or hide the message
  * @param {string} status Message status 'error' or 'success'
  * @param {string|string[]} noticeMessage The message to display
