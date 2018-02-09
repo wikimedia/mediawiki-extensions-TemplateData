@@ -79,6 +79,7 @@
 	"templatedata-modal-confirmcancel": "Bist du sicher, dass du deine Änderungen verwerfen möchtest?",
 	"templatedata-modal-current-language": "Aktuelle Sprache: $1",
 	"templatedata-modal-errormsg": "Es wurden Fehler gefunden. Stelle bitte sicher, dass keine Parameternamen leer oder doppelt sind und der Parametername kein „$1“, „$2“ oder „$3“ enthält.",
+	"templatedata-modal-errormsg-duplicate-name": "Fehler gefunden. Der ausgewählte Name wird bereits von einem anderen Parameter verwendet.",
 	"templatedata-modal-errormsg-import-noparams": "Beim Importieren wurden keine neuen Parameter gefunden.",
 	"templatedata-modal-format-block": "Block",
 	"templatedata-modal-format-custom": "Benutzerdefiniert",

@@ -77,6 +77,7 @@
 	"templatedata-modal-confirmcancel": "Дали сигурно сакате да ги отфрлите промените?",
 	"templatedata-modal-current-language": "Тековен јазик: $1",
 	"templatedata-modal-errormsg": "Пронајдов грешки. Проверете да не имате празни или дуплирани називи на параметрите. Во нив не треба да се содржат знаците „$1“, „$2“ и „$3“.",
+	"templatedata-modal-errormsg-duplicate-name": "Пронајдов грешка. Избраниот назив веќе се користи во друг параметар.",
 	"templatedata-modal-errormsg-import-noparams": "Не пронајдов нови параметри во увозот.",
 	"templatedata-modal-format-block": "Блок",
 	"templatedata-modal-format-custom": "Прилагодено",

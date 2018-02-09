@@ -9,7 +9,8 @@
 			"Opraco",
 			"Araceletorres",
 			"Cainamarques",
-			"Felipe L. Ewald"
+			"Felipe L. Ewald",
+			"Eduardo Addad de Oliveira"
 		]
 	},
 	"apihelp-templatedata-description": "Obtenha dados armazenados pela extensão TemplateData.",
@@ -85,6 +86,7 @@
 	"templatedata-modal-confirmcancel": "Tem certeza de que deseja descartar suas alterações?",
 	"templatedata-modal-current-language": "Idioma atual: $1",
 	"templatedata-modal-errormsg": "Erros encontrados. Certifique-se de que não existam nomes de parâmetros vazios ou duplicados e que o nome do parâmetro não inclua \"$1\", \"$2\" ou \"$3\".",
+	"templatedata-modal-errormsg-duplicate-name": "Foi encontrado um erro. O nome escolhido já está para ser utilizado por outro parâmetro.",
 	"templatedata-modal-errormsg-import-noparams": "Não foram encontrados novos parâmetros durante a importação.",
 	"templatedata-modal-format-block": "Bloquear",
 	"templatedata-modal-format-custom": "Personalizado",

@@ -11,7 +11,8 @@
 			"Cainamarques",
 			"Macofe",
 			"Fúlvio",
-			"Hamilton Abreu"
+			"Hamilton Abreu",
+			"Athena in Wonderland"
 		]
 	},
 	"apihelp-templatedata-description": "Obtém dados armazenados pela extensão TemplateData.",
@@ -87,6 +88,7 @@
 	"templatedata-modal-confirmcancel": "Tem a certeza de que pretende descartar as suas alterações?",
 	"templatedata-modal-current-language": "Língua atual: $1",
 	"templatedata-modal-errormsg": "Erros encontrados. Por favor, certifique-se de que não há nomes de parâmetros vazios ou duplicados e que estes não incluem os nomes \"$1\", \"$2\" ou \"$3\".",
+	"templatedata-modal-errormsg-duplicate-name": "Foi encontrado um erro. O nome escolhido já está a ser utilizado por outro parâmetro.",
 	"templatedata-modal-errormsg-import-noparams": "Não foram encontrados parâmetros novos durante a importação.",
 	"templatedata-modal-format-block": "Bloco",
 	"templatedata-modal-format-custom": "Personalizado",

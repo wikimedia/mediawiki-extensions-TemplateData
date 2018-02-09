@@ -85,6 +85,7 @@
 	"templatedata-modal-confirmcancel": "您确定要抛弃您的更改么？",
 	"templatedata-modal-current-language": "当前语言：$1",
 	"templatedata-modal-errormsg": "找到错误。请确信这里没有空或重复的参数名称，并且它们不包括“$1”“$2”或“$3”。",
+	"templatedata-modal-errormsg-duplicate-name": "发生错误。选择的名称已由另一参数使用。",
 	"templatedata-modal-errormsg-import-noparams": "导入过程中找不到新的参数。",
 	"templatedata-modal-format-block": "块",
 	"templatedata-modal-format-custom": "自定义",
