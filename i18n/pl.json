@@ -11,7 +11,8 @@
 			"VerMa",
 			"Devwebtel",
 			"Ency",
-			"Maćko"
+			"Maćko",
+			"Ankam"
 		]
 	},
 	"apihelp-templatedata-description": "Zobacz dane zapisane w rozszerzeniu TemplateData.",
@@ -83,6 +84,7 @@
 	"templatedata-modal-confirmcancel": "Czy na pewno chcesz zrezygnować ze swoich zmian?",
 	"templatedata-modal-current-language": "Aktualny język: $1",
 	"templatedata-modal-errormsg": "Znaleziono błędy. Proszę, upewnij się, że nazwy parametrów nie są puste, nie są zduplikowane i nie zawierają «$1», «$2» lub «$3».",
+	"templatedata-modal-errormsg-duplicate-name": "Znaleziono błąd. Wybrana nazwa jest już używana przez inny parametr.",
 	"templatedata-modal-errormsg-import-noparams": "Nie znaleziono nowych parametrów podczas importu.",
 	"templatedata-modal-format-block": "Blokowy",
 	"templatedata-modal-format-custom": "Niestandardowy",

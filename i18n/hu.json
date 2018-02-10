@@ -78,6 +78,7 @@
 	"templatedata-modal-confirmcancel": "Biztosan el akarod vetni a változtatásaidat?",
 	"templatedata-modal-current-language": "Aktuális nyelv: $1",
 	"templatedata-modal-errormsg": "Hibás paraméternév. Ellenőrizd, hogy nincsenek üres vagy ismételt paraméternevek, és hogy a paraméternévben nem szerepel „$1”, „$2” vagy „$3”.",
+	"templatedata-modal-errormsg-duplicate-name": "Hiba: a választott nevet már használja egy másik paraméter.",
 	"templatedata-modal-errormsg-import-noparams": "Nem találtam új paramétereket az importálás során.",
 	"templatedata-modal-format-block": "Blokk (többsoros)",
 	"templatedata-modal-format-custom": "Egyéni",
