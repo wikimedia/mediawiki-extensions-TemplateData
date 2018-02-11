@@ -7,7 +7,8 @@
 			"Cvanca",
 			"Matěj Suchánek",
 			"Danny B.",
-			"Dvorapa"
+			"Dvorapa",
+			"Ilimanaq29"
 		]
 	},
 	"apihelp-templatedata-description": "Načtení dat uložených rozšířením TemplateData.",
@@ -78,6 +79,7 @@
 	"templatedata-modal-confirmcancel": "Opravdu chcete zahodit své změny?",
 	"templatedata-modal-current-language": "Aktuální jazyk: $1",
 	"templatedata-modal-errormsg": "Nalezeny chyby. Ujistěte se, že neexistuje prázdný nebo duplicitní název parametru a že názvy parametrů neobsahují „$1“, „$2“ nebo „$3“.",
+	"templatedata-modal-errormsg-duplicate-name": "Nalezena chyba. Zvolené jméno již používá jiný parametr.",
 	"templatedata-modal-errormsg-import-noparams": "Při importu nenalezeny žádné nové parametry.",
 	"templatedata-modal-format-block": "Blok",
 	"templatedata-modal-format-inline": "V řádce",
