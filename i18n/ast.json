@@ -77,6 +77,7 @@
 	"templatedata-modal-confirmcancel": "¿Tas seguro de que quies descartar los cambeos?",
 	"templatedata-modal-current-language": "Llingua actual: $1",
 	"templatedata-modal-errormsg": "Atopáronse errores. Compruebe que nun hai nomes de parámetru baleros o duplicaos, y que'l nome del parámetru nun incluye \"$1\", \"$2\" o \"$3\".",
+	"templatedata-modal-errormsg-duplicate-name": "Alcontróse un error. El nome escoyíu yá ta usándolu otru parámetru.",
 	"templatedata-modal-errormsg-import-noparams": "Nun s'alcontraron parámetros nuevos demientres la importación.",
 	"templatedata-modal-format-block": "Bloque",
 	"templatedata-modal-format-custom": "Personalizáu",
