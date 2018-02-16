@@ -11,7 +11,8 @@
 			"AzorAhai",
 			"Arash.pt",
 			"Ladsgroup",
-			"Huji"
+			"Huji",
+			"Alifakoor"
 		]
 	},
 	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ TemplateData.",
@@ -82,6 +83,7 @@
 	"templatedata-modal-format-custom": "سفارشی",
 	"templatedata-modal-format-inline": "درخط",
 	"templatedata-modal-format-null": "نامشخص",
+	"templatedata-modal-format-placeholder": "متن قالب‌بندی‌کننده برای پارامتر الگو",
 	"templatedata-modal-json-error-replace": "جایگزینی",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|پارامتر|پارامتر}} تازه وارد شد: $2",
 	"templatedata-modal-placeholder-paramkey": "نام پارامتر",
@@ -91,6 +93,7 @@
 	"templatedata-modal-table-param-autovalue": "مقدار خودکار",
 	"templatedata-modal-table-param-default": "پیش‌گزیده ($1)",
 	"templatedata-modal-table-param-deprecated": "منسوخ‌شده",
+	"templatedata-modal-table-param-deprecatedValue": "راهنمای منسوخ",
 	"templatedata-modal-table-param-description": "شرح ($1)",
 	"templatedata-modal-table-param-example": "مثال ($1)",
 	"templatedata-modal-table-param-importoption": "افزودن $1 {{PLURAL:$1|پارامتر|پارامتر}} پیشنهادشده",
@@ -107,6 +110,8 @@
 	"templatedata-modal-title-language": "زبان",
 	"templatedata-modal-title-paramorder": "ترتیب پارامتر",
 	"templatedata-modal-title-templatedesc": "شرح الگو ($1)",
+	"templatedata-modal-title-templateformat": "قالب‌بندی پیشنهادی ویکی‌متن",
+	"templatedata-modal-title-templateformatstring": "متن قالب‌بندی‌کنندهٔ سفارشی",
 	"templatedata-modal-title-templateparam-details": "جزئیات پارامتر: $1",
 	"templatedata-modal-title-templateparams": "پارامترهای الگو"
 }
