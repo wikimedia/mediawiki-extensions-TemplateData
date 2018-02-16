@@ -62,6 +62,7 @@
 	"templatedata-doc-param-type-wiki-template-name": "A possible parameter type: Template\n{{Related|Templatedata-doc-param-type}}\n{{Identical|Template}}",
 	"templatedata-doc-param-type-wiki-user-name": "A possible parameter type: User\n{{Related|Templatedata-doc-param-type}}\n{{Identical|User}}",
 	"templatedata-doc-params": "Used as caption for the table which describes the parameter or parameters of the current template. If using plural is an issue in your language, you may try and translate as \"Description of each parameter\" or similar.\nThe table has the following headings:\n* {{msg-mw|Templatedata-doc-param-name}}\n* {{msg-mw|Templatedata-doc-param-desc}}\n* {{msg-mw|Templatedata-doc-param-default}}\n* {{msg-mw|Templatedata-doc-param-status}}\n{{Identical|Template parameter}}",
+	"templatedata-doc-subpage": "{{optional}}\nSub-page of template where documentation is stored by convention on the wiki.",
 	"templatedata-editbutton": "The label of the button to manage templatedata, appearing above the editor field.",
 	"templatedata-errormsg-jsonbadformat": "Error message that appears in case the JSON string is not possible to parse. The user is asked to choose between correcting or deleting the json or continuing with the editing process and replacing the string completely.",
 	"templatedata-errormsg-insertblank": "Error message that appears when the user attempts to apply TemplateData that contains nothing useful.",

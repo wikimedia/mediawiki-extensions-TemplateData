@@ -23,6 +23,7 @@ mw.TemplateData.Target = function mwTemplateDataTarget( config ) {
 	this.parentPage = config.parentPage;
 	this.isPageSubLevel = !!config.isPageSubLevel;
 	this.isDocPage = !!config.isDocPage;
+	this.docSubpage = config.docSubpage;
 
 	this.editOpenDialogButton = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'templatedata-editbutton' )
@@ -55,9 +56,7 @@ mw.TemplateData.Target = function mwTemplateDataTarget( config ) {
 	} );
 
 	// Check if there's already a templatedata in a related page
-	// TODO: Hard-coding 'doc' is dangerous for i18n. We need to find
-	// a better way to define 'related' pages for a template.
-	relatedPage = this.isDocPage ? this.parentPage : this.pageName + '/doc';
+	relatedPage = this.isDocPage ? this.parentPage : this.pageName + '/' + this.docSubpage;
 	this.sourceHandler.getApi( relatedPage )
 		.then( function ( result ) {
 			var msg, matches, content,

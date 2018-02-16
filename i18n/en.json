@@ -51,6 +51,7 @@
 	"templatedata-doc-param-type-wiki-template-name": "Template",
 	"templatedata-doc-param-type-wiki-user-name": "User",
 	"templatedata-doc-params": "Template parameters",
+	"templatedata-doc-subpage": "doc",
 	"templatedata-editbutton": "Manage TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Bad JSON format. You can cancel this operation so you can correct it, delete the current <templatedata> tags and try again, or continue to replace the current TemplateData with a new one.",
 	"templatedata-errormsg-insertblank": "Are you sure you want to insert TemplateData with no information?",

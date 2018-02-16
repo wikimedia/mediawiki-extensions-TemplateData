@@ -56,7 +56,8 @@
 				"modules/ext.templateDataGenerator.editPage.js"
 			],
 			"dependencies": [
-				"ext.templateDataGenerator.ui"
+				"ext.templateDataGenerator.ui",
+				"mediawiki.api.messages"
 			]
 		},
 		"ext.templateDataGenerator.data": {
