@@ -81,6 +81,7 @@
 	"templatedata-modal-confirmcancel": "Sikker på at du ønsker å avbryte?",
 	"templatedata-modal-current-language": "Gjeldende språk: $1",
 	"templatedata-modal-errormsg": "Feil funnet. Sjekk at det ikke er tomme eller duplikate parameternavn, og at parameternavnet ikke inneholder «$1», «$2» eller «$3».",
+	"templatedata-modal-errormsg-duplicate-name": "Feil funnet. Det valgte navnet er allerede i bruk av en annen parameter.",
 	"templatedata-modal-errormsg-import-noparams": "Ingen nye parametre funnet under import.",
 	"templatedata-modal-format-block": "Blokk",
 	"templatedata-modal-format-custom": "Egendefinert",

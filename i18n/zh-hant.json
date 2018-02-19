@@ -7,11 +7,12 @@
 			"LNDDYL",
 			"Cwlin0416",
 			"Wehwei",
-			"Zhxy 519"
+			"Zhxy 519",
+			"Hello903hello"
 		]
 	},
 	"apihelp-templatedata-description": "取得由 TemplateData 擴充套件儲存的資料。",
-	"apihelp-templatedata-example-1": "回傳 [[Template:Stub]] 與 [[Template:Example]] 的資料",
+	"apihelp-templatedata-example-1": "回傳[[Template:Stub]]與[[Template:Example]]的模板數據，如果模板不存在或雖然存在但沒有模板數據的話就回傳結果",
 	"apihelp-templatedata-param-lang": "回傳使用此語言的在地化資料。預設會回傳所有可用的翻譯。",
 	"templatedata-desc": "實現模板參數的資料儲存 (使用 JSON)",
 	"templatedata-doc-desc-empty": "沒有描述。",
