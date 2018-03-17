@@ -54,6 +54,8 @@
 				var surface = ve.init.target.getSurface();
 				if ( surface.getMode() === 'source' ) {
 					target = new mw.TemplateData.VETarget( surface, config );
+					// Use the same font size as main content text
+					target.$element.addClass( 'mw-body-content' );
 					$( '.ve-init-mw-desktopArticleTarget-originalContent' ).prepend( target.$element );
 				}
 			} );
