@@ -14,7 +14,8 @@
 			"Jack who built the house",
 			"INS Pirat",
 			"IKhitron",
-			"Smigles"
+			"Smigles",
+			"Patrick Star"
 		]
 	},
 	"apihelp-templatedata-description": "Получить данные, сохраненные расширением TemplateData.",
@@ -87,6 +88,7 @@
 	"templatedata-modal-errormsg": "Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».",
 	"templatedata-modal-errormsg-import-noparams": "Во время импорта новые параметры не найдены.",
 	"templatedata-modal-format-block": "Блочный",
+	"templatedata-modal-format-custom": "Настраиваемый",
 	"templatedata-modal-format-inline": "Внутристрочный",
 	"templatedata-modal-format-null": "Не определён",
 	"templatedata-modal-json-error-replace": "Заменить",

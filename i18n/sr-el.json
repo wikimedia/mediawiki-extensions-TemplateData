@@ -57,7 +57,7 @@
 	"templatedata-modal-format-custom": "Prilagođeno",
 	"templatedata-modal-format-inline": "Inlajn",
 	"templatedata-modal-format-null": "Neodređeno",
-	"templatedata-modal-format-placeholder": "String za prilagođeni format šablona",
+	"templatedata-modal-format-placeholder": "String formata za parametar šablona",
 	"templatedata-modal-json-error-replace": "Zameni",
 	"templatedata-modal-placeholder-paramkey": "Naziv parametra",
 	"templatedata-modal-search-input-placeholder": "Pretraži po imenu ili kodu jezika",
@@ -81,6 +81,6 @@
 	"templatedata-modal-title-paramorder": "Redosled parametara",
 	"templatedata-modal-title-templatedesc": "Opis šablona ($1)",
 	"templatedata-modal-title-templateformat": "Preferirani format šablona",
-	"templatedata-modal-title-templateformatstring": "String za prilagođeni format",
+	"templatedata-modal-title-templateformatstring": "String prilagođenog formata",
 	"templatedata-modal-title-templateparams": "Parametri šablona"
 }
