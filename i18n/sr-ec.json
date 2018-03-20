@@ -78,7 +78,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Током увоза није пронађен ниједан нови параметар.",
 	"templatedata-modal-format-block": "Један испод другог",
 	"templatedata-modal-format-custom": "Прилагођено",
-	"templatedata-modal-format-inline": "Инлајн",
+	"templatedata-modal-format-inline": "Редно",
 	"templatedata-modal-format-null": "Неодређено",
 	"templatedata-modal-format-placeholder": "Стринг формата за параметар шаблона",
 	"templatedata-modal-json-error-replace": "Замени",

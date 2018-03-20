@@ -55,7 +55,7 @@
 	"templatedata-modal-errormsg-import-noparams": "Tokom uvoza nije pronađen nijedan novi parametar.",
 	"templatedata-modal-format-block": "Blok",
 	"templatedata-modal-format-custom": "Prilagođeno",
-	"templatedata-modal-format-inline": "Inlajn",
+	"templatedata-modal-format-inline": "Redno",
 	"templatedata-modal-format-null": "Neodređeno",
 	"templatedata-modal-format-placeholder": "String formata za parametar šablona",
 	"templatedata-modal-json-error-replace": "Zameni",
