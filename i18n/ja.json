@@ -8,7 +8,8 @@
 			"2nd-player",
 			"Ridmevo",
 			"Translatealcd",
-			"Yusuke1109"
+			"Yusuke1109",
+			"Omotecho"
 		]
 	},
 	"apihelp-templatedata-description": "TemplateData 拡張機能によって保存されたデータを取得します。",
@@ -103,7 +104,7 @@
 	"templatedata-modal-title-language": "言語",
 	"templatedata-modal-title-paramorder": "パラメーターの順序",
 	"templatedata-modal-title-templatedesc": "テンプレートの説明 ($1)",
-	"templatedata-modal-title-templateformat": "テンプレートの優先フォーマット",
+	"templatedata-modal-title-templateformat": "推奨されるウィキテキスト書式",
 	"templatedata-modal-title-templateparam-details": "引数の詳細: $1",
 	"templatedata-modal-title-templateparams": "テンプレートの引数"
 }
