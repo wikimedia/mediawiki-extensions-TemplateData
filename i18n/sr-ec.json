@@ -76,7 +76,7 @@
 	"templatedata-modal-confirmcancel": "Јесте ли сигурни да желите одбацити своје измене?",
 	"templatedata-modal-current-language": "Тренутни језик: $1",
 	"templatedata-modal-errormsg-import-noparams": "Током увоза није пронађен ниједан нови параметар.",
-	"templatedata-modal-format-block": "Један испод другог",
+	"templatedata-modal-format-block": "Блок",
 	"templatedata-modal-format-custom": "Прилагођено",
 	"templatedata-modal-format-inline": "Редно",
 	"templatedata-modal-format-null": "Неодређено",
