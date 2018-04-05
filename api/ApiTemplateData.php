@@ -12,6 +12,12 @@
  * @todo Support continuation (see I1a6e51cd)
  */
 class ApiTemplateData extends ApiBase {
+
+	/**
+	 * @var ApiPageSet|null
+	 */
+	private $mPageSet = null;
+
 	/**
 	 * For backwards compatibility, this module needs to output format=json when
 	 * no format is specified.
@@ -31,7 +37,7 @@ class ApiTemplateData extends ApiBase {
 	 * @return ApiPageSet
 	 */
 	private function getPageSet() {
-		if ( !isset( $this->mPageSet ) ) {
+		if ( $this->mPageSet === null ) {
 			$this->mPageSet = new ApiPageSet( $this );
 		}
 		return $this->mPageSet;
