@@ -41,7 +41,6 @@ class TemplateDataHooks {
 	 * registered by the UniversalLanguageSelector extension or the VisualEditor extension.
 	 *
 	 * @param ResourceLoader &$resourceLoader
-	 * @return boolean true
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
