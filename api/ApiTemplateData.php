@@ -47,6 +47,9 @@ class ApiTemplateData extends ApiBase {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
+		$continuationManager = new ApiContinuationManager( $this, [], [] );
+		$this->setContinuationManager( $continuationManager );
+
 		if ( is_null( $params['lang'] ) ) {
 			$langCode = false;
 		} elseif ( !Language::isValidCode( $params['lang'] ) ) {
@@ -64,6 +67,8 @@ class ApiTemplateData extends ApiBase {
 
 		if ( !count( $titles ) && ( $legacyMode || !count( $missingTitles ) ) ) {
 			$result->addValue( null, 'pages', (object)[] );
+			$this->setContinuationManager( null );
+			$continuationManager->setContinuationIntoResult( $this->getResult() );
 			return;
 		}
 
@@ -150,13 +155,20 @@ class ApiTemplateData extends ApiBase {
 		if ( $redirects ) {
 			$result->addValue( null, 'redirects', $redirects );
 		}
+
+		$this->setContinuationManager( null );
+		$continuationManager->setContinuationIntoResult( $this->getResult() );
 	}
 
 	public function getAllowedParams( $flags = 0 ) {
-		return $this->getPageSet()->getFinalParams( $flags ) + [
+		$result = [
 			'doNotIgnoreMissingTitles' => false,
-			'lang' => null
+			'lang' => null,
 		];
+		if ( $flags ) {
+			$result += $this->getPageSet()->getFinalParams( $flags );
+		}
+		return $result;
 	}
 
 	/**
