@@ -6,6 +6,8 @@
  * @file
  */
 
+use MediaWiki\Storage\RevisionRecord;
+
 /**
  * @ingroup API
  * @emits error.code templatedata-corrupt
@@ -63,9 +65,13 @@ class ApiTemplateData extends ApiBase {
 		$titles = $pageSet->getGoodTitles(); // page_id => Title object
 		$missingTitles = $pageSet->getMissingTitles(); // page_id => Title object
 
-		$legacyMode = !$this->getParameter( 'doNotIgnoreMissingTitles' );
+		$includeMissingTitles = $this->getParameter( 'includeMissingTitles' );
+		$doNotIgnoreMissingTitles = $this->getParameter( 'doNotIgnoreMissingTitles' );
+		if ( $doNotIgnoreMissingTitles ) {
+			$includeMissingTitles = $doNotIgnoreMissingTitles;
+		}
 
-		if ( !count( $titles ) && ( $legacyMode || !count( $missingTitles ) ) ) {
+		if ( !count( $titles ) && ( !$includeMissingTitles || !count( $missingTitles ) ) ) {
 			$result->addValue( null, 'pages', (object)[] );
 			$this->setContinuationManager( null );
 			$continuationManager->setContinuationIntoResult( $this->getResult() );
@@ -74,13 +80,7 @@ class ApiTemplateData extends ApiBase {
 
 		$resp = [];
 
-		if ( $legacyMode ) {
-			/* Deprecation hidden until Wikimedia extensions and services have been converted.
-			$this->addDeprecation(
-				'apiwarn-templatedata-deprecation-legacyMode', 'action=templatedata&!doNotIgnoreMissingTitles'
-			);
-			*/
-		} else {
+		if ( $includeMissingTitles ) {
 			foreach ( $missingTitles as $missingTitleId => $missingTitle ) {
 				$resp[ $missingTitleId ] = [ 'title' => $missingTitle, 'missing' => true ];
 			}
@@ -131,13 +131,28 @@ class ApiTemplateData extends ApiBase {
 				ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
 
 				if ( count( $data ) ) {
-					if ( !$legacyMode ) {
+					if ( $includeMissingTitles ) {
 						unset( $resp[$row->pp_page]['notemplatedata'] );
 					} else {
 						$resp[ $row->pp_page ] = [ 'title' => $titles[ $row->pp_page ] ];
 					}
 					$resp[$row->pp_page] += (array)$data;
 				}
+			}
+		}
+
+		// Now go through all the titles again, and attempt to extract parameter names from the
+		// wikitext for templates with no templatedata.
+		if ( $includeMissingTitles ) {
+			foreach ( $resp as $pageId => $pageInfo ) {
+				if ( !isset( $pageInfo['notemplatedata'] ) ) {
+					// Ignore pages that already have templatedata or that don't exist.
+					continue;
+				}
+				$content = WikiPage::factory( $pageInfo['title'] )
+					->getContent( RevisionRecord::FOR_PUBLIC )
+					->getNativeData();
+				$resp[ $pageId ][ 'params' ] = TemplateDataBlob::getRawParams( $content );
 			}
 		}
 
@@ -162,8 +177,16 @@ class ApiTemplateData extends ApiBase {
 
 	public function getAllowedParams( $flags = 0 ) {
 		$result = [
-			'doNotIgnoreMissingTitles' => false,
-			'lang' => null,
+			'includeMissingTitles' => [
+				ApiBase::PARAM_TYPE => 'boolean',
+			],
+			'doNotIgnoreMissingTitles' => [
+				ApiBase::PARAM_TYPE => 'boolean',
+				ApiBase::PARAM_DEPRECATED => true,
+			],
+			'lang' => [
+				ApiBase::PARAM_TYPE => 'string',
+			],
 		];
 		if ( $flags ) {
 			$result += $this->getPageSet()->getFinalParams( $flags );
@@ -177,9 +200,9 @@ class ApiTemplateData extends ApiBase {
 	 */
 	protected function getExamplesMessages() {
 		return [
-			'action=templatedata&titles=Template:Stub|Template:Example&doNotIgnoreMissingTitles=1'
+			'action=templatedata&titles=Template:Stub|Template:Example&includeMissingTitles=1'
 				=> 'apihelp-templatedata-example-1',
-			'action=templatedata&titles=Template:Stub|Template:Example&doNotIgnoreMissingTitles=0'
+			'action=templatedata&titles=Template:Stub|Template:Example'
 				=> 'apihelp-templatedata-example-2',
 		];
 	}
