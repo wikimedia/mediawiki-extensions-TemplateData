@@ -1214,4 +1214,32 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	public function testParamOrder( array $case ) {
 		$this->assertTemplateData( $case );
 	}
+
+	/**
+	 * @dataProvider provideGetRawParams
+	 */
+	public function testGetRawParams( $inputWikitext, $expectedParams ) {
+		$this->assertArrayEquals( $expectedParams, TemplateDataBlob::getRawParams( $inputWikitext ) );
+	}
+
+	public function provideGetRawParams() {
+		return [
+			[
+				'Lorem ipsum {{tpl}}.',
+				[]
+			],
+			[
+				'Lorem {{{name}}} ipsum',
+				[ 'name' => [] ]
+			],
+			[
+				'Lorem {{{name|{{{Name|Default name}}}}}} ipsum',
+				[ 'name' => [], 'Name' => [] ]
+			],
+			[
+				'Lorem {{{name<!-- comment -->}}} ipsum',
+				[ 'name' => [] ]
+			],
+		];
+	}
 }

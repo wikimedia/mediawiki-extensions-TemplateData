@@ -910,6 +910,23 @@ class TemplateDataBlob {
 		return $html;
 	}
 
+	/**
+	 * Get parameter descriptions from raw wikitext (used for templates that have no templatedata).
+	 * @param string $wikitext The text to extract parameters from.
+	 * @return string[] Parameter info in the same format as the templatedata 'params' key.
+	 */
+	public static function getRawParams( $wikitext ) {
+		// This regex matches the one in ext.TemplateDataGenerator.sourceHandler.js
+		preg_match_all( '/{{3,}(.*?)[<|}]/m', $wikitext, $rawParams );
+		$params = [];
+		if ( isset( $rawParams[1] ) ) {
+			foreach ( $rawParams[1] as $rawParam ) {
+				$params[ $rawParam ] = [];
+			}
+		}
+		return $params;
+	}
+
 	private function __construct( $data = null ) {
 		$this->data = $data;
 	}
