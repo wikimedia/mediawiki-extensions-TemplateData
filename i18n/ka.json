@@ -37,7 +37,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "მომხმარებელი",
 	"templatedata-doc-params": "თარგის პარამეტრები",
 	"templatedata-editbutton": "TemplateData-ის მართვა",
-	"templatedata-exists-on-related-page": "მიაქციეთ ყურადღება: უკვე არის TemplateData-ის ბლოკი დაკავშირებულ გვერდზე „[[$1]]“.",
+	"templatedata-exists-on-related-page": "მიაქციეთ ყურადღება: უკვე არსებობს TemplateData-ის ბლოკი დაკავშირებულ გვერდზე „[[$1]]“.",
 	"templatedata-helplink": "ინფორმაცია TemplateData-ის შესახებ",
 	"templatedata-invalid-parse": "სინტაქსური შეცდომა JSON-ში.",
 	"templatedata-modal-button-add-language": "ენის დამატება",
