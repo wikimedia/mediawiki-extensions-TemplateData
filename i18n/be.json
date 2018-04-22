@@ -4,6 +4,8 @@
 			"Artsiom91"
 		]
 	},
+	"templatedata-doc-param-type-date": "Дата",
+	"templatedata-doc-param-type-string": "Радок",
 	"templatedata-editbutton": "Кіраванне TemplateData",
 	"templatedata-helplink": "Даведка па TemplateData"
 }
