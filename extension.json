@@ -21,9 +21,9 @@
 		"templatedata": "ApiTemplateData"
 	},
 	"AutoloadClasses": {
-		"TemplateDataHooks": "TemplateDataHooks.php",
-		"TemplateDataBlob": "TemplateDataBlob.php",
-		"ApiTemplateData": "api/ApiTemplateData.php"
+		"TemplateDataHooks": "includes/TemplateDataHooks.php",
+		"TemplateDataBlob": "includes/TemplateDataBlob.php",
+		"ApiTemplateData": "includes/api/ApiTemplateData.php"
 	},
 	"Hooks": {
 		"ParserFirstCallInit": [
