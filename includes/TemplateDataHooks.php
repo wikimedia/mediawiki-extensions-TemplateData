@@ -30,7 +30,7 @@ class TemplateDataHooks {
 		$testModules['qunit']['ext.templateData.test'] = [
 			'scripts' => [ 'tests/ext.templateData.tests.js' ],
 			'dependencies' => [ 'ext.templateDataGenerator.data' ],
-			'localBasePath' => __DIR__ ,
+			'localBasePath' => dirname( __DIR__ ) ,
 			'remoteExtPath' => 'TemplateData',
 		];
 		return true;
@@ -48,7 +48,7 @@ class TemplateDataHooks {
 		if ( !isset( $resourceModules[$name] ) && !$resourceLoader->isModuleRegistered( $name ) ) {
 			$resourceLoader->register( [
 				'jquery.uls.data' => [
-					'localBasePath' => __DIR__,
+					'localBasePath' => dirname( __DIR__ ),
 					'remoteExtPath' => 'TemplateData',
 					'scripts' => [
 						'lib/jquery.uls/src/jquery.uls.data.js',
