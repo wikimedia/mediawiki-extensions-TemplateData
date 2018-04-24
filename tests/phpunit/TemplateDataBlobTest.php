@@ -2,6 +2,7 @@
 
 /**
  * @group TemplateData
+ * @covers TemplateDataBlob
  */
 class TemplateDataBlobTest extends MediaWikiTestCase {
 
