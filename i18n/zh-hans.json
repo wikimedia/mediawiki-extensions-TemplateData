@@ -19,7 +19,6 @@
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "返回有关标题的数据，即便其丢失或缺少模板数据。默认情况下（出于向后兼容性）只在标题存在且有模板数据时返回标题。",
 	"apihelp-templatedata-param-lang": "返回此语言的本地化值。默认会返回所有可用翻译。",
 	"apierror-templatedata-corrupt": "页面#$1模板数据包含无效数据：$2",
-	"apiwarn-templatedata-deprecation-legacyMode": "默认输出今后将更改为包含丢失的标题。请明确指定<kbd>doNotIgnoreMissingTitles=1</kbd>。",
 	"apiwarn-templatedata-deprecation-format": "默认输出格式今后将更改为<kbd>jsonfm</kbd>。请明确指定<kbd>format=json</kbd>。",
 	"templatedata-desc": "实现模板参数的数据存储（使用JSON）",
 	"templatedata-doc-desc-empty": "无描述。",

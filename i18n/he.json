@@ -14,7 +14,6 @@
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "מחזיר נתונים על כותרות אף אם הן חסרות או שאין בהן נתוני תבנית. לפי בררת המחדל (לשם תאימות לאחור) כותרות מוחזרות רק אם הן קיימות ויש בהן נתוני תבנית.",
 	"apihelp-templatedata-param-lang": "להחזיר ערכים מתורגמים בשפה הזאת. בררת המחדל היא להחזיר את כל התרגומים הזמינים.",
 	"apierror-templatedata-corrupt": "נתוני התבנית של דף #$1 מכילים נתונים בלתי־תקינים: $2",
-	"apiwarn-templatedata-deprecation-legacyMode": "בררת המחדל לפלט תשתנה בעתיד ותכלול כותרות חסרות. נא להגדיר <kbd>doNotIgnoreMissingTitles=1</kbd> במפורש.",
 	"apiwarn-templatedata-deprecation-format": "בררת המחדל לתסדיר הפלט תשתנה ל־<kbd>jsonfm</kbd> בעתיד. נא להגדיר <kbd>format=json</kbd> במפורש.",
 	"templatedata-desc": "מימוש אחסון נתונים לפרמטרים של תבניות (באמצעות JSON)",
 	"templatedata-doc-desc-empty": "אין תיאור.",

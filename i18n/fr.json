@@ -28,7 +28,6 @@
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "Renvoyer les données sur les titres, même s’ils manquent ou n’ont pas de TemplateData. Par défaut (pour des raisons de compatibilité ascendante), les titres uniquement  retournés sont ceux qui existent et qui ont des TemplateData.",
 	"apihelp-templatedata-param-lang": "Renvoyer les valeurs localisées dans cette langue. Par défaut, toutes les traductions disponibles sont renvoyées.",
 	"apierror-templatedata-corrupt": "Le modèle de données de la page $1 contient des données invalides: $2",
-	"apiwarn-templatedata-deprecation-legacyMode": "La sortie par défaut sera modifiée dans le futur pour inclure les titres manquants. Veuillez spécifier explicitement <kbd>doNotIgnoreMissingTitles=1</kbd>.",
 	"apiwarn-templatedata-deprecation-format": "Le format de sortie par défaut sera changé en <kbd>jsonfm</kbd> dans l'avenir. Veuillez spécifier <kbd>format=json</kbd> explicitement.",
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
 	"templatedata-doc-desc-empty": "Aucune description.",

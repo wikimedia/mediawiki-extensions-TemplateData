@@ -20,7 +20,6 @@
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "يرجع البيانات حول العناوين حتى لو كانت مفقودة أو تفتقد بيانات القالب. افتراضيا (للتوافق مع الإصدار القديم) فالعناوين يتم إرجاعها فقط لو كانت موجودة وتمتلك بيانات قالب.",
 	"apihelp-templatedata-param-lang": "أرجع قيم مترجمة بهذه اللغة. افتراضيا كل الترجمات المتوفرة يتم إرجاعها.",
 	"apierror-templatedata-corrupt": "بيانات القالب للصفحة #$1 تحتوي على بيانات غير صحيحة: $2",
-	"apiwarn-templatedata-deprecation-legacyMode": "الناتج الافتراضي سيتغير ليتضمن العناوين المفقودة في المستقبل. من فضلك حدد <kbd>doNotIgnoreMissingTitles=1</kbd> صراحة.",
 	"apiwarn-templatedata-deprecation-format": "صيغة الخرج الافتراضية ستتغير إلى <kbd>jsonfm</kbd> في المستقبل. من فضلك حدد <kbd>format=json</kbd> صراحة.",
 	"templatedata-desc": "تخزين بيانات وسائط القالب",
 	"templatedata-doc-desc-empty": "لا وصف.",

@@ -14,7 +14,6 @@
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "Devolver datos sobre os títulos, mesmo se estes non existen ou non conteñen TemplateData. Por defecto (para compatibilidade con versións anteriores) os títulos só serán devoltos se existen e conteñen TemplateData.",
 	"apihelp-templatedata-param-lang": "Devolver os valores localizados nesta lingua. Por defecto, devólvense todas as traducións dispoñibles.",
 	"apierror-templatedata-corrupt": "O modelo de datos da páxina #$1 contén datos incorrectosː $2",
-	"apiwarn-templatedata-deprecation-legacyMode": "A saída por defecto será modificada no futuro para incluír os títulos faltantes. Por favor, indique explícitamente <kbd>doNotIgnoreMissingTitles=1</kbd>.",
 	"apiwarn-templatedata-deprecation-format": "O formato de saída cambiará a <kbd>jsonfm</kbd> no futuro. Por favor, especifique <kbd>format=json</kbd> explícitamente.",
 	"templatedata-desc": "Inclúe un almacenamento de datos para os parámetros dos modelos (mediante JSON)",
 	"templatedata-doc-desc-empty": "Sen descrición.",

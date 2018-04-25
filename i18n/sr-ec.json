@@ -12,7 +12,6 @@
 	"apihelp-templatedata-example-1": "Врати TemplateData за [[Template:Stub]] и [[Template:Example]], са резултатима ако шаблони не постоје или постоје а немају TemplateData",
 	"apihelp-templatedata-example-2": "Врати TemplateData за [[Template:Stub]] и [[Template:Example]], без резултата ако шаблони не постоје или постоје а немају TemplateData",
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "Врати податке о насловима чак и ако недостају или немају TemplateData. Подразумевано (за компатибилност) наслови су се само враћају ако постоје и имају TemplateData.",
-	"apiwarn-templatedata-deprecation-legacyMode": "Подразумевани испис ће се изменити да укључи недостајуће наслове у будућности. Одредите <kbd>doNotIgnoreMissingTitles=1</kbd> експлицитно.",
 	"templatedata-desc": "Имплементира чување података за параметре шаблона (користећи JSON)",
 	"templatedata-doc-desc-empty": "Нема описа.",
 	"templatedata-doc-format-block": "Овај шаблон преферира обликовање параметара један испод другог.",

@@ -13,7 +13,6 @@
 	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "Kembalikan data tentang tajuk walaupun ianya hilang atau kekurangan DataTemplat. Secara tersedia (untuk keserasian ke belakang) tajuk hanya dikembalikan jika ianya wujud dan mempunyai DataTemplat.",
 	"apihelp-templatedata-param-lang": "Kembalikan nilai setempat dalam bahasa ini. Secara tersedia semua terjemahan sedia ada dikembalikan.",
 	"apierror-templatedata-corrupt": "Halaman $1 datatemplat mengandungi data tidak sah: $2",
-	"apiwarn-templatedata-deprecation-legacyMode": "Keluaran tersedia akan berubah kepada termasuk tajuk di masa hadapan. Sila tentukan <kbd>doNotIgnoreMissingTitles=1</kbd> secara terperinci.",
 	"apiwarn-templatedata-deprecation-format": "Format keluaran tersedia akan berubah kepada <kbd>sonfm</kbd> di masa hadapan. Sila tentukan <kbd>format=json</kbd> secara terperinci.",
 	"templatedata-desc": "Melaksanakan storan data bagi parameter templat (menggunakan JSON)",
 	"templatedata-doc-desc-empty": "Tiada keterangan.",
