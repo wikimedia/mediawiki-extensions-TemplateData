@@ -15,7 +15,8 @@
 			"INS Pirat",
 			"IKhitron",
 			"Smigles",
-			"Patrick Star"
+			"Patrick Star",
+			"Ole Yves"
 		]
 	},
 	"apihelp-templatedata-description": "Получить данные, сохраненные расширением TemplateData.",
@@ -86,11 +87,13 @@
 	"templatedata-modal-confirmcancel": "Вы уверены, что хотите отменить внесённые изменения?",
 	"templatedata-modal-current-language": "Текущий язык: $1",
 	"templatedata-modal-errormsg": "Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».",
+	"templatedata-modal-errormsg-duplicate-name": "Найдена ошибка. Выбранное имя уже используется другим параметром.",
 	"templatedata-modal-errormsg-import-noparams": "Во время импорта новые параметры не найдены.",
 	"templatedata-modal-format-block": "Блочный",
 	"templatedata-modal-format-custom": "Настраиваемый",
 	"templatedata-modal-format-inline": "Внутристрочный",
 	"templatedata-modal-format-null": "Не определён",
+	"templatedata-modal-format-placeholder": "Формат параметра шаблона",
 	"templatedata-modal-json-error-replace": "Заменить",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новый параметр импортирован|новых параметров импортировано|новых параметра импортировано}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Имя параметра",
@@ -118,6 +121,7 @@
 	"templatedata-modal-title-paramorder": "Порядок параметров",
 	"templatedata-modal-title-templatedesc": "Описание шаблона ($1)",
 	"templatedata-modal-title-templateformat": "Предлагаемое форматирование викитекста",
+	"templatedata-modal-title-templateformatstring": "Нестандартный формат",
 	"templatedata-modal-title-templateparam-details": "Описание параметра: $1",
 	"templatedata-modal-title-templateparams": "Параметры шаблона"
 }
