@@ -15,7 +15,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.30.0"
+		"MediaWiki": ">= 1.32.0"
 	},
 	"APIModules": {
 		"templatedata": "ApiTemplateData"
@@ -57,7 +57,7 @@
 			],
 			"dependencies": [
 				"ext.templateDataGenerator.ui",
-				"mediawiki.api.messages"
+				"mediawiki.api"
 			]
 		},
 		"ext.templateDataGenerator.data": {
