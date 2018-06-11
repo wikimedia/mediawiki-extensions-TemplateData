@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Candalua"
+			"Candalua",
+			"Matěj Suchánek"
 		]
 	},
 	"apihelp-templatedata-description": "Serca tra i dati memorixà da l'estension TemplateData.",
@@ -72,7 +73,7 @@
 	"templatedata-modal-format-inline": "In lìnia",
 	"templatedata-modal-format-null": "Mia indicà",
 	"templatedata-modal-json-error-replace": "Sostituisi",
-	"templatedata-modal-notice-import-numparams": "Xe stà inportà $1 {{PLURAL:$1 parametro novo|parametri novi}}: $2.",
+	"templatedata-modal-notice-import-numparams": "Xe stà inportà $1 {{PLURAL:$1|parametro novo|parametri novi}}: $2.",
 	"templatedata-modal-placeholder-paramkey": "Nome del parametro",
 	"templatedata-modal-search-input-placeholder": "Serca par nome de la lengoa o còdese",
 	"templatedata-modal-table-param-actions": "Azion",
