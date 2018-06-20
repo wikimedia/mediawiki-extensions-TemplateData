@@ -82,7 +82,7 @@
 	"templatedata-modal-button-importParams": "변수 가져오기",
 	"templatedata-modal-button-restoreparam": "변수 복구하기",
 	"templatedata-modal-button-saveparam": "저장",
-	"templatedata-modal-confirmcancel": "변경사항을 버리시겠습니까?",
+	"templatedata-modal-confirmcancel": "변경 사항을 버리시겠습니까?",
 	"templatedata-modal-current-language": "현재 언어: $1",
 	"templatedata-modal-errormsg": "오류를 찾았습니다. 빠진 곳이 없는지 확인하거나 매개변수 이름을 복사하고 매개변수 이름에  \"$1\", \"$2\", \"$3\" 기호가 포함되지 않도록 하세요.",
 	"templatedata-modal-errormsg-duplicate-name": "오류가 발견되었습니다. 선택한 이름은 이미 다른 변수에 의해 사용되고 있습니다.",
