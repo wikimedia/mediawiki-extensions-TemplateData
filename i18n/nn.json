@@ -28,6 +28,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Brukar",
 	"templatedata-doc-params": "Malparametrar",
 	"templatedata-editbutton": "Handsam maldokumentasjon",
+	"templatedata-exists-on-related-page": "Merk: det finst alt ei TemplateData-blokk på den tilknytte sida «[[$1]]».",
 	"templatedata-helplink": "Informasjon om maldokumentasjonutvidinga",
 	"templatedata-invalid-param": "Parameteren «$1» er ugyldig for eigenskapen «$2».",
 	"templatedata-modal-button-add-language": "Legg til språk",

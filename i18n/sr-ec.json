@@ -79,7 +79,7 @@
 	"templatedata-modal-format-custom": "Прилагођено",
 	"templatedata-modal-format-inline": "Редно",
 	"templatedata-modal-format-null": "Неодређено",
-	"templatedata-modal-format-placeholder": "Стринг формата за параметар шаблона",
+	"templatedata-modal-format-placeholder": "Ниска формата за параметар шаблона",
 	"templatedata-modal-json-error-replace": "Замени",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|нови параметар увезен|нова параметра увезена|нових параметара увезено}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Назив параметра",
@@ -107,7 +107,7 @@
 	"templatedata-modal-title-paramorder": "Редослед параметара",
 	"templatedata-modal-title-templatedesc": "Опис шаблона ($1)",
 	"templatedata-modal-title-templateformat": "Предложено форматирање викитекста",
-	"templatedata-modal-title-templateformatstring": "Стринг прилагођеног формата",
+	"templatedata-modal-title-templateformatstring": "Ниска прилагођеног формата",
 	"templatedata-modal-title-templateparam-details": "Детаљи параметра: $1",
 	"templatedata-modal-title-templateparams": "Параметри шаблона"
 }
