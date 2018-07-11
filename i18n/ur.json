@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Muhammad Shuaib"
+			"Muhammad Shuaib",
+			"BukhariSaeed"
 		]
 	},
 	"templatedata-doc-desc-empty": "کوئی وضاحت نہیں۔",
@@ -25,7 +26,7 @@
 	"templatedata-doc-param-type-date": "تاریخ",
 	"templatedata-doc-param-type-line": "سطر",
 	"templatedata-doc-param-type-number": "عدد",
-	"templatedata-doc-param-type-string": "سٹرنگ",
+	"templatedata-doc-param-type-string": "اِسٹرنگ",
 	"templatedata-doc-param-type-unbalanced-wikitext": "غیر متوازن ویکی متن",
 	"templatedata-doc-param-type-url": "یو آر ایل",
 	"templatedata-doc-param-type-wiki-file-name": "فائل",
