@@ -83,7 +83,7 @@
 	"templatedata-modal-json-error-replace": "Замени",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|нови параметар увезен|нова параметра увезена|нових параметара увезено}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Назив параметра",
-	"templatedata-modal-search-input-placeholder": "Претражите по имену или кôду језика",
+	"templatedata-modal-search-input-placeholder": "Претражите по имену или коду језика",
 	"templatedata-modal-table-param-actions": "Радње",
 	"templatedata-modal-table-param-aliases": "Псеудоними (одвојени зарезом)",
 	"templatedata-modal-table-param-autovalue": "Аутоматска вредност",
