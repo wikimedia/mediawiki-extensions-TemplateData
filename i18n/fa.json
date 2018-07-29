@@ -15,7 +15,7 @@
 			"Alifakoor"
 		]
 	},
-	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ TemplateData.",
+	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ الگوداده.",
 	"apihelp-templatedata-example-1": "برگرداندن داده‌های الگو برای [[Template:Stub]] و [[Template:Example]]، به همراه نتیجه اگر که الگو موجود نیست یا موجود است اما داده‌های الگو موجود نیست",
 	"apihelp-templatedata-param-lang": "برگرداندن مقادیر محلی به این زبان. به طور پیش‌فرض همهٔ ترجمه‌های موجود برگردانده شده‌اند.",
 	"templatedata-desc": "پیاده‌سازی ذخیره‌سازی داده‌های پارامترهای الگو (با استفاده از جی‌سن)",
@@ -53,10 +53,10 @@
 	"templatedata-doc-param-type-wiki-template-name": "الگو",
 	"templatedata-doc-param-type-wiki-user-name": "کاربر",
 	"templatedata-doc-params": "پارامترهای الگو",
-	"templatedata-editbutton": "مدیریت TemplateData",
-	"templatedata-errormsg-jsonbadformat": "قالب جی‌سان نادرست است. می‌توانید برای درست‌کردن آن این عملیات را لغو کنید، برچسب‌های کنونی <templatedata> را حذف کنید و دوباره امتحان کنید یا به جایگزین کردن TemplateData کنونی با مقدار جدید ادامه دهید",
-	"templatedata-exists-on-related-page": "لطفاً توجه کنید: از پیش قطعهٔ TemplateDate در صفحهٔ مرتبط '[[$1]]' وجود دارد.",
-	"templatedata-helplink": "اطلاعات در مورد TemplateData",
+	"templatedata-editbutton": "مدیریت الگوداده",
+	"templatedata-errormsg-jsonbadformat": "قالب جی‌سان نادرست است. می‌توانید برای درست‌کردن آن این عملیات را لغو کنید، برچسب‌های کنونی <templatedata> را حذف کنید و دوباره امتحان کنید یا به جایگزین کردن الگوداده کنونی با مقدار جدید ادامه دهید",
+	"templatedata-exists-on-related-page": "لطفاً توجه کنید: از پیش قطعهٔ الگوداده در صفحهٔ مرتبط «[[$1]]» وجود دارد.",
+	"templatedata-helplink": "اطلاعات در مورد الگوداده",
 	"templatedata-invalid-duplicate-value": "ویژگی «$1» («$3») تکرار «$2» است.",
 	"templatedata-invalid-empty-array": "ویژگی «$1» باید حداقل یک مقدار در آرایه‌اش داشته باشد.",
 	"templatedata-invalid-length": "داده‌ها برای ذخیره‌سازی بسیار بزرگ هستند ({{formatnum:$1}} {{PLURAL:$1|بایت|بایت}}، {{formatnum:$2}} {{PLURAL:$2|حداکثر طول مجاز است}})",
