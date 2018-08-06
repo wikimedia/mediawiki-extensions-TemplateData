@@ -1,8 +1,26 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jorn Ari"
+			"Jorn Ari",
+			"Saederup92"
 		]
 	},
-	"templatedata-modal-errormsg-duplicate-name": "Fejl fundet. Det valgte navn bruges allerede af et andet parameter."
+	"templatedata-doc-param-example": "Eksempel",
+	"templatedata-doc-param-example-empty": "tom",
+	"templatedata-doc-param-desc": "Beskrivelse",
+	"templatedata-doc-param-type-content": "Indhold",
+	"templatedata-doc-param-type-date": "Dato",
+	"templatedata-doc-param-type-wiki-file-name": "Fil",
+	"templatedata-doc-param-type-wiki-page-name": "Side",
+	"templatedata-doc-param-type-wiki-template-name": "Skabelon",
+	"templatedata-doc-param-type-wiki-user-name": "Bruger",
+	"templatedata-modal-button-back": "Tilbage",
+	"templatedata-modal-button-changelang": "Skift sprog",
+	"templatedata-modal-button-saveparam": "Gem",
+	"templatedata-modal-current-language": "Nuværrende sprog: $1",
+	"templatedata-modal-errormsg-duplicate-name": "Fejl fundet. Det valgte navn bruges allerede af et andet parameter.",
+	"templatedata-modal-table-param-name": "Navn",
+	"templatedata-modal-table-param-required": "Påkrævet",
+	"templatedata-modal-title-choose-language": "Vælg sprog",
+	"templatedata-modal-title-language": "Sprog"
 }
