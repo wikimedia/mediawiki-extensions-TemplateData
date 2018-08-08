@@ -99,7 +99,7 @@
 	"templatedata-modal-table-param-required": "Обавезно",
 	"templatedata-modal-table-param-suggested": "Предложено",
 	"templatedata-modal-table-param-type": "Врста",
-	"templatedata-modal-table-param-uneditablefield": "Није могуће уређивати",
+	"templatedata-modal-table-param-uneditablefield": "Неизменљив",
 	"templatedata-modal-title": "Уређивач документације шаблона",
 	"templatedata-modal-title-addparam": "Додај параметар",
 	"templatedata-modal-title-choose-language": "Изаберите језик",

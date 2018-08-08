@@ -50,5 +50,10 @@
 	"templatedata-modal-button-cancel": "Annulle",
 	"templatedata-modal-button-changelang": "Cange 'a lènghe",
 	"templatedata-modal-button-done": "Fatte",
-	"templatedata-modal-button-saveparam": "Reggìstre"
+	"templatedata-modal-button-saveparam": "Reggìstre",
+	"templatedata-modal-format-block": "Blocche",
+	"templatedata-modal-format-custom": "Personalizze",
+	"templatedata-modal-format-inline": "In linèe",
+	"templatedata-modal-format-null": "Non specificate",
+	"templatedata-modal-table-param-type": "Tipe"
 }
