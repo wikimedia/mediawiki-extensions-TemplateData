@@ -29,7 +29,7 @@
 	"templatedata-doc-param-name": "Параметар",
 	"templatedata-doc-param-status": "Стање",
 	"templatedata-doc-param-status-deprecated": "застарело",
-	"templatedata-doc-param-status-optional": "необавезно",
+	"templatedata-doc-param-status-optional": "опционално",
 	"templatedata-doc-param-status-required": "обавезно",
 	"templatedata-doc-param-status-suggested": "предложено",
 	"templatedata-doc-param-type": "Врста",
