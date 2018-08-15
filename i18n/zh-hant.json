@@ -24,7 +24,7 @@
 	"templatedata-desc": "實現模板參數的資料儲存 (使用 JSON)",
 	"templatedata-doc-desc-empty": "沒有描述。",
 	"templatedata-doc-format-block": "此模板以參數區塊格式為優先。",
-	"templatedata-doc-format-custom": "此模板有自定義格式。",
+	"templatedata-doc-format-custom": "此模板有自訂格式。",
 	"templatedata-doc-format-inline": "此模板以參數行內格式為優先。",
 	"templatedata-doc-no-params-set": "未指定參數",
 	"templatedata-doc-param-autovalue": "自動值",
@@ -88,8 +88,8 @@
 	"templatedata-modal-errormsg-duplicate-name": "發生錯誤。所選名稱已被其它參數使用。",
 	"templatedata-modal-errormsg-import-noparams": "在匯入過程沒有找到新的參數。",
 	"templatedata-modal-format-block": "區塊",
-	"templatedata-modal-format-custom": "自定義",
-	"templatedata-modal-format-inline": "行內",
+	"templatedata-modal-format-custom": "自訂",
+	"templatedata-modal-format-inline": "內嵌",
 	"templatedata-modal-format-null": "未指定",
 	"templatedata-modal-format-placeholder": "模板參數格式字串",
 	"templatedata-modal-json-error-replace": "取代",
@@ -119,7 +119,7 @@
 	"templatedata-modal-title-paramorder": "參數順序",
 	"templatedata-modal-title-templatedesc": "模板描述 ($1)",
 	"templatedata-modal-title-templateformat": "建議的 wiki 文字格式",
-	"templatedata-modal-title-templateformatstring": "自定義格式字串",
+	"templatedata-modal-title-templateformatstring": "自訂格式字串",
 	"templatedata-modal-title-templateparam-details": "參數詳細資料：$1",
 	"templatedata-modal-title-templateparams": "模板參數"
 }
