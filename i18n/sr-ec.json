@@ -53,7 +53,7 @@
 	"templatedata-editbutton": "Уреди TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Неисправан формат JSON-а. Можете да откажете ову операцију како бисте је исправили, обрисали актуелне <templatedata> тагове и покушали поново или наставите да бисте замените актуелни TemplateData са новим.",
 	"templatedata-errormsg-insertblank": "Јесте ли сигурни да желите да уметнете TemplateData-у без информација?",
-	"templatedata-exists-on-related-page": "Напомена: већ постоји блок TemplateData-е на сродној страници „[[$1]]”.",
+	"templatedata-exists-on-related-page": "Напомена: већ постоји TemplateData блок на повезаној страници „[[$1]]”.",
 	"templatedata-helplink": "Информације за TemplateData",
 	"templatedata-invalid-duplicate-value": "Својство „$1“ („$3“) је копија „$2“.",
 	"templatedata-invalid-empty-array": "Својство „$1“ мора да има најмање једну вредност поља.",
