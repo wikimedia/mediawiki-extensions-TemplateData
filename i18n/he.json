@@ -19,7 +19,7 @@
 	"templatedata-desc": "מימוש אחסון נתונים לפרמטרים של תבניות (באמצעות JSON)",
 	"templatedata-doc-desc-empty": "אין תיאור.",
 	"templatedata-doc-format-block": "התבנית הזאת מעדיפה עיצוב פרמטרים בתור פסקה.",
-	"templatedata-doc-format-custom": "לתבנית הזאת יש עיצוב מיוחד.",
+	"templatedata-doc-format-custom": "לתבנית הזאת יש עיצוב מותאם.",
 	"templatedata-doc-format-inline": "התבנית הזאת מעדיפה עיצוב פרמטרים בשורה אחת.",
 	"templatedata-doc-no-params-set": "לא סופקו פרמטרים",
 	"templatedata-doc-param-autovalue": "ערך אוטומטי",
