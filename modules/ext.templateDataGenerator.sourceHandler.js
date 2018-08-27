@@ -163,12 +163,20 @@ mw.TemplateData.SourceHandler.prototype.getParametersFromTemplateSource = functi
  * @return {string[]} An array of parameters that appear in the template code
  */
 mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateCode ) {
-	var matches,
+	var matches, normalizedParamName,
 		paramNames = [],
+		normalizedParamNames = [],
+		// This regex matches the one in TemplateDataBlob.php
 		paramExtractor = /{{3,}(.*?)[<|}]/mg;
 
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
+		// This normalization process is repeated in PHP in TemplateDataBlob.php
+		normalizedParamName = matches[ 1 ].replace( /[-_ ]+/, ' ' ).toLowerCase();
+		if ( $.inArray( normalizedParamName, normalizedParamNames ) !== -1 ) {
+			continue;
+		}
 		if ( $.inArray( matches[ 1 ], paramNames ) === -1 ) {
+			normalizedParamNames.push( normalizedParamName );
 			paramNames.push( $.trim( matches[ 1 ] ) );
 		}
 	}

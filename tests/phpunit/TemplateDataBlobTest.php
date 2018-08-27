@@ -1228,11 +1228,16 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			],
 			[
 				'Lorem {{{name|{{{Name|Default name}}}}}} ipsum',
-				[ 'name' => [], 'Name' => [] ]
+				[ 'name' => [] ]
 			],
 			[
 				'Lorem {{{name<!-- comment -->}}} ipsum',
 				[ 'name' => [] ]
+			],
+			[
+				// Check for letter-case and underscore-space normalization.
+				'Lorem {{{First name|{{{first_name}}}}}} ipsum {{{first-Name}}}',
+				[ 'First name' => [] ]
 			],
 		];
 	}
