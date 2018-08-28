@@ -172,10 +172,10 @@ mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = func
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
 		// This normalization process is repeated in PHP in TemplateDataBlob.php
 		normalizedParamName = matches[ 1 ].replace( /[-_ ]+/, ' ' ).toLowerCase();
-		if ( $.inArray( normalizedParamName, normalizedParamNames ) !== -1 ) {
+		if ( normalizedParamNames.indexOf( normalizedParamName ) !== -1 ) {
 			continue;
 		}
-		if ( $.inArray( matches[ 1 ], paramNames ) === -1 ) {
+		if ( paramNames.indexOf( matches[ 1 ] ) === -1 ) {
 			normalizedParamNames.push( normalizedParamName );
 			paramNames.push( $.trim( matches[ 1 ] ) );
 		}
