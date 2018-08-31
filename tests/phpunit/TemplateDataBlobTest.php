@@ -584,14 +584,10 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	}
 
 	protected static function getStatusText( Status $status ) {
-		$str = $status->getHtml();
-		// Based on wfMessage()->parse
-		$m = [];
-		if ( preg_match( '/^<p>(.*)\n?<\/p>\n?$/sU', $str, $m ) ) {
-			// Unescape char references for things like "[, "]" and "|" for
-			// cleaner test assertions and output
-			$str = Sanitizer::decodeCharReferences( $m[1] );
-		}
+		$str = Parser::stripOuterParagraph( $status->getHtml() );
+		// Unescape char references for things like "[, "]" and "|" for
+		// cleaner test assertions and output
+		$str = Sanitizer::decodeCharReferences( $str );
 		return $str;
 	}
 
