@@ -11,7 +11,9 @@
 
 	$( function () {
 		// Check if we're in the proper namespace
-		if ( mw.config.get( 'wgCanonicalNamespace' ) !== 'Template' ) {
+		if ( mw.config.get( 'wgCanonicalNamespace' ) !== 'Template' ||
+			mw.config.get( 'wgPageContentModel' ) !== 'wikitext'
+		) {
 			return;
 		}
 
