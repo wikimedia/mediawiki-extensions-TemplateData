@@ -36,6 +36,14 @@ class TemplateDataBlob {
 	private $status;
 
 	/**
+	 * @var Predefined formats for TemplateData to check against
+	 */
+	private static $formats = [
+		'block' => "{{_\n| _ = _\n}}",
+		'inline' => '{{_|_=_}}',
+	];
+
+	/**
 	 * Parse and validate passed JSON and create a TemplateDataBlob object.
 	 * Accepts and handles user-provided data.
 	 *
@@ -130,11 +138,6 @@ class TemplateDataBlob {
 			'wiki-template-name',
 		];
 
-		static $formats = [
-			'block' => "{{_\n| _ = _\n}}",
-			'inline' => '{{_|_=_}}',
-		];
-
 		static $typeCompatMap = [
 			'string/line' => 'line',
 			'string/wiki-page-name' => 'wiki-page-name',
@@ -168,7 +171,7 @@ class TemplateDataBlob {
 
 		// Root.format
 		if ( isset( $data->format ) && $data->format !== null ) {
-			$f = isset( $formats[$data->format] ) ? $formats[$data->format] :
+			$f = isset( self::$formats[$data->format] ) ? self::$formats[$data->format] :
 				$data->format;
 			if (
 				!is_string( $f ) ||
@@ -705,10 +708,12 @@ class TemplateDataBlob {
 
 	public function getHtml( Language $lang ) {
 		$data = $this->getDataInLanguage( $lang->getCode() );
+		$icon = 'advanced';
 		if ( $data->format === null ) {
 			$formatMsg = null;
-		} elseif ( isset( $formats[$data->format] ) ) {
+		} elseif ( isset( self::$formats[$data->format] ) ) {
 			$formatMsg = $data->format;
+			$icon = 'template-format-' . $formatMsg;
 		} else {
 			$formatMsg = 'custom';
 		}
@@ -739,7 +744,7 @@ class TemplateDataBlob {
 					Html::rawElement(
 						'p',
 						[],
-						new OOUI\IconWidget( [ 'icon' => 'template-format-' . $formatMsg ] )
+						new OOUI\IconWidget( [ 'icon' => $icon ] )
 						. Html::element(
 							'span',
 							[ 'class' => 'mw-templatedata-format' ],
