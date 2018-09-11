@@ -80,7 +80,7 @@
 	"templatedata-modal-button-delparam": "변수 정보 제거",
 	"templatedata-modal-button-done": "완료",
 	"templatedata-modal-button-importParams": "변수 가져오기",
-	"templatedata-modal-button-restoreparam": "변수 복구하기",
+	"templatedata-modal-button-restoreparam": "변수 복구",
 	"templatedata-modal-button-saveparam": "저장",
 	"templatedata-modal-confirmcancel": "변경 사항을 버리시겠습니까?",
 	"templatedata-modal-current-language": "현재 언어: $1",
