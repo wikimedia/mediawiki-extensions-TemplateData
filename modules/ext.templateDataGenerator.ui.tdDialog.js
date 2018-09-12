@@ -167,7 +167,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 		} ),
 		new OO.ui.ButtonOptionWidget( {
 			data: 'custom',
-			icon: 'advanced',
+			icon: 'settings',
 			label: mw.msg( 'templatedata-modal-format-custom' )
 		} )
 	] );
