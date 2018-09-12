@@ -1214,27 +1214,34 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 
 	public function provideGetRawParams() {
 		return [
-			[
+			'No params' => [
 				'Lorem ipsum {{tpl}}.',
 				[]
 			],
-			[
-				'Lorem {{{name}}} ipsum',
-				[ 'name' => [] ]
+			'Two plain params' => [
+				'Lorem {{{name}}} ipsum {{{surname}}}',
+				[ 'name' => [], 'surname' => [] ]
 			],
-			[
+			'Param with multiple casing and default value' => [
 				'Lorem {{{name|{{{Name|Default name}}}}}} ipsum',
 				[ 'name' => [] ]
 			],
-			[
+			'Param name contains comment' => [
 				'Lorem {{{name<!-- comment -->}}} ipsum',
 				[ 'name' => [] ]
 			],
-			[
-				// Check for letter-case and underscore-space normalization.
+			'Letter-case and underscore-space normalization' => [
 				'Lorem {{{First name|{{{first_name}}}}}} ipsum {{{first-Name}}}',
 				[ 'First name' => [] ]
 			],
+			'Dynamic param name' => [
+				'{{{{{#if:{{{nominee|}}}|nominee|candidate}}|}}}',
+				[ 'nominee' => [] ]
+			],
+			'More complicated dynamic param name' => [
+				'{{{party{{#if:{{{party_election||}}}|_election||}}|}}}',
+				[ 'party_election' => [] ]
+			]
 		];
 	}
 }

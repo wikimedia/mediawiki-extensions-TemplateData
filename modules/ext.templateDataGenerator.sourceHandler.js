@@ -167,7 +167,7 @@ mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = func
 		paramNames = [],
 		normalizedParamNames = [],
 		// This regex matches the one in TemplateDataBlob.php
-		paramExtractor = /{{3,}(.*?)[<|}]/mg;
+		paramExtractor = /{{3,}([^#]*?)[<|}]/mg;
 
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
 		// This normalization process is repeated in PHP in TemplateDataBlob.php
