@@ -708,7 +708,7 @@ class TemplateDataBlob {
 
 	public function getHtml( Language $lang ) {
 		$data = $this->getDataInLanguage( $lang->getCode() );
-		$icon = 'advanced';
+		$icon = 'settings';
 		if ( $data->format === null ) {
 			$formatMsg = null;
 		} elseif ( isset( self::$formats[$data->format] ) ) {
