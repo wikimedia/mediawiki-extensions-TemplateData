@@ -82,7 +82,7 @@
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|paramèter}} anyar kasil diimpor: $2.",
 	"templatedata-modal-placeholder-paramkey": "Jeneng paramèter",
 	"templatedata-modal-search-input-placeholder": "Golèk miturut kodhé utawa jeneng basa",
-	"templatedata-modal-table-param-actions": "Tumindak",
+	"templatedata-modal-table-param-actions": "Laku",
 	"templatedata-modal-table-param-aliases": "Aliyas (pisah nganggo koma)",
 	"templatedata-modal-table-param-autovalue": "Aji otomatis",
 	"templatedata-modal-table-param-default": "Gawan ($1)",
