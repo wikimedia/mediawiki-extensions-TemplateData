@@ -842,45 +842,27 @@ class TemplateDataBlob {
 					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
 				)
 				. Html::rawElement( 'dl', [],
-					Html::element( 'dt', [],
+					// Default
+					( $paramObj->default !== null ? ( Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )->text()
 					)
-					// Default
-					. Html::element( 'dd', [
-							'class' => [
-								'mw-templatedata-doc-muted' => $paramObj->default === null
-							]
-						],
-						$paramObj->default !== null ?
-							$paramObj->default :
-							wfMessage( 'templatedata-doc-param-default-empty' )->inLanguage( $lang )->text()
-					)
+					. Html::element( 'dd', [],
+						$paramObj->default
+					) ) : '' )
 					// Example
-					. Html::element( 'dt', [],
+					. ( $paramObj->example !== null ? ( Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-example' )->inLanguage( $lang )->text()
 					)
-					. Html::element( 'dd', [
-							'class' => [
-								'mw-templatedata-doc-muted' => $paramObj->example === null
-							]
-						],
-						$paramObj->example !== null ?
-							$paramObj->example :
-							wfMessage( 'templatedata-doc-param-example-empty' )->inLanguage( $lang )->text()
-					)
+					. Html::element( 'dd', [],
+						$paramObj->example
+					) ) : '' )
 					// Auto value
-					. Html::element( 'dt', [],
+					. ( $paramObj->autovalue !== null ? ( Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-autovalue' )->inLanguage( $lang )->text()
 					)
-					. Html::rawElement( 'dd', [
-							'class' => [
-								'mw-templatedata-doc-muted' => $paramObj->autovalue === null
-							]
-						],
-						$paramObj->autovalue !== null ?
-							Html::element( 'code', [], $paramObj->autovalue ) :
-							wfMessage( 'templatedata-doc-param-autovalue-empty' )->inLanguage( $lang )->escaped()
-					)
+					. Html::rawElement( 'dd', [],
+						Html::element( 'code', [], $paramObj->autovalue )
+					) ) : '' )
 				)
 			)
 			// Type
