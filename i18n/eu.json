@@ -8,11 +8,8 @@
 		]
 	},
 	"templatedata-doc-param-autovalue": "Balio automatikoa",
-	"templatedata-doc-param-autovalue-empty": "hutsik",
 	"templatedata-doc-param-default": "Lehenetsia",
-	"templatedata-doc-param-default-empty": "hutsik",
 	"templatedata-doc-param-example": "Adibidea",
-	"templatedata-doc-param-example-empty": "hutsik",
 	"templatedata-doc-param-desc": "Deskribapena",
 	"templatedata-doc-param-desc-empty": "azalpenik ez",
 	"templatedata-doc-param-name": "Parametroa",
