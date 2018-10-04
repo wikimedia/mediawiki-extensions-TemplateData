@@ -128,7 +128,7 @@ class TemplateDataHooks {
 	 *
 	 * @return string HTML to insert in the page.
 	 */
-	public static function render( $input, $args, $parser, $frame ) {
+	public static function render( $input, $args, Parser $parser, $frame ) {
 		$ti = TemplateDataBlob::newFromJSON( $input );
 
 		$status = $ti->getStatus();
@@ -137,7 +137,17 @@ class TemplateDataHooks {
 			return '<div class="errorbox">' . $status->getHTML() . '</div>';
 		}
 
-		$parser->getOutput()->setProperty( 'templatedata', $ti->getJSONForDatabase() );
+		// Store the blob as page property for retrieval by ApiTemplateData.
+		// But, don't store it if we're parsing a doc sub page,  because:
+		// - The doc subpage should not appear in ApiTemplateData as a documented
+		// template itself, which is confusing to users (T54448).
+		// - The doc subpage should not appear at Special:PagesWithProp.
+		// - Storing the blob twice in the database is inefficient (T52512).
+		$title = $parser->getTitle();
+		$docPage = wfMessage( 'templatedata-doc-subpage' )->inContentLanguage();
+		if ( !$title->isSubpage() || $title->getSubpageText() !== $docPage->plain() ) {
+			$parser->getOutput()->setProperty( 'templatedata', $ti->getJSONForDatabase() );
+		}
 
 		$parser->getOutput()->addModuleStyles( [
 			'ext.templateData',
