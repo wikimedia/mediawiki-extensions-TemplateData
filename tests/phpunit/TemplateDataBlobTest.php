@@ -20,7 +20,12 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	 * Output is consistent when given the same seed.
 	 */
 	private static function generatePseudorandomString( $length, $seed ) {
-		mt_srand( $seed );
+		// Compatibility with PHP7.1+; see T206287
+		if ( defined( 'MT_RAND_PHP' ) ) {
+			mt_srand( $seed, MT_RAND_PHP );
+		} else {
+			mt_srand( $seed );
+		}
 
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$characters_max = strlen( $characters ) - 1;
