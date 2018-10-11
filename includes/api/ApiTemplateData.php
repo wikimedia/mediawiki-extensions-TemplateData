@@ -6,7 +6,7 @@
  * @file
  */
 
-use MediaWiki\Storage\RevisionRecord;
+use MediaWiki\Revision\RevisionRecord;
 
 /**
  * @ingroup API
