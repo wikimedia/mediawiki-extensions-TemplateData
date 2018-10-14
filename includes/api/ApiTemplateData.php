@@ -71,7 +71,7 @@ class ApiTemplateData extends ApiBase {
 			$includeMissingTitles = $doNotIgnoreMissingTitles;
 		}
 
-		if ( !count( $titles ) && ( !$includeMissingTitles || !count( $missingTitles ) ) ) {
+		if ( !$titles && ( !$includeMissingTitles || !$missingTitles ) ) {
 			$result->addValue( null, 'pages', (object)[] );
 			$this->setContinuationManager( null );
 			$continuationManager->setContinuationIntoResult( $this->getResult() );
@@ -90,7 +90,7 @@ class ApiTemplateData extends ApiBase {
 			}
 		}
 
-		if ( count( $titles ) ) {
+		if ( $titles ) {
 			$db = $this->getDB();
 			$res = $db->select( 'page_props',
 				[ 'pp_page', 'pp_value' ], [
