@@ -112,7 +112,7 @@ class ApiTemplateData extends ApiBase {
 					);
 				}
 
-				if ( $langCode ) {
+				if ( $langCode !== false ) {
 					$data = $tdb->getDataInLanguage( $langCode );
 				} else {
 					$data = $tdb->getData();
