@@ -130,14 +130,12 @@ class ApiTemplateData extends ApiBase {
 				$data->params->{ApiResult::META_INDEXED_TAG_NAME} = 'param';
 				ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
 
-				if ( count( $data ) ) {
-					if ( $includeMissingTitles ) {
-						unset( $resp[$row->pp_page]['notemplatedata'] );
-					} else {
-						$resp[ $row->pp_page ] = [ 'title' => $titles[ $row->pp_page ] ];
-					}
-					$resp[$row->pp_page] += (array)$data;
+				if ( $includeMissingTitles ) {
+					unset( $resp[$row->pp_page]['notemplatedata'] );
+				} else {
+					$resp[ $row->pp_page ] = [ 'title' => $titles[ $row->pp_page ] ];
 				}
+				$resp[$row->pp_page] += (array)$data;
 			}
 		}
 
