@@ -500,7 +500,7 @@ mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetChange = function ( 
 			this.templateFormatInputWidget.setValue( newValue );
 			// Will recurse to actually set value in model.
 		} else {
-			this.model.setTemplateFormat( format );
+			this.model.setTemplateFormat( this.displayToFormat( value.trim() ) );
 		}
 	}
 };
