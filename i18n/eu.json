@@ -4,9 +4,11 @@
 			"Subi",
 			"Sator",
 			"An13sa",
-			"Mikel Ibaiba"
+			"Mikel Ibaiba",
+			"Asierog"
 		]
 	},
+	"templatedata-doc-no-params-set": "Ez da parametrorik zehaztu",
 	"templatedata-doc-param-autovalue": "Balio automatikoa",
 	"templatedata-doc-param-default": "Lehenetsia",
 	"templatedata-doc-param-example": "Adibidea",
@@ -34,6 +36,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Erabiltzailea",
 	"templatedata-doc-params": "Txantiloiaren parametroak",
 	"templatedata-editbutton": "TemplateData kudeatu",
+	"templatedata-errormsg-insertblank": "Ziur zaude TemplateData sartu nahi duzula informaziorik gabe?",
 	"templatedata-helplink": "TemplateDatari buruzko informazioa",
 	"templatedata-modal-button-add-language": "Gehitu hizkuntza",
 	"templatedata-modal-button-addparam": "Gehitu parametroa",
