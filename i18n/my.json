@@ -17,6 +17,7 @@
 	"templatedata-doc-param-status-required": "လိုအပ်သည်",
 	"templatedata-doc-param-status-suggested": "အကြံပေးထားသော",
 	"templatedata-doc-param-type": "အမျိုးအစား",
+	"templatedata-doc-param-type-date": "နေ့စွဲ",
 	"templatedata-doc-param-type-wiki-file-name": "ဖိုင်",
 	"templatedata-doc-param-type-wiki-page-name": "စာမျက်နှာ",
 	"templatedata-doc-param-type-wiki-template-name": "တမ်းပလိတ်",
@@ -44,5 +45,6 @@
 	"templatedata-modal-table-param-type": "အမျိုးအစား",
 	"templatedata-modal-table-param-uneditablefield": "မတည်းဖြတ်နိုင်သော",
 	"templatedata-modal-title-choose-language": "ဘာသာစကားရွေးချယ်ရန်",
-	"templatedata-modal-title-language": "ဘာသာစကား"
+	"templatedata-modal-title-language": "ဘာသာစကား",
+	"templatedata-modal-title-templatedesc": "တမ်းပလိတ် ဖော်ပြချက် ($1)"
 }
