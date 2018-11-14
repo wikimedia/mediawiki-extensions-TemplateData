@@ -2,19 +2,19 @@
  * Template data edit ui target
  *
  * @class
- * @abstract
  * @extends OO.ui.Element
  * @mixin OO.EventEmitter
  *
  * @constructor
+ * @param {jQuery} $textarea Editor textarea
  * @param {Object} config Configuration options
  */
-mw.TemplateData.Target = function mwTemplateDataTarget( config ) {
+mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 	var $helpLink, relatedPage,
 		target = this;
 
 	// Parent constructor
-	mw.TemplateData.Target.super.apply( this, arguments );
+	mw.TemplateData.Target.super.call( this, config );
 
 	// Mixin constructor
 	OO.EventEmitter.call( this );
@@ -24,6 +24,7 @@ mw.TemplateData.Target = function mwTemplateDataTarget( config ) {
 	this.isPageSubLevel = !!config.isPageSubLevel;
 	this.isDocPage = !!config.isDocPage;
 	this.docSubpage = config.docSubpage;
+	this.$textarea = $textarea;
 
 	this.editOpenDialogButton = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'templatedata-editbutton' )
@@ -106,24 +107,6 @@ OO.mixinClass( mw.TemplateData.Target, OO.EventEmitter );
 /* Methods */
 
 /**
- * Get wikitext from the editor
- *
- * @method
- * @abstract
- * @return {string} Wikitext
- */
-mw.TemplateData.Target.prototype.getWikitext = null;
-
-/**
- * Write wikitext back to the target
- *
- * @method
- * @abstract
- * @param {string} newWikitext New wikitext
- */
-mw.TemplateData.Target.prototype.setWikitext = null;
-
-/**
  * Destroy the target
  */
 mw.TemplateData.Target.prototype.destroy = function () {
@@ -190,7 +173,7 @@ mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
 	// Reset notice message
 	this.resetNoticeMessage();
 
-	this.originalWikitext = this.getWikitext();
+	this.originalWikitext = this.$textarea.textSelection( 'getContents' );
 
 	// Build the model
 	this.sourceHandler.buildModel( this.originalWikitext )
@@ -239,43 +222,39 @@ mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
  *
  * @method replaceTemplateData
  * @param {Object} newTemplateData New templatedata
- * @return {string} Full wikitext content with the new templatedata
- *  string.
  */
 mw.TemplateData.Target.prototype.replaceTemplateData = function ( newTemplateData ) {
-	var finalOutput,
-		endNoIncludeLength = '</noinclude>'.length,
-		// NB: This pattern contains no matching groups: (). This avoids
-		// corruption if the template data JSON contains $1 etc.
-		templatedataPattern = /<templatedata>[\s\S]*?<\/templatedata>/i;
+	var matches, templateDataOutput,
+		templateDataJSON = JSON.stringify( newTemplateData, null, '\t' ),
+		templatedataPattern = /(<templatedata>\s*)([\s\S]*?)\s*<\/templatedata>/i;
 
-	if ( this.originalWikitext.match( templatedataPattern ) ) {
-		// <templatedata> exists. Replace it
-		finalOutput = this.originalWikitext.replace(
-			templatedataPattern,
-			'<templatedata>\n' + JSON.stringify( newTemplateData, null, '\t' ) + '\n</templatedata>'
-		);
+	if ( ( matches = this.originalWikitext.match( templatedataPattern ) ) ) {
+		// Move cursor to select withing existing <templatedata> and whitespace
+		this.$textarea.textSelection( 'setSelection', {
+			start: matches.index + matches[ 1 ].length,
+			end: matches.index + matches[ 1 ].length + matches[ 2 ].length
+		} );
+		templateDataOutput = templateDataJSON;
 	} else {
-		finalOutput = this.originalWikitext;
-		if ( finalOutput.substr( -1 ) !== '\n' ) {
-			finalOutput += '\n';
-		}
+		this.$textarea.textSelection( 'setSelection', { start: this.originalWikitext.length } );
+
+		templateDataOutput = '<templatedata>\n' + templateDataJSON + '\n</templatedata>';
 
 		if ( !this.isPageSubLevel ) {
-			if ( finalOutput.substr( -endNoIncludeLength - 1 ) === '</noinclude>\n' ) {
-				finalOutput = finalOutput.substr( 0, finalOutput.length - endNoIncludeLength - 1 );
+			if ( ( matches = this.originalWikitext.match( /<\/noinclude>\s*$/ ) ) ) {
+				// Move cursor inside </noinclude>
+				this.$textarea.textSelection( 'setSelection', { start: this.originalWikitext.length - matches[ 0 ].length - 1 } );
 			} else {
-				finalOutput += '<noinclude>\n';
+				// Wrap in new <noinclude>s
+				templateDataOutput = '<noinclude>\n' + templateDataOutput + '\n</noinclude>\n';
 			}
 		}
-		finalOutput += '<templatedata>\n' +
-				JSON.stringify( newTemplateData, null, '\t' ) +
-				'\n</templatedata>\n';
-		if ( !this.isPageSubLevel ) {
-			finalOutput += '</noinclude>\n';
+
+		if ( this.originalWikitext.substr( -1 ) !== '\n' ) {
+			templateDataOutput = '\n' + templateDataOutput;
 		}
 	}
-	return finalOutput;
+	this.$textarea.textSelection( 'replaceSelection', templateDataOutput );
 };
 
 /**
@@ -291,7 +270,7 @@ mw.TemplateData.Target.prototype.onDialogApply = function ( templateData ) {
 		Object.keys( templateData ).length > 1 ||
 		Object.keys( templateData.params ).length > 0
 	) {
-		this.setWikitext( this.replaceTemplateData( templateData ) );
+		this.replaceTemplateData( templateData );
 	} else {
 		this.windowManager.closeWindow( this.windowManager.getCurrentWindow() );
 		OO.ui.getWindowManager().openWindow( 'message', {
@@ -309,69 +288,8 @@ mw.TemplateData.Target.prototype.onDialogApply = function ( templateData ) {
 			]
 		} ).closed.then( function ( data ) {
 			if ( data && data.action === 'apply' ) {
-				target.setWikitext( target.replaceTemplateData( templateData ) );
+				target.replaceTemplateData( templateData );
 			}
 		} );
 	}
-};
-
-/**
- * Textarea target
- *
- * @class
- * @extends mw.TemplateData.Target
- *
- * @constructor
- * @param {jQuery} $textarea Editor textarea
- * @param {Object} config Configuration options
- */
-mw.TemplateData.TextareaTarget = function mwTemplateDataTextareaTarget( $textarea, config ) {
-	// Parent constructor
-	mw.TemplateData.TextareaTarget.super.call( this, config );
-
-	this.$textarea = $textarea;
-};
-
-/* Inheritance */
-
-OO.inheritClass( mw.TemplateData.TextareaTarget, mw.TemplateData.Target );
-
-mw.TemplateData.TextareaTarget.prototype.getWikitext = function () {
-	return this.$textarea.textSelection( 'getContents' );
-};
-
-mw.TemplateData.TextareaTarget.prototype.setWikitext = function ( newWikitext ) {
-	this.$textarea.textSelection( 'setContents', newWikitext );
-};
-
-/* global ve */
-
-/**
- * VisualEditor target
- *
- * @class
- * @extends mw.TemplateData.Target
- *
- * @constructor
- * @param {ve.ui.Surface} surface VE surface
- * @param {Object} config Configuration options
- */
-mw.TemplateData.VETarget = function mwTemplateDataVETarget( surface, config ) {
-	// Parent constructor
-	mw.TemplateData.VETarget.super.call( this, config );
-
-	this.surface = surface;
-};
-
-/* Inheritance */
-
-OO.inheritClass( mw.TemplateData.VETarget, mw.TemplateData.Target );
-
-mw.TemplateData.VETarget.prototype.getWikitext = function () {
-	return this.surface.getDom();
-};
-
-mw.TemplateData.VETarget.prototype.setWikitext = function ( newWikitext ) {
-	this.surface.getModel().getLinearFragment( new ve.Range( 0, this.surface.getModel().getDocument().data.getLength() ) )
-		.insertContent( newWikitext );
 };

@@ -48,14 +48,16 @@
 			// Textbox wikitext editor
 			if ( $textbox.length ) {
 				// Prepare the editor
-				target = new mw.TemplateData.TextareaTarget( $textbox, config );
+				target = new mw.TemplateData.Target( $textbox, config );
 				$( '#mw-content-text' ).prepend( target.$element );
 			}
 			// Visual editor source mode
 			mw.hook( 've.activationComplete' ).add( function () {
 				var surface = ve.init.target.getSurface();
 				if ( surface.getMode() === 'source' ) {
-					target = new mw.TemplateData.VETarget( surface, config );
+					// Source mode will have created a dummy textbox
+					$textbox = $( '#wpTextbox1' );
+					target = new mw.TemplateData.Target( $textbox, config );
 					// Use the same font size as main content text
 					target.$element.addClass( 'mw-body-content' );
 					$( '.ve-init-mw-desktopArticleTarget-originalContent' ).prepend( target.$element );
