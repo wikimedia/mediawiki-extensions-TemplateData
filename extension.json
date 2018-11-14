@@ -54,6 +54,11 @@
 		"ext.templateDataGenerator.editPage": {
 			"scripts": [
 				"modules/ext.templateDataGenerator.editPage.js"
+			]
+		},
+		"ext.templateDataGenerator.editTemplatePage": {
+			"scripts": [
+				"modules/ext.templateDataGenerator.editTemplatePage.js"
 			],
 			"dependencies": [
 				"ext.templateDataGenerator.ui",

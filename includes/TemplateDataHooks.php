@@ -109,7 +109,7 @@ class TemplateDataHooks {
 		global $wgTemplateDataUseGUI;
 		if ( $wgTemplateDataUseGUI ) {
 			if ( $output->getTitle()->inNamespace( NS_TEMPLATE ) ) {
-				$output->addModules( 'ext.templateDataGenerator.editPage' );
+				$output->addModules( 'ext.templateDataGenerator.editTemplatePage' );
 			}
 		}
 		return true;
