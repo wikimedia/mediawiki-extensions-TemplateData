@@ -28,7 +28,7 @@ class TemplateDataHooks {
 		ResourceLoader &$resourceLoader
 	) {
 		$testModules['qunit']['ext.templateData.test'] = [
-			'scripts' => [ 'tests/ext.templateData.tests.js' ],
+			'scripts' => [ 'tests/qunit/ext.templateData.tests.js' ],
 			'dependencies' => [ 'ext.templateDataGenerator.data' ],
 			'localBasePath' => dirname( __DIR__ ) ,
 			'remoteExtPath' => 'TemplateData',
