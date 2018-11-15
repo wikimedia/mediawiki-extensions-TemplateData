@@ -801,7 +801,8 @@ class TemplateDataBlob {
 			$aliases = '';
 			if ( count( $paramObj->aliases ) ) {
 				foreach ( $paramObj->aliases as $alias ) {
-					$aliases .= Html::element( 'code', [
+					$aliases .= wfMessage( 'word-separator' )->inLanguage( $lang )->escaped()
+					. Html::element( 'code', [
 						'class' => 'mw-templatedata-doc-param-alias'
 					], $alias );
 				}
