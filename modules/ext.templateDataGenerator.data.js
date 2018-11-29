@@ -217,8 +217,8 @@ mw.TemplateData.Model.static.splitAndTrimArray = function ( str, delim ) {
 	var arr = [];
 	delim = delim || mw.msg( 'comma-separator' );
 
-	$.each( str.split( delim ), function () {
-		var trimmed = $.trim( this );
+	str.split( delim ).forEach( function ( part ) {
+		var trimmed = part.trim();
 		if ( trimmed ) {
 			arr.push( trimmed );
 		}
@@ -239,7 +239,7 @@ mw.TemplateData.Model.static.arrayUnionWithoutEmpty = function () {
 
 	// Trim and filter empty strings
 	return result.filter( function ( i ) {
-		return $.trim( i );
+		return i.trim();
 	} );
 };
 
@@ -299,7 +299,7 @@ mw.TemplateData.Model.prototype.getMissingParams = function () {
 
 	// Check source code params
 	for ( i = 0; i < this.sourceCodeParameters.length; i++ ) {
-		if ( $.inArray( this.sourceCodeParameters[ i ], allParamNames ) === -1 ) {
+		if ( allParamNames.indexOf( this.sourceCodeParameters[ i ] ) === -1 ) {
 			result.push( this.sourceCodeParameters[ i ] );
 		}
 	}
@@ -321,7 +321,7 @@ mw.TemplateData.Model.prototype.importSourceCodeParameters = function () {
 	// Check existing params
 	for ( i = 0; i < allParamNames.length; i++ ) {
 		paramKey = allParamNames[ i ];
-		if ( $.inArray( paramKey, this.sourceCodeParameters ) !== -1 ) {
+		if ( this.sourceCodeParameters.indexOf( paramKey ) !== -1 ) {
 			existingArray.push( paramKey );
 		}
 	}
@@ -329,7 +329,7 @@ mw.TemplateData.Model.prototype.importSourceCodeParameters = function () {
 	// Add sourceCodeParameters to the model
 	for ( i = 0; i < this.sourceCodeParameters.length; i++ ) {
 		if (
-			$.inArray( this.sourceCodeParameters[ i ], existingArray ) === -1 &&
+			existingArray.indexOf( this.sourceCodeParameters[ i ] ) === -1 &&
 			this.addParam( this.sourceCodeParameters[ i ] )
 		) {
 			importedArray.push( this.sourceCodeParameters[ i ] );
@@ -371,7 +371,7 @@ mw.TemplateData.Model.prototype.getExistingLanguageCodes = function () {
 	for ( param in this.params ) {
 		// Go over the properties
 		for ( prop in this.params[ param ] ) {
-			if ( $.inArray( prop, languageProps ) !== -1 ) {
+			if ( languageProps.indexOf( prop ) !== -1 ) {
 				result = this.constructor.static.arrayUnionWithoutEmpty( result, Object.keys( this.params[ param ][ prop ] ) );
 			}
 		}
@@ -399,7 +399,7 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 
 	name = key;
 	// Check that the parameter is not already in the model
-	if ( this.params[ key ] || $.inArray( key, existingNames ) !== -1 ) {
+	if ( this.params[ key ] || existingNames.indexOf( key ) !== -1 ) {
 		// Change parameter key
 		key = this.getNewValidParameterKey( key );
 	}
@@ -411,7 +411,7 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 	this.params[ key ].name = name;
 
 	// Mark the parameter if it is in the template source
-	if ( $.inArray( key, this.sourceCodeParameters ) !== -1 ) {
+	if ( this.sourceCodeParameters.indexOf( key ) !== -1 ) {
 		this.params[ key ].inSource = true;
 	}
 
@@ -451,7 +451,7 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 			}
 
 			if (
-				$.inArray( propToSet, propertiesWithLanguage ) !== -1 &&
+				propertiesWithLanguage.indexOf( propToSet ) !== -1 &&
 				$.isPlainObject( data[ prop ] )
 			) {
 				// Add all language properties
@@ -592,7 +592,7 @@ mw.TemplateData.Model.prototype.setTemplateFormat = function ( format ) {
  * @fires change
  */
 mw.TemplateData.Model.prototype.addKeyTemplateParamOrder = function ( key ) {
-	if ( $.inArray( key, this.paramOrder ) === -1 ) {
+	if ( this.paramOrder.indexOf( key ) === -1 ) {
 		this.paramOrder.push( key );
 		this.emit( 'add-paramOrder', key );
 		this.emit( 'change' );
@@ -629,7 +629,7 @@ mw.TemplateData.Model.prototype.reorderParamOrderKey = function ( key, newIndex 
  * @fires change
  */
 mw.TemplateData.Model.prototype.removeKeyTemplateParamOrder = function ( key ) {
-	var keyPos = $.inArray( key, this.paramOrder );
+	var keyPos = this.paramOrder.indexOf( key );
 	if ( keyPos > -1 ) {
 		this.paramOrder.splice( keyPos, 1 );
 		this.emit( 'change-paramOrder', this.paramOrder );
@@ -680,11 +680,11 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 
 	if ( allProps[ prop ].type === 'array' && $.type( value ) === 'string' ) {
 		// When we split the string, we want to use a trimmed delimiter
-		value = this.constructor.static.splitAndTrimArray( value, $.trim( allProps[ prop ].delimiter ) );
+		value = this.constructor.static.splitAndTrimArray( value, allProps[ prop ].delimiter.trim() );
 	}
 
 	// Check if the property is split by language code
-	if ( $.inArray( prop, propertiesWithLanguage ) !== -1 ) {
+	if ( propertiesWithLanguage.indexOf( prop ) !== -1 ) {
 		// Initialize property if necessary
 		if ( !$.isPlainObject( this.params[ paramKey ][ prop ] ) ) {
 			this.params[ paramKey ][ prop ] = {};
@@ -828,7 +828,7 @@ mw.TemplateData.Model.prototype.isParamDeleted = function ( key ) {
 };
 
 mw.TemplateData.Model.prototype.isParamExists = function ( key ) {
-	return $.inArray( key, Object.keys( this.params ) ) > -1;
+	return Object.prototype.hasOwnProperty.call( this.params, key );
 };
 
 /**
@@ -1050,7 +1050,7 @@ mw.TemplateData.Model.prototype.outputTemplateData = function () {
  */
 mw.TemplateData.Model.prototype.getNewValidParameterKey = function ( key ) {
 	var allParamNames = this.getAllParamNames();
-	if ( this.params[ key ] || $.inArray( key, allParamNames ) !== -1 ) {
+	if ( this.params[ key ] || allParamNames.indexOf( key ) !== -1 ) {
 		// Change the key to be something else
 		key += this.paramIdentifierCounter;
 		this.paramIdentifierCounter++;

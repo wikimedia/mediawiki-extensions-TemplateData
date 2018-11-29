@@ -177,7 +177,7 @@ mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = func
 		}
 		if ( paramNames.indexOf( matches[ 1 ] ) === -1 ) {
 			normalizedParamNames.push( normalizedParamName );
-			paramNames.push( $.trim( matches[ 1 ] ) );
+			paramNames.push( matches[ 1 ].trim() );
 		}
 	}
 
@@ -201,10 +201,10 @@ mw.TemplateData.SourceHandler.prototype.parseModelFromString = function ( templa
 	);
 
 	// Check if <templatedata> exists
-	if ( parts && parts[ 1 ] && $.trim( parts[ 1 ] ).length > 0 ) {
+	if ( parts && parts[ 1 ] && parts[ 1 ].trim().length > 0 ) {
 		// Parse the json string
 		try {
-			return JSON.parse( $.trim( parts[ 1 ] ) );
+			return JSON.parse( parts[ 1 ].trim() );
 		} catch ( err ) {
 			return null;
 		}
