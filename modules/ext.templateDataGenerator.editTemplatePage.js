@@ -56,7 +56,7 @@ $( function () {
 				$( '.ve-init-mw-desktopArticleTarget-originalContent' ).prepend( target.$element );
 			}
 		} );
-		mw.hook( 've.deactivate' ).add( function () {
+		mw.hook( 've.deactivationComplete' ).add( function () {
 			if ( target ) {
 				target.destroy();
 				target = null;
