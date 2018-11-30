@@ -386,7 +386,7 @@ mw.TemplateData.Dialog.prototype.onNewLanguageSearchResultsChoose = function ( i
 		newLanguage = item.getData().code;
 
 	if ( newLanguage ) {
-		if ( $.inArray( newLanguage, this.availableLanguages ) === -1 ) {
+		if ( this.availableLanguages.indexOf( newLanguage ) === -1 ) {
 			// Add new language
 			this.availableLanguages.push( newLanguage );
 			languageButton = new OO.ui.MenuOptionWidget( {
@@ -659,7 +659,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 		} else if ( prop.type === 'boolean' ) {
 			propInput.setSelected( !!value );
 		} else {
-			if ( $.inArray( propName, languageProps ) !== -1 ) {
+			if ( languageProps.indexOf( propName ) !== -1 ) {
 				propInput.setValue( value[ lang ] );
 			} else {
 				if ( prop.type === 'array' && $.type( value ) === 'array' ) {
@@ -842,9 +842,9 @@ mw.TemplateData.Dialog.prototype.toggleNoticeMessage = function ( type, isShowin
 		}
 		isShowing = isShowing || !noticeReference.$element.is( ':visible' );
 
-		if ( $.type( noticeMessage ) === 'array' ) {
+		if ( Array.isArray( noticeMessage ) ) {
 			$message = $( '<div>' );
-			$.each( noticeMessage, function ( i, msg ) {
+			noticeMessage.forEach( function ( msg ) {
 				$message.append( $( '<p>' ).text( msg ) );
 			} );
 			noticeReference.setLabel( $message );
@@ -926,7 +926,7 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			// Fill up the language selection
 			if (
 				languages.length === 0 ||
-				$.inArray( language, languages ) === -1
+				languages.indexOf( language ) === -1
 			) {
 				// Add the default language
 				languageItems.push( new OO.ui.MenuOptionWidget( {

@@ -17,49 +17,49 @@
 	originalWikitext = 'Some text here that is not templatedata information.' +
 		'<templatedata>' +
 		'{' +
-		'	"description": {\n' +
-		'		"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
-		'		"blah": "Template description in some blah language."\n' +
-		'	},' +
-		'	"params": {' +
-		'		"user": {' +
-		'			"label": "Username",' +
-		'			"type": "wiki-user-name",' +
-		'			"required": true,' +
-		'			"description": "User name of person who forgot to sign their comment.",' +
-		'			"aliases": ["1"]' +
-		'		},' +
-		'		"date": {' +
-		'			"label": "Date",' +
-		'			"description": {' +
-		'				"' + currLanguage + '": "Timestamp of when the comment was posted, in YYYY-MM-DD format."' +
-		'			},' +
-		'			"aliases": ["2"],' +
-		'			"autovalue": "{{subst:CURRENTMONTHNAME}}",' +
-		'			"suggested": true' +
-		'		},' +
-		'		"year": {' +
-		'			"label": "Year",' +
-		'			"type": "number"' +
-		'		},' +
-		'		"month": {' +
-		'			"label": "Month",' +
-		'			"inherits": "year"' +
-		'		},' +
-		'		"day": {' +
-		'			"label": "Day",' +
-		'			"inherits": "year"' +
-		'		},' +
-		'		"comment": {' +
-		'			"required": false' +
-		'		}' +
-		'	},' +
-		'	"sets": [' +
-		'		{' +
-		'			"label": "Date",' +
-		'			"params": ["year", "month", "day"]' +
-		'		}' +
-		'	]' +
+			'"description": {\n' +
+				'"' + currLanguage + '": "Label unsigned comments in a conversation.",\n' +
+				'"blah": "Template description in some blah language."\n' +
+			'},' +
+			'"params": {' +
+				'"user": {' +
+					'"label": "Username",' +
+					'"type": "wiki-user-name",' +
+					'"required": true,' +
+					'"description": "User name of person who forgot to sign their comment.",' +
+					'"aliases": ["1"]' +
+				'},' +
+				'"date": {' +
+					'"label": "Date",' +
+					'"description": {' +
+						'"' + currLanguage + '": "Timestamp of when the comment was posted, in YYYY-MM-DD format."' +
+					'},' +
+					'"aliases": ["2"],' +
+					'"autovalue": "{{subst:CURRENTMONTHNAME}}",' +
+					'"suggested": true' +
+				'},' +
+				'"year": {' +
+					'"label": "Year",' +
+					'"type": "number"' +
+				'},' +
+				'"month": {' +
+					'"label": "Month",' +
+					'"inherits": "year"' +
+				'},' +
+				'"day": {' +
+					'"label": "Day",' +
+					'"inherits": "year"' +
+				'},' +
+				'"comment": {' +
+					'"required": false' +
+				'}' +
+			'},' +
+			'"sets": [' +
+				'{' +
+					'"label": "Date",' +
+					'"params": ["year", "month", "day"]' +
+				'}' +
+			']' +
 		'}' +
 		'</templatedata>' +
 		'Trailing text at the end.';
@@ -602,27 +602,27 @@
 	QUnit.test( 'TemplateData sourceHandler', function ( assert ) {
 		var sourceHandler = new mw.TemplateData.SourceHandler(),
 			erronousString = '<templatedata>{\n' +
-				'	"params": {\n' +
-				// Open quote
-				'		"user: {\n' +
-				'			"label": "Username",\n' +
-				'			"type": "wiki-user-name",\n' +
-				'			"required": true,\n' +
-				'			"description": "User name of person who forgot to sign their comment.",\n' +
-				'			"aliases": [\n' +
-				'				"1"\n' +
-				'			]\n' +
-				'		},\n' +
-				'		"date": {\n' +
-				'			"label": "Date",\n' +
-				'			"description": {\n' +
-				// Forgotten quotes
-				'				' + currLanguage + ': "Timestamp of when the comment was posted, in YYYY-MM-DD format."\n' +
-				'			}\n' +
-				'			"suggested": true\n' +
-				'		}\n' +
-				'	}\n' +
-				'}</templatedata>',
+				'"params": {\n' +
+					// Open quote
+					'"user: {\n' +
+						'"label": "Username",\n' +
+						'"type": "wiki-user-name",\n' +
+						'"required": true,\n' +
+						'"description": "User name of person who forgot to sign their comment.",\n' +
+						'"aliases": [\n' +
+							'"1"\n' +
+						']\n' +
+					'},\n' +
+					'"date": {\n' +
+						'"label": "Date",\n' +
+						'"description": {\n' +
+							// Forgotten quotes
+							currLanguage + ': "Timestamp of when the comment was posted, in YYYY-MM-DD format."\n' +
+						'}\n' +
+						'"suggested": true\n' +
+					'}\n' +
+				'}\n' +
+			'}</templatedata>',
 			done = assert.async(),
 			promise;
 
@@ -637,7 +637,7 @@
 	QUnit.test( 'TemplateData sourceHandler adding default format', function ( assert ) {
 		var sourceHandler = new mw.TemplateData.SourceHandler(),
 			simpleTemplateDataNoFormat = '<templatedata>{\n' +
-				'	"params": {}\n' +
+					'"params": {}\n' +
 				'}</templatedata>',
 			simpleTemplateDataDefaultFormat = {
 				params: {}
