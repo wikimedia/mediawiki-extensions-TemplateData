@@ -18,15 +18,6 @@
 			"Deryck Chan"
 		]
 	},
-	"apihelp-templatedata-description": "{{doc-apihelp-description|templatedata}}",
-	"apihelp-templatedata-summary": "{{doc-apihelp-summary|templatedata}}",
-	"apihelp-templatedata-example-1": "{{doc-apihelp-example|templatedata}}",
-	"apihelp-templatedata-example-2": "{{doc-apihelp-example|templatedata}}",
-	"apihelp-templatedata-param-includeMissingTitles": "{{doc-apihelp-param|templatedata|includeMissingTitles}}",
-	"apihelp-templatedata-param-doNotIgnoreMissingTitles": "{{doc-apihelp-param|templatedata|doNotIgnoreMissingTitles}}",
-	"apihelp-templatedata-param-lang": "{{doc-apihelp-param|templatedata|lang}}",
-	"apierror-templatedata-corrupt": "{{doc-apierror}}\n\nParameters:\n* $1 - Page ID number\n* $2 - Localized message with further information.",
-	"apiwarn-templatedata-deprecation-format": "{{doc-apierror}}",
 	"templatedata-desc": "{{desc|name=Template Data|url=https://www.mediawiki.org/wiki/Extension:TemplateData}}",
 	"templatedata-doc-desc-empty": "Displayed when a template has no description (should be a valid sentence).\n{{Identical|No description}}",
 	"templatedata-doc-format-block": "Use block formatting of the template parameters in wikitext, i.e.\n\n<pre><nowiki>{{Template name\n| p1 = v1\n| p2 = v2\n}}</nowiki></pre>\n\nas opposed to <nowiki>{{Template name|p1=v1|p2=v2}}</nowiki> (\"inline\")",
