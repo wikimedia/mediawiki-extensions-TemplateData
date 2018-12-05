@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Lokal Profil",
+			"WikiPhoenix"
+		]
+	},
+	"apihelp-templatedata-description": "Hämta data som lagras av TemplateData-tillägget.",
+	"apihelp-templatedata-example-1": "Returnera data för [[Template:Stub]] och [[Template:Example]]",
+	"apihelp-templatedata-param-includeMissingTitles": "Returnera data om titlar även om de saknar TemplateData. Som standard returneras endast titlar om de finns och har TemplateData.",
+	"apihelp-templatedata-param-lang": "Returnera lokaliserade värden på detta språk. Som standard returneras alla tillgängliga översättningar."
+}

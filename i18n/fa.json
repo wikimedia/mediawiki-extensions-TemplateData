@@ -15,9 +15,6 @@
 			"Alifakoor"
 		]
 	},
-	"apihelp-templatedata-description": "آوردن داده‌های ذخیره‌شده توسط افزونهٔ الگوداده.",
-	"apihelp-templatedata-example-1": "برگرداندن داده‌های الگو برای [[Template:Stub]] و [[Template:Example]]، به همراه نتیجه اگر که الگو موجود نیست یا موجود است اما داده‌های الگو موجود نیست",
-	"apihelp-templatedata-param-lang": "برگرداندن مقادیر محلی به این زبان. به طور پیش‌فرض همهٔ ترجمه‌های موجود برگردانده شده‌اند.",
 	"templatedata-desc": "پیاده‌سازی ذخیره‌سازی داده‌های پارامترهای الگو (با استفاده از جی‌سن)",
 	"templatedata-doc-desc-empty": "بدون توصیف.",
 	"templatedata-doc-format-block": "استفاده از قالب‌بندی قطعه‌ای برای پارامترهای این الگو ارجح است.",

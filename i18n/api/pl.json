@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ency",
+			"Woytecr"
+		]
+	},
+	"apihelp-templatedata-description": "Zobacz dane zapisane w rozszerzeniu TemplateData.",
+	"apihelp-templatedata-example-1": "Zwróć dane dla [[Template:Stub]] oraz [[Template:Example]]",
+	"apihelp-templatedata-param-lang": "Zwraca tłumaczenia w tym języku. Domyślnie zwracane są wszystkie dostępne tłumaczenia.",
+	"apierror-templatedata-corrupt": "TemplateData dla strony #$1 zawierają niepoprawne dane: $2",
+	"apiwarn-templatedata-deprecation-format": "Domyślny format wyjścia zmieni się w przyszłości na <kbd>jsonfm</kbd>. Trzeba użyć <kbd>format=json</kbd>, aby nadal wyświetlać w dotychczasowym domyślnym formacie."
+}

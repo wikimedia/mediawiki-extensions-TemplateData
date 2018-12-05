@@ -5,8 +5,6 @@
 			"Matěj Suchánek"
 		]
 	},
-	"apihelp-templatedata-description": "Serca tra i dati memorixà da l'estension TemplateData.",
-	"apihelp-templatedata-example-1": "Mostra i dati par [[Template:Stub]] e [[Template:Example]]",
 	"templatedata-desc": "Inplementa la memorixasion dei dati par i parametri dei modèi (doparando JSON)",
 	"templatedata-doc-desc-empty": "Nissuna descrision.",
 	"templatedata-doc-format-block": "Sto template el preferisse la formatasion a bloco dei parametri.",

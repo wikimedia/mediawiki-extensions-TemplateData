@@ -6,8 +6,6 @@
 			"Benel"
 		]
 	},
-	"apihelp-templatedata-description": "maala nay TemplateData sacunus suped a kalunasulitan.",
-	"apihelp-templatedata-param-lang": "maminay pisaungay tina kamu a sanuniyazu’en kalunasulitan. pataayaw tu kawaw amaminay tu  sacahamin kapahay a belih.",
 	"templatedata-desc": "malaheci taazihan-mitudung aazihen-sulyang a kalunasulitan misuped (pisaungay JSON)",
 	"templatedata-doc-desc-empty": "inayi’ sapuelac.",
 	"templatedata-doc-no-params-set": "caayhen matuzu’ay aazihen a sulyang",

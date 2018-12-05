@@ -5,7 +5,6 @@
 			"Ernác"
 		]
 	},
-	"apihelp-templatedata-example-1": "[[Template:Stub]] бла [[Template:Example]]'ге билгилини къайтарады",
 	"templatedata-desc": "Шаблон параметрле ючюн билгиле сакъланнган джерни реализациясы (JSON'ни болушлугъу бла)",
 	"templatedata-doc-desc-empty": "Ачыкълау джокъду.",
 	"templatedata-doc-param-autovalue": "Авто-магъана",

@@ -5,7 +5,6 @@
 			"Santhosh.thottingal"
 		]
 	},
-	"apihelp-templatedata-description": "ടെമ്പ്ലേറ്റ്‌ഡേറ്റാ അനുബന്ധം ശേഖരിച്ചിട്ടുള്ള വിവരങ്ങൾ എടുക്കുക.",
 	"templatedata-desc": "ഫലകങ്ങളുടെ ചരങ്ങളിൽ ഡേറ്റ ശേഖരിച്ച് വെയ്ക്കൽ നടപ്പിലാക്കുക (ജെസൺ ഉപയോഗിച്ച്)",
 	"templatedata-doc-desc-empty": "വിവരണമൊന്നുമില്ല.",
 	"templatedata-doc-no-params-set": "ചരങ്ങളൊന്നും വ്യക്തമാക്കിയിട്ടില്ല",

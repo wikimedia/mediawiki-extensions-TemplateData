@@ -9,9 +9,6 @@
 			"NoiX180"
 		]
 	},
-	"apihelp-templatedata-description": "Ambil data yang disimpan oleh ekstensi DataTemplat.",
-	"apihelp-templatedata-example-1": "Kembalian Data untuk [[Template:Stub]] dan [[Template:Example]]",
-	"apihelp-templatedata-param-lang": "Kembalikan nilai yang telah dilokalisasi dalam bahasa ini. Secara baku seluruh terjemahan yang tersedia akan dikembalikan.",
 	"templatedata-desc": "Pengimplementasian penyimpanan data untuk parameter templat (dengan menggunakan JSON)",
 	"templatedata-doc-desc-empty": "Tidak ada keterangan.",
 	"templatedata-doc-format-block": "Templat ini lebih menyukai format parameter dalam blok.",

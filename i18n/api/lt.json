@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Albertas"
+		]
+	},
+	"apihelp-templatedata-description": "Gauti duomenis, saugomus TemplateData plėtinio.",
+	"apihelp-templatedata-example-1": "Grąžinti šablonų [[Template:Stub]] ir [[Template:Example]] duomenis",
+	"apihelp-templatedata-param-lang": "Grąžinti lokalizuotas reikšmes šia kalba. Numatyta grąžinti visus prieinamus vertimus."
+}

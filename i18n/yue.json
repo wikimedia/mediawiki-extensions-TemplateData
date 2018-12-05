@@ -6,8 +6,6 @@
 			"Shinjiman"
 		]
 	},
-	"apihelp-templatedata-description": "搵TemplateData架生仔儲住嘅數據。",
-	"apierror-templatedata-corrupt": "頁#$1嘅模板數據(templatedata)規格有錯：$2",
 	"templatedata-desc": "裝住模板參數嘅相關資訊（用JSON）",
 	"templatedata-doc-desc-empty": "無描述。",
 	"templatedata-doc-format-block": "呢個模，建議攤開格式，一行一個參數。",

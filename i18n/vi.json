@@ -6,9 +6,6 @@
 			"Nguyên Lê"
 		]
 	},
-	"apihelp-templatedata-description": "Lấy dữ liệu được lưu giữ bởi phần mở rộng Dữ liệu bản mẫu.",
-	"apihelp-templatedata-example-1": "Cho ra dữ liệu bản mẫu cho [[Template:Stub]] và [[Template:Example]], có kết quả nếu các bản mẫu không tồn tại hoặc có tồn tại mà thiếu dữ liệu bản mẫu",
-	"apihelp-templatedata-param-lang": "Cho ra các giá trị địa phương hóa cho ngôn ngỮ này. Theo mặc định, tất cả các bản dịch có sẵn được cho ra.",
 	"templatedata-desc": "Lưu trữ dữ liệu cho tham số bản mẫu (qua JSON)",
 	"templatedata-doc-desc-empty": "Không có miêu tả.",
 	"templatedata-doc-format-block": "Bản mẫu này gợi ý định dạng các tham số ở dạng khối.",

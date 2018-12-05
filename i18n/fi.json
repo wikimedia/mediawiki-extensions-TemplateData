@@ -13,7 +13,6 @@
 			"Valtlait"
 		]
 	},
-	"apihelp-templatedata-param-lang": "Palauta lokalisoidut arvot tällä kielellä. Oletuksena kaikki käännökset palautetaan.",
 	"templatedata-desc": "Toteuta tietovarasto mallinen parametreille (käyttäen JSON:ia)",
 	"templatedata-doc-desc-empty": "Ei kuvausta.",
 	"templatedata-doc-format-block": "Tämä malline suosii lohkomuotoilua parametreille.",

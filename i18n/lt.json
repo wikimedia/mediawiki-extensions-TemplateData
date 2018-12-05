@@ -9,9 +9,6 @@
 			"Manvydasz"
 		]
 	},
-	"apihelp-templatedata-description": "Gauti duomenis, saugomus TemplateData plėtinio.",
-	"apihelp-templatedata-example-1": "Grąžinti šablonų [[Template:Stub]] ir [[Template:Example]] duomenis",
-	"apihelp-templatedata-param-lang": "Grąžinti lokalizuotas reikšmes šia kalba. Numatyta grąžinti visus prieinamus vertimus.",
 	"templatedata-desc": "Įgyvendinti šio šablono parametrų duomenų talpinimą (naudojant JSON)",
 	"templatedata-doc-desc-empty": "Nėra aprašymo.",
 	"templatedata-doc-format-block": "Šiam šablonui rekomenduotinas parametrų formatavimas bloku.",

@@ -12,9 +12,6 @@
 			"Omotecho"
 		]
 	},
-	"apihelp-templatedata-description": "TemplateData 拡張機能によって保存されたデータを取得します。",
-	"apihelp-templatedata-example-1": "[[Template:Stub]]と[[Template:Example]]のTemplateDataを返します。テンプレートが存在しないか存在してもTemplateDataがない場合は結果が返されます。",
-	"apihelp-templatedata-param-lang": "この言語に地域化された値を返します。既定では、すべてのサポートされている翻訳が返されます。",
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
 	"templatedata-doc-desc-empty": "説明はありません。",
 	"templatedata-doc-format-block": "このテンプレートは、パラメータを複数行に分けて記述することが推奨されています。",

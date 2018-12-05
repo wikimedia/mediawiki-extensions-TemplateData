@@ -6,9 +6,6 @@
 			"Horus"
 		]
 	},
-	"apihelp-templatedata-description": "ดึงข้อมูลที่บันทึกโดยส่วนขยายข้อมูลแม่แบบ",
-	"apihelp-templatedata-example-1": "คืนค่าข้อมูลให้กับ [[Template:Stub]] และ [[Template:Example]]",
-	"apihelp-templatedata-param-lang": "คืนค่าที่เป็นท้องถิ่นในภาษานี้ การแปลที่ใช้ได้ทั้งหมดจะถูกคืนค่าโดยปริยาย",
 	"templatedata-desc": "ใช้งานแหล่งเก็บข้อมูลสำหรับพารามิเตอร์แม่แบบ (โดยใช้ JSON)",
 	"templatedata-doc-desc-empty": "ไม่มีคำอธิบาย",
 	"templatedata-doc-param-autovalue": "ค่าอัตโนมัติ",
