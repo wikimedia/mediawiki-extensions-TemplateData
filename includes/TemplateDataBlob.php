@@ -905,7 +905,7 @@ class TemplateDataBlob {
 	 */
 	public static function getRawParams( $wikitext ) {
 		// This regex matches the one in ext.TemplateDataGenerator.sourceHandler.js
-		preg_match_all( '/{{3,}([^#]*?)[<|}]/m', $wikitext, $rawParams );
+		preg_match_all( '/{{3,}([^#]*?)([<|]|}{3,})/m', $wikitext, $rawParams );
 		$params = [];
 		$normalizedParams = [];
 		if ( isset( $rawParams[1] ) ) {

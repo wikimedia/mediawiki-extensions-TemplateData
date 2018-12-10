@@ -1214,7 +1214,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	 * @dataProvider provideGetRawParams
 	 */
 	public function testGetRawParams( $inputWikitext, $expectedParams ) {
-		$this->assertArrayEquals( $expectedParams, TemplateDataBlob::getRawParams( $inputWikitext ) );
+		$params = TemplateDataBlob::getRawParams( $inputWikitext );
+		$this->assertArrayEquals( $expectedParams, $params, true, true );
 	}
 
 	public function provideGetRawParams() {
@@ -1246,7 +1247,15 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			'More complicated dynamic param name' => [
 				'{{{party{{#if:{{{party_election||}}}|_election||}}|}}}',
 				[ 'party_election' => [] ]
-			]
+			],
+			'Bang in a param name' => [
+				'{{{!}}} {{{foo!}}}',
+				[ '!' => [], 'foo!' => [] ]
+			],
+			'Bang as a magic word in a table construct' => [
+				'{{{!}} class=""',
+				[]
+			],
 		];
 	}
 }
