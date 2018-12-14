@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Joetaras"
+		]
+	},
+	"apihelp-templatedata-description": "Pigghie le date reggistrate sus a l'estenzione TemplateData.",
+	"apihelp-templatedata-summary": "Pigghie le date reggistrate sus a l'estenzione TemplateData.",
+	"apierror-templatedata-corrupt": "Pàgene #$1 templatedata tène date invalide: $2"
+}
