@@ -75,6 +75,7 @@
 	"templatedata-modal-errormsg-duplicate-name": "Nalezena chyba. Zvolené jméno již používá jiný parametr.",
 	"templatedata-modal-errormsg-import-noparams": "Při importu nenalezeny žádné nové parametry.",
 	"templatedata-modal-format-block": "Blok",
+	"templatedata-modal-format-custom": "Vlastní",
 	"templatedata-modal-format-inline": "V řádce",
 	"templatedata-modal-format-null": "Neurčeno",
 	"templatedata-modal-json-error-replace": "Nahradit",
