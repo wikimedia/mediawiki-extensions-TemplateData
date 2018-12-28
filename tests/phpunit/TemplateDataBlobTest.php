@@ -1258,4 +1258,66 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			],
 		];
 	}
+
+	public static function provideGetHtml() {
+		// phpcs:disable Generic.Files.LineLength.TooLong
+		yield 'No params' => [
+			[ 'params' => [ (object)[] ] ],
+			<<<HTML
+<div class="mw-templatedata-doc-wrap">
+<p class="mw-templatedata-doc-desc mw-templatedata-doc-muted">(templatedata-doc-desc-empty)</p>
+<table class="wikitable mw-templatedata-doc-params sortable">
+	<caption><p>(templatedata-doc-params)</p></caption>
+	<thead><tr><th colspan="2">(templatedata-doc-param-name)</th><th>(templatedata-doc-param-desc)</th><th>(templatedata-doc-param-type)</th><th>(templatedata-doc-param-status)</th></tr></thead>
+	<tbody>
+		<tr>
+			<td class="mw-templatedata-doc-muted" colspan="7">(templatedata-doc-no-params-set)</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+HTML
+		];
+		yield 'Basic params' => [
+			[ 'params' => [ 'foo' => (object)[], 'bar' => [ 'required' => true ] ] ],
+			<<<HTML
+<div class="mw-templatedata-doc-wrap">
+<p class="mw-templatedata-doc-desc mw-templatedata-doc-muted">(templatedata-doc-desc-empty)</p>
+<table class="wikitable mw-templatedata-doc-params sortable">
+	<caption><p>(templatedata-doc-params)</p></caption>
+	<thead><tr><th colspan="2">(templatedata-doc-param-name)</th><th>(templatedata-doc-param-desc)</th><th>(templatedata-doc-param-type)</th><th>(templatedata-doc-param-status)</th></tr></thead>
+	<tbody>
+		<tr>
+			<th>Foo</th>
+			<td class="mw-templatedata-doc-param-name"><code>foo</code></td>
+			<td class="mw-templatedata-doc-muted"><p>(templatedata-doc-param-desc-empty)</p><dl></dl></td>
+			<td class="mw-templatedata-doc-param-type mw-templatedata-doc-muted">(templatedata-doc-param-type-unknown)</td>
+			<td>(templatedata-doc-param-status-optional)</td>
+		</tr>
+		<tr>
+			<th>Bar</th>
+			<td class="mw-templatedata-doc-param-name"><code>bar</code></td>
+			<td class="mw-templatedata-doc-muted"><p>(templatedata-doc-param-desc-empty)</p><dl></dl></td>
+			<td class="mw-templatedata-doc-param-type mw-templatedata-doc-muted">(templatedata-doc-param-type-unknown)</td>
+			<td class="mw-templatedata-doc-param-status-required">(templatedata-doc-param-status-required)</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+HTML
+		];
+	}
+
+	/**
+	 * @dataProvider provideGetHtml
+	 */
+	public function testGetHtml( array $data, $expected ) {
+		$t = TemplateDataBlob::newFromJSON( json_encode( $data ) );
+		$actual = $t->getHtml( Language::factory( 'qqx' ) );
+		$linedActual = preg_replace( '/>\s*</', ">\n<", $actual );
+
+		$linedExpected = preg_replace( '/>\s*</', ">\n<", trim( $expected ) );
+
+		$this->assertEquals( $linedExpected, $linedActual, 'html' );
+	}
 }
