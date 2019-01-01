@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bjankuloski06"
+			"Bjankuloski06",
+			"Vlad5250"
 		]
 	},
 	"templatedata-desc": "Овозможува складирање на податоци за шаблонски параметри (користејќи JSON)",
 	"templatedata-doc-desc-empty": "Нема опис.",
 	"templatedata-doc-format-block": "Овој шаблон претпочита параметрите да се форматирани во блок.",
-	"templatedata-doc-format-custom": "Шаблонов има кориснички прилагодено форматирање.",
+	"templatedata-doc-format-custom": "Овој шаблон има прилагодено форматирање.",
 	"templatedata-doc-format-inline": "Овој шаблон претпочита параметрите да се форматирани во ред.",
 	"templatedata-doc-no-params-set": "Нема укажано параметри.",
 	"templatedata-doc-param-autovalue": "Автовредност",
