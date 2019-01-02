@@ -36,7 +36,7 @@ class TemplateDataBlob {
 	private $status;
 
 	/**
-	 * @var Predefined formats for TemplateData to check against
+	 * @var string[] Predefined formats for TemplateData to check against
 	 */
 	private static $formats = [
 		'block' => "{{_\n| _ = _\n}}",
