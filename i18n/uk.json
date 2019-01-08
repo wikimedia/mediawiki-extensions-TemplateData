@@ -71,6 +71,7 @@
 	"templatedata-modal-confirmcancel": "Ви впевнені, що хочете відхилити свої зміни?",
 	"templatedata-modal-current-language": "Поточна мова: $1",
 	"templatedata-modal-errormsg": "Виявлено помилки. Будь ласка, переконайтеся що імена параметрів не порожні або не дублюються і не містять «$1», «$2», або «$3».",
+	"templatedata-modal-errormsg-duplicate-name": "Виявлено помилку. Вибрана назва вже використовується для іншого параметра.",
 	"templatedata-modal-errormsg-import-noparams": "Не знайдено нових параметрів під час імпорту.",
 	"templatedata-modal-format-block": "Блоковий",
 	"templatedata-modal-format-custom": "Нестандартний",
