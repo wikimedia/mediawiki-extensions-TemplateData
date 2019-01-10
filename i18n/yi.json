@@ -57,6 +57,7 @@
 	"templatedata-modal-button-importParams": "אימפארטירן פאראמעטערס",
 	"templatedata-modal-button-restoreparam": "צוריקשטעלן פאראמעטער",
 	"templatedata-modal-button-saveparam": "אויפֿהיטן",
+	"templatedata-modal-confirmcancel": "איר זענט זיכער אז איר ווילט אווערווארפן אייערע ענדערונגען?",
 	"templatedata-modal-current-language": "אקטועלע שפראך: $1",
 	"templatedata-modal-errormsg": "געטראפֿן פֿעלער. זייט אזוי גוט און שטעלט פֿעסט אז ס׳זענען נישט פֿאראן קיין ליידיגע אדער געטאפלטע פאראמעטער נען, און אז דער פאראמעטער נאמען שליסט נישט איין קיין  \"$1\", \"$2\" אדער \"$3\".",
 	"templatedata-modal-format-block": "בלאקירן",
@@ -72,6 +73,7 @@
 	"templatedata-modal-table-param-deprecated": "פארעלטערט",
 	"templatedata-modal-table-param-description": "באשרייבונג ($1)",
 	"templatedata-modal-table-param-example": "ביישפיל ($1)",
+	"templatedata-modal-table-param-importoption": "צולייגן $1 {{PLURAL:$1|פֿארגעשלאגענעם פאראמעטער|פֿארגעשלאגענע פאראמעטערס}}",
 	"templatedata-modal-table-param-importoption-subtitle": "כולל: $1",
 	"templatedata-modal-table-param-label": "באצייכענונג ($1)",
 	"templatedata-modal-table-param-name": "נאָמען",
@@ -85,6 +87,8 @@
 	"templatedata-modal-title-language": "שפראַך",
 	"templatedata-modal-title-paramorder": "פאראמעטער־סדר",
 	"templatedata-modal-title-templatedesc": "מוסטער־באשרייבונג ($1)",
+	"templatedata-modal-title-templateformat": "פֿארגעשלאגענע וויקיטעקסט־פֿארמאטירונג",
+	"templatedata-modal-title-templateformatstring": "באניצער־דעפינירטע פארמאט־שנורל",
 	"templatedata-modal-title-templateparam-details": "פאראמעטער איינצלהייטן: $1",
 	"templatedata-modal-title-templateparams": "מוסטער־פאראמעטערס"
 }
