@@ -52,7 +52,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -106,7 +105,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"autovalue": null
 						}
 					},
-					"paramOrder": ["foo"],
 					"sets": [],
 					"format": null,
 					"maps": {}
@@ -139,7 +137,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "line"
 						}
 					},
-					"paramOrder": ["comment"],
 					"sets": [],
 					"format": null,
 					"maps": {}
@@ -189,7 +186,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"autovalue": null
 						}
 					},
-					"paramOrder": ["nickname"],
 					"sets": [],
 					"format": null,
 					"maps": {}
@@ -251,7 +247,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"autovalue": null
 						}
 					},
-					"paramOrder": ["1d", "2d"],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -363,7 +358,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"autovalue": null
 						}
 					},
-					"paramOrder": ["foo", "bar", "quux"],
 					"sets": [
 						{
 							"label": {
@@ -428,7 +422,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"type": "line"
 						}
 					},
-					"paramOrder": ["bar"],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -512,7 +505,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": "inline",
 					"maps": {}
@@ -529,7 +521,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": "block",
 					"maps": {}
@@ -546,7 +537,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": "{{_ |\n ___ = _}}",
 					"maps": {}
@@ -563,7 +553,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": "{{_|_=_\n}}\n",
 					"maps": {}
@@ -578,7 +567,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
 					"params": {}
 				}',
-				'status' => 'Data too large to save (75,226 bytes, limit is 65,535)'
+				'status' => 'Data too large to save (75,217 bytes, limit is 65,535)'
 			],
 		];
 		$calls = [];
@@ -647,8 +636,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"params": {},
 					"sets": [],
 					"maps": {},
-					"format": null,
-					"paramOrder": []
+					"format": null
 				}';
 			} else {
 				$case['output'] = $case['input'];
@@ -737,7 +725,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "German",
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -754,7 +741,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'output' => '{
 					"description": "Hi",
-					"paramOrder": [],
 					"params": {},
 					"sets": [],
 					"format": null,
@@ -777,7 +763,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "Dutch",
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -798,7 +783,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -820,7 +804,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": "German",
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -857,7 +840,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"autovalue": null
 						}
 					},
-					"paramOrder": ["foo"],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -894,7 +876,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"example": null
 						}
 					},
-					"paramOrder": ["foo"],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -931,7 +912,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"autovalue": null
 						}
 					},
-					"paramOrder": ["foo"],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -972,7 +952,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"autovalue": null
 						}
 					},
-					"paramOrder": ["foo"],
 					"sets": [
 						{
 							"label": "Spanish",
@@ -1073,7 +1052,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 							"autovalue": null
 						}
 					},
-					"paramOrder": ["foo", "bar", "baz"],
 					"sets": [],
 					"format": null,
 					"maps" : {}
@@ -1160,7 +1138,6 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'output' => '{
 					"description": null,
 					"params": {},
-					"paramOrder": [],
 					"sets": [],
 					"format": null,
 					"maps" : {}

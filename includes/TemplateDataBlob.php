@@ -67,7 +67,6 @@ class TemplateDataBlob {
 			$tdb->data = new stdClass();
 			$tdb->data->description = null;
 			$tdb->data->params = new stdClass();
-			$tdb->data->paramOrder = [];
 			$tdb->data->format = null;
 			$tdb->data->sets = [];
 			$tdb->data->maps = new stdClass();
@@ -427,8 +426,6 @@ class TemplateDataBlob {
 				}
 				$seen[$param] = $i;
 			}
-		} else {
-			$data->paramOrder = $paramNames;
 		}
 
 		// Root.sets
@@ -793,7 +790,9 @@ class TemplateDataBlob {
 			)
 			. '</tr>';
 		}
-		foreach ( $data->paramOrder as $paramName ) {
+
+		$paramNames = $data->paramOrder ?? array_keys( (array)$data->params );
+		foreach ( $paramNames as $paramName ) {
 			$paramObj = $data->params->$paramName;
 			$description = '';
 			$default = '';
