@@ -128,7 +128,9 @@ class ApiTemplateData extends ApiBase {
 				$data->params->{ApiResult::META_TYPE} = 'kvp';
 				$data->params->{ApiResult::META_KVP_KEY_NAME} = 'key';
 				$data->params->{ApiResult::META_INDEXED_TAG_NAME} = 'param';
-				ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
+				if ( isset( $data->paramOrder ) ) {
+					ApiResult::setIndexedTagName( $data->paramOrder, 'p' );
+				}
 
 				if ( $includeMissingTitles ) {
 					unset( $resp[$row->pp_page]['notemplatedata'] );
