@@ -152,7 +152,9 @@ class TemplateDataHooks {
 		$parser->getOutput()->addModuleStyles( [
 			'ext.templateData',
 			'ext.templateData.images',
+			'jquery.tablesorter.styles',
 		] );
+		$parser->getOutput()->addModules( 'jquery.tablesorter' );
 		$parser->enableOOUI();
 
 		return $ti->getHtml( $parser->getOptions()->getUserLangObj() );
