@@ -17,7 +17,8 @@
 			"Smigles",
 			"Patrick Star",
 			"Ole Yves",
-			"Stjn"
+			"Stjn",
+			"Movses"
 		]
 	},
 	"templatedata-desc": "Реализация хранилища данных для параметров шаблона (с помощью JSON)",
