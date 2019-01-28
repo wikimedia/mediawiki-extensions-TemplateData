@@ -55,5 +55,18 @@
 	"templatedata-modal-format-custom": "Personalizze",
 	"templatedata-modal-format-inline": "In linèe",
 	"templatedata-modal-format-null": "Non specificate",
+	"templatedata-modal-table-param-actions": "Aziune",
+	"templatedata-modal-table-param-aliases": "Alias (separate da le virgole)",
+	"templatedata-modal-table-param-autovalue": "Auto valore",
+	"templatedata-modal-table-param-default": "Predefinite ($1)",
+	"templatedata-modal-table-param-deprecated": "Sconzigliate",
+	"templatedata-modal-table-param-deprecatedValue": "Guide sconzigliate",
+	"templatedata-modal-table-param-description": "Descrizione ($1)",
+	"templatedata-modal-table-param-example": "Esembie ($1)",
+	"templatedata-modal-table-param-importoption-subtitle": "Combrese: $1",
+	"templatedata-modal-table-param-label": "Etichette ($1)",
+	"templatedata-modal-table-param-name": "Nome",
+	"templatedata-modal-table-param-required": "Richieste",
+	"templatedata-modal-table-param-suggested": "Suggerite",
 	"templatedata-modal-table-param-type": "Tipe"
 }
