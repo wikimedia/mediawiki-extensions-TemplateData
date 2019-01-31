@@ -71,7 +71,7 @@
 	"templatedata-modal-button-done": "نفذ",
 	"templatedata-modal-button-importParams": "استيراد وسيط",
 	"templatedata-modal-button-restoreparam": "استرجاع العامل المتغير",
-	"templatedata-modal-button-saveparam": "احفظ",
+	"templatedata-modal-button-saveparam": "حفظ",
 	"templatedata-modal-confirmcancel": "هل أنت متأكد أنك تريد تجاهل تغييراتك؟",
 	"templatedata-modal-current-language": "اللغة الحالية: $1",
 	"templatedata-modal-errormsg": "خطأ: تأكد من عدم وجود وسائط فارغة أو مكررة، ومن عدم تضمن اسم الوسيط للرموز \"$1\" و\"$2\" و\"$3\".",
