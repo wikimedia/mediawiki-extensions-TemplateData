@@ -25,5 +25,6 @@
 	"templatedata-modal-button-cancel": "Bıtexelne",
 	"templatedata-modal-button-done": "Temam",
 	"templatedata-modal-button-saveparam": "Qeyd ke",
+	"templatedata-modal-table-param-example": "Nımune ($1)",
 	"templatedata-modal-table-param-name": "Name"
 }
