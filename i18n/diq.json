@@ -8,6 +8,7 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "Arezekerdış çıniyo.",
+	"templatedata-doc-param-autovalue": "Erco otomatik",
 	"templatedata-doc-param-default": "Hesabiyaye",
 	"templatedata-doc-param-desc": "Şınasnayış",
 	"templatedata-doc-param-desc-empty": "arezekerdış çıniyo",
@@ -25,6 +26,7 @@
 	"templatedata-modal-button-cancel": "Bıtexelne",
 	"templatedata-modal-button-done": "Temam",
 	"templatedata-modal-button-saveparam": "Qeyd ke",
+	"templatedata-modal-table-param-description": "Şınasnayış ($1)",
 	"templatedata-modal-table-param-example": "Nımune ($1)",
 	"templatedata-modal-table-param-name": "Name"
 }
