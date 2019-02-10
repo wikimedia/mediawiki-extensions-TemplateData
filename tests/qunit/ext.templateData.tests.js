@@ -154,12 +154,6 @@
 		var tests = {
 			compare: [
 				{
-					obj1: {},
-					obj2: [],
-					result: false,
-					msg: 'Compare: object vs array'
-				},
-				{
 					obj1: null,
 					obj2: undefined,
 					result: false,

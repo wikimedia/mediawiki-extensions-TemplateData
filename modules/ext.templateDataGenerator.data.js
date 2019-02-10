@@ -72,7 +72,7 @@ mw.TemplateData.Model.static.compare = function ( obj1, obj2, allowSubset ) {
 	}
 
 	// Make sure the objects are of the same type
-	if ( $.type( obj1 ) !== $.type( obj2 ) ) {
+	if ( typeof obj1 !== typeof obj2 ) {
 		return false;
 	}
 
@@ -153,9 +153,9 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 				'url',
 				'wiki-user-name'
 			],
-			'default': 'unknown'
+			default: 'unknown'
 		},
-		'default': {
+		default: {
 			type: 'string',
 			multiline: true,
 			allowLanguages: true
@@ -351,20 +351,13 @@ mw.TemplateData.Model.prototype.importSourceCodeParameters = function () {
  * @return {string[]} Language codes in use
  */
 mw.TemplateData.Model.prototype.getExistingLanguageCodes = function () {
-	var param, prop, lang,
+	var param, prop,
 		result = [],
 		languageProps = this.constructor.static.getPropertiesWithLanguage();
 
 	// Take languages from the template description
 	if ( $.isPlainObject( this.description ) ) {
-		result.concat( Object.keys( this.description ) );
-	}
-
-	// Go over description
-	if ( $.type( this.description ) ) {
-		for ( lang in this.description ) {
-			result.push( lang );
-		}
+		result = Object.keys( this.description );
 	}
 
 	// Go over the parameters
@@ -422,7 +415,7 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 	}
 
 	// Get the deprecated value
-	if ( $.type( data.deprecated ) === 'string' ) {
+	if ( typeof data.deprecated === 'string' ) {
 		this.params[ key ].deprecatedValue = data.deprecated;
 	}
 
@@ -442,7 +435,7 @@ mw.TemplateData.Model.prototype.addParam = function ( key, paramData ) {
 				propToSet = allProps[ prop ].textValue;
 				// Set the boolean value in the current property
 				this.setParamProperty( key, prop, !!data[ prop ], language );
-				if ( $.type( data[ prop ] ) === 'boolean' ) {
+				if ( typeof data[ prop ] === 'boolean' ) {
 					// Only set the value of the dependent if the value is a string or
 					// language. Otherwise, if the value is boolean, keep the dependent
 					// empty.
@@ -496,7 +489,7 @@ mw.TemplateData.Model.prototype.getAllParamNames = function () {
 /**
  * Set the template description
  *
- * @param {string} desc New template description
+ * @param {string|Object} desc New template description
  * @param {Object} [language] Description language, if supplied. If not given,
  *  will default to the wiki language.
  * @fires change-description
@@ -506,7 +499,7 @@ mw.TemplateData.Model.prototype.setTemplateDescription = function ( desc, langua
 	language = language || this.getDefaultLanguage();
 
 	if ( !this.constructor.static.compare( this.description[ language ], desc ) ) {
-		if ( $.type( desc ) === 'object' ) {
+		if ( typeof desc === 'object' ) {
 			$.extend( this.description, desc );
 			this.emit( 'change-description', desc[ language ], language );
 		} else {
@@ -678,7 +671,7 @@ mw.TemplateData.Model.prototype.setParamProperty = function ( paramKey, prop, va
 		return status;
 	}
 
-	if ( allProps[ prop ].type === 'array' && $.type( value ) === 'string' ) {
+	if ( allProps[ prop ].type === 'array' && typeof value === 'string' ) {
 		// When we split the string, we want to use a trimmed delimiter
 		value = this.constructor.static.splitAndTrimArray( value, allProps[ prop ].delimiter.trim() );
 	}
@@ -1007,7 +1000,7 @@ mw.TemplateData.Model.prototype.outputTemplateData = function () {
 					// Only update the aliases in if the new templatedata has an
 					// aliases array that isn't empty
 					if (
-						$.type( this.params[ key ][ prop ] ) === 'array' &&
+						Array.isArray( this.params[ key ][ prop ] ) &&
 						this.params[ key ][ prop ].length > 0
 					) {
 						result.params[ name ][ prop ] = this.params[ key ][ prop ];
@@ -1081,21 +1074,21 @@ mw.TemplateData.Model.prototype.propRemoveUnusedLanguages = function ( propData 
  * Check whether the output of the current parameter property should be
  * outputted in full language mode (object) or a simple string.
  *
- * @param {string} originalPropValue Original property value
- * @param {string} newPropValue New property value
+ * @param {string|Object} originalPropValue Original property value
+ * @param {string|Object} newPropValue New property value
  * @return {boolean} Output should be a full language object
  */
 mw.TemplateData.Model.prototype.isOutputInLanguageObject = function ( originalPropValue, newPropValue ) {
 	if (
 		(
 			// The original was already split to languages
-			$.type( originalPropValue ) === 'object' &&
+			typeof originalPropValue === 'object' &&
 			// Original was not an empty object
 			!$.isEmptyObject( originalPropValue )
 		) ||
 		(
 			// The new value is split to languages
-			$.type( newPropValue ) === 'object' &&
+			typeof newPropValue === 'object' &&
 			// New object is not empty
 			!$.isEmptyObject( newPropValue ) &&
 			(

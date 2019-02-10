@@ -552,6 +552,8 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 	}
 
 	// Validate
+	// FIXME: Don't read model information from the DOM
+	// eslint-disable-next-line jquery/no-global-selector
 	anyInputError = !!$( '.tdg-templateDataDialog-paramInput.tdg-editscreen-input-error' ).length;
 
 	// Disable the 'done' button if there are any errors in the inputs
@@ -662,7 +664,7 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
 			if ( languageProps.indexOf( propName ) !== -1 ) {
 				propInput.setValue( value[ lang ] );
 			} else {
-				if ( prop.type === 'array' && $.type( value ) === 'array' ) {
+				if ( prop.type === 'array' && Array.isArray( value ) ) {
 					value = value.join( prop.delimiter );
 				}
 				propInput.setValue( value );

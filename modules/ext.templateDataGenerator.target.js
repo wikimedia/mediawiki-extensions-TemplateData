@@ -44,7 +44,7 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 		.text( mw.msg( 'templatedata-helplink' ) );
 
 	this.windowManager = new OO.ui.WindowManager();
-	$( 'body' ).append( this.windowManager.$element );
+	$( document.body ).append( this.windowManager.$element );
 
 	// Dialog
 	this.tdgDialog = new mw.TemplateData.Dialog( config );
