@@ -86,7 +86,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	// Parent method
 	mw.TemplateData.Dialog.super.prototype.initialize.call( this );
 
-	this.$spinner = this.$( '<div>' ).addClass( 'tdg-spinner' ).text( 'working...' );
+	this.$spinner = $( '<div>' ).addClass( 'tdg-spinner' ).text( 'working...' );
 	this.$body.append( this.$spinner );
 
 	this.noticeLabel = new OO.ui.LabelWidget();
