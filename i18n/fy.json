@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Robin0van0der0vliet",
-			"Robin van der Vliet"
+			"Robin van der Vliet",
+			"PiefPafPier"
 		]
 	},
 	"templatedata-doc-desc-empty": "Gjin beskriuwing.",
 	"templatedata-doc-param-desc-empty": "gjin beskriuwing",
 	"templatedata-doc-param-status-optional": "opsjoneel",
-	"templatedata-doc-param-type-wiki-file-name": "Triem",
+	"templatedata-doc-param-type-wiki-file-name": "Bestân",
 	"templatedata-doc-param-type-wiki-user-name": "Brûker",
 	"templatedata-modal-button-add-language": "Taal tafoegje",
 	"templatedata-modal-button-back": "Foarige",
