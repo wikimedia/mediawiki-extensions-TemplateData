@@ -553,7 +553,7 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 
 	// Validate
 	// FIXME: Don't read model information from the DOM
-	// eslint-disable-next-line jquery/no-global-selector
+	// eslint-disable-next-line no-jquery/no-global-selector
 	anyInputError = !!$( '.tdg-templateDataDialog-paramInput.tdg-editscreen-input-error' ).length;
 
 	// Disable the 'done' button if there are any errors in the inputs

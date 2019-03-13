@@ -6,7 +6,7 @@
  */
 
 /* global ve */
-/* eslint-disable jquery/no-global-selector */
+/* eslint-disable no-jquery/no-global-selector */
 
 $( function () {
 	'use strict';
