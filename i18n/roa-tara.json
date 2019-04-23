@@ -73,5 +73,8 @@
 	"templatedata-modal-table-param-name": "Nome",
 	"templatedata-modal-table-param-required": "Richieste",
 	"templatedata-modal-table-param-suggested": "Suggerite",
-	"templatedata-modal-table-param-type": "Tipe"
+	"templatedata-modal-table-param-type": "Tipe",
+	"templatedata-modal-title-language": "Lènghe",
+	"templatedata-modal-title-paramorder": "Ordene de le parametre",
+	"templatedata-modal-title-templatedesc": "Descrizione template ($1)"
 }
