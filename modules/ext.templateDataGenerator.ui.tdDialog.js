@@ -564,6 +564,13 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 		this.toggleNoticeMessage( 'edit', false );
 		this.model.setParamProperty( this.selectedParamKey, property, value, this.language );
 	}
+
+	// If we're changing the aliases and the name has an error, poke its change
+	// handler in case that error was because of a duplicate name with its own
+	// aliases.
+	if ( property === 'aliases' && this.propInputs.name.$element.hasClass( 'tdg-editscreen-input-error' ) ) {
+		this.onParamPropertyInputChange( 'name', this.propInputs.name.getValue() );
+	}
 };
 
 /**

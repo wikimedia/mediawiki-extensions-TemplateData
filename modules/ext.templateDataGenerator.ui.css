@@ -21,7 +21,8 @@
 	padding: 0.5em 1em;
 }
 
-.tdg-editscreen-input-error input {
+.tdg-editscreen-input-error input,
+.tdg-editscreen-input-error.oo-ui-inputWidget input.oo-ui-inputWidget-input {
 	background-color: #ffa3a3;
 }
 
