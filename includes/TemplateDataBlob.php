@@ -723,8 +723,7 @@ class TemplateDataBlob {
 						'mw-templatedata-doc-muted' => $data->description === null,
 					]
 				],
-				$data->description !== null ?
-					$data->description :
+				$data->description ??
 					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )->text()
 			)
 			. '<table class="wikitable mw-templatedata-doc-params sortable">'
@@ -820,11 +819,7 @@ class TemplateDataBlob {
 
 			$html .= '<tr>'
 			// Label
-			. Html::element( 'th', [],
-				$paramObj->label !== null ?
-					$paramObj->label :
-					$lang->ucfirst( $paramName )
-			)
+			. Html::element( 'th', [], $paramObj->label ?? $lang->ucfirst( $paramName ) )
 			// Parameters and aliases
 			. Html::rawElement( 'td', [ 'class' => 'mw-templatedata-doc-param-name' ],
 				Html::element( 'code', [], $paramName ) . $aliases
@@ -836,9 +831,8 @@ class TemplateDataBlob {
 					]
 				],
 				Html::element( 'p', [],
-					$paramObj->description !== null ?
-					$paramObj->description :
-					wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
+					$paramObj->description ??
+						wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
 				)
 				. Html::rawElement( 'dl', [],
 					// Default
