@@ -3,6 +3,7 @@
  * @file
  * @ingroup Extensions
  */
+use MediaWiki\MediaWikiServices;
 
 /**
  * Represents the information about a template,
@@ -565,9 +566,9 @@ class TemplateDataBlob {
 	 */
 	protected static function normaliseInterfaceText( $text ) {
 		if ( is_string( $text ) ) {
-			global $wgContLang;
+			$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 			$ret = new stdClass();
-			$ret->{ $wgContLang->getCode() } = $text;
+			$ret->{ $contLang->getCode() } = $text;
 			return $ret;
 		}
 		return $text;
