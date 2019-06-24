@@ -51,6 +51,7 @@
 	"templatedata-modal-button-back": "Rrete",
 	"templatedata-modal-button-cancel": "Annulle",
 	"templatedata-modal-button-changelang": "Cange 'a lènghe",
+	"templatedata-modal-button-delparam": "Live 'u parametre de 'mbormazione",
 	"templatedata-modal-button-done": "Fatte",
 	"templatedata-modal-button-importParams": "'Mborte le parametre",
 	"templatedata-modal-button-restoreparam": "Repristine 'u parametre",
@@ -62,6 +63,8 @@
 	"templatedata-modal-format-inline": "In linèe",
 	"templatedata-modal-format-null": "Non specificate",
 	"templatedata-modal-json-error-replace": "Sostituisce",
+	"templatedata-modal-placeholder-paramkey": "Nome d'u parametre",
+	"templatedata-modal-search-input-placeholder": "Cirche pe nome d'a lènghe o codece",
 	"templatedata-modal-table-param-actions": "Aziune",
 	"templatedata-modal-table-param-aliases": "Alias (separate da le virgole)",
 	"templatedata-modal-table-param-autovalue": "Auto valore",
@@ -76,7 +79,12 @@
 	"templatedata-modal-table-param-required": "Richieste",
 	"templatedata-modal-table-param-suggested": "Suggerite",
 	"templatedata-modal-table-param-type": "Tipe",
+	"templatedata-modal-table-param-uneditablefield": "Non cangiabbele",
+	"templatedata-modal-title": "Cangiatore d'a documendazione de template",
+	"templatedata-modal-title-addparam": "Aggiunge 'nu parametre nuève",
+	"templatedata-modal-title-choose-language": "Scacchie 'a lènghe",
 	"templatedata-modal-title-language": "Lènghe",
 	"templatedata-modal-title-paramorder": "Ordene de le parametre",
-	"templatedata-modal-title-templatedesc": "Descrizione template ($1)"
+	"templatedata-modal-title-templatedesc": "Descrizione template ($1)",
+	"templatedata-modal-title-templateparams": "Parametre d'u template"
 }
