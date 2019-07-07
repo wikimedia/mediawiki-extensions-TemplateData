@@ -20,7 +20,7 @@
 	"templatedata-doc-param-status-deprecated": "zastarané",
 	"templatedata-doc-param-status-optional": "voliteľný",
 	"templatedata-doc-param-status-required": "povinný",
-	"templatedata-doc-param-status-suggested": "doporučený",
+	"templatedata-doc-param-status-suggested": "odporúčaný",
 	"templatedata-doc-param-type": "Typ",
 	"templatedata-doc-param-type-boolean": "Logická hodnota",
 	"templatedata-doc-param-type-content": "Obsah",
