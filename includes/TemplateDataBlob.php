@@ -13,47 +13,45 @@ use MediaWiki\MediaWikiServices;
  * @class
  */
 class TemplateDataBlob {
-	// Size of MySQL 'blob' field; page_props table where the data is stored uses one.
-	const MAX_LENGTH = 65535;
-
 	/**
 	 * @var stdClass
 	 */
-	private $data;
+	protected $data;
 
 	/**
 	 * @var string|null In-object cache for getJSON()
 	 */
-	private $json = null;
-
-	/**
-	 * @var string|null In-object cache for getJSONForDatabase()
-	 */
-	private $jsonDB = null;
+	protected $json = null;
 
 	/**
 	 * @var Status Cache of TemplateDataBlob::parse
 	 */
-	private $status;
+	protected $status;
 
 	/**
 	 * @var string[] Predefined formats for TemplateData to check against
 	 */
-	private static $formats = [
+	protected static $formats = [
 		'block' => "{{_\n| _ = _\n}}",
 		'inline' => '{{_|_=_}}',
 	];
 
 	/**
-	 * Parse and validate passed JSON and create a TemplateDataBlob object.
+	 * Parse and validate passed JSON and create a blob handling
+	 * instance.
 	 * Accepts and handles user-provided data.
 	 *
+	 * @param IDatabase $db
 	 * @param string $json
 	 * @throws Exception
-	 * @return TemplateDataBlob
+	 * @return TemplateDataBlob|TemplateDataCompressedBlob
 	 */
-	public static function newFromJSON( $json ) {
-		$tdb = new self( json_decode( $json ) );
+	public static function newFromJSON( $db, $json ) {
+		if ( $db->getType() === 'mysql' ) {
+			$tdb = new TemplateDataCompressedBlob( json_decode( $json ) );
+		} else {
+			$tdb = new TemplateDataBlob( json_decode( $json ) );
+		}
 
 		$status = $tdb->parse();
 
@@ -77,17 +75,19 @@ class TemplateDataBlob {
 	}
 
 	/**
-	 * Parse and validate passed JSON (possibly gzip-compressed) and create a TemplateDataBlob object.
+	 * Parse and validate passed JSON (possibly gzip-compressed) and create a blob handling
+	 * instance.
 	 *
+	 * @param IDatabase $db
 	 * @param string $json
-	 * @return TemplateDataBlob
+	 * @return TemplateDataBlob or TemplateDataCompressedBlob
 	 */
-	public static function newFromDatabase( $json ) {
+	public static function newFromDatabase( $db, $json ) {
 		// Handle GZIP compression. \037\213 is the header for GZIP files.
 		if ( substr( $json, 0, 2 ) === "\037\213" ) {
 			$json = gzdecode( $json );
 		}
-		return self::newFromJSON( $json );
+		return self::newFromJSON( $db, $json );
 	}
 
 	/**
@@ -96,7 +96,7 @@ class TemplateDataBlob {
 	 * See Specification.md for the expected format of the JSON object.
 	 * @return Status
 	 */
-	private function parse() {
+	protected function parse() {
 		$data = $this->data;
 
 		static $rootKeys = [
@@ -550,12 +550,6 @@ class TemplateDataBlob {
 				}
 			}
 		}
-
-		$length = strlen( $this->getJSONForDatabase() );
-		if ( $length > self::MAX_LENGTH ) {
-			return Status::newFatal( 'templatedata-invalid-length', $length, self::MAX_LENGTH );
-		}
-
 		return Status::newGood();
 	}
 
@@ -693,14 +687,10 @@ class TemplateDataBlob {
 	}
 
 	/**
-	 * @return string JSON (gzip compressed)
+	 * @return string JSON
 	 */
 	public function getJSONForDatabase() {
-		if ( $this->jsonDB === null ) {
-			// Cache for repeat calls
-			$this->jsonDB = gzencode( $this->getJSON() );
-		}
-		return $this->jsonDB;
+		return $this->getJSON();
 	}
 
 	public function getHtml( Language $lang ) {

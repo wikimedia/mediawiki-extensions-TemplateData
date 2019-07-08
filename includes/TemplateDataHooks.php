@@ -129,7 +129,7 @@ class TemplateDataHooks {
 	 * @return string HTML to insert in the page.
 	 */
 	public static function render( $input, $args, Parser $parser, $frame ) {
-		$ti = TemplateDataBlob::newFromJSON( $input );
+		$ti = TemplateDataBlob::newFromJSON( wfGetDB( DB_REPLICA ), $input );
 
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {

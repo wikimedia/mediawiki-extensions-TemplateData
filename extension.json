@@ -23,6 +23,7 @@
 	"AutoloadClasses": {
 		"TemplateDataHooks": "includes/TemplateDataHooks.php",
 		"TemplateDataBlob": "includes/TemplateDataBlob.php",
+		"TemplateDataCompressedBlob": "includes/TemplateDataCompressedBlob.php",
 		"ApiTemplateData": "includes/api/ApiTemplateData.php"
 	},
 	"Hooks": {
