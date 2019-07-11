@@ -59,13 +59,13 @@ mw.TemplateData.Dialog.static.actions = [
 	},
 	{
 		label: mw.msg( 'templatedata-modal-button-cancel' ),
-		flags: 'safe',
+		flags: [ 'safe', 'close' ],
 		modes: [ 'list', 'error' ]
 	},
 	{
 		action: 'back',
 		label: mw.msg( 'templatedata-modal-button-back' ),
-		flags: 'safe',
+		flags: [ 'safe', 'back' ],
 		modes: [ 'language', 'add' ]
 	}
 ];
