@@ -20,7 +20,8 @@
 			"Wladek92",
 			"Urhixidur",
 			"Ltrlg",
-			"Pols12"
+			"Pols12",
+			"Epok"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
@@ -36,7 +37,7 @@
 	"templatedata-doc-param-desc-empty": "aucune description",
 	"templatedata-doc-param-name": "Paramètre",
 	"templatedata-doc-param-status": "Statut",
-	"templatedata-doc-param-status-deprecated": "désuet",
+	"templatedata-doc-param-status-deprecated": "obsolète",
 	"templatedata-doc-param-status-optional": "facultatif",
 	"templatedata-doc-param-status-required": "obligatoire",
 	"templatedata-doc-param-status-suggested": "suggéré",
