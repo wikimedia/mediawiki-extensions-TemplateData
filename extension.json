@@ -57,15 +57,6 @@
 				"modules/ext.templateDataGenerator.editPage.js"
 			]
 		},
-		"ext.templateDataGenerator.editTemplatePage": {
-			"scripts": [
-				"modules/ext.templateDataGenerator.editTemplatePage.js"
-			],
-			"dependencies": [
-				"ext.templateDataGenerator.ui",
-				"mediawiki.api"
-			]
-		},
 		"ext.templateDataGenerator.data": {
 			"scripts": [
 				"modules/ext.templateDataGenerator.js",
@@ -76,7 +67,7 @@
 				"oojs"
 			]
 		},
-		"ext.templateDataGenerator.ui": {
+		"ext.templateDataGenerator.editTemplatePage": {
 			"styles": "modules/ext.templateDataGenerator.ui.css",
 			"scripts": [
 				"modules/ext.templateDataGenerator.target.js",
@@ -85,9 +76,11 @@
 				"modules/widgets/ext.templateDataGenerator.paramImportWidget.js",
 				"modules/widgets/ext.templateDataGenerator.languageResultWidget.js",
 				"modules/widgets/ext.templateDataGenerator.languageSearchWidget.js",
-				"modules/ext.templateDataGenerator.ui.tdDialog.js"
+				"modules/ext.templateDataGenerator.ui.tdDialog.js",
+				"modules/ext.templateDataGenerator.editTemplatePage.js"
 			],
 			"dependencies": [
+				"mediawiki.api",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"oojs-ui-windows",
