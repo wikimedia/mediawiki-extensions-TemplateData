@@ -90,8 +90,7 @@
 				"ext.templateData.images",
 				"ext.templateDataGenerator.data",
 				"jquery.uls.data",
-				"jquery.textSelection",
-				"ext.templateDataGenerator.ui.images"
+				"jquery.textSelection"
 			],
 			"messages": [
 				"comma-separator",
@@ -187,20 +186,7 @@
 				},
 				"template-format-inline": {
 					"file": "modules/images/inline.svg"
-				}
-			}
-		},
-		"ext.templateDataGenerator.ui.images": {
-			"class": "ResourceLoaderImageModule",
-			"selectorWithVariant": ".oo-ui-icon-{name}.oo-ui-image-invert",
-			"selectorWithoutVariant": ".oo-ui-icon-{name}",
-			"variants": {
-				"invert": {
-					"color": "#FFFFFF",
-					"global": true
-				}
-			},
-			"images": {
+				},
 				"parameter-set": {
 					"file": {
 						"ltr": "modules/images/parameter-set-ltr.svg",
