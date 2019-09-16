@@ -13,7 +13,8 @@
 			"Ency",
 			"Maćko",
 			"Ankam",
-			"Railfail536"
+			"Railfail536",
+			"Rail"
 		]
 	},
 	"templatedata-desc": "Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)",

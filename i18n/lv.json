@@ -83,6 +83,7 @@
 	"templatedata-modal-title-paramorder": "Parametru secība",
 	"templatedata-modal-title-templatedesc": "Veidnes apraksts ($1)",
 	"templatedata-modal-title-templateformat": "Ieteiktas vikiteksta noformējums",
+	"templatedata-modal-title-templateformatstring": "Pielāgots formāta šablons",
 	"templatedata-modal-title-templateparam-details": "Parametra detaļas: $1",
 	"templatedata-modal-title-templateparams": "Veidnes parametri"
 }

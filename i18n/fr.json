@@ -21,7 +21,8 @@
 			"Urhixidur",
 			"Ltrlg",
 			"Pols12",
-			"Epok"
+			"Epok",
+			"Thibaut120094"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
@@ -59,11 +60,11 @@
 	"templatedata-editbutton": "Gérer TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Mauvais format JSON. Vous pouvez annuler cette opération pour le corriger, supprimer les balises actuelles <templatedata> et réessayer, ou continuer à remplacer le TemplateData actuel par un nouveau.",
 	"templatedata-errormsg-insertblank": "Êtes-vous sûr de vouloir insérer TemplateData sans aucune information ?",
-	"templatedata-exists-on-related-page": "Information : il y a déjà une section TemplateData sur la page liée « [[$1]] ».",
+	"templatedata-exists-on-related-page": "Veuillez noter : il y a déjà une section TemplateData sur la page liée « [[$1]] ».",
 	"templatedata-helplink": "Informations sur TemplateData",
-	"templatedata-invalid-duplicate-value": "La propriété « $1 » (« $3 ») est un doublon de « $2 ».",
-	"templatedata-invalid-empty-array": "La propriété « $1 » doit avoir au moins une valeur dans son tableau.",
-	"templatedata-invalid-format": "La propriété « $1 » doit être « inline » , « block » ou une chaîne valide de format.",
+	"templatedata-invalid-duplicate-value": "La propriété « $1 » (« $3 ») est un doublon de « $2 ».",
+	"templatedata-invalid-empty-array": "La propriété « $1 » doit avoir au moins une valeur dans son tableau.",
+	"templatedata-invalid-format": "La propriété « $1 » doit être « inline », « block » ou une chaîne de format valide.",
 	"templatedata-invalid-length": "Données trop grosses pour être enregistrées ({{formatnum:$1}} {{PLURAL:$1|octet|octets}}, {{PLURAL:$2|la limite est}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Propriété « $1 » obligatoire non trouvée.",
 	"templatedata-invalid-param": "$1 est un paramètre non valide pour la propriété $2.",
