@@ -103,7 +103,7 @@ class ApiTemplateData extends ApiBase {
 
 			foreach ( $res as $row ) {
 				$rawData = $row->pp_value;
-				$tdb = TemplateDataBlob::newFromDatabase( $rawData );
+				$tdb = TemplateDataBlob::newFromDatabase( $db, $rawData );
 				$status = $tdb->getStatus();
 
 				if ( !$status->isOK() ) {

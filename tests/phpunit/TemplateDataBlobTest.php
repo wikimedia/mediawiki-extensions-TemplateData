@@ -2,6 +2,7 @@
 
 /**
  * @group TemplateData
+ * @group Database
  * @covers TemplateDataBlob
  */
 class TemplateDataBlobTest extends MediaWikiTestCase {
@@ -561,15 +562,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'msg' => 'Custom parameter format string (2)',
 				'status' => true
 			],
-			[
-				// Should be long enough to trigger this condition after gzipping.
-				'input' => '{
-					"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
-					"params": {}
-				}',
-				'status' => 'Data too large to save (75,217 bytes, limit is 65,535)'
-			],
 		];
+
 		$calls = [];
 		foreach ( $cases as $case ) {
 			$calls[] = [ $case ];
@@ -643,7 +637,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			}
 		}
 
-		$t = TemplateDataBlob::newFromJSON( $case['input'] );
+		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
 		$actual = $t->getJSON();
 		$status = $t->getStatus();
 		if ( !$status->isGood() ) {
@@ -668,7 +662,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 
 		// Assert this case roundtrips properly by running through the output as input.
 
-		$t = TemplateDataBlob::newFromJSON( $case['output'] );
+		$t = TemplateDataBlob::newFromJSON( $this->db, $case['output'] );
 
 		$status = $t->getStatus();
 		if ( !$status->isGood() ) {
@@ -694,18 +688,44 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * MySQL breaks if the input is too large even after compression
+	 */
+	public function testParseLongString() {
+		if ( $this->db->getType() === 'mysql' ) {
+			$this->assertTemplateData(
+				[
+					// Should be long enough to trigger this condition after gzipping.
+					'input' => '{
+						"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
+						"params": {}
+					}',
+					'status' => 'Data too large to save (75,217 bytes, limit is 65,535)'
+				]
+			);
+		} else {
+			$this->markTestSkipped( 'long compressed strings break on MySQL only' );
+		}
+	}
+
+	/**
 	 * Verify we can gzdecode() which came in PHP 5.4.0. Mediawiki needs a
 	 * fallback function for it.
 	 * If this test fail, we are most probably attempting to use gzdecode()
 	 * with PHP before 5.4.
 	 *
-	 * @see bug 54058
+	 * @see bug T56058
+	 *
+	 * Some databases will not be able to store compressed data cleanly
+	 * but the object will be initialized properly even if compressed
+	 * data are provided
+	 *
+	 * @see bug T203850
 	 */
 	public function testGetJsonForDatabase() {
 		// Compress JSON to trigger the code pass in newFromDatabase that ends
 		// up calling gzdecode().
 		$gzJson = gzencode( '{}' );
-		$templateData = TemplateDataBlob::newFromDatabase( $gzJson );
+		$templateData = TemplateDataBlob::newFromDatabase( $this->db, $gzJson );
 		$this->assertInstanceOf( 'TemplateDataBlob', $templateData );
 	}
 
@@ -985,7 +1005,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			$case['msg'] = is_string( $case['status'] ) ? $case['status'] : 'TemplateData assertion';
 		}
 
-		$t = TemplateDataBlob::newFromJSON( $case['input'] );
+		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
 		$status = $t->getStatus();
 
 		$this->assertTrue(
@@ -1289,7 +1309,7 @@ HTML
 	 * @dataProvider provideGetHtml
 	 */
 	public function testGetHtml( array $data, $expected ) {
-		$t = TemplateDataBlob::newFromJSON( json_encode( $data ) );
+		$t = TemplateDataBlob::newFromJSON( $this->db, json_encode( $data ) );
 		$actual = $t->getHtml( Language::factory( 'qqx' ) );
 		$linedActual = preg_replace( '/>\s*</', ">\n<", $actual );
 
