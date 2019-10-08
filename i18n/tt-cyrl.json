@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ильнар"
+			"Ильнар",
+			"Ерней"
 		]
 	},
 	"templatedata-desc": "Калып көйләнмәләре өчен мәгълүмат саклагычын ясау (JSON ярдәмендә)",
@@ -10,7 +11,7 @@
 	"templatedata-doc-format-inline": "Әлеге калып параметрларны юл эчендә куюны куллана.",
 	"templatedata-doc-no-params-set": "Бер параметр да күрсәтелмәгән",
 	"templatedata-doc-param-autovalue": "Авто мәгънә",
-	"templatedata-doc-param-default": "Килешү буенча",
+	"templatedata-doc-param-default": "Гадәттәге",
 	"templatedata-doc-param-example": "Мисал",
 	"templatedata-doc-param-desc": "Тасвир",
 	"templatedata-doc-param-desc-empty": "тасвирламасыз",
@@ -24,7 +25,7 @@
 	"templatedata-doc-param-type-boolean": "Логик мәгънәсе",
 	"templatedata-doc-param-type-content": "Эчтәлек",
 	"templatedata-doc-param-type-date": "Дата",
-	"templatedata-doc-param-type-line": "Сызык",
+	"templatedata-doc-param-type-line": "Юл",
 	"templatedata-doc-param-type-number": "Сан",
 	"templatedata-doc-param-type-string": "Текст (кирәкле озынлыкта)",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Тигезләнмәгән викитекст",
@@ -43,12 +44,12 @@
 	"templatedata-invalid-value": "«$1» өчен яраксыз үзенчәлек.",
 	"templatedata-modal-button-add-language": "Тел өстәү",
 	"templatedata-modal-button-addparam": "Параметр өстәү",
-	"templatedata-modal-button-apply": "Кулланырга",
+	"templatedata-modal-button-apply": "Куллану",
 	"templatedata-modal-button-back": "Артка",
-	"templatedata-modal-button-cancel": "Баш тарту",
+	"templatedata-modal-button-cancel": "Кире алу",
 	"templatedata-modal-button-changelang": "Телне сайлау",
 	"templatedata-modal-button-delparam": "Параметр турында мәгълүматны бетерү",
-	"templatedata-modal-button-done": "Әзер",
+	"templatedata-modal-button-done": "Тәмам",
 	"templatedata-modal-button-importParams": "Параметрларны импортлау",
 	"templatedata-modal-button-restoreparam": "Параметрларны тергезү",
 	"templatedata-modal-button-saveparam": "Саклау",
