@@ -101,7 +101,7 @@
 	"templatedata-modal-table-param-aliases": "Alias (séparés par des virgules)",
 	"templatedata-modal-table-param-autovalue": "Valeur automatique",
 	"templatedata-modal-table-param-default": "Par défaut ($1)",
-	"templatedata-modal-table-param-deprecated": "Désuet",
+	"templatedata-modal-table-param-deprecated": "Obsolète",
 	"templatedata-modal-table-param-deprecatedValue": "Raison de l'obsolescence",
 	"templatedata-modal-table-param-description": "Description ($1)",
 	"templatedata-modal-table-param-example": "Exemple ($1)",
