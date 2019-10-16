@@ -80,9 +80,9 @@
 	"templatedata-modal-title-addparam": "Яңа параметр өстәү",
 	"templatedata-modal-title-choose-language": "Телне сайлагыз",
 	"templatedata-modal-title-language": "Тел",
-	"templatedata-modal-title-paramorder": "Параметрлар урыны",
+	"templatedata-modal-title-paramorder": "Параметрлар тәртибе",
 	"templatedata-modal-title-templatedesc": "Калып тасвирламасы ($1)",
-	"templatedata-modal-title-templateformat": "Кирәкле калып форматы",
+	"templatedata-modal-title-templateformat": "Тәкъдим ителгән викитест форматлавы",
 	"templatedata-modal-title-templateparam-details": "Параметр тасвирламасы: $1",
 	"templatedata-modal-title-templateparams": "Калып параметрлары"
 }
