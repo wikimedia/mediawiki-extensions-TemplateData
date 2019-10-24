@@ -7,6 +7,7 @@
 	},
 	"templatedata-doc-desc-empty": "Nav apraksta.",
 	"templatedata-doc-format-block": "Šai veidnei parametrus pieņemts izmantot bloka formā.",
+	"templatedata-doc-format-custom": "Šai veidnei ir pielāgots formatējums.",
 	"templatedata-doc-format-inline": "Šai veidnei parametrus pieņemts izmantot vienā rindā.",
 	"templatedata-doc-no-params-set": "Parametri nav norādīti",
 	"templatedata-doc-param-autovalue": "Automātiskā vērtība",
