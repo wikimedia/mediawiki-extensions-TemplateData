@@ -46,7 +46,7 @@
 	"templatedata-invalid-type": "Bjóst við að eiginleikinn „$1” væri af gerðinni „$2”, en fékk eitthvað allt annað.",
 	"templatedata-invalid-unknown": "Óvæntur eiginleiki „$1”.",
 	"templatedata-invalid-value": "Ógilt eigindargildi fyrir eiginleikann „$1”.",
-	"templatedata-modal-button-add-language": "Björgvin Ragnarsson",
+	"templatedata-modal-button-add-language": "Bæta við tungumáli",
 	"templatedata-modal-button-addparam": "Bæta við gildi",
 	"templatedata-modal-button-apply": "Virkja",
 	"templatedata-modal-button-back": "Til baka",
