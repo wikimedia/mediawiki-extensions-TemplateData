@@ -9,7 +9,8 @@
 			"Ridmevo",
 			"Translatealcd",
 			"Yusuke1109",
-			"Omotecho"
+			"Omotecho",
+			"Kkairri"
 		]
 	},
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
@@ -30,7 +31,7 @@
 	"templatedata-doc-param-status-suggested": "推奨",
 	"templatedata-doc-param-type": "型",
 	"templatedata-doc-param-type-boolean": "ブール値",
-	"templatedata-doc-param-type-content": "內容",
+	"templatedata-doc-param-type-content": "内容",
 	"templatedata-doc-param-type-date": "日時",
 	"templatedata-doc-param-type-line": "行",
 	"templatedata-doc-param-type-number": "数値",

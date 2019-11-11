@@ -64,7 +64,7 @@
 	"templatedata-modal-table-param-actions": "Гамәлләр",
 	"templatedata-modal-table-param-aliases": "Кушаматлар (өтер аша)",
 	"templatedata-modal-table-param-autovalue": "Авто мәгънә",
-	"templatedata-modal-table-param-default": "Бирелгәнчә ($1)",
+	"templatedata-modal-table-param-default": "Гадәттәге ($1)",
 	"templatedata-modal-table-param-deprecated": "Искергән",
 	"templatedata-modal-table-param-deprecatedValue": "Искерүнең аңлатмасы",
 	"templatedata-modal-table-param-description": "Тасвирлама ($1)",
