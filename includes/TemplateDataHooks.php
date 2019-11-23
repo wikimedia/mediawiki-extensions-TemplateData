@@ -159,4 +159,67 @@ class TemplateDataHooks {
 
 		return $ti->getHtml( $parser->getOptions()->getUserLangObj() );
 	}
+
+	/**
+	 * Fetch templatedata for an array of titles.
+	 *
+	 * @todo Document this hook
+	 *
+	 * The following questions are yet to be resolved.
+	 * (a) Should we extend functionality to looking up an array of titles instead of one?
+	 *     The signature allows for an array of titles to be passed in, but the
+	 *     current implementation is not optimized for the multple-title use case.
+	 * (b) Should this be a lookup service instead of this faux hook?
+	 *     This will be resolved separately.
+	 *
+	 * @param array $tplTitles
+	 * @param stdclass[] &$tplData
+	 * @return bool
+	 */
+	public static function onParserFetchTemplateData( array $tplTitles, array &$tplData ): bool {
+		$tplData = [];
+
+		// This inefficient implementation is currently tuned for
+		// Parsoid's use case where it requests info for exactly one title.
+		// For a real batch use case, this code will need an overhaul.
+		foreach ( $tplTitles as $tplTitle ) {
+			$title = Title::newFromText( $tplTitle );
+			if ( !$title ) { // Invalid title
+				$tplData[$tplTitle] = null;
+				continue;
+			}
+
+			if ( $title->isRedirect() ) {
+				$title = ( new WikiPage( $title ) )->getRedirectTarget();
+				if ( !$title ) { // Invalid redirecting title
+					$tplData[$tplTitle] = null;
+					continue;
+				}
+			}
+
+			if ( !$title->exists() ) {
+				$tplData[$tplTitle] = (object)[ "missing" => true ];
+				continue;
+			}
+
+			$pageId = $title->getArticleID();
+			$props = PageProps::getInstance()->getProperties( $title, 'templatedata' );
+			if ( !isset( $props[$pageId] ) ) { // No templatedata
+				$tplData[$tplTitle] = (object)[ "notemplatedata" => true ];
+				continue;
+			}
+
+			$tdb = TemplateDataBlob::newFromDatabase( wfGetDB( DB_REPLICA ), $props[$pageId] );
+			$status = $tdb->getStatus();
+			if ( !$status->isOK() ) {
+				// Invalid data. Parsoid has no use for the error.
+				$tplData[$tplTitle] = (object)[ "notemplatedata" => true ];
+				continue;
+			}
+
+			$tplData[$tplTitle] = $tdb->getData();
+		}
+
+		return true;
+	}
 }

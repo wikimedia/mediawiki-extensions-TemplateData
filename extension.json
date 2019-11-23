@@ -41,6 +41,9 @@
 		],
 		"EditPage::showEditForm:initial": [
 			"TemplateDataHooks::onEditPage"
+		],
+		"ParserFetchTemplateData": [
+			"TemplateDataHooks::onParserFetchTemplateData"
 		]
 	},
 	"MessagesDirs": {
