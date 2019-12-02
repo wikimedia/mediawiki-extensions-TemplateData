@@ -243,7 +243,7 @@ mw.TemplateData.Target.prototype.replaceTemplateData = function ( newTemplateDat
 		if ( !this.isPageSubLevel ) {
 			if ( ( matches = this.originalWikitext.match( /<\/noinclude>\s*$/ ) ) ) {
 				// Move cursor inside </noinclude>
-				this.$textarea.textSelection( 'setSelection', { start: this.originalWikitext.length - matches[ 0 ].length - 1 } );
+				this.$textarea.textSelection( 'setSelection', { start: matches.index } );
 			} else {
 				// Wrap in new <noinclude>s
 				templateDataOutput = '<noinclude>\n' + templateDataOutput + '\n</noinclude>\n';
