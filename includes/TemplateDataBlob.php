@@ -889,6 +889,10 @@ class TemplateDataBlob {
 	 * @return string[] Parameter info in the same format as the templatedata 'params' key.
 	 */
 	public static function getRawParams( $wikitext ) {
+		// Ignore wikitext within nowiki tags and comments
+		$wikitext = preg_replace( '/<!--.*?-->/s', '', $wikitext );
+		$wikitext = preg_replace( '/<nowiki\s*>.*?<\/nowiki\s*>/s', '', $wikitext );
+
 		// This regex matches the one in ext.TemplateDataGenerator.sourceHandler.js
 		preg_match_all( '/{{3,}([^#]*?)([<|]|}{3,})/m', $wikitext, $rawParams );
 		$params = [];

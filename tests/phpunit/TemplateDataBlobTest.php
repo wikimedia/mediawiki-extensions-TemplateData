@@ -1253,6 +1253,15 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'{{{!}} class=""',
 				[]
 			],
+			'Params within comments and nowiki tags' => [
+				'Lorem <!-- {{{name}}} --> ipsum <nowiki  > {{{middlename}}}' .
+					'</nowiki> {{{surname}}}',
+				[ 'surname' => [] ]
+			],
+			'Param within comments and param name outside with comment' => [
+				'Lorem {{{name<!--comment-->}}} ipsum <!--{{{surname}}}-->',
+				[ 'name' => [] ]
+			],
 		];
 	}
 

@@ -169,6 +169,10 @@ mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = func
 		// This regex matches the one in TemplateDataBlob.php
 		paramExtractor = /{{3,}([^#]*?)([<|]|}{3,})/mg;
 
+	// Strip everything in nowiki tags and HTML comments
+	templateCode = templateCode.replace( /<!--[\s\S]*?-->/g, '' )
+		.replace( /<nowiki\s*>[\s\S]*?<\/nowiki\s*>/g, '' );
+
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
 		// This normalization process is repeated in PHP in TemplateDataBlob.php
 		normalizedParamName = matches[ 1 ].replace( /[-_ ]+/, ' ' ).toLowerCase();
