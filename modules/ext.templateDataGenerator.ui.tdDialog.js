@@ -568,6 +568,8 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 	// If we're changing the aliases and the name has an error, poke its change
 	// handler in case that error was because of a duplicate name with its own
 	// aliases.
+	// FIXME: Don't read model information from the DOM
+	// eslint-disable-next-line no-jquery/no-class-state
 	if ( property === 'aliases' && this.propInputs.name.$element.hasClass( 'tdg-editscreen-input-error' ) ) {
 		this.onParamPropertyInputChange( 'name', this.propInputs.name.getValue() );
 	}
@@ -849,6 +851,8 @@ mw.TemplateData.Dialog.prototype.toggleNoticeMessage = function ( type, isShowin
 		} else {
 			noticeReference = this.paramListNoticeLabel;
 		}
+		// FIXME: Don't read model information from the DOM
+		// eslint-disable-next-line no-jquery/no-sizzle
 		isShowing = isShowing || !noticeReference.$element.is( ':visible' );
 
 		if ( Array.isArray( noticeMessage ) ) {

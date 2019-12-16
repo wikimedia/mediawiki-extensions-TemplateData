@@ -123,6 +123,7 @@ mw.TemplateData.Target.prototype.destroy = function () {
  * @param {boolean} [parseHTML] The message should be parsed
  */
 mw.TemplateData.Target.prototype.setNoticeMessage = function ( msg, type, parseHTML ) {
+	var $msg;
 	type = type || 'error';
 	this.editNoticeLabel.$element
 		.toggleClass( 'errorbox', type === 'error' )
@@ -132,9 +133,11 @@ mw.TemplateData.Target.prototype.setNoticeMessage = function ( msg, type, parseH
 		// OOUI's label elements do not parse strings and display them
 		// as-is. If the message contains html that should be parsed,
 		// we have to transform it into a jQuery object
-		msg = $( '<span>' ).append( $.parseHTML( msg ) );
+		$msg = $( '<span>' ).append( $.parseHTML( msg ) );
+		this.editNoticeLabel.setLabel( $msg );
+	} else {
+		this.editNoticeLabel.setLabel( msg );
 	}
-	this.editNoticeLabel.setLabel( msg );
 	this.editNoticeLabel.toggle( true );
 };
 

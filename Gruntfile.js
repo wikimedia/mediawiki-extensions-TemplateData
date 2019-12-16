@@ -16,13 +16,12 @@ module.exports = function ( grunt ) {
 	grunt.initConfig( {
 		eslint: {
 			options: {
-				reportUnusedDisableDirectives: true,
 				extensions: [ '.js', '.json' ],
 				cache: true
 			},
 			all: [
-				'**/*.js{,on}',
-				'!{lib,vendor,node_modules}/**'
+				'**/*.{js,json}',
+				'!{lib,vendor,node_modules,docs}/**'
 			]
 		},
 		stylelint: {
@@ -31,7 +30,12 @@ module.exports = function ( grunt ) {
 				'resources/*.css'
 			]
 		},
-		banana: conf.MessagesDirs,
+		banana: {
+			options: {
+				requireLowerCase: false
+			},
+			all: conf.MessagesDirs.TemplateData
+		},
 		watch: {
 			files: [
 				'.{stylelintrc,eslintrc}.json',
