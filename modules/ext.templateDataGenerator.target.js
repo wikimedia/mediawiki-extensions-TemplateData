@@ -44,7 +44,9 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 		.text( mw.msg( 'templatedata-helplink' ) );
 
 	this.windowManager = new OO.ui.WindowManager();
-	$( document.body ).append( this.windowManager.$element );
+	// Ensure OOUI's window manager is on top of ours, because we use OO.ui.confirm() elsewhere.
+	// This is a bit silly...
+	OO.ui.getWindowManager().$element.before( this.windowManager.$element );
 
 	// Dialog
 	this.tdgDialog = new mw.TemplateData.Dialog( config );
