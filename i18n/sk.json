@@ -4,7 +4,8 @@
 			"Sudo77(new)",
 			"Teslaton",
 			"TomášPolonec",
-			"Robert Važan"
+			"Robert Važan",
+			"Luky001"
 		]
 	},
 	"templatedata-desc": "Implementuje dátové úložisko pre parametre šablón (pomocou JSON)",
@@ -64,10 +65,10 @@
 	"templatedata-modal-table-param-actions": "Akcie",
 	"templatedata-modal-table-param-aliases": "Prezývky (oddelené čiarkou)",
 	"templatedata-modal-table-param-autovalue": "Automatická hodnota",
-	"templatedata-modal-table-param-default": "Predvolené",
-	"templatedata-modal-table-param-description": "Popis",
+	"templatedata-modal-table-param-default": "Predvolené ($1)",
+	"templatedata-modal-table-param-description": "Popis ($1)",
 	"templatedata-modal-table-param-example": "Príklad ($1)",
-	"templatedata-modal-table-param-label": "Štítok",
+	"templatedata-modal-table-param-label": "Štítok ($1)",
 	"templatedata-modal-table-param-name": "Meno",
 	"templatedata-modal-table-param-required": "Povinný",
 	"templatedata-modal-table-param-suggested": "Odporúčaný",
@@ -78,7 +79,7 @@
 	"templatedata-modal-title-choose-language": "Výber jazyka",
 	"templatedata-modal-title-language": "Jazyk",
 	"templatedata-modal-title-paramorder": "Poradie parametrov",
-	"templatedata-modal-title-templatedesc": "Popis šablóny",
+	"templatedata-modal-title-templatedesc": "Popis šablóny ($1)",
 	"templatedata-modal-title-templateformat": "Navrhované formátovanie wikitextu",
 	"templatedata-modal-title-templateformatstring": "Vlastný formátovací vzor",
 	"templatedata-modal-title-templateparam-details": "Podrobnosti k parametru $1",
