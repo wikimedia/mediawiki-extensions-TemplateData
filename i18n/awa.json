@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeetsinghawadhi"
+		]
+	},
+	"templatedata-doc-param-type-wiki-template-name": "खाँचा",
+	"templatedata-doc-param-type-wiki-user-name": "सदस्य",
+	"templatedata-doc-params": "खाँचा पैरामीटर",
+	"templatedata-editbutton": "खांँचा डाटा प्रबंधित करैं",
+	"templatedata-modal-button-back": "पाछे",
+	"templatedata-modal-button-cancel": "रद्द करा",
+	"templatedata-modal-button-changelang": "भाषा बदला",
+	"templatedata-modal-button-saveparam": "सहेजा जाय",
+	"templatedata-modal-table-param-name": "नाँव",
+	"templatedata-modal-table-param-required": "जरूरी",
+	"templatedata-modal-title-addparam": "नँवा पैरामीटर जोड़ा",
+	"templatedata-modal-title-choose-language": "भाषा चुनैं",
+	"templatedata-modal-title-language": "भाषा"
+}

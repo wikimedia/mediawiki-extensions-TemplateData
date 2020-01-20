@@ -60,7 +60,7 @@
 	"templatedata-invalid-unknown": "Beklenmeyen özellik \"$1\".",
 	"templatedata-invalid-value": "\"$1\" mülkü için geçersiz değer.",
 	"templatedata-modal-button-add-language": "Dil ekle",
-	"templatedata-modal-button-addparam": "Değişken ekle",
+	"templatedata-modal-button-addparam": "Parametre ekle",
 	"templatedata-modal-button-apply": "Uygula",
 	"templatedata-modal-button-back": "Geri",
 	"templatedata-modal-button-cancel": "İptal",
