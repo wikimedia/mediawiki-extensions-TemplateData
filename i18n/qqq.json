@@ -97,7 +97,7 @@
 	"templatedata-modal-table-param-autovalue": "Label for a parameter property input: Parameter auto value in the table",
 	"templatedata-modal-table-param-default": "Label for a parameter property input: Default value of the parameter.\n\nParameters:\n* $1 - currently showing language\n{{Identical|Default}}",
 	"templatedata-modal-table-param-deprecated": "Label for a parameter property input: Deprecated status of the parameter.\n{{Identical|Deprecated}}",
-	"templatedata-modal-table-param-deprecatedValue": "Label for a parameter property input: Deprecated guidance of the parameter.",
+	"templatedata-modal-table-param-deprecatedValue": "Label for a parameter property input: Deprecated guidance of the parameter. This string will be shown to users as an explanation why the parameter is deprecated and what the users should do about it.",
 	"templatedata-modal-table-param-description": "Label for a parameter property input: Description of the parameter.\n\nParameters:\n* $1 - currently showing language\n{{Identical|Description}}",
 	"templatedata-modal-table-param-example": "Label for a parameter property input: Example value of the parameter.\n\nParameters:\n* $1 - currently showing language\n{{Identical|Example}}",
 	"templatedata-modal-table-param-importoption": "Label for the import option in the parameter list in the edit dialog. $1 - number of suggested parameters that can be imported.",
