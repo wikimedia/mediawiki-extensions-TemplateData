@@ -168,15 +168,14 @@ class TemplateDataHooks {
 	 * The following questions are yet to be resolved.
 	 * (a) Should we extend functionality to looking up an array of titles instead of one?
 	 *     The signature allows for an array of titles to be passed in, but the
-	 *     current implementation is not optimized for the multple-title use case.
+	 *     current implementation is not optimized for the multiple-title use case.
 	 * (b) Should this be a lookup service instead of this faux hook?
 	 *     This will be resolved separately.
 	 *
 	 * @param array $tplTitles
 	 * @param stdclass[] &$tplData
-	 * @return bool
 	 */
-	public static function onParserFetchTemplateData( array $tplTitles, array &$tplData ): bool {
+	public static function onParserFetchTemplateData( array $tplTitles, array &$tplData ): void {
 		$tplData = [];
 
 		// This inefficient implementation is currently tuned for
@@ -184,14 +183,16 @@ class TemplateDataHooks {
 		// For a real batch use case, this code will need an overhaul.
 		foreach ( $tplTitles as $tplTitle ) {
 			$title = Title::newFromText( $tplTitle );
-			if ( !$title ) { // Invalid title
+			if ( !$title ) {
+				// Invalid title
 				$tplData[$tplTitle] = null;
 				continue;
 			}
 
 			if ( $title->isRedirect() ) {
 				$title = ( new WikiPage( $title ) )->getRedirectTarget();
-				if ( !$title ) { // Invalid redirecting title
+				if ( !$title ) {
+					// Invalid redirecting title
 					$tplData[$tplTitle] = null;
 					continue;
 				}
@@ -202,9 +203,18 @@ class TemplateDataHooks {
 				continue;
 			}
 
+			// FIXME: PageProps returns takes titles but returns by page id.
+			// This means we need to do our own look up and hope it matches.
+			// Spoiler, sometimes it won't. When that happens, the user won't
+			// get any templatedata-based interfaces for that template.
+			// The fallback is to not serve data for that template, which
+			// the clients have to support anyway, so the impact is minimal.
+			// It is also expected that such race conditions resolve themselves
+			// after a few seconds so the old "try again later" should cover this.
 			$pageId = $title->getArticleID();
 			$props = PageProps::getInstance()->getProperties( $title, 'templatedata' );
-			if ( !isset( $props[$pageId] ) ) { // No templatedata
+			if ( !isset( $props[$pageId] ) ) {
+				// No templatedata
 				$tplData[$tplTitle] = (object)[ "notemplatedata" => true ];
 				continue;
 			}
@@ -219,7 +229,5 @@ class TemplateDataHooks {
 
 			$tplData[$tplTitle] = $tdb->getData();
 		}
-
-		return true;
 	}
 }
