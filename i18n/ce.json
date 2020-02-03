@@ -58,7 +58,7 @@
 	"templatedata-modal-button-restoreparam": "МеттахӀоттае параметр.",
 	"templatedata-modal-button-saveparam": "Ӏалашъе",
 	"templatedata-modal-current-language": "Карара мотт: $1",
-	"templatedata-modal-errormsg": "Карийна гӀалаташ. Дехар до, параметрийн цӀерш еса юй а цхьатерра юй «$1», «$2» я «$3» хьажар.",
+	"templatedata-modal-errormsg": "Карийна гӀалаташ. Дехар до, параметрийн цӀерш яьсса юй а цхьатерра юй «$1», «$2» я «$3» хьажар.",
 	"templatedata-modal-errormsg-import-noparams": "Импорт ечу хенахь керла параметраш цакарий.",
 	"templatedata-modal-format-block": "Блокан",
 	"templatedata-modal-format-inline": "ЧурамогӀан",
