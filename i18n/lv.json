@@ -45,6 +45,7 @@
 	"templatedata-invalid-missing": "Obligātā īpašība \"$1\" nav atrasta.",
 	"templatedata-invalid-param": "Nederīgs parametrs \"$1\" īpašībai \"$2\".",
 	"templatedata-invalid-parse": "JSON sintakses kļūda.",
+	"templatedata-invalid-type": "Īpašībai \"$1\" būtu jābūt datu tipam \"$2\".",
 	"templatedata-invalid-unknown": "Negaidīta īpašība \"$1\".",
 	"templatedata-invalid-value": "Nederīga īpašības \"$1\" vērtība.",
 	"templatedata-modal-button-add-language": "Pievienot valodu",
