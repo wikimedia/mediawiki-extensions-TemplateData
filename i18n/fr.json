@@ -28,7 +28,7 @@
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
 	"templatedata-doc-desc-empty": "Aucune description.",
 	"templatedata-doc-format-block": "La mise en forme multiligne est préférée pour ce modèle.",
-	"templatedata-doc-format-custom": "Ce modèle possède une mise en forme utilisateur.",
+	"templatedata-doc-format-custom": "Ce modèle possède une mise en forme personnalisée.",
 	"templatedata-doc-format-inline": "La mise en forme sur une seule ligne est préférée pour ce modèle.",
 	"templatedata-doc-no-params-set": "Pas de paramètres spécifiés",
 	"templatedata-doc-param-autovalue": "Valeur automatique",
