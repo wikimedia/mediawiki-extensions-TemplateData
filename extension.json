@@ -42,34 +42,42 @@
 	},
 	"ResourceModules": {
 		"ext.templateData": {
-			"styles": "resources/ext.templateData.css"
+			"localBasePath": "modules/ext.templateData",
+			"remoteExtPath": "TemplateData/modules/ext.templateData",
+			"styles": "templateData.css"
 		},
 		"ext.templateDataGenerator.editPage": {
+			"localBasePath": "modules/ext.templateDataGenerator.editPage",
+			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.editPage",
 			"scripts": [
-				"modules/ext.templateDataGenerator.editPage.js"
+				"init.js"
 			]
 		},
 		"ext.templateDataGenerator.data": {
+			"localBasePath": "modules/ext.templateDataGenerator.data",
+			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.data",
 			"scripts": [
-				"modules/ext.templateDataGenerator.js",
-				"modules/ext.templateDataGenerator.data.js",
-				"modules/ext.templateDataGenerator.sourceHandler.js"
+				"index.js",
+				"Model.js",
+				"SourceHandler.js"
 			],
 			"dependencies": [
 				"oojs"
 			]
 		},
 		"ext.templateDataGenerator.editTemplatePage": {
-			"styles": "modules/ext.templateDataGenerator.ui.css",
+			"localBasePath": "modules/ext.templateDataGenerator.editTemplatePage",
+			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.editTemplatePage",
+			"styles": "templateDataGenerator.ui.css",
 			"scripts": [
-				"modules/ext.templateDataGenerator.target.js",
-				"modules/widgets/ext.templateDataGenerator.paramSelectWidget.js",
-				"modules/widgets/ext.templateDataGenerator.paramWidget.js",
-				"modules/widgets/ext.templateDataGenerator.paramImportWidget.js",
-				"modules/widgets/ext.templateDataGenerator.languageResultWidget.js",
-				"modules/widgets/ext.templateDataGenerator.languageSearchWidget.js",
-				"modules/ext.templateDataGenerator.ui.tdDialog.js",
-				"modules/ext.templateDataGenerator.editTemplatePage.js"
+				"Target.js",
+				"widgets/ParamSelectWidget.js",
+				"widgets/ParamWidget.js",
+				"widgets/ParamImportWidget.js",
+				"widgets/LanguageResultWidget.js",
+				"widgets/LanguageSearchWidget.js",
+				"Dialog.js",
+				"init.js"
 			],
 			"dependencies": [
 				"mediawiki.api",
@@ -160,6 +168,7 @@
 			]
 		},
 		"ext.templateData.images": {
+			"localBasePath": "modules/ext.templateData.images",
 			"class": "ResourceLoaderImageModule",
 			"selectorWithVariant": ".oo-ui-icon-{name}.oo-ui-image-invert",
 			"selectorWithoutVariant": ".oo-ui-icon-{name}",
@@ -172,25 +181,21 @@
 			"images": {
 				"template-format-block": {
 					"file": {
-						"ltr": "modules/images/block-rtl.svg",
-						"rtl": "modules/images/block-ltr.svg"
+						"ltr": "block-rtl.svg",
+						"rtl": "block-ltr.svg"
 					}
 				},
 				"template-format-inline": {
-					"file": "modules/images/inline.svg"
+					"file": "inline.svg"
 				},
 				"parameter-set": {
 					"file": {
-						"ltr": "modules/images/parameter-set-ltr.svg",
-						"rtl": "modules/images/parameter-set-rtl.svg"
+						"ltr": "parameter-set-ltr.svg",
+						"rtl": "parameter-set-rtl.svg"
 					}
 				}
 			}
 		}
-	},
-	"ResourceFileModulePaths": {
-		"localBasePath": "",
-		"remoteExtPath": "TemplateData"
 	},
 	"VisualEditorPluginModules": [
 		"ext.templateDataGenerator.editPage"
