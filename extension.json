@@ -27,24 +27,12 @@
 		"ApiTemplateData": "includes/api/ApiTemplateData.php"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"TemplateDataHooks::onParserFirstCallInit"
-		],
-		"PageContentSave": [
-			"TemplateDataHooks::onPageContentSave"
-		],
-		"ResourceLoaderTestModules": [
-			"TemplateDataHooks::onResourceLoaderTestModules"
-		],
-		"ResourceLoaderRegisterModules": [
-			"TemplateDataHooks::onResourceLoaderRegisterModules"
-		],
-		"EditPage::showEditForm:initial": [
-			"TemplateDataHooks::onEditPage"
-		],
-		"ParserFetchTemplateData": [
-			"TemplateDataHooks::onParserFetchTemplateData"
-		]
+		"ParserFirstCallInit": "TemplateDataHooks::onParserFirstCallInit",
+		"PageContentSave": "TemplateDataHooks::onPageContentSave",
+		"ResourceLoaderTestModules": "TemplateDataHooks::onResourceLoaderTestModules",
+		"ResourceLoaderRegisterModules": "TemplateDataHooks::onResourceLoaderRegisterModules",
+		"EditPage::showEditForm:initial": "TemplateDataHooks::onEditPage",
+		"ParserFetchTemplateData": "TemplateDataHooks::onParserFetchTemplateData"
 	},
 	"MessagesDirs": {
 		"TemplateData": [
