@@ -43,8 +43,8 @@ class TemplateDataBlob {
 	 *
 	 * @param IDatabase $db
 	 * @param string $json
-	 * @throws Exception
 	 * @return TemplateDataBlob|TemplateDataCompressedBlob
+	 * @throws Exception
 	 */
 	public static function newFromJSON( $db, $json ) {
 		if ( $db->getType() === 'mysql' ) {
