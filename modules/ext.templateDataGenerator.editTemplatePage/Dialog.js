@@ -318,6 +318,14 @@ mw.TemplateData.Dialog.prototype.onModelChangeProperty = function ( paramKey, pr
  */
 mw.TemplateData.Dialog.prototype.onModelChange = function () {
 	this.modified = true;
+	this.updateActions();
+};
+
+/**
+ * Set action abilities according to whether the model is modified
+ */
+mw.TemplateData.Dialog.prototype.updateActions = function () {
+	this.actions.setAbilities( { apply: this.modified } );
 };
 
 /**
@@ -969,6 +977,8 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			// Show the panel
 			this.$spinner.hide();
 			this.panels.$element.show();
+
+			this.actions.setAbilities( { apply: false } );
 
 		}, this );
 };
