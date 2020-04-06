@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"Matěj Suchánek"
+			"Matěj Suchánek",
+			"Fierodelveneto"
 		]
 	},
 	"templatedata-desc": "Inplementa la memorixasion dei dati par i parametri dei modèi (doparando JSON)",
@@ -55,7 +56,7 @@
 	"templatedata-modal-button-addparam": "Zonta parametro",
 	"templatedata-modal-button-apply": "Aplica",
 	"templatedata-modal-button-back": "Indrìo",
-	"templatedata-modal-button-cancel": "Fa gnente",
+	"templatedata-modal-button-cancel": "Descançełare",
 	"templatedata-modal-button-changelang": "Canbia lengoa",
 	"templatedata-modal-button-delparam": "Cava le informasion sul parametro",
 	"templatedata-modal-button-done": "Fato",
