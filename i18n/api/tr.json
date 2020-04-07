@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sadrettin",
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"Sadrettin"
 		]
 	},
 	"apihelp-templatedata-description": "TemplateData uzantısı tarafından depolanan verileri alın.",

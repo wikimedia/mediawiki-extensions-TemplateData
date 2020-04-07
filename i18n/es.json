@@ -1,20 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
+			"AlvaroMolina",
 			"Csbotero",
+			"Dgstranz",
+			"Eurodyne",
 			"Fitoschido",
+			"JasterTDC",
+			"Jelou",
+			"Lemondoge",
+			"Macofe",
+			"Matiia",
+			"Mcervera",
 			"Ovruni",
 			"Sethladan",
-			"Mcervera",
-			"Vfrico",
-			"Macofe",
-			"Eurodyne",
-			"JasterTDC",
-			"Matiia",
-			"AlvaroMolina",
-			"Lemondoge",
-			"Dgstranz",
-			"Jelou"
+			"Vfrico"
 		]
 	},
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",

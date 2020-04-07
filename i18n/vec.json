@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
-			"Matěj Suchánek",
-			"Fierodelveneto"
+			"Fierodelveneto",
+			"Matěj Suchánek"
 		]
 	},
 	"templatedata-desc": "Inplementa la memorixasion dei dati par i parametri dei modèi (doparando JSON)",

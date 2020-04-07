@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"XXN",
+			"ImGelu",
 			"Minisarm",
-			"ImGelu"
+			"XXN"
 		]
 	},
 	"templatedata-desc": "Implementează datele stocate pentru parametrii formatelor (folosind JSON)",

@@ -3,9 +3,9 @@
 		"authors": [
 			"Danmichaelo",
 			"Jdforrester",
+			"Jon Harald Søby",
 			"Kingu",
-			"Tarjeimo",
-			"Jon Harald Søby"
+			"Tarjeimo"
 		]
 	},
 	"templatedata-desc": "Implementerer datalager for malparametre (med JSON)",

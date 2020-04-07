@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño",
-			"Breogan2008",
 			"Banjo",
+			"Breogan2008",
 			"Elisardojm",
-			"Maria zaos"
+			"Maria zaos",
+			"Toliño"
 		]
 	},
 	"templatedata-desc": "Inclúe un almacenamento de datos para os parámetros dos modelos (mediante JSON)",

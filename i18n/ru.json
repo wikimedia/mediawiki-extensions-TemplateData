@@ -1,24 +1,24 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kaganer",
-			"Okras",
-			"Putnik",
 			"Amire80",
-			"Striking Blue",
-			"Oashnic",
 			"Eakarpov",
-			"Mariya",
-			"Sunpriat",
+			"IKhitron",
+			"INS Pirat",
 			"Ivan Pozdeev",
 			"Jack who built the house",
-			"INS Pirat",
-			"IKhitron",
-			"Smigles",
-			"Patrick Star",
+			"Kaganer",
+			"Mariya",
+			"Movses",
+			"Oashnic",
+			"Okras",
 			"Ole Yves",
+			"Patrick Star",
+			"Putnik",
+			"Smigles",
 			"Stjn",
-			"Movses"
+			"Striking Blue",
+			"Sunpriat"
 		]
 	},
 	"templatedata-desc": "Реализация хранилища данных для параметров шаблона (с помощью JSON)",

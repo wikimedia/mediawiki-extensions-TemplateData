@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cumbril",
 			"Luckas",
-			"Pikne",
-			"Cumbril"
+			"Pikne"
 		]
 	},
 	"templatedata-desc": "Võimaldab JSONi abil malli parameetrite andmeid talletada.",

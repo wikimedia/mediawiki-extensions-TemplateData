@@ -1,16 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helder.wiki",
-			"Luckas",
-			"555",
-			"Jefersonmoraes",
-			"He7d3r",
-			"Opraco",
 			"Araceletorres",
 			"Cainamarques",
+			"Eduardo Addad de Oliveira",
 			"Felipe L. Ewald",
-			"Eduardo Addad de Oliveira"
+			"He7d3r",
+			"Helder.wiki",
+			"Jefersonmoraes",
+			"Luckas",
+			"Opraco",
+			555
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",

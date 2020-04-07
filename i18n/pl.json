@@ -1,20 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ankam",
 			"Chrumps",
 			"Dalis",
-			"Vuh",
-			"Woytecr",
-			"Wiochman",
-			"Matik7",
-			"WTM",
-			"VerMa",
 			"Devwebtel",
 			"Ency",
+			"Matik7",
 			"Maćko",
-			"Ankam",
+			"Rail",
 			"Railfail536",
-			"Rail"
+			"VerMa",
+			"Vuh",
+			"WTM",
+			"Wiochman",
+			"Woytecr"
 		]
 	},
 	"templatedata-desc": "Dodaje możliwość przechowywania parametrów szablonu (poprzez JSON)",

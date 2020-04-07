@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bencemac",
+			"Bináris",
+			"Csega",
+			"Máté",
 			"Tacsipacsi",
 			"Tgr",
-			"Csega",
-			"Bináris",
-			"Urbalazs",
-			"Máté",
-			"Bencemac"
+			"Urbalazs"
 		]
 	},
 	"templatedata-desc": "A sablonok paraméterezését leíró adatokat tárol (JSON formátumban)",

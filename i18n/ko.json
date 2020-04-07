@@ -1,17 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kwj2772",
-			"Priviet",
-			"아라",
 			"Bluemersen",
-			"SeoJeongHo",
 			"Hwangjy9",
 			"IRTC1015",
+			"Kwj2772",
 			"Namoroka",
-			"Ykhwong",
+			"Priviet",
 			"Revi",
-			"렌즈"
+			"SeoJeongHo",
+			"Ykhwong",
+			"렌즈",
+			"아라"
 		]
 	},
 	"templatedata-desc": "(JSON을 사용하여) 틀 변수에 대한 데이터 저장소를 구현합니다",

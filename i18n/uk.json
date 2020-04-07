@@ -2,12 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Andriykopanytsia",
-			"Ата",
+			"Dars",
 			"Olion",
-			"VolodymyrF",
 			"Piramidion",
-			"Капитан Джон Шепард",
-			"Dars"
+			"VolodymyrF",
+			"Ата",
+			"Капитан Джон Шепард"
 		]
 	},
 	"templatedata-desc": "Реалізація сховища даних для параметрів шаблону (JSON)",

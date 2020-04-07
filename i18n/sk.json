@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Luky001",
+			"Robert Važan",
 			"Sudo77(new)",
 			"Teslaton",
-			"TomášPolonec",
-			"Robert Važan",
-			"Luky001"
+			"TomášPolonec"
 		]
 	},
 	"templatedata-desc": "Implementuje dátové úložisko pre parametre šablón (pomocou JSON)",

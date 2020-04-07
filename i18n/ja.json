@@ -1,16 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"2nd-player",
 			"Fryed-peach",
+			"Kkairri",
+			"Omotecho",
+			"Otokoume",
+			"Ridmevo",
 			"Shirayuki",
 			"Sujiniku",
-			"Otokoume",
-			"2nd-player",
-			"Ridmevo",
 			"Translatealcd",
-			"Yusuke1109",
-			"Omotecho",
-			"Kkairri"
+			"Yusuke1109"
 		]
 	},
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",

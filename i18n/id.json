@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"C5st4wr6ch",
 			"Ahdan",
-			"William Surya Permana",
-			"Rizkiahmadz",
+			"C5st4wr6ch",
 			"Kenrick95",
-			"NoiX180"
+			"NoiX180",
+			"Rizkiahmadz",
+			"William Surya Permana"
 		]
 	},
 	"templatedata-desc": "Pengimplementasian penyimpanan data untuk parameter templat (dengan menggunakan JSON)",

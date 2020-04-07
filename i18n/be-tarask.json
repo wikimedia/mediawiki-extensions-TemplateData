@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wizardist",
-			"Red Winged Duck",
 			"Jim-by",
-			"Renessaince"
+			"Red Winged Duck",
+			"Renessaince",
+			"Wizardist"
 		]
 	},
 	"templatedata-desc": "Рэалізацыя сховішча зьвестак для парамэтраў шаблёнаў (праз JSON)",

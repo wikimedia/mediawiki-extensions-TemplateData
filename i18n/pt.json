@@ -1,18 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helder.wiki",
-			"Imperadeiro98",
-			"Vitorvicentevalente",
-			"He7d3r",
-			"Ti4goc",
-			"Imperadeiro90",
-			"Fabulous",
+			"Athena in Wonderland",
 			"Cainamarques",
-			"Macofe",
+			"Fabulous",
 			"Fúlvio",
 			"Hamilton Abreu",
-			"Athena in Wonderland"
+			"He7d3r",
+			"Helder.wiki",
+			"Imperadeiro90",
+			"Imperadeiro98",
+			"Macofe",
+			"Ti4goc",
+			"Vitorvicentevalente"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",

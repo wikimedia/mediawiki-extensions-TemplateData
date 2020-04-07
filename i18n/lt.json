@@ -1,12 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hugo.arg",
-			"Pofka",
 			"Albertas",
-			"Zygimantus",
 			"Eitvys200",
-			"Manvydasz"
+			"Hugo.arg",
+			"Manvydasz",
+			"Pofka",
+			"Zygimantus"
 		]
 	},
 	"templatedata-desc": "Įgyvendinti šio šablono parametrų duomenų talpinimą (naudojant JSON)",

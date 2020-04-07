@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Arthur2e5",
+			"Cwek",
 			"Hzy980512",
 			"Liuxinyu970226",
+			"Mywood",
+			"Ninedyz",
 			"Shizhao",
 			"Xiaomingyan",
-			"Yfdyh000",
-			"Mywood",
-			"Cwek",
-			"Arthur2e5",
-			"Ninedyz"
+			"Yfdyh000"
 		]
 	},
 	"templatedata-desc": "实现模板参数的数据存储（使用JSON）",

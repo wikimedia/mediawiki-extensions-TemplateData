@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jhertel",
 			"Jorn Ari",
-			"Saederup92",
-			"Jhertel"
+			"Saederup92"
 		]
 	},
 	"templatedata-desc": "Implementerer datalager for skabelonparametre (med JSON)",

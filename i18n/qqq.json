@@ -1,21 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
+			"Deryck Chan",
+			"James D. Forrester",
 			"Liuxinyu970226",
+			"Moriel Schottlender",
+			"Nemo bis",
 			"Nike",
+			"Purodha",
 			"Raymond",
 			"Robby",
 			"Sethladan",
 			"Shirayuki",
 			"Stryn",
 			"Timo Tijhof",
-			"James D. Forrester",
-			"Moriel Schottlender",
-			"Umherirrender",
-			"Nemo bis",
-			"Purodha",
-			"Amire80",
-			"Deryck Chan"
+			"Umherirrender"
 		]
 	},
 	"templatedata-desc": "{{desc|name=Template Data|url=https://www.mediawiki.org/wiki/Extension:TemplateData}}",

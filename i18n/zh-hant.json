@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"EagerLin",
-			"Simon Shek",
-			"Liuxinyu970226",
-			"LNDDYL",
 			"Cwlin0416",
-			"Wehwei",
-			"Zhxy 519",
+			"EagerLin",
 			"Hello903hello",
-			"Kly"
+			"Kly",
+			"LNDDYL",
+			"Liuxinyu970226",
+			"Simon Shek",
+			"Wehwei",
+			"Zhxy 519"
 		]
 	},
 	"templatedata-desc": "實現模板參數的資料儲存 (使用 JSON)",

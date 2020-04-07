@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ainali",
+			"Jenniesarina",
 			"Jopparn",
 			"Lokal Profil",
+			"Rockyfelle",
 			"Skalman",
-			"WikiPhoenix",
-			"Jenniesarina",
-			"Ainali",
-			"Rockyfelle"
+			"WikiPhoenix"
 		]
 	},
 	"templatedata-desc": "Lagrar data för mallparametrar (med JSON)",
