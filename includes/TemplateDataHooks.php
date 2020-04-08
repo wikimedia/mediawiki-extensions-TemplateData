@@ -155,6 +155,7 @@ class TemplateDataHooks {
 			'jquery.tablesorter.styles',
 		] );
 		$parser->getOutput()->addModules( 'jquery.tablesorter' );
+		OutputPage::setupOOUI(); // FIXME: This hard-codes default skin and LTR dir
 		$parser->getOutput()->setEnableOOUI( true );
 
 		return $ti->getHtml( $parser->getOptions()->getUserLangObj() );
