@@ -7,6 +7,7 @@
 			"Rapsar",
 			"Sadrettin",
 			"Sayginer",
+			"ToprakM",
 			"Trncmvsr",
 			"Violetanka",
 			"Vito Genovese"
@@ -33,7 +34,7 @@
 	"templatedata-doc-param-type-boolean": "Boole",
 	"templatedata-doc-param-type-content": "İçerik",
 	"templatedata-doc-param-type-date": "Tarih",
-	"templatedata-doc-param-type-line": "Çizgi",
+	"templatedata-doc-param-type-line": "Satır",
 	"templatedata-doc-param-type-number": "Sayı",
 	"templatedata-doc-param-type-string": "Dize",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Dengesiz vikimetin",
