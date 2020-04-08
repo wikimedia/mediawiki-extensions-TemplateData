@@ -155,7 +155,7 @@ class TemplateDataHooks {
 			'jquery.tablesorter.styles',
 		] );
 		$parser->getOutput()->addModules( 'jquery.tablesorter' );
-		$parser->enableOOUI();
+		$parser->getOutput()->setEnableOOUI( true );
 
 		return $ti->getHtml( $parser->getOptions()->getUserLangObj() );
 	}
