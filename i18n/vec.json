@@ -36,8 +36,8 @@
 	"templatedata-doc-param-type-wiki-page-name": "Pàjina",
 	"templatedata-doc-param-type-wiki-template-name": "Modèl",
 	"templatedata-doc-param-type-wiki-user-name": "Utente",
-	"templatedata-doc-params": "Parametri del modèl",
-	"templatedata-editbutton": "Gestissi TemplateData",
+	"templatedata-doc-params": "Paràmatri del modeło",
+	"templatedata-editbutton": "Xestiona TemplateData",
 	"templatedata-errormsg-jsonbadformat": "Formato JSON sbalià. Te pol desfar sta operasion. Par poterla corejer, scancela i tag <templatedata> de desso e ripròa da novo, o se nò continua par sostituir el \"TemplateData\" de desso co uno novo.",
 	"templatedata-errormsg-insertblank": "Sito seguro che te vol métarghe el TemplateData vodo?",
 	"templatedata-exists-on-related-page": "Ocio: ghe xe xà un bloco TemplateData su la relativa pagina \"[[$1]]\".",
@@ -95,5 +95,5 @@
 	"templatedata-modal-title-templatedesc": "Descrission del modèl ($1)",
 	"templatedata-modal-title-templateformat": "Formato preferìo del modèl",
 	"templatedata-modal-title-templateparam-details": "Detagli del parametro: $1",
-	"templatedata-modal-title-templateparams": "Parametri del modèl"
+	"templatedata-modal-title-templateparams": "Paràmatri del modeło"
 }
