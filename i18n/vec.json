@@ -81,7 +81,7 @@
 	"templatedata-modal-table-param-example": "Esenpio ($1)",
 	"templatedata-modal-table-param-importoption": "Zonta $1 {{PLURAL:$1|parametro sugerìo|parametri sugerìi}}",
 	"templatedata-modal-table-param-importoption-subtitle": "Conpreso: $1",
-	"templatedata-modal-table-param-label": "Eticheta ($1)",
+	"templatedata-modal-table-param-label": "Targheta ($1)",
 	"templatedata-modal-table-param-name": "Nome",
 	"templatedata-modal-table-param-required": "El ghe vole",
 	"templatedata-modal-table-param-suggested": "Consejà",
