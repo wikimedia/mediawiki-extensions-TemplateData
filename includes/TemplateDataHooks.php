@@ -18,25 +18,6 @@ class TemplateDataHooks {
 	}
 
 	/**
-	 * Register qunit unit tests
-	 * @param array &$testModules
-	 * @param ResourceLoader &$resourceLoader
-	 * @return bool
-	 */
-	public static function onResourceLoaderTestModules(
-		array &$testModules,
-		ResourceLoader &$resourceLoader
-	) {
-		$testModules['qunit']['ext.templateData.test'] = [
-			'scripts' => [ 'tests/qunit/ext.templateData.tests.js' ],
-			'dependencies' => [ 'ext.templateDataGenerator.data' ],
-			'localBasePath' => dirname( __DIR__ ) ,
-			'remoteExtPath' => 'TemplateData',
-		];
-		return true;
-	}
-
-	/**
 	 * Conditionally register the jquery.uls.data module, in case they've already been
 	 * registered by the UniversalLanguageSelector extension or the VisualEditor extension.
 	 *

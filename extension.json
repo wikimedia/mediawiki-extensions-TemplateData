@@ -29,7 +29,6 @@
 	"Hooks": {
 		"ParserFirstCallInit": "TemplateDataHooks::onParserFirstCallInit",
 		"PageContentSave": "TemplateDataHooks::onPageContentSave",
-		"ResourceLoaderTestModules": "TemplateDataHooks::onResourceLoaderTestModules",
 		"ResourceLoaderRegisterModules": "TemplateDataHooks::onResourceLoaderRegisterModules",
 		"EditPage::showEditForm:initial": "TemplateDataHooks::onEditPage",
 		"ParserFetchTemplateData": "TemplateDataHooks::onParserFetchTemplateData"
@@ -196,6 +195,16 @@
 				}
 			}
 		}
+	},
+	"QunitTestMobile": {
+		"localBasePath": "tests/qunit",
+		"remoteExtPath": "TemplateData/tests/qunit",
+		"scripts": [
+			"ext.templateData.tests.js"
+		],
+		"dependencies": [
+			"ext.templateDataGenerator.data"
+		]
 	},
 	"VisualEditorPluginModules": [
 		"ext.templateDataGenerator.editPage"
