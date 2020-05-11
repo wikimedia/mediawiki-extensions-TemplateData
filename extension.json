@@ -196,7 +196,7 @@
 			}
 		}
 	},
-	"QunitTestMobile": {
+	"QUnitTestModule": {
 		"localBasePath": "tests/qunit",
 		"remoteExtPath": "TemplateData/tests/qunit",
 		"scripts": [
