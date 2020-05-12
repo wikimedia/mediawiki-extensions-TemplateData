@@ -206,11 +206,17 @@
 			"ext.templateDataGenerator.data"
 		]
 	},
-	"VisualEditorPluginModules": [
-		"ext.templateDataGenerator.editPage"
-	],
-	"config": {
-		"TemplateDataUseGUI": true
+	"attributes": {
+		"VisualEditor": {
+			"PluginModules": [
+				"ext.templateDataGenerator.editPage"
+			]
+		}
 	},
-	"manifest_version": 1
+	"config": {
+		"TemplateDataUseGUI": {
+			"value": true
+		}
+	},
+	"manifest_version": 2
 }
