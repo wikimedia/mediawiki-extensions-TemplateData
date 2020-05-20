@@ -15,7 +15,7 @@
  */
 class TemplateDataCompressedBlob extends TemplateDataBlob {
 	// Size of MySQL 'blob' field; page_props table where the data is stored uses one.
-	const MAX_LENGTH = 65535;
+	private const MAX_LENGTH = 65535;
 
 	/**
 	 * @var string|null In-object cache for getJSONForDatabase()
