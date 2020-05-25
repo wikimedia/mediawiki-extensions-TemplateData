@@ -39,7 +39,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Meidogger",
 	"templatedata-doc-params": "Berjochtparameters",
 	"templatedata-editbutton": "Berjochtdata beheare",
-	"templatedata-errormsg-jsonbadformat": "Ferkearde JSON-opmaak. Jo kinne dizze hanneling annulearje om it te ferbetterjen, de hjoeddeiske <templatedata>-oantsjuttings wiskje en it nochris besykje, of fierder gean om de âlde Berjochtdata te ferfangen troch nije.",
+	"templatedata-errormsg-jsonbadformat": "Misse JSON-opmaak. Jo kinne dizze hanneling annulearje om it te ferbetterjen, de hjoeddeiske <templatedata>-oantsjuttings wiskje en it nochris besykje, of fierder gean om de âlde Berjochtdata te ferfangen troch nije.",
 	"templatedata-errormsg-insertblank": "Wolle jo wier Berjochtdata sûnder gegevens ynfoegje?",
 	"templatedata-exists-on-related-page": "Tink derom: Der stiet al in Berjochtdata-blok op de oanbelangjende side \"[[$1]]\".",
 	"templatedata-helplink": "Ynformaasje oer Berjochtdata",

@@ -22,5 +22,6 @@
 	"templatedata-modal-button-cancel": "Anular",
 	"templatedata-modal-search-input-placeholder": "Serchar segun la nomo o kodexo di la linguo",
 	"templatedata-modal-table-param-description": "Deskripto ($1)",
-	"templatedata-modal-table-param-label": "Etiketo ($1)"
+	"templatedata-modal-table-param-label": "Etiketo ($1)",
+	"templatedata-modal-title-language": "Linguo"
 }
