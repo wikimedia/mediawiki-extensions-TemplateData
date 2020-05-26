@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"NoiX180"
 		]
 	},
@@ -34,7 +35,7 @@
 	"templatedata-doc-param-type-wiki-file-name": "Berkas",
 	"templatedata-doc-param-type-wiki-page-name": "Kaca",
 	"templatedata-doc-param-type-wiki-template-name": "Cithakan",
-	"templatedata-doc-param-type-wiki-user-name": "Panganggo",
+	"templatedata-doc-param-type-wiki-user-name": "Naraguna",
 	"templatedata-doc-params": "Paramèter cithakan",
 	"templatedata-editbutton": "Kemunah DataCithakan",
 	"templatedata-errormsg-jsonbadformat": "Format JSON ala. Panjenengan bisa murungaké tumindak iki supaya bisa didandani, busaken tenger <templatedata> iki lan jajalen manèh, utawa bacuten ngganti TemplateData iki karo sing anyar.",
