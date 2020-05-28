@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"NoiX180"
 		]
 	},
-	"apihelp-templatedata-description": "Jupuk data sing disimpen déning èkstènsi DataCithakan.",
+	"apihelp-templatedata-description": "Jupuk dhata sing disimpen déning èkstènsi DhataCithakan.",
 	"apihelp-templatedata-example-1": "Balèkaké data kanggo [[Template:Stub]] lan [[Template:Example]]",
 	"apihelp-templatedata-param-lang": "Balèkaké aji sing wis dilokalaké nyang basa iki. Bakuné, kabèh pertalan sing cumepak bakal dibalèkaké.",
-	"apierror-templatedata-corrupt": "Kaca datacithakan #$1 ngemu data sing ora sah: $2"
+	"apierror-templatedata-corrupt": "Kaca dhatacithakan #$1 ngemu data sing ora sah: $2"
 }
