@@ -164,7 +164,6 @@ class TemplateDataBlob {
 			if ( !is_object( $data->description ) && !is_string( $data->description ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', 'description', 'string|object' );
 			}
-			// @phan-suppress-next-line PhanTypeMismatchArgument isset makes this non-null
 			$data->description = self::normaliseInterfaceText( $data->description );
 		} else {
 			$data->description = null;
