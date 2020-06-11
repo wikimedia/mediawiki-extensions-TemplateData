@@ -13,6 +13,7 @@ mw.TemplateData.Model = function mwTemplateDataModel() {
 	// Properties
 	this.params = {};
 	this.description = {};
+	this.maps = {};
 	this.paramOrder = [];
 	this.format = null;
 	this.paramOrderChanged = false;
@@ -268,6 +269,10 @@ mw.TemplateData.Model.static.newFromObject = function ( tdObject, paramsInSource
 			model.addParam( param, tdObject.params[ param ] );
 		}
 	}
+
+	// maps
+	model.setMapInfo( JSON.stringify( tdObject.maps, null, 4 ) );
+
 	model.setTemplateDescription( tdObject.description );
 
 	// Override the param order if it exists in the templatedata string
@@ -521,6 +526,35 @@ mw.TemplateData.Model.prototype.setTemplateDescription = function ( desc, langua
 mw.TemplateData.Model.prototype.getTemplateDescription = function ( language ) {
 	language = language || this.getDefaultLanguage();
 	return this.description[ language ];
+};
+
+/**
+ * Set the template description
+ *
+ * @param {string|Object} map New template map info
+ * @fires change-map
+ * @fires change
+ */
+mw.TemplateData.Model.prototype.setMapInfo = function ( map ) {
+	if ( !this.constructor.static.compare( this.maps, map ) ) {
+		if ( typeof map === 'object' ) {
+			$.extend( this.maps, map );
+			this.emit( 'change-map', map );
+		} else {
+			this.maps = map;
+			this.emit( 'change-map', map );
+		}
+		this.emit( 'change' );
+	}
+};
+
+/**
+ * Get the template info.
+ *
+ * @return {string|Object} The template map info.
+ */
+mw.TemplateData.Model.prototype.getMapInfo = function () {
+	return this.maps;
 };
 
 /**
