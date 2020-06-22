@@ -1263,7 +1263,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			<<<HTML
 <div class="mw-templatedata-doc-wrap">
 <p class="mw-templatedata-doc-desc mw-templatedata-doc-muted">(templatedata-doc-desc-empty)</p>
-<table class="wikitable mw-templatedata-doc-params sortable">
+<table class="wikitable mw-templatedata-doc-params">
 	<caption><p>(templatedata-doc-params)</p></caption>
 	<thead><tr><th colspan="2">(templatedata-doc-param-name)</th><th>(templatedata-doc-param-desc)</th><th>(templatedata-doc-param-type)</th><th>(templatedata-doc-param-status)</th></tr></thead>
 	<tbody>
