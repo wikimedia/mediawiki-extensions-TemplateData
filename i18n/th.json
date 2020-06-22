@@ -4,13 +4,15 @@
 			"Aefgh39622",
 			"Ans",
 			"Horus",
-			"Octahedron80"
+			"Octahedron80",
+			"Patsagorn Y."
 		]
 	},
 	"templatedata-desc": "ใช้งานแหล่งเก็บข้อมูลสำหรับพารามิเตอร์แม่แบบ (โดยใช้ JSON)",
 	"templatedata-doc-desc-empty": "ไม่มีคำอธิบาย",
 	"templatedata-doc-param-autovalue": "ค่าอัตโนมัติ",
-	"templatedata-doc-param-default": "ค่าเริ่มต้น",
+	"templatedata-doc-param-default": "ค่าปริยาย",
+	"templatedata-doc-param-example": "ตัวอย่าง",
 	"templatedata-doc-param-desc": "คำอธิบาย",
 	"templatedata-doc-param-desc-empty": "ไม่มีคำอธิบาย",
 	"templatedata-doc-param-name": "พารามิเตอร์",
