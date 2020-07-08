@@ -748,14 +748,14 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 					typeItemArray.push( new OO.ui.MenuOptionWidget( {
 						data: paramProperties[ props ].children[ type ],
 
-						// Known messages, for grepping:
-						// templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
-						// templatedata-doc-param-type-date, templatedata-doc-param-type-line,
-						// templatedata-doc-param-type-number, templatedata-doc-param-type-string,
-						// templatedata-doc-param-type-unbalanced-wikitext, templatedata-doc-param-type-unknown,
-						// templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
-						// templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
-						// templatedata-doc-param-type-wiki-user-name
+						// The following messages are used here:
+						// * templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
+						// * templatedata-doc-param-type-date, templatedata-doc-param-type-line,
+						// * templatedata-doc-param-type-number, templatedata-doc-param-type-string,
+						// * templatedata-doc-param-type-unbalanced-wikitext, templatedata-doc-param-type-unknown,
+						// * templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
+						// * templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
+						// * templatedata-doc-param-type-wiki-user-name
 						label: mw.msg( 'templatedata-doc-param-type-' + paramProperties[ props ].children[ type ] )
 					} ) );
 				}
@@ -779,11 +779,45 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 
 		this.propInputs[ props ] = propInput;
 
+		// The following classes are used here:
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-actions
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-aliases
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-autovalue
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-default
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-deprecated
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-deprecatedValue
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-description
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-example
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-importoption
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-importoption-subtitle
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-label
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-name
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-required
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-suggested
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-type
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-uneditablefield
 		propInput.$element
 			.addClass( 'tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-' + props );
 
 		this.propFieldLayout[ props ] = new OO.ui.FieldLayout( propInput, {
 			align: 'left',
+			// The following messages are used here:
+			// * templatedata-modal-table-param-actions
+			// * templatedata-modal-table-param-aliases
+			// * templatedata-modal-table-param-autovalue
+			// * templatedata-modal-table-param-default
+			// * templatedata-modal-table-param-deprecated
+			// * templatedata-modal-table-param-deprecatedValue
+			// * templatedata-modal-table-param-description
+			// * templatedata-modal-table-param-example
+			// * templatedata-modal-table-param-importoption
+			// * templatedata-modal-table-param-importoption-subtitle
+			// * templatedata-modal-table-param-label
+			// * templatedata-modal-table-param-name
+			// * templatedata-modal-table-param-required
+			// * templatedata-modal-table-param-suggested
+			// * templatedata-modal-table-param-type
+			// * templatedata-modal-table-param-uneditablefield
 			label: mw.msg( 'templatedata-modal-table-param-' + props )
 		} );
 
@@ -815,6 +849,23 @@ mw.TemplateData.Dialog.prototype.updateParamDetailsLanguage = function ( lang ) 
 
 	for ( i = 0; i < languageProps.length; i++ ) {
 		prop = languageProps[ i ];
+		// The following messages are used here:
+		// * templatedata-modal-table-param-actions
+		// * templatedata-modal-table-param-aliases
+		// * templatedata-modal-table-param-autovalue
+		// * templatedata-modal-table-param-default
+		// * templatedata-modal-table-param-deprecated
+		// * templatedata-modal-table-param-deprecatedValue
+		// * templatedata-modal-table-param-description
+		// * templatedata-modal-table-param-example
+		// * templatedata-modal-table-param-importoption
+		// * templatedata-modal-table-param-importoption-subtitle
+		// * templatedata-modal-table-param-label
+		// * templatedata-modal-table-param-name
+		// * templatedata-modal-table-param-required
+		// * templatedata-modal-table-param-suggested
+		// * templatedata-modal-table-param-type
+		// * templatedata-modal-table-param-uneditablefield
 		label = mw.msg( 'templatedata-modal-table-param-' + prop, lang );
 		this.propFieldLayout[ prop ].setLabel( label );
 	}

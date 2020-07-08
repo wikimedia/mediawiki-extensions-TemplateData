@@ -595,6 +595,8 @@ mw.TemplateData.Model.prototype.addKeyTemplateParamOrder = function ( key ) {
 /**
  * TODO: document
  *
+ * @param {string} key
+ * @param {number} newIndex
  * @fires change-paramOrder
  * @fires change
  */
@@ -1055,6 +1057,7 @@ mw.TemplateData.Model.prototype.getNewValidParameterKey = function ( key ) {
 /**
  * Go over a language property and remove empty language key values
  *
+ * @param {Object} propData Property data
  * @return {Object} Property data with only used language keys
  */
 mw.TemplateData.Model.prototype.propRemoveUnusedLanguages = function ( propData ) {
