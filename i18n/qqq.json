@@ -75,7 +75,7 @@
 	"templatedata-modal-button-changelang": "Label for the button to change language in the edit dialog.\n{{Identical|Change language}}",
 	"templatedata-modal-button-delparam": "Button to remove a parameter.",
 	"templatedata-modal-button-done": "Label of the done button.\n{{Identical|Done}}",
-	"templatedata-modal-button-map": "Label of the view map button",
+	"templatedata-modal-button-map": "Label of the Edit maps button",
 	"templatedata-modal-button-importParams": "Label of the import button",
 	"templatedata-modal-button-restoreparam": "Label for the button to restore a previously deleted parameter in the edit dialog.",
 	"templatedata-modal-button-saveparam": "Label for the button to save parameter details in the templatedata edit dialog.\n{{Identical|Save}}",

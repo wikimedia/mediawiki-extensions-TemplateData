@@ -13,6 +13,7 @@ mw.TemplateData.Model = function mwTemplateDataModel() {
 	// Properties
 	this.params = {};
 	this.description = {};
+	this.originalMaps = {};
 	this.maps = {};
 	this.paramOrder = [];
 	this.format = null;
@@ -20,6 +21,7 @@ mw.TemplateData.Model = function mwTemplateDataModel() {
 	this.paramIdentifierCounter = 0;
 	this.originalTemplateDataObject = null;
 	this.sourceCodeParameters = [];
+	this.mapsChanged = false;
 };
 
 /* Inheritance */
@@ -271,7 +273,7 @@ mw.TemplateData.Model.static.newFromObject = function ( tdObject, paramsInSource
 	}
 
 	// maps
-	model.setMapInfo( JSON.stringify( tdObject.maps, null, 4 ) );
+	model.setMapInfo( tdObject.maps );
 
 	model.setTemplateDescription( tdObject.description );
 
@@ -537,13 +539,12 @@ mw.TemplateData.Model.prototype.getTemplateDescription = function ( language ) {
  */
 mw.TemplateData.Model.prototype.setMapInfo = function ( map ) {
 	if ( !this.constructor.static.compare( this.maps, map ) ) {
-		if ( typeof map === 'object' ) {
-			$.extend( this.maps, map );
-			this.emit( 'change-map', map );
-		} else {
-			this.maps = map;
-			this.emit( 'change-map', map );
+		if ( this.mapsChanged === false ) {
+			this.originalMaps = map;
+			this.mapsChanged = true;
 		}
+		this.maps = map;
+		this.emit( 'change-map', map );
 		this.emit( 'change' );
 	}
 };
@@ -555,6 +556,15 @@ mw.TemplateData.Model.prototype.setMapInfo = function ( map ) {
  */
 mw.TemplateData.Model.prototype.getMapInfo = function () {
 	return this.maps;
+};
+
+/**
+ * Get the template info.
+ *
+ * @return {Object} The Original template map info.
+ */
+mw.TemplateData.Model.prototype.getOriginalMapsInfo = function () {
+	return this.originalMaps;
 };
 
 /**
@@ -906,6 +916,13 @@ mw.TemplateData.Model.prototype.getParentPage = function () {
 };
 
 /**
+ * Get original Parameters/Info from the model and discard any changes
+ */
+mw.TemplateData.Model.prototype.restoreOriginalMaps = function () {
+	this.setMapInfo( this.getOriginalMapsInfo() );
+};
+
+/**
  * Get original templatedata object
  *
  * @return {Object} Templatedata object
@@ -938,6 +955,13 @@ mw.TemplateData.Model.prototype.outputTemplateData = function () {
 	} else {
 		// Delete description
 		delete result.description;
+	}
+
+	// Template maps
+	if ( this.maps !== undefined ) {
+		result.maps = this.maps;
+	} else {
+		delete result.maps;
 	}
 
 	// Param order
