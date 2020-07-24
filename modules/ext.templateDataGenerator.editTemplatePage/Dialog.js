@@ -58,6 +58,12 @@ mw.TemplateData.Dialog.static.actions = [
 		flags: 'destructive'
 	},
 	{
+		action: 'cancel',
+		label: mw.msg( 'templatedata-modal-button-cancel' ),
+		modes: 'maps',
+		flags: 'destructive'
+	},
+	{
 		label: mw.msg( 'templatedata-modal-button-cancel' ),
 		flags: [ 'safe', 'close' ],
 		modes: [ 'list', 'error' ]
@@ -66,7 +72,7 @@ mw.TemplateData.Dialog.static.actions = [
 		action: 'back',
 		label: mw.msg( 'templatedata-modal-button-back' ),
 		flags: [ 'safe', 'back' ],
-		modes: [ 'language', 'add', 'maps' ]
+		modes: [ 'language', 'add' ]
 	}
 ];
 
@@ -123,7 +129,6 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.templateMapsInput = new OO.ui.MultilineTextInputWidget( {
 		classes: [ 'mw-tempateData-template-maps-input' ],
 		autosize: true,
-		disabled: true,
 		rows: 5,
 		maxRows: 200,
 		placeholder: mw.msg( 'templatedata-modal-placeholder-mapinfo' )
@@ -311,7 +316,7 @@ mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( descripti
  * @param {string} map New description
  */
 mw.TemplateData.Dialog.prototype.onModelChangeMapInfo = function ( map ) {
-	this.templateMapsInput.setValue( map );
+	this.templateMapsInput.setValue( JSON.stringify( map, null, 4 ) );
 };
 
 /**
@@ -403,8 +408,18 @@ mw.TemplateData.Dialog.prototype.onDescriptionInputChange = function ( value ) {
  * @param {string} value map info value
  */
 mw.TemplateData.Dialog.prototype.onMapInfoChange = function ( value ) {
+	// Update map Info
 	if ( this.model.getMapInfo() !== value ) {
-		this.model.setMapInfo( value );
+		// Disable Done button in case of invalid JSON
+		try {
+			// This parsing method keeps only the last key/value pair if duplicate keys are defined, and does not throw an error.
+			// Our model will be updated with a valid maps object, but the user may lose their input if it has duplicate key.
+			this.mapValue = JSON.parse( value );
+			this.actions.setAbilities( { done: true } );
+		} catch ( err ) {
+			// Otherwise disable the done button
+			this.actions.setAbilities( { done: false } );
+		}
 	}
 };
 
@@ -1047,8 +1062,8 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			// Events
 			this.model.connect( this, {
 				'change-description': 'onModelChangeDescription',
-				'change-paramOrder': 'onModelChangeParamOrder',
 				'change-map': 'onModelChangeMapInfo',
+				'change-paramOrder': 'onModelChangeParamOrder',
 				'change-property': 'onModelChangeProperty',
 				change: 'onModelChange'
 			} );
@@ -1112,7 +1127,7 @@ mw.TemplateData.Dialog.prototype.setupDetailsFromModel = function () {
 	this.descriptionInput.setValue( this.model.getTemplateDescription( this.language ) );
 
 	// set up maps
-	this.templateMapsInput.setValue( this.model.getMapInfo() );
+	this.templateMapsInput.setValue( JSON.stringify( this.model.getMapInfo(), null, 4 ) );
 
 	// Set up format
 	format = this.model.getTemplateFormat();
@@ -1208,19 +1223,34 @@ mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
  * @return {OO.ui.Process} Action process
  */
 mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
-	if ( action === 'back' || action === 'done' ) {
-		return new OO.ui.Process( function () {
-			this.switchPanels( 'listParams' );
-		}, this );
-	}
 	if ( action === 'add' ) {
 		return new OO.ui.Process( function () {
 			this.switchPanels( 'addParam' );
 		}, this );
 	}
+	if ( action === 'done' ) {
+		return new OO.ui.Process( function () {
+			// setMapInfo with the value and keep the done button active
+			this.model.setMapInfo( this.mapValue );
+			this.model.originalMaps = this.mapValue;
+			this.switchPanels( 'listParams' );
+		}, this );
+	}
+	if ( action === 'back' ) {
+		return new OO.ui.Process( function () {
+			this.switchPanels( 'listParams' );
+		}, this );
+	}
 	if ( action === 'maps' ) {
 		return new OO.ui.Process( function () {
 			this.switchPanels( 'editMaps' );
+		}, this );
+	}
+	if ( action === 'cancel' ) {
+		return new OO.ui.Process( function () {
+			this.templateMapsInput.setValue( JSON.stringify( this.model.originalMaps, null, 4 ) );
+			this.model.restoreOriginalMaps();
+			this.switchPanels( 'listParams' );
 		}, this );
 	}
 	if ( action === 'delete' ) {
