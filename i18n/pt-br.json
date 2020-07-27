@@ -9,6 +9,7 @@
 			"Helder.wiki",
 			"Jefersonmoraes",
 			"Luckas",
+			"Luk3",
 			"Opraco",
 			555
 		]
@@ -68,7 +69,7 @@
 	"templatedata-modal-button-changelang": "Alterar idioma",
 	"templatedata-modal-button-delparam": "Remover informações de parâmetro",
 	"templatedata-modal-button-done": "Concluído",
-	"templatedata-modal-button-map": "Ver mapa",
+	"templatedata-modal-button-map": "Editar mapas",
 	"templatedata-modal-button-importParams": "Importar parâmetros",
 	"templatedata-modal-button-restoreparam": "Restaurar parâmetro",
 	"templatedata-modal-button-saveparam": "Salvar",
