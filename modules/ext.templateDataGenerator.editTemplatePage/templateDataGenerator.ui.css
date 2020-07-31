@@ -80,10 +80,12 @@
 }
 
 .tdg-templateDataParamImportWidget {
+	display: block;
 	margin-top: 1em;
 }
 
 .tdg-templateDataParamImportWidget > .oo-ui-buttonElement-button {
+	display: block;
 	text-align: left;
 	font-weight: normal;
 }
