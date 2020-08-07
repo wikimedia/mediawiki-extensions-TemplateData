@@ -13,8 +13,8 @@ mw.TemplateData.Model = function mwTemplateDataModel() {
 	// Properties
 	this.params = {};
 	this.description = {};
-	this.originalMaps = {};
-	this.maps = {};
+	this.originalMaps = undefined;
+	this.maps = undefined;
 	this.paramOrder = [];
 	this.format = null;
 	this.paramOrderChanged = false;
@@ -273,7 +273,9 @@ mw.TemplateData.Model.static.newFromObject = function ( tdObject, paramsInSource
 	}
 
 	// maps
-	model.setMapInfo( tdObject.maps );
+	if ( tdObject.maps ) {
+		model.setMapInfo( tdObject.maps );
+	}
 
 	model.setTemplateDescription( tdObject.description );
 
@@ -538,14 +540,16 @@ mw.TemplateData.Model.prototype.getTemplateDescription = function ( language ) {
  * @fires change
  */
 mw.TemplateData.Model.prototype.setMapInfo = function ( map ) {
-	if ( !this.constructor.static.compare( this.maps, map ) ) {
-		if ( this.mapsChanged === false ) {
-			this.originalMaps = map;
-			this.mapsChanged = true;
+	if ( map !== undefined ) {
+		if ( !this.constructor.static.compare( this.maps, map ) ) {
+			if ( this.mapsChanged === false ) {
+				this.originalMaps = OO.copy( map );
+				this.mapsChanged = true;
+			}
+			this.maps = map;
+			this.emit( 'change-map', map );
+			this.emit( 'change' );
 		}
-		this.maps = map;
-		this.emit( 'change-map', map );
-		this.emit( 'change' );
 	}
 };
 
@@ -958,10 +962,10 @@ mw.TemplateData.Model.prototype.outputTemplateData = function () {
 	}
 
 	// Template maps
-	if ( this.maps !== undefined ) {
-		result.maps = this.maps;
-	} else {
+	if ( this.maps === undefined || Object.keys( this.maps ).length === 0 ) {
 		delete result.maps;
+	} else {
+		result.maps = this.maps;
 	}
 
 	// Param order

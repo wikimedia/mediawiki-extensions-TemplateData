@@ -19,6 +19,8 @@ mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
 	this.propInputs = {};
 	this.propFieldLayout = {};
 	this.isSetup = false;
+	this.highlightedMap = null;
+	this.mapsCache = undefined;
 
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataDialog' );
@@ -87,7 +89,8 @@ mw.TemplateData.Dialog.static.actions = [
  * @chainable
  */
 mw.TemplateData.Dialog.prototype.initialize = function () {
-	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout, templateFormatFieldSet, mapsActionFieldLayout, templateMapsFieldSet;
+	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout, templateFormatFieldSet, mapsActionFieldLayout,
+		mapsListMenuLayout, mapsListPanel, addNewMapButtonPanel, mapsContentPanel, templateMapsMenuLayout;
 
 	// Parent method
 	mw.TemplateData.Dialog.super.prototype.initialize.call( this );
@@ -127,19 +130,71 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 
 	// Maps panel
 	this.templateMapsInput = new OO.ui.MultilineTextInputWidget( {
-		classes: [ 'mw-tempateData-template-maps-input' ],
+		classes: [ 'mw-templateData-template-maps-input' ],
 		autosize: true,
-		rows: 5,
-		maxRows: 200,
-		placeholder: mw.msg( 'templatedata-modal-placeholder-mapinfo' )
+		rows: this.getBodyHeight() / 22.5,
+		maxRows: this.getBodyHeight() / 22.5,
+		placeholder: mw.msg( 'templatedata-modal-placeholder-mapinfo' ),
+		scrollable: true
 	} );
-	templateMapsFieldSet = new OO.ui.FieldsetLayout(
-		this.templateMapsInput,
-		{
-			align: 'top',
-			label: mw.msg( 'templatedata-modal-title-map' )
-		}
-	);
+	this.removeMapButton = new OO.ui.ButtonWidget( {
+		classes: [ 'mw-templateData-template-remove-map-button' ],
+		label: mw.msg( 'templatedata-modal-button-removemap' ),
+		icon: 'trash',
+		flags: [ 'destructive' ]
+	} );
+	this.addNewMapButton = new OO.ui.ButtonWidget( {
+		classes: [ 'mw-templateData-template-add-map-button' ],
+		label: mw.msg( 'templatedata-modal-button-addmap' ),
+		icon: 'add',
+		framed: false,
+		flags: [ 'progressive' ]
+	} );
+	this.newMapNameInput = new OO.ui.TextInputWidget( {
+		value: '',
+		placeholder: mw.msg( 'templatedata-modal-placeholder-prompt-map-name' ),
+		classes: [ 'mw-templateData-template-map-prompter' ]
+	} );
+	this.cancelAddMapButton = new OO.ui.ButtonWidget( {
+		label: mw.msg( 'templatedata-modal-button-cancel' ),
+		framed: false,
+		flags: [ 'destructive' ]
+	} );
+	this.saveAddMapButton = new OO.ui.ButtonWidget( {
+		label: mw.msg( 'templatedata-modal-button-done' ),
+		framed: false,
+		flags: [ 'primary', 'progressive' ]
+	} );
+	this.mapsGroup = new mw.TemplateData.GroupWidget( {
+		classes: [ 'mw-templateData-template-map-group' ],
+		orientation: 'vertical'
+	} );
+	addNewMapButtonPanel = new OO.ui.PanelLayout( {
+		classes: [ 'mw-templateData-template-add-map-button-panel' ],
+		padded: true,
+		expanded: true
+	} );
+	mapsListPanel = new OO.ui.PanelLayout( {
+		padded: true,
+		expanded: true,
+		scrollable: true
+	} );
+	mapsListMenuLayout = new OO.ui.MenuLayout( {
+		classes: [ 'mw-templateData-template-map-list-menu-panel' ],
+		menuPosition: 'top',
+		padded: true,
+		expanded: true,
+		contentPanel: mapsListPanel,
+		menuPanel: addNewMapButtonPanel
+	} );
+	mapsContentPanel = new OO.ui.PanelLayout( {
+		padded: true,
+		expanded: true
+	} );
+	templateMapsMenuLayout = new OO.ui.MenuLayout( {
+		contentPanel: mapsContentPanel,
+		menuPanel: mapsListMenuLayout
+	} );
 
 	// Param list panel (main)
 	this.languageDropdownWidget = new OO.ui.DropdownWidget();
@@ -165,7 +220,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	// Add Maps panel button
 	this.mapsPanelButton = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'templatedata-modal-button-map' ),
-		classes: [ 'mw-tempateData-maps-panel-button' ]
+		classes: [ 'mw-templateData-maps-panel-button' ]
 	} );
 	mapsActionFieldLayout = new OO.ui.ActionFieldLayout(
 		this.mapsPanelButton,
@@ -256,10 +311,29 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 		.append( addParamFieldlayout.$element );
 
 	// Maps panel
+	mapsListPanel.$element
+		.addClass( 'tdg-templateDataDialog-mapsListPanel' )
+		.append( this.mapsGroup.$element );
+	this.newMapNameInput.$element.hide();
+	this.cancelAddMapButton.$element.hide();
+	this.saveAddMapButton.$element.hide();
+	addNewMapButtonPanel.$element
+		.addClass( 'tdg-templateDataDialog-addNewMapButtonPanel' )
+		.append(
+			this.addNewMapButton.$element,
+			this.newMapNameInput.$element,
+			this.cancelAddMapButton.$element,
+			this.saveAddMapButton.$element
+		);
+	mapsContentPanel.$element
+		.addClass( 'tdg-templateDataDialog-mapsContentPanel' )
+		.append(
+			this.removeMapButton.$element,
+			this.templateMapsInput.$element
+		);
 	this.editMapsPanel.$element
 		.addClass( 'tdg-templateDataDialog-editMapsPanel' )
-		.append( templateMapsFieldSet.$element );
-
+		.append( templateMapsMenuLayout.$element );
 	this.panels.addItems( [
 		this.listParamsPanel,
 		this.editParamPanel,
@@ -287,6 +361,12 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.languagePanelButton.connect( this, { click: 'onLanguagePanelButton' } );
 	this.languageDropdownWidget.getMenu().connect( this, { select: 'onLanguageDropdownWidgetSelect' } );
 	this.mapsPanelButton.connect( this, { click: 'onMapsPanelButton' } );
+	this.addNewMapButton.connect( this, { click: 'onAddNewMapClick' } );
+	this.cancelAddMapButton.connect( this, { click: 'onCancelAddingMap' } );
+	this.saveAddMapButton.connect( this, { click: 'onEmbedNewMap' } );
+	this.newMapNameInput.connect( this, { enter: 'onEmbedNewMap' } );
+	this.mapsGroup.connect( this, { editItem: 'onHighlightMapElement' } );
+	this.removeMapButton.connect( this, { click: 'onMapItemRemove' } );
 	this.templateMapsInput.connect( this, { change: 'onMapInfoChange' } );
 	this.paramSelect.connect( this, {
 		choose: 'onParamSelectChoose',
@@ -316,7 +396,9 @@ mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( descripti
  * @param {string} map New description
  */
 mw.TemplateData.Dialog.prototype.onModelChangeMapInfo = function ( map ) {
-	this.templateMapsInput.setValue( JSON.stringify( map, null, 4 ) );
+	map = map === undefined ? {} : map;
+	this.mapsCache = OO.copy( map );
+	this.templateMapsInput.setValue( this.stringifyObject( map[ this.highlightedMap.label ] ) );
 };
 
 /**
@@ -403,24 +485,202 @@ mw.TemplateData.Dialog.prototype.onDescriptionInputChange = function ( value ) {
 };
 
 /**
+ * Create items for the returned maps and add them to the maps group
+ *
+ * @param {Object} mapsObject  object
+ */
+mw.TemplateData.Dialog.prototype.populateMapsItems = function ( mapsObject ) {
+	var mapKeysList,
+		items = [];
+
+	mapsObject = mapsObject === undefined ? {} : mapsObject;
+	mapKeysList = Object.keys( mapsObject );
+
+	if ( mapKeysList.length > 0 ) {
+		mapKeysList.forEach( function ( mapKey ) {
+			items.push( new mw.TemplateData.ItemWidget( {
+				label: mapKey,
+				classes: [ 'mw-templateData-template-map-item' ]
+			} ) );
+		} );
+	}
+
+	this.mapsGroup.clearItems();
+	this.mapsGroup.addItems( items );
+
+	// Maps is not empty anymore
+	this.updateActions();
+};
+
+/**
  * Respond to edit maps input change event
  *
  * @param {string} value map info value
  */
 mw.TemplateData.Dialog.prototype.onMapInfoChange = function ( value ) {
+	var mapValue;
 	// Update map Info
-	if ( this.model.getMapInfo() !== value ) {
-		// Disable Done button in case of invalid JSON
-		try {
-			// This parsing method keeps only the last key/value pair if duplicate keys are defined, and does not throw an error.
-			// Our model will be updated with a valid maps object, but the user may lose their input if it has duplicate key.
-			this.mapValue = JSON.parse( value );
-			this.actions.setAbilities( { done: true } );
-		} catch ( err ) {
-			// Otherwise disable the done button
-			this.actions.setAbilities( { done: false } );
+	this.model.maps = this.model.getMapInfo() === undefined ? {} : this.model.getMapInfo();
+	if ( this.highlightedMap !== null ) {
+		if ( this.model.getMapInfo()[ this.highlightedMap.label ] !== value ) {
+			// Disable Done button in case of invalid JSON
+			try {
+				// This parsing method keeps only the last key/value pair if duplicate keys are defined, and does not throw an error.
+				// Our model will be updated with a valid maps object, but the user may lose their input if it has duplicate key.
+				mapValue = JSON.parse( value );
+				this.mapsCache[ this.highlightedMap.label ] = mapValue;
+				this.actions.setAbilities( { done: true } );
+			} catch ( err ) {
+				// Otherwise disable the done button if maps object is populated
+				this.actions.setAbilities( { done: false } );
+			} finally {
+				if ( this.mapsGroup.items.length === 0 ) {
+					this.actions.setAbilities( { done: true } );
+					this.removeMapButton.setDisabled( true );
+				}
+			}
 		}
 	}
+};
+
+/**
+ * Handle click event for Add new map button
+ */
+mw.TemplateData.Dialog.prototype.onAddNewMapClick = function () {
+	// Add new text input in maps elements to prompt the map name
+	this.newMapNameInput.$element.show();
+	this.cancelAddMapButton.$element.show();
+	this.saveAddMapButton.$element.show();
+	this.addNewMapButton.$element.hide();
+	this.newMapNameInput.setValue( '' );
+	this.newMapNameInput.focus();
+
+	// Text-area show "adding a new map.." message in templateMapsInput and disable the input.
+	this.templateMapsInput.setDisabled( true );
+	this.templateMapsInput.setValue( mw.msg( 'templatedata-modal-placeholder-add-new-map-input' ) );
+
+	// Disable the removing functionality for maps
+	this.removeMapButton.setDisabled( true );
+
+	// move the list panel down as add new map expanded
+	this.editMapsPanel.$element.addClass( 'tdg-templateDataDialog-addingNewMap' );
+};
+
+/**
+ * Handle clicking cancel button (for add new map panel)
+ *
+ * @param {mw.TemplateData.ItemWidget} highlightNext item to be highlighted after adding a new map canceled/done
+ */
+mw.TemplateData.Dialog.prototype.onCancelAddingMap = function ( highlightNext ) {
+	// Remove the text-area input, cancel button, and show add new map button
+	this.newMapNameInput.$element.hide();
+	this.cancelAddMapButton.$element.hide();
+	this.saveAddMapButton.$element.hide();
+	this.addNewMapButton.$element.show();
+	// move the list panel up back as add new map shrank
+	this.editMapsPanel.$element.removeClass( 'tdg-templateDataDialog-addingNewMap' );
+	this.removeMapButton.setDisabled( false );
+	this.onHighlightMapElement( highlightNext );
+};
+
+/**
+ * Handle clicking Enter event for promptMapName
+ *
+ * @param {jQuery.Event} response response from Enter action on promptMapName
+ */
+mw.TemplateData.Dialog.prototype.onEmbedNewMap = function ( response ) {
+	var newlyAddedMap,
+		mapNameValue;
+
+	if ( response !== undefined ) {
+		mapNameValue = response.target.value;
+	} else {
+		mapNameValue = this.newMapNameInput.getValue();
+	}
+	this.mapsCache = this.mapsCache === undefined ? {} : this.mapsCache;
+	// Create a new empty map in maps object
+	this.mapsCache[ mapNameValue ] = {};
+	newlyAddedMap = new mw.TemplateData.ItemWidget( {
+		label: mapNameValue,
+		classes: [ 'mw-templateData-template-map-item' ]
+	} );
+	// Add the new map item and highlight it
+	if ( mapNameValue.length !== 0 ) {
+		this.mapsGroup.addItems( newlyAddedMap, 0 );
+	} else {
+		delete this.mapsCache[ mapNameValue ];
+	}
+	this.onCancelAddingMap( newlyAddedMap );
+	this.onHighlightMapElement();
+};
+
+/**
+ * Handle click event for the remove button
+ */
+mw.TemplateData.Dialog.prototype.onMapItemRemove = function () {
+	// Remove the highlighted item
+	this.mapsGroup.removeItems( [ this.highlightedMap ] );
+	// Remove the highlighted map from maps object
+	delete this.mapsCache[ this.highlightedMap.label ];
+
+	// Highlight another item, or show the search panel if the maps group is now empty
+	this.onHighlightMapElement();
+};
+
+/**
+ * Respond to edits on elements of maps list
+ *
+ * @param {mw.TemplateData.ItemWidget} item currently highlighted item
+ */
+mw.TemplateData.Dialog.prototype.onHighlightMapElement = function ( item ) {
+	var currentMapInfo;
+
+	// Cancel the process of adding a map, Cannot call onCancelAddingMap because these two functions
+	// cannot be called recursively
+	// Remove the text-area input, cancel button, and show add new map button
+	this.newMapNameInput.$element.hide();
+	this.cancelAddMapButton.$element.hide();
+	this.saveAddMapButton.$element.hide();
+	this.addNewMapButton.$element.show();
+	// move the list panel up back as add new map shrank
+	this.editMapsPanel.$element.removeClass( 'tdg-templateDataDialog-addingNewMap' );
+	this.removeMapButton.setDisabled( $.isEmptyObject( this.mapsCache ) );
+
+	// Un-highlight previous item
+	if ( this.highlightedMap ) {
+		this.highlightedMap.toggleHighlighted( false );
+	}
+
+	// Highlight new item.
+	// If no item was given, highlight the first item in the group.
+	item = item || this.mapsGroup.items[ 0 ];
+
+	if ( !item ) {
+		this.templateMapsInput.setDisabled( true );
+		this.templateMapsInput.setValue( '' );
+	} else {
+		this.templateMapsInput.setDisabled( false );
+		item.toggleHighlighted( true );
+		this.highlightedMap = item;
+
+		// Scroll item into view in menu
+		OO.ui.Element.static.scrollIntoView( item.$element[ 0 ] );
+
+		// Populate the mapsContentPanel
+		this.mapsCache = this.mapsCache === undefined ? {} : this.mapsCache;
+		currentMapInfo = this.mapsCache[ this.highlightedMap.label ];
+		this.templateMapsInput.setValue( this.stringifyObject( currentMapInfo ) );
+	}
+
+};
+
+/**
+ * Stringify objects in the dialog with space of 4, mainly maps objects
+ *
+ * @param {Object} object maps object
+ */
+mw.TemplateData.Dialog.prototype.stringifyObject = function ( object ) {
+	return JSON.stringify( object, null, 4 );
 };
 
 /**
@@ -1121,13 +1381,23 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
  * after initialization of the model.
  */
 mw.TemplateData.Dialog.prototype.setupDetailsFromModel = function () {
-	var format;
+	var format,
+		firstMapItem;
 
 	// Set up description
 	this.descriptionInput.setValue( this.model.getTemplateDescription( this.language ) );
 
 	// set up maps
-	this.templateMapsInput.setValue( JSON.stringify( this.model.getMapInfo(), null, 4 ) );
+	this.populateMapsItems( this.model.getMapInfo() );
+	this.mapsCache = OO.copy( this.model.getMapInfo() );
+	this.onHighlightMapElement();
+	if ( this.model.getMapInfo() !== undefined ) {
+		firstMapItem = Object.keys( this.model.getMapInfo() )[ 0 ];
+		this.templateMapsInput.setValue( this.stringifyObject( this.model.getMapInfo()[ firstMapItem ] ) );
+	} else {
+		this.templateMapsInput.setValue( '' );
+		this.templateMapsInput.setDisabled( true );
+	}
 
 	// Set up format
 	format = this.model.getTemplateFormat();
@@ -1231,8 +1501,8 @@ mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'done' ) {
 		return new OO.ui.Process( function () {
 			// setMapInfo with the value and keep the done button active
-			this.model.setMapInfo( this.mapValue );
-			this.model.originalMaps = this.mapValue;
+			this.model.setMapInfo( this.mapsCache );
+			this.model.originalMaps = OO.copy( this.mapsCache );
 			this.switchPanels( 'listParams' );
 		}, this );
 	}
@@ -1248,8 +1518,10 @@ mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
 	}
 	if ( action === 'cancel' ) {
 		return new OO.ui.Process( function () {
-			this.templateMapsInput.setValue( JSON.stringify( this.model.originalMaps, null, 4 ) );
+			this.mapsCache = OO.copy( this.model.getOriginalMapsInfo() );
 			this.model.restoreOriginalMaps();
+			this.populateMapsItems( this.mapsCache );
+			this.onCancelAddingMap();
 			this.switchPanels( 'listParams' );
 		}, this );
 	}
