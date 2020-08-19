@@ -63,12 +63,13 @@ class TemplateDataBlob {
 			// If data is invalid, replace with the minimal valid blob.
 			// This is to make sure that, if something forgets to check the status first,
 			// we don't end up with invalid data in the database.
-			$tdb->data = new stdClass();
-			$tdb->data->description = null;
-			$tdb->data->params = new stdClass();
-			$tdb->data->format = null;
-			$tdb->data->sets = [];
-			$tdb->data->maps = new stdClass();
+			$tdb->data = (object)[
+				'description' => null,
+				'params' => (object)[],
+				'format' => null,
+				'sets' => [],
+				'maps' => (object)[],
+			];
 		}
 		$tdb->status = $status;
 		return $tdb;
@@ -487,7 +488,7 @@ class TemplateDataBlob {
 				return Status::newFatal( 'templatedata-invalid-type', 'maps', 'object' );
 			}
 		} else {
-			$data->maps = new stdClass();
+			$data->maps = (object)[];
 		}
 
 		foreach ( $data->maps as $consumerId => $map ) {
@@ -562,9 +563,7 @@ class TemplateDataBlob {
 	protected static function normaliseInterfaceText( $text ) {
 		if ( is_string( $text ) ) {
 			$contLang = MediaWikiServices::getInstance()->getContentLanguage();
-			$ret = new stdClass();
-			$ret->{ $contLang->getCode() } = $text;
-			return $ret;
+			return (object)[ $contLang->getCode() => $text ];
 		}
 		return $text;
 	}
