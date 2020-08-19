@@ -9,12 +9,10 @@
 class TemplateDataHooks {
 	/**
 	 * Register parser hooks
-	 * @param Parser &$parser
-	 * @return bool
+	 * @param Parser $parser
 	 */
-	public static function onParserFirstCallInit( &$parser ) {
-		$parser->setHook( 'templatedata', [ 'TemplateDataHooks', 'render' ] );
-		return true;
+	public static function onParserFirstCallInit( Parser $parser ) {
+		$parser->setHook( 'templatedata', [ __CLASS__, 'render' ] );
 	}
 
 	/**
@@ -84,7 +82,6 @@ class TemplateDataHooks {
 	 *
 	 * @param EditPage $editPage
 	 * @param OutputPage $output
-	 * @return bool
 	 */
 	public static function onEditPage( EditPage $editPage, OutputPage $output ) {
 		global $wgTemplateDataUseGUI;
@@ -93,7 +90,6 @@ class TemplateDataHooks {
 				$output->addModules( 'ext.templateDataGenerator.editTemplatePage' );
 			}
 		}
-		return true;
 	}
 
 	/**
