@@ -164,7 +164,7 @@ class TemplateDataBlob {
 			if ( !is_object( $data->description ) && !is_string( $data->description ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', 'description', 'string|object' );
 			}
-			$data->description = self::normaliseInterfaceText( $data->description );
+			$data->description = $this->normaliseInterfaceText( $data->description );
 		} else {
 			$data->description = null;
 		}
@@ -229,7 +229,7 @@ class TemplateDataBlob {
 						'string|object'
 					);
 				}
-				$paramObj->label = self::normaliseInterfaceText( $paramObj->label );
+				$paramObj->label = $this->normaliseInterfaceText( $paramObj->label );
 			} else {
 				$paramObj->label = null;
 			}
@@ -270,7 +270,7 @@ class TemplateDataBlob {
 						'string|object'
 					);
 				}
-				$paramObj->description = self::normaliseInterfaceText( $paramObj->description );
+				$paramObj->description = $this->normaliseInterfaceText( $paramObj->description );
 			} else {
 				$paramObj->description = null;
 			}
@@ -285,7 +285,7 @@ class TemplateDataBlob {
 						'string|object'
 					);
 				}
-				$paramObj->example = self::normaliseInterfaceText( $paramObj->example );
+				$paramObj->example = $this->normaliseInterfaceText( $paramObj->example );
 			} else {
 				$paramObj->example = null;
 			}
@@ -341,7 +341,7 @@ class TemplateDataBlob {
 						'string|object'
 					);
 				}
-				$paramObj->default = self::normaliseInterfaceText( $paramObj->default );
+				$paramObj->default = $this->normaliseInterfaceText( $paramObj->default );
 			} else {
 				$paramObj->default = null;
 			}
@@ -460,7 +460,7 @@ class TemplateDataBlob {
 				);
 			}
 
-			$setObj->label = self::normaliseInterfaceText( $setObj->label );
+			$setObj->label = $this->normaliseInterfaceText( $setObj->label );
 
 			if ( !isset( $setObj->params ) ) {
 				return Status::newFatal( 'templatedata-invalid-missing', "sets.{$setNr}.params", 'array' );
@@ -557,9 +557,9 @@ class TemplateDataBlob {
 	/**
 	 * Normalise a InterfaceText field in the TemplateData blob.
 	 * @param stdClass|string $text
-	 * @return stdClass|string
+	 * @return stdClass
 	 */
-	protected static function normaliseInterfaceText( $text ) {
+	private function normaliseInterfaceText( $text ) {
 		if ( is_string( $text ) ) {
 			$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 			$ret = new stdClass();
