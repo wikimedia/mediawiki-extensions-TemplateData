@@ -170,7 +170,7 @@ class TemplateDataBlob {
 		}
 
 		// Root.format
-		if ( isset( $data->format ) && $data->format !== null ) {
+		if ( isset( $data->format ) ) {
 			// @phan-suppress-next-line PhanTypeMismatchDimFetchNullable isset makes this non-null
 			$f = self::$formats[$data->format] ?? $data->format;
 			if (
