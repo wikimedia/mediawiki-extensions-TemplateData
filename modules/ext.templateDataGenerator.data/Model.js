@@ -142,6 +142,7 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 		type: {
 			type: 'select',
 			children: [
+				'unknown',
 				'boolean',
 				'content',
 				'wiki-file-name',
@@ -152,7 +153,6 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 				'string',
 				'wiki-template-name',
 				'unbalanced-wikitext',
-				'unknown',
 				'url',
 				'wiki-user-name'
 			],
