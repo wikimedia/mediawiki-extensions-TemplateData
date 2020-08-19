@@ -785,8 +785,6 @@ class TemplateDataBlob {
 		$paramNames = $data->paramOrder ?? array_keys( (array)$data->params );
 		foreach ( $paramNames as $paramName ) {
 			$paramObj = $data->params->$paramName;
-			$description = '';
-			$default = '';
 
 			$aliases = '';
 			if ( count( $paramObj->aliases ) ) {
