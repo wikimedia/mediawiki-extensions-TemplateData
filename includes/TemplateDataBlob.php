@@ -846,16 +846,14 @@ class TemplateDataBlob {
 					) . Html::rawElement( 'dd', [], $suggestedValues );
 			}
 
-			$statusClass = '';
 			if ( $paramObj->deprecated ) {
-				$status = 'templatedata-doc-param-status-deprecated';
+				$status = 'deprecated';
 			} elseif ( $paramObj->required ) {
-				$status = 'templatedata-doc-param-status-required';
-				$statusClass = 'mw-templatedata-doc-param-status-required';
+				$status = 'required';
 			} elseif ( $paramObj->suggested ) {
-				$status = 'templatedata-doc-param-status-suggested';
+				$status = 'suggested';
 			} else {
-				$status = 'templatedata-doc-param-status-optional';
+				$status = 'optional';
 			}
 
 			$html .= '<tr>'
@@ -922,8 +920,25 @@ class TemplateDataBlob {
 			// Status
 			. Html::element(
 				'td',
-				[ 'class' => $statusClass ],
-				wfMessage( $status )->inLanguage( $lang )->text()
+				[
+					// CSS class names that can be used here:
+					// mw-templatedata-doc-param-status-deprecated
+					// mw-templatedata-doc-param-status-optional
+					// mw-templatedata-doc-param-status-required
+					// mw-templatedata-doc-param-status-suggested
+					'class' => "mw-templatedata-doc-param-status-$status",
+					'data-sort-value' => [
+						'deprecated' => -1,
+						'suggested' => 1,
+						'required' => 2,
+					][$status] ?? 0,
+				],
+				// Messages that can be used here:
+				// templatedata-doc-param-status-deprecated
+				// templatedata-doc-param-status-optional
+				// templatedata-doc-param-status-required
+				// templatedata-doc-param-status-suggested
+				wfMessage( "templatedata-doc-param-status-$status" )->inLanguage( $lang )->text()
 			)
 			. '</tr>';
 		}
