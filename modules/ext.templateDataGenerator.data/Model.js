@@ -11,17 +11,21 @@ mw.TemplateData.Model = function mwTemplateDataModel() {
 	OO.EventEmitter.call( this );
 
 	// Properties
-	this.params = {};
 	this.description = {};
-	this.originalMaps = undefined;
+
 	this.maps = undefined;
-	this.paramOrder = [];
-	this.format = null;
-	this.paramOrderChanged = false;
-	this.paramIdentifierCounter = 0;
-	this.originalTemplateDataObject = null;
-	this.sourceCodeParameters = [];
 	this.mapsChanged = false;
+	this.originalMaps = undefined;
+
+	this.format = null;
+
+	this.params = {};
+	this.paramIdentifierCounter = 0;
+	this.sourceCodeParameters = [];
+	this.paramOrder = [];
+	this.paramOrderChanged = false;
+
+	this.originalTemplateDataObject = null;
 };
 
 /* Inheritance */
