@@ -173,8 +173,7 @@ mw.TemplateData.Model.static.getAllProperties = function ( getFullData ) {
 			textValue: 'deprecatedValue'
 		},
 		deprecatedValue: {
-			type: 'string',
-			changesBooleanValue: 'deprecated'
+			type: 'string'
 		},
 		required: {
 			type: 'boolean'
