@@ -14,6 +14,14 @@ use MediaWiki\MediaWikiServices;
  */
 class TemplateDataBlob {
 	/**
+	 * Predefined formats for TemplateData to check against
+	 */
+	private const FORMATS = [
+		'block' => "{{_\n| _ = _\n}}",
+		'inline' => '{{_|_=_}}',
+	];
+
+	/**
 	 * @var stdClass
 	 */
 	protected $data;
@@ -27,14 +35,6 @@ class TemplateDataBlob {
 	 * @var Status Cache of TemplateDataBlob::parse
 	 */
 	protected $status;
-
-	/**
-	 * @var string[] Predefined formats for TemplateData to check against
-	 */
-	protected static $formats = [
-		'block' => "{{_\n| _ = _\n}}",
-		'inline' => '{{_|_=_}}',
-	];
 
 	/**
 	 * Parse and validate passed JSON and create a blob handling
@@ -172,7 +172,7 @@ class TemplateDataBlob {
 		// Root.format
 		if ( isset( $data->format ) ) {
 			// @phan-suppress-next-line PhanTypeMismatchDimFetchNullable isset makes this non-null
-			$f = self::$formats[$data->format] ?? $data->format;
+			$f = self::FORMATS[$data->format] ?? $data->format;
 			if (
 				!is_string( $f ) ||
 				!preg_match( '/^\n?\{\{ *_+\n? *\|\n? *_+ *= *_+\n? *\}\}\n?$/', $f )
@@ -699,7 +699,7 @@ class TemplateDataBlob {
 		$icon = 'settings';
 		if ( $data->format === null ) {
 			$formatMsg = null;
-		} elseif ( isset( self::$formats[$data->format] ) ) {
+		} elseif ( isset( self::FORMATS[$data->format] ) ) {
 			$formatMsg = $data->format;
 			$icon = 'template-format-' . $formatMsg;
 		} else {
