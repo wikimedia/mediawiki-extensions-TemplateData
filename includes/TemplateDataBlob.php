@@ -19,19 +19,14 @@ use Wikimedia\Rdbms\IReadableDatabase;
 class TemplateDataBlob {
 
 	/**
-	 * @var mixed
+	 * @var string
 	 */
-	private $data;
-
-	/**
-	 * @var string|null In-object cache for getJSON()
-	 */
-	private $json = null;
+	protected $json;
 
 	/**
 	 * @var Status
 	 */
-	private $status;
+	protected $status;
 
 	/**
 	 * Parse and validate passed JSON and create a blob handling
@@ -44,30 +39,10 @@ class TemplateDataBlob {
 	 */
 	public static function newFromJSON( IReadableDatabase $db, string $json ): TemplateDataBlob {
 		if ( $db->getType() === 'mysql' ) {
-			$tdb = new TemplateDataCompressedBlob( json_decode( $json ) );
+			$tdb = new TemplateDataCompressedBlob( $json );
 		} else {
-			$tdb = new TemplateDataBlob( json_decode( $json ) );
+			$tdb = new TemplateDataBlob( $json );
 		}
-
-		$status = $tdb->parse();
-
-		if ( !$status->isOK() ) {
-			// Reset in-object caches
-			$tdb->json = null;
-			$tdb->jsonDB = null;
-
-			// If data is invalid, replace with the minimal valid blob.
-			// This is to make sure that, if something forgets to check the status first,
-			// we don't end up with invalid data in the database.
-			$tdb->data = (object)[
-				'description' => null,
-				'params' => (object)[],
-				'format' => null,
-				'sets' => [],
-				'maps' => (object)[],
-			];
-		}
-		$tdb->status = $status;
 		return $tdb;
 	}
 
@@ -87,24 +62,22 @@ class TemplateDataBlob {
 		return self::newFromJSON( $db, $json );
 	}
 
-	/**
-	 * Parse the data, normalise it and validate it.
-	 *
-	 * See Specification.md for the expected format of the JSON object.
-	 * @return Status
-	 */
-	protected function parse(): Status {
+	protected function __construct( string $json ) {
 		$deprecatedTypes = array_keys( TemplateDataNormalizer::DEPRECATED_PARAMETER_TYPES );
 		$validator = new TemplateDataValidator( $deprecatedTypes );
-		$status = $validator->validate( $this->data );
+		$this->status = $validator->validate( json_decode( $json ) );
 
-		if ( $status->isOK() ) {
-			$lang = MediaWikiServices::getInstance()->getContentLanguage();
-			$normalizer = new TemplateDataNormalizer( $lang->getCode() );
-			$normalizer->normalize( $this->data );
-		}
+		// If data is invalid, replace with the minimal valid blob.
+		// This is to make sure that, if something forgets to check the status first,
+		// we don't end up with invalid data in the database.
+		$value = $this->status->getValue() ?? (object)[ 'params' => (object)[] ];
 
-		return $status;
+		$lang = MediaWikiServices::getInstance()->getContentLanguage();
+		$normalizer = new TemplateDataNormalizer( $lang->getCode() );
+		$normalizer->normalize( $value );
+
+		// Don't bother storing the decoded object, it will always be cloned anyway
+		$this->json = json_encode( $value );
 	}
 
 	/**
@@ -152,12 +125,11 @@ class TemplateDataBlob {
 	}
 
 	/**
-	 * @return mixed
+	 * @return stdClass
 	 */
 	public function getData() {
 		// Return deep clone so callers can't modify data. Needed for getDataInLanguage().
-		// Modification must clear 'json' and 'jsonDB' in-object cache.
-		return unserialize( serialize( $this->data ) );
+		return json_decode( $this->json );
 	}
 
 	/**
@@ -218,26 +190,8 @@ class TemplateDataBlob {
 	/**
 	 * @return string JSON
 	 */
-	protected function getJSON(): string {
-		if ( $this->json === null ) {
-			// Cache for repeat calls
-			$this->json = json_encode( $this->data );
-		}
-		return $this->json;
-	}
-
-	/**
-	 * @return string JSON
-	 */
 	public function getJSONForDatabase(): string {
-		return $this->getJSON();
-	}
-
-	/**
-	 * @param mixed $data
-	 */
-	protected function __construct( $data ) {
-		$this->data = $data;
+		return $this->json;
 	}
 
 }

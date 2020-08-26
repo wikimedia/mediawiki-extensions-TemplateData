@@ -114,7 +114,7 @@ class TemplateDataValidator {
 			$this->validateParameterOrder( $data->paramOrder ?? null, $data->params ) ??
 			$this->validateSets( $data->sets ?? [], $data->params ) ??
 			$this->validateMaps( $data->maps ?? (object)[], $data->params ) ??
-			Status::newGood();
+			Status::newGood( $data );
 	}
 
 	/**

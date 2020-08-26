@@ -756,7 +756,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
 		/** @var TemplateDataBlob $t */
 		$t = TestingAccessWrapper::newFromObject( $t );
-		$actual = $t->getJSON();
+		$actual = $t->json;
 		$status = $t->getStatus();
 
 		$this->assertSame(
@@ -784,7 +784,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					'Roundtrip status: ' . $case['msg']
 				);
 			}
-			$this->assertStrictJsonEquals( $case['output'], $t->getJSON(),
+			$this->assertStrictJsonEquals( $case['output'], $t->json,
 				'Roundtrip: ' . $case['msg']
 			);
 		}

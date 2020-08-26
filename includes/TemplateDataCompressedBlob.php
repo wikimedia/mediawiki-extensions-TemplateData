@@ -7,7 +7,6 @@
 namespace MediaWiki\Extension\TemplateData;
 
 use Message;
-use Status;
 
 /**
  * Represents the information about a template,
@@ -21,46 +20,32 @@ class TemplateDataCompressedBlob extends TemplateDataBlob {
 	private const MAX_LENGTH = 65535;
 
 	/**
-	 * @var string|null In-object cache for getJSONForDatabase()
+	 * @var string In-object cache for {@see getJSONForDatabase}
 	 */
-	protected $jsonDB = null;
+	private $jsonDB;
 
 	/**
 	 * @inheritDoc
 	 */
-	protected function parse(): Status {
-		$status = parent::parse();
-		if ( $status->isOK() ) {
-			$length = strlen( $this->getJSONForDatabase() );
-			if ( $length > self::MAX_LENGTH ) {
-				return Status::newFatal(
-					'templatedata-invalid-length',
-					Message::numParam( $length ),
-					Message::numParam( self::MAX_LENGTH )
-				);
-			}
+	protected function __construct( string $json ) {
+		parent::__construct( $json );
+		$this->jsonDB = gzencode( $this->json );
+
+		$length = strlen( $this->jsonDB );
+		if ( $length > self::MAX_LENGTH ) {
+			$this->status->fatal(
+				'templatedata-invalid-length',
+				Message::numParam( $length ),
+				Message::numParam( self::MAX_LENGTH )
+			);
 		}
-		return $status;
 	}
 
 	/**
 	 * @return string JSON (gzip compressed)
 	 */
 	public function getJSONForDatabase(): string {
-		if ( $this->jsonDB === null ) {
-			// Cache for repeat calls
-			$this->jsonDB = gzencode( $this->getJSON() );
-		}
 		return $this->jsonDB;
 	}
 
-	/**
-	 * Just initialize the data, compression to be done later.
-	 *
-	 * @param mixed $data Template data
-	 */
-	protected function __construct( $data ) {
-		parent::__construct( $data );
-		$this->jsonDB = null;
-	}
 }
