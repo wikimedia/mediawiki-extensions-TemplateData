@@ -82,7 +82,7 @@
 	"templatedata-modal-format-placeholder": "Template parameter format string",
 	"templatedata-modal-json-error-replace": "Replace",
 	"templatedata-modal-notice-import-numparams": "$1 new {{PLURAL:$1|parameter was|parameters were}} imported: $2",
-	"templatedata-modal-placeholder-add-new-map-input": "Adding new map..",
+	"templatedata-modal-placeholder-add-new-map-input": "Adding new map...",
 	"templatedata-modal-placeholder-paramkey": "Parameter name",
 	"templatedata-modal-placeholder-mapinfo": "This template has no maps object",
 	"templatedata-modal-placeholder-prompt-map-name": "Enter map name",
