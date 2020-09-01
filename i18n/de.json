@@ -80,7 +80,7 @@
 	"templatedata-modal-format-placeholder": "Vorlagenparameter-Format-Zeichenfolge",
 	"templatedata-modal-json-error-replace": "Ersetzen",
 	"templatedata-modal-notice-import-numparams": "Es {{PLURAL:$1|wurde ein neuer|wurden $1 neue}} Parameter importiert: $2",
-	"templatedata-modal-placeholder-add-new-map-input": "Hinzufügen neuer Zuordnung.",
+	"templatedata-modal-placeholder-add-new-map-input": "Hinzufügen neuer Zuordnung …",
 	"templatedata-modal-placeholder-paramkey": "Name des Parameters",
 	"templatedata-modal-placeholder-mapinfo": "Diese Vorlage hat keine Zuordnungs-Objekte",
 	"templatedata-modal-placeholder-prompt-map-name": "Eingeben der Namens der Zuordnung",
