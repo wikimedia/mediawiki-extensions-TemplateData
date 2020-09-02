@@ -592,8 +592,131 @@
 			} );
 	} );
 
+	// Test model with maps in wikitext
+	QUnit.test( 'TemplateData sourceHandler with maps', function ( assert ) {
+		var sourceHandler = new mw.TemplateData.SourceHandler(),
+			wikitextWithMaps = 'Some text here that is not templatedata information.' +
+			'<templatedata>' +
+			'{' +
+				'"description": {\n' +
+					'"en": "Template description in English."\n' +
+				'},' +
+				'"params": {' +
+					'"user": {' +
+						'"label": "Username",' +
+						'"type": "wiki-user-name",' +
+						'"required": true,' +
+						'"description": "User name of person who forgot to sign their comment.",' +
+						'"aliases": ["1"]' +
+					'},' +
+					'"date": {' +
+						'"label": "Date",' +
+						'"aliases": ["2"],' +
+						'"autovalue": "{{subst:CURRENTMONTHNAME}}",' +
+						'"suggested": true' +
+					'},' +
+					'"year": {' +
+						'"label": "Year",' +
+						'"type": "number"' +
+					'},' +
+					'"month": {' +
+						'"label": "Month",' +
+						'"inherits": "year"' +
+					'},' +
+					'"day": {' +
+						'"label": "Day",' +
+						'"inherits": "year"' +
+					'},' +
+					'"comment": {' +
+						'"required": false' +
+					'}' +
+				'},' +
+				'"sets": [' +
+					'{' +
+						'"label": "Date",' +
+						'"params": ["year", "month", "day"]' +
+					'}' +
+				'],' +
+				'"maps": {' +
+					'"exampleconsumer": {' +
+						'"cuser": "user",' +
+						'"cdate": ["year", "month", "day"],' +
+						'"ccomment": [ ["comment"] ]' +
+					'}' +
+				'}' +
+			'}' +
+			'</templatedata>' +
+			'Trailing text at the end.',
+			finalJsonParams = {
+				user: {
+					label: 'Username',
+					type: 'wiki-user-name',
+					required: true,
+					description: 'User name of person who forgot to sign their comment.',
+					aliases: [ '1' ]
+				},
+				date: {
+					label: 'Date',
+					aliases: [ '2' ],
+					autovalue: '{{subst:CURRENTMONTHNAME}}',
+					suggested: true,
+					type: undefined
+				},
+				year: {
+					label: 'Year',
+					type: 'number'
+				},
+				month: {
+					label: 'Month',
+					inherits: 'year',
+					type: undefined
+				},
+				day: {
+					label: 'Day',
+					inherits: 'year',
+					type: undefined
+				},
+				comment: {
+					required: false,
+					type: undefined
+				}
+			},
+			jsonWithMaps = {
+				description: {
+					en: 'Template description in English.'
+				},
+				params: finalJsonParams,
+				sets: [
+					{
+						label: 'Date',
+						params: [
+							'year',
+							'month',
+							'day'
+						]
+					}
+				],
+				maps: {
+					exampleconsumer: {
+						cuser: 'user',
+						cdate: [ 'year', 'month', 'day' ],
+						ccomment: [ [ 'comment' ] ]
+					}
+				}
+			};
+
+		return sourceHandler.buildModel( wikitextWithMaps )
+			.done( function ( model ) {
+				assert.deepEqual(
+					model.outputTemplateData(),
+					jsonWithMaps,
+					'Final templatedata output'
+				);
+			} );
+	} );
+
 	// Test model fail
-	QUnit.test( 'TemplateData sourceHandler', function ( assert ) {
+	QUnit.test( 'TemplateData sourceHandler failure', function ( assert ) {
 		var sourceHandler = new mw.TemplateData.SourceHandler(),
 			erronousString = '<templatedata>{\n' +
 				'"params": {\n' +
