@@ -23,10 +23,7 @@ class TemplateDataCompressedBlob extends TemplateDataBlob {
 	protected $jsonDB = null;
 
 	/**
-	 * Parse the data, normalise it and validate it.
-	 *
-	 * See Specification.md for the expected format of the JSON object.
-	 * @return Status
+	 * @inheritDoc
 	 */
 	protected function parse() {
 		$status = parent::parse();
