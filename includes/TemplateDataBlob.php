@@ -24,17 +24,17 @@ class TemplateDataBlob {
 	/**
 	 * @var stdClass
 	 */
-	protected $data;
+	private $data;
 
 	/**
 	 * @var string|null In-object cache for getJSON()
 	 */
-	protected $json = null;
+	private $json = null;
 
 	/**
 	 * @var Status Cache of TemplateDataBlob::parse
 	 */
-	protected $status;
+	private $status;
 
 	/**
 	 * Parse and validate passed JSON and create a blob handling
