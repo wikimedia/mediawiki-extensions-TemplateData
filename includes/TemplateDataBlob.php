@@ -46,7 +46,7 @@ class TemplateDataBlob {
 	 * @return TemplateDataBlob|TemplateDataCompressedBlob
 	 * @throws Exception
 	 */
-	public static function newFromJSON( $db, $json ) {
+	public static function newFromJSON( IDatabase $db, string $json ) : TemplateDataBlob {
 		if ( $db->getType() === 'mysql' ) {
 			$tdb = new TemplateDataCompressedBlob( json_decode( $json ) );
 		} else {
@@ -82,7 +82,7 @@ class TemplateDataBlob {
 	 * @param string $json
 	 * @return TemplateDataBlob or TemplateDataCompressedBlob
 	 */
-	public static function newFromDatabase( $db, $json ) {
+	public static function newFromDatabase( IDatabase $db, string $json ) : TemplateDataBlob {
 		// Handle GZIP compression. \037\213 is the header for GZIP files.
 		if ( substr( $json, 0, 2 ) === "\037\213" ) {
 			$json = gzdecode( $json );
@@ -96,7 +96,7 @@ class TemplateDataBlob {
 	 * See Specification.md for the expected format of the JSON object.
 	 * @return Status
 	 */
-	protected function parse() {
+	protected function parse() : Status {
 		$data = $this->data;
 
 		static $rootKeys = [
@@ -580,7 +580,7 @@ class TemplateDataBlob {
 	 * @return null|string Text value from the InterfaceText object or null if no suitable
 	 *  match was found
 	 */
-	protected static function getInterfaceTextInLanguage( stdClass $text, $langCode ) {
+	protected static function getInterfaceTextInLanguage( stdClass $text, string $langCode ) : ?string {
 		if ( isset( $text->$langCode ) ) {
 			return $text->$langCode;
 		}
@@ -608,7 +608,7 @@ class TemplateDataBlob {
 	/**
 	 * @return Status
 	 */
-	public function getStatus() {
+	public function getStatus() : Status {
 		return $this->status;
 	}
 
@@ -628,7 +628,7 @@ class TemplateDataBlob {
 	 * @param string $langCode Preferred language
 	 * @return object
 	 */
-	public function getDataInLanguage( $langCode ) {
+	public function getDataInLanguage( string $langCode ) {
 		$data = $this->getData();
 
 		// Root.description
@@ -679,7 +679,7 @@ class TemplateDataBlob {
 	/**
 	 * @return string JSON
 	 */
-	public function getJSON() {
+	public function getJSON() : string {
 		if ( $this->json === null ) {
 			// Cache for repeat calls
 			$this->json = json_encode( $this->data );
@@ -690,11 +690,16 @@ class TemplateDataBlob {
 	/**
 	 * @return string JSON
 	 */
-	public function getJSONForDatabase() {
+	public function getJSONForDatabase() : string {
 		return $this->getJSON();
 	}
 
-	public function getHtml( Language $lang ) {
+	/**
+	 * @param Language $lang
+	 *
+	 * @return string
+	 */
+	public function getHtml( Language $lang ) : string {
 		$data = $this->getDataInLanguage( $lang->getCode() );
 		$icon = 'settings';
 		if ( $data->format === null ) {
@@ -886,7 +891,7 @@ class TemplateDataBlob {
 	 * @param string $wikitext The text to extract parameters from.
 	 * @return string[] Parameter info in the same format as the templatedata 'params' key.
 	 */
-	public static function getRawParams( $wikitext ) {
+	public static function getRawParams( string $wikitext ) : array {
 		// Ignore wikitext within nowiki tags and comments
 		$wikitext = preg_replace( '/<!--.*?-->/s', '', $wikitext );
 		$wikitext = preg_replace( '/<nowiki\s*>.*?<\/nowiki\s*>/s', '', $wikitext );

@@ -28,7 +28,7 @@ class TemplateDataCompressedBlob extends TemplateDataBlob {
 	 * See Specification.md for the expected format of the JSON object.
 	 * @return Status
 	 */
-	protected function parse() {
+	protected function parse() : Status {
 		$status = parent::parse();
 		if ( $status->isOK() ) {
 			$length = strlen( $this->getJSONForDatabase() );
@@ -42,7 +42,7 @@ class TemplateDataCompressedBlob extends TemplateDataBlob {
 	/**
 	 * @return string JSON (gzip compressed)
 	 */
-	public function getJSONForDatabase() {
+	public function getJSONForDatabase() : string {
 		if ( $this->jsonDB === null ) {
 			// Cache for repeat calls
 			$this->jsonDB = gzencode( $this->getJSON() );
