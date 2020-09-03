@@ -55,8 +55,8 @@ class TemplateDataCompressedBlob extends TemplateDataBlob {
 	 *
 	 * @param stdClass|null $data Template data
 	 */
-	protected function __construct( $data = null ) {
-		$this->data = $data;
+	protected function __construct( $data ) {
+		parent::__construct( $data );
 		$this->jsonDB = null;
 	}
 }

@@ -910,7 +910,10 @@ class TemplateDataBlob {
 		return $params;
 	}
 
-	private function __construct( $data = null ) {
+	/**
+	 * @param stdClass $data
+	 */
+	protected function __construct( $data ) {
 		$this->data = $data;
 	}
 
