@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Chhithai",
-			"Taytay"
+			"Taytay",
+			"Teitei Para"
 		]
 	},
 	"templatedata-modal-button-addmap": "Râh nohthlah theihpa khô teih",
 	"templatedata-modal-button-map": "Râh nohthlahpazy taopathi teih",
 	"templatedata-modal-button-removemap": "Râh nohthlahpa thy teih",
-	"templatedata-modal-placeholder-add-new-map-input": "Râh nohthlah theihpa khô hai..",
+	"templatedata-modal-placeholder-add-new-map-input": "Râh nohthlah theihpa khô hai...",
 	"templatedata-modal-placeholder-prompt-map-name": "Râh nohthlahpa moh roh teih"
 }
