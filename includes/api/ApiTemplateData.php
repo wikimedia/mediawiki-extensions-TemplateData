@@ -45,6 +45,9 @@ class ApiTemplateData extends ApiBase {
 		return $this->mPageSet;
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
@@ -176,6 +179,9 @@ class ApiTemplateData extends ApiBase {
 		$continuationManager->setContinuationIntoResult( $this->getResult() );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getAllowedParams( $flags = 0 ) {
 		$result = [
 			'includeMissingTitles' => [
@@ -196,8 +202,7 @@ class ApiTemplateData extends ApiBase {
 	}
 
 	/**
-	 * @see ApiBase::getExamplesMessages()
-	 * @return array
+	 * @inheritDoc
 	 */
 	protected function getExamplesMessages() {
 		return [
@@ -208,6 +213,9 @@ class ApiTemplateData extends ApiBase {
 		];
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getHelpUrls() {
 		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TemplateData';
 	}
