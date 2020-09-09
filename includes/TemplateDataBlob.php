@@ -710,9 +710,7 @@ class TemplateDataBlob {
 			$formatMsg = 'custom';
 		}
 		$sorting = count( (array)$data->params ) > 1 ? " sortable" : "";
-		$html =
-			Html::openElement( 'div', [ 'class' => 'mw-templatedata-doc-wrap' ] )
-			. Html::element(
+		$html = Html::element(
 				'p',
 				[
 					'class' => [
@@ -879,10 +877,9 @@ class TemplateDataBlob {
 			)
 			. '</tr>';
 		}
-		$html .= '</tbody></table>'
-			. Html::closeElement( 'div' );
+		$html .= '</tbody></table>';
 
-		return $html;
+		return Html::rawElement( 'div', [ 'class' => 'mw-templatedata-doc-wrap' ], $html );
 	}
 
 	/**
