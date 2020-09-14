@@ -21,6 +21,52 @@ class TemplateDataBlob {
 		'inline' => '{{_|_=_}}',
 	];
 
+	private const VALID_ROOT_KEYS = [
+		'description',
+		'params',
+		'paramOrder',
+		'sets',
+		'maps',
+		'format',
+	];
+
+	private const VALID_PARAM_KEYS = [
+		'label',
+		'required',
+		'suggested',
+		'description',
+		'example',
+		'deprecated',
+		'aliases',
+		'autovalue',
+		'default',
+		'inherits',
+		'type',
+	];
+
+	private const VALID_TYPES = [
+		'content',
+		'line',
+		'number',
+		'boolean',
+		'string',
+		'date',
+		'unbalanced-wikitext',
+		'unknown',
+		'url',
+		'wiki-page-name',
+		'wiki-user-name',
+		'wiki-file-name',
+		'wiki-template-name',
+	];
+
+	private const DEPRECATED_TYPES_MAP = [
+		'string/line' => 'line',
+		'string/wiki-page-name' => 'wiki-page-name',
+		'string/wiki-user-name' => 'wiki-user-name',
+		'string/wiki-file-name' => 'wiki-file-name',
+	];
+
 	/**
 	 * @var stdClass
 	 */
@@ -100,52 +146,6 @@ class TemplateDataBlob {
 	protected function parse() : Status {
 		$data = $this->data;
 
-		static $rootKeys = [
-			'description',
-			'params',
-			'paramOrder',
-			'sets',
-			'maps',
-			'format',
-		];
-
-		static $paramKeys = [
-			'label',
-			'required',
-			'suggested',
-			'description',
-			'example',
-			'deprecated',
-			'aliases',
-			'autovalue',
-			'default',
-			'inherits',
-			'type',
-		];
-
-		static $types = [
-			'content',
-			'line',
-			'number',
-			'boolean',
-			'string',
-			'date',
-			'unbalanced-wikitext',
-			'unknown',
-			'url',
-			'wiki-page-name',
-			'wiki-user-name',
-			'wiki-file-name',
-			'wiki-template-name',
-		];
-
-		static $typeCompatMap = [
-			'string/line' => 'line',
-			'string/wiki-page-name' => 'wiki-page-name',
-			'string/wiki-user-name' => 'wiki-user-name',
-			'string/wiki-file-name' => 'wiki-file-name',
-		];
-
 		if ( $data === null ) {
 			return Status::newFatal( 'templatedata-invalid-parse' );
 		}
@@ -155,7 +155,7 @@ class TemplateDataBlob {
 		}
 
 		foreach ( $data as $key => $value ) {
-			if ( !in_array( $key, $rootKeys ) ) {
+			if ( !in_array( $key, self::VALID_ROOT_KEYS ) ) {
 				return Status::newFatal( 'templatedata-invalid-unknown', $key );
 			}
 		}
@@ -212,7 +212,7 @@ class TemplateDataBlob {
 			}
 
 			foreach ( $paramObj as $key => $value ) {
-				if ( !in_array( $key, $paramKeys ) ) {
+				if ( !in_array( $key, self::VALID_PARAM_KEYS ) ) {
 					return Status::newFatal(
 						'templatedata-invalid-unknown',
 						"params.{$paramName}.{$key}"
@@ -358,11 +358,11 @@ class TemplateDataBlob {
 				}
 
 				// Map deprecated types to newer versions
-				if ( isset( $typeCompatMap[ $paramObj->type ] ) ) {
-					$paramObj->type = $typeCompatMap[ $paramObj->type ];
+				if ( isset( self::DEPRECATED_TYPES_MAP[ $paramObj->type ] ) ) {
+					$paramObj->type = self::DEPRECATED_TYPES_MAP[ $paramObj->type ];
 				}
 
-				if ( !in_array( $paramObj->type, $types ) ) {
+				if ( !in_array( $paramObj->type, self::VALID_TYPES ) ) {
 					return Status::newFatal(
 						'templatedata-invalid-value',
 						'params.' . $paramName . '.type'
@@ -387,7 +387,7 @@ class TemplateDataBlob {
 				}
 				$parentParamObj = $data->params->{ $paramObj->inherits };
 				foreach ( $parentParamObj as $key => $value ) {
-					if ( !in_array( $key, $paramKeys ) ) {
+					if ( !in_array( $key, self::VALID_PARAM_KEYS ) ) {
 						return Status::newFatal( 'templatedata-invalid-unknown', $key );
 					}
 					if ( !isset( $unnormalizedParams->$paramName->$key ) ) {
