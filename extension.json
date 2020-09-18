@@ -87,6 +87,7 @@
 				"oojs-ui-windows",
 				"oojs-ui.styles.icons-layout",
 				"oojs-ui.styles.icons-interactions",
+				"oojs-ui.styles.icons-moderation",
 				"ext.templateData",
 				"ext.templateData.images",
 				"ext.templateDataGenerator.data",
