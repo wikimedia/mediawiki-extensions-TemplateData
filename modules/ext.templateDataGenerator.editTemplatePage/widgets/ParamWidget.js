@@ -39,7 +39,7 @@ OO.mixinClass( mw.TemplateData.ParamWidget, OO.ui.mixin.DraggableElement );
 mw.TemplateData.ParamWidget.prototype.buildParamLabel = function () {
 	var i, len,
 		keys = this.aliases.slice(),
-		$paramName = $( '<div>' )
+		$paramLabel = $( '<div>' )
 			.addClass( 'tdg-templateDataParamWidget-param-name' ),
 		$aliases = $( '<div>' )
 			.addClass( 'tdg-templateDataParamWidget-param-aliases' ),
@@ -48,7 +48,7 @@ mw.TemplateData.ParamWidget.prototype.buildParamLabel = function () {
 
 	keys.unshift( this.key );
 
-	$paramName.text( this.label || this.key );
+	$paramLabel.text( this.label || this.key );
 	$description.text( this.description );
 
 	for ( i = 0, len = keys.length; i < len; i++ ) {
@@ -59,5 +59,5 @@ mw.TemplateData.ParamWidget.prototype.buildParamLabel = function () {
 		);
 	}
 
-	this.setLabel( $aliases.add( $paramName ).add( $description ) );
+	this.setLabel( $aliases.add( $paramLabel ).add( $description ) );
 };
