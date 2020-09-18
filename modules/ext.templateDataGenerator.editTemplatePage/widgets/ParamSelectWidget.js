@@ -2,7 +2,7 @@
  * TemplateData parameter select widget
  *
  * @class
- * @extends {OO.ui.SelectWidget}
+ * @extends OO.ui.SelectWidget
  * @mixins OO.ui.mixin.DraggableGroupElement
  *
  * @param {Object} config Dialog configuration object

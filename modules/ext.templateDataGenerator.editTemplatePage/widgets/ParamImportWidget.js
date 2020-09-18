@@ -2,7 +2,7 @@
  * TemplateData Param Import Widget
  *
  * @class
- * @extends {OO.ui.ButtonWidget}
+ * @extends OO.ui.ButtonWidget
  * @param {Object} [config]
  */
 mw.TemplateData.ParamImportWidget = function mwTemplateDataParamImportWidget( config ) {

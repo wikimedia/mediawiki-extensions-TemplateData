@@ -5,7 +5,7 @@
 ( function () {
 	'use strict';
 
-	var i, testVars, finalJsonParams, finalJson,
+	var finalJsonParams, finalJson,
 		resultDescCurrLang, resultDescMockLang, resultDescBothLang, currLanguage, originalWikitext;
 
 	QUnit.module( 'ext.templateData', QUnit.newMwEnvironment() );
@@ -151,193 +151,194 @@
 
 	// Test validation tools
 	QUnit.test( 'Validation tools', function ( assert ) {
-		var tests = {
-			compare: [
-				{
-					obj1: null,
-					obj2: undefined,
-					result: false,
-					msg: 'Compare: null vs undefined'
-				},
-				{
-					obj1: 'string',
-					obj2: undefined,
-					result: false,
-					msg: 'Compare: string vs undefined'
-				},
-				{
-					obj1: undefined,
-					obj2: undefined,
-					result: true,
-					msg: 'Compare: undefined vs undefined'
-				},
-				{
-					obj1: null,
-					obj2: null,
-					result: true,
-					msg: 'Compare: null vs null'
-				},
-				{
-					obj1: 'A proper string.',
-					obj2: 'A proper string.',
-					result: true,
-					msg: 'Compare: strings'
-				},
-				{
-					obj1: true,
-					obj2: true,
-					result: true,
-					msg: 'Compare: booleans'
-				},
-				{
-					obj1: { 1: 'string', 2: 'another', 4: 'and another' },
-					obj2: { 1: 'string', 2: 'another', 4: 'and another' },
-					result: true,
-					allowSubset: true,
-					msg: 'Compare: plain object full equality'
-				},
-				{
-					obj1: { 1: 'string', 2: 'another', 4: 'and another' },
-					obj2: { 1: 'another', 2: 'and another', 4: 'string' },
-					result: false,
-					allowSubset: true,
-					msg: 'Compare: plain object full inequality'
-				},
-				{
-					obj1: { 1: 'string', 2: 'another', 4: 'and another' },
-					obj2: { 4: 'and another' },
-					result: true,
-					allowSubset: true,
-					msg: 'Compare: plain object subset equality'
-				},
-				{
-					obj1: [ 'val1', 'val2', 'val3' ],
-					obj2: [ 'val1', 'val2', 'val3' ],
-					result: true,
-					msg: 'Compare: arrays'
-				},
-				{
-					obj1: [ 'val1', 'val2', 'val3' ],
-					obj2: [ 'val1' ],
-					result: true,
-					allowSubset: true,
-					msg: 'Compare: array subset: true'
-				},
-				{
-					obj1: [ 'val1', 'val2', 'val3' ],
-					obj2: [ 'val1' ],
-					result: false,
-					allowSubset: false,
-					msg: 'Compare: array subset: false'
-				},
-				{
-					obj1: {
-						param1: {
-							type: 'unknown',
-							aliases: [ 'alias2', 'alias1', 'alias3' ],
-							description: 'Some description',
-							required: true,
-							suggested: false
+		var i, testVars,
+			tests = {
+				compare: [
+					{
+						obj1: null,
+						obj2: undefined,
+						result: false,
+						msg: 'Compare: null vs undefined'
+					},
+					{
+						obj1: 'string',
+						obj2: undefined,
+						result: false,
+						msg: 'Compare: string vs undefined'
+					},
+					{
+						obj1: undefined,
+						obj2: undefined,
+						result: true,
+						msg: 'Compare: undefined vs undefined'
+					},
+					{
+						obj1: null,
+						obj2: null,
+						result: true,
+						msg: 'Compare: null vs null'
+					},
+					{
+						obj1: 'A proper string.',
+						obj2: 'A proper string.',
+						result: true,
+						msg: 'Compare: strings'
+					},
+					{
+						obj1: true,
+						obj2: true,
+						result: true,
+						msg: 'Compare: booleans'
+					},
+					{
+						obj1: { 1: 'string', 2: 'another', 4: 'and another' },
+						obj2: { 1: 'string', 2: 'another', 4: 'and another' },
+						result: true,
+						allowSubset: true,
+						msg: 'Compare: plain object full equality'
+					},
+					{
+						obj1: { 1: 'string', 2: 'another', 4: 'and another' },
+						obj2: { 1: 'another', 2: 'and another', 4: 'string' },
+						result: false,
+						allowSubset: true,
+						msg: 'Compare: plain object full inequality'
+					},
+					{
+						obj1: { 1: 'string', 2: 'another', 4: 'and another' },
+						obj2: { 4: 'and another' },
+						result: true,
+						allowSubset: true,
+						msg: 'Compare: plain object subset equality'
+					},
+					{
+						obj1: [ 'val1', 'val2', 'val3' ],
+						obj2: [ 'val1', 'val2', 'val3' ],
+						result: true,
+						msg: 'Compare: arrays'
+					},
+					{
+						obj1: [ 'val1', 'val2', 'val3' ],
+						obj2: [ 'val1' ],
+						result: true,
+						allowSubset: true,
+						msg: 'Compare: array subset: true'
+					},
+					{
+						obj1: [ 'val1', 'val2', 'val3' ],
+						obj2: [ 'val1' ],
+						result: false,
+						allowSubset: false,
+						msg: 'Compare: array subset: false'
+					},
+					{
+						obj1: {
+							param1: {
+								type: 'unknown',
+								aliases: [ 'alias2', 'alias1', 'alias3' ],
+								description: 'Some description',
+								required: true,
+								suggested: false
+							},
+							param2: {
+								required: true
+							}
 						},
-						param2: {
-							required: true
-						}
-					},
-					obj2: {
-						param1: {
-							type: 'unknown',
-							aliases: [ 'alias2', 'alias1', 'alias3' ],
-							description: 'Some description',
-							required: true,
-							suggested: false
+						obj2: {
+							param1: {
+								type: 'unknown',
+								aliases: [ 'alias2', 'alias1', 'alias3' ],
+								description: 'Some description',
+								required: true,
+								suggested: false
+							},
+							param2: {
+								required: true
+							}
 						},
-						param2: {
-							required: true
-						}
+						result: true,
+						allowSubset: true,
+						msg: 'Compare: complex objects'
 					},
-					result: true,
-					allowSubset: true,
-					msg: 'Compare: complex objects'
-				},
-				{
-					obj1: {
-						param1: {
-							type: 'unknown',
-							aliases: [ 'alias1', 'alias2', 'alias3' ],
-							description: 'Some description',
-							required: true,
-							suggested: false
+					{
+						obj1: {
+							param1: {
+								type: 'unknown',
+								aliases: [ 'alias1', 'alias2', 'alias3' ],
+								description: 'Some description',
+								required: true,
+								suggested: false
+							},
+							param2: {
+								required: true
+							}
 						},
-						param2: {
-							required: true
-						}
-					},
-					obj2: {
-						param1: {
-							aliases: [ 'alias1', 'alias2', 'alias3' ],
-							suggested: false
-						}
-					},
-					result: true,
-					allowSubset: true,
-					msg: 'Compare: complex objects subset'
-				}
-			],
-			splitAndTrimArray: [
-				{
-					string: 'str1 , str2 ',
-					delim: ',',
-					result: [ 'str1', 'str2' ],
-					msg: 'splitAndTrimArray: split and trim'
-				},
-				{
-					string: 'str1, str2, , , , str3',
-					delim: ',',
-					result: [ 'str1', 'str2', 'str3' ],
-					msg: 'splitAndTrimArray: remove empty values'
-				},
-				{
-					string: 'str1|str2|str3',
-					delim: '|',
-					result: [ 'str1', 'str2', 'str3' ],
-					msg: 'splitAndTrimArray: different delimeter'
-				}
-			],
-			arrayUnionWithoutEmpty: [
-				{
-					arrays: [ [ 'en', 'he', '' ], [ 'he', 'de', '' ], [ 'en', 'de' ] ],
-					result: [ 'en', 'he', 'de' ],
-					msg: 'arrayUnionWithoutEmpty: Remove duplications'
-				},
-				{
-					arrays: [ [ 'en', '', '' ], [ 'he', '', '' ], [ 'de', '' ] ],
-					result: [ 'en', 'he', 'de' ],
-					msg: 'arrayUnionWithoutEmpty: Remove empty values'
-				}
-			],
-			props: {
-				all: [
-					'name',
-					'aliases',
-					'label',
-					'description',
-					'example',
-					'type',
-					'default',
-					'autovalue',
-					'deprecated',
-					'deprecatedValue',
-					'required',
-					'suggested'
+						obj2: {
+							param1: {
+								aliases: [ 'alias1', 'alias2', 'alias3' ],
+								suggested: false
+							}
+						},
+						result: true,
+						allowSubset: true,
+						msg: 'Compare: complex objects subset'
+					}
 				],
-				language: [
-					'label',
-					'description',
-					'example',
-					'default'
-				]
-			}
-		};
+				splitAndTrimArray: [
+					{
+						string: 'str1 , str2 ',
+						delim: ',',
+						result: [ 'str1', 'str2' ],
+						msg: 'splitAndTrimArray: split and trim'
+					},
+					{
+						string: 'str1, str2, , , , str3',
+						delim: ',',
+						result: [ 'str1', 'str2', 'str3' ],
+						msg: 'splitAndTrimArray: remove empty values'
+					},
+					{
+						string: 'str1|str2|str3',
+						delim: '|',
+						result: [ 'str1', 'str2', 'str3' ],
+						msg: 'splitAndTrimArray: different delimeter'
+					}
+				],
+				arrayUnionWithoutEmpty: [
+					{
+						arrays: [ [ 'en', 'he', '' ], [ 'he', 'de', '' ], [ 'en', 'de' ] ],
+						result: [ 'en', 'he', 'de' ],
+						msg: 'arrayUnionWithoutEmpty: Remove duplications'
+					},
+					{
+						arrays: [ [ 'en', '', '' ], [ 'he', '', '' ], [ 'de', '' ] ],
+						result: [ 'en', 'he', 'de' ],
+						msg: 'arrayUnionWithoutEmpty: Remove empty values'
+					}
+				],
+				props: {
+					all: [
+						'name',
+						'aliases',
+						'label',
+						'description',
+						'example',
+						'type',
+						'default',
+						'autovalue',
+						'deprecated',
+						'deprecatedValue',
+						'required',
+						'suggested'
+					],
+					language: [
+						'label',
+						'description',
+						'example',
+						'default'
+					]
+				}
+			};
 
 		// Compare
 		for ( i = 0; i < tests.compare.length; i++ ) {
@@ -384,7 +385,7 @@
 
 	// Test model load
 	QUnit.test( 'TemplateData model', function ( assert ) {
-		var i,
+		var i, testVars,
 			sourceHandler = new mw.TemplateData.SourceHandler(),
 			paramAddTest = [
 				{
@@ -647,7 +648,7 @@
 			'}' +
 			'</templatedata>' +
 			'Trailing text at the end.',
-			finalJsonParams = {
+			params = {
 				user: {
 					label: 'Username',
 					type: 'wiki-user-name',
@@ -685,7 +686,7 @@
 				description: {
 					en: 'Template description in English.'
 				},
-				params: finalJsonParams,
+				params: params,
 				sets: [
 					{
 						label: 'Date',

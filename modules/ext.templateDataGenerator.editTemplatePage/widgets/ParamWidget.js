@@ -2,7 +2,7 @@
  * TemplateData Param Widget
  *
  * @class
- * @extends {OO.ui.DecoratedOptionWidget}
+ * @extends OO.ui.DecoratedOptionWidget
  * @mixins OO.ui.mixin.DraggableElement
  *
  * @param {Object} data Parameter data
