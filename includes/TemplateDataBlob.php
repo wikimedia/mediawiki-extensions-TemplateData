@@ -78,7 +78,7 @@ class TemplateDataBlob {
 	private $json = null;
 
 	/**
-	 * @var Status Cache of TemplateDataBlob::parse
+	 * @var Status
 	 */
 	private $status;
 
@@ -89,8 +89,7 @@ class TemplateDataBlob {
 	 *
 	 * @param IDatabase $db
 	 * @param string $json
-	 * @return TemplateDataBlob|TemplateDataCompressedBlob
-	 * @throws Exception
+	 * @return TemplateDataBlob
 	 */
 	public static function newFromJSON( IDatabase $db, string $json ) : TemplateDataBlob {
 		if ( $db->getType() === 'mysql' ) {
@@ -127,7 +126,7 @@ class TemplateDataBlob {
 	 *
 	 * @param IDatabase $db
 	 * @param string $json
-	 * @return TemplateDataBlob or TemplateDataCompressedBlob
+	 * @return TemplateDataBlob
 	 */
 	public static function newFromDatabase( IDatabase $db, string $json ) : TemplateDataBlob {
 		// Handle GZIP compression. \037\213 is the header for GZIP files.
@@ -612,7 +611,7 @@ class TemplateDataBlob {
 	}
 
 	/**
-	 * @return object
+	 * @return stdClass
 	 */
 	public function getData() {
 		// Return deep clone so callers can't modify data. Needed for getDataInLanguage().
@@ -625,7 +624,7 @@ class TemplateDataBlob {
 	 * appropriate language.
 	 *
 	 * @param string $langCode Preferred language
-	 * @return object
+	 * @return stdClass
 	 */
 	public function getDataInLanguage( string $langCode ) {
 		$data = $this->getData();
@@ -705,6 +704,7 @@ class TemplateDataBlob {
 			$formatMsg = null;
 		} elseif ( isset( self::FORMATS[$data->format] ) ) {
 			$formatMsg = $data->format;
+			'@phan-var string $formatMsg';
 			$icon = 'template-format-' . $formatMsg;
 		} else {
 			$formatMsg = 'custom';
