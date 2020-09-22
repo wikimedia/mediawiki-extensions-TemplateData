@@ -770,4 +770,14 @@
 			} );
 	} );
 
+	QUnit.test( 'safesubst: hack with an unnamed parameter', function ( assert ) {
+		var handler = new mw.TemplateData.SourceHandler(),
+			wikitext = '{{ {{{|safesubst:}}}#invoke:…|{{{1}}}|{{{ 1 }}}}}';
+
+		assert.deepEqual(
+			handler.extractParametersFromTemplateCode( wikitext ),
+			[ '1' ]
+		);
+	} );
+
 }() );

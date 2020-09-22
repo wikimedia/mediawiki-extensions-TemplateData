@@ -1262,6 +1262,10 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				'Lorem {{{name<!--comment-->}}} ipsum <!--{{{surname}}}-->',
 				[ 'name' => [] ]
 			],
+			'safesubst: hack with an unnamed parameter' => [
+				'{{ {{{|safesubst:}}}#invoke:…|{{{1}}}|{{{ 1 }}}}}',
+				[ '1' => [] ]
+			],
 		];
 	}
 

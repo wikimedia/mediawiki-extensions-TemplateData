@@ -899,13 +899,13 @@ class TemplateDataBlob {
 		if ( isset( $rawParams[1] ) ) {
 			foreach ( $rawParams[1] as $rawParam ) {
 				// This normalization process is repeated in JS in ext.TemplateDataGenerator.sourceHandler.js
-				$normalizedParam = preg_replace( '/[-_ ]+/', ' ', strtolower( $rawParam ) );
-				if ( in_array( $normalizedParam, $normalizedParams ) ) {
+				$normalizedParam = strtolower( trim( preg_replace( '/[-_ ]+/', ' ', $rawParam ) ) );
+				if ( !$normalizedParam || in_array( $normalizedParam, $normalizedParams ) ) {
 					// This or a similarly-named parameter has already been found.
 					continue;
 				}
 				$normalizedParams[] = $normalizedParam;
-				$params[ $rawParam ] = [];
+				$params[ trim( $rawParam ) ] = [];
 			}
 		}
 		return $params;
