@@ -96,7 +96,7 @@ class TemplateDataHooks {
 	 * Parser hook for <templatedata>.
 	 * If there is any JSON provided, render the template documentation on the page.
 	 *
-	 * @param string $input The content of the tag.
+	 * @param string|null $input The content of the tag.
 	 * @param array $args The attributes of the tag.
 	 * @param Parser $parser Parser instance available to render
 	 *  wikitext into html, or parser methods.
@@ -106,7 +106,7 @@ class TemplateDataHooks {
 	 * @return string HTML to insert in the page.
 	 */
 	public static function render( $input, $args, Parser $parser, $frame ) {
-		$ti = TemplateDataBlob::newFromJSON( wfGetDB( DB_REPLICA ), $input );
+		$ti = TemplateDataBlob::newFromJSON( wfGetDB( DB_REPLICA ), $input ?? '' );
 
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
