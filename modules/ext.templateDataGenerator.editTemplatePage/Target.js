@@ -30,8 +30,8 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 		label: mw.msg( 'templatedata-editbutton' )
 	} );
 
-	this.editNoticeLabel = new OO.ui.LabelWidget( {
-		classes: [ 'tdg-editscreen-error-msg' ]
+	this.editNoticeMessage = new OO.ui.MessageWidget( {
+		classes: [ 'tdg-editscreen-edit-notice' ]
 	} )
 		.toggle( false );
 
@@ -62,7 +62,7 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 	relatedPage = this.isDocPage ? this.parentPage : this.pageName + '/' + this.docSubpage;
 	this.sourceHandler.getApi( relatedPage )
 		.then( function ( result ) {
-			var msg, matches, content,
+			var msg, content,
 				response = result.query.pages[ result.query.pageids[ 0 ] ];
 			// HACK: When checking whether a related page (parent for /doc page or
 			// vice versa) already has a templatedata string, we shouldn't
@@ -71,18 +71,19 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 			// wrong information is presented.
 			if ( response.missing === undefined ) {
 				content = response.revisions[ 0 ][ '*' ];
-				matches = content.match( /<templatedata>/i );
 				// There's a templatedata string
-				if ( matches ) {
+				if ( content.match( /<templatedata>/i ) ) {
 					// HACK: Setting a link in the messages doesn't work. The bug report offers
 					// a somewhat hacky work around that includes setting a separate message
 					// to be parsed.
 					// https://phabricator.wikimedia.org/T49395#490610
 					msg = mw.message( 'templatedata-exists-on-related-page', relatedPage ).plain();
 					mw.messages.set( { 'templatedata-string-exists-hack-message': msg } );
-					msg = mw.message( 'templatedata-string-exists-hack-message' ).parse();
+					msg = new OO.ui.HtmlSnippet(
+						mw.message( 'templatedata-string-exists-hack-message' ).parse()
+					);
 
-					target.setNoticeMessage( msg, 'warning', true );
+					target.setEditNoticeMessage( msg, 'warning' );
 				}
 			}
 		} );
@@ -96,7 +97,7 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 		.append(
 			this.editOpenDialogButton.$element,
 			$helpLink,
-			this.editNoticeLabel.$element
+			this.editNoticeMessage.$element
 		);
 };
 
@@ -120,37 +121,24 @@ mw.TemplateData.Target.prototype.destroy = function () {
  * Display error message in the edit window
  *
  * @method setNoticeMessage
- * @param {string} msg Message to display
- * @param {string} [type='error'] Message type 'notice' or 'warning' or 'error'
- * @param {boolean} [parseHTML] The message should be parsed
+ * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Message to display
+ * @param {string} type Message type 'notice', 'error', 'warning' or 'success'
  */
-mw.TemplateData.Target.prototype.setNoticeMessage = function ( msg, type, parseHTML ) {
-	var $msg;
-	type = type || 'error';
-	this.editNoticeLabel.$element
-		.toggleClass( 'errorbox', type === 'error' )
-		.toggleClass( 'warningbox', type === 'warning' );
-
-	if ( parseHTML ) {
-		// OOUI's label elements do not parse strings and display them
-		// as-is. If the message contains html that should be parsed,
-		// we have to transform it into a jQuery object
-		$msg = $( '<span>' ).append( $.parseHTML( msg ) );
-		this.editNoticeLabel.setLabel( $msg );
-	} else {
-		this.editNoticeLabel.setLabel( msg );
-	}
-	this.editNoticeLabel.toggle( true );
+mw.TemplateData.Target.prototype.setEditNoticeMessage = function ( label, type ) {
+	this.editNoticeMessage.setLabel( label );
+	this.editNoticeMessage.setType( type );
+	this.editNoticeMessage.toggle( true );
 };
 
 /**
  * Reset the error message in the edit window
  *
- * @method resetNoticeMessage
+ * @method resetEditNoticeMessage
  */
-mw.TemplateData.Target.prototype.resetNoticeMessage = function () {
-	this.editNoticeLabel.setLabel( '' );
-	this.editNoticeLabel.toggle( false );
+mw.TemplateData.Target.prototype.resetEditNoticeMessage = function () {
+	this.editNoticeMessage.setLabel( null );
+	this.editNoticeMessage.setType( 'notice' );
+	this.editNoticeMessage.toggle( false );
 };
 
 /**
@@ -176,7 +164,7 @@ mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
 	var target = this;
 
 	// Reset notice message
-	this.resetNoticeMessage();
+	this.resetEditNoticeMessage();
 
 	this.originalWikitext = this.$textarea.textSelection( 'getContents' );
 
