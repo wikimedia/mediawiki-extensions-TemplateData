@@ -103,8 +103,8 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 
 	this.panels = new OO.ui.StackLayout( { continuous: false } );
 
-	this.listParamsPanel = new OO.ui.PanelLayout( { scrollable: true } );
-	this.editParamPanel = new OO.ui.PanelLayout();
+	this.listParamsPanel = new OO.ui.PanelLayout( { padded: true, scrollable: true } );
+	this.editParamPanel = new OO.ui.PanelLayout( { padded: true } );
 	this.languagePanel = new OO.ui.PanelLayout();
 	this.addParamPanel = new OO.ui.PanelLayout();
 	this.editMapsPanel = new OO.ui.PanelLayout();
@@ -182,7 +182,6 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	mapsListMenuLayout = new OO.ui.MenuLayout( {
 		classes: [ 'mw-templateData-template-map-list-menu-panel' ],
 		menuPosition: 'top',
-		padded: true,
 		expanded: true,
 		contentPanel: mapsListPanel,
 		menuPanel: addNewMapButtonPanel
