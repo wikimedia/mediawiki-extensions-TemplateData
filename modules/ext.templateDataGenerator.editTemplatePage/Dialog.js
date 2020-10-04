@@ -1329,6 +1329,11 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 			language = this.model.getDefaultLanguage();
 			languages = this.model.getExistingLanguageCodes();
 
+			// Bring in the editNoticeMessage from the main page
+			this.listParamsPanel.$element.prepend(
+				data.editNoticeMessage.$element
+			);
+
 			// Fill up the language selection
 			if (
 				languages.length === 0 ||

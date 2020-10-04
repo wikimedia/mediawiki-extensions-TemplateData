@@ -131,17 +131,6 @@ mw.TemplateData.Target.prototype.setEditNoticeMessage = function ( label, type )
 };
 
 /**
- * Reset the error message in the edit window
- *
- * @method resetEditNoticeMessage
- */
-mw.TemplateData.Target.prototype.resetEditNoticeMessage = function () {
-	this.editNoticeMessage.setLabel( null );
-	this.editNoticeMessage.setType( 'notice' );
-	this.editNoticeMessage.toggle( false );
-};
-
-/**
  * Open the templatedata edit dialog
  *
  * @method openEditDialog
@@ -151,7 +140,8 @@ mw.TemplateData.Target.prototype.resetEditNoticeMessage = function () {
 mw.TemplateData.Target.prototype.openEditDialog = function ( dataModel ) {
 	// Open the edit dialog
 	this.windowManager.openWindow( 'TemplateDataDialog', {
-		model: dataModel
+		model: dataModel,
+		editNoticeMessage: this.editNoticeMessage
 	} );
 };
 
@@ -162,9 +152,6 @@ mw.TemplateData.Target.prototype.openEditDialog = function ( dataModel ) {
  */
 mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
 	var target = this;
-
-	// Reset notice message
-	this.resetEditNoticeMessage();
 
 	this.originalWikitext = this.$textarea.textSelection( 'getContents' );
 
