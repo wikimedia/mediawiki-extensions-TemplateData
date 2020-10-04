@@ -98,8 +98,8 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.$spinner = $( '<div>' ).addClass( 'tdg-spinner' ).text( 'working...' );
 	this.$body.append( this.$spinner );
 
-	this.noticeLabel = new OO.ui.LabelWidget();
-	this.noticeLabel.$element.hide();
+	this.noticeMessage = new OO.ui.MessageWidget();
+	this.noticeMessage.toggle( false );
 
 	this.panels = new OO.ui.StackLayout( { continuous: false } );
 
@@ -228,8 +228,8 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 			label: mw.msg( 'templatedata-modal-button-map' )
 		}
 	);
-	this.paramListNoticeLabel = new OO.ui.LabelWidget();
-	this.paramListNoticeLabel.$element.hide();
+	this.paramListNoticeMessage = new OO.ui.MessageWidget();
+	this.paramListNoticeMessage.toggle( false );
 
 	this.paramSelect = new mw.TemplateData.ParamSelectWidget();
 	templateParamsFieldset = new OO.ui.FieldsetLayout( {
@@ -283,20 +283,20 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.listParamsPanel.$element
 		.addClass( 'tdg-templateDataDialog-listParamsPanel' )
 		.append(
-			this.paramListNoticeLabel.$element,
+			this.paramListNoticeMessage.$element,
 			languageActionFieldLayout.$element,
 			this.templateDescriptionFieldset.$element,
 			mapsActionFieldLayout.$element,
 			templateFormatFieldSet.$element,
 			templateParamsFieldset.$element
 		);
-	this.paramEditNoticeLabel = new OO.ui.LabelWidget();
-	this.paramEditNoticeLabel.$element.hide();
+	this.paramEditNoticeMessage = new OO.ui.MessageWidget();
+	this.paramEditNoticeMessage.toggle( false );
 	// Edit panel
 	this.editParamPanel.$element
 		.addClass( 'tdg-templateDataDialog-editParamPanel' )
 		.append(
-			this.paramEditNoticeLabel.$element,
+			this.paramEditNoticeMessage.$element,
 			this.$paramDetailsContainer
 		);
 	// Language panel
@@ -348,7 +348,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 
 	// Initialization
 	this.$body.append(
-		this.noticeLabel.$element,
+		this.noticeMessage.$element,
 		this.panels.$element
 	);
 
@@ -864,7 +864,7 @@ mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetEnter = function () 
 };
 
 mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
-	var err = [],
+	var $errors = $( [] ),
 		anyInputError = false,
 		allProps = mw.TemplateData.Model.static.getAllProperties( true );
 
@@ -874,22 +874,22 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 
 	if ( property === 'name' ) {
 		if ( value.length === 0 ) {
-			err.push( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
+			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) ) );
 		}
 		if ( value !== this.selectedParamKey && this.model.getAllParamNames().indexOf( value ) !== -1 ) {
 			// We're changing the name. Make sure it doesn't conflict.
-			err.push( mw.msg( 'templatedata-modal-errormsg-duplicate-name' ) );
+			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg-duplicate-name' ) ) );
 		}
 	}
 
 	if ( allProps[ property ].restrict ) {
 		if ( value.match( allProps[ property ].restrict ) ) {
 			// Error! Don't fix the model
-			err.push( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) );
+			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) ) );
 		}
 	}
 
-	this.propInputs[ property ].$element.toggleClass( 'tdg-editscreen-input-error', !!err.length );
+	this.propInputs[ property ].$element.toggleClass( 'tdg-editscreen-input-error', !!$errors.length );
 
 	// Check if there is a dependent input to activate
 	if ( allProps[ property ].textValue && this.propFieldLayout[ allProps[ property ].textValue ] ) {
@@ -906,8 +906,8 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 
 	// Disable the 'done' button if there are any errors in the inputs
 	this.actions.setAbilities( { done: !anyInputError } );
-	if ( err.length ) {
-		this.toggleNoticeMessage( 'edit', true, 'error', err.length === 1 ? err[ 0 ] : err );
+	if ( $errors.length ) {
+		this.toggleNoticeMessage( 'edit', true, 'error', $errors );
 	} else {
 		this.toggleNoticeMessage( 'edit', false );
 		this.model.setParamProperty( this.selectedParamKey, property, value, this.language );
@@ -1227,46 +1227,35 @@ mw.TemplateData.Dialog.prototype.getBodyHeight = function () {
  *
  * @param {string} type Which notice label to show: 'list', 'edit' or 'global'; defaults to 'list'
  * @param {boolean} isShowing Show or hide the message
- * @param {string} status Message status 'error' or 'success'
- * @param {string|string[]} noticeMessage The message to display
+ * @param {string} noticeMessageType Message type: 'notice', 'error', 'warning', 'success'
+ * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} noticeMessageLabel The message to display
  */
-mw.TemplateData.Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, status, noticeMessage ) {
-	var noticeReference,
-		$message;
+mw.TemplateData.Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, noticeMessageType, noticeMessageLabel ) {
+	var noticeReference;
 
 	type = type || 'list';
 
 	// Hide all
-	this.noticeLabel.$element.hide();
-	this.paramEditNoticeLabel.$element.hide();
-	this.paramListNoticeLabel.$element.hide();
+	this.noticeMessage.toggle( false );
+	this.paramEditNoticeMessage.toggle( false );
+	this.paramListNoticeMessage.toggle( false );
 
-	if ( noticeMessage ) {
+	if ( noticeMessageLabel ) {
 		// See which error to display
 		if ( type === 'global' ) {
-			noticeReference = this.noticeLabel;
+			noticeReference = this.noticeMessage;
 		} else if ( type === 'edit' ) {
-			noticeReference = this.paramEditNoticeLabel;
+			noticeReference = this.paramEditNoticeMessage;
 		} else {
-			noticeReference = this.paramListNoticeLabel;
+			noticeReference = this.paramListNoticeMessage;
 		}
 		// FIXME: Don't read model information from the DOM
 		// eslint-disable-next-line no-jquery/no-sizzle
 		isShowing = isShowing || !noticeReference.$element.is( ':visible' );
 
-		if ( Array.isArray( noticeMessage ) ) {
-			$message = $( '<div>' );
-			noticeMessage.forEach( function ( msg ) {
-				$message.append( $( '<p>' ).text( msg ) );
-			} );
-			noticeReference.setLabel( $message );
-		} else {
-			noticeReference.setLabel( noticeMessage );
-		}
-		noticeReference.$element
-			.toggle( isShowing )
-			.toggleClass( 'errorbox', status === 'error' )
-			.toggleClass( 'successbox', status === 'success' );
+		noticeReference.setLabel( noticeMessageLabel );
+		noticeReference.setType( noticeMessageType );
+		noticeReference.toggle( isShowing );
 	}
 };
 
@@ -1274,20 +1263,24 @@ mw.TemplateData.Dialog.prototype.toggleNoticeMessage = function ( type, isShowin
  * Import parameters from the source code.
  */
 mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () {
-	var combinedMessage = [],
+	var $message = $( [] ),
 		state = 'success',
 		response = this.model.importSourceCodeParameters();
 	// Repopulate the list
 	this.repopulateParamSelectWidget();
 
 	if ( response.imported.length === 0 ) {
-		combinedMessage.push( mw.msg( 'templatedata-modal-errormsg-import-noparams' ) );
+		$message = $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg-import-noparams' ) );
 		state = 'error';
 	} else {
-		combinedMessage.push( mw.msg( 'templatedata-modal-notice-import-numparams', response.imported.length, response.imported.join( mw.msg( 'comma-separator' ) ) ) );
+		$message = $message.add(
+			$( '<p>' ).text(
+				mw.msg( 'templatedata-modal-notice-import-numparams', response.imported.length, response.imported.join( mw.msg( 'comma-separator' ) ) )
+			)
+		);
 	}
 
-	this.toggleNoticeMessage( 'list', true, state, combinedMessage );
+	this.toggleNoticeMessage( 'list', true, state, $message );
 };
 
 /**

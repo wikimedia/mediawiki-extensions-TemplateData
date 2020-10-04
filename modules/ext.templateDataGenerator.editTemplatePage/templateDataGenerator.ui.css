@@ -10,9 +10,12 @@
 	margin-top: 0.5em;
 }
 
-.successbox,
-.errorbox {
-	padding: 0.5em 1em;
+.tdg-templateDataDialog-panels .oo-ui-messageWidget p {
+	margin: 0;
+}
+
+.tdg-templateDataDialog-panels .oo-ui-messageWidget p + p {
+	margin-bottom: 0.5em;
 }
 
 .tdg-editscreen-input-error input,
