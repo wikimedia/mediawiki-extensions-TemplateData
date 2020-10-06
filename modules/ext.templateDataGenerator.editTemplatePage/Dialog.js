@@ -106,7 +106,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.listParamsPanel = new OO.ui.PanelLayout( { padded: true, scrollable: true } );
 	this.editParamPanel = new OO.ui.PanelLayout( { padded: true } );
 	this.languagePanel = new OO.ui.PanelLayout();
-	this.addParamPanel = new OO.ui.PanelLayout();
+	this.addParamPanel = new OO.ui.PanelLayout( { padded: true } );
 	this.editMapsPanel = new OO.ui.PanelLayout();
 
 	// Language panel
