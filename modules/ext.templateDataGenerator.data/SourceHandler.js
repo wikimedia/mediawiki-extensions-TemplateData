@@ -175,8 +175,8 @@ mw.TemplateData.SourceHandler.prototype.extractParametersFromTemplateCode = func
 
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
 		// This normalization process is repeated in PHP in TemplateDataBlob.php
-		normalizedParamName = matches[ 1 ].replace( /[-_ ]+/, ' ' ).toLowerCase();
-		if ( normalizedParamNames.indexOf( normalizedParamName ) !== -1 ) {
+		normalizedParamName = matches[ 1 ].replace( /[-_ ]+/, ' ' ).trim().toLowerCase();
+		if ( !normalizedParamName || normalizedParamNames.indexOf( normalizedParamName ) !== -1 ) {
 			continue;
 		}
 		if ( paramNames.indexOf( matches[ 1 ] ) === -1 ) {
