@@ -47,34 +47,10 @@
 	box-shadow: 0 5px 16px -8px #0000001f;
 }
 
-.mw-templateData-template-map-group {
-	height: available;
-}
-
 .tdg-templateDataDialog-editMapsPanel .oo-ui-menuLayout > .oo-ui-menuLayout-content {
 	top: 4.3em;
 }
 
 .tdg-templateDataDialog-addingNewMap .oo-ui-menuLayout > .oo-ui-menuLayout-content {
 	top: 6.6em;
-}
-
-.tdg-templateDataDialog-mapsListPanel {
-	height: available;
-}
-
-.mw-templateData-template-map-item {
-	padding: 0.5em 0 0.5em 0.3em;
-	border: 1px solid #fff;
-	border-radius: 2px;
-	width: 100%;
-}
-
-.mw-templateData-template-map-item:hover {
-	background-color: #eaecf0;
-}
-
-.mw-templateData-template-map-item-highlighted,
-.mw-templateData-template-map-item-highlighted:hover {
-	background-color: #eaf3ff;
 }

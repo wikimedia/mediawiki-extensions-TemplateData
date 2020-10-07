@@ -19,7 +19,6 @@ mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
 	this.propInputs = {};
 	this.propFieldLayout = {};
 	this.isSetup = false;
-	this.highlightedMap = null;
 	this.mapsCache = undefined;
 
 	// Initialize
@@ -165,9 +164,8 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 		framed: false,
 		flags: [ 'primary', 'progressive' ]
 	} );
-	this.mapsGroup = new mw.TemplateData.GroupWidget( {
-		classes: [ 'mw-templateData-template-map-group' ],
-		orientation: 'vertical'
+	this.mapsGroup = new OO.ui.OutlineSelectWidget( {
+		classes: [ 'mw-templateData-template-map-group' ]
 	} );
 	addNewMapButtonPanel = new OO.ui.PanelLayout( {
 		classes: [ 'mw-templateData-template-add-map-button-panel' ],
@@ -175,7 +173,6 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 		expanded: true
 	} );
 	mapsListPanel = new OO.ui.PanelLayout( {
-		padded: true,
 		expanded: true,
 		scrollable: true
 	} );
@@ -364,7 +361,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.cancelAddMapButton.connect( this, { click: 'onCancelAddingMap' } );
 	this.saveAddMapButton.connect( this, { click: 'onEmbedNewMap' } );
 	this.newMapNameInput.connect( this, { enter: 'onEmbedNewMap' } );
-	this.mapsGroup.connect( this, { editItem: 'onHighlightMapElement' } );
+	this.mapsGroup.connect( this, { select: 'onMapsGroupSelect' } );
 	this.removeMapButton.connect( this, { click: 'onMapItemRemove' } );
 	this.templateMapsInput.connect( this, { change: 'onMapInfoChange' } );
 	this.paramSelect.connect( this, {
@@ -395,9 +392,12 @@ mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( descripti
  * @param {string} map New description
  */
 mw.TemplateData.Dialog.prototype.onModelChangeMapInfo = function ( map ) {
+	var selectedItem = this.mapsGroup.findSelectedItem();
 	map = map === undefined ? {} : map;
 	this.mapsCache = OO.copy( map );
-	this.templateMapsInput.setValue( this.stringifyObject( map[ this.highlightedMap.label ] ) );
+	if ( selectedItem ) {
+		this.templateMapsInput.setValue( this.stringifyObject( map[ selectedItem.label ] ) );
+	}
 };
 
 /**
@@ -489,20 +489,16 @@ mw.TemplateData.Dialog.prototype.onDescriptionInputChange = function ( value ) {
  * @param {Object} mapsObject  object
  */
 mw.TemplateData.Dialog.prototype.populateMapsItems = function ( mapsObject ) {
-	var mapKeysList,
-		items = [];
+	var mapKeysList, items;
 
 	mapsObject = mapsObject === undefined ? {} : mapsObject;
 	mapKeysList = Object.keys( mapsObject );
 
-	if ( mapKeysList.length > 0 ) {
-		mapKeysList.forEach( function ( mapKey ) {
-			items.push( new mw.TemplateData.ItemWidget( {
-				label: mapKey,
-				classes: [ 'mw-templateData-template-map-item' ]
-			} ) );
+	items = mapKeysList.map( function ( mapKey ) {
+		return new OO.ui.OutlineOptionWidget( {
+			label: mapKey
 		} );
-	}
+	} );
 
 	this.mapsGroup.clearItems();
 	this.mapsGroup.addItems( items );
@@ -517,17 +513,18 @@ mw.TemplateData.Dialog.prototype.populateMapsItems = function ( mapsObject ) {
  * @param {string} value map info value
  */
 mw.TemplateData.Dialog.prototype.onMapInfoChange = function ( value ) {
-	var mapValue;
+	var mapValue,
+		selectedItem = this.mapsGroup.findSelectedItem();
 	// Update map Info
 	this.model.maps = this.model.getMapInfo() === undefined ? {} : this.model.getMapInfo();
-	if ( this.highlightedMap !== null ) {
-		if ( this.model.getMapInfo()[ this.highlightedMap.label ] !== value ) {
+	if ( selectedItem ) {
+		if ( this.model.getMapInfo()[ selectedItem.label ] !== value ) {
 			// Disable Done button in case of invalid JSON
 			try {
 				// This parsing method keeps only the last key/value pair if duplicate keys are defined, and does not throw an error.
 				// Our model will be updated with a valid maps object, but the user may lose their input if it has duplicate key.
 				mapValue = JSON.parse( value );
-				this.mapsCache[ this.highlightedMap.label ] = mapValue;
+				this.mapsCache[ selectedItem.label ] = mapValue;
 				this.actions.setAbilities( { done: true } );
 			} catch ( err ) {
 				// Otherwise disable the done button if maps object is populated
@@ -553,6 +550,7 @@ mw.TemplateData.Dialog.prototype.onAddNewMapClick = function () {
 	this.addNewMapButton.$element.hide();
 	this.newMapNameInput.setValue( '' );
 	this.newMapNameInput.focus();
+	this.mapsGroup.selectItem( null );
 
 	// Text-area show "adding a new map.." message in templateMapsInput and disable the input.
 	this.templateMapsInput.setDisabled( true );
@@ -568,7 +566,7 @@ mw.TemplateData.Dialog.prototype.onAddNewMapClick = function () {
 /**
  * Handle clicking cancel button (for add new map panel)
  *
- * @param {mw.TemplateData.ItemWidget} highlightNext item to be highlighted after adding a new map canceled/done
+ * @param {OO.ui.OutlineOptionWidget} highlightNext item to be highlighted after adding a new map canceled/done
  */
 mw.TemplateData.Dialog.prototype.onCancelAddingMap = function ( highlightNext ) {
 	// Remove the text-area input, cancel button, and show add new map button
@@ -579,7 +577,7 @@ mw.TemplateData.Dialog.prototype.onCancelAddingMap = function ( highlightNext ) 
 	// move the list panel up back as add new map shrank
 	this.editMapsPanel.$element.removeClass( 'tdg-templateDataDialog-addingNewMap' );
 	this.removeMapButton.setDisabled( false );
-	this.onHighlightMapElement( highlightNext );
+	this.mapsGroup.selectItem( highlightNext || this.mapsGroup.findFirstSelectableItem() );
 };
 
 /**
@@ -599,18 +597,16 @@ mw.TemplateData.Dialog.prototype.onEmbedNewMap = function ( response ) {
 	this.mapsCache = this.mapsCache === undefined ? {} : this.mapsCache;
 	// Create a new empty map in maps object
 	this.mapsCache[ mapNameValue ] = {};
-	newlyAddedMap = new mw.TemplateData.ItemWidget( {
-		label: mapNameValue,
-		classes: [ 'mw-templateData-template-map-item' ]
+	newlyAddedMap = new OO.ui.OutlineOptionWidget( {
+		label: mapNameValue
 	} );
-	// Add the new map item and highlight it
+	// Add the new map item and select it
 	if ( mapNameValue.length !== 0 ) {
 		this.mapsGroup.addItems( newlyAddedMap, 0 );
 	} else {
 		delete this.mapsCache[ mapNameValue ];
 	}
 	this.onCancelAddingMap( newlyAddedMap );
-	this.onHighlightMapElement();
 };
 
 /**
@@ -618,56 +614,48 @@ mw.TemplateData.Dialog.prototype.onEmbedNewMap = function ( response ) {
  */
 mw.TemplateData.Dialog.prototype.onMapItemRemove = function () {
 	// Remove the highlighted item
-	this.mapsGroup.removeItems( [ this.highlightedMap ] );
+	this.mapsGroup.removeItems( [ this.mapsGroup.findSelectedItem() ] );
 	// Remove the highlighted map from maps object
-	delete this.mapsCache[ this.highlightedMap.label ];
+	delete this.mapsCache[ this.mapsGroup.findSelectedItem().label ];
 
 	// Highlight another item, or show the search panel if the maps group is now empty
-	this.onHighlightMapElement();
+	this.onMapsGroupSelect();
 };
 
 /**
- * Respond to edits on elements of maps list
- *
- * @param {mw.TemplateData.ItemWidget} item currently highlighted item
+ * Respond to a map group being selected
  */
-mw.TemplateData.Dialog.prototype.onHighlightMapElement = function ( item ) {
-	var currentMapInfo;
+mw.TemplateData.Dialog.prototype.onMapsGroupSelect = function () {
+	var item, currentMapInfo;
 
-	// Cancel the process of adding a map, Cannot call onCancelAddingMap because these two functions
-	// cannot be called recursively
-	// Remove the text-area input, cancel button, and show add new map button
-	this.newMapNameInput.$element.hide();
-	this.cancelAddMapButton.$element.hide();
-	this.saveAddMapButton.$element.hide();
-	this.addNewMapButton.$element.show();
-	// move the list panel up back as add new map shrank
-	this.editMapsPanel.$element.removeClass( 'tdg-templateDataDialog-addingNewMap' );
-	this.removeMapButton.setDisabled( $.isEmptyObject( this.mapsCache ) );
-
-	// Un-highlight previous item
-	if ( this.highlightedMap ) {
-		this.highlightedMap.toggleHighlighted( false );
-	}
-
-	// Highlight new item.
-	// If no item was given, highlight the first item in the group.
-	item = item || this.mapsGroup.items[ 0 ];
+	// Highlight new item
+	item = this.mapsGroup.findSelectedItem();
 
 	if ( !item ) {
 		this.templateMapsInput.setDisabled( true );
 		this.templateMapsInput.setValue( '' );
 	} else {
+
+		// Cancel the process of adding a map, Cannot call onCancelAddingMap because these two functions
+		// cannot be called recursively
+		// Remove the text-area input, cancel button, and show add new map button
+		this.newMapNameInput.$element.hide();
+		this.cancelAddMapButton.$element.hide();
+		this.saveAddMapButton.$element.hide();
+		this.addNewMapButton.$element.show();
+		// move the list panel up back as add new map shrank
+		this.editMapsPanel.$element.removeClass( 'tdg-templateDataDialog-addingNewMap' );
+		this.removeMapButton.setDisabled( $.isEmptyObject( this.mapsCache ) );
+
+		this.mapsGroup.selectItem( item );
 		this.templateMapsInput.setDisabled( false );
-		item.toggleHighlighted( true );
-		this.highlightedMap = item;
 
 		// Scroll item into view in menu
 		OO.ui.Element.static.scrollIntoView( item.$element[ 0 ] );
 
 		// Populate the mapsContentPanel
 		this.mapsCache = this.mapsCache === undefined ? {} : this.mapsCache;
-		currentMapInfo = this.mapsCache[ this.highlightedMap.label ];
+		currentMapInfo = this.mapsCache[ item.label ];
 		this.templateMapsInput.setValue( this.stringifyObject( currentMapInfo ) );
 	}
 
@@ -749,7 +737,10 @@ mw.TemplateData.Dialog.prototype.onNewLanguageSearchResultsChoose = function ( i
  * Respond to edit maps button click
  */
 mw.TemplateData.Dialog.prototype.onMapsPanelButton = function () {
+	var item = this.mapsGroup.findSelectedItem() || this.mapsGroup.findFirstSelectableItem();
 	this.switchPanels( 'editMaps' );
+	// Select first item
+	this.mapsGroup.selectItem( item );
 };
 
 /**
@@ -1387,7 +1378,7 @@ mw.TemplateData.Dialog.prototype.setupDetailsFromModel = function () {
 	// set up maps
 	this.populateMapsItems( this.model.getMapInfo() );
 	this.mapsCache = OO.copy( this.model.getMapInfo() );
-	this.onHighlightMapElement();
+	this.onMapsGroupSelect();
 	if ( this.model.getMapInfo() !== undefined ) {
 		firstMapItem = Object.keys( this.model.getMapInfo() )[ 0 ];
 		this.templateMapsInput.setValue( this.stringifyObject( this.model.getMapInfo()[ firstMapItem ] ) );

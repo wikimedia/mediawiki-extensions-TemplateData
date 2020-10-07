@@ -75,8 +75,6 @@
 				"widgets/ParamImportWidget.js",
 				"widgets/LanguageResultWidget.js",
 				"widgets/LanguageSearchWidget.js",
-				"widgets/GroupWidget.js",
-				"widgets/ItemWidget.js",
 				"Dialog.js",
 				"init.js"
 			],
