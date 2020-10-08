@@ -3,7 +3,8 @@
 /**
  * @group TemplateData
  * @group Database
- * @covers TemplateDataBlob
+ * @covers \TemplateDataBlob
+ * @covers \TemplateDataCompressedBlob
  */
 class TemplateDataBlobTest extends MediaWikiTestCase {
 
