@@ -49,6 +49,7 @@ mw.TemplateData.Dialog.static.actions = [
 	{
 		action: 'add',
 		label: mw.msg( 'templatedata-modal-button-addparam' ),
+		icon: 'add',
 		flags: [ 'progressive' ],
 		modes: 'list'
 	},
@@ -116,7 +117,8 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 		placeholder: mw.msg( 'templatedata-modal-placeholder-paramkey' )
 	} );
 	this.addParamButton = new OO.ui.ButtonWidget( {
-		label: mw.msg( 'templatedata-modal-button-addparam' )
+		label: mw.msg( 'templatedata-modal-button-addparam' ),
+		flags: [ 'progressive', 'primary' ]
 	} );
 	addParamFieldlayout = new OO.ui.ActionFieldLayout(
 		this.newParamInput,
@@ -195,7 +197,8 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	// Param list panel (main)
 	this.languageDropdownWidget = new OO.ui.DropdownWidget();
 	this.languagePanelButton = new OO.ui.ButtonWidget( {
-		label: mw.msg( 'templatedata-modal-button-add-language' )
+		label: mw.msg( 'templatedata-modal-button-add-language' ),
+		flags: [ 'progressive' ]
 	} );
 
 	languageActionFieldLayout = new OO.ui.ActionFieldLayout(
