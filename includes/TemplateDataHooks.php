@@ -68,7 +68,7 @@ class TemplateDataHooks {
 		$format = $content->getContentHandler()->getDefaultFormat();
 		$editInfo = $page->prepareContentForEdit( $content, null, $user, $format );
 
-		$templateDataStatus = $editInfo->output->getExtensionData( 'TemplateDataStatus' );
+		$templateDataStatus = self::getStatusFromParserOutput( $editInfo->output );
 		if ( $templateDataStatus instanceof Status && !$templateDataStatus->isOK() ) {
 			// Abort edit, show error message from TemplateDataBlob::getStatus
 			$status->merge( $templateDataStatus );
@@ -110,7 +110,7 @@ class TemplateDataHooks {
 
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
-			$parser->getOutput()->setExtensionData( 'TemplateDataStatus', $status );
+			self::setStatusToParserOutput( $parser->getOutput(), $status );
 			return '<div class="errorbox">' . $status->getHTML() . '</div>';
 		}
 
@@ -210,6 +210,71 @@ class TemplateDataHooks {
 			}
 
 			$tplData[$tplTitle] = $tdb->getData();
+		}
+	}
+
+	/**
+	 * Write the status to ParserOutput object.
+	 * @param ParserOutput $parserOutput
+	 * @param Status $status
+	 */
+	public static function setStatusToParserOutput( ParserOutput $parserOutput, Status $status ) {
+		$parserOutput->setExtensionData( 'TemplateDataStatus', $status );
+		// TODO: make JSON serializable. See T266252.
+		// $parserOutput->setExtensionData( 'TemplateDataStatus',
+		// 	self::jsonSerializeStatus( $status ) );
+	}
+
+	/**
+	 * @param ParserOutput $parserOutput
+	 * @return Status|null
+	 */
+	public static function getStatusFromParserOutput( ParserOutput $parserOutput ) {
+		$status = $parserOutput->getExtensionData( 'TemplateDataStatus' );
+		if ( is_array( $status ) ) {
+			return self::newStatusFromJson( $status );
+		}
+		return $status;
+	}
+
+	/**
+	 * @param array $status contains StatusValue ok and errors fields (does not serialize value)
+	 * @return Status
+	 */
+	public static function newStatusFromJson( array $status ) : Status {
+		if ( $status['ok'] ) {
+			return Status::newGood();
+		} else {
+			$statusObj = new Status();
+			$errors = $status['errors'];
+			foreach ( $errors as $error ) {
+				$statusObj->fatal( $error['message'], ...$error['params'] );
+			}
+			$warnings = $status['warnings'];
+			foreach ( $warnings as $warning ) {
+				$statusObj->warning( $warning['message'], ...$warning['params'] );
+			}
+			return $statusObj;
+		}
+	}
+
+	/**
+	 * @param Status $status
+	 * @return array contains StatusValue ok and errors fields (does not serialize value)
+	 */
+	public static function jsonSerializeStatus( Status $status ) : array {
+		if ( $status->isOK() ) {
+			return [
+				'ok' => true
+			];
+		} else {
+			list( $errorsOnlyStatus, $warningsOnlyStatus ) = $status->splitByErrorType();
+			// note that non-scalar values are not supported in errors or warnings
+			return [
+				'ok' => false,
+				'errors' => $errorsOnlyStatus->getErrors(),
+				'warnings' => $warningsOnlyStatus->getErrors()
+			];
 		}
 	}
 }
