@@ -227,10 +227,8 @@ class TemplateDataHooks {
 	 * @param Status $status
 	 */
 	public static function setStatusToParserOutput( ParserOutput $parserOutput, Status $status ) {
-		$parserOutput->setExtensionData( 'TemplateDataStatus', $status );
-		// TODO: make JSON serializable. See T266252.
-		// $parserOutput->setExtensionData( 'TemplateDataStatus',
-		// 	self::jsonSerializeStatus( $status ) );
+		$parserOutput->setExtensionData( 'TemplateDataStatus',
+			self::jsonSerializeStatus( $status ) );
 	}
 
 	/**
