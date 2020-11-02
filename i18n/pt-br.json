@@ -81,7 +81,7 @@
 	"templatedata-modal-errormsg": "Erros encontrados. Certifique-se de que não existam nomes de parâmetros vazios ou duplicados e que o nome do parâmetro não inclua \"$1\", \"$2\" ou \"$3\".",
 	"templatedata-modal-errormsg-duplicate-name": "Foi encontrado um erro. O nome escolhido já está para ser utilizado por outro parâmetro.",
 	"templatedata-modal-errormsg-import-noparams": "Não foram encontrados novos parâmetros durante a importação.",
-	"templatedata-modal-format-block": "Bloquear",
+	"templatedata-modal-format-block": "Em bloco",
 	"templatedata-modal-format-custom": "Personalizado",
 	"templatedata-modal-format-inline": "Em linha",
 	"templatedata-modal-format-null": "Não especificado",
