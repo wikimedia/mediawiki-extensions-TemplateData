@@ -332,7 +332,9 @@ class TemplateDataHooks {
 		$logger = LoggerFactory::getInstance( 'TemplateData' );
 		$size = count( $titles );
 
-		$stats->updateCount( 'templatedata.query.size.' . $size, 1 );
+		// magnitude buckets: 1 -> 0, 8 -> 1, 12 -> 2, 78 -> 2, 120 -> 3, ...
+		$magnitude = $size ? ceil( log10( $size ) ) : 0;
+		$stats->updateCount( 'templatedata.query.magnitude.' . $magnitude, 1 );
 
 		if ( $size < 2 ) {
 			$logger->debug( 'Single title query', [
