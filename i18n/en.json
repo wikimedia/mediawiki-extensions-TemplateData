@@ -35,7 +35,7 @@
 	"templatedata-doc-param-type-unknown": "Unknown",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "File",
-	"templatedata-doc-param-type-wiki-page-name": "Page",
+	"templatedata-doc-param-type-wiki-page-name": "Page name",
 	"templatedata-doc-param-type-wiki-template-name": "Template",
 	"templatedata-doc-param-type-wiki-user-name": "User",
 	"templatedata-doc-params": "Template parameters",
