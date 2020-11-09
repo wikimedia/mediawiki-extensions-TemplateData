@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dbc334",
 			"Eleassar",
 			"Janezdrilc"
 		]
@@ -33,7 +34,7 @@
 	"templatedata-doc-param-type-unknown": "Neznano",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "Datoteka",
-	"templatedata-doc-param-type-wiki-page-name": "Stran",
+	"templatedata-doc-param-type-wiki-page-name": "Ime strani",
 	"templatedata-doc-param-type-wiki-template-name": "Predloga",
 	"templatedata-doc-param-type-wiki-user-name": "Uporabnik",
 	"templatedata-doc-params": "Parametri predloge",

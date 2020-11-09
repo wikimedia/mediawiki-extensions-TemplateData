@@ -36,7 +36,7 @@
 	"templatedata-doc-param-type-unknown": "Desconegut",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "Fitxer",
-	"templatedata-doc-param-type-wiki-page-name": "Pàgina",
+	"templatedata-doc-param-type-wiki-page-name": "Nom de la pàgina:",
 	"templatedata-doc-param-type-wiki-template-name": "Plantilla",
 	"templatedata-doc-param-type-wiki-user-name": "Usuari",
 	"templatedata-doc-params": "Paràmetres de la plantilla",
