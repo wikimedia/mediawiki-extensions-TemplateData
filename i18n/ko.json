@@ -43,7 +43,7 @@
 	"templatedata-doc-param-type-unknown": "알 수 없음",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "파일",
-	"templatedata-doc-param-type-wiki-page-name": "문서",
+	"templatedata-doc-param-type-wiki-page-name": "문서 이름",
 	"templatedata-doc-param-type-wiki-template-name": "틀",
 	"templatedata-doc-param-type-wiki-user-name": "사용자",
 	"templatedata-doc-params": "틀 변수",
