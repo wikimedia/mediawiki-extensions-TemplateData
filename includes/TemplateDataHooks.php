@@ -1,8 +1,4 @@
 <?php
-
-use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\MediaWikiServices;
-
 /**
  * Hooks for TemplateData extension
  *
@@ -164,8 +160,6 @@ class TemplateDataHooks {
 	public static function onParserFetchTemplateData( array $tplTitles, array &$tplData ): void {
 		$tplData = [];
 
-		self::logBatchUsage( $tplTitles, 'hook' );
-
 		// This inefficient implementation is currently tuned for
 		// Parsoid's use case where it requests info for exactly one title.
 		// For a real batch use case, this code will need an overhaul.
@@ -206,8 +200,6 @@ class TemplateDataHooks {
 				$tplData[$tplTitle] = (object)[ "notemplatedata" => true ];
 				continue;
 			}
-
-			self::logParserCacheStatus( $title );
 
 			$tdb = TemplateDataBlob::newFromDatabase( wfGetDB( DB_REPLICA ), $props[$pageId] );
 			$status = $tdb->getStatus();
@@ -281,68 +273,6 @@ class TemplateDataHooks {
 				'errors' => $errorsOnlyStatus->getErrors(),
 				'warnings' => $warningsOnlyStatus->getErrors()
 			];
-		}
-	}
-
-	/**
-	 * @unstable temporary addition to determine whether we can rely on the parser cache for
-	 * storing the parsed TemplateData, instead of putting the data into the page_props table.
-	 *
-	 * @todo Remove once we have gathers sufficient data on live usage patterns (T266200).
-	 *
-	 * @param Title $title
-	 */
-	public static function logParserCacheStatus( Title $title ) {
-		$pageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
-		$parserCache = MediaWikiServices::getInstance()->getParserCache();
-
-		$page = $pageFactory->newFromTitle( $title );
-		$meta = $parserCache->getMetadata( $page );
-
-		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
-		$logger = LoggerFactory::getInstance( 'TemplateData' );
-
-		if ( $meta ) {
-			$stats->updateCount( 'templatedata.parsercache.hit', 1 );
-			$logger->debug( 'Parser cache hit', [
-				'template-title' => $title->getPrefixedDBkey(),
-			] );
-		} else {
-			$stats->updateCount( 'templatedata.parsercache.miss', 1 );
-
-			$logger->info( 'Parser cache miss', [
-				'template-title' => $title->getPrefixedDBkey(),
-			] );
-		}
-	}
-
-	/**
-	 * @unstable temporary addition to determine whether we can rely on the parser cache for
-	 * storing the parsed TemplateData, instead of putting the data into the page_props table.
-	 *
-	 * @todo Remove once we have gathers sufficient data on live usage patterns (T266200).
-	 *
-	 * @param Title[]|string[] $titles
-	 * @param string $context
-	 */
-	public static function logBatchUsage( $titles, $context ) {
-		$stats = MediaWikiServices::getInstance()->getStatsdDataFactory();
-		$logger = LoggerFactory::getInstance( 'TemplateData' );
-		$size = count( $titles );
-
-		// magnitude buckets: 1 -> 0, 8 -> 1, 12 -> 2, 78 -> 2, 120 -> 3, ...
-		$magnitude = $size ? ceil( log10( $size ) ) : 0;
-		$stats->updateCount( 'templatedata.query.magnitude.' . $magnitude, 1 );
-
-		if ( $size < 2 ) {
-			$logger->debug( 'Single title query', [
-				'context' => $context,
-			] );
-		} else {
-			$logger->info( 'Batch query', [
-				'title-count' => $size,
-				'context' => $context,
-			] );
 		}
 	}
 }

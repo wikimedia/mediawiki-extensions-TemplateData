@@ -69,8 +69,6 @@ class ApiTemplateData extends ApiBase {
 		$titles = $pageSet->getGoodTitles(); // page_id => Title object
 		$missingTitles = $pageSet->getMissingTitles(); // page_id => Title object
 
-		TemplateDataHooks::logBatchUsage( $pageSet->getTitles(), 'API' );
-
 		$includeMissingTitles = $this->getParameter( 'includeMissingTitles' );
 		$doNotIgnoreMissingTitles = $this->getParameter( 'doNotIgnoreMissingTitles' );
 		if ( $doNotIgnoreMissingTitles ) {
@@ -108,8 +106,6 @@ class ApiTemplateData extends ApiBase {
 			);
 
 			foreach ( $res as $row ) {
-				TemplateDataHooks::logParserCacheStatus( $titles[$row->pp_page] );
-
 				$rawData = $row->pp_value;
 				$tdb = TemplateDataBlob::newFromDatabase( $db, $rawData );
 				$status = $tdb->getStatus();
