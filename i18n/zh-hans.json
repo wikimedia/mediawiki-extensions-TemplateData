@@ -3,6 +3,7 @@
 		"authors": [
 			"Arthur2e5",
 			"Cwek",
+			"Func",
 			"Hzy980512",
 			"Liuxinyu970226",
 			"Mywood",
@@ -42,7 +43,7 @@
 	"templatedata-doc-param-type-unknown": "未知",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "文件",
-	"templatedata-doc-param-type-wiki-page-name": "页面",
+	"templatedata-doc-param-type-wiki-page-name": "页面名",
 	"templatedata-doc-param-type-wiki-template-name": "模板",
 	"templatedata-doc-param-type-wiki-user-name": "用户",
 	"templatedata-doc-params": "模板参数",
