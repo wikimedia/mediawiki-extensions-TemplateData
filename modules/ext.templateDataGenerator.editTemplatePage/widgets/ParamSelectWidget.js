@@ -3,7 +3,7 @@
  *
  * @class
  * @extends OO.ui.SelectWidget
- * @mixins OO.ui.mixin.DraggableGroupElement
+ * @mixes OO.ui.mixin.DraggableGroupElement
  *
  * @param {Object} config Dialog configuration object
  */
