@@ -27,6 +27,7 @@
 		"ApiTemplateData": "includes/api/ApiTemplateData.php"
 	},
 	"Hooks": {
+		"EditPage::showEditForm:fields": "TemplateDataHooks::onEditPageShowEditFormFields",
 		"ParserFirstCallInit": "TemplateDataHooks::onParserFirstCallInit",
 		"PageContentSave": "TemplateDataHooks::onPageContentSave",
 		"ResourceLoaderRegisterModules": "TemplateDataHooks::onResourceLoaderRegisterModules",
@@ -217,7 +218,7 @@
 	"attributes": {
 		"EventLogging": {
 			"Schemas": {
-				"TemplateDataEditor": 20735408
+				"TemplateDataEditor": 20759032
 			}
 		},
 		"VisualEditor": {

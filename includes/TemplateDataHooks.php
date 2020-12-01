@@ -1,4 +1,7 @@
 <?php
+
+use MediaWiki\MediaWikiServices;
+
 /**
  * Hooks for TemplateData extension
  *
@@ -7,6 +10,19 @@
  */
 
 class TemplateDataHooks {
+
+	/**
+	 * @param EditPage $editPage
+	 * @param OutputPage $out
+	 */
+	public static function onEditPageShowEditFormFields( EditPage $editPage, OutputPage $out ) {
+		// TODO: Remove when not needed any more, see T267926
+		if ( $out->getRequest()->getBool( 'TemplateDataGeneratorUsed' ) ) {
+			// Recreate the dynamically created field after the user clicked "preview"
+			$out->addHTML( Html::hidden( 'TemplateDataGeneratorUsed', true ) );
+		}
+	}
+
 	/**
 	 * Register parser hooks
 	 * @param Parser $parser
@@ -67,14 +83,61 @@ class TemplateDataHooks {
 		// Specify format the same way the API and EditPage do to avoid extra parsing
 		$format = $content->getContentHandler()->getDefaultFormat();
 		$editInfo = $page->prepareContentForEdit( $content, null, $user, $format );
+		$parserOutput = $editInfo->getOutput();
 
-		$templateDataStatus = self::getStatusFromParserOutput( $editInfo->output );
+		$templateDataStatus = self::getStatusFromParserOutput( $parserOutput );
 		if ( $templateDataStatus instanceof Status && !$templateDataStatus->isOK() ) {
 			// Abort edit, show error message from TemplateDataBlob::getStatus
 			$status->merge( $templateDataStatus );
 			return false;
 		}
+
+		// TODO: Remove when not needed any more, see T267926
+		self::logChangeEvent( $page, $parserOutput->getProperty( 'templatedata' ), $user );
+
 		return true;
+	}
+
+	/**
+	 * @param WikiPage $page
+	 * @param string|false $newPageProperty
+	 * @param User $user
+	 */
+	private static function logChangeEvent( WikiPage $page, $newPageProperty, User $user ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
+			return;
+		}
+
+		$services = MediaWikiServices::getInstance();
+		$title = $page->getTitle();
+		$pageId = $page->getId();
+		$props = $services->getPageProps()->getProperties( $title, 'templatedata' );
+		// The JSON strings here are guaranteed to be normalized (and possibly compressed) the same
+		// way. No need to normalize them again for this comparison.
+		if ( $newPageProperty === ( $props[$pageId] ?? false ) ) {
+			return;
+		}
+
+		$generatorUsed = RequestContext::getMain()->getRequest()->getBool( 'TemplateDataGeneratorUsed' );
+		$revision = $page->getRevisionRecord();
+
+		// Note: We know that irrelevant changes (e.g. whitespace changes) aren't logged here
+		EventLogging::logEvent(
+			'TemplateDataEditor',
+			// See https://meta.wikimedia.org/w/?oldid=20746997, keep in sync with extension.json!
+			20746997,
+			[
+				// Note: The "Done" button is disabled unless something changed, which means it's
+				// very likely (but not guaranteed) the generator was used to make the changes
+				'action' => $generatorUsed ? 'save-tag-edit-generator-used' : 'save-tag-edit-no-generator',
+				'page_id' => $pageId,
+				'page_namespace' => $title->getNamespace(),
+				'page_title' => $title->getText(),
+				'rev_id' => $revision ? $revision->getId() : 0,
+				'user_edit_count' => $user->getEditCount() ?? 0,
+				'user_id' => $user->getId(),
+			]
+		);
 	}
 
 	/**
