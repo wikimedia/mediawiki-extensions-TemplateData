@@ -1537,6 +1537,9 @@ Dialog.prototype.getActionProcess = function ( action ) {
 	}
 	if ( action === 'apply' ) {
 		return new OO.ui.Process( function () {
+			Metrics.logEvent( this.model.getOriginalTemplateDataObject() ?
+				'save-page-edit' : 'save-page-create' );
+
 			this.emit( 'apply', this.model.outputTemplateData() );
 			this.close( { action: action } );
 		}, this );
