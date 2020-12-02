@@ -1,4 +1,5 @@
 var LanguageSearchWidget = require( './widgets/LanguageSearchWidget.js' ),
+	Metrics = require( './Metrics.js' ),
 	Model = require( 'ext.templateDataGenerator.data' ).Model,
 	ParamImportWidget = require( './widgets/ParamImportWidget.js' ),
 	ParamSelectWidget = require( './widgets/ParamSelectWidget.js' ),
@@ -385,7 +386,6 @@ Dialog.prototype.initialize = function () {
 		change: 'onTemplateFormatInputWidgetChange',
 		enter: 'onTemplateFormatInputWidgetEnter'
 	} );
-
 };
 
 /**
@@ -1413,6 +1413,9 @@ Dialog.prototype.setupDetailsFromModel = function () {
 
 	// Repopulate the parameter list
 	this.repopulateParamSelectWidget();
+
+	Metrics.logEvent( this.model.getOriginalTemplateDataObject() ?
+		'dialog-open-edit' : 'dialog-open-create' );
 };
 
 /**

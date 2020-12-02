@@ -76,6 +76,7 @@
 				"widgets/LanguageResultWidget.js",
 				"widgets/LanguageSearchWidget.js",
 				"Dialog.js",
+				"Metrics.js",
 				"Target.js"
 			],
 			"dependencies": [
@@ -214,6 +215,11 @@
 		]
 	},
 	"attributes": {
+		"EventLogging": {
+			"Schemas": {
+				"TemplateDataEditor": 20735408
+			}
+		},
 		"VisualEditor": {
 			"PluginModules": [
 				"ext.templateDataGenerator.editPage"
