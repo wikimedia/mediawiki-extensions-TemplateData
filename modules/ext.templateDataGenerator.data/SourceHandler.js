@@ -76,13 +76,16 @@ SourceHandler.prototype.getApi = function ( page, getTemplateData ) {
  *  or is rejected if the model was impossible to create.
  */
 SourceHandler.prototype.buildModel = function ( wikitext ) {
-	var tdObject;
+	var tdObject = null,
+		templateDataString = this.findModelInString( wikitext );
 
-	// Get the TemplateData and parse it
-	tdObject = this.parseModelFromString( wikitext );
-	if ( !tdObject ) {
-		// The json object is invalid. There's no need to continue.
-		return $.Deferred().reject();
+	if ( templateDataString !== null ) {
+		try {
+			tdObject = JSON.parse( templateDataString );
+		} catch ( err ) {
+			// The json object is invalid. There's no need to continue.
+			return $.Deferred().reject();
+		}
 	}
 
 	// Get parameters from source code
@@ -191,32 +194,23 @@ SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateC
 };
 
 /**
- * Look for a templatedata json string and convert it into
- * the object, if it exists.
+ * Look for a templatedata json string and return it, if it exists.
  *
  * @param {string} templateDataString Wikitext templatedata string
- * @return {Object|null} The parsed json string. Empty if no
- * templatedata string was found. Null if the json string
- * failed to parse.
+ * @return {string|null} The isolated json string. Empty if no
+ * templatedata string was found.
  */
-SourceHandler.prototype.parseModelFromString = function ( templateDataString ) {
+SourceHandler.prototype.findModelInString = function ( templateDataString ) {
 	var parts;
 
 	parts = templateDataString.match(
 		/<templatedata>([\s\S]*?)<\/templatedata>/i
 	);
 
-	// Check if <templatedata> exists
 	if ( parts && parts[ 1 ] && parts[ 1 ].trim().length > 0 ) {
-		// Parse the json string
-		try {
-			return JSON.parse( parts[ 1 ].trim() );
-		} catch ( err ) {
-			return null;
-		}
+		return parts[ 1 ].trim();
 	} else {
-		// Return empty model
-		return { params: {} };
+		return null;
 	}
 };
 
