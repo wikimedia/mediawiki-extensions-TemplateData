@@ -5,28 +5,28 @@
  * @extends OO.ui.ButtonWidget
  * @param {Object} [config]
  */
-mw.TemplateData.ParamImportWidget = function mwTemplateDataParamImportWidget( config ) {
+function ParamImportWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	mw.TemplateData.ParamImportWidget.parent.call( this, $.extend( {
+	ParamImportWidget.parent.call( this, $.extend( {
 		icon: 'parameter-set'
 	}, config ) );
 
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataParamImportWidget' );
-};
+}
 
 /* Inheritance */
 
-OO.inheritClass( mw.TemplateData.ParamImportWidget, OO.ui.ButtonWidget );
+OO.inheritClass( ParamImportWidget, OO.ui.ButtonWidget );
 
 /**
  * Build the parameter label in the parameter select widget
  *
  * @param {string[]} params Param names
  */
-mw.TemplateData.ParamImportWidget.prototype.buildParamLabel = function ( params ) {
+ParamImportWidget.prototype.buildParamLabel = function ( params ) {
 	var paramNames = params.slice( 0, 9 ).join( mw.msg( 'comma-separator' ) ),
 		$paramName = $( '<div>' )
 			.addClass( 'tdg-templateDataParamWidget-param-name' ),
@@ -38,3 +38,5 @@ mw.TemplateData.ParamImportWidget.prototype.buildParamLabel = function ( params 
 
 	this.setLabel( $paramName.add( $description ) );
 };
+
+module.exports = ParamImportWidget;

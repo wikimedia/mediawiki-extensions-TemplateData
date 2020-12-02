@@ -13,6 +13,7 @@ $( function () {
 
 	new mw.Api().loadMessages( 'templatedata-doc-subpage', { amlang: mw.config.get( 'wgContentLanguage' ) } ).then( function () {
 		var pieces, isDocPage, target,
+			Target = require( './Target.js' ),
 			pageName = mw.config.get( 'wgPageName' ),
 			docSubpage = mw.msg( 'templatedata-doc-subpage' ),
 			config = {
@@ -42,7 +43,7 @@ $( function () {
 		// Textbox wikitext editor
 		if ( $textbox.length ) {
 			// Prepare the editor
-			target = new mw.TemplateData.Target( $textbox, config );
+			target = new Target( $textbox, config );
 			$( '#mw-content-text' ).prepend( target.$element );
 		}
 		// Visual editor source mode
@@ -51,7 +52,7 @@ $( function () {
 			if ( surface.getMode() === 'source' ) {
 				// Source mode will have created a dummy textbox
 				$textbox = $( '#wpTextbox1' );
-				target = new mw.TemplateData.Target( $textbox, config );
+				target = new Target( $textbox, config );
 				// Use the same font size as main content text
 				target.$element.addClass( 'mw-body-content' );
 				$( '.ve-init-mw-desktopArticleTarget-originalContent' ).prepend( target.$element );

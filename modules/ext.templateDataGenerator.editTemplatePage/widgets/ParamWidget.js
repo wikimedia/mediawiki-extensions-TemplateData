@@ -8,11 +8,11 @@
  * @param {Object} data Parameter data
  * @param {Object} [config] Configuration object
  */
-mw.TemplateData.ParamWidget = function mwTemplateDataParamWidget( data, config ) {
+function ParamWidget( data, config ) {
 	config = config || {};
 
 	// Parent constructor
-	mw.TemplateData.ParamWidget.parent.call( this, $.extend( {}, config, { data: data.key, icon: 'menu' } ) );
+	ParamWidget.parent.call( this, $.extend( {}, config, { data: data.key, icon: 'menu' } ) );
 
 	// Mixin constructors
 	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$icon } ) );
@@ -25,18 +25,18 @@ mw.TemplateData.ParamWidget = function mwTemplateDataParamWidget( data, config )
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataParamWidget' );
 	this.buildParamLabel();
-};
+}
 
 /* Inheritance */
 
-OO.inheritClass( mw.TemplateData.ParamWidget, OO.ui.DecoratedOptionWidget );
+OO.inheritClass( ParamWidget, OO.ui.DecoratedOptionWidget );
 
-OO.mixinClass( mw.TemplateData.ParamWidget, OO.ui.mixin.DraggableElement );
+OO.mixinClass( ParamWidget, OO.ui.mixin.DraggableElement );
 
 /**
  * Build the parameter label in the parameter select widget
  */
-mw.TemplateData.ParamWidget.prototype.buildParamLabel = function () {
+ParamWidget.prototype.buildParamLabel = function () {
 	var i, len,
 		keys = this.aliases.slice(),
 		$paramName = $( '<div>' )
@@ -61,3 +61,5 @@ mw.TemplateData.ParamWidget.prototype.buildParamLabel = function () {
 
 	this.setLabel( $aliases.add( $paramName ).add( $description ) );
 };
+
+module.exports = ParamWidget;

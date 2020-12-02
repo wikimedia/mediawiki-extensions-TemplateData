@@ -1,4 +1,5 @@
-var DataModule = require( 'ext.templateDataGenerator.data' ),
+var Dialog = require( './Dialog.js' ),
+	DataModule = require( 'ext.templateDataGenerator.data' ),
 	Model = DataModule.Model,
 	SourceHandler = DataModule.SourceHandler;
 
@@ -7,18 +8,18 @@ var DataModule = require( 'ext.templateDataGenerator.data' ),
  *
  * @class
  * @extends OO.ui.Element
- * @mixin OO.EventEmitter
+ * @mixes OO.EventEmitter
  *
  * @constructor
  * @param {jQuery} $textarea Editor textarea
  * @param {Object} config Configuration options
  */
-mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
+function Target( $textarea, config ) {
 	var $helpLink, relatedPage,
 		target = this;
 
 	// Parent constructor
-	mw.TemplateData.Target.super.call( this, config );
+	Target.super.call( this, config );
 
 	// Mixin constructor
 	OO.EventEmitter.call( this );
@@ -53,7 +54,7 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 	OO.ui.getWindowManager().$element.before( this.windowManager.$element );
 
 	// Dialog
-	this.tdgDialog = new mw.TemplateData.Dialog( config );
+	this.tdgDialog = new Dialog( config );
 	this.windowManager.addWindows( [ this.tdgDialog ] );
 
 	this.sourceHandler = new SourceHandler( {
@@ -103,20 +104,20 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 			$helpLink,
 			this.editNoticeMessage.$element
 		);
-};
+}
 
 /* Inheritance */
 
-OO.inheritClass( mw.TemplateData.Target, OO.ui.Element );
+OO.inheritClass( Target, OO.ui.Element );
 
-OO.mixinClass( mw.TemplateData.Target, OO.EventEmitter );
+OO.mixinClass( Target, OO.EventEmitter );
 
 /* Methods */
 
 /**
  * Destroy the target
  */
-mw.TemplateData.Target.prototype.destroy = function () {
+Target.prototype.destroy = function () {
 	this.windowManager.destroy();
 	this.$element.remove();
 };
@@ -128,7 +129,7 @@ mw.TemplateData.Target.prototype.destroy = function () {
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Message to display
  * @param {string} type Message type 'notice', 'error', 'warning' or 'success'
  */
-mw.TemplateData.Target.prototype.setEditNoticeMessage = function ( label, type ) {
+Target.prototype.setEditNoticeMessage = function ( label, type ) {
 	this.editNoticeMessage.setLabel( label );
 	this.editNoticeMessage.setType( type );
 	this.editNoticeMessage.toggle( true );
@@ -141,7 +142,7 @@ mw.TemplateData.Target.prototype.setEditNoticeMessage = function ( label, type )
  * @param {Model} dataModel The data model
  * associated with this edit dialog.
  */
-mw.TemplateData.Target.prototype.openEditDialog = function ( dataModel ) {
+Target.prototype.openEditDialog = function ( dataModel ) {
 	// Open the edit dialog
 	this.windowManager.openWindow( 'TemplateDataDialog', {
 		model: dataModel,
@@ -154,7 +155,7 @@ mw.TemplateData.Target.prototype.openEditDialog = function ( dataModel ) {
  *
  * @method onEditOpenDialogButton
  */
-mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
+Target.prototype.onEditOpenDialogButton = function () {
 	var target = this;
 
 	this.originalWikitext = this.$textarea.textSelection( 'getContents' );
@@ -207,7 +208,7 @@ mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
  * @method replaceTemplateData
  * @param {Object} newTemplateData New templatedata
  */
-mw.TemplateData.Target.prototype.replaceTemplateData = function ( newTemplateData ) {
+Target.prototype.replaceTemplateData = function ( newTemplateData ) {
 	var matches, templateDataOutput,
 		templateDataJSON = JSON.stringify( newTemplateData, null, '\t' ),
 		templatedataPattern = /(<templatedata>\s*)([\s\S]*?)\s*<\/templatedata>/i;
@@ -247,7 +248,7 @@ mw.TemplateData.Target.prototype.replaceTemplateData = function ( newTemplateDat
  * @method onDialogApply
  * @param {Object} templateData New templatedata
  */
-mw.TemplateData.Target.prototype.onDialogApply = function ( templateData ) {
+Target.prototype.onDialogApply = function ( templateData ) {
 	var target = this;
 
 	if (
@@ -277,3 +278,5 @@ mw.TemplateData.Target.prototype.onDialogApply = function ( templateData ) {
 		} );
 	}
 };
+
+module.exports = Target;

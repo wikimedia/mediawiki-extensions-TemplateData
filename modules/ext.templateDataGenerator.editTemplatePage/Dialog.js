@@ -1,4 +1,8 @@
-var Model = require( 'ext.templateDataGenerator.data' ).Model;
+var LanguageSearchWidget = require( './widgets/LanguageSearchWidget.js' ),
+	Model = require( 'ext.templateDataGenerator.data' ).Model,
+	ParamImportWidget = require( './widgets/ParamImportWidget.js' ),
+	ParamSelectWidget = require( './widgets/ParamSelectWidget.js' ),
+	ParamWidget = require( './widgets/ParamWidget.js' );
 
 /**
  * TemplateData Dialog
@@ -8,10 +12,12 @@ var Model = require( 'ext.templateDataGenerator.data' ).Model;
  *
  * @constructor
  * @param {Object} config Dialog configuration object
+ *
+ * @external LanguageResultWidget
  */
-mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
+function Dialog( config ) {
 	// Parent constructor
-	mw.TemplateData.Dialog.parent.call( this, config );
+	Dialog.parent.call( this, config );
 
 	this.model = null;
 	this.modified = false;
@@ -25,17 +31,17 @@ mw.TemplateData.Dialog = function mwTemplateDataDialog( config ) {
 
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataDialog' );
-};
+}
 
 /* Inheritance */
 
-OO.inheritClass( mw.TemplateData.Dialog, OO.ui.ProcessDialog );
+OO.inheritClass( Dialog, OO.ui.ProcessDialog );
 
 /* Static properties */
-mw.TemplateData.Dialog.static.name = 'TemplateDataDialog';
-mw.TemplateData.Dialog.static.title = mw.msg( 'templatedata-modal-title' );
-mw.TemplateData.Dialog.static.size = 'large';
-mw.TemplateData.Dialog.static.actions = [
+Dialog.static.name = 'TemplateDataDialog';
+Dialog.static.title = mw.msg( 'templatedata-modal-title' );
+Dialog.static.size = 'large';
+Dialog.static.actions = [
 	{
 		action: 'apply',
 		label: mw.msg( 'templatedata-modal-button-apply' ),
@@ -90,12 +96,12 @@ mw.TemplateData.Dialog.static.actions = [
  * @throws {Error} If not attached to a manager
  * @chainable
  */
-mw.TemplateData.Dialog.prototype.initialize = function () {
+Dialog.prototype.initialize = function () {
 	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout, templateFormatFieldSet, mapsActionFieldLayout,
 		mapsListMenuLayout, mapsListPanel, addNewMapButtonPanel, mapsContentPanel, templateMapsMenuLayout;
 
 	// Parent method
-	mw.TemplateData.Dialog.super.prototype.initialize.call( this );
+	Dialog.super.prototype.initialize.call( this );
 
 	this.$spinner = $( '<div>' ).addClass( 'tdg-spinner' ).text( 'working...' );
 	this.$body.append( this.$spinner );
@@ -112,7 +118,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.editMapsPanel = new OO.ui.PanelLayout();
 
 	// Language panel
-	this.newLanguageSearch = new mw.TemplateData.LanguageSearchWidget();
+	this.newLanguageSearch = new LanguageSearchWidget();
 
 	// Add parameter panel
 	this.newParamInput = new OO.ui.TextInputWidget( {
@@ -233,11 +239,11 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
 	this.paramListNoticeMessage = new OO.ui.MessageWidget();
 	this.paramListNoticeMessage.toggle( false );
 
-	this.paramSelect = new mw.TemplateData.ParamSelectWidget();
+	this.paramSelect = new ParamSelectWidget();
 	templateParamsFieldset = new OO.ui.FieldsetLayout( {
 		label: mw.msg( 'templatedata-modal-title-templateparams' )
 	} );
-	this.paramImport = new mw.TemplateData.ParamImportWidget();
+	this.paramImport = new ParamImportWidget();
 	templateParamsFieldset.$element.append( this.paramSelect.$element, this.paramImport.$element );
 
 	this.templateFormatSelectWidget = new OO.ui.ButtonSelectWidget();
@@ -387,7 +393,7 @@ mw.TemplateData.Dialog.prototype.initialize = function () {
  *
  * @param {string} description New description
  */
-mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( description ) {
+Dialog.prototype.onModelChangeDescription = function ( description ) {
 	this.descriptionInput.setValue( description );
 };
 
@@ -396,7 +402,7 @@ mw.TemplateData.Dialog.prototype.onModelChangeDescription = function ( descripti
  *
  * @param {string} map New description
  */
-mw.TemplateData.Dialog.prototype.onModelChangeMapInfo = function ( map ) {
+Dialog.prototype.onModelChangeMapInfo = function ( map ) {
 	var selectedItem = this.mapsGroup.findSelectedItem();
 	map = map === undefined ? {} : map;
 	this.mapsCache = OO.copy( map );
@@ -410,7 +416,7 @@ mw.TemplateData.Dialog.prototype.onModelChangeMapInfo = function ( map ) {
  *
  * @param {string} value New parameter name
  */
-mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
+Dialog.prototype.onAddParamInputChange = function ( value ) {
 	var allProps = Model.static.getAllProperties( true );
 
 	if (
@@ -432,7 +438,7 @@ mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
  *
  * @param {...string[]} paramOrderArray The array of keys in order
  */
-mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function () {
+Dialog.prototype.onModelChangeParamOrder = function () {
 	// Refresh the parameter widget
 	this.repopulateParamSelectWidget();
 };
@@ -445,7 +451,7 @@ mw.TemplateData.Dialog.prototype.onModelChangeParamOrder = function () {
  * @param {...Mixed} value Property value
  * @param {string} [language] Value language
  */
-mw.TemplateData.Dialog.prototype.onModelChangeProperty = function ( paramKey, prop, value ) {
+Dialog.prototype.onModelChangeProperty = function ( paramKey, prop, value ) {
 	// Refresh the parameter widget
 	if ( paramKey === this.selectedParamKey && prop === 'name' ) {
 		this.selectedParamKey = value;
@@ -455,7 +461,7 @@ mw.TemplateData.Dialog.prototype.onModelChangeProperty = function ( paramKey, pr
 /**
  * Respond to a change in the model
  */
-mw.TemplateData.Dialog.prototype.onModelChange = function () {
+Dialog.prototype.onModelChange = function () {
 	this.modified = true;
 	this.updateActions();
 };
@@ -463,17 +469,17 @@ mw.TemplateData.Dialog.prototype.onModelChange = function () {
 /**
  * Set action abilities according to whether the model is modified
  */
-mw.TemplateData.Dialog.prototype.updateActions = function () {
+Dialog.prototype.updateActions = function () {
 	this.actions.setAbilities( { apply: this.modified } );
 };
 
 /**
  * Respond to param order widget reorder event
  *
- * @param {mw.TemplateData.ParamWidget} item Item reordered
+ * @param {ParamWidget} item Item reordered
  * @param {number} newIndex New index of the item
  */
-mw.TemplateData.Dialog.prototype.onParamSelectReorder = function ( item, newIndex ) {
+Dialog.prototype.onParamSelectReorder = function ( item, newIndex ) {
 	this.model.reorderParamOrderKey( item.getData(), newIndex );
 };
 
@@ -482,7 +488,7 @@ mw.TemplateData.Dialog.prototype.onParamSelectReorder = function ( item, newInde
  *
  * @param {string} value Description value
  */
-mw.TemplateData.Dialog.prototype.onDescriptionInputChange = function ( value ) {
+Dialog.prototype.onDescriptionInputChange = function ( value ) {
 	if ( this.model.getTemplateDescription() !== value ) {
 		this.model.setTemplateDescription( value, this.language );
 	}
@@ -493,7 +499,7 @@ mw.TemplateData.Dialog.prototype.onDescriptionInputChange = function ( value ) {
  *
  * @param {Object} mapsObject  object
  */
-mw.TemplateData.Dialog.prototype.populateMapsItems = function ( mapsObject ) {
+Dialog.prototype.populateMapsItems = function ( mapsObject ) {
 	var mapKeysList, items;
 
 	mapsObject = mapsObject === undefined ? {} : mapsObject;
@@ -517,7 +523,7 @@ mw.TemplateData.Dialog.prototype.populateMapsItems = function ( mapsObject ) {
  *
  * @param {string} value map info value
  */
-mw.TemplateData.Dialog.prototype.onMapInfoChange = function ( value ) {
+Dialog.prototype.onMapInfoChange = function ( value ) {
 	var mapValue,
 		selectedItem = this.mapsGroup.findSelectedItem();
 	// Update map Info
@@ -547,7 +553,7 @@ mw.TemplateData.Dialog.prototype.onMapInfoChange = function ( value ) {
 /**
  * Handle click event for Add new map button
  */
-mw.TemplateData.Dialog.prototype.onAddNewMapClick = function () {
+Dialog.prototype.onAddNewMapClick = function () {
 	// Add new text input in maps elements to prompt the map name
 	this.newMapNameInput.$element.show();
 	this.cancelAddMapButton.$element.show();
@@ -573,7 +579,7 @@ mw.TemplateData.Dialog.prototype.onAddNewMapClick = function () {
  *
  * @param {OO.ui.OutlineOptionWidget} highlightNext item to be highlighted after adding a new map canceled/done
  */
-mw.TemplateData.Dialog.prototype.onCancelAddingMap = function ( highlightNext ) {
+Dialog.prototype.onCancelAddingMap = function ( highlightNext ) {
 	// Remove the text-area input, cancel button, and show add new map button
 	this.newMapNameInput.$element.hide();
 	this.cancelAddMapButton.$element.hide();
@@ -590,7 +596,7 @@ mw.TemplateData.Dialog.prototype.onCancelAddingMap = function ( highlightNext ) 
  *
  * @param {jQuery.Event} response response from Enter action on promptMapName
  */
-mw.TemplateData.Dialog.prototype.onEmbedNewMap = function ( response ) {
+Dialog.prototype.onEmbedNewMap = function ( response ) {
 	var newlyAddedMap,
 		mapNameValue;
 
@@ -617,7 +623,7 @@ mw.TemplateData.Dialog.prototype.onEmbedNewMap = function ( response ) {
 /**
  * Handle click event for the remove button
  */
-mw.TemplateData.Dialog.prototype.onMapItemRemove = function () {
+Dialog.prototype.onMapItemRemove = function () {
 	// Remove the highlighted item
 	this.mapsGroup.removeItems( [ this.mapsGroup.findSelectedItem() ] );
 	// Remove the highlighted map from maps object
@@ -630,7 +636,7 @@ mw.TemplateData.Dialog.prototype.onMapItemRemove = function () {
 /**
  * Respond to a map group being selected
  */
-mw.TemplateData.Dialog.prototype.onMapsGroupSelect = function () {
+Dialog.prototype.onMapsGroupSelect = function () {
 	var item, currentMapInfo;
 
 	// Highlight new item
@@ -672,14 +678,14 @@ mw.TemplateData.Dialog.prototype.onMapsGroupSelect = function () {
  * @param {Object} object maps object
  * @return {string} serialized form
  */
-mw.TemplateData.Dialog.prototype.stringifyObject = function ( object ) {
+Dialog.prototype.stringifyObject = function ( object ) {
 	return JSON.stringify( object, null, 4 );
 };
 
 /**
  * Respond to add language button click
  */
-mw.TemplateData.Dialog.prototype.onLanguagePanelButton = function () {
+Dialog.prototype.onLanguagePanelButton = function () {
 	this.switchPanels( 'language' );
 };
 
@@ -688,7 +694,7 @@ mw.TemplateData.Dialog.prototype.onLanguagePanelButton = function () {
  *
  * @param {OO.ui.OptionWidget} item Selected item
  */
-mw.TemplateData.Dialog.prototype.onLanguageDropdownWidgetSelect = function ( item ) {
+Dialog.prototype.onLanguageDropdownWidgetSelect = function ( item ) {
 	var language = item ? item.getData() : this.language;
 
 	// Change current language
@@ -714,9 +720,9 @@ mw.TemplateData.Dialog.prototype.onLanguageDropdownWidgetSelect = function ( ite
 /**
  * Handle choose events from the new language search widget
  *
- * @param {mw.TemplateData.LanguageResultWidget} item Chosen item
+ * @param {LanguageResultWidget} item Chosen item
  */
-mw.TemplateData.Dialog.prototype.onNewLanguageSearchResultsChoose = function ( item ) {
+Dialog.prototype.onNewLanguageSearchResultsChoose = function ( item ) {
 	var languageButton,
 		newLanguage = item.getData().code;
 
@@ -742,7 +748,7 @@ mw.TemplateData.Dialog.prototype.onNewLanguageSearchResultsChoose = function ( i
 /**
  * Respond to edit maps button click
  */
-mw.TemplateData.Dialog.prototype.onMapsPanelButton = function () {
+Dialog.prototype.onMapsPanelButton = function () {
 	var item = this.mapsGroup.findSelectedItem() || this.mapsGroup.findFirstSelectableItem();
 	this.switchPanels( 'editMaps' );
 	// Select first item
@@ -752,7 +758,7 @@ mw.TemplateData.Dialog.prototype.onMapsPanelButton = function () {
 /**
  * Respond to add parameter button
  */
-mw.TemplateData.Dialog.prototype.onAddParamButtonClick = function () {
+Dialog.prototype.onAddParamButtonClick = function () {
 	var newParamKey = this.newParamInput.getValue(),
 		allProps = Model.static.getAllProperties( true );
 
@@ -781,7 +787,7 @@ mw.TemplateData.Dialog.prototype.onAddParamButtonClick = function () {
  *
  * @param {OO.ui.OptionWidget} item Parameter item
  */
-mw.TemplateData.Dialog.prototype.onParamSelectChoose = function ( item ) {
+Dialog.prototype.onParamSelectChoose = function ( item ) {
 	var paramKey = item.getData();
 
 	this.selectedParamKey = paramKey;
@@ -796,7 +802,7 @@ mw.TemplateData.Dialog.prototype.onParamSelectChoose = function ( item ) {
  *
  * @param {OO.ui.OptionWidget} item Format item
  */
-mw.TemplateData.Dialog.prototype.onTemplateFormatSelectWidgetChoose = function ( item ) {
+Dialog.prototype.onTemplateFormatSelectWidgetChoose = function ( item ) {
 	var format = item.getData(),
 		shortcuts = {
 			inline: '{{_|_=_}}',
@@ -818,11 +824,11 @@ mw.TemplateData.Dialog.prototype.onTemplateFormatSelectWidgetChoose = function (
 	}
 };
 
-mw.TemplateData.Dialog.prototype.formatToDisplay = function ( s ) {
+Dialog.prototype.formatToDisplay = function ( s ) {
 	// Use '↵' (\u21b5) as a fancy newline (which doesn't start a new line).
 	return s.replace( /\n/g, '\u21b5' );
 };
-mw.TemplateData.Dialog.prototype.displayToFormat = function ( s ) {
+Dialog.prototype.displayToFormat = function ( s ) {
 	// Allow user to type \n or \\n (literal backslash, n) for a new line.
 	return s.replace( /\n|\\n|\u21b5/g, '\n' );
 };
@@ -832,7 +838,7 @@ mw.TemplateData.Dialog.prototype.displayToFormat = function ( s ) {
  *
  * @param {string} value Input widget value
  */
-mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetChange = function ( value ) {
+Dialog.prototype.onTemplateFormatInputWidgetChange = function ( value ) {
 	var item = this.templateFormatSelectWidget.findSelectedItem(),
 		format,
 		newValue;
@@ -853,14 +859,14 @@ mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetChange = function ( 
 /**
  * Respond to enter event from the template format input widget
  */
-mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetEnter = function () {
+Dialog.prototype.onTemplateFormatInputWidgetEnter = function () {
 	/* Synthesize a '\n' when enter is pressed. */
 	this.templateFormatInputWidget.insertContent(
 		this.formatToDisplay( '\n' )
 	);
 };
 
-mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
+Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	var $errors = $( [] ),
 		anyInputError = false,
 		allProps = Model.static.getAllProperties( true );
@@ -925,7 +931,7 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
  *
  * @param {Object} paramKey Parameter details
  */
-mw.TemplateData.Dialog.prototype.getParameterDetails = function ( paramKey ) {
+Dialog.prototype.getParameterDetails = function ( paramKey ) {
 	var prop,
 		paramData = this.model.getParamData( paramKey ),
 		allProps = Model.static.getAllProperties( true );
@@ -943,7 +949,7 @@ mw.TemplateData.Dialog.prototype.getParameterDetails = function ( paramKey ) {
 /**
  * Reset contents on reload
  */
-mw.TemplateData.Dialog.prototype.reset = function () {
+Dialog.prototype.reset = function () {
 	this.language = null;
 	this.availableLanguages = [];
 	if ( this.paramSelect ) {
@@ -959,7 +965,7 @@ mw.TemplateData.Dialog.prototype.reset = function () {
 /**
  * Empty and repopulate the parameter select widget.
  */
-mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
+Dialog.prototype.repopulateParamSelectWidget = function () {
 	var i, paramKey, missingParams, paramList, paramOrder;
 
 	if ( !this.isSetup ) {
@@ -999,7 +1005,7 @@ mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
  * @param {string} value Property value
  * @param {string} [lang] Language
  */
-mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value, lang ) {
+Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value, lang ) {
 	var languageProps = Model.static.getPropertiesWithLanguage(),
 		allProps = Model.static.getAllProperties( true ),
 		prop = allProps[ propName ],
@@ -1041,11 +1047,11 @@ mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey,
  *
  * @param {string} paramKey Parameter key in the model
  */
-mw.TemplateData.Dialog.prototype.addParamToSelectWidget = function ( paramKey ) {
+Dialog.prototype.addParamToSelectWidget = function ( paramKey ) {
 	var paramItem,
 		data = this.model.getParamData( paramKey );
 
-	paramItem = new mw.TemplateData.ParamWidget( {
+	paramItem = new ParamWidget( {
 		key: paramKey,
 		label: this.model.getParamValue( paramKey, 'label', this.language ),
 		aliases: data.aliases,
@@ -1060,7 +1066,7 @@ mw.TemplateData.Dialog.prototype.addParamToSelectWidget = function ( paramKey ) 
  *
  * @return {jQuery} Editable details page for the parameter
  */
-mw.TemplateData.Dialog.prototype.createParamDetails = function () {
+Dialog.prototype.createParamDetails = function () {
 	var props, type, propInput, config, paramProperties,
 		paramFieldset,
 		typeItemArray = [];
@@ -1179,7 +1185,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
  * @param {string} [lang] Language. If not used, will use currently defined
  *  language.
  */
-mw.TemplateData.Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
+Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
 	var i, prop, label,
 		languageProps = Model.static.getPropertiesWithLanguage();
 	lang = lang || this.language;
@@ -1213,7 +1219,7 @@ mw.TemplateData.Dialog.prototype.updateParamDetailsLanguage = function ( lang ) 
  *
  * @return {number} Body height
  */
-mw.TemplateData.Dialog.prototype.getBodyHeight = function () {
+Dialog.prototype.getBodyHeight = function () {
 	return window.innerHeight - 200;
 };
 
@@ -1227,7 +1233,7 @@ mw.TemplateData.Dialog.prototype.getBodyHeight = function () {
  * @param {string} noticeMessageType Message type: 'notice', 'error', 'warning', 'success'
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} noticeMessageLabel The message to display
  */
-mw.TemplateData.Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, noticeMessageType, noticeMessageLabel ) {
+Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, noticeMessageType, noticeMessageLabel ) {
 	var noticeReference;
 
 	type = type || 'list';
@@ -1259,7 +1265,7 @@ mw.TemplateData.Dialog.prototype.toggleNoticeMessage = function ( type, isShowin
 /**
  * Import parameters from the source code.
  */
-mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () {
+Dialog.prototype.importParametersFromTemplateCode = function () {
 	var $message = $( [] ),
 		state = 'success',
 		response = this.model.importSourceCodeParameters();
@@ -1286,8 +1292,8 @@ mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () 
  * @param {Object} [data] Dialog opening data
  * @return {OO.ui.Process} Setup process
  */
-mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
-	return mw.TemplateData.Dialog.super.prototype.getSetupProcess.call( this, data )
+Dialog.prototype.getSetupProcess = function ( data ) {
+	return Dialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
 			var i, language, languages,
 				languageItems = [];
@@ -1375,7 +1381,7 @@ mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
  * Set up the list of parameters from the model. This should happen
  * after initialization of the model.
  */
-mw.TemplateData.Dialog.prototype.setupDetailsFromModel = function () {
+Dialog.prototype.setupDetailsFromModel = function () {
 	var format,
 		firstMapItem;
 
@@ -1414,7 +1420,7 @@ mw.TemplateData.Dialog.prototype.setupDetailsFromModel = function () {
  *
  * @param {string} panel Panel key to switch to
  */
-mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
+Dialog.prototype.switchPanels = function ( panel ) {
 	switch ( panel ) {
 		case 'listParams':
 			this.actions.setMode( 'list' );
@@ -1487,7 +1493,7 @@ mw.TemplateData.Dialog.prototype.switchPanels = function ( panel ) {
  * @param {string} [action] Symbolic name of action
  * @return {OO.ui.Process} Action process
  */
-mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
+Dialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'add' ) {
 		return new OO.ui.Process( function () {
 			this.switchPanels( 'addParam' );
@@ -1546,5 +1552,7 @@ mw.TemplateData.Dialog.prototype.getActionProcess = function ( action ) {
 		}, this );
 	}
 	// Fallback to parent handler
-	return mw.TemplateData.Dialog.super.prototype.getActionProcess.call( this, action );
+	return Dialog.super.prototype.getActionProcess.call( this, action );
 };
+
+module.exports = Dialog;

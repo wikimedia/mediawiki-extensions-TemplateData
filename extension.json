@@ -68,15 +68,15 @@
 			"localBasePath": "modules/ext.templateDataGenerator.editTemplatePage",
 			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.editTemplatePage",
 			"styles": "templateDataGenerator.ui.css",
-			"scripts": [
-				"Target.js",
+			"packageFiles": [
+				"init.js",
 				"widgets/ParamSelectWidget.js",
 				"widgets/ParamWidget.js",
 				"widgets/ParamImportWidget.js",
 				"widgets/LanguageResultWidget.js",
 				"widgets/LanguageSearchWidget.js",
 				"Dialog.js",
-				"init.js"
+				"Target.js"
 			],
 			"dependencies": [
 				"mediawiki.api",
