@@ -48,7 +48,7 @@
 		"ext.templateDataGenerator.editPage": {
 			"localBasePath": "modules/ext.templateDataGenerator.editPage",
 			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.editPage",
-			"scripts": [
+			"packageFiles": [
 				"init.js"
 			]
 		},
