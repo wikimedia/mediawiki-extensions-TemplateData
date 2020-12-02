@@ -1,3 +1,5 @@
+var Model = require( 'ext.templateDataGenerator.data' ).Model;
+
 /**
  * TemplateData Dialog
  *
@@ -409,7 +411,7 @@ mw.TemplateData.Dialog.prototype.onModelChangeMapInfo = function ( map ) {
  * @param {string} value New parameter name
  */
 mw.TemplateData.Dialog.prototype.onAddParamInputChange = function ( value ) {
-	var allProps = mw.TemplateData.Model.static.getAllProperties( true );
+	var allProps = Model.static.getAllProperties( true );
 
 	if (
 		value.match( allProps.name.restrict ) ||
@@ -752,7 +754,7 @@ mw.TemplateData.Dialog.prototype.onMapsPanelButton = function () {
  */
 mw.TemplateData.Dialog.prototype.onAddParamButtonClick = function () {
 	var newParamKey = this.newParamInput.getValue(),
-		allProps = mw.TemplateData.Model.static.getAllProperties( true );
+		allProps = Model.static.getAllProperties( true );
 
 	// Validate parameter
 	if ( !newParamKey.match( allProps.name.restrict ) ) {
@@ -861,7 +863,7 @@ mw.TemplateData.Dialog.prototype.onTemplateFormatInputWidgetEnter = function () 
 mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	var $errors = $( [] ),
 		anyInputError = false,
-		allProps = mw.TemplateData.Model.static.getAllProperties( true );
+		allProps = Model.static.getAllProperties( true );
 
 	if ( property === 'type' ) {
 		value = this.propInputs[ property ].getMenu().findSelectedItem() ? this.propInputs[ property ].getMenu().findSelectedItem().getData() : 'unknown';
@@ -926,7 +928,7 @@ mw.TemplateData.Dialog.prototype.onParamPropertyInputChange = function ( propert
 mw.TemplateData.Dialog.prototype.getParameterDetails = function ( paramKey ) {
 	var prop,
 		paramData = this.model.getParamData( paramKey ),
-		allProps = mw.TemplateData.Model.static.getAllProperties( true );
+		allProps = Model.static.getAllProperties( true );
 
 	for ( prop in this.propInputs ) {
 		this.changeParamPropertyInput( paramKey, prop, paramData[ prop ], this.language );
@@ -998,8 +1000,8 @@ mw.TemplateData.Dialog.prototype.repopulateParamSelectWidget = function () {
  * @param {string} [lang] Language
  */
 mw.TemplateData.Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value, lang ) {
-	var languageProps = mw.TemplateData.Model.static.getPropertiesWithLanguage(),
-		allProps = mw.TemplateData.Model.static.getAllProperties( true ),
+	var languageProps = Model.static.getPropertiesWithLanguage(),
+		allProps = Model.static.getAllProperties( true ),
 		prop = allProps[ propName ],
 		propInput = typeof this.propInputs[ propName ].getMenu === 'function' ?
 			this.propInputs[ propName ].getMenu() : this.propInputs[ propName ];
@@ -1063,7 +1065,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
 		paramFieldset,
 		typeItemArray = [];
 
-	paramProperties = mw.TemplateData.Model.static.getAllProperties( true );
+	paramProperties = Model.static.getAllProperties( true );
 
 	// Fieldset
 	paramFieldset = new OO.ui.FieldsetLayout();
@@ -1179,7 +1181,7 @@ mw.TemplateData.Dialog.prototype.createParamDetails = function () {
  */
 mw.TemplateData.Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
 	var i, prop, label,
-		languageProps = mw.TemplateData.Model.static.getPropertiesWithLanguage();
+		languageProps = Model.static.getPropertiesWithLanguage();
 	lang = lang || this.language;
 
 	for ( i = 0; i < languageProps.length; i++ ) {

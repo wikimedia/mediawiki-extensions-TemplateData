@@ -6,7 +6,10 @@
 	'use strict';
 
 	var finalJsonParams, finalJson,
-		resultDescCurrLang, resultDescMockLang, resultDescBothLang, currLanguage, originalWikitext;
+		resultDescCurrLang, resultDescMockLang, resultDescBothLang, currLanguage, originalWikitext,
+		DataModule = require( 'ext.templateDataGenerator.data' ),
+		Model = DataModule.Model,
+		SourceHandler = DataModule.SourceHandler;
 
 	QUnit.module( 'ext.templateData', QUnit.newMwEnvironment() );
 
@@ -344,7 +347,7 @@
 		for ( i = 0; i < tests.compare.length; i++ ) {
 			testVars = tests.compare[ i ];
 			assert.strictEqual(
-				mw.TemplateData.Model.static.compare( testVars.obj1, testVars.obj2, testVars.allowSubset ),
+				Model.static.compare( testVars.obj1, testVars.obj2, testVars.allowSubset ),
 				testVars.result,
 				testVars.msg
 			);
@@ -354,7 +357,7 @@
 		for ( i = 0; i < tests.splitAndTrimArray.length; i++ ) {
 			testVars = tests.splitAndTrimArray[ i ];
 			assert.deepEqual(
-				mw.TemplateData.Model.static.splitAndTrimArray( testVars.string, testVars.delim ),
+				Model.static.splitAndTrimArray( testVars.string, testVars.delim ),
 				testVars.result,
 				testVars.msg
 			);
@@ -364,7 +367,7 @@
 		for ( i = 0; i < tests.arrayUnionWithoutEmpty.length; i++ ) {
 			testVars = tests.arrayUnionWithoutEmpty[ i ];
 			assert.deepEqual(
-				mw.TemplateData.Model.static.arrayUnionWithoutEmpty.apply( testVars, testVars.arrays ),
+				Model.static.arrayUnionWithoutEmpty.apply( testVars, testVars.arrays ),
 				testVars.result,
 				testVars.msg
 			);
@@ -372,12 +375,12 @@
 
 		// Props
 		assert.deepEqual(
-			mw.TemplateData.Model.static.getAllProperties( false ),
+			Model.static.getAllProperties( false ),
 			tests.props.all,
 			'All properties'
 		);
 		assert.deepEqual(
-			mw.TemplateData.Model.static.getPropertiesWithLanguage(),
+			Model.static.getPropertiesWithLanguage(),
 			tests.props.language,
 			'Language properties'
 		);
@@ -386,7 +389,7 @@
 	// Test model load
 	QUnit.test( 'TemplateData model', function ( assert ) {
 		var i, testVars,
-			sourceHandler = new mw.TemplateData.SourceHandler(),
+			sourceHandler = new SourceHandler(),
 			paramAddTest = [
 				{
 					key: 'newParam1',
@@ -595,7 +598,7 @@
 
 	// Test model with maps in wikitext
 	QUnit.test( 'TemplateData sourceHandler with maps', function ( assert ) {
-		var sourceHandler = new mw.TemplateData.SourceHandler(),
+		var sourceHandler = new SourceHandler(),
 			wikitextWithMaps = 'Some text here that is not templatedata information.' +
 			'<templatedata>' +
 			'{' +
@@ -718,7 +721,7 @@
 
 	// Test model fail
 	QUnit.test( 'TemplateData sourceHandler failure', function ( assert ) {
-		var sourceHandler = new mw.TemplateData.SourceHandler(),
+		var sourceHandler = new SourceHandler(),
 			erronousString = '<templatedata>{\n' +
 				'"params": {\n' +
 					// Open quote
@@ -753,7 +756,7 @@
 
 	// Test model gets default format
 	QUnit.test( 'TemplateData sourceHandler adding default format', function ( assert ) {
-		var sourceHandler = new mw.TemplateData.SourceHandler(),
+		var sourceHandler = new SourceHandler(),
 			simpleTemplateDataNoFormat = '<templatedata>{\n' +
 					'"params": {}\n' +
 				'}</templatedata>',
@@ -772,7 +775,7 @@
 	} );
 
 	QUnit.test( 'safesubst: hack with an unnamed parameter', function ( assert ) {
-		var handler = new mw.TemplateData.SourceHandler(),
+		var handler = new SourceHandler(),
 			wikitext = '{{ {{{|safesubst:}}}#invoke:…|{{{1}}}|{{{ 1 }}}}}';
 
 		assert.deepEqual(

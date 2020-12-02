@@ -1,3 +1,7 @@
+var DataModule = require( 'ext.templateDataGenerator.data' ),
+	Model = DataModule.Model,
+	SourceHandler = DataModule.SourceHandler;
+
 /**
  * Template data edit ui target
  *
@@ -52,7 +56,7 @@ mw.TemplateData.Target = function mwTemplateDataTarget( $textarea, config ) {
 	this.tdgDialog = new mw.TemplateData.Dialog( config );
 	this.windowManager.addWindows( [ this.tdgDialog ] );
 
-	this.sourceHandler = new mw.TemplateData.SourceHandler( {
+	this.sourceHandler = new SourceHandler( {
 		fullPageName: this.pageName,
 		parentPage: this.parentPage,
 		isPageSubLevel: this.isPageSubLevel
@@ -134,7 +138,7 @@ mw.TemplateData.Target.prototype.setEditNoticeMessage = function ( label, type )
  * Open the templatedata edit dialog
  *
  * @method openEditDialog
- * @param {mw.TemplateData.Model} dataModel The data model
+ * @param {Model} dataModel The data model
  * associated with this edit dialog.
  */
 mw.TemplateData.Target.prototype.openEditDialog = function ( dataModel ) {
@@ -185,7 +189,7 @@ mw.TemplateData.Target.prototype.onEditOpenDialogButton = function () {
 					var model;
 					if ( data && data.action === 'accept' ) {
 						// Open the dialog with an empty model
-						model = mw.TemplateData.Model.static.newFromObject(
+						model = Model.static.newFromObject(
 							{ params: {} },
 							target.sourceHandler.getTemplateSourceCodeParams()
 						);

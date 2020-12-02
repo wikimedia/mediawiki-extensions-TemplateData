@@ -55,8 +55,8 @@
 		"ext.templateDataGenerator.data": {
 			"localBasePath": "modules/ext.templateDataGenerator.data",
 			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.data",
-			"scripts": [
-				"index.js",
+			"packageFiles": [
+				"init.js",
 				"Model.js",
 				"SourceHandler.js"
 			],
