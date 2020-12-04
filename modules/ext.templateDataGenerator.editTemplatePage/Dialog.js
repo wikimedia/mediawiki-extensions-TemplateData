@@ -882,7 +882,8 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	var $errors = $( [] ),
 		anyInputError = false,
 		allProps = Model.static.getAllProperties( true ),
-		propInput = this.propInputs[ property ];
+		propInput = this.propInputs[ property ],
+		dependentField = allProps[ property ].textValue;
 
 	if ( property === 'type' ) {
 		value = propInput.getMenu().findSelectedItem() ? propInput.getMenu().findSelectedItem().getData() : 'unknown';
@@ -908,11 +909,11 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	propInput.$element.toggleClass( 'tdg-editscreen-input-error', !!$errors.length );
 
 	// Check if there is a dependent input to activate
-	if ( allProps[ property ].textValue && this.propFieldLayout[ allProps[ property ].textValue ] ) {
+	if ( dependentField && this.propFieldLayout[ dependentField ] ) {
 		// The textValue property depends on this property
 		// toggle its view
-		this.propFieldLayout[ allProps[ property ].textValue ].toggle( !!value );
-		this.propInputs[ allProps[ property ].textValue ].setValue( this.model.getParamProperty( this.selectedParamKey, allProps[ property ].textValue ) );
+		this.propFieldLayout[ dependentField ].toggle( !!value );
+		this.propInputs[ dependentField ].setValue( this.model.getParamProperty( this.selectedParamKey, dependentField ) );
 	}
 
 	// Validate
