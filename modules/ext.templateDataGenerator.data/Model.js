@@ -2,7 +2,7 @@
  * TemplateData Model
  *
  * @class
- * @mixins OO.EventEmitter
+ * @mixes OO.EventEmitter
  *
  * @constructor
  */

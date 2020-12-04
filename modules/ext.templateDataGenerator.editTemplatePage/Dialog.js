@@ -668,6 +668,7 @@ mw.TemplateData.Dialog.prototype.onMapsGroupSelect = function () {
  * Stringify objects in the dialog with space of 4, mainly maps objects
  *
  * @param {Object} object maps object
+ * @return {string} serialized form
  */
 mw.TemplateData.Dialog.prototype.stringifyObject = function ( object ) {
 	return JSON.stringify( object, null, 4 );
@@ -1281,6 +1282,7 @@ mw.TemplateData.Dialog.prototype.importParametersFromTemplateCode = function () 
  * Get a process for setting up a window for use.
  *
  * @param {Object} [data] Dialog opening data
+ * @return {OO.ui.Process} Setup process
  */
 mw.TemplateData.Dialog.prototype.getSetupProcess = function ( data ) {
 	return mw.TemplateData.Dialog.super.prototype.getSetupProcess.call( this, data )

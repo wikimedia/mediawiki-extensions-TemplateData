@@ -30,6 +30,7 @@ OO.inheritClass( mw.TemplateData.LanguageResultWidget, OO.ui.OptionWidget );
  *
  * @param {string} [query] Query text which matched this result
  * @param {string} [matchedProperty] Data property which matched the query text
+ * @return {mw.TemplateData.LanguageResultWidget}
  * @chainable
  */
 mw.TemplateData.LanguageResultWidget.prototype.updateLabel = function ( query, matchedProperty ) {
