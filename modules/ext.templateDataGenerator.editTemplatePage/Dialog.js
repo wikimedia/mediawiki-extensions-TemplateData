@@ -1081,7 +1081,7 @@ Dialog.prototype.addParamToSelectWidget = function ( paramKey ) {
  * @return {jQuery} Editable details page for the parameter
  */
 Dialog.prototype.createParamDetails = function () {
-	var props, type, propInput, config, paramProperties,
+	var property, type, propInput, config, paramProperties,
 		paramFieldset,
 		typeItemArray = [];
 
@@ -1090,20 +1090,20 @@ Dialog.prototype.createParamDetails = function () {
 	// Fieldset
 	paramFieldset = new OO.ui.FieldsetLayout();
 
-	for ( props in paramProperties ) {
+	for ( property in paramProperties ) {
 		config = {
-			multiline: paramProperties[ props ].multiline
+			multiline: paramProperties[ property ].multiline
 		};
-		if ( paramProperties[ props ].multiline ) {
+		if ( paramProperties[ property ].multiline ) {
 			config.autosize = true;
 		}
 		// Create the property inputs
-		switch ( props ) {
+		switch ( property ) {
 			case 'type':
 				propInput = new OO.ui.DropdownWidget( config );
-				for ( type in paramProperties[ props ].children ) {
+				for ( type in paramProperties[ property ].children ) {
 					typeItemArray.push( new OO.ui.MenuOptionWidget( {
-						data: paramProperties[ props ].children[ type ],
+						data: paramProperties[ property ].children[ type ],
 
 						// The following messages are used here:
 						// * templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
@@ -1113,7 +1113,7 @@ Dialog.prototype.createParamDetails = function () {
 						// * templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
 						// * templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
 						// * templatedata-doc-param-type-wiki-user-name
-						label: mw.msg( 'templatedata-doc-param-type-' + paramProperties[ props ].children[ type ] )
+						label: mw.msg( 'templatedata-doc-param-type-' + paramProperties[ property ].children[ type ] )
 					} ) );
 				}
 				propInput.getMenu().addItems( typeItemArray );
@@ -1134,7 +1134,7 @@ Dialog.prototype.createParamDetails = function () {
 				break;
 		}
 
-		this.propInputs[ props ] = propInput;
+		this.propInputs[ property ] = propInput;
 
 		// The following classes are used here:
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-actions
@@ -1154,9 +1154,9 @@ Dialog.prototype.createParamDetails = function () {
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-type
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-uneditablefield
 		propInput.$element
-			.addClass( 'tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-' + props );
+			.addClass( 'tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-' + property );
 
-		this.propFieldLayout[ props ] = new OO.ui.FieldLayout( propInput, {
+		this.propFieldLayout[ property ] = new OO.ui.FieldLayout( propInput, {
 			align: 'left',
 			// The following messages are used here:
 			// * templatedata-modal-table-param-actions
@@ -1175,17 +1175,17 @@ Dialog.prototype.createParamDetails = function () {
 			// * templatedata-modal-table-param-suggested
 			// * templatedata-modal-table-param-type
 			// * templatedata-modal-table-param-uneditablefield
-			label: mw.msg( 'templatedata-modal-table-param-' + props )
+			label: mw.msg( 'templatedata-modal-table-param-' + property )
 		} );
 
 		// Event
-		if ( props === 'type' ) {
-			propInput.getMenu().connect( this, { choose: [ 'onParamPropertyInputChange', props ] } );
+		if ( property === 'type' ) {
+			propInput.getMenu().connect( this, { choose: [ 'onParamPropertyInputChange', property ] } );
 		} else {
-			propInput.connect( this, { change: [ 'onParamPropertyInputChange', props ] } );
+			propInput.connect( this, { change: [ 'onParamPropertyInputChange', property ] } );
 		}
 		// Append to parameter section
-		paramFieldset.$element.append( this.propFieldLayout[ props ].$element );
+		paramFieldset.$element.append( this.propFieldLayout[ property ].$element );
 	}
 	// Update parameter property fields with languages
 	this.updateParamDetailsLanguage( this.language );
