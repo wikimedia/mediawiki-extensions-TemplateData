@@ -252,7 +252,7 @@ Model.static.arrayUnionWithoutEmpty = function () {
 /**
  * Create a new mwTemplateData.Model from templatedata object.
  *
- * @param {Object} tdObject TemplateData parsed object
+ * @param {Object|null} tdObject TemplateData parsed object, or null if we are creating a new object.
  * @param {string[]} paramsInSource Parameter names found in template source
  * @return {Model} New model
  */
@@ -264,6 +264,8 @@ Model.static.newFromObject = function ( tdObject, paramsInSource ) {
 
 	// Store the original templatedata object for comparison later
 	model.setOriginalTemplateDataObject( tdObject );
+
+	tdObject = tdObject || { params: {} };
 
 	// Initialize the model
 	model.params = {};
@@ -880,10 +882,10 @@ Model.prototype.isParamExists = function ( key ) {
 /**
  * Set the original templatedata object
  *
- * @param {Object} templatedataObj TemplateData object
+ * @param {Object|null} templatedataObj TemplateData object
  */
 Model.prototype.setOriginalTemplateDataObject = function ( templatedataObj ) {
-	this.originalTemplateDataObject = $.extend( true, {}, templatedataObj );
+	this.originalTemplateDataObject = templatedataObj ? $.extend( true, {}, templatedataObj ) : null;
 };
 
 /**
@@ -932,7 +934,8 @@ Model.prototype.restoreOriginalMaps = function () {
 /**
  * Get original templatedata object
  *
- * @return {Object} Templatedata object
+ * @return {Object|null} Templatedata object at the beginning of this editing session, or null
+ * if we're creating a new object.
  */
 Model.prototype.getOriginalTemplateDataObject = function () {
 	return this.originalTemplateDataObject;
@@ -946,8 +949,8 @@ Model.prototype.getOriginalTemplateDataObject = function () {
 Model.prototype.outputTemplateData = function () {
 	var paramKey, key, prop, oldKey, name, compareOrig, normalizedValue,
 		allProps = this.constructor.static.getAllProperties( true ),
-		original = this.getOriginalTemplateDataObject(),
-		result = $.extend( true, {}, this.getOriginalTemplateDataObject() ),
+		original = this.getOriginalTemplateDataObject() || { params: {} },
+		result = $.extend( true, {}, original ),
 		defaultLang = this.getDefaultLanguage();
 
 	// Template description

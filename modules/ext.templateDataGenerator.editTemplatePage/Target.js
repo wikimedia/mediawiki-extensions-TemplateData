@@ -191,7 +191,7 @@ Target.prototype.onEditOpenDialogButton = function () {
 					if ( data && data.action === 'accept' ) {
 						// Open the dialog with an empty model
 						model = Model.static.newFromObject(
-							{ params: {} },
+							null,
 							target.sourceHandler.getTemplateSourceCodeParams()
 						);
 						target.openEditDialog( model );
