@@ -881,10 +881,11 @@ Dialog.prototype.onTemplateFormatInputWidgetEnter = function () {
 Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	var $errors = $( [] ),
 		anyInputError = false,
-		allProps = Model.static.getAllProperties( true );
+		allProps = Model.static.getAllProperties( true ),
+		propInput = this.propInputs[ property ];
 
 	if ( property === 'type' ) {
-		value = this.propInputs[ property ].getMenu().findSelectedItem() ? this.propInputs[ property ].getMenu().findSelectedItem().getData() : 'unknown';
+		value = propInput.getMenu().findSelectedItem() ? propInput.getMenu().findSelectedItem().getData() : 'unknown';
 	}
 
 	if ( property === 'name' ) {
@@ -904,7 +905,7 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 		}
 	}
 
-	this.propInputs[ property ].$element.toggleClass( 'tdg-editscreen-input-error', !!$errors.length );
+	propInput.$element.toggleClass( 'tdg-editscreen-input-error', !!$errors.length );
 
 	// Check if there is a dependent input to activate
 	if ( allProps[ property ].textValue && this.propFieldLayout[ allProps[ property ].textValue ] ) {
