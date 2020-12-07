@@ -29,6 +29,8 @@ function Dialog( config ) {
 	this.propFieldLayout = {};
 	this.isSetup = false;
 	this.mapsCache = undefined;
+	this.descriptionChanged = false;
+	this.paramsReordered = false;
 
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataDialog' );
@@ -480,6 +482,11 @@ Dialog.prototype.updateActions = function () {
  * @param {number} newIndex New index of the item
  */
 Dialog.prototype.onParamSelectReorder = function ( item, newIndex ) {
+	if ( !this.paramsReordered ) {
+		Metrics.logEvent( 'parameter-reorder' );
+	}
+	this.paramsReordered = true;
+
 	this.model.reorderParamOrderKey( item.getData(), newIndex );
 };
 
@@ -489,6 +496,11 @@ Dialog.prototype.onParamSelectReorder = function ( item, newIndex ) {
  * @param {string} value Description value
  */
 Dialog.prototype.onDescriptionInputChange = function ( value ) {
+	if ( !this.descriptionChanged ) {
+		Metrics.logEvent( 'template-description-change' );
+	}
+	this.descriptionChanged = true;
+
 	if ( this.model.getTemplateDescription() !== value ) {
 		this.model.setTemplateDescription( value, this.language );
 	}
