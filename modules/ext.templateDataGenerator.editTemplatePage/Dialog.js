@@ -31,6 +31,7 @@ function Dialog( config ) {
 	this.mapsCache = undefined;
 	this.descriptionChanged = false;
 	this.paramsReordered = false;
+	this.paramPropertyChangeTracking = {};
 
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataDialog' );
@@ -938,6 +939,8 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	if ( property === 'aliases' && this.propInputs.name.$element.hasClass( 'tdg-editscreen-input-error' ) ) {
 		this.onParamPropertyInputChange( 'name', this.propInputs.name.getValue() );
 	}
+
+	this.trackPropertyChange( property );
 };
 
 /**
@@ -950,6 +953,8 @@ Dialog.prototype.getParameterDetails = function ( paramKey ) {
 		paramData = this.model.getParamData( paramKey ),
 		allProps = Model.static.getAllProperties( true );
 
+	this.stopParameterInputTracking();
+
 	for ( prop in this.propInputs ) {
 		this.changeParamPropertyInput( paramKey, prop, paramData[ prop ], this.language );
 		// Show/hide dependents
@@ -958,6 +963,53 @@ Dialog.prototype.getParameterDetails = function ( paramKey ) {
 		}
 	}
 
+	this.startParameterInputTracking( paramData );
+};
+
+Dialog.prototype.stopParameterInputTracking = function () {
+	this.paramPropertyChangeTracking = {};
+};
+
+/**
+ * Temporary metrics to understand how properties are edited, see T260343.
+ *
+ * @param {Object} paramValues parameter property values at dialog open time
+ */
+Dialog.prototype.startParameterInputTracking = function ( paramValues ) {
+	var prop;
+
+	this.paramPropertyChangeTracking = {};
+	for ( prop in this.propInputs ) {
+		// Set to true, unless one of the exceptions applies.
+		this.paramPropertyChangeTracking[ prop ] = !(
+			// Setting type when we already have a specific type.
+			( prop === 'type' && paramValues[ prop ] !== 'unknown' ) ||
+
+			// Setting priority but already required, suggested, or deprecated.
+			( ( prop === 'required' || prop === 'suggested' || prop === 'deprecated' ) &&
+				( paramValues.required || paramValues.suggested || paramValues.deprecated ) ) ||
+
+			// Fields ignored by tracking.
+			( prop === 'name' || prop === 'aliases' || prop === 'autovalue' || prop === 'deprecatedValue' )
+		);
+	}
+};
+
+Dialog.prototype.trackPropertyChange = function ( property ) {
+	var eventKey = ( property === 'required' || property === 'suggested' || property === 'deprecated' ) ?
+		'parameter-priority-change' : 'parameter-' + property + '-change';
+
+	if ( this.paramPropertyChangeTracking[ property ] ) {
+		Metrics.logEvent( eventKey );
+	}
+	this.paramPropertyChangeTracking[ property ] = false;
+
+	// These properties form a conceptual group; suppress additional events.
+	if ( property === 'required' || property === 'suggested' || property === 'deprecated' ) {
+		this.paramPropertyChangeTracking.required =
+			this.paramPropertyChangeTracking.suggested =
+			this.paramPropertyChangeTracking.deprecated = false;
+	}
 };
 
 /**
