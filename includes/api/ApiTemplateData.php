@@ -111,7 +111,6 @@ class ApiTemplateData extends ApiBase {
 				$status = $tdb->getStatus();
 
 				if ( !$status->isOK() ) {
-					// @phan-suppress-next-line SecurityCheck-DoubleEscaped
 					$this->dieWithError(
 						[ 'apierror-templatedata-corrupt', intval( $row->pp_page ), $status->getMessage() ]
 					);
