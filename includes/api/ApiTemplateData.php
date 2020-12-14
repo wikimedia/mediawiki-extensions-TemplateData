@@ -147,6 +147,8 @@ class ApiTemplateData extends ApiBase {
 			}
 		}
 
+		$wikiPageFactory = $services->getWikiPageFactory();
+
 		// Now go through all the titles again, and attempt to extract parameter names from the
 		// wikitext for templates with no templatedata.
 		if ( $includeMissingTitles ) {
@@ -155,13 +157,29 @@ class ApiTemplateData extends ApiBase {
 					// Ignore pages that already have templatedata or that don't exist.
 					continue;
 				}
-				$content = $services->getWikiPageFactory()
-					->newFromTitle( $pageInfo['title'] )
+
+				$content = $wikiPageFactory->newFromTitle( $pageInfo['title'] )
 					->getContent( RevisionRecord::FOR_PUBLIC );
 				$text = $content instanceof TextContent
 					? $content->getText()
 					: $content->getTextForSearchIndex();
 				$resp[ $pageId ][ 'params' ] = TemplateDataBlob::getRawParams( $text );
+			}
+		}
+
+		// TODO tracking will only be implemented temporarily to answer questions on
+		// template usage for the Technical Wishes topic area see T258917
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
+			foreach ( $resp as $pageId => $pageInfo ) {
+				\EventLogging::logEvent(
+					'TemplateDataApi',
+					20817949,
+					[
+						'template_name' => $wikiPageFactory->newFromTitle( $pageInfo['title'] )
+							->getTitle()->getDBkey(),
+						'has_template_data' => !( isset( $pageInfo['notemplatedata'] ) ?: false ),
+					]
+				);
 			}
 		}
 

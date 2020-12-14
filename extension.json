@@ -218,7 +218,8 @@
 	"attributes": {
 		"EventLogging": {
 			"Schemas": {
-				"TemplateDataEditor": 20759032
+				"TemplateDataEditor": 20759032,
+				"TemplateDataApi": 20817949
 			}
 		},
 		"VisualEditor": {
