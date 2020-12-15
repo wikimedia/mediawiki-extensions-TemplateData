@@ -6,6 +6,7 @@
  * @file
  */
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionRecord;
 
 /**
@@ -49,6 +50,7 @@ class ApiTemplateData extends ApiBase {
 	 * @inheritDoc
 	 */
 	public function execute() {
+		$services = MediaWikiServices::getInstance();
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
@@ -57,7 +59,7 @@ class ApiTemplateData extends ApiBase {
 
 		if ( $params['lang'] === null ) {
 			$langCode = false;
-		} elseif ( !Language::isValidCode( $params['lang'] ) ) {
+		} elseif ( !$services->getLanguageNameUtils()->isValidCode( $params['lang'] ) ) {
 			$this->dieWithError( [ 'apierror-invalidlang', 'lang' ] );
 			throw new LogicException();
 		} else {
@@ -153,7 +155,8 @@ class ApiTemplateData extends ApiBase {
 					// Ignore pages that already have templatedata or that don't exist.
 					continue;
 				}
-				$content = WikiPage::factory( $pageInfo['title'] )
+				$content = $services->getWikiPageFactory()
+					->newFromTitle( $pageInfo['title'] )
 					->getContent( RevisionRecord::FOR_PUBLIC )
 					->getNativeData();
 				$resp[ $pageId ][ 'params' ] = TemplateDataBlob::getRawParams( $content );
