@@ -157,9 +157,11 @@ class ApiTemplateData extends ApiBase {
 				}
 				$content = $services->getWikiPageFactory()
 					->newFromTitle( $pageInfo['title'] )
-					->getContent( RevisionRecord::FOR_PUBLIC )
-					->getNativeData();
-				$resp[ $pageId ][ 'params' ] = TemplateDataBlob::getRawParams( $content );
+					->getContent( RevisionRecord::FOR_PUBLIC );
+				$text = $content instanceof TextContent
+					? $content->getText()
+					: $content->getTextForSearchIndex();
+				$resp[ $pageId ][ 'params' ] = TemplateDataBlob::getRawParams( $text );
 			}
 		}
 
