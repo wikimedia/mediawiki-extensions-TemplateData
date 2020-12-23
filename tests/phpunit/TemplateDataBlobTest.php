@@ -1299,14 +1299,14 @@ HTML
 	<thead><tr><th colspan="2">(templatedata-doc-param-name)</th><th>(templatedata-doc-param-desc)</th><th>(templatedata-doc-param-type)</th><th>(templatedata-doc-param-status)</th></tr></thead>
 	<tbody>
 		<tr>
-			<th>Foo</th>
+			<th>foo</th>
 			<td class="mw-templatedata-doc-param-name"><code>foo</code></td>
 			<td class="mw-templatedata-doc-muted"><p>(templatedata-doc-param-desc-empty)</p><dl></dl></td>
 			<td class="mw-templatedata-doc-param-type mw-templatedata-doc-muted">(templatedata-doc-param-type-unknown)</td>
 			<td>(templatedata-doc-param-status-optional)</td>
 		</tr>
 		<tr>
-			<th>Bar</th>
+			<th>bar</th>
 			<td class="mw-templatedata-doc-param-name"><code>bar</code></td>
 			<td class="mw-templatedata-doc-muted"><p>(templatedata-doc-param-desc-empty)</p><dl></dl></td>
 			<td class="mw-templatedata-doc-param-type mw-templatedata-doc-muted">(templatedata-doc-param-type-unknown)</td>

@@ -813,7 +813,7 @@ class TemplateDataBlob {
 
 			$html .= '<tr>'
 			// Label
-			. Html::element( 'th', [], $paramObj->label ?? $lang->ucfirst( $paramName ) )
+			. Html::element( 'th', [], $paramObj->label ?? $paramName )
 			// Parameters and aliases
 			. Html::rawElement( 'td', [ 'class' => 'mw-templatedata-doc-param-name' ],
 				Html::element( 'code', [], $paramName ) . $aliases
