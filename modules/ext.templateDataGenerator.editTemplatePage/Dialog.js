@@ -983,7 +983,7 @@ Dialog.prototype.startParameterInputTracking = function ( paramValues ) {
 		// Set to true, unless one of the exceptions applies.
 		this.paramPropertyChangeTracking[ prop ] = !(
 			// Setting type when we already have a specific type.
-			( prop === 'type' && paramValues[ prop ] !== 'unknown' ) ||
+			( prop === 'type' && paramValues[ prop ] !== undefined && paramValues[ prop ] !== 'unknown' ) ||
 
 			// Setting priority but already required, suggested, or deprecated.
 			( ( prop === 'required' || prop === 'suggested' || prop === 'deprecated' ) &&
