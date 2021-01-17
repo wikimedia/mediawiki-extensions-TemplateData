@@ -18,6 +18,9 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	 * Helper method to generate a string that gzip can't compress.
 	 *
 	 * Output is consistent when given the same seed.
+	 * @param int $length
+	 * @param string $seed
+	 * @return string
 	 */
 	private static function generatePseudorandomString( $length, $seed ) {
 		// Compatibility with PHP7.1+; see T206287
@@ -600,6 +603,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	 *
 	 * @param mixed $expected
 	 * @param mixed $actual
+	 * @param string|null $message
 	 */
 	protected function assertStrictJsonEquals( $expected, $actual, $message = null ) {
 		// Lazy recursive strict comparison: Serialise to JSON and compare that
