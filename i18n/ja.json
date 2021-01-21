@@ -3,6 +3,7 @@
 		"authors": [
 			"2nd-player",
 			"Bonfire12",
+			"Foomin10",
 			"Fryed-peach",
 			"Kkairri",
 			"Omotecho",
@@ -42,7 +43,7 @@
 	"templatedata-doc-param-type-unknown": "不明",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "ファイル",
-	"templatedata-doc-param-type-wiki-page-name": "ページ",
+	"templatedata-doc-param-type-wiki-page-name": "ページ名",
 	"templatedata-doc-param-type-wiki-template-name": "テンプレート",
 	"templatedata-doc-param-type-wiki-user-name": "利用者",
 	"templatedata-doc-params": "テンプレート引数",
