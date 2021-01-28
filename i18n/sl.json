@@ -70,7 +70,7 @@
 	"templatedata-modal-confirmcancel": "Ali res želite zavreči vnesene spremembe?",
 	"templatedata-modal-current-language": "Trenutni jezik: $1",
 	"templatedata-modal-errormsg": "Najdene so bile napake. Prepričajte se, da ni praznih ali podvojenih imen parametrov in da imena parametrov ne vsebujejo nobenega »$1«, »$2« ali »$3«.",
-	"templatedata-modal-errormsg-duplicate-name": "Najdena napaka. Izbrano ime se že uporablja za drug parameter.",
+	"templatedata-modal-errormsg-duplicate-name": "Odkrita je bila napaka. Izbrano ime se že uporablja za drug parameter.",
 	"templatedata-modal-errormsg-import-noparams": "Pri uvozu ni bil najden noben nov parameter.",
 	"templatedata-modal-format-block": "Blok",
 	"templatedata-modal-format-custom": "Po meri",
