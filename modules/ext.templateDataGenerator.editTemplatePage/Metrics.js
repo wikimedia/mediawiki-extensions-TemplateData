@@ -1,6 +1,8 @@
 function logEvent( eventName ) {
-	mw.track( 'event.TemplateDataEditor', {
-		/* eslint-disable camelcase */
+	var event, editCountBucket;
+
+	/* eslint-disable camelcase */
+	event = {
 		action: eventName,
 		page_id: mw.config.get( 'wgArticleId' ),
 		page_title: mw.config.get( 'wgPageName' ),
@@ -8,8 +10,15 @@ function logEvent( eventName ) {
 		rev_id: mw.config.get( 'wgCurRevisionId' ),
 		user_edit_count: mw.config.get( 'wgUserEditCount', 0 ),
 		user_id: mw.user.getId()
-		/* eslint-enable camelcase */
-	} );
+	};
+
+	editCountBucket = mw.config.get( 'wgUserEditCountBucket' );
+	if ( editCountBucket !== null ) {
+		event.user_edit_count_bucket = editCountBucket;
+	}
+
+	/* eslint-enable camelcase */
+	mw.track( 'event.TemplateDataEditor', event );
 }
 
 module.exports = {
