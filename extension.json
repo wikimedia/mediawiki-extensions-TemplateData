@@ -71,6 +71,7 @@
 			"styles": "templateDataGenerator.ui.css",
 			"packageFiles": [
 				"init.js",
+				"widgets/AutosizeTextInputWidget.js",
 				"widgets/ParamSelectWidget.js",
 				"widgets/ParamWidget.js",
 				"widgets/ParamImportWidget.js",

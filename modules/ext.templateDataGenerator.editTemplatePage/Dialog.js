@@ -1,4 +1,5 @@
-var LanguageSearchWidget = require( './widgets/LanguageSearchWidget.js' ),
+var AutosizeTextInputWidget = require( './widgets/AutosizeTextInputWidget.js' ),
+	LanguageSearchWidget = require( './widgets/LanguageSearchWidget.js' ),
 	Metrics = require( './Metrics.js' ),
 	Model = require( 'ext.templateDataGenerator.data' ).Model,
 	ParamImportWidget = require( './widgets/ParamImportWidget.js' ),
@@ -805,9 +806,11 @@ Dialog.prototype.onParamSelectChoose = function ( item ) {
 
 	this.selectedParamKey = paramKey;
 
+	// The panel with the `propInputs` widgets must be made visible before changing their value.
+	// Otherwiese the autosize feature of MultilineTextInputWidget doesn't work.
+	this.switchPanels( 'editParam' );
 	// Fill in parameter detail
 	this.getParameterDetails( paramKey );
-	this.switchPanels( 'editParam' );
 };
 
 /**
@@ -1181,7 +1184,7 @@ Dialog.prototype.createParamDetails = function () {
 					propInput = new OO.ui.MultilineTextInputWidget( config );
 				} else {
 					delete config.multiline;
-					propInput = new OO.ui.TextInputWidget( config );
+					propInput = new AutosizeTextInputWidget( config );
 				}
 				break;
 		}
