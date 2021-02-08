@@ -3,6 +3,7 @@
 		"authors": [
 			"Acamicamacaraca",
 			"BadDog",
+			"Kizule",
 			"Milicevic01",
 			"Obsuser",
 			"Милан Јелисавчић",
@@ -37,7 +38,7 @@
 	"templatedata-doc-param-type-unknown": "непознат",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "име датотеке",
-	"templatedata-doc-param-type-wiki-page-name": "име странице",
+	"templatedata-doc-param-type-wiki-page-name": "Име странице",
 	"templatedata-doc-param-type-wiki-template-name": "име шаблона",
 	"templatedata-doc-param-type-wiki-user-name": "име корисника",
 	"templatedata-doc-params": "Параметри шаблона",
