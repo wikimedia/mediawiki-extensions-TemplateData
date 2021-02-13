@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\TestingAccessWrapper;
+
 /**
  * @group TemplateData
  * @group Database
@@ -710,6 +712,40 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		} else {
 			$this->markTestSkipped( 'long compressed strings break on MySQL only' );
 		}
+	}
+
+	/**
+	 * @dataProvider provideInterfaceTexts
+	 */
+	public function testIsValidInterfaceText( $text, bool $expected ) {
+		/** @var TemplateDataBlob $parser */
+		$parser = TestingAccessWrapper::newFromObject(
+			TemplateDataBlob::newFromJSON( $this->db, '{}' )
+		);
+		$this->assertSame( $expected, $parser->isValidInterfaceText( $text ) );
+	}
+
+	public function provideInterfaceTexts() {
+		return [
+			// Invalid stuff
+			[ null, false ],
+			[ [], false ],
+			[ [ 'en' => 'example' ], false ],
+			[ (object)[], false ],
+			[ (object)[ null ], false ],
+			[ (object)[ 'en' => null ], false ],
+
+			[ 'example', true ],
+			[ (object)[ 'de' => 'Beispiel', 'en' => 'example' ], true ],
+
+			// Empty strings are allowed
+			[ '', true ],
+			[ (object)[ 'en' => '' ], true ],
+
+			// Language code can not be empty
+			[ (object)[ '' => 'example' ], false ],
+			[ (object)[ ' ' => 'example' ], false ],
+		];
 	}
 
 	/**

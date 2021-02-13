@@ -161,7 +161,7 @@ class TemplateDataBlob {
 
 		// Root.description
 		if ( isset( $data->description ) ) {
-			if ( !is_object( $data->description ) && !is_string( $data->description ) ) {
+			if ( !$this->isValidInterfaceText( $data->description ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', 'description', 'string|object' );
 			}
 			$data->description = $this->normaliseInterfaceText( $data->description );
@@ -221,8 +221,7 @@ class TemplateDataBlob {
 
 			// Param.label
 			if ( isset( $paramObj->label ) ) {
-				if ( !is_object( $paramObj->label ) && !is_string( $paramObj->label ) ) {
-					// TODO: Also validate that the keys are valid lang codes and the values strings.
+				if ( !$this->isValidInterfaceText( $paramObj->label ) ) {
 					return Status::newFatal(
 						'templatedata-invalid-type',
 						"params.{$paramName}.label",
@@ -262,8 +261,7 @@ class TemplateDataBlob {
 
 			// Param.description
 			if ( isset( $paramObj->description ) ) {
-				if ( !is_object( $paramObj->description ) && !is_string( $paramObj->description ) ) {
-					// TODO: Also validate that the keys are valid lang codes and the values strings.
+				if ( !$this->isValidInterfaceText( $paramObj->description ) ) {
 					return Status::newFatal(
 						'templatedata-invalid-type',
 						"params.{$paramName}.description",
@@ -277,8 +275,7 @@ class TemplateDataBlob {
 
 			// Param.example
 			if ( isset( $paramObj->example ) ) {
-				if ( !is_object( $paramObj->example ) && !is_string( $paramObj->example ) ) {
-					// TODO: Also validate that the keys are valid lang codes and the values strings.
+				if ( !$this->isValidInterfaceText( $paramObj->example ) ) {
 					return Status::newFatal(
 						'templatedata-invalid-type',
 						"params.{$paramName}.example",
@@ -333,8 +330,7 @@ class TemplateDataBlob {
 
 			// Param.default
 			if ( isset( $paramObj->default ) ) {
-				if ( !is_object( $paramObj->default ) && !is_string( $paramObj->default ) ) {
-					// TODO: Also validate that the keys are valid lang codes and the values strings.
+				if ( !$this->isValidInterfaceText( $paramObj->default ) ) {
 					return Status::newFatal(
 						'templatedata-invalid-type',
 						"params.{$paramName}.default",
@@ -451,8 +447,7 @@ class TemplateDataBlob {
 				);
 			}
 
-			if ( !is_object( $setObj->label ) && !is_string( $setObj->label ) ) {
-				// TODO: Also validate that the keys are valid lang codes and the values strings.
+			if ( !$this->isValidInterfaceText( $setObj->label ) ) {
 				return Status::newFatal(
 					'templatedata-invalid-type',
 					"sets.{$setNr}.label",
@@ -552,6 +547,30 @@ class TemplateDataBlob {
 			}
 		}
 		return Status::newGood();
+	}
+
+	/**
+	 * @param mixed $text
+	 * @return bool
+	 */
+	private function isValidInterfaceText( $text ) : bool {
+		if ( $text instanceof stdClass ) {
+			$isEmpty = true;
+			// An (array) cast would return private/protected properties as well
+			foreach ( get_object_vars( $text ) as $languageCode => $string ) {
+				// TODO: Do we need to validate if these are known interface language codes?
+				if ( !is_string( $languageCode ) ||
+					ltrim( $languageCode ) === '' ||
+					!is_string( $string )
+				) {
+					return false;
+				}
+				$isEmpty = false;
+			}
+			return !$isEmpty;
+		}
+
+		return is_string( $text );
 	}
 
 	/**
