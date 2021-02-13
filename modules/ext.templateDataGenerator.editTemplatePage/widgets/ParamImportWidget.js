@@ -28,15 +28,15 @@ OO.inheritClass( ParamImportWidget, OO.ui.ButtonWidget );
  */
 ParamImportWidget.prototype.buildParamLabel = function ( params ) {
 	var paramNames = params.slice( 0, 9 ).join( mw.msg( 'comma-separator' ) ),
-		$paramName = $( '<div>' )
+		$paramCount = $( '<div>' )
 			.addClass( 'tdg-templateDataParamWidget-param-name' ),
-		$description = $( '<div>' )
+		$paramNames = $( '<div>' )
 			.addClass( 'tdg-templateDataParamWidget-param-description' );
 
-	$paramName.text( mw.msg( 'templatedata-modal-table-param-importoption', params.length ) );
-	$description.text( mw.msg( 'templatedata-modal-table-param-importoption-subtitle', paramNames ) );
+	$paramCount.text( mw.msg( 'templatedata-modal-table-param-importoption', params.length ) );
+	$paramNames.text( mw.msg( 'templatedata-modal-table-param-importoption-subtitle', paramNames ) );
 
-	this.setLabel( $paramName.add( $description ) );
+	this.setLabel( $paramCount.add( $paramNames ) );
 };
 
 module.exports = ParamImportWidget;
