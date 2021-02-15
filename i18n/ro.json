@@ -30,7 +30,7 @@
 	"templatedata-doc-param-type-string": "Șir",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Text wiki neechilibrat",
 	"templatedata-doc-param-type-wiki-file-name": "Fișier",
-	"templatedata-doc-param-type-wiki-page-name": "Pagină",
+	"templatedata-doc-param-type-wiki-page-name": "Numele paginii",
 	"templatedata-doc-param-type-wiki-user-name": "Utilizator",
 	"templatedata-doc-params": "Parametrii formatului",
 	"templatedata-editbutton": "Gestionează TemplateData",
