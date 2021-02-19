@@ -70,6 +70,10 @@ class TemplateDataHooks {
 	public static function onPageContentSave( WikiPage &$page, &$user, &$content, &$summary, $minor,
 		$watchthis, $sectionanchor, &$flags, &$status
 	) {
+		if ( $page->getContentModel() !== CONTENT_MODEL_WIKITEXT ) {
+			return true;
+		}
+
 		// The PageContentSave hook provides raw $text, but not $parser because at this stage
 		// the page is not actually parsed yet. Which means we can't know whether self::render()
 		// got a valid tag or not. Looking at $text directly is not a solution either as
