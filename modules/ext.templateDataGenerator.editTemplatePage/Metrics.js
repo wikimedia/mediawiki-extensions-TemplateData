@@ -5,7 +5,7 @@ function logEvent( eventName ) {
 	event = {
 		action: eventName,
 		page_id: mw.config.get( 'wgArticleId' ),
-		page_title: mw.config.get( 'wgPageName' ),
+		page_title: mw.config.get( 'wgTitle' ),
 		page_namespace: mw.config.get( 'wgNamespaceNumber' ),
 		rev_id: mw.config.get( 'wgCurRevisionId' ),
 		user_edit_count: mw.config.get( 'wgUserEditCount', 0 ),
