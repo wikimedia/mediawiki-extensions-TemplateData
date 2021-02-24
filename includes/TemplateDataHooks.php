@@ -128,8 +128,7 @@ class TemplateDataHooks {
 		// Note: We know that irrelevant changes (e.g. whitespace changes) aren't logged here
 		EventLogging::logEvent(
 			'TemplateDataEditor',
-			// See https://meta.wikimedia.org/w/?oldid=20746997, keep in sync with extension.json!
-			20746997,
+			-1,
 			[
 				// Note: The "Done" button is disabled unless something changed, which means it's
 				// very likely (but not guaranteed) the generator was used to make the changes

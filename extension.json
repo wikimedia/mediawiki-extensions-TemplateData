@@ -219,8 +219,8 @@
 	"attributes": {
 		"EventLogging": {
 			"Schemas": {
-				"TemplateDataEditor": 20990386,
-				"TemplateDataApi": 20817949
+				"TemplateDataEditor": "/analytics/legacy/templatedataeditor/1.0.0",
+				"TemplateDataApi": "/analytics/legacy/templatedataapi/1.0.0"
 			}
 		},
 		"VisualEditor": {

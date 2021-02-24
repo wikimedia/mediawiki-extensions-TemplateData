@@ -173,7 +173,7 @@ class ApiTemplateData extends ApiBase {
 			foreach ( $resp as $pageId => $pageInfo ) {
 				\EventLogging::logEvent(
 					'TemplateDataApi',
-					20817949,
+					-1,
 					[
 						'template_name' => $wikiPageFactory->newFromTitle( $pageInfo['title'] )
 							->getTitle()->getDBkey(),
