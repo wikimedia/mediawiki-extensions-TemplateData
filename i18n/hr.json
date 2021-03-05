@@ -3,10 +3,12 @@
 		"authors": [
 			"Bugoslav",
 			"Ex13",
+			"Ivi104",
 			"MaGa"
 		]
 	},
 	"templatedata-doc-desc-empty": "Nema opisa.",
+	"templatedata-doc-format-block": "U ovom je preporučljivo pisati svaki parametar u svom redu.",
 	"templatedata-doc-format-custom": "Ovaj predložak ima prilagođeno oblikovanje.",
 	"templatedata-doc-param-autovalue": "Automatska vrijednost",
 	"templatedata-doc-param-default": "Zadano",
