@@ -57,7 +57,7 @@
 	"templatedata-invalid-length": "Veriler kaydedilemeyecek kadar büyük ({{formatnum:$1}} {{PLURAL:$1|bayt|bayt}}, {{PLURAL:$2|sınır}} {{formatnum:$2}})",
 	"templatedata-invalid-missing": "Gerekli \"$1\" özelliği bulunamadı.",
 	"templatedata-invalid-param": "\"$2\" özelliği için geçersiz \"$1\" parametresi.",
-	"templatedata-invalid-parse": "JSON'da sözdizimi hatası.",
+	"templatedata-invalid-parse": "JSON'da sözdizim hatası.",
 	"templatedata-invalid-type": "\"$1\" özelliğin \"$2\" türünde olması bekleniyor.",
 	"templatedata-invalid-unknown": "Beklenmeyen özellik \"$1\".",
 	"templatedata-invalid-value": "\"$1\" özelliği için geçersiz değer.",
