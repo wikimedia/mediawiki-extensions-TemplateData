@@ -891,6 +891,7 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 
 	if ( property === 'type' ) {
 		value = propInput.getMenu().findSelectedItem() ? propInput.getMenu().findSelectedItem().getData() : 'unknown';
+		this.toggleSuggestedValues( value );
 	}
 
 	if ( property === 'name' ) {
@@ -901,6 +902,10 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 			// We're changing the name. Make sure it doesn't conflict.
 			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg-duplicate-name' ) ) );
 		}
+	}
+
+	if ( property === 'suggestedvalues' ) {
+		value = propInput.getValue();
 	}
 
 	if ( allProps[ property ].restrict ) {
@@ -946,6 +951,24 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	this.trackPropertyChange( property );
 };
 
+Dialog.prototype.toggleSuggestedValues = function ( type ) {
+	var suggestedValuesAllowedTypes = [
+		'content',
+		'line',
+		'number',
+		'string',
+		'unbalanced-wikitext',
+		'unknown'
+	];
+
+	// Don't show the suggested values field when the feature flag is
+	// disabled, or for inapplicable types.
+	this.propFieldLayout.suggestedvalues.toggle(
+		mw.config.get( 'wgTemplateDataSuggestedValuesEditor' ) &&
+		suggestedValuesAllowedTypes.indexOf( type ) !== -1
+	);
+};
+
 /**
  * Set the parameter details in the detail panel.
  *
@@ -965,6 +988,9 @@ Dialog.prototype.getParameterDetails = function ( paramKey ) {
 			this.propFieldLayout[ allProps[ prop ].textValue ].toggle( !!paramData[ prop ] );
 		}
 	}
+
+	// Update suggested values field visibility
+	this.toggleSuggestedValues( paramData.type );
 
 	this.startParameterInputTracking( paramData );
 };
@@ -1093,7 +1119,7 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			if ( languageProps.indexOf( propName ) !== -1 ) {
 				propInput.setValue( value[ lang ] );
 			} else {
-				if ( prop.type === 'array' && Array.isArray( value ) ) {
+				if ( prop.type === 'array' && Array.isArray( value ) && prop.delimiter ) {
 					value = value.join( prop.delimiter );
 				}
 				propInput.setValue( value );
@@ -1105,6 +1131,8 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			propInput.selectItem( propInput.findItemFromData( prop.default ) );
 		} else if ( prop.type === 'boolean' ) {
 			propInput.setSelected( false );
+		} else if ( propName === 'suggestedvalues' ) {
+			propInput.setValue( [] );
 		} else {
 			propInput.setValue( '' );
 		}
@@ -1178,6 +1206,11 @@ Dialog.prototype.createParamDetails = function () {
 			case 'suggested':
 				propInput = new OO.ui.CheckboxInputWidget( config );
 				break;
+			case 'suggestedvalues':
+				config.allowArbitrary = true;
+				config.placeholder = mw.msg( 'templatedata-modal-table-param-suggestedvalues-placeholder' );
+				propInput = new OO.ui.TagMultiselectWidget( config );
+				break;
 			default:
 				if ( config.multiline === true ) {
 					delete config.multiline;
@@ -1206,6 +1239,7 @@ Dialog.prototype.createParamDetails = function () {
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-name
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-required
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-suggested
+		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-suggestedvalues
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-type
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-uneditablefield
 		propInput.$element
@@ -1228,6 +1262,7 @@ Dialog.prototype.createParamDetails = function () {
 			// * templatedata-modal-table-param-name
 			// * templatedata-modal-table-param-required
 			// * templatedata-modal-table-param-suggested
+			// * templatedata-modal-table-param-suggestedvalues
 			// * templatedata-modal-table-param-type
 			// * templatedata-modal-table-param-uneditablefield
 			label: mw.msg( 'templatedata-modal-table-param-' + property )
@@ -1276,6 +1311,7 @@ Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
 		// * templatedata-modal-table-param-name
 		// * templatedata-modal-table-param-required
 		// * templatedata-modal-table-param-suggested
+		// * templatedata-modal-table-param-suggestedvalues
 		// * templatedata-modal-table-param-type
 		// * templatedata-modal-table-param-uneditablefield
 		label = mw.msg( 'templatedata-modal-table-param-' + prop, lang );

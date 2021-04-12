@@ -162,6 +162,9 @@ Model.static.getAllProperties = function ( getFullData ) {
 			],
 			default: 'unknown'
 		},
+		suggestedvalues: {
+			type: 'array'
+		},
 		default: {
 			type: 'string',
 			multiline: true,
@@ -1066,16 +1069,17 @@ Model.prototype.outputTemplateData = function () {
 						}
 					}
 					break;
+				case 'suggestedvalues':
 				case 'aliases':
-					// Only update the aliases in if the new templatedata has an
-					// aliases array that isn't empty
+					// Only update these if the new templatedata has an
+					// array that isn't empty
 					if (
 						Array.isArray( this.params[ key ][ prop ] ) &&
 						this.params[ key ][ prop ].length > 0
 					) {
 						result.params[ name ][ prop ] = this.params[ key ][ prop ];
 					} else {
-						// If the new aliases array is empty, delete it from the original
+						// If the new array is empty, delete it from the original
 						delete result.params[ name ][ prop ];
 					}
 					break;

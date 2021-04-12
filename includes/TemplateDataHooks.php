@@ -159,6 +159,20 @@ class TemplateDataHooks {
 	}
 
 	/**
+	 * Include config when appropriate.
+	 *
+	 * @param array &$vars
+	 * @param OutputPage $output
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MakeGlobalVariablesScript
+	 */
+	public static function onMakeGlobalVariablesScript( array &$vars, OutputPage $output ) {
+		if ( $output->getTitle()->inNamespace( NS_TEMPLATE ) ) {
+			$vars['wgTemplateDataSuggestedValuesEditor'] =
+				$output->getConfig()->get( 'TemplateDataSuggestedValuesEditor' );
+		}
+	}
+
+	/**
 	 * Parser hook for <templatedata>.
 	 * If there is any JSON provided, render the template documentation on the page.
 	 *
