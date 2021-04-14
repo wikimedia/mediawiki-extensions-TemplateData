@@ -19,6 +19,7 @@
 	"templatedata-doc-param-status-optional": "fakultativ",
 	"templatedata-doc-param-status-required": "obligatoresch",
 	"templatedata-doc-param-status-suggested": "virgeschlo",
+	"templatedata-doc-param-suggestedvalues": "Proposéiert Wäerter",
 	"templatedata-doc-param-type": "Typ",
 	"templatedata-doc-param-type-boolean": "Boolesch",
 	"templatedata-doc-param-type-content": "Inhalt",
