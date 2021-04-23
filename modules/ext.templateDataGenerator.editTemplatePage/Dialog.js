@@ -977,8 +977,7 @@ Dialog.prototype.toggleSuggestedValues = function ( type ) {
 Dialog.prototype.getParameterDetails = function ( paramKey ) {
 	var prop,
 		paramData = this.model.getParamData( paramKey ),
-		allProps = Model.static.getAllProperties( true ),
-		paramType = paramData.type === undefined ? allProps.type.default : paramData.type;
+		allProps = Model.static.getAllProperties( true );
 
 	this.stopParameterInputTracking();
 
@@ -990,7 +989,7 @@ Dialog.prototype.getParameterDetails = function ( paramKey ) {
 		}
 	}
 	// Update suggested values field visibility
-	this.toggleSuggestedValues( paramType );
+	this.toggleSuggestedValues( paramData.type || allProps.type.default );
 
 	this.startParameterInputTracking( paramData );
 };
