@@ -4,7 +4,8 @@
 			"BRUTE",
 			"David1010",
 			"MIKHEIL",
-			"Otogi"
+			"Otogi",
+			"Გიო ოქრო"
 		]
 	},
 	"templatedata-doc-desc-empty": "არ არის აღწერა.",
@@ -20,6 +21,7 @@
 	"templatedata-doc-param-status-optional": "არასავალდებულო",
 	"templatedata-doc-param-status-required": "სავალდებულო",
 	"templatedata-doc-param-status-suggested": "შეთავაზებული",
+	"templatedata-doc-param-suggestedvalues": "შემოთავაზებული მნიშვნელობები",
 	"templatedata-doc-param-type": "ტიპი",
 	"templatedata-doc-param-type-content": "შინაარსი",
 	"templatedata-doc-param-type-date": "თარიღი",
@@ -27,6 +29,7 @@
 	"templatedata-doc-param-type-number": "ნომერი",
 	"templatedata-doc-param-type-string": "ველი",
 	"templatedata-doc-param-type-unbalanced-wikitext": "დაუბალანსებელი ვიკიტექსტი",
+	"templatedata-doc-param-type-unknown": "უცნობია",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "ფაილი",
 	"templatedata-doc-param-type-wiki-page-name": "გვერდის სახელი",
@@ -65,6 +68,7 @@
 	"templatedata-modal-table-param-name": "სახელი",
 	"templatedata-modal-table-param-required": "სავალდებულო",
 	"templatedata-modal-table-param-suggested": "შეთავაზებული",
+	"templatedata-modal-table-param-suggestedvalues": "შემოთავაზებული მნიშვნელობები",
 	"templatedata-modal-table-param-type": "ტიპი",
 	"templatedata-modal-table-param-uneditablefield": "დაურედაქტირებელი",
 	"templatedata-modal-title": "თარგის ინფოს რედაქტორი",
