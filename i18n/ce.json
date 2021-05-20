@@ -73,7 +73,7 @@
 	"templatedata-modal-format-block": "Блокан",
 	"templatedata-modal-format-custom": "Нисйан луш",
 	"templatedata-modal-format-inline": "ЧурамогӀан",
-	"templatedata-modal-format-null": "Билгалянза",
+	"templatedata-modal-format-null": "Билгалйанза",
 	"templatedata-modal-format-placeholder": "Кепан параметран формат",
 	"templatedata-modal-json-error-replace": "Хийца",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|керла параметр импорт йина|керла параметраш импорт йина}}.",
