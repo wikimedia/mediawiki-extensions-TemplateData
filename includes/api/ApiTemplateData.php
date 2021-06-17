@@ -183,6 +183,7 @@ class ApiTemplateData extends ApiBase {
 			}
 		}
 
+		$pageSet->populateGeneratorData( $resp );
 		ApiResult::setArrayType( $resp, 'kvp', 'id' );
 		ApiResult::setIndexedTagName( $resp, 'page' );
 
