@@ -1335,8 +1335,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		yield 'No params' => [
 			[ 'params' => [ (object)[] ] ],
 			<<<HTML
-<div class="mw-templatedata-doc-wrap">
-<p class="mw-templatedata-doc-desc mw-templatedata-doc-muted">(templatedata-doc-desc-empty)</p>
+<section class="mw-templatedata-doc-wrap">
+<header><p class="mw-templatedata-doc-desc mw-templatedata-doc-muted">(templatedata-doc-desc-empty)</p></header>
 <table class="wikitable mw-templatedata-doc-params">
 	<caption><p>(templatedata-doc-params)</p></caption>
 	<thead><tr><th colspan="2">(templatedata-doc-param-name)</th><th>(templatedata-doc-param-desc)</th><th>(templatedata-doc-param-type)</th><th>(templatedata-doc-param-status)</th></tr></thead>
@@ -1346,14 +1346,14 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		</tr>
 	</tbody>
 </table>
-</div>
+</section>
 HTML
 		];
 		yield 'Basic params' => [
 			[ 'params' => [ 'foo' => (object)[], 'bar' => [ 'required' => true ] ] ],
 			<<<HTML
-<div class="mw-templatedata-doc-wrap">
-<p class="mw-templatedata-doc-desc mw-templatedata-doc-muted">(templatedata-doc-desc-empty)</p>
+<section class="mw-templatedata-doc-wrap">
+<header><p class="mw-templatedata-doc-desc mw-templatedata-doc-muted">(templatedata-doc-desc-empty)</p></header>
 <table class="wikitable mw-templatedata-doc-params sortable">
 	<caption><p>(templatedata-doc-params)</p></caption>
 	<thead><tr><th colspan="2">(templatedata-doc-param-name)</th><th>(templatedata-doc-param-desc)</th><th>(templatedata-doc-param-type)</th><th>(templatedata-doc-param-status)</th></tr></thead>
@@ -1374,7 +1374,7 @@ HTML
 		</tr>
 	</tbody>
 </table>
-</div>
+</section>
 HTML
 		];
 	}

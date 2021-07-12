@@ -744,7 +744,8 @@ class TemplateDataBlob {
 			$formatMsg = 'custom';
 		}
 		$sorting = count( (array)$data->params ) > 1 ? " sortable" : "";
-		$html = Html::element(
+		$html = '<header>'
+			. Html::element(
 				'p',
 				[
 					'class' => [
@@ -755,6 +756,7 @@ class TemplateDataBlob {
 				$data->description ??
 					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )->text()
 			)
+			. '</header>'
 			. '<table class="wikitable mw-templatedata-doc-params' . $sorting . '">'
 			. Html::rawElement(
 				'caption',
@@ -929,7 +931,7 @@ class TemplateDataBlob {
 		}
 		$html .= '</tbody></table>';
 
-		return Html::rawElement( 'div', [ 'class' => 'mw-templatedata-doc-wrap' ], $html );
+		return Html::rawElement( 'section', [ 'class' => 'mw-templatedata-doc-wrap' ], $html );
 	}
 
 	/**
