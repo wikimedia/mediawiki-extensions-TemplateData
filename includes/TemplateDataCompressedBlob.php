@@ -10,8 +10,6 @@
  * on wiki pages.
  * This implementation stores the information as a compressed gzip blob
  * in the database.
- *
- * @class
  */
 class TemplateDataCompressedBlob extends TemplateDataBlob {
 	// Size of MySQL 'blob' field; page_props table where the data is stored uses one.
