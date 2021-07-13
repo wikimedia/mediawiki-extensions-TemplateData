@@ -4,13 +4,12 @@
  * @ingroup Extensions
  */
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\IDatabase;
 
 /**
  * Represents the information about a template,
  * coming from the JSON blob in the <templatedata> tags
  * on wiki pages.
- *
- * @class
  */
 class TemplateDataBlob {
 	/**
