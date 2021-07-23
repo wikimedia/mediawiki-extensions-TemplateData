@@ -319,7 +319,7 @@ class TemplateDataHooks {
 	 * @param array $status contains StatusValue ok and errors fields (does not serialize value)
 	 * @return Status
 	 */
-	public static function newStatusFromJson( array $status ) : Status {
+	public static function newStatusFromJson( array $status ): Status {
 		if ( $status['ok'] ) {
 			return Status::newGood();
 		} else {
@@ -340,7 +340,7 @@ class TemplateDataHooks {
 	 * @param Status $status
 	 * @return array contains StatusValue ok and errors fields (does not serialize value)
 	 */
-	public static function jsonSerializeStatus( Status $status ) : array {
+	public static function jsonSerializeStatus( Status $status ): array {
 		if ( $status->isOK() ) {
 			return [
 				'ok' => true
