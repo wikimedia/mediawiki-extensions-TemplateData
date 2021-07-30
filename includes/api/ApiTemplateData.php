@@ -7,7 +7,6 @@
  */
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Revision\RevisionRecord;
 
 /**
  * @ingroup API
@@ -79,7 +78,7 @@ class ApiTemplateData extends ApiBase {
 
 		if ( !$titles && ( !$includeMissingTitles || !$missingTitles ) ) {
 			$result->addValue( null, 'pages', (object)[] );
-			$this->setContinuationManager( null );
+			$this->setContinuationManager();
 			$continuationManager->setContinuationIntoResult( $this->getResult() );
 			return;
 		}
@@ -126,10 +125,9 @@ class ApiTemplateData extends ApiBase {
 
 				// HACK: don't let ApiResult's formatversion=1 compatibility layer mangle our booleans
 				// to empty strings / absent properties
-				foreach ( $data->params as &$param ) {
+				foreach ( $data->params as $param ) {
 					$param->{ApiResult::META_BC_BOOLS} = [ 'required', 'suggested', 'deprecated' ];
 				}
-				unset( $param );
 
 				$data->params->{ApiResult::META_TYPE} = 'kvp';
 				$data->params->{ApiResult::META_KVP_KEY_NAME} = 'key';
@@ -158,8 +156,7 @@ class ApiTemplateData extends ApiBase {
 					continue;
 				}
 
-				$content = $wikiPageFactory->newFromTitle( $pageInfo['title'] )
-					->getContent( RevisionRecord::FOR_PUBLIC );
+				$content = $wikiPageFactory->newFromTitle( $pageInfo['title'] )->getContent();
 				$text = $content instanceof TextContent
 					? $content->getText()
 					: $content->getTextForSearchIndex();
@@ -170,14 +167,14 @@ class ApiTemplateData extends ApiBase {
 		// TODO tracking will only be implemented temporarily to answer questions on
 		// template usage for the Technical Wishes topic area see T258917
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
-			foreach ( $resp as $pageId => $pageInfo ) {
-				\EventLogging::logEvent(
+			foreach ( $resp as $pageInfo ) {
+				EventLogging::logEvent(
 					'TemplateDataApi',
 					-1,
 					[
 						'template_name' => $wikiPageFactory->newFromTitle( $pageInfo['title'] )
 							->getTitle()->getDBkey(),
-						'has_template_data' => !( isset( $pageInfo['notemplatedata'] ) ?: false ),
+						'has_template_data' => !isset( $pageInfo['notemplatedata'] ),
 					]
 				);
 			}
@@ -199,7 +196,7 @@ class ApiTemplateData extends ApiBase {
 			$result->addValue( null, 'redirects', $redirects );
 		}
 
-		$this->setContinuationManager( null );
+		$this->setContinuationManager();
 		$continuationManager->setContinuationIntoResult( $this->getResult() );
 	}
 
