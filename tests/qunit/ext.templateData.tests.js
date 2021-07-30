@@ -773,6 +773,37 @@ QUnit.test( 'TemplateData sourceHandler adding default format', function ( asser
 		} );
 } );
 
+QUnit.test( 'Duplicate parameter names', function ( assert ) {
+	var model = new Model();
+	model.addParam( 'color' );
+	assert.deepEqual( model.getParams(), {
+		color: { name: 'color' }
+	} );
+	assert.deepEqual( model.getTemplateParamOrder(), [ 'color' ] );
+	model.addParam( 'color' );
+	assert.deepEqual( model.getParams(), {
+		color: { name: 'color' },
+		color0: { name: 'color' }
+	} );
+	assert.deepEqual( model.getTemplateParamOrder(), [ 'color', 'color0' ] );
+
+	model.setParamProperty( 'color0', 'name', '1' );
+	assert.deepEqual( model.getParams(), {
+		color: { name: 'color' },
+		color0: { deleted: true },
+		1: { name: '1' }
+	} );
+	assert.deepEqual( model.getTemplateParamOrder(), [ 'color', '1' ] );
+	model.setParamProperty( 'color', 'name', '1' );
+	assert.deepEqual( model.getParams(), {
+		color: { deleted: true },
+		color0: { deleted: true },
+		1: { name: '1' },
+		11: { name: '1' }
+	} );
+	assert.deepEqual( model.getTemplateParamOrder(), [ '11', '1' ] );
+} );
+
 QUnit.test( 'safesubst: hack with an unnamed parameter', function ( assert ) {
 	var handler = new SourceHandler(),
 		wikitext = '{{ {{{|safesubst:}}}#invoke:…|{{{1}}}|{{{ 1 }}}}}';

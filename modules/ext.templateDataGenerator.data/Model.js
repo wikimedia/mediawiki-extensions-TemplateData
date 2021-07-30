@@ -721,7 +721,7 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 	var propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage(),
 		allProps = this.constructor.static.getAllProperties( true ),
 		status = false,
-		oldValue;
+		oldValue, newKey;
 
 	language = language || this.getDefaultLanguage();
 	if ( !allProps[ prop ] ) {
@@ -752,28 +752,27 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 		// Compare without language
 		if ( !this.constructor.static.compare( this.params[ paramKey ][ prop ], value ) ) {
 			oldValue = this.params[ paramKey ][ prop ];
+			this.params[ paramKey ][ prop ] = value;
 
 			if ( prop === 'name' && oldValue !== value ) {
+				newKey = value;
 				// See if the parameters already has something with this new key
-				if ( this.params[ value ] && !this.params[ value ].deleted ) {
+				if ( this.params[ newKey ] && !this.params[ newKey ].deleted ) {
 					// Change the key to be something else
-					value = this.getNewValidParameterKey( value );
+					newKey = this.getNewValidParameterKey( newKey );
 				}
 				// Copy param details to new name
-				this.params[ value ] = this.params[ oldValue ];
+				this.params[ newKey ] = this.params[ paramKey ];
 				// Delete the old param
-				this.params[ oldValue ] = { deleted: true };
+				this.params[ paramKey ] = { deleted: true };
 
-				this.params[ value ][ prop ] = value;
-			} else {
-				this.params[ paramKey ][ prop ] = value;
 			}
 
 			this.emit( 'change-property', paramKey, prop, value, language );
 			this.emit( 'change' );
 
 			if ( prop === 'name' ) {
-				this.paramOrder[ this.paramOrder.indexOf( oldValue ) ] = value;
+				this.paramOrder[ this.paramOrder.indexOf( paramKey ) ] = newKey || value;
 				this.paramOrderChanged = true;
 				this.emit( 'change-paramOrder', this.paramOrder );
 				this.emit( 'change' );
