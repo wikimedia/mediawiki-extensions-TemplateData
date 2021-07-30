@@ -783,25 +783,25 @@ QUnit.test( 'Duplicate parameter names', function ( assert ) {
 	model.addParam( 'color' );
 	assert.deepEqual( model.getParams(), {
 		color: { name: 'color' },
-		color0: { name: 'color' }
+		color2: { name: 'color' }
 	} );
-	assert.deepEqual( model.getTemplateParamOrder(), [ 'color', 'color0' ] );
+	assert.deepEqual( model.getTemplateParamOrder(), [ 'color', 'color2' ] );
 
-	model.setParamProperty( 'color0', 'name', '1' );
+	model.setParamProperty( 'color2', 'name', '1' );
 	assert.deepEqual( model.getParams(), {
 		color: { name: 'color' },
-		color0: { deleted: true },
+		color2: { deleted: true },
 		1: { name: '1' }
 	} );
 	assert.deepEqual( model.getTemplateParamOrder(), [ 'color', '1' ] );
 	model.setParamProperty( 'color', 'name', '1' );
 	assert.deepEqual( model.getParams(), {
 		color: { deleted: true },
-		color0: { deleted: true },
+		color2: { deleted: true },
 		1: { name: '1' },
-		11: { name: '1' }
+		'1-3': { name: '1' }
 	} );
-	assert.deepEqual( model.getTemplateParamOrder(), [ '11', '1' ] );
+	assert.deepEqual( model.getTemplateParamOrder(), [ '1-3', '1' ] );
 } );
 
 QUnit.test( 'safesubst: hack with an unnamed parameter', function ( assert ) {

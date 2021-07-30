@@ -20,7 +20,7 @@ function Model() {
 	this.format = null;
 
 	this.params = {};
-	this.paramIdentifierCounter = 0;
+	this.paramIdentifierCounter = 2;
 	this.sourceCodeParameters = [];
 	this.paramOrder = [];
 	this.paramOrderChanged = false;
@@ -1118,6 +1118,9 @@ Model.prototype.getNewValidParameterKey = function ( key ) {
 	var allParamNames = this.getAllParamNames();
 	if ( this.params[ key ] || allParamNames.indexOf( key ) !== -1 ) {
 		// Change the key to be something else
+		if ( /\d$/.test( key ) ) {
+			key += '-';
+		}
 		key += this.paramIdentifierCounter;
 		this.paramIdentifierCounter++;
 		return this.getNewValidParameterKey( key );
