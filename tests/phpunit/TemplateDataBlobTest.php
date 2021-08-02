@@ -1363,14 +1363,14 @@ HTML
 			<td class="mw-templatedata-doc-param-name"><code>foo</code></td>
 			<td class="mw-templatedata-doc-muted"><p>(templatedata-doc-param-desc-empty)</p><dl></dl></td>
 			<td class="mw-templatedata-doc-param-type mw-templatedata-doc-muted">(templatedata-doc-param-type-unknown)</td>
-			<td>(templatedata-doc-param-status-optional)</td>
+			<td class="mw-templatedata-doc-param-status-optional" data-sort-value="0">(templatedata-doc-param-status-optional)</td>
 		</tr>
 		<tr>
 			<th>bar</th>
 			<td class="mw-templatedata-doc-param-name"><code>bar</code></td>
 			<td class="mw-templatedata-doc-muted"><p>(templatedata-doc-param-desc-empty)</p><dl></dl></td>
 			<td class="mw-templatedata-doc-param-type mw-templatedata-doc-muted">(templatedata-doc-param-type-unknown)</td>
-			<td class="mw-templatedata-doc-param-status-required">(templatedata-doc-param-status-required)</td>
+			<td class="mw-templatedata-doc-param-status-required" data-sort-value="2">(templatedata-doc-param-status-required)</td>
 		</tr>
 	</tbody>
 </table>
