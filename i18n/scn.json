@@ -14,5 +14,6 @@
 	"templatedata-modal-button-cancel": "Annulla",
 	"templatedata-modal-button-saveparam": "Sarva",
 	"templatedata-modal-table-param-actions": "Azzioni",
-	"templatedata-modal-table-param-description": "Discrizzioni ($1)"
+	"templatedata-modal-table-param-description": "Discrizzioni ($1)",
+	"templatedata-modal-table-param-name": "Nomu"
 }
