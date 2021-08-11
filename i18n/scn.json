@@ -15,5 +15,6 @@
 	"templatedata-modal-button-saveparam": "Sarva",
 	"templatedata-modal-table-param-actions": "Azzioni",
 	"templatedata-modal-table-param-description": "Discrizzioni ($1)",
-	"templatedata-modal-table-param-name": "Nomu"
+	"templatedata-modal-table-param-name": "Nomu",
+	"templatedata-modal-title-language": "Lingua"
 }
