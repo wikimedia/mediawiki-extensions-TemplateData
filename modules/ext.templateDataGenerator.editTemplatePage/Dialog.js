@@ -440,7 +440,7 @@ Dialog.prototype.onAddParamInputChange = function ( value ) {
 /**
  * Respond to change of param order from the model
  *
- * @param {...string[]} paramOrderArray The array of keys in order
+ * @param {string[]} paramOrderArray The array of keys in order
  */
 Dialog.prototype.onModelChangeParamOrder = function () {
 	// Refresh the parameter widget
@@ -452,8 +452,8 @@ Dialog.prototype.onModelChangeParamOrder = function () {
  *
  * @param {string} paramKey Parameter key
  * @param {string} prop Property name
- * @param {...Mixed} value Property value
- * @param {string} [language] Value language
+ * @param {Mixed} value
+ * @param {string} language
  */
 Dialog.prototype.onModelChangeProperty = function ( paramKey, prop, value ) {
 	// Refresh the parameter widget
@@ -591,7 +591,7 @@ Dialog.prototype.onAddNewMapClick = function () {
 /**
  * Handle clicking cancel button (for add new map panel)
  *
- * @param {OO.ui.OutlineOptionWidget} highlightNext item to be highlighted after adding a new map canceled/done
+ * @param {OO.ui.OutlineOptionWidget} [highlightNext] item to be highlighted after adding a new map canceled/done
  */
 Dialog.prototype.onCancelAddingMap = function ( highlightNext ) {
 	// Remove the text-area input, cancel button, and show add new map button
@@ -660,7 +660,6 @@ Dialog.prototype.onMapsGroupSelect = function () {
 		this.templateMapsInput.setDisabled( true );
 		this.templateMapsInput.setValue( '' );
 	} else {
-
 		// Cancel the process of adding a map, Cannot call onCancelAddingMap because these two functions
 		// cannot be called recursively
 		// Remove the text-area input, cancel button, and show add new map button
@@ -683,7 +682,6 @@ Dialog.prototype.onMapsGroupSelect = function () {
 		currentMapInfo = this.mapsCache[ item.label ];
 		this.templateMapsInput.setValue( this.stringifyObject( currentMapInfo ) );
 	}
-
 };
 
 /**
@@ -972,7 +970,7 @@ Dialog.prototype.toggleSuggestedValues = function ( type ) {
 /**
  * Set the parameter details in the detail panel.
  *
- * @param {Object} paramKey Parameter details
+ * @param {string} paramKey
  */
 Dialog.prototype.getParameterDetails = function ( paramKey ) {
 	var prop,
@@ -1334,8 +1332,8 @@ Dialog.prototype.getBodyHeight = function () {
  *
  * @param {string} type Which notice label to show: 'list', 'edit' or 'global'; defaults to 'list'
  * @param {boolean} isShowing Show or hide the message
- * @param {string} noticeMessageType Message type: 'notice', 'error', 'warning', 'success'
- * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} noticeMessageLabel The message to display
+ * @param {string} [noticeMessageType] Message type: 'notice', 'error', 'warning', 'success'
+ * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} [noticeMessageLabel] The message to display
  */
 Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, noticeMessageType, noticeMessageLabel ) {
 	var noticeReference;
@@ -1477,7 +1475,6 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 			this.panels.$element.show();
 
 			this.actions.setAbilities( { apply: false } );
-
 		}, this );
 };
 

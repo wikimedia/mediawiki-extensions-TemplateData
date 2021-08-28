@@ -493,7 +493,6 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 
 	return sourceHandler.buildModel( originalWikitext )
 		.done( function ( model ) {
-
 			// Check description
 			assert.strictEqual(
 				model.getTemplateDescription(),
@@ -591,7 +590,6 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 				[ 'date', 'year', 'month', 'user', 'comment', 'newParam1', 'newParam2', 'newParam3', 'newParam4', 'newParam5' ],
 				'Final templatedata output with paramOrder'
 			);
-
 		} );
 } );
 
