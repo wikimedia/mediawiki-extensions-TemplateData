@@ -628,61 +628,38 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		if ( !isset( $case['msg'] ) ) {
 			$case['msg'] = is_string( $case['status'] ) ? $case['status'] : 'TemplateData assertion';
 		}
-		if ( !isset( $case['output'] ) ) {
-			if ( is_string( $case['status'] ) ) {
-				$case['output'] = '{
-					"description": null,
-					"params": {},
-					"sets": [],
-					"maps": {},
-					"format": null
-				}';
-			} else {
-				$case['output'] = $case['input'];
-			}
-		}
 
 		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
 		$actual = $t->getJSON();
 		$status = $t->getStatus();
-		if ( !$status->isGood() ) {
-			$this->assertSame(
-				$case['status'],
-				self::getStatusText( $status ),
-				'Status: ' . $case['msg']
-			);
+
+		$this->assertSame(
+			$case['status'],
+			is_string( $case['status'] ) ? self::getStatusText( $status ) : $status->isGood(),
+			'Status: ' . $case['msg']
+		);
+
+		if ( !isset( $case['output'] ) ) {
+			$expected = is_string( $case['status'] )
+				? '{ "description": null, "params": {}, "sets": [], "maps": {}, "format": null }'
+				: $case['input'];
+			$this->assertStrictJsonEquals( $expected, $actual, $case['msg'] );
 		} else {
-			$this->assertSame(
-				$case['status'],
-				$status->isGood(),
-				'Status: ' . $case['msg']
+			$this->assertStrictJsonEquals( $case['output'], $actual, $case['msg'] );
+
+			// Assert this case roundtrips properly by running through the output as input.
+			$t = TemplateDataBlob::newFromJSON( $this->db, $case['output'] );
+			$status = $t->getStatus();
+
+			if ( !$status->isGood() ) {
+				$this->assertSame( $case['status'], self::getStatusText( $status ),
+					'Roundtrip status: ' . $case['msg']
+				);
+			}
+			$this->assertStrictJsonEquals( $case['output'], $t->getJSON(),
+				'Roundtrip: ' . $case['msg']
 			);
 		}
-
-		$this->assertStrictJsonEquals(
-			$case['output'],
-			$actual,
-			$case['msg']
-		);
-
-		// Assert this case roundtrips properly by running through the output as input.
-
-		$t = TemplateDataBlob::newFromJSON( $this->db, $case['output'] );
-
-		$status = $t->getStatus();
-		if ( !$status->isGood() ) {
-			$this->assertSame(
-				$case['status'],
-				self::getStatusText( $status ),
-				'Roundtrip status: ' . $case['msg']
-			);
-		}
-
-		$this->assertStrictJsonEquals(
-			$case['output'],
-			$t->getJSON(),
-			'Roundtrip: ' . $case['msg']
-		);
 	}
 
 	/**
