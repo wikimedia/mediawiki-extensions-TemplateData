@@ -625,7 +625,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		self::ksort( $expected );
 		self::ksort( $actual );
 
-		$this->assertEquals(
+		$this->assertSame(
 			FormatJson::encode( $expected, true ),
 			FormatJson::encode( $actual, true ),
 			$message
@@ -658,13 +658,13 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		$actual = $t->getJSON();
 		$status = $t->getStatus();
 		if ( !$status->isGood() ) {
-			$this->assertEquals(
+			$this->assertSame(
 				$case['status'],
 				self::getStatusText( $status ),
 				'Status: ' . $case['msg']
 			);
 		} else {
-			$this->assertEquals(
+			$this->assertSame(
 				$case['status'],
 				$status->isGood(),
 				'Status: ' . $case['msg']
@@ -683,7 +683,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 
 		$status = $t->getStatus();
 		if ( !$status->isGood() ) {
-			$this->assertEquals(
+			$this->assertSame(
 				$case['status'],
 				self::getStatusText( $status ),
 				'Roundtrip status: ' . $case['msg']
@@ -1389,6 +1389,6 @@ HTML
 
 		$linedExpected = preg_replace( '/>\s*</', ">\n<", trim( $expected ) );
 
-		$this->assertEquals( $linedExpected, $linedActual, 'html' );
+		$this->assertSame( $linedExpected, $linedActual, 'html' );
 	}
 }
