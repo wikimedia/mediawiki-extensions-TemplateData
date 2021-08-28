@@ -65,17 +65,73 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'msg' => 'Unknown properties'
 			],
 			[
+				'input' => '{ "description": [], "params": {} }',
+				'status' => '(templatedata-invalid-type: description, string|object)',
+			],
+			[
 				'input' => '{}',
 				'status' => '(templatedata-invalid-missing: params, object)',
 				'msg' => 'Empty object'
 			],
 			[
-				'input' => '{
-					"foo": "bar"
-				}
-				',
-				'status' => '(templatedata-invalid-unknown: foo)',
-				'msg' => 'Unknown properties invalidate the blob'
+				'input' => '{ "params": [] }',
+				'status' => '(templatedata-invalid-type: params, object)',
+			],
+			[
+				'input' => '{ "params": { "a": [] } }',
+				'status' => '(templatedata-invalid-type: params.a, object)',
+			],
+			[
+				'input' => '{ "params": { "a": { "foo": "" } } }',
+				'status' => '(templatedata-invalid-unknown: params.a.foo)',
+			],
+			[
+				'input' => '{ "params": { "a": { "label": [] } } }',
+				'status' => '(templatedata-invalid-type: params.a.label, string|object)',
+			],
+			[
+				'input' => '{ "params": { "a": { "required": "" } } }',
+				'status' => '(templatedata-invalid-type: params.a.required, boolean)',
+			],
+			[
+				'input' => '{ "params": { "a": { "suggested": "" } } }',
+				'status' => '(templatedata-invalid-type: params.a.suggested, boolean)',
+			],
+			[
+				'input' => '{ "params": { "a": { "description": [] } } }',
+				'status' => '(templatedata-invalid-type: params.a.description, string|object)',
+			],
+			[
+				'input' => '{ "params": { "a": { "example": [] } } }',
+				'status' => '(templatedata-invalid-type: params.a.example, string|object)',
+			],
+			[
+				'input' => '{ "params": { "a": { "deprecated": [] } } }',
+				'status' => '(templatedata-invalid-type: params.a.deprecated, boolean|string)',
+			],
+			[
+				'input' => '{ "params": { "a": { "aliases": "" } } }',
+				'status' => '(templatedata-invalid-type: params.a.aliases, array)',
+			],
+			[
+				'input' => '{ "params": { "a": { "autovalue": [] } } }',
+				'status' => '(templatedata-invalid-type: params.a.autovalue, string)',
+			],
+			[
+				'input' => '{ "params": { "a": { "default": [] } } }',
+				'status' => '(templatedata-invalid-type: params.a.default, string|object)',
+			],
+			[
+				'input' => '{ "params": { "a": { "type": [] } } }',
+				'status' => '(templatedata-invalid-type: params.a.type, string)',
+			],
+			[
+				'input' => '{ "params": { "a": { "type": "" } } }',
+				'status' => '(templatedata-invalid-value: params.a.type)',
+			],
+			[
+				'input' => '{ "params": { "a": { "suggestedvalues": "" } } }',
+				'status' => '(templatedata-invalid-type: params.a.suggestedvalues, array)',
 			],
 			[
 				'input' => '{
@@ -192,6 +248,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'msg' => 'InterfaceText is expanded to langcode-keyed object, assuming content language'
 			],
 			[
+				'input' => '{ "params": { "b": { "inherits": "a" } } }',
+				'status' => '(templatedata-invalid-missing: params.a)',
+			],
+			[
 				'input' => '{
 					"description": "Document the documenter.",
 					"params": {
@@ -256,6 +316,14 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					. '(preserving overides)'
 			],
 			[
+				'input' => '{ "params": {}, "sets": {} }',
+				'status' => '(templatedata-invalid-type: sets, array)'
+			],
+			[
+				'input' => '{ "params": {}, "sets": [ [] ] }',
+				'status' => '(templatedata-invalid-value: sets.0)'
+			],
+			[
 				'input' => '{
 					"params": {},
 					"sets": [
@@ -265,6 +333,14 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					]
 				}',
 				'status' => '(templatedata-invalid-missing: sets.0.params, array)'
+			],
+			[
+				'input' => '{ "params": {}, "sets": [ { "label": "", "params": {} } ] }',
+				'status' => '(templatedata-invalid-type: sets.0.params, array)'
+			],
+			[
+				'input' => '{ "params": {}, "sets": [ { "label": "", "params": [] } ] }',
+				'status' => '(templatedata-invalid-empty-array: sets.0.params)'
 			],
 			[
 				'input' => '{
@@ -279,6 +355,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					]
 				}',
 				'status' => '(templatedata-invalid-missing: sets.0.label, string|object)'
+			],
+			[
+				'input' => '{ "params": {}, "sets": [ { "label": [] } ] }',
+				'status' => '(templatedata-invalid-type: sets.0.label, string|object)'
 			],
 			[
 				'input' => '{
@@ -435,6 +515,26 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'msg' => 'Parameter attributes preserve information.'
 			],
 			[
+				'input' => '{ "params": {}, "maps": [] }',
+				'status' => '(templatedata-invalid-type: maps, object)'
+			],
+			[
+				'input' => '{ "params": {}, "maps": { "a": [] } }',
+				'status' => '(templatedata-invalid-type: maps.a, object)'
+			],
+			[
+				'input' => '{ "params": {}, "maps": { "a": { "b": "c" } } }',
+				'status' => '(templatedata-invalid-param: c, maps.a.b)'
+			],
+			[
+				'input' => '{ "params": {}, "maps": { "a": { "b": [ {} ] } } }',
+				'status' => '(templatedata-invalid-type: maps.a.b[0], string|array)'
+			],
+			[
+				'input' => '{ "params": {}, "maps": { "a": { "b": [ "c" ] } } }',
+				'status' => '(templatedata-invalid-param: c, maps.a.b[0])'
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {
@@ -452,7 +552,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 						}
 					}
 				}',
-				'status' => '(templatedata-invalid-param: quux, maps.application.things)'
+				'status' => '(templatedata-invalid-param: quux, maps.application.things[1][1])'
 			],
 			[
 				'input' => '{
@@ -1186,6 +1286,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				}
 				',
 				'msg' => 'Custom paramOrder'
+			],
+			[
+				'input' => '{ "params": {}, "paramOrder": {} }',
+				'status' => '(templatedata-invalid-type: paramOrder, array)',
 			],
 			[
 				'input' => '{
