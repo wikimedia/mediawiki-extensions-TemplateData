@@ -884,7 +884,6 @@ Dialog.prototype.onTemplateFormatInputWidgetEnter = function () {
 
 Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	var $errors = $( [] ),
-		anyInputError = false,
 		allProps = Model.static.getAllProperties( true ),
 		propInput = this.propInputs[ property ],
 		dependentField = allProps[ property ].textValue;
@@ -928,7 +927,7 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	// Validate
 	// FIXME: Don't read model information from the DOM
 	// eslint-disable-next-line no-jquery/no-global-selector
-	anyInputError = !!$( '.tdg-templateDataDialog-paramInput.tdg-editscreen-input-error' ).length;
+	var anyInputError = !!$( '.tdg-templateDataDialog-paramInput.tdg-editscreen-input-error' ).length;
 
 	// Disable the 'done' button if there are any errors in the inputs
 	this.actions.setAbilities( { done: !anyInputError } );
@@ -1060,21 +1059,19 @@ Dialog.prototype.reset = function () {
  * Empty and repopulate the parameter select widget.
  */
 Dialog.prototype.repopulateParamSelectWidget = function () {
-	var i, paramKey, missingParams, paramList, paramOrder;
-
 	if ( !this.isSetup ) {
 		return;
 	}
 
-	missingParams = this.model.getMissingParams();
-	paramList = this.model.getParams();
-	paramOrder = this.model.getTemplateParamOrder();
+	var missingParams = this.model.getMissingParams(),
+		paramList = this.model.getParams(),
+		paramOrder = this.model.getTemplateParamOrder();
 
 	this.paramSelect.clearItems();
 
 	// Update all param descriptions in the param select widget
-	for ( i in paramOrder ) {
-		paramKey = paramList[ paramOrder[ i ] ];
+	for ( var i in paramOrder ) {
+		var paramKey = paramList[ paramOrder[ i ] ];
 		if ( paramKey && !paramKey.deleted ) {
 			this.addParamToSelectWidget( paramOrder[ i ] );
 		}
@@ -1399,9 +1396,6 @@ Dialog.prototype.importParametersFromTemplateCode = function () {
 Dialog.prototype.getSetupProcess = function ( data ) {
 	return Dialog.super.prototype.getSetupProcess.call( this, data )
 		.next( function () {
-			var i, language, languages,
-				languageItems = [];
-
 			this.isSetup = false;
 
 			this.reset();
@@ -1433,9 +1427,9 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 
 			this.newLanguageSearch.addResults();
 
-			languageItems = [];
-			language = this.model.getDefaultLanguage();
-			languages = this.model.getExistingLanguageCodes();
+			var languageItems = [],
+				language = this.model.getDefaultLanguage(),
+				languages = this.model.getExistingLanguageCodes();
 
 			// Bring in the editNoticeMessage from the main page
 			this.listParamsPanel.$element.prepend(
@@ -1456,7 +1450,7 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 			}
 
 			// Add all available languages
-			for ( i = 0; i < languages.length; i++ ) {
+			for ( var i = 0; i < languages.length; i++ ) {
 				languageItems.push( new OO.ui.MenuOptionWidget( {
 					data: languages[ i ],
 					label: $.uls.data.getAutonym( languages[ i ] )
