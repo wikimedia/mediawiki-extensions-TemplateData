@@ -8,12 +8,11 @@ use Wikimedia\TestingAccessWrapper;
  * @covers \TemplateDataBlob
  * @covers \TemplateDataCompressedBlob
  */
-class TemplateDataBlobTest extends MediaWikiTestCase {
+class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-
-		$this->setContentLang( 'en' );
+		$this->setMwGlobals( 'wgLanguageCode', 'qqx' );
 	}
 
 	/**
@@ -38,7 +37,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 			[
 				'input' => '[]
 				',
-				'status' => 'Property "templatedata" is expected to be of type "object".'
+				'status' => '(templatedata-invalid-type: templatedata, object)'
 			],
 			[
 				'input' => '{
@@ -62,12 +61,12 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"foo": "bar"
 				}
 				',
-				'status' => 'Unexpected property "foo".',
+				'status' => '(templatedata-invalid-unknown: foo)',
 				'msg' => 'Unknown properties'
 			],
 			[
 				'input' => '{}',
-				'status' => 'Required property "params" not found.',
+				'status' => '(templatedata-invalid-missing: params, object)',
 				'msg' => 'Empty object'
 			],
 			[
@@ -75,7 +74,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"foo": "bar"
 				}
 				',
-				'status' => 'Unexpected property "foo".',
+				'status' => '(templatedata-invalid-unknown: foo)',
 				'msg' => 'Unknown properties invalidate the blob'
 			],
 			[
@@ -162,16 +161,16 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'output' => '{
 					"description": {
-						"en": "User badge MediaWiki developers."
+						"qqx": "User badge MediaWiki developers."
 					},
 					"params": {
 						"nickname": {
 							"label": null,
 							"description": {
-								"en": "User name of user who owns the badge"
+								"qqx": "User name of user who owns the badge"
 							},
 							"default": {
-								"en": "Base page name of the host page"
+								"qqx": "Base page name of the host page"
 							},
 							"example": null,
 							"required": false,
@@ -210,20 +209,20 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'output' => '{
 					"description": {
-						"en": "Document the documenter."
+						"qqx": "Document the documenter."
 					},
 					"params": {
 						"1d": {
 							"label": null,
 							"description": {
-								"en": "Description of the template parameter"
+								"qqx": "Description of the template parameter"
 							},
 							"example": null,
 							"required": true,
 							"suggested": false,
 							"suggestedvalues": [],
 							"default": {
-								"en": "example"
+								"qqx": "example"
 							},
 							"deprecated": false,
 							"aliases": [],
@@ -233,14 +232,14 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						"2d": {
 							"label": null,
 							"description": {
-								"en": "Description of the template parameter"
+								"qqx": "Description of the template parameter"
 							},
 							"example": null,
 							"required": true,
 							"suggested": false,
 							"suggestedvalues": [],
 							"default": {
-								"en": "overridden"
+								"qqx": "overridden"
 							},
 							"deprecated": false,
 							"aliases": [],
@@ -265,7 +264,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					]
 				}',
-				'status' => 'Required property "sets.0.params" not found.'
+				'status' => '(templatedata-invalid-missing: sets.0.params, array)'
 			],
 			[
 				'input' => '{
@@ -279,7 +278,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					]
 				}',
-				'status' => 'Required property "sets.0.label" not found.'
+				'status' => '(templatedata-invalid-missing: sets.0.label, string|object)'
 			],
 			[
 				'input' => '{
@@ -296,7 +295,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					]
 				}',
-				'status' => 'Invalid value for property "sets.0.params[1]".'
+				'status' => '(templatedata-invalid-value: sets.0.params[1])'
 			],
 			[
 				'input' => '{
@@ -365,13 +364,13 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"sets": [
 						{
 							"label": {
-								"en": "Foo with Quux"
+								"qqx": "Foo with Quux"
 							},
 							"params": ["foo", "quux"]
 						},
 						{
 							"label": {
-								"en": "Bar with Quux"
+								"qqx": "Bar with Quux"
 							},
 							"params": ["bar", "quux"]
 						}
@@ -403,21 +402,21 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				',
 				'output' => '{
 					"description": {
-						"en": "Testing some template description."
+						"qqx": "Testing some template description."
 					},
 					"params": {
 						"bar": {
 							"label": {
-								"en": "Bar label"
+								"qqx": "Bar label"
 							},
 							"description": {
-								"en": "Bar description"
+								"qqx": "Bar description"
 							},
 							"default": {
-								"en": "Baz"
+								"qqx": "Baz"
 							},
 							"example": {
-								"en": "Foo bar baz"
+								"qqx": "Foo bar baz"
 							},
 							"autovalue": "{{SomeTemplate}}",
 							"required": true,
@@ -453,7 +452,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					}
 				}',
-				'status' => 'Invalid parameter "quux" for property "maps.application.things".'
+				'status' => '(templatedata-invalid-param: quux, maps.application.things)'
 			],
 			[
 				'input' => '{
@@ -473,7 +472,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					}
 				}',
-				'status' => 'Property "maps.application.things" is expected to be of type "string|array".'
+				'status' => '(templatedata-invalid-type: maps.application.things, string|array)'
 			],
 			[
 				'input' => '{
@@ -492,7 +491,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						}
 					}
 				}',
-				'status' => 'Property "maps.application.things[0][0]" is expected to be of type "string".'
+				'status' => '(templatedata-invalid-type: maps.application.things[0][0], string)'
 			],
 			[
 				'input' => '{
@@ -501,7 +500,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					},
 					"format": "meshuggah format"
 				}',
-				'status' => 'Property "format" is expected to be "inline", "block", or a valid format string.'
+				'status' => '(templatedata-invalid-format: format)'
 			],
 			[
 				'input' => '{
@@ -709,7 +708,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 		$templateData = TemplateDataBlob::newFromJSON( $this->db, $json );
 
 		$this->assertStringStartsWith(
-			'Data too large to save',
+			'(templatedata-invalid-length: ',
 			self::getStatusText( $templateData->getStatus() )
 		);
 	}
@@ -777,7 +776,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"description": {
 						"de": "German",
 						"nl": "Dutch",
-						"en": "English",
+						"qqx": "English",
 						"de-formal": "German (formal address)"
 					},
 					"params": {}
@@ -809,8 +808,8 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 				}
 				',
 				'lang' => 'fr',
-				'msg' => 'Non multi-language value returned as is (expands to { "en": value } for' .
-					' content-lang, "fr" falls back to "en")'
+				'msg' => 'Non multi-language value returned as is (expands to { "qqx": value } for' .
+					' content-lang, "fr" falls back to "qqx")'
 			],
 			[
 				'input' => '{
@@ -857,7 +856,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"description": {
 						"de": "German",
 						"nl": "Dutch",
-						"en": "English"
+						"qqx": "English"
 					},
 					"params": {}
 				}
@@ -879,7 +878,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						"foo": {
 							"label": {
 								"fr": "French",
-								"en": "English"
+								"qqx": "English"
 							}
 						}
 					}
@@ -916,7 +915,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 						"foo": {
 							"default": {
 								"fr": "French",
-								"en": "English"
+								"qqx": "English"
 							}
 						}
 					}
@@ -1198,7 +1197,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"paramOrder": ["foo", "bar"]
 				}
 				',
-				'status' => 'Required property "paramOrder[2]" not found.',
+				'status' => '(templatedata-invalid-missing: paramOrder[2])',
 				'msg' => 'Incomplete paramOrder'
 			],
 			[
@@ -1226,7 +1225,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"paramOrder": ["foo", "bar", "baz", "quux"]
 				}
 				',
-				'status' => 'Invalid value for property "paramOrder[3]".',
+				'status' => '(templatedata-invalid-value: paramOrder[3])',
 				'msg' => 'Unknown params in paramOrder'
 			],
 			[
@@ -1239,8 +1238,7 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 					"paramOrder": ["foo", "bar", "baz", "bar"]
 				}
 				',
-				'status' => 'Property "paramOrder[3]" ("bar") is a duplicate of ' .
-					'"paramOrder[1]".',
+				'status' => '(templatedata-invalid-duplicate-value: paramOrder[3], paramOrder[1], bar)',
 				'msg' => 'Duplicate params in paramOrder'
 			],
 		];
