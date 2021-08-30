@@ -34,7 +34,7 @@
 	"templatedata-doc-param-type-boolean": "Логічне значення",
 	"templatedata-doc-param-type-content": "Вміст",
 	"templatedata-doc-param-type-date": "Дата",
-	"templatedata-doc-param-type-line": "Лінія",
+	"templatedata-doc-param-type-line": "Короткий текст",
 	"templatedata-doc-param-type-number": "Число",
 	"templatedata-doc-param-type-string": "Рядок",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Незбалансований вікі-текст",
