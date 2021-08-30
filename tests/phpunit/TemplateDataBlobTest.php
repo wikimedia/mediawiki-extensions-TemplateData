@@ -20,27 +20,16 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	 * Helper method to generate a string that gzip can't compress.
 	 *
 	 * Output is consistent when given the same seed.
-	 * @param int $length
+	 * @param int $minLength
 	 * @param string $seed
 	 * @return string
 	 */
-	private static function generatePseudorandomString( $length, $seed ) {
-		// Compatibility with PHP7.1+; see T206287
-		if ( defined( 'MT_RAND_PHP' ) ) {
-			mt_srand( $seed, MT_RAND_PHP );
-		} else {
-			mt_srand( $seed );
-		}
-
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$characters_max = strlen( $characters ) - 1;
-
+	private static function generatePseudorandomString( $minLength, $seed ) {
+		srand( $seed );
 		$string = '';
-
-		for ( $i = 0; $i < $length; $i++ ) {
-			$string .= $characters[mt_rand( 0, $characters_max )];
+		while ( strlen( $string ) < $minLength ) {
+			$string .= str_shuffle( '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' );
 		}
-
 		return $string;
 	}
 
@@ -708,20 +697,21 @@ class TemplateDataBlobTest extends MediaWikiTestCase {
 	 * MySQL breaks if the input is too large even after compression
 	 */
 	public function testParseLongString() {
-		if ( $this->db->getType() === 'mysql' ) {
-			$this->assertTemplateData(
-				[
-					// Should be long enough to trigger this condition after gzipping.
-					'input' => '{
-						"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
-						"params": {}
-					}',
-					'status' => 'Data too large to save (75,217 bytes, limit is 65,535)'
-				]
-			);
-		} else {
+		if ( $this->db->getType() !== 'mysql' ) {
 			$this->markTestSkipped( 'long compressed strings break on MySQL only' );
 		}
+
+		// Should be long enough to trigger this condition after gzipping.
+		$json = '{
+			"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
+			"params": {}
+		}';
+		$templateData = TemplateDataBlob::newFromJSON( $this->db, $json );
+
+		$this->assertStringStartsWith(
+			'Data too large to save',
+			self::getStatusText( $templateData->getStatus() )
+		);
 	}
 
 	/**
