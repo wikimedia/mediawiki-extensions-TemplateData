@@ -55,7 +55,8 @@ OO.mixinClass( Model, OO.EventEmitter );
  * @event change-property
  * @param {string} paramKey Parameter key
  * @param {string} prop Property name
- * @param {...Mixed} value Property value
+ * @param {Mixed} value
+ * @param {string} language
  */
 
 /**
@@ -711,7 +712,7 @@ Model.prototype.getTemplateFormat = function () {
  *
  * @param {string} paramKey Parameter key
  * @param {string} prop Property name
- * @param {...Mixed} value Property value
+ * @param {Mixed} value
  * @param {string} [language] Value language
  * @return {boolean} Operation was successful
  * @fires change-property
@@ -765,7 +766,6 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 				this.params[ newKey ] = this.params[ paramKey ];
 				// Delete the old param
 				this.params[ paramKey ] = { deleted: true };
-
 			}
 
 			this.emit( 'change-property', paramKey, prop, value, language );
@@ -844,7 +844,7 @@ Model.prototype.emptyParamData = function ( paramKey ) {
  *
  * @param {string} paramKey Parameter key
  * @param {string} prop Parameter property
- * @return {...Mixed|null} Property value if it exists. Returns null if the
+ * @return {Mixed|null} Property value if it exists. Returns null if the
  * parameter key itself doesn't exist.
  */
 Model.prototype.getParamProperty = function ( paramKey, prop ) {
