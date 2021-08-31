@@ -776,7 +776,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					"description": {
 						"de": "German",
 						"nl": "Dutch",
-						"qqx": "English",
+						"en": "English",
 						"de-formal": "German (formal address)"
 					},
 					"params": {}
@@ -808,8 +808,8 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				}
 				',
 				'lang' => 'fr',
-				'msg' => 'Non multi-language value returned as is (expands to { "qqx": value } for' .
-					' content-lang, "fr" falls back to "qqx")'
+				'msg' => 'Non multi-language value returned as is (expands to { "en": value } for' .
+					' content-lang, "fr" falls back to "en")'
 			],
 			[
 				'input' => '{
@@ -856,7 +856,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					"description": {
 						"de": "German",
 						"nl": "Dutch",
-						"qqx": "English"
+						"en": "English"
 					},
 					"params": {}
 				}
@@ -878,7 +878,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 						"foo": {
 							"label": {
 								"fr": "French",
-								"qqx": "English"
+								"en": "English"
 							}
 						}
 					}
@@ -915,7 +915,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 						"foo": {
 							"default": {
 								"fr": "French",
-								"qqx": "English"
+								"en": "English"
 							}
 						}
 					}
