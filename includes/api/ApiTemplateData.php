@@ -60,7 +60,6 @@ class ApiTemplateData extends ApiBase {
 			$langCode = false;
 		} elseif ( !$services->getLanguageNameUtils()->isValidCode( $params['lang'] ) ) {
 			$this->dieWithError( [ 'apierror-invalidlang', 'lang' ] );
-			throw new LogicException();
 		} else {
 			$langCode = $params['lang'];
 		}
