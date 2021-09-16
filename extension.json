@@ -29,7 +29,7 @@
 	"Hooks": {
 		"EditPage::showEditForm:fields": "TemplateDataHooks::onEditPageShowEditFormFields",
 		"ParserFirstCallInit": "TemplateDataHooks::onParserFirstCallInit",
-		"PageContentSave": "TemplateDataHooks::onPageContentSave",
+		"MultiContentSave": "TemplateDataHooks::onMultiContentSave",
 		"ResourceLoaderRegisterModules": "TemplateDataHooks::onResourceLoaderRegisterModules",
 		"EditPage::showEditForm:initial": "TemplateDataHooks::onEditPage",
 		"ParserFetchTemplateData": "TemplateDataHooks::onParserFetchTemplateData",
