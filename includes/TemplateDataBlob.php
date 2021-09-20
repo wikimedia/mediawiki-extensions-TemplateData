@@ -500,7 +500,7 @@ class TemplateDataBlob {
 
 		foreach ( $data->maps as $consumerId => $map ) {
 			if ( !is_object( $map ) ) {
-				return Status::newFatal( 'templatedata-invalid-type', 'maps', 'object' );
+				return Status::newFatal( 'templatedata-invalid-type', "maps.$consumerId", 'object' );
 			}
 
 			foreach ( $map as $key => $value ) {
@@ -522,7 +522,7 @@ class TemplateDataBlob {
 									return Status::newFatal(
 										'templatedata-invalid-param',
 										$value3,
-										"maps.{$consumerId}.{$key}"
+										"maps.$consumerId.{$key}[$key2][$key3]"
 									);
 								}
 							}
@@ -531,7 +531,7 @@ class TemplateDataBlob {
 								return Status::newFatal(
 									'templatedata-invalid-param',
 									$value2,
-									"maps.{$consumerId}.{$key}"
+									"maps.$consumerId.{$key}[$key2]"
 								);
 							}
 						} else {
