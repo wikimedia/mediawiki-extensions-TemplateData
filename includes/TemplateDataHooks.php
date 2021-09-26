@@ -240,6 +240,8 @@ class TemplateDataHooks {
 	public static function onParserFetchTemplateData( array $tplTitles, array &$tplData ): void {
 		$tplData = [];
 
+		$pageProps = MediaWikiServices::getInstance()->getPageProps();
+
 		// This inefficient implementation is currently tuned for
 		// Parsoid's use case where it requests info for exactly one title.
 		// For a real batch use case, this code will need an overhaul.
@@ -274,7 +276,7 @@ class TemplateDataHooks {
 			// It is also expected that such race conditions resolve themselves
 			// after a few seconds so the old "try again later" should cover this.
 			$pageId = $title->getArticleID();
-			$props = PageProps::getInstance()->getProperties( $title, 'templatedata' );
+			$props = $pageProps->getProperties( $title, 'templatedata' );
 			if ( !isset( $props[$pageId] ) ) {
 				// No templatedata
 				$tplData[$tplTitle] = (object)[ "notemplatedata" => true ];
