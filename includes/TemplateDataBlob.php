@@ -68,7 +68,7 @@ class TemplateDataBlob {
 	];
 
 	/**
-	 * @var stdClass
+	 * @var mixed
 	 */
 	private $data;
 
@@ -171,7 +171,6 @@ class TemplateDataBlob {
 
 		// Root.format
 		if ( isset( $data->format ) ) {
-			// @phan-suppress-next-line PhanTypeMismatchDimFetchNullable isset makes this non-null
 			$f = self::FORMATS[$data->format] ?? $data->format;
 			if (
 				!is_string( $f ) ||
@@ -591,7 +590,7 @@ class TemplateDataBlob {
 	 * @param stdClass|string $text
 	 * @return stdClass
 	 */
-	private function normaliseInterfaceText( $text ) {
+	private function normaliseInterfaceText( $text ): stdClass {
 		if ( is_string( $text ) ) {
 			$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 			return (object)[ $contLang->getCode() => $text ];
@@ -644,7 +643,7 @@ class TemplateDataBlob {
 	}
 
 	/**
-	 * @return stdClass
+	 * @return mixed
 	 */
 	public function getData() {
 		// Return deep clone so callers can't modify data. Needed for getDataInLanguage().
@@ -659,7 +658,7 @@ class TemplateDataBlob {
 	 * @param string $langCode Preferred language
 	 * @return stdClass
 	 */
-	public function getDataInLanguage( string $langCode ) {
+	public function getDataInLanguage( string $langCode ): stdClass {
 		$data = $this->getData();
 
 		// Root.description
@@ -978,7 +977,7 @@ class TemplateDataBlob {
 	}
 
 	/**
-	 * @param stdClass $data
+	 * @param mixed $data
 	 */
 	protected function __construct( $data ) {
 		$this->data = $data;
