@@ -2,8 +2,7 @@
 
 /**
  * @group TemplateData
- * @covers \TemplateDataHooks::setStatusToParserOutput
- * @covers \TemplateDataHooks::getStatusFromParserOutput
+ * @covers \TemplateDataHooks
  */
 class SerializationTest extends MediaWikiTestCase {
 	public function testParserOutputPersistenceForwardCompatibility() {
@@ -48,8 +47,6 @@ class SerializationTest extends MediaWikiTestCase {
 
 	/**
 	 * @dataProvider provideStatus
-	 * @covers \TemplateDataHooks::setStatusToParserOutput
-	 * @covers \TemplateDataHooks::getStatusFromParserOutput
 	 */
 	public function testParserOutputPersistenceRoundTrip( Status $status ) {
 		$parserOutput = new ParserOutput();
@@ -61,8 +58,6 @@ class SerializationTest extends MediaWikiTestCase {
 
 	/**
 	 * @dataProvider provideStatus
-	 * @covers \TemplateDataHooks::jsonSerializeStatus
-	 * @covers \TemplateDataHooks::newStatusFromJson
 	 */
 	public function testJsonRoundTrip( Status $status ) {
 		$json = TemplateDataHooks::jsonSerializeStatus( $status );
