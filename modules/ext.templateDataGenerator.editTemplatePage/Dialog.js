@@ -102,9 +102,6 @@ Dialog.static.actions = [
  * @chainable
  */
 Dialog.prototype.initialize = function () {
-	var templateParamsFieldset, addParamFieldlayout, languageActionFieldLayout, templateFormatFieldSet, mapsActionFieldLayout,
-		mapsListMenuLayout, mapsListPanel, addNewMapButtonPanel, mapsContentPanel, templateMapsMenuLayout;
-
 	// Parent method
 	Dialog.super.prototype.initialize.call( this );
 
@@ -133,7 +130,7 @@ Dialog.prototype.initialize = function () {
 		label: mw.msg( 'templatedata-modal-button-addparam' ),
 		flags: [ 'progressive', 'primary' ]
 	} );
-	addParamFieldlayout = new OO.ui.ActionFieldLayout(
+	var addParamFieldlayout = new OO.ui.ActionFieldLayout(
 		this.newParamInput,
 		this.addParamButton,
 		{
@@ -182,27 +179,27 @@ Dialog.prototype.initialize = function () {
 	this.mapsGroup = new OO.ui.OutlineSelectWidget( {
 		classes: [ 'mw-templateData-template-map-group' ]
 	} );
-	addNewMapButtonPanel = new OO.ui.PanelLayout( {
+	var addNewMapButtonPanel = new OO.ui.PanelLayout( {
 		classes: [ 'mw-templateData-template-add-map-button-panel' ],
 		padded: true,
 		expanded: true
 	} );
-	mapsListPanel = new OO.ui.PanelLayout( {
+	var mapsListPanel = new OO.ui.PanelLayout( {
 		expanded: true,
 		scrollable: true
 	} );
-	mapsListMenuLayout = new OO.ui.MenuLayout( {
+	var mapsListMenuLayout = new OO.ui.MenuLayout( {
 		classes: [ 'mw-templateData-template-map-list-menu-panel' ],
 		menuPosition: 'top',
 		expanded: true,
 		contentPanel: mapsListPanel,
 		menuPanel: addNewMapButtonPanel
 	} );
-	mapsContentPanel = new OO.ui.PanelLayout( {
+	var mapsContentPanel = new OO.ui.PanelLayout( {
 		padded: true,
 		expanded: true
 	} );
-	templateMapsMenuLayout = new OO.ui.MenuLayout( {
+	var templateMapsMenuLayout = new OO.ui.MenuLayout( {
 		contentPanel: mapsContentPanel,
 		menuPanel: mapsListMenuLayout
 	} );
@@ -214,7 +211,7 @@ Dialog.prototype.initialize = function () {
 		flags: [ 'progressive' ]
 	} );
 
-	languageActionFieldLayout = new OO.ui.ActionFieldLayout(
+	var languageActionFieldLayout = new OO.ui.ActionFieldLayout(
 		this.languageDropdownWidget,
 		this.languagePanelButton,
 		{
@@ -234,7 +231,7 @@ Dialog.prototype.initialize = function () {
 		label: mw.msg( 'templatedata-modal-button-map' ),
 		classes: [ 'mw-templateData-maps-panel-button' ]
 	} );
-	mapsActionFieldLayout = new OO.ui.ActionFieldLayout(
+	var mapsActionFieldLayout = new OO.ui.ActionFieldLayout(
 		this.mapsPanelButton,
 		{
 			align: 'left',
@@ -245,7 +242,7 @@ Dialog.prototype.initialize = function () {
 	this.paramListNoticeMessage.toggle( false );
 
 	this.paramSelect = new ParamSelectWidget();
-	templateParamsFieldset = new OO.ui.FieldsetLayout( {
+	var templateParamsFieldset = new OO.ui.FieldsetLayout( {
 		label: mw.msg( 'templatedata-modal-title-templateparams' )
 	} );
 	this.paramImport = new ParamImportWidget();
@@ -277,7 +274,7 @@ Dialog.prototype.initialize = function () {
 		placeholder: mw.msg( 'templatedata-modal-format-placeholder' )
 	} );
 
-	templateFormatFieldSet = new OO.ui.FieldsetLayout( {
+	var templateFormatFieldSet = new OO.ui.FieldsetLayout( {
 		label: mw.msg( 'templatedata-modal-title-templateformat' )
 	} );
 	templateFormatFieldSet.addItems( [
@@ -514,12 +511,10 @@ Dialog.prototype.onDescriptionInputChange = function ( value ) {
  * @param {Object} mapsObject  object
  */
 Dialog.prototype.populateMapsItems = function ( mapsObject ) {
-	var mapKeysList, items;
-
 	mapsObject = mapsObject === undefined ? {} : mapsObject;
-	mapKeysList = Object.keys( mapsObject );
+	var mapKeysList = Object.keys( mapsObject );
 
-	items = mapKeysList.map( function ( mapKey ) {
+	var items = mapKeysList.map( function ( mapKey ) {
 		return new OO.ui.OutlineOptionWidget( {
 			label: mapKey
 		} );
@@ -538,8 +533,7 @@ Dialog.prototype.populateMapsItems = function ( mapsObject ) {
  * @param {string} value map info value
  */
 Dialog.prototype.onMapInfoChange = function ( value ) {
-	var mapValue,
-		selectedItem = this.mapsGroup.findSelectedItem();
+	var selectedItem = this.mapsGroup.findSelectedItem();
 	// Update map Info
 	this.model.maps = this.model.getMapInfo() === undefined ? {} : this.model.getMapInfo();
 	if ( selectedItem ) {
@@ -548,7 +542,7 @@ Dialog.prototype.onMapInfoChange = function ( value ) {
 			try {
 				// This parsing method keeps only the last key/value pair if duplicate keys are defined, and does not throw an error.
 				// Our model will be updated with a valid maps object, but the user may lose their input if it has duplicate key.
-				mapValue = JSON.parse( value );
+				var mapValue = JSON.parse( value );
 				this.mapsCache[ selectedItem.label ] = mapValue;
 				this.actions.setAbilities( { done: true } );
 			} catch ( err ) {
