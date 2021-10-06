@@ -23,7 +23,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	 * @param string $seed
 	 * @return string
 	 */
-	private static function generatePseudorandomString( $minLength, $seed ) {
+	private function generatePseudorandomString( $minLength, $seed ): string {
 		srand( $seed );
 		$string = '';
 		while ( strlen( $string ) < $minLength ) {
@@ -32,7 +32,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		return $string;
 	}
 
-	public static function provideParse() {
+	public function provideParse() {
 		$cases = [
 			[
 				'input' => '[]
@@ -675,7 +675,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		return $calls;
 	}
 
-	protected static function getStatusText( Status $status ) {
+	protected function getStatusText( Status $status ): string {
 		$str = Parser::stripOuterParagraph( $status->getHtml() );
 		// Unescape char references for things like "[, "]" and "|" for
 		// cleaner test assertions and output
@@ -683,11 +683,11 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		return $str;
 	}
 
-	private static function ksort( array &$input ) {
+	private function ksort( array &$input ) {
 		ksort( $input );
 		foreach ( $input as &$value ) {
 			if ( is_array( $value ) ) {
-				self::ksort( $value );
+				$this->ksort( $value );
 			}
 		}
 	}
@@ -710,8 +710,8 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		// Sort first to ensure key-order
 		$expected = json_decode( $expected, /* assoc = */ true );
 		$actual = json_decode( $actual, /* assoc = */ true );
-		self::ksort( $expected );
-		self::ksort( $actual );
+		$this->ksort( $expected );
+		$this->ksort( $actual );
 
 		$this->assertSame(
 			FormatJson::encode( $expected, true ),
@@ -735,7 +735,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
 		$this->assertSame(
 			$case['status'],
-			is_string( $case['status'] ) ? self::getStatusText( $status ) : $status->isGood(),
+			is_string( $case['status'] ) ? $this->getStatusText( $status ) : $status->isGood(),
 			'Status: ' . $case['msg']
 		);
 
@@ -752,7 +752,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 			$status = $t->getStatus();
 
 			if ( !$status->isGood() ) {
-				$this->assertSame( $case['status'], self::getStatusText( $status ),
+				$this->assertSame( $case['status'], $this->getStatusText( $status ),
 					'Roundtrip status: ' . $case['msg']
 				);
 			}
@@ -779,14 +779,14 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
 		// Should be long enough to trigger this condition after gzipping.
 		$json = '{
-			"description": "' . self::generatePseudorandomString( 100000, 42 ) . '",
+			"description": "' . $this->generatePseudorandomString( 100000, 42 ) . '",
 			"params": {}
 		}';
 		$templateData = TemplateDataBlob::newFromJSON( $this->db, $json );
 
 		$this->assertStringStartsWith(
 			'(templatedata-invalid-length: ',
-			self::getStatusText( $templateData->getStatus() )
+			$this->getStatusText( $templateData->getStatus() )
 		);
 	}
 
@@ -846,7 +846,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( 'TemplateDataBlob', $templateData );
 	}
 
-	public static function provideGetDataInLanguage() {
+	public function provideGetDataInLanguage() {
 		$cases = [
 			[
 				'input' => '{
@@ -1130,7 +1130,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$status = $t->getStatus();
 
 		$this->assertTrue(
-			$status->isGood() ?: self::getStatusText( $status ),
+			$status->isGood() ?: $this->getStatusText( $status ),
 			'Status is good: ' . $case['msg']
 		);
 
@@ -1142,7 +1142,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public static function provideParamOrder() {
+	public function provideParamOrder() {
 		$cases = [
 			[
 				'input' => '{
@@ -1399,7 +1399,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
-	public static function provideGetHtml() {
+	public function provideGetHtml() {
 		// phpcs:disable Generic.Files.LineLength.TooLong
 		yield 'No params' => [
 			[ 'params' => [ (object)[] ] ],
