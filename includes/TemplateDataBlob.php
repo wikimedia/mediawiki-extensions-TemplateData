@@ -959,7 +959,7 @@ class TemplateDataBlob {
 		$wikitext = preg_replace( '/<nowiki\s*>.*?<\/nowiki\s*>/s', '', $wikitext );
 
 		// This regex matches the one in ext.TemplateDataGenerator.sourceHandler.js
-		preg_match_all( '/{{3,}([^#]*?)([<|]|}{3,})/m', $wikitext, $rawParams );
+		preg_match_all( '/{{3,}([^\n#={|}]*?)([<|]|}{3,})/m', $wikitext, $rawParams );
 		$params = [];
 		$normalizedParams = [];
 		if ( isset( $rawParams[1] ) ) {

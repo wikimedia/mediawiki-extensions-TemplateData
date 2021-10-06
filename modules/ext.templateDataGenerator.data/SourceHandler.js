@@ -171,7 +171,7 @@ SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateC
 	var paramNames = [],
 		normalizedParamNames = [],
 		// This regex matches the one in TemplateDataBlob.php
-		paramExtractor = /{{3,}([^#]*?)([<|]|}{3,})/mg;
+		paramExtractor = /{{3,}([^\n#={|}]*?)([<|]|}{3,})/mg;
 
 	// Strip everything in nowiki tags and HTML comments
 	templateCode = templateCode.replace( /<!--[\s\S]*?-->/g, '' )

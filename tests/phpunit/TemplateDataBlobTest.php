@@ -1396,6 +1396,18 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'{{ {{{|safesubst:}}}#invoke:…|{{{1}}}|{{{ 1 }}}}}',
 				[ '1' => [] ]
 			],
+			'Characters impossible in parameter names' => [
+				'{{test|a|b=c|d=e=f}} {{{a|b}}} {{{d=e}}}',
+				[ 'a' => [] ]
+			],
+			'Characters that are, while technically possible, almost certainly a mistake' => [
+				"{{{a{a}}} {{{b}b}}} {{{c\nc}}}",
+				[]
+			],
+			'Table syntax escaped with {{!}}' => [
+				'{{{!}}\n! This is table syntax\n{{!}}}',
+				[]
+			],
 		];
 	}
 
