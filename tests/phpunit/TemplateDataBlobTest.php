@@ -685,7 +685,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
 	private static function ksort( array &$input ) {
 		ksort( $input );
-		foreach ( $input as $key => &$value ) {
+		foreach ( $input as &$value ) {
 			if ( is_array( $value ) ) {
 				self::ksort( $value );
 			}
