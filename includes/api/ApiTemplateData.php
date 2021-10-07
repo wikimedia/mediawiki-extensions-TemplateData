@@ -38,7 +38,7 @@ class ApiTemplateData extends ApiBase {
 	/**
 	 * @return ApiPageSet
 	 */
-	private function getPageSet() {
+	private function getPageSet(): ApiPageSet {
 		if ( $this->mPageSet === null ) {
 			$this->mPageSet = new ApiPageSet( $this );
 		}

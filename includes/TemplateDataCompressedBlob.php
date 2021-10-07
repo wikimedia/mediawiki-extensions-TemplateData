@@ -48,7 +48,7 @@ class TemplateDataCompressedBlob extends TemplateDataBlob {
 	/**
 	 * Just initialize the data, compression to be done later.
 	 *
-	 * @param stdClass|null $data Template data
+	 * @param mixed $data Template data
 	 */
 	protected function __construct( $data ) {
 		parent::__construct( $data );
