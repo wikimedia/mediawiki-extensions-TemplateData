@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"JSantos",
 			"Joao Xavier"
 		]
 	},
@@ -16,7 +17,11 @@
 	"templatedata-doc-param-type-string": "Grupo di literi o signi (''String'')",
 	"templatedata-doc-param-type-unbalanced-wikitext": "Senequilibra wikitexto",
 	"templatedata-doc-param-type-unknown": "Nekonocata",
+	"templatedata-doc-param-type-url": "URL",
+	"templatedata-doc-param-type-wiki-file-name": "Arkivo",
 	"templatedata-doc-param-type-wiki-page-name": "Pagino",
+	"templatedata-doc-param-type-wiki-template-name": "Shablono",
+	"templatedata-doc-param-type-wiki-user-name": "Uzero",
 	"templatedata-editbutton": "Administrar Shablono pri Dati",
 	"templatedata-helplink": "Informi pri ShablonoDatumi (TemplateData)",
 	"templatedata-modal-button-back": "Retroirar",
