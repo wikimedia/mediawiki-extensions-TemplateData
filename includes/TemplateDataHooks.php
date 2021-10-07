@@ -90,7 +90,7 @@ class TemplateDataHooks {
 		}
 
 		// TODO: Remove when not needed any more, see T267926
-		self::logChangeEvent( $revisionRecord, $parserOutput->getProperty( 'templatedata' ), $user );
+		self::logChangeEvent( $revisionRecord, $parserOutput->getPageProperty( 'templatedata' ), $user );
 
 		return true;
 	}
@@ -196,7 +196,7 @@ class TemplateDataHooks {
 		$title = $parser->getTitle();
 		$docPage = wfMessage( 'templatedata-doc-subpage' )->inContentLanguage();
 		if ( !$title->isSubpage() || $title->getSubpageText() !== $docPage->plain() ) {
-			$parser->getOutput()->setProperty( 'templatedata', $ti->getJSONForDatabase() );
+			$parser->getOutput()->setPageProperty( 'templatedata', $ti->getJSONForDatabase() );
 		}
 
 		$parser->getOutput()->addModuleStyles( [
