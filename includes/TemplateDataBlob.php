@@ -731,15 +731,16 @@ class TemplateDataBlob {
 	 */
 	public function getHtml( Language $lang ): string {
 		$data = $this->getDataInLanguage( $lang->getCode() );
-		$icon = 'settings';
-		if ( $data->format === null ) {
-			$formatMsg = null;
-		} elseif ( isset( self::FORMATS[$data->format] ) ) {
+		if ( is_string( $data->format ) && isset( self::FORMATS[$data->format] ) ) {
+			// The following icon names are used here:
+			// * template-format-block
+			// * template-format-inline
+			// @phan-suppress-next-line PhanTypeSuspiciousStringExpression
+			$icon = 'template-format-' . $data->format;
 			$formatMsg = $data->format;
-			'@phan-var string $formatMsg';
-			$icon = 'template-format-' . $formatMsg;
 		} else {
-			$formatMsg = 'custom';
+			$icon = 'settings';
+			$formatMsg = $data->format ? 'custom' : null;
 		}
 		$sorting = count( (array)$data->params ) > 1 ? " sortable" : "";
 		$html = '<header>'
