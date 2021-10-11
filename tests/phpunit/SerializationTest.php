@@ -4,7 +4,7 @@
  * @group TemplateData
  * @covers \TemplateDataHooks
  */
-class SerializationTest extends MediaWikiTestCase {
+class SerializationTest extends MediaWikiIntegrationTestCase {
 	public function testParserOutputPersistenceForwardCompatibility() {
 		$output = new ParserOutput();
 
