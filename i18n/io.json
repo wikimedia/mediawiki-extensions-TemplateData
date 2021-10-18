@@ -6,9 +6,12 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "Nula deskripto.",
+	"templatedata-doc-param-autovalue": "Valoro ''default''",
 	"templatedata-doc-param-default": "''Default''",
 	"templatedata-doc-param-desc": "Deskripto",
 	"templatedata-doc-param-desc-empty": "nula deskripto",
+	"templatedata-doc-param-name": "Parametro",
+	"templatedata-doc-param-status": "Stando",
 	"templatedata-doc-param-type-boolean": "Hazardala",
 	"templatedata-doc-param-type-content": "Kontenajo",
 	"templatedata-doc-param-type-date": "Dato",
