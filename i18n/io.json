@@ -31,8 +31,10 @@
 	"templatedata-modal-button-cancel": "Anular",
 	"templatedata-modal-button-done": "Facita",
 	"templatedata-modal-button-map": "Redaktar mapi",
+	"templatedata-modal-format-block": "Blokusar",
 	"templatedata-modal-search-input-placeholder": "Serchar segun la nomo o kodexo di la linguo",
 	"templatedata-modal-table-param-description": "Deskripto ($1)",
+	"templatedata-modal-table-param-example": "Exemplo ($1)",
 	"templatedata-modal-table-param-label": "Etiketo ($1)",
 	"templatedata-modal-title-language": "Linguo"
 }
