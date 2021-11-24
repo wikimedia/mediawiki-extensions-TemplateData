@@ -4,7 +4,8 @@
 			"Max20091",
 			"Minh Nguyen",
 			"Nguyên Lê",
-			"Vinhtantran"
+			"Vinhtantran",
+			"NguoiDungKhongDinhDanh"
 		]
 	},
 	"templatedata-desc": "Lưu trữ dữ liệu cho tham số bản mẫu (qua JSON)",
@@ -90,8 +91,8 @@
 	"templatedata-modal-table-param-aliases": "Biệt danh (phân tách bằng dấu phẩy)",
 	"templatedata-modal-table-param-autovalue": "Giá trị tự động",
 	"templatedata-modal-table-param-default": "Mặc định ($1)",
-	"templatedata-modal-table-param-deprecated": "Bị phản đối",
-	"templatedata-modal-table-param-deprecatedValue": "Giải thích sự phản đối",
+	"templatedata-modal-table-param-deprecated": "Không còn sử dụng",
+	"templatedata-modal-table-param-deprecatedValue": "Giải thích tại sao không còn sử dụng",
 	"templatedata-modal-table-param-description": "Miêu tả ($1)",
 	"templatedata-modal-table-param-example": "Ví dụ ($1)",
 	"templatedata-modal-table-param-importoption": "Thêm $1 tham số được gợi ý",
