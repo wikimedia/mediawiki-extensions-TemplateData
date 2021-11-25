@@ -1,12 +1,13 @@
 <?php
 
+use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group TemplateData
  * @group Database
- * @covers \TemplateDataBlob
- * @covers \TemplateDataCompressedBlob
+ * @covers \MediaWiki\Extension\TemplateData\TemplateDataBlob
+ * @covers \MediaWiki\Extension\TemplateData\TemplateDataCompressedBlob
  */
 class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
@@ -843,7 +844,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		// up calling gzdecode().
 		$gzJson = gzencode( '{}' );
 		$templateData = TemplateDataBlob::newFromDatabase( $this->db, $gzJson );
-		$this->assertInstanceOf( 'TemplateDataBlob', $templateData );
+		$this->assertInstanceOf( TemplateDataBlob::class, $templateData );
 	}
 
 	public function provideGetDataInLanguage() {
