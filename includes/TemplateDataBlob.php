@@ -3,7 +3,14 @@
  * @file
  * @ingroup Extensions
  */
+
+namespace MediaWiki\Extension\TemplateData;
+
+use Html;
+use Language;
 use MediaWiki\MediaWikiServices;
+use Status;
+use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 
 /**
@@ -769,7 +776,7 @@ class TemplateDataBlob {
 					Html::rawElement(
 						'p',
 						[],
-						new OOUI\IconWidget( [ 'icon' => $icon ] )
+						new \OOUI\IconWidget( [ 'icon' => $icon ] )
 						. Html::element(
 							'span',
 							[ 'class' => 'mw-templatedata-format' ],

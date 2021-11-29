@@ -6,7 +6,18 @@
  * @file
  */
 
+namespace MediaWiki\Extension\TemplateData\Api;
+
+use ApiBase;
+use ApiContinuationManager;
+use ApiFormatBase;
+use ApiPageSet;
+use ApiResult;
+use EventLogging;
+use ExtensionRegistry;
+use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\MediaWikiServices;
+use TextContent;
 
 /**
  * @ingroup API

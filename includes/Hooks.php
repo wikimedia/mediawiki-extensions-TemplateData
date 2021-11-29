@@ -1,10 +1,26 @@
 <?php
 
+namespace MediaWiki\Extension\TemplateData;
+
+use CommentStoreComment;
+use EditPage;
+use EventLogging;
+use ExtensionRegistry;
+use Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserIdentity;
+use OutputPage;
+use Parser;
+use ParserOutput;
+use PPFrame;
+use RequestContext;
+use ResourceLoader;
+use Status;
+use Title;
+use WikiPage;
 
 /**
  * Hooks for TemplateData extension
@@ -13,7 +29,7 @@ use MediaWiki\User\UserIdentity;
  * @ingroup Extensions
  */
 
-class TemplateDataHooks {
+class Hooks {
 
 	/**
 	 * @param EditPage $editPage
@@ -228,7 +244,7 @@ class TemplateDataHooks {
 	 *     This will be resolved separately.
 	 *
 	 * @param array $tplTitles
-	 * @param stdclass[] &$tplData
+	 * @param \stdClass[] &$tplData
 	 */
 	public static function onParserFetchTemplateData( array $tplTitles, array &$tplData ): void {
 		$tplData = [];

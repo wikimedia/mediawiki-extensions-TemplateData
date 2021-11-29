@@ -4,6 +4,10 @@
  * @ingroup Extensions
  */
 
+namespace MediaWiki\Extension\TemplateData;
+
+use Status;
+
 /**
  * Represents the information about a template,
  * coming from the JSON blob in the <templatedata> tags

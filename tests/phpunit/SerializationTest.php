@@ -1,8 +1,10 @@
 <?php
 
+use MediaWiki\Extension\TemplateData\Hooks as TemplateDataHooks;
+
 /**
  * @group TemplateData
- * @covers \TemplateDataHooks
+ * @covers \MediaWiki\Extension\TemplateData\Hooks
  */
 class SerializationTest extends MediaWikiIntegrationTestCase {
 	public function testParserOutputPersistenceForwardCompatibility() {
@@ -15,7 +17,8 @@ class SerializationTest extends MediaWikiIntegrationTestCase {
 		// Set JSONified state. Should work before we set JSON-serializable data,
 		// to be robust against old code reading new data after a rollback.
 		$output->setExtensionData( 'TemplateDataStatus',
-			TemplateDataHooks::jsonSerializeStatus( $status ) );
+			TemplateDataHooks::jsonSerializeStatus( $status )
+		);
 
 		$result = TemplateDataHooks::getStatusFromParserOutput( $output );
 		$this->assertEquals( $status->getStatusValue(), $result->getStatusValue() );
