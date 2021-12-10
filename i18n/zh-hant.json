@@ -9,11 +9,12 @@
 			"Liuxinyu970226",
 			"Simon Shek",
 			"Wehwei",
+			"Winston Sung",
 			"Xiplus",
 			"Zhxy 519"
 		]
 	},
-	"templatedata-desc": "實現模板參數的資料儲存 (使用 JSON)",
+	"templatedata-desc": "實現模板參數的資料儲存（使用 JSON）",
 	"templatedata-doc-desc-empty": "沒有描述。",
 	"templatedata-doc-format-block": "此模板以參數區塊格式為優先。",
 	"templatedata-doc-format-custom": "此模板有自訂格式。",
