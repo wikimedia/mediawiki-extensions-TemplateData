@@ -85,6 +85,7 @@
 	"templatedata-modal-json-error-replace": "استبدال",
 	"templatedata-modal-notice-import-numparams": "قد استورد {{PLURAL:$1|وسيط جديد|وسيط واحد جديد|وسيطان جديدان|$1 وسائط جديدة|$1 وسيطا جديدا|$1 وسيط جديد}}: $2",
 	"templatedata-modal-placeholder-paramkey": "اسم المعامل",
+	"templatedata-modal-placeholder-mapinfo": "هذا القالب ليس له كائن خرائط",
 	"templatedata-modal-search-input-placeholder": "اختر اسم اللغة أو رمزها",
 	"templatedata-modal-table-param-actions": "إجراءات",
 	"templatedata-modal-table-param-aliases": "أسماء بديلة (بينها فواصل)",

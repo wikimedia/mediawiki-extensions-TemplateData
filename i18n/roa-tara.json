@@ -75,6 +75,7 @@
 	"templatedata-modal-json-error-replace": "Sostituisce",
 	"templatedata-modal-notice-import-numparams": "$1 parametre nuève {{PLURAL:$1|ha state|onne state}} 'mbortate: $2",
 	"templatedata-modal-placeholder-paramkey": "Nome d'u parametre",
+	"templatedata-modal-placeholder-mapinfo": "Stu template non ge tène oggette mappe",
 	"templatedata-modal-search-input-placeholder": "Cirche pe nome d'a lènghe o codece",
 	"templatedata-modal-table-param-actions": "Aziune",
 	"templatedata-modal-table-param-aliases": "Alias (separate da le virgole)",

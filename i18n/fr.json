@@ -96,6 +96,7 @@
 	"templatedata-modal-json-error-replace": "Remplacer",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|nouveau paramètre a été importé|nouveaux paramètres ont été importés}} : $2.",
 	"templatedata-modal-placeholder-paramkey": "Nom du paramètre",
+	"templatedata-modal-placeholder-mapinfo": "Ce modèle n’a pas d’objet carte",
 	"templatedata-modal-search-input-placeholder": "Rechercher par nom ou code de langue",
 	"templatedata-modal-table-param-actions": "Actions",
 	"templatedata-modal-table-param-aliases": "Alias (séparés par des virgules)",

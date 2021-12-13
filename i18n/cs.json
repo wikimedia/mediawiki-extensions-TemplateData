@@ -9,7 +9,9 @@
 			"Littledogboy",
 			"Matěj Suchánek",
 			"Mormegil",
-			"Patriccck"
+			"Patriccck",
+			"Patrik L.",
+			"Want"
 		]
 	},
 	"templatedata-desc": "Implementuje datové úložiště pro parametry šablon (pomocí JSON)",
@@ -79,9 +81,11 @@
 	"templatedata-modal-format-custom": "Vlastní",
 	"templatedata-modal-format-inline": "V řádce",
 	"templatedata-modal-format-null": "Neurčeno",
+	"templatedata-modal-format-placeholder": "Formátovací vzor pro parametry šablony",
 	"templatedata-modal-json-error-replace": "Nahradit",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Byl naimportován $1 nový parametr|Byly naimportovány $1 nové parametry|Bylo naimportováno $1 nových parametrů}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Jméno parametru",
+	"templatedata-modal-placeholder-mapinfo": "Tato šablona nemá objekt s asociacemi",
 	"templatedata-modal-search-input-placeholder": "Hledání podle názvu či kódu jazyka",
 	"templatedata-modal-table-param-actions": "Akce",
 	"templatedata-modal-table-param-aliases": "Aliasy (oddělené čárkou)",

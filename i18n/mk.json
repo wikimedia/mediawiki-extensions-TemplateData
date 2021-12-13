@@ -76,6 +76,7 @@
 	"templatedata-modal-json-error-replace": "Замени",
 	"templatedata-modal-notice-import-numparams": "Увезов {{PLURAL:$1|еден нов параметар|$1 нови параметри}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Назив на параметарот",
+	"templatedata-modal-placeholder-mapinfo": "Оваа предлошка нема картографски објект",
 	"templatedata-modal-search-input-placeholder": "Пребарување по јазик или негов код",
 	"templatedata-modal-table-param-actions": "Дејства",
 	"templatedata-modal-table-param-aliases": "Истозначници (одделени со запирки)",

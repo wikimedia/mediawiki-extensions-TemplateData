@@ -81,6 +81,6 @@
 	"templatedata-modal-title-paramorder": "Ред на параметрите",
 	"templatedata-modal-title-templatedesc": "Описание на шаблона ($1)",
 	"templatedata-modal-title-templateformat": "Предложено уикитекстово форматиране",
-	"templatedata-modal-title-templateparam-details": "Описание на параметра: $1",
+	"templatedata-modal-title-templateparam-details": "Описание на параметъра: $1",
 	"templatedata-modal-title-templateparams": "Параметри на шаблона"
 }

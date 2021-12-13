@@ -7,7 +7,8 @@
 			"Lokal Profil",
 			"Rockyfelle",
 			"Skalman",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Sabelöga"
 		]
 	},
 	"templatedata-desc": "Lagrar data för mallparametrar (med JSON)",
@@ -81,6 +82,7 @@
 	"templatedata-modal-json-error-replace": "Ersätt",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|ny parameter|nya parametrar}} importerades: $2",
 	"templatedata-modal-placeholder-paramkey": "Parameternamn",
+	"templatedata-modal-placeholder-mapinfo": "Denna mall har inget kartobjekt",
 	"templatedata-modal-search-input-placeholder": "Sök språk efter namn eller kod",
 	"templatedata-modal-table-param-actions": "Handlingar",
 	"templatedata-modal-table-param-aliases": "Alias (kommaseparerade)",

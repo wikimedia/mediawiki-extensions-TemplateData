@@ -79,6 +79,7 @@
 	"templatedata-modal-json-error-replace": "Erstatt",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Én ny parameter|$1 nye parametre}} ble importert: $2",
 	"templatedata-modal-placeholder-paramkey": "Parameternavn",
+	"templatedata-modal-placeholder-mapinfo": "Denne malen har ikke noe kartobjekt",
 	"templatedata-modal-search-input-placeholder": "Søk etter språknavn eller -kode",
 	"templatedata-modal-table-param-actions": "Handlinger",
 	"templatedata-modal-table-param-aliases": "Alias (kommaseparert)",

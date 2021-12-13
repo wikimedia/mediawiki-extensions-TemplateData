@@ -3,10 +3,12 @@
 		"authors": [
 			"Bugoslav",
 			"Ex13",
-			"MaGa"
+			"MaGa",
+			"Ivi104"
 		]
 	},
 	"templatedata-doc-desc-empty": "Nema opisa.",
+	"templatedata-doc-format-block": "U ovom je preporučljivo pisati svaki parametar u svom redu.",
 	"templatedata-doc-format-custom": "Ovaj predložak ima prilagođeno oblikovanje.",
 	"templatedata-doc-param-autovalue": "Automatska vrijednost",
 	"templatedata-doc-param-default": "Zadano",
@@ -20,7 +22,7 @@
 	"templatedata-doc-param-status-required": "obvezno",
 	"templatedata-doc-param-status-suggested": "predloženo",
 	"templatedata-doc-param-type": "Vrsta",
-	"templatedata-doc-param-type-boolean": "Uvjetni izraz",
+	"templatedata-doc-param-type-boolean": "Boolean",
 	"templatedata-doc-param-type-content": "Sadržaj",
 	"templatedata-doc-param-type-date": "Datum",
 	"templatedata-doc-param-type-line": "Linija",

@@ -14,14 +14,16 @@
 			"Mcervera",
 			"Ovruni",
 			"Sethladan",
-			"Vfrico"
+			"Vfrico",
+			"Josecurioso",
+			"Rodney Araujo"
 		]
 	},
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
 	"templatedata-doc-desc-empty": "Sin descripción.",
 	"templatedata-doc-format-block": "Se prefiere introducir los parámetros de esta plantilla en el formato de bloque.",
 	"templatedata-doc-format-custom": "Esta plantilla contiene formato personalizado.",
-	"templatedata-doc-format-inline": "Se prefiere introducir los parámetros de esta plantilla en el formato de una misma línea.",
+	"templatedata-doc-format-inline": "Es preferible escribir los parámetros en una sola línea.",
 	"templatedata-doc-no-params-set": "No hay parámetros especificados",
 	"templatedata-doc-param-autovalue": "Valor automático",
 	"templatedata-doc-param-default": "Predeterminado",
@@ -88,6 +90,7 @@
 	"templatedata-modal-json-error-replace": "Reemplazar",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Se importó $1 parámetro nuevo|Se importaron $1 parámetros nuevos}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Nombre del parámetro",
+	"templatedata-modal-placeholder-mapinfo": "Esta plantilla tiene ningún objeto de mapas.",
 	"templatedata-modal-search-input-placeholder": "Buscar por nombre o código del idioma",
 	"templatedata-modal-table-param-actions": "Acciones",
 	"templatedata-modal-table-param-aliases": "Alias (separados por comas)",
