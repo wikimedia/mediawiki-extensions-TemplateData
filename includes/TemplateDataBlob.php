@@ -309,12 +309,14 @@ class TemplateDataBlob {
 			// Param.aliases
 			if ( isset( $paramObj->aliases ) ) {
 				if ( !is_array( $paramObj->aliases ) ) {
-					// TODO: Validate the array values.
-					return Status::newFatal(
-						'templatedata-invalid-type',
-						"params.{$paramName}.aliases",
-						'array'
-					);
+					return Status::newFatal( 'templatedata-invalid-type',
+						"params.{$paramName}.aliases", 'array' );
+				}
+				foreach ( $paramObj->aliases as $i => $alias ) {
+					if ( !is_string( $alias ) ) {
+						return Status::newFatal( 'templatedata-invalid-type',
+							"params.{$paramName}.aliases[$i]", 'string' );
+					}
 				}
 			} else {
 				$paramObj->aliases = [];
@@ -376,11 +378,14 @@ class TemplateDataBlob {
 			// Param.suggestedvalues
 			if ( isset( $paramObj->suggestedvalues ) ) {
 				if ( !is_array( $paramObj->suggestedvalues ) ) {
-					return Status::newFatal(
-						'templatedata-invalid-type',
-						"params.{$paramName}.suggestedvalues",
-						'array'
-					);
+					return Status::newFatal( 'templatedata-invalid-type',
+						"params.{$paramName}.suggestedvalues", 'array' );
+				}
+				foreach ( $paramObj->suggestedvalues as $i => $value ) {
+					if ( !is_string( $value ) ) {
+						return Status::newFatal( 'templatedata-invalid-type',
+							"params.{$paramName}.suggestedvalues[$i]", 'string' );
+					}
 				}
 			} else {
 				$paramObj->suggestedvalues = [];
@@ -841,7 +846,7 @@ class TemplateDataBlob {
 			}
 
 			$suggestedValuesLine = '';
-			if ( count( $paramObj->suggestedvalues ) ) {
+			if ( $paramObj->suggestedvalues ) {
 				$suggestedValues = '';
 				foreach ( $paramObj->suggestedvalues as $suggestedValue ) {
 					$suggestedValues .= wfMessage( 'word-separator' )->inLanguage( $lang )->escaped()
