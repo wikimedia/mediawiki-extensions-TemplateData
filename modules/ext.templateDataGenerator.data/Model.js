@@ -1074,17 +1074,20 @@ Model.prototype.outputTemplateData = function () {
 				default:
 					// Check if there's a value in the model
 					if ( this.params[ key ][ prop ] !== undefined ) {
+						var compareOrig = original.params[ oldKey ] && original.params[ oldKey ][ prop ];
 						if ( allProps[ prop ].allowLanguages ) {
 							normalizedValue = this.propRemoveUnusedLanguages( this.params[ key ][ prop ] );
 							// Check if this should be displayed with language object or directly as string
-							var compareOrig = original.params[ oldKey ] ? original.params[ oldKey ][ prop ] : {};
-							if ( this.isOutputInLanguageObject( compareOrig, normalizedValue ) ) {
+							if ( this.isOutputInLanguageObject( compareOrig || {}, normalizedValue ) ) {
 								result.params[ name ][ prop ] = normalizedValue;
 							} else {
 								// Store only one language as a string
 								result.params[ name ][ prop ] = normalizedValue[ defaultLang ];
 							}
-						} else {
+						} else if ( this.params[ key ][ prop ] ||
+							// Add empty strings only if the property existed before (empty or not)
+							compareOrig !== undefined
+						) {
 							// Set up the result
 							result.params[ name ][ prop ] = this.params[ key ][ prop ];
 						}
