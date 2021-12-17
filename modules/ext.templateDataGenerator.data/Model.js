@@ -129,8 +129,7 @@ Model.static.getAllProperties = function ( getFullData ) {
 			restrict: /[|=]|}}/
 		},
 		aliases: {
-			type: 'array',
-			delimiter: mw.msg( 'comma-separator' )
+			type: 'array'
 		},
 		label: {
 			type: 'string',

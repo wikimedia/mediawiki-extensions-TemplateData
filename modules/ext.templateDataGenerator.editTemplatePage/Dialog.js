@@ -895,7 +895,7 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 		}
 	}
 
-	if ( property === 'suggestedvalues' ) {
+	if ( property === 'aliases' || property === 'suggestedvalues' ) {
 		value = propInput.getValue();
 	}
 
@@ -1107,6 +1107,7 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			if ( languageProps.indexOf( propName ) !== -1 ) {
 				propInput.setValue( value[ lang ] );
 			} else {
+				// TODO: Remove all delimiter related code when it's not needed any more
 				if ( prop.type === 'array' && Array.isArray( value ) && prop.delimiter ) {
 					value = value.join( prop.delimiter );
 				}
@@ -1119,7 +1120,7 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			propInput.selectItem( propInput.findItemFromData( prop.default ) );
 		} else if ( prop.type === 'boolean' ) {
 			propInput.setSelected( false );
-		} else if ( propName === 'suggestedvalues' ) {
+		} else if ( propName === 'aliases' || propName === 'suggestedvalues' ) {
 			propInput.setValue( [] );
 		} else {
 			propInput.setValue( '' );
@@ -1194,8 +1195,10 @@ Dialog.prototype.createParamDetails = function () {
 			case 'suggested':
 				propInput = new OO.ui.CheckboxInputWidget( config );
 				break;
+			case 'aliases':
 			case 'suggestedvalues':
 				config.allowArbitrary = true;
+				// FIXME: Rename the …suggestedvalues… message key to be generic
 				config.placeholder = mw.msg( 'templatedata-modal-table-param-suggestedvalues-placeholder' );
 				propInput = new OO.ui.TagMultiselectWidget( config );
 				break;

@@ -89,7 +89,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "Enter map name",
 	"templatedata-modal-search-input-placeholder": "Search by language name or code",
 	"templatedata-modal-table-param-actions": "Actions",
-	"templatedata-modal-table-param-aliases": "Aliases (comma separated)",
+	"templatedata-modal-table-param-aliases": "Aliases",
 	"templatedata-modal-table-param-autovalue": "Auto value",
 	"templatedata-modal-table-param-default": "Default ($1)",
 	"templatedata-modal-table-param-deprecated": "Deprecated",
