@@ -716,11 +716,6 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 		return status;
 	}
 
-	if ( allProps[ prop ].type === 'array' && typeof value === 'string' ) {
-		// When we split the string, we want to use a trimmed delimiter
-		value = this.constructor.static.splitAndTrimArray( value, allProps[ prop ].delimiter.trim() );
-	}
-
 	var propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage();
 	// Check if the property is split by language code
 	if ( propertiesWithLanguage.indexOf( prop ) !== -1 ) {
