@@ -94,7 +94,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "지도 이름을 입력해 주세요",
 	"templatedata-modal-search-input-placeholder": "언어 이름이나 코드로 검색",
 	"templatedata-modal-table-param-actions": "동작",
-	"templatedata-modal-table-param-aliases": "별명 (쉼표로 구분)",
+	"templatedata-modal-table-param-aliases": "다른 이름",
 	"templatedata-modal-table-param-autovalue": "자동 값",
 	"templatedata-modal-table-param-default": "기본값 ($1)",
 	"templatedata-modal-table-param-deprecated": "사용되지 않음",

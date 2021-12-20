@@ -4,6 +4,7 @@
 			"Aftab1995",
 			"Aftabuzzaman",
 			"Leemon2010",
+			"Tahmid",
 			"Tauhid16",
 			"Titodutta",
 			"আফতাবুজ্জামান"
@@ -76,7 +77,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "মানচিত্রের নাম লিখুন",
 	"templatedata-modal-search-input-placeholder": "ভাষার নাম বা কোড অনুযায়ী অনুসন্ধান করুন",
 	"templatedata-modal-table-param-actions": "কার্যসমূহ",
-	"templatedata-modal-table-param-aliases": "উপনামগুলো (কমা দিয়ে পৃথক করুন)",
+	"templatedata-modal-table-param-aliases": "উপনাম",
 	"templatedata-modal-table-param-autovalue": "স্বয়ংক্রিয় মান",
 	"templatedata-modal-table-param-default": "পূর্বনির্ধারিত ($1)",
 	"templatedata-modal-table-param-deprecated": "অবচিত",

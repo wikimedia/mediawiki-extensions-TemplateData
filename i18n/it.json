@@ -87,7 +87,7 @@
 	"templatedata-modal-placeholder-paramkey": "Nome del parametro",
 	"templatedata-modal-search-input-placeholder": "Cerca per nome della lingua o codice",
 	"templatedata-modal-table-param-actions": "Azioni",
-	"templatedata-modal-table-param-aliases": "Alias (separati da virgola)",
+	"templatedata-modal-table-param-aliases": "Alias",
 	"templatedata-modal-table-param-autovalue": "Valore automatico",
 	"templatedata-modal-table-param-default": "Predefinito ($1)",
 	"templatedata-modal-table-param-deprecated": "Deprecato",

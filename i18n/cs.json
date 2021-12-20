@@ -94,7 +94,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "Zadejte název asociace",
 	"templatedata-modal-search-input-placeholder": "Hledání podle názvu či kódu jazyka",
 	"templatedata-modal-table-param-actions": "Akce",
-	"templatedata-modal-table-param-aliases": "Aliasy (oddělené čárkou)",
+	"templatedata-modal-table-param-aliases": "Aliasy",
 	"templatedata-modal-table-param-autovalue": "Automatická hodnota",
 	"templatedata-modal-table-param-default": "Výchozí ($1)",
 	"templatedata-modal-table-param-deprecated": "Zastaralý",

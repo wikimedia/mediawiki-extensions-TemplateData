@@ -87,7 +87,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "נא להזין את שם המפה",
 	"templatedata-modal-search-input-placeholder": "חיפוש לפי שם או קוד של שפה",
 	"templatedata-modal-table-param-actions": "פעולות",
-	"templatedata-modal-table-param-aliases": "כינויים (מופרדים בפסיק)",
+	"templatedata-modal-table-param-aliases": "כינויים",
 	"templatedata-modal-table-param-autovalue": "ערך אוטומטי",
 	"templatedata-modal-table-param-default": "ערך התחלתי ($1)",
 	"templatedata-modal-table-param-deprecated": "מיושן",

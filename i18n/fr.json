@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Benjozork",
 			"Boniface",
 			"Brenloch56",
@@ -105,7 +106,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "Saisir le nom de la carte",
 	"templatedata-modal-search-input-placeholder": "Rechercher par nom ou code de langue",
 	"templatedata-modal-table-param-actions": "Actions",
-	"templatedata-modal-table-param-aliases": "Alias (séparés par des virgules)",
+	"templatedata-modal-table-param-aliases": "Alias",
 	"templatedata-modal-table-param-autovalue": "Valeur automatique",
 	"templatedata-modal-table-param-default": "Par défaut ($1)",
 	"templatedata-modal-table-param-deprecated": "Obsolète",

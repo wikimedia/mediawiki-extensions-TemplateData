@@ -87,7 +87,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "Eingeben der Namens der Zuordnung",
 	"templatedata-modal-search-input-placeholder": "Nach Sprachnamen oder Sprachcode suchen",
 	"templatedata-modal-table-param-actions": "Aktionen",
-	"templatedata-modal-table-param-aliases": "Aliasse (durch Kommas getrennt)",
+	"templatedata-modal-table-param-aliases": "Aliasse",
 	"templatedata-modal-table-param-autovalue": "Autowert",
 	"templatedata-modal-table-param-default": "Standard ($1)",
 	"templatedata-modal-table-param-deprecated": "Veraltet",
