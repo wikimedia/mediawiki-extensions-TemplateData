@@ -11,7 +11,8 @@
 			"Yahya Sakhnini",
 			"ديفيد",
 			"زكريا",
-			"محمد أحمد عبد الفتاح"
+			"محمد أحمد عبد الفتاح",
+			"Hubaishan"
 		]
 	},
 	"templatedata-desc": "تخزين بيانات وسائط القالب",
@@ -35,9 +36,9 @@
 	"templatedata-doc-param-type-boolean": "بولياني",
 	"templatedata-doc-param-type-content": "محتوى",
 	"templatedata-doc-param-type-date": "تاريخ",
-	"templatedata-doc-param-type-line": "خط",
+	"templatedata-doc-param-type-line": "سطر",
 	"templatedata-doc-param-type-number": "رقم",
-	"templatedata-doc-param-type-string": "سلسلة",
+	"templatedata-doc-param-type-string": "نص",
 	"templatedata-doc-param-type-unbalanced-wikitext": "نص ويكي غير متوازن",
 	"templatedata-doc-param-type-unknown": "غير معروف",
 	"templatedata-doc-param-type-url": "مسار",
