@@ -4,6 +4,7 @@
 			"Yupik"
 		]
 	},
+	"templatedata-doc-param-status-optional": "vaʹlljeemnallšem",
 	"templatedata-doc-param-type-date": "Peiʹvvmieʹrr",
 	"templatedata-doc-param-type-wiki-file-name": "Teâttõs",
 	"templatedata-doc-param-type-wiki-page-name": "Seiddnõmm",
@@ -12,6 +13,7 @@
 	"templatedata-modal-button-add-language": "Lââʹzzet ǩiõl",
 	"templatedata-modal-button-saveparam": "Ruõkk",
 	"templatedata-modal-table-param-example": "Ouddmiârkk ($1)",
+	"templatedata-modal-table-param-name": "Nõmm",
 	"templatedata-modal-title-choose-language": "Vaʹlljed ǩiõl",
 	"templatedata-modal-title-language": "Ǩiõll"
 }
