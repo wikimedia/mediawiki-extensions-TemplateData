@@ -294,42 +294,60 @@ class TemplateDataValidator {
 			}
 		}
 
-		// Root.paramOrder
-		if ( isset( $data->paramOrder ) ) {
-			if ( !is_array( $data->paramOrder ) ) {
-				return Status::newFatal( 'templatedata-invalid-type', 'paramOrder', 'array' );
-			}
+		return $this->validateParameterOrder( $data->paramOrder ?? null, $data->params ) ??
+			$this->validateSets( $data->sets, $data->params ) ??
+			$this->validateMaps( $data->maps, $data->params ) ??
+			Status::newGood();
+	}
 
-			if ( count( $data->paramOrder ) < count( (array)$data->params ) ) {
-				$firstMissing = count( $data->paramOrder );
-				return Status::newFatal( 'templatedata-invalid-missing', "paramOrder[$firstMissing]" );
-			}
-
-			// Validate each of the values corresponds to a parameter and that there are no
-			// duplicates
-			$seen = [];
-			foreach ( $data->paramOrder as $i => $param ) {
-				if ( !isset( $data->params->$param ) ) {
-					return Status::newFatal( 'templatedata-invalid-value', "paramOrder[$i]" );
-				}
-				if ( isset( $seen[$param] ) ) {
-					return Status::newFatal( 'templatedata-invalid-duplicate-value',
-						"paramOrder[$i]", "paramOrder[{$seen[$param]}]", $param );
-				}
-				$seen[$param] = $i;
-			}
+	/**
+	 * @param mixed $paramOrder
+	 * @param stdClass $params
+	 *
+	 * @return Status|null
+	 */
+	private function validateParameterOrder( $paramOrder, stdClass $params ): ?Status {
+		if ( $paramOrder === null ) {
+			return null;
+		} elseif ( !is_array( $paramOrder ) ) {
+			return Status::newFatal( 'templatedata-invalid-type', 'paramOrder', 'array' );
+		} elseif ( count( $paramOrder ) < count( (array)$params ) ) {
+			$firstMissing = count( $paramOrder );
+			return Status::newFatal( 'templatedata-invalid-missing', "paramOrder[$firstMissing]" );
 		}
 
-		// Root.sets
-		if ( isset( $data->sets ) ) {
-			if ( !is_array( $data->sets ) ) {
-				return Status::newFatal( 'templatedata-invalid-type', 'sets', 'array' );
+		// Validate each of the values corresponds to a parameter and that there are no
+		// duplicates
+		$seen = [];
+		foreach ( $paramOrder as $i => $param ) {
+			if ( !isset( $params->$param ) ) {
+				return Status::newFatal( 'templatedata-invalid-value', "paramOrder[$i]" );
 			}
-		} else {
-			$data->sets = [];
+			if ( isset( $seen[$param] ) ) {
+				return Status::newFatal( 'templatedata-invalid-duplicate-value',
+					"paramOrder[$i]", "paramOrder[{$seen[$param]}]", $param );
+			}
+			$seen[$param] = $i;
 		}
 
-		foreach ( $data->sets as $setNr => $setObj ) {
+		return null;
+	}
+
+	/**
+	 * @param mixed &$sets
+	 * @param stdClass $params
+	 *
+	 * @return Status|null
+	 */
+	private function validateSets( &$sets, stdClass $params ): ?Status {
+		if ( $sets === null ) {
+			$sets = [];
+			return null;
+		} elseif ( !is_array( $sets ) ) {
+			return Status::newFatal( 'templatedata-invalid-type', 'sets', 'array' );
+		}
+
+		foreach ( $sets as $setNr => $setObj ) {
 			if ( !( $setObj instanceof stdClass ) ) {
 				return Status::newFatal( 'templatedata-invalid-value', "sets.{$setNr}" );
 			}
@@ -362,23 +380,31 @@ class TemplateDataValidator {
 			}
 
 			foreach ( $setObj->params as $i => $param ) {
-				if ( !isset( $data->params->$param ) ) {
+				if ( !isset( $params->$param ) ) {
 					return Status::newFatal( 'templatedata-invalid-value',
 						"sets.{$setNr}.params[$i]" );
 				}
 			}
 		}
 
-		// Root.maps
-		if ( isset( $data->maps ) ) {
-			if ( !( $data->maps instanceof stdClass ) ) {
-				return Status::newFatal( 'templatedata-invalid-type', 'maps', 'object' );
-			}
-		} else {
-			$data->maps = (object)[];
+		return null;
+	}
+
+	/**
+	 * @param mixed &$maps
+	 * @param stdClass $params
+	 *
+	 * @return Status|null
+	 */
+	private function validateMaps( &$maps, stdClass $params ): ?Status {
+		if ( $maps === null ) {
+			$maps = (object)[];
+			return null;
+		} elseif ( !( $maps instanceof stdClass ) ) {
+			return Status::newFatal( 'templatedata-invalid-type', 'maps', 'object' );
 		}
 
-		foreach ( $data->maps as $consumerId => $map ) {
+		foreach ( $maps as $consumerId => $map ) {
 			if ( !( $map instanceof stdClass ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', "maps.$consumerId",
 					'object' );
@@ -396,13 +422,13 @@ class TemplateDataValidator {
 									return Status::newFatal( 'templatedata-invalid-type',
 										"maps.{$consumerId}.{$key}[$key2][$key3]", 'string' );
 								}
-								if ( !isset( $data->params->$value3 ) ) {
+								if ( !isset( $params->$value3 ) ) {
 									return Status::newFatal( 'templatedata-invalid-param', $value3,
 										"maps.$consumerId.{$key}[$key2][$key3]" );
 								}
 							}
 						} elseif ( is_string( $value2 ) ) {
-							if ( !isset( $data->params->$value2 ) ) {
+							if ( !isset( $params->$value2 ) ) {
 								return Status::newFatal( 'templatedata-invalid-param', $value2,
 									"maps.$consumerId.{$key}[$key2]" );
 							}
@@ -412,7 +438,7 @@ class TemplateDataValidator {
 						}
 					}
 				} elseif ( is_string( $value ) ) {
-					if ( !isset( $data->params->$value ) ) {
+					if ( !isset( $params->$value ) ) {
 						return Status::newFatal( 'templatedata-invalid-param', $value,
 							"maps.{$consumerId}.{$key}" );
 					}
@@ -422,7 +448,8 @@ class TemplateDataValidator {
 				}
 			}
 		}
-		return Status::newGood();
+
+		return null;
 	}
 
 	/**
