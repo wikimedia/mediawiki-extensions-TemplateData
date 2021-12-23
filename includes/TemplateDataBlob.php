@@ -94,8 +94,17 @@ class TemplateDataBlob {
 	 * @return Status
 	 */
 	protected function parse(): Status {
-		$validator = new TemplateDataValidator();
-		return $validator->validate( $this->data );
+		$deprecatedTypes = array_keys( TemplateDataNormalizer::DEPRECATED_PARAMETER_TYPES );
+		$validator = new TemplateDataValidator( $deprecatedTypes );
+		$status = $validator->validate( $this->data );
+
+		if ( $status->isOK() ) {
+			$lang = MediaWikiServices::getInstance()->getContentLanguage();
+			$normalizer = new TemplateDataNormalizer( $lang->getCode() );
+			$normalizer->normalize( $this->data );
+		}
+
+		return $status;
 	}
 
 	/**

@@ -11,6 +11,7 @@ use Wikimedia\TestingAccessWrapper;
  * @group Database
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataBlob
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataCompressedBlob
+ * @covers \MediaWiki\Extension\TemplateData\TemplateDataNormalizer
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataValidator
  */
 class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
@@ -819,7 +820,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	public function testIsValidInterfaceText( $text, bool $expected ) {
 		/** @var TemplateDataValidator $validator */
 		$validator = TestingAccessWrapper::newFromObject(
-			new TemplateDataValidator()
+			new TemplateDataValidator( [] )
 		);
 		$this->assertSame( $expected, $validator->isValidInterfaceText( $text ) );
 	}
