@@ -170,7 +170,7 @@ class ApiTemplateData extends ApiBase {
 				$text = $content instanceof TextContent
 					? $content->getText()
 					: $content->getTextForSearchIndex();
-				$resp[ $pageId ][ 'params' ] = TemplateDataBlob::getRawParams( $text );
+				$resp[$pageId]['params'] = $this->getRawParams( $text );
 			}
 		}
 
@@ -208,6 +208,36 @@ class ApiTemplateData extends ApiBase {
 
 		$this->setContinuationManager();
 		$continuationManager->setContinuationIntoResult( $this->getResult() );
+	}
+
+	/**
+	 * Get parameter descriptions from raw wikitext (used for templates that have no templatedata).
+	 * @param string $wikitext The text to extract parameters from.
+	 * @return array[] Parameter info in the same format as the templatedata 'params' key.
+	 */
+	private function getRawParams( string $wikitext ): array {
+		// Ignore wikitext within nowiki tags and comments
+		$wikitext = preg_replace( '/<!--.*?-->/s', '', $wikitext );
+		$wikitext = preg_replace( '/<nowiki\s*>.*?<\/nowiki\s*>/s', '', $wikitext );
+
+		// This regex matches the one in ext.TemplateDataGenerator.sourceHandler.js
+		if ( !preg_match_all( '/{{{+([^\n#={|}]*?)([<|]|}}})/m', $wikitext, $rawParams ) ) {
+			return [];
+		}
+
+		$params = [];
+		$normalizedParams = [];
+		foreach ( $rawParams[1] as $rawParam ) {
+			// This normalization process is repeated in JS in ext.TemplateDataGenerator.sourceHandler.js
+			$normalizedParam = strtolower( trim( preg_replace( '/[-_ ]+/', ' ', $rawParam ) ) );
+			if ( !$normalizedParam || in_array( $normalizedParam, $normalizedParams ) ) {
+				// This or a similarly-named parameter has already been found.
+				continue;
+			}
+			$normalizedParams[] = $normalizedParam;
+			$params[ trim( $rawParam ) ] = [];
+		}
+		return $params;
 	}
 
 	/**
