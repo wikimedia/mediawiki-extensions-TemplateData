@@ -85,7 +85,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "Sisesta vastenduse nimi",
 	"templatedata-modal-search-input-placeholder": "Otsi keele nimetuse või koodi järgi",
 	"templatedata-modal-table-param-actions": "Toimingud",
-	"templatedata-modal-table-param-aliases": "Rööpkujud (eraldatud komaga)",
+	"templatedata-modal-table-param-aliases": "Rööpkujud",
 	"templatedata-modal-table-param-autovalue": "Eeltäidetud",
 	"templatedata-modal-table-param-default": "Vaikeväärtus ($1)",
 	"templatedata-modal-table-param-deprecated": "Vananenud",
