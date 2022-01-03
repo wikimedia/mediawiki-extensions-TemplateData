@@ -10,7 +10,8 @@
 			"Chinamoonroll",
 			"Herryz",
 			"Hidayatsrf",
-			"Rachmat04"
+			"Rachmat04",
+			"Daud I.F. Argana"
 		]
 	},
 	"templatedata-desc": "Pengimplementasian penyimpanan data untuk parameter templat (dengan menggunakan JSON)",
@@ -84,6 +85,7 @@
 	"templatedata-modal-json-error-replace": "Gantikan",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|parameter}} baru telah diimpor: $2.",
 	"templatedata-modal-placeholder-paramkey": "Nama parameter",
+	"templatedata-modal-placeholder-mapinfo": "Templat ini tidak punya objek pea",
 	"templatedata-modal-search-input-placeholder": "Cari dengan nama atau kode bahasa",
 	"templatedata-modal-table-param-actions": "Tindakan",
 	"templatedata-modal-table-param-aliases": "Alias (pisahkan dengan koma)",
