@@ -98,7 +98,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "نام نقشه را وارد کنید",
 	"templatedata-modal-search-input-placeholder": "جستجو بر پایهٔ نام یا کد زبان",
 	"templatedata-modal-table-param-actions": "اقدامات",
-	"templatedata-modal-table-param-aliases": "نام‌های مستعار (با ویرگول جداشده)",
+	"templatedata-modal-table-param-aliases": "نام‌های مستعار",
 	"templatedata-modal-table-param-autovalue": "مقدار خودکار",
 	"templatedata-modal-table-param-default": "پیش‌گزیده ($1)",
 	"templatedata-modal-table-param-deprecated": "منسوخ‌شده",
