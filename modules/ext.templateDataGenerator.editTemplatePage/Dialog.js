@@ -1103,6 +1103,11 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			propInput.selectItem( propInput.findItemFromData( value ) );
 		} else if ( prop.type === 'boolean' ) {
 			propInput.setSelected( !!value );
+		} else if ( prop.type === 'array' ) {
+			propInput.setValue( value.map( function ( v ) {
+				// TagMultiselectWidget accepts nothing but strings or objects with a .data property
+				return v && v.data ? v : String( v );
+			} ) );
 		} else {
 			if ( languageProps.indexOf( propName ) !== -1 ) {
 				propInput.setValue( value[ lang ] );

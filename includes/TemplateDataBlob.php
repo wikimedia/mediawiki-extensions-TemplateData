@@ -312,10 +312,12 @@ class TemplateDataBlob {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.aliases", 'array' );
 				}
-				foreach ( $paramObj->aliases as $i => $alias ) {
-					if ( !is_string( $alias ) ) {
+				foreach ( $paramObj->aliases as $i => &$alias ) {
+					if ( is_int( $alias ) ) {
+						$alias = (string)$alias;
+					} elseif ( !is_string( $alias ) ) {
 						return Status::newFatal( 'templatedata-invalid-type',
-							"params.{$paramName}.aliases[$i]", 'string' );
+							"params.{$paramName}.aliases[$i]", 'int|string' );
 					}
 				}
 			} else {
