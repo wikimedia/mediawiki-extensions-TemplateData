@@ -115,6 +115,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'status' => '(templatedata-invalid-type: params.a.aliases, array)',
 			],
 			[
+				'input' => '{ "params": { "a": { "aliases": [ "1", 2, {} ] } } }',
+				'status' => '(templatedata-invalid-type: params.a.aliases[2], int|string)',
+			],
+			[
 				'input' => '{ "params": { "a": { "autovalue": [] } } }',
 				'status' => '(templatedata-invalid-type: params.a.autovalue, string)',
 			],
@@ -133,6 +137,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 			[
 				'input' => '{ "params": { "a": { "suggestedvalues": "" } } }',
 				'status' => '(templatedata-invalid-type: params.a.suggestedvalues, array)',
+			],
+			[
+				'input' => '{ "params": { "a": { "suggestedvalues": [ {} ] } } }',
+				'status' => '(templatedata-invalid-type: params.a.suggestedvalues[0], string)',
 			],
 			[
 				'input' => '{
@@ -209,9 +217,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 							"example": null,
 							"required": false,
 							"suggested": true,
-							"aliases": [
-								"1"
-							]
+							"aliases": [ 1 ]
 						}
 					}
 				}
