@@ -1009,11 +1009,12 @@ Model.prototype.outputTemplateData = function () {
 
 		// Go over all properties
 		for ( var prop in allProps ) {
-			switch ( prop ) {
-				case 'deprecatedValue':
-				case 'name':
-					continue;
-				case 'type':
+			if ( prop === 'deprecatedValue' || prop === 'name' ) {
+				continue;
+			}
+
+			switch ( allProps[ prop ].type ) {
+				case 'select':
 					// Only include type if the original included type
 					// or if the current type is not undefined
 					if (
@@ -1026,9 +1027,7 @@ Model.prototype.outputTemplateData = function () {
 						result.params[ name ][ prop ] = this.params[ key ].type;
 					}
 					break;
-				case 'deprecated':
-				case 'required':
-				case 'suggested':
+				case 'boolean':
 					if ( !this.params[ key ][ prop ] ) {
 						// Only add a literal false value if there was a false
 						// value before
@@ -1048,8 +1047,7 @@ Model.prototype.outputTemplateData = function () {
 						}
 					}
 					break;
-				case 'suggestedvalues':
-				case 'aliases':
+				case 'array':
 					// Only update these if the new templatedata has an
 					// array that isn't empty
 					if (
