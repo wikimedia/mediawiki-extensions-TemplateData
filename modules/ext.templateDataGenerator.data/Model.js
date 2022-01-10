@@ -496,7 +496,7 @@ Model.prototype.getAllParamNames = function () {
  * Set the template description
  *
  * @param {string|Object} desc New template description
- * @param {Object} [language] Description language, if supplied. If not given,
+ * @param {string} [language] Description language, if supplied. If not given,
  *  will default to the wiki language.
  * @fires change-description
  * @fires change
@@ -532,7 +532,7 @@ Model.prototype.getTemplateDescription = function ( language ) {
 /**
  * Set the template description
  *
- * @param {string|Object} map New template map info
+ * @param {string|Object|undefined} map New template map info
  * @fires change-map
  * @fires change
  */
@@ -553,7 +553,7 @@ Model.prototype.setMapInfo = function ( map ) {
 /**
  * Get the template info.
  *
- * @return {string|Object} The template map info.
+ * @return {string|Object|undefined} The template map info.
  */
 Model.prototype.getMapInfo = function () {
 	return this.maps;
@@ -562,7 +562,7 @@ Model.prototype.getMapInfo = function () {
 /**
  * Get the template info.
  *
- * @return {Object} The Original template map info.
+ * @return {Object|undefined} The Original template map info.
  */
 Model.prototype.getOriginalMapsInfo = function () {
 	return this.originalMaps;
@@ -593,7 +593,7 @@ Model.prototype.getDefaultLanguage = function () {
 /**
  * Set template param order array.
  *
- * @param {string[]} orderArray Parameter key array in order
+ * @param {string[]} [orderArray] Parameter key array in order
  * @fires change-paramOrder
  * @fires change
  */
@@ -841,7 +841,7 @@ Model.prototype.getParamProperty = function ( paramKey, prop ) {
  * Retrieve a specific parameter data
  *
  * @param {string} key Parameter key
- * @return {Object} Parameter data
+ * @return {Object|undefined} Parameter data
  */
 Model.prototype.getParamData = function ( key ) {
 	return this.params[ key ];
