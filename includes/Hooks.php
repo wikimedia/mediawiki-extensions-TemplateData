@@ -220,7 +220,7 @@ class Hooks {
 			'ext.templateData.images',
 			'jquery.tablesorter.styles',
 		] );
-		$parser->getOutput()->addModules( 'jquery.tablesorter' );
+		$parser->getOutput()->addModules( [ 'jquery.tablesorter' ] );
 		$parser->getOutput()->setEnableOOUI( true );
 
 		$userLang = $parser->getOptions()->getUserLangObj();
