@@ -477,7 +477,7 @@ Dialog.prototype.updateActions = function () {
 /**
  * Respond to param order widget reorder event
  *
- * @param {ParamWidget} item Item reordered
+ * @param {OO.ui.OptionWidget} item Item reordered
  * @param {number} newIndex New index of the item
  */
 Dialog.prototype.onParamSelectReorder = function ( item, newIndex ) {
@@ -508,7 +508,7 @@ Dialog.prototype.onDescriptionInputChange = function ( value ) {
 /**
  * Create items for the returned maps and add them to the maps group
  *
- * @param {Object} mapsObject  object
+ * @param {Object|undefined} mapsObject
  */
 Dialog.prototype.populateMapsItems = function ( mapsObject ) {
 	mapsObject = mapsObject === undefined ? {} : mapsObject;
@@ -726,7 +726,7 @@ Dialog.prototype.onLanguageDropdownWidgetSelect = function ( item ) {
 /**
  * Handle choose events from the new language search widget
  *
- * @param {LanguageResultWidget} item Chosen item
+ * @param {OO.ui.OptionWidget} item Chosen item
  */
 Dialog.prototype.onNewLanguageSearchResultsChoose = function ( item ) {
 	var languageButton,
@@ -1085,7 +1085,7 @@ Dialog.prototype.repopulateParamSelectWidget = function () {
  *
  * @param {string} paramKey Parameter key
  * @param {string} propName Property name
- * @param {string} value Property value
+ * @param {Mixed} [value] Property value
  * @param {string} [lang] Language
  */
 Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value, lang ) {
@@ -1325,9 +1325,9 @@ Dialog.prototype.getBodyHeight = function () {
  *
  * Hides all other notices messages when called, not just the one specified.
  *
- * @param {string} type Which notice label to show: 'list', 'edit' or 'global'; defaults to 'list'
- * @param {boolean} isShowing Show or hide the message
- * @param {string} [noticeMessageType] Message type: 'notice', 'error', 'warning', 'success'
+ * @param {string} [type='list'] Which notice label to show: 'list', 'edit' or 'global'
+ * @param {boolean} [isShowing=false] Show or hide the message
+ * @param {string} [noticeMessageType='notice'] Message type: 'notice', 'error', 'warning', 'success'
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} [noticeMessageLabel] The message to display
  */
 Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, noticeMessageType, noticeMessageLabel ) {
@@ -1386,7 +1386,9 @@ Dialog.prototype.importParametersFromTemplateCode = function () {
 /**
  * Get a process for setting up a window for use.
  *
- * @param {Object} [data] Dialog opening data
+ * @param {Object} data Dialog opening data
+ * @param {Model} data.model
+ * @param {OO.ui.Element} data.editNoticeMessage
  * @return {OO.ui.Process} Setup process
  */
 Dialog.prototype.getSetupProcess = function ( data ) {
