@@ -1407,7 +1407,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 			],
 			'Params within comments and nowiki tags' => [
 				'Lorem <!-- {{{name}}} --> ipsum <nowiki  > {{{middlename}}}' .
-					'</nowiki> {{{surname}}}',
+					'</nowiki> <pre>{{{pre}}}</pre> {{{surname}}}',
 				[ 'surname' => [] ]
 			],
 			'Param within comments and param name outside with comment' => [

@@ -173,9 +173,10 @@ SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateC
 		// This regex matches the one in TemplateDataBlob.php
 		paramExtractor = /{{{+([^\n#={|}]*?)([<|]|}}})/mg;
 
-	// Strip everything in nowiki tags and HTML comments
+	// Ignore non-wikitext content in comments and wikitext-escaping tags
 	templateCode = templateCode.replace( /<!--[\s\S]*?-->/g, '' )
-		.replace( /<nowiki\s*>[\s\S]*?<\/nowiki\s*>/g, '' );
+		.replace( /<nowiki\s*>[\s\S]*?<\/nowiki\s*>/g, '' )
+		.replace( /<pre\s*>[\s\S]*?<\/pre\s*>/g, '' );
 
 	var matches;
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {

@@ -216,9 +216,10 @@ class ApiTemplateData extends ApiBase {
 	 * @return array[] Parameter info in the same format as the templatedata 'params' key.
 	 */
 	private function getRawParams( string $wikitext ): array {
-		// Ignore wikitext within nowiki tags and comments
+		// Ignore non-wikitext content in comments and wikitext-escaping tags
 		$wikitext = preg_replace( '/<!--.*?-->/s', '', $wikitext );
 		$wikitext = preg_replace( '/<nowiki\s*>.*?<\/nowiki\s*>/s', '', $wikitext );
+		$wikitext = preg_replace( '/<pre\s*>.*?<\/pre\s*>/s', '', $wikitext );
 
 		// This regex matches the one in ext.TemplateDataGenerator.sourceHandler.js
 		if ( !preg_match_all( '/{{{+([^\n#={|}]*?)([<|]|}}})/m', $wikitext, $rawParams ) ) {
