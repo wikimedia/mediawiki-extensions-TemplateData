@@ -90,7 +90,7 @@
 	"templatedata-modal-placeholder-paramkey": "Parameternaam",
 	"templatedata-modal-search-input-placeholder": "Op taalnaam of code zoeken",
 	"templatedata-modal-table-param-actions": "Handelingen",
-	"templatedata-modal-table-param-aliases": "Aliassen (gescheiden door een komma)",
+	"templatedata-modal-table-param-aliases": "Aliassen",
 	"templatedata-modal-table-param-autovalue": "Automatische waarde",
 	"templatedata-modal-table-param-default": "Standaard ($1)",
 	"templatedata-modal-table-param-deprecated": "Verouderd",
