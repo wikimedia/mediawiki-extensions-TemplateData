@@ -200,7 +200,7 @@ class Hooks {
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
 			self::setStatusToParserOutput( $parser->getOutput(), $status );
-			return '<div class="errorbox">' . $status->getHTML() . '</div>';
+			return Html::errorBox( $status->getHTML() );
 		}
 
 		// Store the blob as page property for retrieval by ApiTemplateData.
