@@ -92,7 +92,7 @@
 	"templatedata-modal-placeholder-prompt-map-name": "Введіть назву мапи",
 	"templatedata-modal-search-input-placeholder": "Шукати за назвою мови або її кодом",
 	"templatedata-modal-table-param-actions": "Дії",
-	"templatedata-modal-table-param-aliases": "Псевдоніми (через кому)",
+	"templatedata-modal-table-param-aliases": "Псевдоніми",
 	"templatedata-modal-table-param-autovalue": "Автозначення",
 	"templatedata-modal-table-param-default": "За замовчуванням ($1)",
 	"templatedata-modal-table-param-deprecated": "Застарілий",
