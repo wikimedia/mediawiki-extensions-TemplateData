@@ -90,11 +90,11 @@ class TemplateDataHtmlFormatter {
 
 		$paramNames = $data->paramOrder ?? array_keys( (array)$data->params );
 		foreach ( $paramNames as $paramName ) {
-			$paramObj = $data->params->$paramName;
+			$param = $data->params->$paramName;
 
 			$aliases = '';
-			if ( count( $paramObj->aliases ) ) {
-				foreach ( $paramObj->aliases as $alias ) {
+			if ( count( $param->aliases ) ) {
+				foreach ( $param->aliases as $alias ) {
 					$aliases .= wfMessage( 'word-separator' )->inLanguage( $lang )->escaped()
 					. Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
 						$alias
@@ -103,9 +103,9 @@ class TemplateDataHtmlFormatter {
 			}
 
 			$suggestedValuesLine = '';
-			if ( $paramObj->suggestedvalues ) {
+			if ( $param->suggestedvalues ) {
 				$suggestedValues = '';
-				foreach ( $paramObj->suggestedvalues as $suggestedValue ) {
+				foreach ( $param->suggestedvalues as $suggestedValue ) {
 					$suggestedValues .= wfMessage( 'word-separator' )->inLanguage( $lang )->escaped()
 						. Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
 							$suggestedValue
@@ -116,11 +116,11 @@ class TemplateDataHtmlFormatter {
 					) . Html::rawElement( 'dd', [], $suggestedValues );
 			}
 
-			if ( $paramObj->deprecated ) {
+			if ( $param->deprecated ) {
 				$status = 'deprecated';
-			} elseif ( $paramObj->required ) {
+			} elseif ( $param->required ) {
 				$status = 'required';
-			} elseif ( $paramObj->suggested ) {
+			} elseif ( $param->suggested ) {
 				$status = 'suggested';
 			} else {
 				$status = 'optional';
@@ -128,7 +128,7 @@ class TemplateDataHtmlFormatter {
 
 			$html .= '<tr>'
 			// Label
-			. Html::element( 'th', [], $paramObj->label ?? $paramName )
+			. Html::element( 'th', [], $param->label ?? $paramName )
 			// Parameters and aliases
 			. Html::rawElement( 'td', [ 'class' => 'mw-templatedata-doc-param-name' ],
 				Html::element( 'code', [], $paramName ) . $aliases
@@ -136,36 +136,36 @@ class TemplateDataHtmlFormatter {
 			// Description
 			. Html::rawElement( 'td', [
 					'class' => [
-						'mw-templatedata-doc-muted' => ( $paramObj->description === null )
+						'mw-templatedata-doc-muted' => ( $param->description === null )
 					]
 				],
 				Html::element( 'p', [],
-					$paramObj->description ??
+					$param->description ??
 						wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
 				)
 				. Html::rawElement( 'dl', [],
 					// Suggested Values
 					$suggestedValuesLine .
 					// Default
-					( $paramObj->default !== null ? ( Html::element( 'dt', [],
+					( $param->default !== null ? ( Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )->text()
 					)
 					. Html::element( 'dd', [],
-						$paramObj->default
+						$param->default
 					) ) : '' )
 					// Example
-					. ( $paramObj->example !== null ? ( Html::element( 'dt', [],
+					. ( $param->example !== null ? ( Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-example' )->inLanguage( $lang )->text()
 					)
 					. Html::element( 'dd', [],
-						$paramObj->example
+						$param->example
 					) ) : '' )
 					// Auto value
-					. ( $paramObj->autovalue !== null ? ( Html::element( 'dt', [],
+					. ( $param->autovalue !== null ? ( Html::element( 'dt', [],
 						wfMessage( 'templatedata-doc-param-autovalue' )->inLanguage( $lang )->text()
 					)
 					. Html::rawElement( 'dd', [],
-						Html::element( 'code', [], $paramObj->autovalue )
+						Html::element( 'code', [], $param->autovalue )
 					) ) : '' )
 				)
 			)
@@ -174,7 +174,7 @@ class TemplateDataHtmlFormatter {
 				[
 					'class' => [
 						'mw-templatedata-doc-param-type',
-						'mw-templatedata-doc-muted' => $paramObj->type === 'unknown'
+						'mw-templatedata-doc-muted' => $param->type === 'unknown'
 					]
 				],
 				// Known messages, for grepping:
@@ -185,7 +185,7 @@ class TemplateDataHtmlFormatter {
 				// templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
 				// templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
 				// templatedata-doc-param-type-wiki-user-name
-				wfMessage( 'templatedata-doc-param-type-' . $paramObj->type )->inLanguage( $lang )->text()
+				wfMessage( 'templatedata-doc-param-type-' . $param->type )->inLanguage( $lang )->text()
 			)
 			// Status
 			. Html::element( 'td',

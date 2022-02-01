@@ -117,13 +117,13 @@ class TemplateDataValidator {
 		// to decide whether 'inherits' will add it or not.
 		$unnormalizedParams = unserialize( serialize( $data->params ) );
 
-		foreach ( $data->params as $paramName => $paramObj ) {
-			if ( !is_object( $paramObj ) ) {
+		foreach ( $data->params as $paramName => $param ) {
+			if ( !is_object( $param ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}",
 					'object' );
 			}
 
-			foreach ( $paramObj as $key => $value ) {
+			foreach ( $param as $key => $value ) {
 				if ( !in_array( $key, self::VALID_PARAM_KEYS ) ) {
 					return Status::newFatal( 'templatedata-invalid-unknown',
 						"params.{$paramName}.{$key}" );
@@ -131,75 +131,75 @@ class TemplateDataValidator {
 			}
 
 			// Param.label
-			if ( isset( $paramObj->label ) ) {
-				if ( !$this->isValidInterfaceText( $paramObj->label ) ) {
+			if ( isset( $param->label ) ) {
+				if ( !$this->isValidInterfaceText( $param->label ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.label", 'string|object' );
 				}
-				$paramObj->label = $this->normaliseInterfaceText( $paramObj->label );
+				$param->label = $this->normaliseInterfaceText( $param->label );
 			} else {
-				$paramObj->label = null;
+				$param->label = null;
 			}
 
 			// Param.required
-			if ( isset( $paramObj->required ) ) {
-				if ( !is_bool( $paramObj->required ) ) {
+			if ( isset( $param->required ) ) {
+				if ( !is_bool( $param->required ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.required", 'boolean' );
 				}
 			} else {
-				$paramObj->required = false;
+				$param->required = false;
 			}
 
 			// Param.suggested
-			if ( isset( $paramObj->suggested ) ) {
-				if ( !is_bool( $paramObj->suggested ) ) {
+			if ( isset( $param->suggested ) ) {
+				if ( !is_bool( $param->suggested ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.suggested", 'boolean' );
 				}
 			} else {
-				$paramObj->suggested = false;
+				$param->suggested = false;
 			}
 
 			// Param.description
-			if ( isset( $paramObj->description ) ) {
-				if ( !$this->isValidInterfaceText( $paramObj->description ) ) {
+			if ( isset( $param->description ) ) {
+				if ( !$this->isValidInterfaceText( $param->description ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.description", 'string|object' );
 				}
-				$paramObj->description = $this->normaliseInterfaceText( $paramObj->description );
+				$param->description = $this->normaliseInterfaceText( $param->description );
 			} else {
-				$paramObj->description = null;
+				$param->description = null;
 			}
 
 			// Param.example
-			if ( isset( $paramObj->example ) ) {
-				if ( !$this->isValidInterfaceText( $paramObj->example ) ) {
+			if ( isset( $param->example ) ) {
+				if ( !$this->isValidInterfaceText( $param->example ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.example", 'string|object' );
 				}
-				$paramObj->example = $this->normaliseInterfaceText( $paramObj->example );
+				$param->example = $this->normaliseInterfaceText( $param->example );
 			} else {
-				$paramObj->example = null;
+				$param->example = null;
 			}
 
 			// Param.deprecated
-			if ( isset( $paramObj->deprecated ) ) {
-				if ( !is_bool( $paramObj->deprecated ) && !is_string( $paramObj->deprecated ) ) {
+			if ( isset( $param->deprecated ) ) {
+				if ( !is_bool( $param->deprecated ) && !is_string( $param->deprecated ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.deprecated", 'boolean|string' );
 				}
 			} else {
-				$paramObj->deprecated = false;
+				$param->deprecated = false;
 			}
 
 			// Param.aliases
-			if ( isset( $paramObj->aliases ) ) {
-				if ( !is_array( $paramObj->aliases ) ) {
+			if ( isset( $param->aliases ) ) {
+				if ( !is_array( $param->aliases ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.aliases", 'array' );
 				}
-				foreach ( $paramObj->aliases as $i => &$alias ) {
+				foreach ( $param->aliases as $i => &$alias ) {
 					if ( is_int( $alias ) ) {
 						$alias = (string)$alias;
 					} elseif ( !is_string( $alias ) ) {
@@ -208,88 +208,88 @@ class TemplateDataValidator {
 					}
 				}
 			} else {
-				$paramObj->aliases = [];
+				$param->aliases = [];
 			}
 
 			// Param.autovalue
-			if ( isset( $paramObj->autovalue ) ) {
-				if ( !is_string( $paramObj->autovalue ) ) {
+			if ( isset( $param->autovalue ) ) {
+				if ( !is_string( $param->autovalue ) ) {
 					// TODO: Validate the autovalue values.
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.autovalue", 'string' );
 				}
 			} else {
-				$paramObj->autovalue = null;
+				$param->autovalue = null;
 			}
 
 			// Param.default
-			if ( isset( $paramObj->default ) ) {
-				if ( !$this->isValidInterfaceText( $paramObj->default ) ) {
+			if ( isset( $param->default ) ) {
+				if ( !$this->isValidInterfaceText( $param->default ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.default", 'string|object' );
 				}
-				$paramObj->default = $this->normaliseInterfaceText( $paramObj->default );
+				$param->default = $this->normaliseInterfaceText( $param->default );
 			} else {
-				$paramObj->default = null;
+				$param->default = null;
 			}
 
 			// Param.type
-			if ( isset( $paramObj->type ) ) {
-				if ( !is_string( $paramObj->type ) ) {
+			if ( isset( $param->type ) ) {
+				if ( !is_string( $param->type ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.type", 'string' );
 				}
 
 				// Map deprecated types to newer versions
-				if ( isset( self::DEPRECATED_TYPES_MAP[ $paramObj->type ] ) ) {
-					$paramObj->type = self::DEPRECATED_TYPES_MAP[ $paramObj->type ];
+				if ( isset( self::DEPRECATED_TYPES_MAP[ $param->type ] ) ) {
+					$param->type = self::DEPRECATED_TYPES_MAP[ $param->type ];
 				}
 
-				if ( !in_array( $paramObj->type, self::VALID_TYPES ) ) {
+				if ( !in_array( $param->type, self::VALID_TYPES ) ) {
 					return Status::newFatal( 'templatedata-invalid-value',
 						'params.' . $paramName . '.type' );
 				}
 			} else {
-				$paramObj->type = 'unknown';
+				$param->type = 'unknown';
 			}
 
 			// Param.suggestedvalues
-			if ( isset( $paramObj->suggestedvalues ) ) {
-				if ( !is_array( $paramObj->suggestedvalues ) ) {
+			if ( isset( $param->suggestedvalues ) ) {
+				if ( !is_array( $param->suggestedvalues ) ) {
 					return Status::newFatal( 'templatedata-invalid-type',
 						"params.{$paramName}.suggestedvalues", 'array' );
 				}
-				foreach ( $paramObj->suggestedvalues as $i => $value ) {
+				foreach ( $param->suggestedvalues as $i => $value ) {
 					if ( !is_string( $value ) ) {
 						return Status::newFatal( 'templatedata-invalid-type',
 							"params.{$paramName}.suggestedvalues[$i]", 'string' );
 					}
 				}
 			} else {
-				$paramObj->suggestedvalues = [];
+				$param->suggestedvalues = [];
 			}
 		}
 
 		// Param.inherits
 		// Done afterwards to avoid code duplication
-		foreach ( $data->params as $paramName => $paramObj ) {
-			if ( isset( $paramObj->inherits ) ) {
-				if ( !isset( $data->params->{ $paramObj->inherits } ) ) {
+		foreach ( $data->params as $paramName => $param ) {
+			if ( isset( $param->inherits ) ) {
+				if ( !isset( $data->params->{ $param->inherits } ) ) {
 						return Status::newFatal( 'templatedata-invalid-missing',
-							"params.{$paramObj->inherits}" );
+							"params.{$param->inherits}" );
 				}
-				$parentParamObj = $data->params->{ $paramObj->inherits };
-				foreach ( $parentParamObj as $key => $value ) {
+				$parentParam = $data->params->{ $param->inherits };
+				foreach ( $parentParam as $key => $value ) {
 					if ( !in_array( $key, self::VALID_PARAM_KEYS ) ) {
 						return Status::newFatal( 'templatedata-invalid-unknown', $key );
 					}
 					if ( !isset( $unnormalizedParams->$paramName->$key ) ) {
-						$paramObj->$key = is_object( $parentParamObj->$key ) ?
-							clone $parentParamObj->$key :
-							$parentParamObj->$key;
+						$param->$key = is_object( $parentParam->$key ) ?
+							clone $parentParam->$key :
+							$parentParam->$key;
 					}
 				}
-				unset( $paramObj->inherits );
+				unset( $param->inherits );
 			}
 		}
 
