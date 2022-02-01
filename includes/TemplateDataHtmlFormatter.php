@@ -28,6 +28,7 @@ class TemplateDataHtmlFormatter {
 			// The following icon names are used here:
 			// * template-format-block
 			// * template-format-inline
+			// @phan-suppress-next-line PhanTypeSuspiciousStringExpression
 			$icon = 'template-format-' . $data->format;
 			$formatMsg = $data->format;
 		} else {
