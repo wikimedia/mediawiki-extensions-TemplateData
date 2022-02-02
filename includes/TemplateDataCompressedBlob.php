@@ -6,6 +6,7 @@
 
 namespace MediaWiki\Extension\TemplateData;
 
+use Message;
 use Status;
 
 /**
@@ -32,7 +33,11 @@ class TemplateDataCompressedBlob extends TemplateDataBlob {
 		if ( $status->isOK() ) {
 			$length = strlen( $this->getJSONForDatabase() );
 			if ( $length > self::MAX_LENGTH ) {
-				return Status::newFatal( 'templatedata-invalid-length', $length, self::MAX_LENGTH );
+				return Status::newFatal(
+					'templatedata-invalid-length',
+					Message::numParam( $length ),
+					Message::numParam( self::MAX_LENGTH )
+				);
 			}
 		}
 		return $status;
