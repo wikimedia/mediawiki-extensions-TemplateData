@@ -167,25 +167,25 @@ class TemplateDataBlob {
 			$data->description = self::getInterfaceTextInLanguage( $data->description, $langCode );
 		}
 
-		foreach ( $data->params as $paramObj ) {
+		foreach ( $data->params as $param ) {
 			// Param.label
-			if ( $paramObj->label !== null ) {
-				$paramObj->label = self::getInterfaceTextInLanguage( $paramObj->label, $langCode );
+			if ( $param->label !== null ) {
+				$param->label = self::getInterfaceTextInLanguage( $param->label, $langCode );
 			}
 
 			// Param.description
-			if ( $paramObj->description !== null ) {
-				$paramObj->description = self::getInterfaceTextInLanguage( $paramObj->description, $langCode );
+			if ( $param->description !== null ) {
+				$param->description = self::getInterfaceTextInLanguage( $param->description, $langCode );
 			}
 
 			// Param.default
-			if ( $paramObj->default !== null ) {
-				$paramObj->default = self::getInterfaceTextInLanguage( $paramObj->default, $langCode );
+			if ( $param->default !== null ) {
+				$param->default = self::getInterfaceTextInLanguage( $param->default, $langCode );
 			}
 
 			// Param.example
-			if ( $paramObj->example !== null ) {
-				$paramObj->example = self::getInterfaceTextInLanguage( $paramObj->example, $langCode );
+			if ( $param->example !== null ) {
+				$param->example = self::getInterfaceTextInLanguage( $param->example, $langCode );
 			}
 		}
 
