@@ -70,7 +70,7 @@ class TemplateDataValidator {
 			return Status::newFatal( 'templatedata-invalid-parse' );
 		}
 
-		if ( !is_object( $data ) ) {
+		if ( !( $data instanceof stdClass ) ) {
 			return Status::newFatal( 'templatedata-invalid-type', 'templatedata', 'object' );
 		}
 
@@ -93,6 +93,7 @@ class TemplateDataValidator {
 
 		// Root.format
 		if ( isset( $data->format ) ) {
+			// @phan-suppress-next-line PhanTypeMismatchDimFetchNullable
 			$f = self::PREDEFINED_FORMATS[$data->format] ?? $data->format;
 			if ( !is_string( $f ) ||
 				!preg_match( '/^\n?\{\{ *_+\n? *\|\n? *_+ *= *_+\n? *\}\}\n?$/', $f )
@@ -108,7 +109,7 @@ class TemplateDataValidator {
 			return Status::newFatal( 'templatedata-invalid-missing', 'params', 'object' );
 		}
 
-		if ( !is_object( $data->params ) ) {
+		if ( !( $data->params instanceof stdClass ) ) {
 			return Status::newFatal( 'templatedata-invalid-type', 'params', 'object' );
 		}
 
@@ -118,7 +119,7 @@ class TemplateDataValidator {
 		$unnormalizedParams = unserialize( serialize( $data->params ) );
 
 		foreach ( $data->params as $paramName => $param ) {
-			if ( !is_object( $param ) ) {
+			if ( !( $param instanceof stdClass ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}",
 					'object' );
 			}
@@ -329,7 +330,7 @@ class TemplateDataValidator {
 		}
 
 		foreach ( $data->sets as $setNr => $setObj ) {
-			if ( !is_object( $setObj ) ) {
+			if ( !( $setObj instanceof stdClass ) ) {
 				return Status::newFatal( 'templatedata-invalid-value', "sets.{$setNr}" );
 			}
 
@@ -370,7 +371,7 @@ class TemplateDataValidator {
 
 		// Root.maps
 		if ( isset( $data->maps ) ) {
-			if ( !is_object( $data->maps ) ) {
+			if ( !( $data->maps instanceof stdClass ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', 'maps', 'object' );
 			}
 		} else {
@@ -378,7 +379,7 @@ class TemplateDataValidator {
 		}
 
 		foreach ( $data->maps as $consumerId => $map ) {
-			if ( !is_object( $map ) ) {
+			if ( !( $map instanceof stdClass ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', "maps.$consumerId",
 					'object' );
 			}
