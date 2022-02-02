@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
+use MediaWiki\Extension\TemplateData\TemplateDataValidator;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -8,6 +9,8 @@ use Wikimedia\TestingAccessWrapper;
  * @group Database
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataBlob
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataCompressedBlob
+ * @covers \MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter
+ * @covers \MediaWiki\Extension\TemplateData\TemplateDataValidator
  */
 class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
@@ -801,11 +804,11 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideInterfaceTexts
 	 */
 	public function testIsValidInterfaceText( $text, bool $expected ) {
-		/** @var TemplateDataBlob $parser */
-		$parser = TestingAccessWrapper::newFromObject(
-			TemplateDataBlob::newFromJSON( $this->db, '{}' )
+		/** @var TemplateDataValidator $validator */
+		$validator = TestingAccessWrapper::newFromObject(
+			new TemplateDataValidator()
 		);
-		$this->assertSame( $expected, $parser->isValidInterfaceText( $text ) );
+		$this->assertSame( $expected, $validator->isValidInterfaceText( $text ) );
 	}
 
 	public function provideInterfaceTexts() {
