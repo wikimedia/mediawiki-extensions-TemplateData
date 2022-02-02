@@ -231,8 +231,8 @@ class TemplateDataBlob {
 	 * @return string
 	 */
 	public function getHtml( Language $lang ): string {
-		$formatter = new TemplateDataHtmlFormatter();
-		return $formatter->getHtml( $this->getDataInLanguage( $lang->getCode() ), $lang );
+		$formatter = new TemplateDataHtmlFormatter( new TemplateDataMessageLocalizer( $lang ) );
+		return $formatter->getHtml( $this->getDataInLanguage( $lang->getCode() ) );
 	}
 
 	/**

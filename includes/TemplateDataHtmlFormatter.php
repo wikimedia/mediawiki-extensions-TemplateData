@@ -3,18 +3,27 @@
 namespace MediaWiki\Extension\TemplateData;
 
 use Html;
-use Language;
+use MessageLocalizer;
 use stdClass;
 
 class TemplateDataHtmlFormatter {
 
+	/** @var MessageLocalizer */
+	private $localizer;
+
+	/**
+	 * @param MessageLocalizer $localizer
+	 */
+	public function __construct( MessageLocalizer $localizer ) {
+		$this->localizer = $localizer;
+	}
+
 	/**
 	 * @param stdClass $data
-	 * @param Language $lang
 	 *
 	 * @return string
 	 */
-	public function getHtml( stdClass $data, Language $lang ): string {
+	public function getHtml( stdClass $data ): string {
 		if ( is_string( $data->format ) && isset( TemplateDataValidator::PREDEFINED_FORMATS[$data->format] ) ) {
 			// The following icon names are used here:
 			// * template-format-block
@@ -35,13 +44,13 @@ class TemplateDataHtmlFormatter {
 					]
 				],
 				$data->description ??
-					wfMessage( 'templatedata-doc-desc-empty' )->inLanguage( $lang )->text()
+					$this->localizer->msg( 'templatedata-doc-desc-empty' )->text()
 			)
 			. '</header>'
 			. '<table class="wikitable mw-templatedata-doc-params' . $sorting . '">'
 			. Html::rawElement( 'caption', [],
 				Html::element( 'p', [],
-					wfMessage( 'templatedata-doc-params' )->inLanguage( $lang )->text()
+					$this->localizer->msg( 'templatedata-doc-params' )->text()
 				)
 				. ( $formatMsg !== null ?
 					Html::rawElement( 'p', [],
@@ -53,7 +62,7 @@ class TemplateDataHtmlFormatter {
 							// * templatedata-doc-format-block
 							// * templatedata-doc-format-custom
 							// * templatedata-doc-format-inline
-							wfMessage( 'templatedata-doc-format-' . $formatMsg )->inLanguage( $lang )->text()
+							$this->localizer->msg( 'templatedata-doc-format-' . $formatMsg )->text()
 						)
 					) :
 					''
@@ -61,16 +70,16 @@ class TemplateDataHtmlFormatter {
 			)
 			. '<thead><tr>'
 			. Html::element( 'th', [ 'colspan' => 2 ],
-				wfMessage( 'templatedata-doc-param-name' )->inLanguage( $lang )->text()
+				$this->localizer->msg( 'templatedata-doc-param-name' )->text()
 			)
 			. Html::element( 'th', [],
-				wfMessage( 'templatedata-doc-param-desc' )->inLanguage( $lang )->text()
+				$this->localizer->msg( 'templatedata-doc-param-desc' )->text()
 			)
 			. Html::element( 'th', [],
-				wfMessage( 'templatedata-doc-param-type' )->inLanguage( $lang )->text()
+				$this->localizer->msg( 'templatedata-doc-param-type' )->text()
 			)
 			. Html::element( 'th', [],
-				wfMessage( 'templatedata-doc-param-status' )->inLanguage( $lang )->text()
+				$this->localizer->msg( 'templatedata-doc-param-status' )->text()
 			)
 			. '</tr></thead>'
 			. '<tbody>';
@@ -83,7 +92,7 @@ class TemplateDataHtmlFormatter {
 					'class' => 'mw-templatedata-doc-muted',
 					'colspan' => 7
 				],
-				wfMessage( 'templatedata-doc-no-params-set' )->inLanguage( $lang )->text()
+				$this->localizer->msg( 'templatedata-doc-no-params-set' )->text()
 			)
 			. '</tr>';
 		}
@@ -95,7 +104,7 @@ class TemplateDataHtmlFormatter {
 			$aliases = '';
 			if ( count( $param->aliases ) ) {
 				foreach ( $param->aliases as $alias ) {
-					$aliases .= wfMessage( 'word-separator' )->inLanguage( $lang )->escaped()
+					$aliases .= $this->localizer->msg( 'word-separator' )->escaped()
 					. Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
 						$alias
 					);
@@ -106,13 +115,13 @@ class TemplateDataHtmlFormatter {
 			if ( $param->suggestedvalues ) {
 				$suggestedValues = '';
 				foreach ( $param->suggestedvalues as $suggestedValue ) {
-					$suggestedValues .= wfMessage( 'word-separator' )->inLanguage( $lang )->escaped()
+					$suggestedValues .= $this->localizer->msg( 'word-separator' )->escaped()
 						. Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
 							$suggestedValue
 						);
 				}
 				$suggestedValuesLine .= Html::element( 'dt', [],
-						wfMessage( 'templatedata-doc-param-suggestedvalues' )->inLanguage( $lang )->text()
+						$this->localizer->msg( 'templatedata-doc-param-suggestedvalues' )->text()
 					) . Html::rawElement( 'dd', [], $suggestedValues );
 			}
 
@@ -141,28 +150,28 @@ class TemplateDataHtmlFormatter {
 				],
 				Html::element( 'p', [],
 					$param->description ??
-						wfMessage( 'templatedata-doc-param-desc-empty' )->inLanguage( $lang )->text()
+						$this->localizer->msg( 'templatedata-doc-param-desc-empty' )->text()
 				)
 				. Html::rawElement( 'dl', [],
 					// Suggested Values
 					$suggestedValuesLine .
 					// Default
 					( $param->default !== null ? ( Html::element( 'dt', [],
-						wfMessage( 'templatedata-doc-param-default' )->inLanguage( $lang )->text()
+						$this->localizer->msg( 'templatedata-doc-param-default' )->text()
 					)
 					. Html::element( 'dd', [],
 						$param->default
 					) ) : '' )
 					// Example
 					. ( $param->example !== null ? ( Html::element( 'dt', [],
-						wfMessage( 'templatedata-doc-param-example' )->inLanguage( $lang )->text()
+						$this->localizer->msg( 'templatedata-doc-param-example' )->text()
 					)
 					. Html::element( 'dd', [],
 						$param->example
 					) ) : '' )
 					// Auto value
 					. ( $param->autovalue !== null ? ( Html::element( 'dt', [],
-						wfMessage( 'templatedata-doc-param-autovalue' )->inLanguage( $lang )->text()
+						$this->localizer->msg( 'templatedata-doc-param-autovalue' )->text()
 					)
 					. Html::rawElement( 'dd', [],
 						Html::element( 'code', [], $param->autovalue )
@@ -185,7 +194,7 @@ class TemplateDataHtmlFormatter {
 				// templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
 				// templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
 				// templatedata-doc-param-type-wiki-user-name
-				wfMessage( 'templatedata-doc-param-type-' . $param->type )->inLanguage( $lang )->text()
+				$this->localizer->msg( 'templatedata-doc-param-type-' . $param->type )->text()
 			)
 			// Status
 			. Html::element( 'td',
@@ -207,7 +216,7 @@ class TemplateDataHtmlFormatter {
 				// templatedata-doc-param-status-optional
 				// templatedata-doc-param-status-required
 				// templatedata-doc-param-status-suggested
-				wfMessage( "templatedata-doc-param-status-$status" )->inLanguage( $lang )->text()
+				$this->localizer->msg( "templatedata-doc-param-status-$status" )->text()
 			)
 			. '</tr>';
 		}
