@@ -205,7 +205,6 @@ class TemplateDataBlob {
 		// We need this to determine whether a property was originally set
 		// to decide whether 'inherits' will add it or not.
 		$unnormalizedParams = unserialize( serialize( $data->params ) );
-		$paramNames = [];
 
 		foreach ( $data->params as $paramName => $paramObj ) {
 			if ( !is_object( $paramObj ) ) {
@@ -392,8 +391,6 @@ class TemplateDataBlob {
 			} else {
 				$paramObj->suggestedvalues = [];
 			}
-
-			$paramNames[] = $paramName;
 		}
 
 		// Param.inherits
@@ -427,9 +424,9 @@ class TemplateDataBlob {
 				return Status::newFatal( 'templatedata-invalid-type', 'paramOrder', 'array' );
 			}
 
-			if ( count( $data->paramOrder ) < count( $paramNames ) ) {
-				$i = count( $data->paramOrder );
-				return Status::newFatal( 'templatedata-invalid-missing', "paramOrder[$i]" );
+			if ( count( $data->paramOrder ) < count( (array)$data->params ) ) {
+				$firstMissing = count( $data->paramOrder );
+				return Status::newFatal( 'templatedata-invalid-missing', "paramOrder[$firstMissing]" );
 			}
 
 			// Validate each of the values corresponds to a parameter and that there are no
