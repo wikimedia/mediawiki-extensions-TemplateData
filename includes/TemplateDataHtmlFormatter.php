@@ -4,26 +4,32 @@ namespace MediaWiki\Extension\TemplateData;
 
 use Html;
 use MessageLocalizer;
-use stdClass;
 
 class TemplateDataHtmlFormatter {
 
 	/** @var MessageLocalizer */
 	private $localizer;
 
+	/** @var string */
+	private $languageCode;
+
 	/**
 	 * @param MessageLocalizer $localizer
+	 * @param string $languageCode
 	 */
-	public function __construct( MessageLocalizer $localizer ) {
+	public function __construct( MessageLocalizer $localizer, string $languageCode = 'en' ) {
 		$this->localizer = $localizer;
+		$this->languageCode = $languageCode;
 	}
 
 	/**
-	 * @param stdClass $data
+	 * @param TemplateDataBlob $templateData
 	 *
-	 * @return string
+	 * @return string HTML
 	 */
-	public function getHtml( stdClass $data ): string {
+	public function getHtml( TemplateDataBlob $templateData ): string {
+		$data = $templateData->getDataInLanguage( $this->languageCode );
+
 		if ( is_string( $data->format ) && isset( TemplateDataValidator::PREDEFINED_FORMATS[$data->format] ) ) {
 			// The following icon names are used here:
 			// * template-format-block

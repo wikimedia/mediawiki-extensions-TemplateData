@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
+use MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter;
 use MediaWiki\Extension\TemplateData\TemplateDataValidator;
 use Wikimedia\TestingAccessWrapper;
 
@@ -9,7 +10,6 @@ use Wikimedia\TestingAccessWrapper;
  * @group Database
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataBlob
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataCompressedBlob
- * @covers \MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataValidator
  */
 class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
@@ -1471,15 +1471,22 @@ HTML
 	}
 
 	/**
+	 * @covers \MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter
 	 * @dataProvider provideGetHtml
 	 */
 	public function testGetHtml( array $data, $expected ) {
 		$t = TemplateDataBlob::newFromJSON( $this->db, json_encode( $data ) );
-		$actual = $t->getHtml( Language::factory( 'qqx' ) );
+		$localizer = new class implements MessageLocalizer {
+			public function msg( $key, ...$params ) {
+				return new RawMessage( "($key)" );
+			}
+		};
+		$formatter = new TemplateDataHtmlFormatter( $localizer );
+		$actual = $formatter->getHtml( $t );
 		$linedActual = preg_replace( '/>\s*</', ">\n<", $actual );
 
 		$linedExpected = preg_replace( '/>\s*</', ">\n<", trim( $expected ) );
 
-		$this->assertSame( $linedExpected, $linedActual, 'html' );
+		$this->assertSame( $linedExpected, $linedActual );
 	}
 }
