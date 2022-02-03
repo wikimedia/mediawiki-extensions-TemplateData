@@ -1503,7 +1503,7 @@ HTML
 			<td class="">
 				<p>Param docs</p>
 				<dl>
-					<dt>(templatedata-doc-param-suggestedvalues)</dt><dd>(word-separator)<code class="mw-templatedata-doc-param-alias">Suggested1</code>(word-separator)<code class="mw-templatedata-doc-param-alias">Suggested2</code></dd>
+					<dt>(templatedata-doc-param-suggestedvalues)</dt><dd><code class="mw-templatedata-doc-param-alias">Suggested1</code>(word-separator)<code class="mw-templatedata-doc-param-alias">Suggested2</code></dd>
 					<dt>(templatedata-doc-param-default)</dt><dd>Default docs</dd>
 					<dt>(templatedata-doc-param-example)</dt><dd>Example docs</dd>
 					<dt>(templatedata-doc-param-autovalue)</dt><dd><code>Auto value</code></dd>

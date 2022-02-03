@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\TemplateData;
 
 use Html;
 use MessageLocalizer;
+use stdClass;
 
 class TemplateDataHtmlFormatter {
 
@@ -91,7 +92,8 @@ class TemplateDataHtmlFormatter {
 			. '</tr></thead>'
 			. '<tbody>';
 
-		if ( count( (array)$data->params ) === 0 ) {
+		$paramNames = $data->paramOrder ?? array_keys( (array)$data->params );
+		if ( !$paramNames ) {
 			// Display no parameters message
 			$html .= '<tr>'
 			. Html::element( 'td',
@@ -104,50 +106,53 @@ class TemplateDataHtmlFormatter {
 			. '</tr>';
 		}
 
-		$paramNames = $data->paramOrder ?? array_keys( (array)$data->params );
 		foreach ( $paramNames as $paramName ) {
-			$param = $data->params->$paramName;
+			$html .= $this->formatParameterTableRow( $paramName, $data->params->$paramName );
+		}
+		$html .= '</tbody></table>';
 
-			$aliases = '';
-			if ( count( $param->aliases ) ) {
-				foreach ( $param->aliases as $alias ) {
-					$aliases .= $this->localizer->msg( 'word-separator' )->escaped()
-					. Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
-						$alias
-					);
-				}
-			}
+		return Html::rawElement( 'section', [ 'class' => 'mw-templatedata-doc-wrap' ], $html );
+	}
 
-			$suggestedValuesLine = '';
-			if ( $param->suggestedvalues ) {
-				$suggestedValues = '';
-				foreach ( $param->suggestedvalues as $suggestedValue ) {
-					$suggestedValues .= $this->localizer->msg( 'word-separator' )->escaped()
-						. Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
-							$suggestedValue
-						);
-				}
-				$suggestedValuesLine .= Html::element( 'dt', [],
-						$this->localizer->msg( 'templatedata-doc-param-suggestedvalues' )->text()
-					) . Html::rawElement( 'dd', [], $suggestedValues );
-			}
+	/**
+	 * @param int|string $paramName
+	 * @param stdClass $param
+	 *
+	 * @return string HTML
+	 */
+	private function formatParameterTableRow( $paramName, stdClass $param ): string {
+		'@phan-var object $param';
 
-			if ( $param->deprecated ) {
-				$status = 'deprecated';
-			} elseif ( $param->required ) {
-				$status = 'required';
-			} elseif ( $param->suggested ) {
-				$status = 'suggested';
-			} else {
-				$status = 'optional';
-			}
+		$allParamNames = [ Html::element( 'code', [], $paramName ) ];
+		foreach ( $param->aliases as $alias ) {
+			$allParamNames[] = Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
+				$alias
+			);
+		}
 
-			$html .= '<tr>'
+		$suggestedValues = [];
+		foreach ( $param->suggestedvalues as $suggestedValue ) {
+			$suggestedValues[] = Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
+				$suggestedValue
+			);
+		}
+
+		if ( $param->deprecated ) {
+			$status = 'deprecated';
+		} elseif ( $param->required ) {
+			$status = 'required';
+		} elseif ( $param->suggested ) {
+			$status = 'suggested';
+		} else {
+			$status = 'optional';
+		}
+
+		return '<tr>'
 			// Label
 			. Html::element( 'th', [], $param->label ?? $paramName )
 			// Parameters and aliases
 			. Html::rawElement( 'td', [ 'class' => 'mw-templatedata-doc-param-name' ],
-				Html::element( 'code', [], $paramName ) . $aliases
+				implode( $this->localizer->msg( 'word-separator' )->escaped(), $allParamNames )
 			)
 			// Description
 			. Html::rawElement( 'td', [
@@ -161,7 +166,12 @@ class TemplateDataHtmlFormatter {
 				)
 				. Html::rawElement( 'dl', [],
 					// Suggested Values
-					$suggestedValuesLine .
+					( $suggestedValues ? ( Html::element( 'dt', [],
+						$this->localizer->msg( 'templatedata-doc-param-suggestedvalues' )->text()
+					)
+					. Html::rawElement( 'dd', [],
+						implode( $this->localizer->msg( 'word-separator' )->escaped(), $suggestedValues )
+					) ) : '' ) .
 					// Default
 					( $param->default !== null ? ( Html::element( 'dt', [],
 						$this->localizer->msg( 'templatedata-doc-param-default' )->text()
@@ -226,10 +236,6 @@ class TemplateDataHtmlFormatter {
 				$this->localizer->msg( "templatedata-doc-param-status-$status" )->text()
 			)
 			. '</tr>';
-		}
-		$html .= '</tbody></table>';
-
-		return Html::rawElement( 'section', [ 'class' => 'mw-templatedata-doc-wrap' ], $html );
 	}
 
 }
