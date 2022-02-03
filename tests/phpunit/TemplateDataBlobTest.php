@@ -685,7 +685,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		return $calls;
 	}
 
-	protected function getStatusText( Status $status ): string {
+	private function getStatusText( Status $status ): string {
 		$str = Parser::stripOuterParagraph( $status->getHtml() );
 		// Unescape char references for things like "[, "]" and "|" for
 		// cleaner test assertions and output
@@ -715,7 +715,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	 * @param mixed $actual
 	 * @param string|null $message
 	 */
-	protected function assertStrictJsonEquals( $expected, $actual, $message = null ) {
+	private function assertStrictJsonEquals( $expected, $actual, $message = null ) {
 		// Lazy recursive strict comparison: Serialise to JSON and compare that
 		// Sort first to ensure key-order
 		$expected = json_decode( $expected, /* assoc = */ true );
@@ -730,7 +730,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	protected function assertTemplateData( array $case ) {
+	private function assertTemplateData( array $case ) {
 		// Expand defaults
 		if ( !isset( $case['status'] ) ) {
 			$case['status'] = true;
@@ -740,6 +740,8 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
+		/** @var TemplateDataBlob $t */
+		$t = TestingAccessWrapper::newFromObject( $t );
 		$actual = $t->getJSON();
 		$status = $t->getStatus();
 
@@ -759,6 +761,8 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
 			// Assert this case roundtrips properly by running through the output as input.
 			$t = TemplateDataBlob::newFromJSON( $this->db, $case['output'] );
+			/** @var TemplateDataBlob $t */
+			$t = TestingAccessWrapper::newFromObject( $t );
 			$status = $t->getStatus();
 
 			if ( !$status->isGood() ) {

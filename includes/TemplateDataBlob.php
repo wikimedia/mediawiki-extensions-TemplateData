@@ -110,7 +110,7 @@ class TemplateDataBlob {
 	 * @return null|string Text value from the InterfaceText object or null if no suitable
 	 *  match was found
 	 */
-	protected static function getInterfaceTextInLanguage( stdClass $text, string $langCode ): ?string {
+	private function getInterfaceTextInLanguage( stdClass $text, string $langCode ): ?string {
 		if ( isset( $text->$langCode ) ) {
 			return $text->$langCode;
 		}
@@ -164,33 +164,33 @@ class TemplateDataBlob {
 
 		// Root.description
 		if ( $data->description !== null ) {
-			$data->description = self::getInterfaceTextInLanguage( $data->description, $langCode );
+			$data->description = $this->getInterfaceTextInLanguage( $data->description, $langCode );
 		}
 
 		foreach ( $data->params as $param ) {
 			// Param.label
 			if ( $param->label !== null ) {
-				$param->label = self::getInterfaceTextInLanguage( $param->label, $langCode );
+				$param->label = $this->getInterfaceTextInLanguage( $param->label, $langCode );
 			}
 
 			// Param.description
 			if ( $param->description !== null ) {
-				$param->description = self::getInterfaceTextInLanguage( $param->description, $langCode );
+				$param->description = $this->getInterfaceTextInLanguage( $param->description, $langCode );
 			}
 
 			// Param.default
 			if ( $param->default !== null ) {
-				$param->default = self::getInterfaceTextInLanguage( $param->default, $langCode );
+				$param->default = $this->getInterfaceTextInLanguage( $param->default, $langCode );
 			}
 
 			// Param.example
 			if ( $param->example !== null ) {
-				$param->example = self::getInterfaceTextInLanguage( $param->example, $langCode );
+				$param->example = $this->getInterfaceTextInLanguage( $param->example, $langCode );
 			}
 		}
 
 		foreach ( $data->sets as $setObj ) {
-			$label = self::getInterfaceTextInLanguage( $setObj->label, $langCode );
+			$label = $this->getInterfaceTextInLanguage( $setObj->label, $langCode );
 			if ( $label === null ) {
 				// Contrary to other InterfaceTexts, set label is not optional. If we're here it
 				// means the template data from the wiki doesn't contain either the user language,
@@ -210,7 +210,7 @@ class TemplateDataBlob {
 	/**
 	 * @return string JSON
 	 */
-	public function getJSON(): string {
+	protected function getJSON(): string {
 		if ( $this->json === null ) {
 			// Cache for repeat calls
 			$this->json = json_encode( $this->data );
