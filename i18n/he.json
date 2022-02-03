@@ -48,7 +48,7 @@
 	"templatedata-invalid-duplicate-value": "המאפיין \"$1\" (ערך: \"$3\") זהה למאפיין \"$2\".",
 	"templatedata-invalid-empty-array": "למאפיין \"$1\" צריך להיות לפחות ערך אחד במערך שלו.",
 	"templatedata-invalid-format": "המאפיין \"$1\" אמור להיות \"inline\" (בשורה) או \"block\" (בפסקה), או מחרוזת עיצוב תקינה.",
-	"templatedata-invalid-length": "הנתונים גדולים מכדי לשמור ({{PLURAL:$1|בית אחד|{{formatnum:$1}} בתים}}, {{PLURAL:$2|המגבלה היא}} {{formatnum:$2}})",
+	"templatedata-invalid-length": "הנתונים גדולים מכדי לשמור ({{PLURAL:$1|בית אחד|$1 בתים}}, {{PLURAL:$2|המגבלה היא}} $2)",
 	"templatedata-invalid-missing": "המאפיין הדרוש \"$1\" לא נמצא.",
 	"templatedata-invalid-param": "פרמטר בלתי־תקין \"$1\" למאפיין \"$2\".",
 	"templatedata-invalid-parse": "שגיאת תחביר ב־JSON.",
