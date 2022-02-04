@@ -228,7 +228,10 @@ class Hooks {
 		// FIXME: this hard-codes default skin, but it is needed because
 		// ::getHtml() will need a theme singleton to be set.
 		OutputPage::setupOOUI( 'bogus', $userLang->getDir() );
-		return $ti->getHtml( $userLang );
+
+		$localizer = new TemplateDataMessageLocalizer( $userLang );
+		$formatter = new TemplateDataHtmlFormatter( $localizer, $userLang->getCode() );
+		return $formatter->getHtml( $ti );
 	}
 
 	/**

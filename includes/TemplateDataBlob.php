@@ -6,7 +6,6 @@
 
 namespace MediaWiki\Extension\TemplateData;
 
-use Language;
 use MediaWiki\MediaWikiServices;
 use Status;
 use stdClass;
@@ -223,16 +222,6 @@ class TemplateDataBlob {
 	 */
 	public function getJSONForDatabase(): string {
 		return $this->getJSON();
-	}
-
-	/**
-	 * @param Language $lang
-	 *
-	 * @return string
-	 */
-	public function getHtml( Language $lang ): string {
-		$formatter = new TemplateDataHtmlFormatter( new TemplateDataMessageLocalizer( $lang ) );
-		return $formatter->getHtml( $this->getDataInLanguage( $lang->getCode() ) );
 	}
 
 	/**
