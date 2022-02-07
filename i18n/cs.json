@@ -55,7 +55,7 @@
 	"templatedata-invalid-duplicate-value": "Vlastnost „$1“ („$3“) je duplicita k „$2“.",
 	"templatedata-invalid-empty-array": "Vlastnost „$1“ musí ve svém poli obsahovat alespoň jednu hodnotu.",
 	"templatedata-invalid-format": "U vlastnosti „$1“ se očekává hodnota „inline“, „block“ nebo platná hodnota formátu",
-	"templatedata-invalid-length": "Takto velká data nelze uložit ({{formatnum:$1}} {{PLURAL:$1|bajt|bajty|bajtů}}, limit je {{formatnum:$2}} {{PLURAL:$2|bajt|bajty|bajtů}})",
+	"templatedata-invalid-length": "Takto velká data nelze uložit ($1 {{PLURAL:$1|bajt|bajty|bajtů}}, limit je $2 {{PLURAL:$2|bajt|bajty|bajtů}})",
 	"templatedata-invalid-missing": "Nenalezena vyžadovaná vlastnost „$1“.",
 	"templatedata-invalid-param": "Chybný parametr „$1“ pro vlastnost „$2“",
 	"templatedata-invalid-parse": "Syntaktická chyba v JSON.",
