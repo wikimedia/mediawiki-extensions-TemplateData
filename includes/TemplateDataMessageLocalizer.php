@@ -5,6 +5,9 @@ namespace MediaWiki\Extension\TemplateData;
 use Language;
 use MessageLocalizer;
 
+/**
+ * @codeCoverageIgnore Trivial facade
+ */
 class TemplateDataMessageLocalizer implements MessageLocalizer {
 
 	/** @var Language */

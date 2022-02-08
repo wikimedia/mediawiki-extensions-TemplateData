@@ -39,6 +39,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	public function provideParse() {
 		$cases = [
 			[
+				'input' => '{',
+				'status' => '(templatedata-invalid-parse)'
+			],
+			[
 				'input' => '[]
 				',
 				'status' => '(templatedata-invalid-type: templatedata, object)'
@@ -1466,6 +1470,54 @@ HTML
 			<td class="mw-templatedata-doc-muted"><p>(templatedata-doc-param-desc-empty)</p><dl></dl></td>
 			<td class="mw-templatedata-doc-param-type mw-templatedata-doc-muted">(templatedata-doc-param-type-unknown)</td>
 			<td class="mw-templatedata-doc-param-status-required" data-sort-value="2">(templatedata-doc-param-status-required)</td>
+		</tr>
+	</tbody>
+</table>
+</section>
+HTML
+		];
+		yield [
+			[ 'description' => 'Template docs', 'params' => [
+				'suggestedParam' => [
+					'label' => 'Label',
+					'description' => 'Param docs',
+					'aliases' => [ 'Alias1', 'Alias2' ],
+					'suggestedvalues' => [ 'Suggested1', 'Suggested2' ],
+					'suggested' => true,
+					'default' => 'Default docs',
+					'example' => 'Example docs',
+					'autovalue' => 'Auto value',
+				],
+				'deprecatedParam' => [ 'type' => 'date', 'deprecated' => true ],
+			] ],
+			<<<HTML
+<section class="mw-templatedata-doc-wrap">
+<header><p class="mw-templatedata-doc-desc">Template docs</p></header>
+<table class="wikitable mw-templatedata-doc-params sortable">
+	<caption><p>(templatedata-doc-params)</p></caption>
+	<thead><tr><th colspan="2">(templatedata-doc-param-name)</th><th>(templatedata-doc-param-desc)</th><th>(templatedata-doc-param-type)</th><th>(templatedata-doc-param-status)</th></tr></thead>
+	<tbody>
+		<tr>
+			<th>Label</th>
+			<td class="mw-templatedata-doc-param-name"><code>suggestedParam</code>(word-separator)<code class="mw-templatedata-doc-param-alias">Alias1</code>(word-separator)<code class="mw-templatedata-doc-param-alias">Alias2</code></td>
+			<td class="">
+				<p>Param docs</p>
+				<dl>
+					<dt>(templatedata-doc-param-suggestedvalues)</dt><dd>(word-separator)<code class="mw-templatedata-doc-param-alias">Suggested1</code>(word-separator)<code class="mw-templatedata-doc-param-alias">Suggested2</code></dd>
+					<dt>(templatedata-doc-param-default)</dt><dd>Default docs</dd>
+					<dt>(templatedata-doc-param-example)</dt><dd>Example docs</dd>
+					<dt>(templatedata-doc-param-autovalue)</dt><dd><code>Auto value</code></dd>
+				</dl>
+			</td>
+			<td class="mw-templatedata-doc-param-type mw-templatedata-doc-muted">(templatedata-doc-param-type-unknown)</td>
+			<td class="mw-templatedata-doc-param-status-suggested" data-sort-value="1">(templatedata-doc-param-status-suggested)</td>
+		</tr>
+		<tr>
+			<th>deprecatedParam</th>
+			<td class="mw-templatedata-doc-param-name"><code>deprecatedParam</code></td>
+			<td class="mw-templatedata-doc-muted"><p>(templatedata-doc-param-desc-empty)</p><dl></dl></td>
+			<td class="mw-templatedata-doc-param-type">(templatedata-doc-param-type-date)</td>
+			<td class="mw-templatedata-doc-param-status-deprecated" data-sort-value="-1">(templatedata-doc-param-status-deprecated)</td>
 		</tr>
 	</tbody>
 </table>
