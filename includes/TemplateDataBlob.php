@@ -225,35 +225,6 @@ class TemplateDataBlob {
 	}
 
 	/**
-	 * Get parameter descriptions from raw wikitext (used for templates that have no templatedata).
-	 * @param string $wikitext The text to extract parameters from.
-	 * @return string[] Parameter info in the same format as the templatedata 'params' key.
-	 */
-	public static function getRawParams( string $wikitext ): array {
-		// Ignore wikitext within nowiki tags and comments
-		$wikitext = preg_replace( '/<!--.*?-->/s', '', $wikitext );
-		$wikitext = preg_replace( '/<nowiki\s*>.*?<\/nowiki\s*>/s', '', $wikitext );
-
-		// This regex matches the one in ext.TemplateDataGenerator.sourceHandler.js
-		preg_match_all( '/{{3,}([^\n#={|}]*?)([<|]|}{3,})/m', $wikitext, $rawParams );
-		$params = [];
-		$normalizedParams = [];
-		if ( isset( $rawParams[1] ) ) {
-			foreach ( $rawParams[1] as $rawParam ) {
-				// This normalization process is repeated in JS in ext.TemplateDataGenerator.sourceHandler.js
-				$normalizedParam = strtolower( trim( preg_replace( '/[-_ ]+/', ' ', $rawParam ) ) );
-				if ( !$normalizedParam || in_array( $normalizedParam, $normalizedParams ) ) {
-					// This or a similarly-named parameter has already been found.
-					continue;
-				}
-				$normalizedParams[] = $normalizedParam;
-				$params[ trim( $rawParam ) ] = [];
-			}
-		}
-		return $params;
-	}
-
-	/**
 	 * @param mixed $data
 	 */
 	protected function __construct( $data ) {

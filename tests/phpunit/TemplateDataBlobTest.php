@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\TemplateData\Api\ApiTemplateData;
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter;
 use MediaWiki\Extension\TemplateData\TemplateDataValidator;
@@ -1356,10 +1357,13 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
+	 * @covers \MediaWiki\Extension\TemplateData\Api\ApiTemplateData
 	 * @dataProvider provideGetRawParams
 	 */
-	public function testGetRawParams( $inputWikitext, $expectedParams ) {
-		$params = TemplateDataBlob::getRawParams( $inputWikitext );
+	public function testGetRawParams( string $inputWikitext, array $expectedParams ) {
+		/** @var ApiTemplateData $api */
+		$api = TestingAccessWrapper::newFromObject( $this->createMock( ApiTemplateData::class ) );
+		$params = $api->getRawParams( $inputWikitext );
 		$this->assertArrayEquals( $expectedParams, $params, true, true );
 	}
 
