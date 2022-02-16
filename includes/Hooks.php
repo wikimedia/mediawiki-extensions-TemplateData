@@ -106,7 +106,8 @@ class Hooks {
 		}
 
 		// TODO: Remove when not needed any more, see T267926
-		self::logChangeEvent( $revisionRecord, $parserOutput->getPageProperty( 'templatedata' ), $user );
+		// T301915
+		self::logChangeEvent( $revisionRecord, $parserOutput->getPageProperty( 'templatedata' ) ?? false, $user );
 
 		return true;
 	}
