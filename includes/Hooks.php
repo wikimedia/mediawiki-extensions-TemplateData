@@ -106,18 +106,21 @@ class Hooks {
 		}
 
 		// TODO: Remove when not needed any more, see T267926
-		// T301915
-		self::logChangeEvent( $revisionRecord, $parserOutput->getPageProperty( 'templatedata' ) ?? false, $user );
+		self::logChangeEvent( $revisionRecord, $parserOutput->getPageProperty( 'templatedata' ), $user );
 
 		return true;
 	}
 
 	/**
 	 * @param RevisionRecord $revisionRecord
-	 * @param string|false $newPageProperty
+	 * @param ?string $newPageProperty
 	 * @param UserIdentity $user
 	 */
-	private static function logChangeEvent( RevisionRecord $revisionRecord, $newPageProperty, UserIdentity $user ) {
+	private static function logChangeEvent(
+		RevisionRecord $revisionRecord,
+		?string $newPageProperty,
+		UserIdentity $user
+	) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
 			return;
 		}
@@ -129,7 +132,7 @@ class Hooks {
 		$pageId = $page->getId();
 		// The JSON strings here are guaranteed to be normalized (and possibly compressed) the same
 		// way. No need to normalize them again for this comparison.
-		if ( $newPageProperty === ( $props[$pageId] ?? false ) ) {
+		if ( $newPageProperty === ( $props[$pageId] ?? null ) ) {
 			return;
 		}
 
