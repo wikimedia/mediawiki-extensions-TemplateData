@@ -281,13 +281,8 @@ class TemplateDataValidator {
 				}
 				$parentParam = $data->params->{ $param->inherits };
 				foreach ( $parentParam as $key => $value ) {
-					if ( !in_array( $key, self::VALID_PARAM_KEYS ) ) {
-						return Status::newFatal( 'templatedata-invalid-unknown', $key );
-					}
 					if ( !isset( $unnormalizedParams->$paramName->$key ) ) {
-						$param->$key = is_object( $parentParam->$key ) ?
-							clone $parentParam->$key :
-							$parentParam->$key;
+						$param->$key = is_object( $value ) ? clone $value : $value;
 					}
 				}
 				unset( $param->inherits );
