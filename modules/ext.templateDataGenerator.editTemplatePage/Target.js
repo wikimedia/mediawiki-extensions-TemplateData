@@ -232,7 +232,7 @@ Target.prototype.replaceTemplateData = function ( newTemplateData ) {
 			}
 		}
 
-		if ( this.originalWikitext.substr( -1 ) !== '\n' ) {
+		if ( this.originalWikitext.slice( -1 ) !== '\n' ) {
 			templateDataOutput = '\n' + templateDataOutput;
 		}
 	}
