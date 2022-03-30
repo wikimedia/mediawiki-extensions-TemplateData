@@ -69,7 +69,7 @@
 	"templatedata-modal-button-saveparam": "Bewarje",
 	"templatedata-modal-confirmcancel": "Wolle jo wier jo wizigings fuortsmite?",
 	"templatedata-modal-current-language": "Hjoeddeiske taal: $1",
-	"templatedata-modal-errormsg": "Flaters fûn. Soargje dat der gjin lege of dûbele parameternammen binne, en dat de parameternamme gjin \"$1\", \"$2\" of \"$3\" befettet.",
+	"templatedata-modal-errormsg": "Flaters fûn. Soargje dat der gjin blanko of dûbele parameternammen binne, en dat de parameternamme gjin \"$1\", \"$2\" of \"$3\" befettet.",
 	"templatedata-modal-errormsg-duplicate-name": "Flater fûn. De keazen namme wurdt al brûkt by in oare parameter.",
 	"templatedata-modal-errormsg-import-noparams": "Gjin nije parameters fûn by it ymportearjen.",
 	"templatedata-modal-format-block": "Blok",
