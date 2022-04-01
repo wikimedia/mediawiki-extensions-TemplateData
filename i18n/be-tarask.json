@@ -47,7 +47,7 @@
 	"templatedata-invalid-duplicate-value": "Уласьцівасьць «$1» («$3») — дублікат «$2».",
 	"templatedata-invalid-empty-array": "Уласьцівасьць «$1» мусіць мець у сваім масіве прынамсі адно значэньне.",
 	"templatedata-invalid-format": "Меркавана ўласьцівасьць «$1» мусіць быць «inline», «block» ці радком карэктнага фармату.",
-	"templatedata-invalid-length": "Завялікі для захаваньня памер зьвестак ({{formatnum:$1}} {{PLURAL:$1|байт|байта|байтаў}}, {{PLURAL:$2|абмежавана}} да {{formatnum:$2}})",
+	"templatedata-invalid-length": "Завялікі для захаваньня памер зьвестак ($1 {{PLURAL:$1|байт|байты|байтаў}}, {{PLURAL:$2|абмежавана}} да $2)",
 	"templatedata-invalid-missing": "Абавязковая ўласьцівасьць «$1» ня знойдзеная.",
 	"templatedata-invalid-param": "Недапушчальны парамэтар «$1» для ўласьцівасьці «$2».",
 	"templatedata-invalid-parse": "Памылка сынтаксу ў JSON.",
