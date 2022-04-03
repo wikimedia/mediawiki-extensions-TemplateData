@@ -18,6 +18,7 @@ use MediaWiki\Extension\EventLogging\EventLogging;
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\MediaWikiServices;
 use TextContent;
+use Wikimedia\ParamValidator\ParamValidator;
 
 /**
  * @ingroup API
@@ -247,14 +248,14 @@ class ApiTemplateData extends ApiBase {
 	public function getAllowedParams( $flags = 0 ) {
 		$result = [
 			'includeMissingTitles' => [
-				ApiBase::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_TYPE => 'boolean',
 			],
 			'doNotIgnoreMissingTitles' => [
-				ApiBase::PARAM_TYPE => 'boolean',
-				ApiBase::PARAM_DEPRECATED => true,
+				ParamValidator::PARAM_TYPE => 'boolean',
+				ParamValidator::PARAM_DEPRECATED => true,
 			],
 			'lang' => [
-				ApiBase::PARAM_TYPE => 'string',
+				ParamValidator::PARAM_TYPE => 'string',
 			],
 		];
 		if ( $flags ) {
