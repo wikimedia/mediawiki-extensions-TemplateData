@@ -753,7 +753,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame(
 			$case['status'],
 			is_string( $case['status'] ) ? $this->getStatusText( $status ) : $status->isGood(),
-			'Status: ' . $case['msg']
+			$case['msg'] . ' (status "' . $this->getStatusText( $status ) . '")'
 		);
 
 		if ( !isset( $case['output'] ) ) {
