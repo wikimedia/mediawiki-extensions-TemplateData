@@ -22,7 +22,8 @@
 			"Urhixidur",
 			"Verdy p",
 			"Weft",
-			"Wladek92"
+			"Wladek92",
+			"Ajeje Brazorf"
 		]
 	},
 	"templatedata-desc": "Met en place un stockage de données pour les paramètres des modèles (en utilisant JSON)",
@@ -49,7 +50,7 @@
 	"templatedata-doc-param-type-line": "Ligne",
 	"templatedata-doc-param-type-number": "Nombre",
 	"templatedata-doc-param-type-string": "Chaîne",
-	"templatedata-doc-param-type-unbalanced-wikitext": "Wikitexte non équilibré",
+	"templatedata-doc-param-type-unbalanced-wikitext": "Wikicode non équilibré",
 	"templatedata-doc-param-type-unknown": "Inconnu",
 	"templatedata-doc-param-type-url": "URL",
 	"templatedata-doc-param-type-wiki-file-name": "Fichier",
@@ -120,7 +121,7 @@
 	"templatedata-modal-title-language": "Langue",
 	"templatedata-modal-title-paramorder": "Ordre des paramètres",
 	"templatedata-modal-title-templatedesc": "Description du modèle ($1)",
-	"templatedata-modal-title-templateformat": "Mise en forme suggérée du wikitexte",
+	"templatedata-modal-title-templateformat": "Mise en forme suggérée du wikicode",
 	"templatedata-modal-title-templateformatstring": "Chaîne de format personnalisé",
 	"templatedata-modal-title-templateparam-details": "Détails des paramètres : $1",
 	"templatedata-modal-title-templateparams": "Paramètres du modèle"
