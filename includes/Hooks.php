@@ -97,7 +97,7 @@ class Hooks {
 
 		// Revision hasn't been parsed yet, so parse to know if self::render got a
 		// valid tag (via inclusion and transclusion) and abort save if it didn't
-		$parserOutput = $renderedRevision->getRevisionParserOutput();
+		$parserOutput = $renderedRevision->getRevisionParserOutput( [ 'generate-html' => false ] );
 		$templateDataStatus = self::getStatusFromParserOutput( $parserOutput );
 		if ( $templateDataStatus instanceof Status && !$templateDataStatus->isOK() ) {
 			// Abort edit, show error message from TemplateDataBlob::getStatus
