@@ -1,4 +1,5 @@
 {
+	"name": "TemplateData",
 	"private": true,
 	"scripts": {
 		"test": "grunt test",
