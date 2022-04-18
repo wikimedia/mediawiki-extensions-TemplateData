@@ -125,7 +125,7 @@
 	"templatedata-modal-title-language": "Язык",
 	"templatedata-modal-title-paramorder": "Порядок параметров",
 	"templatedata-modal-title-templatedesc": "Описание шаблона ($1)",
-	"templatedata-modal-title-templateformat": "Предлагаемое форматирование викитекста",
+	"templatedata-modal-title-templateformat": "Предлагаемое форматирование вики-текста",
 	"templatedata-modal-title-templateformatstring": "Нестандартный формат",
 	"templatedata-modal-title-templateparam-details": "Описание параметра: $1",
 	"templatedata-modal-title-templateparams": "Параметры шаблона"
