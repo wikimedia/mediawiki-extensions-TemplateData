@@ -63,6 +63,11 @@
 				"oojs"
 			]
 		},
+		"ext.templateDataGenerator.editTemplatePage.loading": {
+			"localBasePath": "modules/ext.templateDataGenerator.editTemplatePage",
+			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.editTemplatePage",
+			"styles": "templateDataGenerator.placeholder.css"
+		},
 		"ext.templateDataGenerator.editTemplatePage": {
 			"localBasePath": "modules/ext.templateDataGenerator.editTemplatePage",
 			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.editTemplatePage",

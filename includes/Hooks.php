@@ -166,6 +166,8 @@ class Hooks {
 		global $wgTemplateDataUseGUI;
 		if ( $wgTemplateDataUseGUI ) {
 			if ( $output->getTitle()->inNamespace( NS_TEMPLATE ) ) {
+				$output->addModuleStyles( 'ext.templateDataGenerator.editTemplatePage.loading' );
+				$output->addHTML( '<div class="tdg-editscreen-placeholder"></div>' );
 				$output->addModules( 'ext.templateDataGenerator.editTemplatePage' );
 			}
 		}
