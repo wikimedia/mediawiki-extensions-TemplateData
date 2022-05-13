@@ -1,0 +1,7 @@
+.client-js .tdg-editscreen-placeholder:after {
+	content: '\00a0';
+	display: block;
+	line-height: 1.42857143em; /* Mirroring the button's line-height */
+	padding-top: 12px; /* Mirroring the button's ( 5px padding + 1px border ) * 2 = 12 */
+	padding-bottom: 1em; /* Mirroring the .tdg-editscreen-main margin, but as padding to not collapse */
+}
