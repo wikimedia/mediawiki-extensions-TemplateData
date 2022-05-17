@@ -57,7 +57,7 @@
 	"templatedata-invalid-duplicate-value": "\"$1\" özelliği (\"$3\"), \"$2\" değerinin bir kopyasıdır.",
 	"templatedata-invalid-empty-array": "\"$1\" özelliği, dizisinde en az bir değere sahip olmalıdır.",
 	"templatedata-invalid-format": "\"$1\" özelliği, \"inline\", \"block\" veya geçerli bir biçim dizesi olması bekleniyor.",
-	"templatedata-invalid-length": "Veriler kaydedilemeyecek kadar büyük ({{formatnum:$1}} bayt, {{PLURAL:$2|sınır}} {{formatnum:$2}})",
+	"templatedata-invalid-length": "Veriler kaydedilemeyecek kadar büyük ($1 bayt, {{PLURAL:$2|sınır}} $2)",
 	"templatedata-invalid-missing": "Gerekli \"$1\" özelliği bulunamadı.",
 	"templatedata-invalid-param": "\"$2\" özelliği için geçersiz \"$1\" parametresi.",
 	"templatedata-invalid-parse": "JSON'da sözdizim hatası.",
