@@ -71,7 +71,7 @@
 	"templatedata-modal-button-saveparam": "შენახვა",
 	"templatedata-modal-confirmcancel": "დარწმუნებული ხართ, რომ შეტანილი ცვლილებების უარყოფა გსურთ?",
 	"templatedata-modal-current-language": "ამჟამინდელი ენა: $1",
-	"templatedata-modal-errormsg": "აღმოჩენილია ხარვეზები. გთხოვთ, დარწმუნდით, რომ პარამეტრების სახელები ცარიელი არ არის, არ მეორდება ერთი და იგივე სახელი და იგი არ შეიცავს „$1“-ს, „$2“ს ან „$3“-ს.",
+	"templatedata-modal-errormsg": "აღმოჩენილია ხარვეზები. გთხოვთ, დარწმუნდით, რომ პარამეტრების სახელები ცარიელი არ არის, არ მეორდება ერთი და იგივე სახელი და იგი არ შეიცავს „$1“-ს, „$2“-ს ან „$3“-ს.",
 	"templatedata-modal-errormsg-duplicate-name": "აღმოჩენილია ხარვეზი. სხვა პარამეტრი უკვე იყენებს არჩეულ სახელს.",
 	"templatedata-modal-errormsg-import-noparams": "იმპორტისას ახალი პარამეტრები არ არის ნაპოვნი.",
 	"templatedata-modal-format-block": "ბლოკური",
