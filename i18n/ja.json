@@ -13,7 +13,8 @@
 			"Yusuke1109",
 			"Bonfire12",
 			"Foomin10",
-			"Tmv"
+			"Tmv",
+			"Yamagata Yusuke"
 		]
 	},
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
@@ -76,6 +77,7 @@
 	"templatedata-modal-errormsg-duplicate-name": "エラーが発生しました。入力された名前は、すでに別のパラメーターで使われています。",
 	"templatedata-modal-errormsg-import-noparams": "取り込み時に新しい引数は見つかりませんでした。",
 	"templatedata-modal-format-block": "ブロック",
+	"templatedata-modal-format-custom": "カスタム",
 	"templatedata-modal-format-inline": "インライン",
 	"templatedata-modal-format-null": "未定義",
 	"templatedata-modal-json-error-replace": "置換",
@@ -92,6 +94,7 @@
 	"templatedata-modal-table-param-description": "説明 ($1)",
 	"templatedata-modal-table-param-example": "例 ($1)",
 	"templatedata-modal-table-param-importoption": "$1件の提案{{PLURAL:$1|パラメーター}}を追加",
+	"templatedata-modal-table-param-importoption-subtitle": "内容: $1",
 	"templatedata-modal-table-param-label": "ラベル ($1)",
 	"templatedata-modal-table-param-name": "名前",
 	"templatedata-modal-table-param-required": "必須",
@@ -105,6 +108,7 @@
 	"templatedata-modal-title-paramorder": "パラメーターの順序",
 	"templatedata-modal-title-templatedesc": "テンプレートの説明 ($1)",
 	"templatedata-modal-title-templateformat": "推奨されるウィキテキスト書式",
+	"templatedata-modal-title-templateformatstring": "カスタム書式文字列",
 	"templatedata-modal-title-templateparam-details": "引数の詳細: $1",
 	"templatedata-modal-title-templateparams": "テンプレートの引数"
 }
