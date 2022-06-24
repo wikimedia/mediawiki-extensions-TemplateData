@@ -20,7 +20,6 @@ use RequestContext;
 use ResourceLoader;
 use Status;
 use Title;
-use WikiPage;
 
 /**
  * Hooks for TemplateData extension
@@ -259,6 +258,7 @@ class Hooks {
 		$tplData = [];
 
 		$pageProps = MediaWikiServices::getInstance()->getPageProps();
+		$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
 
 		// This inefficient implementation is currently tuned for
 		// Parsoid's use case where it requests info for exactly one title.
@@ -272,7 +272,7 @@ class Hooks {
 			}
 
 			if ( $title->isRedirect() ) {
-				$title = ( new WikiPage( $title ) )->getRedirectTarget();
+				$title = $wikiPageFactory->newFromTitle( $title )->getRedirectTarget();
 				if ( !$title ) {
 					// Invalid redirecting title
 					$tplData[$tplTitle] = null;
