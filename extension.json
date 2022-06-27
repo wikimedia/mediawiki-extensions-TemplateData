@@ -29,8 +29,7 @@
 		"MultiContentSave": "MediaWiki\\Extension\\TemplateData\\Hooks::onMultiContentSave",
 		"ResourceLoaderRegisterModules": "MediaWiki\\Extension\\TemplateData\\Hooks::onResourceLoaderRegisterModules",
 		"EditPage::showEditForm:initial": "MediaWiki\\Extension\\TemplateData\\Hooks::onEditPage",
-		"ParserFetchTemplateData": "MediaWiki\\Extension\\TemplateData\\Hooks::onParserFetchTemplateData",
-		"MakeGlobalVariablesScript": "MediaWiki\\Extension\\TemplateData\\Hooks::onMakeGlobalVariablesScript"
+		"ParserFetchTemplateData": "MediaWiki\\Extension\\TemplateData\\Hooks::onParserFetchTemplateData"
 	},
 	"MessagesDirs": {
 		"TemplateData": [
@@ -237,11 +236,6 @@
 	"config": {
 		"TemplateDataUseGUI": {
 			"value": true
-		},
-		"TemplateDataSuggestedValuesEditor": {
-			"description": "Temporary feature flag to enable the \"suggested values\" UI",
-			"value": false,
-			"public": true
 		}
 	},
 	"manifest_version": 2
