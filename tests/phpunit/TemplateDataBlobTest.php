@@ -609,6 +609,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'status' => '(templatedata-invalid-type: maps.application.things[0][0], string)'
 			],
 			[
+				'input' => '{ "params": {}, "format": "" }',
+				'status' => '(templatedata-invalid-format: format)'
+			],
+			[
 				'input' => '{
 					"params": {
 						"foo": {}
