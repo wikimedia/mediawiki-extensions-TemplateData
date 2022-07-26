@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bada Kaji",
 			"NehalDaveND",
 			"Nirjal stha"
 		]
@@ -18,7 +19,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "प्रयोगकर्ता",
 	"templatedata-modal-button-apply": "लागु गर्ने",
 	"templatedata-modal-button-back": "पछाडि",
-	"templatedata-modal-button-cancel": "रद्द गर्ने",
+	"templatedata-modal-button-cancel": "रद्द गर्नुहोस्",
 	"templatedata-modal-button-changelang": "भाषा परिवर्तन गर्ने",
 	"templatedata-modal-button-saveparam": "संग्रह गर्ने",
 	"templatedata-modal-table-param-actions": "कार्यहरू",
