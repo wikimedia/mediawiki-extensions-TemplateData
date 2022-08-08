@@ -138,9 +138,7 @@ class TemplateDataHtmlFormatter {
 
 		$suggestedValues = [];
 		foreach ( $param->suggestedvalues as $suggestedValue ) {
-			$suggestedValues[] = Html::element( 'code', [ 'class' => 'mw-templatedata-doc-param-alias' ],
-				$suggestedValue
-			);
+			$suggestedValues[] = Html::element( 'code', [], $suggestedValue );
 		}
 
 		if ( $param->deprecated ) {
@@ -161,12 +159,11 @@ class TemplateDataHtmlFormatter {
 				implode( $this->localizer->msg( 'word-separator' )->escaped(), $allParamNames )
 			)
 			// Description
-			. Html::rawElement( 'td', [
-					'class' => [
-						'mw-templatedata-doc-muted' => ( $param->description === null )
-					]
-				],
-				Html::element( 'p', [],
+			. Html::rawElement( 'td', [],
+				Html::element( 'p',
+					[
+						'class' => $param->description ? null : 'mw-templatedata-doc-muted',
+					],
 					$param->description ??
 						$this->localizer->msg( 'templatedata-doc-param-desc-empty' )->text()
 				)
