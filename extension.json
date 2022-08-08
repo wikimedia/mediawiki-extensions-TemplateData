@@ -41,7 +41,7 @@
 		"ext.templateData": {
 			"localBasePath": "modules/ext.templateData",
 			"remoteExtPath": "TemplateData/modules/ext.templateData",
-			"styles": "templateData.css"
+			"styles": "templateData.less"
 		},
 		"ext.templateDataGenerator.editPage": {
 			"localBasePath": "modules/ext.templateDataGenerator.editPage",
@@ -65,12 +65,12 @@
 		"ext.templateDataGenerator.editTemplatePage.loading": {
 			"localBasePath": "modules/ext.templateDataGenerator.editTemplatePage",
 			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.editTemplatePage",
-			"styles": "templateDataGenerator.placeholder.css"
+			"styles": "templateDataGenerator.placeholder.less"
 		},
 		"ext.templateDataGenerator.editTemplatePage": {
 			"localBasePath": "modules/ext.templateDataGenerator.editTemplatePage",
 			"remoteExtPath": "TemplateData/modules/ext.templateDataGenerator.editTemplatePage",
-			"styles": "templateDataGenerator.ui.css",
+			"styles": "templateDataGenerator.ui.less",
 			"packageFiles": [
 				"init.js",
 				"widgets/AutosizeTextInputWidget.js",
