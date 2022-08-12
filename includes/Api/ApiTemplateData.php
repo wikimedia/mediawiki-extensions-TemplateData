@@ -108,14 +108,16 @@ class ApiTemplateData extends ApiBase {
 
 		if ( $titles ) {
 			$db = $this->getDB();
-			$res = $db->select( 'page_props',
-				[ 'pp_page', 'pp_value' ], [
+			$res = $db->newSelectQueryBuilder()
+				->from( 'page_props' )
+				->fields( [ 'pp_page', 'pp_value' ] )
+				->where( [
 					'pp_page' => array_keys( $titles ),
 					'pp_propname' => 'templatedata'
-				],
-				__METHOD__,
-				[ 'ORDER BY' => 'pp_page' ]
-			);
+				] )
+				->orderBy( 'pp_page' )
+				->caller( __METHOD__ )
+				->fetchResultSet();
 
 			foreach ( $res as $row ) {
 				$rawData = $row->pp_value;
