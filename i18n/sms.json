@@ -15,6 +15,7 @@
 	"templatedata-doc-param-type-wiki-file-name": "Teâttõs",
 	"templatedata-doc-param-type-wiki-template-name": "Mall",
 	"templatedata-doc-param-type-wiki-user-name": "Õõʹnni",
+	"templatedata-doc-params": "Maall paramettar",
 	"templatedata-helplink": "Lââʹssteâđ TemplateData pirr",
 	"templatedata-modal-button-add-language": "Lââʹzzet ǩiõl",
 	"templatedata-modal-button-addparam": "Lââʹzzet paramettar",
@@ -27,5 +28,6 @@
 	"templatedata-modal-title-addparam": "Lââʹzzet ođđ paramettar",
 	"templatedata-modal-title-choose-language": "Vaʹlljed ǩiõl",
 	"templatedata-modal-title-language": "Ǩiõll",
-	"templatedata-modal-title-templatedesc": "Maall deskriptt ($1)"
+	"templatedata-modal-title-templatedesc": "Maall deskriptt ($1)",
+	"templatedata-modal-title-templateparams": "Maall paramettar"
 }

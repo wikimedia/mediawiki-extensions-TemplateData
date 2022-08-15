@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"פוילישער"
+			"פוילישער",
+			"Pacha Tchernof"
 		]
 	},
 	"templatedata-doc-desc-empty": "קיין באשרייבונג.",
@@ -48,7 +49,7 @@
 	"templatedata-invalid-value": "אומגילטיקער ווערט פֿאר אייגנשאפֿט \"$1\".",
 	"templatedata-modal-button-add-language": "צולייגן שפראך",
 	"templatedata-modal-button-addparam": "צולייגן פאראמעטער",
-	"templatedata-modal-button-apply": "אנווענדן",
+	"templatedata-modal-button-apply": "אָנװענדן",
 	"templatedata-modal-button-back": "צוריק",
 	"templatedata-modal-button-cancel": "אַנולירן",
 	"templatedata-modal-button-changelang": "ענדערן שפראך",
