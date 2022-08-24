@@ -67,6 +67,7 @@
 	"templatedata-modal-json-error-replace": "אויסבײַטן",
 	"templatedata-modal-notice-import-numparams": "$1  {{PLURAL:$1|נייער פאראמעטער איז|נייע פאראמעטערס זענען }} געווארן אימפארטירט: $2",
 	"templatedata-modal-placeholder-paramkey": "פאראמעטער נאמען",
+	"templatedata-modal-placeholder-mapinfo": "דער דאזיגער מוסטער האט נישט קיין מאפע־אביעקט",
 	"templatedata-modal-search-input-placeholder": "זוכן לויט שפראך־נאמען אדער קאד",
 	"templatedata-modal-table-param-actions": "אַקציעס",
 	"templatedata-modal-table-param-autovalue": "אויטא־ווערט",
