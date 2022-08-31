@@ -29,7 +29,8 @@
 		"MultiContentSave": "MediaWiki\\Extension\\TemplateData\\Hooks::onMultiContentSave",
 		"ResourceLoaderRegisterModules": "MediaWiki\\Extension\\TemplateData\\Hooks::onResourceLoaderRegisterModules",
 		"EditPage::showEditForm:initial": "MediaWiki\\Extension\\TemplateData\\Hooks::onEditPage",
-		"ParserFetchTemplateData": "MediaWiki\\Extension\\TemplateData\\Hooks::onParserFetchTemplateData"
+		"ParserFetchTemplateData": "MediaWiki\\Extension\\TemplateData\\Hooks::onParserFetchTemplateData",
+		"OutputPageBeforeHTML": "MediaWiki\\Extension\\TemplateData\\Hooks::onOutputPageBeforeHTML"
 	},
 	"MessagesDirs": {
 		"TemplateData": [
@@ -96,7 +97,8 @@
 				"ext.templateData.images",
 				"ext.templateDataGenerator.data",
 				"jquery.uls.data",
-				"jquery.textSelection"
+				"jquery.textSelection",
+				"web2017-polyfills"
 			],
 			"messages": [
 				"comma-separator",

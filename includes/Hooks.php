@@ -222,7 +222,25 @@ class Hooks {
 
 		$localizer = new TemplateDataMessageLocalizer( $userLang );
 		$formatter = new TemplateDataHtmlFormatter( $localizer, $userLang->getCode() );
-		return $formatter->getHtml( $ti );
+		return $formatter->getHtml( $ti, $frame->getTitle(), !$parser->getOptions()->getIsPreview() );
+	}
+
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/OutputPageBeforeHTML
+	 *
+	 * @param OutputPage $output
+	 * @param string &$text
+	 */
+	public static function onOutputPageBeforeHTML( $output, &$text ) {
+		$services = MediaWikiServices::getInstance();
+		$props = $services->getPageProps()->getProperties( $output->getTitle(), 'templatedata' );
+		if ( !empty( $props ) ) {
+			$lang = $output->getLanguage();
+			$localizer = new TemplateDataMessageLocalizer( $lang );
+			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
+			$formatter->replaceEditLink( $text );
+
+		}
 	}
 
 	/**
