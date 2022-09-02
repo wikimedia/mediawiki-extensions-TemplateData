@@ -41,7 +41,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "User",
 	"templatedata-doc-params": "Template parameters",
 	"templatedata-doc-subpage": "doc",
-	"templatedata-editbutton": "Manage template data",
+	"templatedata-editbutton": "Edit template data",
 	"templatedata-errormsg-jsonbadformat": "Bad JSON format. You can cancel this operation so you can correct it, delete the current <templatedata> tags and try again, or continue to replace the current template data with a new one.",
 	"templatedata-errormsg-insertblank": "Are you sure you want to insert template data with no information?",
 	"templatedata-exists-on-related-page": "Please note: there is already a template data block on the related page \"[[$1]]\".",
