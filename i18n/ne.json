@@ -3,7 +3,8 @@
 		"authors": [
 			"NehalDaveND",
 			"Nirjal stha",
-			"Bada Kaji"
+			"Bada Kaji",
+			"बडा काजी"
 		]
 	},
 	"templatedata-doc-param-default": "पूर्वनिर्धारित",
@@ -22,6 +23,7 @@
 	"templatedata-modal-button-cancel": "रद्द गर्नुहोस्",
 	"templatedata-modal-button-changelang": "भाषा परिवर्तन गर्ने",
 	"templatedata-modal-button-saveparam": "संग्रह गर्ने",
+	"templatedata-modal-format-block": "निषेध गर्नुहोस्",
 	"templatedata-modal-table-param-actions": "कार्यहरू",
 	"templatedata-modal-table-param-label": "नामपत्र $1",
 	"templatedata-modal-table-param-name": "नाम",
