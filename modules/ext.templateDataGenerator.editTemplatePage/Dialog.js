@@ -604,14 +604,8 @@ Dialog.prototype.onCancelAddingMap = function ( highlightNext ) {
  * @param {jQuery.Event} response response from Enter action on promptMapName
  */
 Dialog.prototype.onEmbedNewMap = function ( response ) {
-	var mapNameValue;
-
-	if ( response !== undefined ) {
-		mapNameValue = response.target.value;
-	} else {
-		mapNameValue = this.newMapNameInput.getValue();
-	}
-	this.mapsCache = this.mapsCache === undefined ? {} : this.mapsCache;
+	var mapNameValue = response ? response.target.value : this.newMapNameInput.getValue();
+	this.mapsCache = this.mapsCache || {};
 	// Create a new empty map in maps object
 	this.mapsCache[ mapNameValue ] = {};
 	var newlyAddedMap = new OO.ui.OutlineOptionWidget( {
@@ -670,7 +664,7 @@ Dialog.prototype.onMapsGroupSelect = function () {
 		OO.ui.Element.static.scrollIntoView( item.$element[ 0 ] );
 
 		// Populate the mapsContentPanel
-		this.mapsCache = this.mapsCache === undefined ? {} : this.mapsCache;
+		this.mapsCache = this.mapsCache || {};
 		var currentMapInfo = this.mapsCache[ item.label ];
 		this.templateMapsInput.setValue( this.stringifyObject( currentMapInfo ) );
 	}
@@ -844,14 +838,12 @@ Dialog.prototype.displayToFormat = function ( s ) {
  * @param {string} value Input widget value
  */
 Dialog.prototype.onTemplateFormatInputWidgetChange = function ( value ) {
-	var item = this.templateFormatSelectWidget.findSelectedItem(),
-		format,
-		newValue;
+	var item = this.templateFormatSelectWidget.findSelectedItem();
 	if ( item.getData() === 'custom' ) {
 		// Convert literal newlines or backslash-n to our fancy character
 		// replacement.
-		format = this.displayToFormat( value );
-		newValue = this.formatToDisplay( format );
+		var format = this.displayToFormat( value );
+		var newValue = this.formatToDisplay( format );
 		if ( newValue !== value ) {
 			this.templateFormatInputWidget.setValue( newValue );
 			// Will recurse to actually set value in model.
@@ -963,8 +955,8 @@ Dialog.prototype.toggleSuggestedValues = function ( type ) {
  * @param {string} paramKey
  */
 Dialog.prototype.getParameterDetails = function ( paramKey ) {
-	var paramData = this.model.getParamData( paramKey ),
-		allProps = Model.static.getAllProperties( true );
+	var paramData = this.model.getParamData( paramKey );
+	var allProps = Model.static.getAllProperties( true );
 
 	this.stopParameterInputTracking();
 
