@@ -401,7 +401,7 @@ Dialog.prototype.onModelChangeDescription = function ( description ) {
 /**
  * Respond to model change of map info event
  *
- * @param {string} map New description
+ * @param {Object|undefined} map
  */
 Dialog.prototype.onModelChangeMapInfo = function ( map ) {
 	var selectedItem = this.mapsGroup.findSelectedItem();
