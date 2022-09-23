@@ -85,6 +85,7 @@
 			],
 			"dependencies": [
 				"mediawiki.api",
+				"mediawiki.user",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"oojs-ui-windows",
