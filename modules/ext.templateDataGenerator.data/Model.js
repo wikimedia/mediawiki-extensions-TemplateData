@@ -614,7 +614,7 @@ Model.prototype.setTemplateParamOrder = function ( orderArray ) {
  * @fires change
  */
 Model.prototype.setTemplateFormat = function ( format ) {
-	format = format !== undefined ? format : null;
+	format = format || null;
 	if ( this.format !== format ) {
 		this.format = format;
 		this.emit( 'change-format', format );
