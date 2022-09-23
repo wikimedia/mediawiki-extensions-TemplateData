@@ -542,8 +542,7 @@ Dialog.prototype.onMapInfoChange = function ( value ) {
 			try {
 				// This parsing method keeps only the last key/value pair if duplicate keys are defined, and does not throw an error.
 				// Our model will be updated with a valid maps object, but the user may lose their input if it has duplicate key.
-				var mapValue = JSON.parse( value );
-				this.mapsCache[ selectedItem.label ] = mapValue;
+				this.mapsCache[ selectedItem.label ] = JSON.parse( value );
 				this.actions.setAbilities( { done: true } );
 			} catch ( err ) {
 				// Otherwise disable the done button if maps object is populated
@@ -1134,17 +1133,14 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
  * @param {string} paramKey Parameter key in the model
  */
 Dialog.prototype.addParamToSelectWidget = function ( paramKey ) {
-	var paramItem,
-		data = this.model.getParamData( paramKey );
+	var data = this.model.getParamData( paramKey );
 
-	paramItem = new ParamWidget( {
+	this.paramSelect.addItems( [ new ParamWidget( {
 		key: paramKey,
 		label: this.model.getParamValue( paramKey, 'label', this.language ),
 		aliases: data.aliases,
 		description: this.model.getParamValue( paramKey, 'description', this.language )
-	} );
-
-	this.paramSelect.addItems( [ paramItem ] );
+	} ) ] );
 };
 
 /**
