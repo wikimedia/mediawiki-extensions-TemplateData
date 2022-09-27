@@ -500,7 +500,7 @@ Dialog.prototype.onDescriptionInputChange = function ( value ) {
 	}
 	this.descriptionChanged = true;
 
-	if ( this.model.getTemplateDescription() !== value ) {
+	if ( this.model.getTemplateDescription( this.language ) !== value ) {
 		this.model.setTemplateDescription( value, this.language );
 	}
 };
