@@ -6,7 +6,7 @@
 			"Janezdrilc"
 		]
 	},
-	"templatedata-desc": "Uvedba shranjevanja podatkov za parametre predloge (z uporabo zapisa JSON)",
+	"templatedata-desc": "Možnost shranjevanja podatkov za parametre predloge (z uporabo zapisa JSON)",
 	"templatedata-doc-desc-empty": "Nobenega opisa.",
 	"templatedata-doc-format-block": "Za to predlogo je priporočljiva postavitev parametrov v bloku.",
 	"templatedata-doc-format-custom": "Za to predlogo se uporablja postavitev po meri.",
@@ -72,7 +72,7 @@
 	"templatedata-modal-errormsg": "Najdene so bile napake. Prepričajte se, da ni praznih ali podvojenih imen parametrov in da imena parametrov ne vsebujejo nobenega »$1«, »$2« ali »$3«.",
 	"templatedata-modal-errormsg-duplicate-name": "Odkrita je bila napaka. Izbrano ime se že uporablja za drug parameter.",
 	"templatedata-modal-errormsg-import-noparams": "Pri uvozu ni bil najden noben nov parameter.",
-	"templatedata-modal-format-block": "Blokiranje",
+	"templatedata-modal-format-block": "Blok",
 	"templatedata-modal-format-custom": "Po meri",
 	"templatedata-modal-format-inline": "V vrstici",
 	"templatedata-modal-format-null": "Nedoločeno",
@@ -100,7 +100,7 @@
 	"templatedata-modal-table-param-suggested": "Predlagano",
 	"templatedata-modal-table-param-type": "Vrsta",
 	"templatedata-modal-table-param-uneditablefield": "Ni mogoče urejati",
-	"templatedata-modal-title": "Urejevalnik dokumentacije predlog",
+	"templatedata-modal-title": "Urejevalnik podatkov o predlogi",
 	"templatedata-modal-title-addparam": "Dodaj nov parameter",
 	"templatedata-modal-title-choose-language": "Izberite jezik",
 	"templatedata-modal-title-language": "Jezik",
