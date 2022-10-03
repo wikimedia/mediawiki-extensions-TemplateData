@@ -19,7 +19,8 @@
 			"Smigles",
 			"Stjn",
 			"Striking Blue",
-			"Sunpriat"
+			"Sunpriat",
+			"UniCollab"
 		]
 	},
 	"templatedata-desc": "Реализация хранилища данных для параметров шаблона (с помощью JSON)",
@@ -119,7 +120,7 @@
 	"templatedata-modal-table-param-suggestedvalues-placeholder": "Добавить значение…",
 	"templatedata-modal-table-param-type": "Тип",
 	"templatedata-modal-table-param-uneditablefield": "Недоступно для редактирования",
-	"templatedata-modal-title": "Редактор документации шаблона",
+	"templatedata-modal-title": "Редактор данных шаблона",
 	"templatedata-modal-title-addparam": "Добавить новый параметр",
 	"templatedata-modal-title-choose-language": "Выберите язык",
 	"templatedata-modal-title-language": "Язык",
