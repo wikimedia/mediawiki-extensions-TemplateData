@@ -7,7 +7,7 @@
 			"Marielle Volz"
 		]
 	},
-	"templatedata-desc": "Implement data storage for template parameters (using JSON)",
+	"templatedata-desc": "Implements data storage for template parameters (using JSON)",
 	"templatedata-doc-desc-empty": "No description.",
 	"templatedata-doc-format-block": "This template prefers block formatting of parameters.",
 	"templatedata-doc-format-custom": "This template has custom formatting.",
