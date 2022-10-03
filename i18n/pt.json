@@ -86,6 +86,7 @@
 	"templatedata-modal-json-error-replace": "Substituir",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Foi importado $1 parâmetro novo|Foram importados $1 parâmetros novos}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Nome do parâmetro",
+	"templatedata-modal-placeholder-mapinfo": "Esta predefinição não tem nenhum objeto de mapas",
 	"templatedata-modal-search-input-placeholder": "Pesquisa por nome ou código de língua",
 	"templatedata-modal-table-param-actions": "Ações",
 	"templatedata-modal-table-param-aliases": "Nomes alternativos (separados por vírgula)",
