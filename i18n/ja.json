@@ -14,12 +14,14 @@
 			"Tmv",
 			"Translatealcd",
 			"Yusuke1109",
-			"Yamagata Yusuke"
+			"Yamagata Yusuke",
+			"MathXplore"
 		]
 	},
 	"templatedata-desc": "テンプレート引数のデータストレージを実装する (JSON を使用)",
 	"templatedata-doc-desc-empty": "説明はありません。",
 	"templatedata-doc-format-block": "このテンプレートは、パラメーターを複数行に分けて記述することが推奨されています。",
+	"templatedata-doc-format-custom": "このテンプレートはカスタムの書式を採用します。",
 	"templatedata-doc-format-inline": "このテンプレートは、パラメーターを1行で記述することが推奨されています。",
 	"templatedata-doc-no-params-set": "パラメーターが指定されていません",
 	"templatedata-doc-param-autovalue": "自動入力値",
@@ -33,6 +35,7 @@
 	"templatedata-doc-param-status-optional": "省略可能",
 	"templatedata-doc-param-status-required": "必須",
 	"templatedata-doc-param-status-suggested": "推奨",
+	"templatedata-doc-param-suggestedvalues": "値の候補",
 	"templatedata-doc-param-type": "型",
 	"templatedata-doc-param-type-boolean": "ブール値",
 	"templatedata-doc-param-type-content": "内容",
