@@ -93,7 +93,7 @@ class TemplateDataValidator {
 
 		// Root.format
 		if ( isset( $data->format ) ) {
-			// @phan-suppress-next-line PhanTypeMismatchDimFetchNullable
+			// @phan-suppress-next-line PhanCoalescingAlwaysNull
 			$f = self::PREDEFINED_FORMATS[$data->format] ?? $data->format;
 			if ( !is_string( $f ) ||
 				!preg_match( '/^\n?\{\{ *_+\n? *\|\n? *_+ *= *_+\n? *\}\}\n?$/', $f )
