@@ -20,7 +20,7 @@
 	"templatedata-doc-param-name": "Parameter",
 	"templatedata-doc-param-status": "Stanje",
 	"templatedata-doc-param-status-deprecated": "opuščeno",
-	"templatedata-doc-param-status-optional": "izbirno",
+	"templatedata-doc-param-status-optional": "neobvezno",
 	"templatedata-doc-param-status-required": "zahtevano",
 	"templatedata-doc-param-status-suggested": "predlagano",
 	"templatedata-doc-param-suggestedvalues": "Predlagane vrednosti",
