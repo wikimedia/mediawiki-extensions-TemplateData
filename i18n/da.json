@@ -4,7 +4,8 @@
 			"Jhertel",
 			"Jorn Ari",
 			"Saederup92",
-			"Weblars"
+			"Weblars",
+			"Steenth"
 		]
 	},
 	"templatedata-desc": "Implementerer datalager for skabelonparametre (med JSON)",
@@ -66,6 +67,7 @@
 	"templatedata-modal-button-saveparam": "Gem",
 	"templatedata-modal-confirmcancel": "Er du sikker på at du ønsker at kassere dine ændringer?",
 	"templatedata-modal-current-language": "Nuværrende sprog: $1",
+	"templatedata-modal-errormsg": "Fejl fundet. Tjek at det ikke er tomme eller duplikate parameternavn, og at parameternavnet ikke indeholder «$1», «$2» eller «$3».",
 	"templatedata-modal-errormsg-duplicate-name": "Fejl fundet. Det valgte navn bruges allerede af et andet parameter.",
 	"templatedata-modal-errormsg-import-noparams": "Ingen nye parametre fundet under import.",
 	"templatedata-modal-format-block": "Blok",
@@ -76,6 +78,7 @@
 	"templatedata-modal-json-error-replace": "Erstat",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|ny parameter|nye parametre}} blev importeret: $2",
 	"templatedata-modal-placeholder-paramkey": "Parameternavn",
+	"templatedata-modal-placeholder-mapinfo": "Denne skabelon har intet kort-objekt",
 	"templatedata-modal-search-input-placeholder": "Søg efter sprognavn eller sprogkode",
 	"templatedata-modal-table-param-actions": "Handlinger",
 	"templatedata-modal-table-param-aliases": "Aliaser (kommaseparerede)",
