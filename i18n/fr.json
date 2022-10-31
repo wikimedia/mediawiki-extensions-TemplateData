@@ -63,7 +63,7 @@
 	"templatedata-errormsg-jsonbadformat": "Mauvais format JSON. Vous pouvez annuler cette opération pour le corriger, supprimer les balises <templatedata> actuelles et essayer à nouveau, ou bien continuer à remplacer les données du modèle actuelles par de nouvelles.",
 	"templatedata-errormsg-insertblank": "Êtes-vous sûr{{GENDER:||e}} de vouloir insérer les données du modèle sans aucune information ?",
 	"templatedata-exists-on-related-page": "Veuillez noter : il y a déjà une section données du modèle sur la page liée « [[$1]] ».",
-	"templatedata-helplink": "Informations sur les données de modèle",
+	"templatedata-helplink": "Informations sur les données du modèle",
 	"templatedata-invalid-duplicate-value": "La propriété « $1 » (« $3 ») est un doublon de « $2 ».",
 	"templatedata-invalid-empty-array": "La propriété « $1 » doit avoir au moins une valeur dans son tableau.",
 	"templatedata-invalid-format": "La propriété « $1 » doit être « inline », « block » ou une chaîne de format valide.",
