@@ -7,6 +7,7 @@
 			"Giuseppe Forte",
 			"Macofe",
 			"Mannivu",
+			"McDutchie",
 			"Nivit",
 			"Ruthven"
 		]
@@ -45,7 +46,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Utente",
 	"templatedata-doc-params": "Parametri template",
 	"templatedata-editbutton": "Modifica dati del modello",
-	"templatedata-errormsg-jsonbadformat": "Formato JSON errato. È possibile annullare quest'operazione. Per poter correggerla, cancella i tag <templatedata> attuali e riprova, oppure continua per sostituire i dati del modello attuale con uno nuovo.",
+	"templatedata-errormsg-jsonbadformat": "Formato JSON errato. È possibile annullare quest'operazione e correggerla, cancellare i tag <templatedata> attuali e riprovare, oppure continuare a sostituire i dati del modello attuale con altri nuovi.",
 	"templatedata-errormsg-insertblank": "Sei proprio sicuro di voler inserire i dati del modello senza nessuna informazione?",
 	"templatedata-exists-on-related-page": "Attenzione: esiste già un blocco dati del modello nella relativa pagina \"[[$1]]\".",
 	"templatedata-helplink": "Informazioni sui dati del modello",
