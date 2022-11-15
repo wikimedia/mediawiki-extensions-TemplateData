@@ -17,7 +17,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Sjoerddebruin",
-			"Southparkfan"
+			"Southparkfan",
+			"Nickthijssen1994"
 		]
 	},
 	"templatedata-desc": "Implementeert gegevensopslag voor sjabloonparameters (met behulp van JSON)",
@@ -73,7 +74,7 @@
 	"templatedata-modal-button-changelang": "Taal wijzigen",
 	"templatedata-modal-button-delparam": "Parameterinformatie verwijderen",
 	"templatedata-modal-button-done": "Afgerond",
-	"templatedata-modal-button-map": "Mapping bewerking",
+	"templatedata-modal-button-map": "Mapping bewerken",
 	"templatedata-modal-button-importParams": "Parameters importeren",
 	"templatedata-modal-button-restoreparam": "Parameter herstellen",
 	"templatedata-modal-button-saveparam": "Opslaan",
