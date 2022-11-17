@@ -604,8 +604,7 @@ Dialog.prototype.onCancelAddingMap = function ( highlightNext ) {
  * @param {jQuery.Event} response response from Enter action on promptMapName
  */
 Dialog.prototype.onEmbedNewMap = function ( response ) {
-	var newlyAddedMap,
-		mapNameValue;
+	var mapNameValue;
 
 	if ( response !== undefined ) {
 		mapNameValue = response.target.value;
@@ -615,7 +614,7 @@ Dialog.prototype.onEmbedNewMap = function ( response ) {
 	this.mapsCache = this.mapsCache === undefined ? {} : this.mapsCache;
 	// Create a new empty map in maps object
 	this.mapsCache[ mapNameValue ] = {};
-	newlyAddedMap = new OO.ui.OutlineOptionWidget( {
+	var newlyAddedMap = new OO.ui.OutlineOptionWidget( {
 		label: mapNameValue
 	} );
 	// Add the new map item and select it
@@ -644,10 +643,8 @@ Dialog.prototype.onMapItemRemove = function () {
  * Respond to a map group being selected
  */
 Dialog.prototype.onMapsGroupSelect = function () {
-	var item, currentMapInfo;
-
 	// Highlight new item
-	item = this.mapsGroup.findSelectedItem();
+	var item = this.mapsGroup.findSelectedItem();
 
 	if ( !item ) {
 		this.templateMapsInput.setDisabled( true );
@@ -672,7 +669,7 @@ Dialog.prototype.onMapsGroupSelect = function () {
 
 		// Populate the mapsContentPanel
 		this.mapsCache = this.mapsCache === undefined ? {} : this.mapsCache;
-		currentMapInfo = this.mapsCache[ item.label ];
+		var currentMapInfo = this.mapsCache[ item.label ];
 		this.templateMapsInput.setValue( this.stringifyObject( currentMapInfo ) );
 	}
 };
@@ -728,14 +725,13 @@ Dialog.prototype.onLanguageDropdownWidgetSelect = function ( item ) {
  * @param {OO.ui.OptionWidget} item Chosen item
  */
 Dialog.prototype.onNewLanguageSearchResultsChoose = function ( item ) {
-	var languageButton,
-		newLanguage = item.getData().code;
+	var newLanguage = item.getData().code;
 
 	if ( newLanguage ) {
 		if ( this.availableLanguages.indexOf( newLanguage ) === -1 ) {
 			// Add new language
 			this.availableLanguages.push( newLanguage );
-			languageButton = new OO.ui.MenuOptionWidget( {
+			var languageButton = new OO.ui.MenuOptionWidget( {
 				data: newLanguage,
 				label: $.uls.data.getAutonym( newLanguage )
 			} );
@@ -964,13 +960,12 @@ Dialog.prototype.toggleSuggestedValues = function ( type ) {
  * @param {string} paramKey
  */
 Dialog.prototype.getParameterDetails = function ( paramKey ) {
-	var prop,
-		paramData = this.model.getParamData( paramKey ),
+	var paramData = this.model.getParamData( paramKey ),
 		allProps = Model.static.getAllProperties( true );
 
 	this.stopParameterInputTracking();
 
-	for ( prop in this.propInputs ) {
+	for ( var prop in this.propInputs ) {
 		this.changeParamPropertyInput( paramKey, prop, paramData[ prop ], this.language );
 		// Show/hide dependents
 		if ( allProps[ prop ].textValue ) {
@@ -993,10 +988,8 @@ Dialog.prototype.stopParameterInputTracking = function () {
  * @param {Object} paramValues parameter property values at dialog open time
  */
 Dialog.prototype.startParameterInputTracking = function ( paramValues ) {
-	var prop;
-
 	this.paramPropertyChangeTracking = {};
-	for ( prop in this.propInputs ) {
+	for ( var prop in this.propInputs ) {
 		// Set to true, unless one of the exceptions applies.
 		this.paramPropertyChangeTracking[ prop ] = !(
 			// Setting type when we already have a specific type.
@@ -1149,17 +1142,14 @@ Dialog.prototype.addParamToSelectWidget = function ( paramKey ) {
  * @return {jQuery} Editable details page for the parameter
  */
 Dialog.prototype.createParamDetails = function () {
-	var property, propInput, config, paramProperties,
-		paramFieldset,
-		typeItemArray = [];
-
-	paramProperties = Model.static.getAllProperties( true );
+	var paramProperties = Model.static.getAllProperties( true );
 
 	// Fieldset
-	paramFieldset = new OO.ui.FieldsetLayout();
+	var paramFieldset = new OO.ui.FieldsetLayout();
 
-	for ( property in paramProperties ) {
-		config = {
+	for ( var property in paramProperties ) {
+		var propInput;
+		var config = {
 			multiline: paramProperties[ property ].multiline
 		};
 		if ( paramProperties[ property ].multiline ) {
@@ -1169,6 +1159,7 @@ Dialog.prototype.createParamDetails = function () {
 		switch ( property ) {
 			case 'type':
 				propInput = new OO.ui.DropdownWidget( config );
+				var typeItemArray = [];
 				for ( var i in paramProperties[ property ].children ) {
 					typeItemArray.push( new OO.ui.MenuOptionWidget( {
 						data: paramProperties[ property ].children[ i ],
@@ -1277,12 +1268,11 @@ Dialog.prototype.createParamDetails = function () {
  *  language.
  */
 Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
-	var i, prop, label,
-		languageProps = Model.static.getPropertiesWithLanguage();
+	var languageProps = Model.static.getPropertiesWithLanguage();
 	lang = lang || this.language;
 
-	for ( i = 0; i < languageProps.length; i++ ) {
-		prop = languageProps[ i ];
+	for ( var i = 0; i < languageProps.length; i++ ) {
+		var prop = languageProps[ i ];
 		// The following messages are used here:
 		// * templatedata-modal-table-param-actions
 		// * templatedata-modal-table-param-aliases
@@ -1301,7 +1291,7 @@ Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
 		// * templatedata-modal-table-param-suggestedvalues
 		// * templatedata-modal-table-param-type
 		// * templatedata-modal-table-param-uneditablefield
-		label = mw.msg( 'templatedata-modal-table-param-' + prop, lang );
+		var label = mw.msg( 'templatedata-modal-table-param-' + prop, lang );
 		this.propFieldLayout[ prop ].setLabel( label );
 	}
 };
@@ -1326,8 +1316,6 @@ Dialog.prototype.getBodyHeight = function () {
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} [noticeMessageLabel] The message to display
  */
 Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, noticeMessageType, noticeMessageLabel ) {
-	var noticeReference;
-
 	type = type || 'list';
 
 	// Hide all
@@ -1337,6 +1325,7 @@ Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, noticeMessage
 
 	if ( noticeMessageLabel ) {
 		// See which error to display
+		var noticeReference;
 		if ( type === 'global' ) {
 			noticeReference = this.noticeMessage;
 		} else if ( type === 'edit' ) {
@@ -1472,9 +1461,6 @@ Dialog.prototype.getSetupProcess = function ( data ) {
  * after initialization of the model.
  */
 Dialog.prototype.setupDetailsFromModel = function () {
-	var format,
-		firstMapItem;
-
 	// Set up description
 	this.descriptionInput.setValue( this.model.getTemplateDescription( this.language ) );
 
@@ -1483,7 +1469,7 @@ Dialog.prototype.setupDetailsFromModel = function () {
 	this.mapsCache = OO.copy( this.model.getMapInfo() );
 	this.onMapsGroupSelect();
 	if ( this.model.getMapInfo() !== undefined ) {
-		firstMapItem = Object.keys( this.model.getMapInfo() )[ 0 ];
+		var firstMapItem = Object.keys( this.model.getMapInfo() )[ 0 ];
 		this.templateMapsInput.setValue( this.stringifyObject( this.model.getMapInfo()[ firstMapItem ] ) );
 	} else {
 		this.templateMapsInput.setValue( '' );
@@ -1491,7 +1477,7 @@ Dialog.prototype.setupDetailsFromModel = function () {
 	}
 
 	// Set up format
-	format = this.model.getTemplateFormat();
+	var format = this.model.getTemplateFormat();
 	if ( format === 'inline' || format === 'block' || format === null ) {
 		this.templateFormatSelectWidget.selectItemByData( format );
 		this.templateFormatInputWidget.setDisabled( true );
