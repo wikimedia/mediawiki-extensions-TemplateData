@@ -1153,7 +1153,7 @@ Dialog.prototype.addParamToSelectWidget = function ( paramKey ) {
  * @return {jQuery} Editable details page for the parameter
  */
 Dialog.prototype.createParamDetails = function () {
-	var property, type, propInput, config, paramProperties,
+	var property, propInput, config, paramProperties,
 		paramFieldset,
 		typeItemArray = [];
 
@@ -1173,9 +1173,9 @@ Dialog.prototype.createParamDetails = function () {
 		switch ( property ) {
 			case 'type':
 				propInput = new OO.ui.DropdownWidget( config );
-				for ( type in paramProperties[ property ].children ) {
+				for ( var i in paramProperties[ property ].children ) {
 					typeItemArray.push( new OO.ui.MenuOptionWidget( {
-						data: paramProperties[ property ].children[ type ],
+						data: paramProperties[ property ].children[ i ],
 
 						// The following messages are used here:
 						// * templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
@@ -1185,7 +1185,7 @@ Dialog.prototype.createParamDetails = function () {
 						// * templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
 						// * templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
 						// * templatedata-doc-param-type-wiki-user-name
-						label: mw.msg( 'templatedata-doc-param-type-' + paramProperties[ property ].children[ type ] )
+						label: mw.msg( 'templatedata-doc-param-type-' + paramProperties[ property ].children[ i ] )
 					} ) );
 				}
 				propInput.getMenu().addItems( typeItemArray );
