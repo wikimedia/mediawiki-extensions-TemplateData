@@ -1166,8 +1166,8 @@ Dialog.prototype.createParamDetails = function () {
 			config.autosize = true;
 		}
 		// Create the property inputs
-		switch ( property ) {
-			case 'type':
+		switch ( paramProperties[ property ].type ) {
+			case 'select':
 				propInput = new OO.ui.DropdownWidget( config );
 				for ( var i in paramProperties[ property ].children ) {
 					typeItemArray.push( new OO.ui.MenuOptionWidget( {
@@ -1181,18 +1181,15 @@ Dialog.prototype.createParamDetails = function () {
 						// * templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
 						// * templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
 						// * templatedata-doc-param-type-wiki-user-name
-						label: mw.msg( 'templatedata-doc-param-type-' + paramProperties[ property ].children[ i ] )
+						label: mw.msg( 'templatedata-doc-param-' + property + '-' + paramProperties[ property ].children[ i ] )
 					} ) );
 				}
 				propInput.getMenu().addItems( typeItemArray );
 				break;
-			case 'deprecated':
-			case 'required':
-			case 'suggested':
+			case 'boolean':
 				propInput = new OO.ui.CheckboxInputWidget( config );
 				break;
-			case 'aliases':
-			case 'suggestedvalues':
+			case 'array':
 				config.allowArbitrary = true;
 				// FIXME: Rename the …suggestedvalues… message key to be generic
 				config.placeholder = mw.msg( 'templatedata-modal-table-param-suggestedvalues-placeholder' );
