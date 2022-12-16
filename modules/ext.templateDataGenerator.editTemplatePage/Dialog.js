@@ -405,7 +405,7 @@ Dialog.prototype.onModelChangeDescription = function ( description ) {
  */
 Dialog.prototype.onModelChangeMapInfo = function ( map ) {
 	var selectedItem = this.mapsGroup.findSelectedItem();
-	map = map === undefined ? {} : map;
+	map = map || {};
 	this.mapsCache = OO.copy( map );
 	if ( selectedItem ) {
 		this.templateMapsInput.setValue( this.stringifyObject( map[ selectedItem.label ] ) );
@@ -511,7 +511,7 @@ Dialog.prototype.onDescriptionInputChange = function ( value ) {
  * @param {Object|undefined} mapsObject
  */
 Dialog.prototype.populateMapsItems = function ( mapsObject ) {
-	mapsObject = mapsObject === undefined ? {} : mapsObject;
+	mapsObject = mapsObject || {};
 	var mapKeysList = Object.keys( mapsObject );
 
 	var items = mapKeysList.map( function ( mapKey ) {
@@ -535,7 +535,7 @@ Dialog.prototype.populateMapsItems = function ( mapsObject ) {
 Dialog.prototype.onMapInfoChange = function ( value ) {
 	var selectedItem = this.mapsGroup.findSelectedItem();
 	// Update map Info
-	this.model.maps = this.model.getMapInfo() === undefined ? {} : this.model.getMapInfo();
+	this.model.maps = this.model.getMapInfo() || {};
 	if ( selectedItem ) {
 		if ( this.model.getMapInfo()[ selectedItem.label ] !== value ) {
 			// Disable Done button in case of invalid JSON
