@@ -109,7 +109,7 @@
 	"templatedata-modal-table-param-required": "必須",
 	"templatedata-modal-table-param-suggested": "推奨",
 	"templatedata-modal-table-param-suggestedvalues": "値の候補",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "値を追加...",
+	"templatedata-modal-placeholder-multiselect": "値を追加...",
 	"templatedata-modal-table-param-type": "型",
 	"templatedata-modal-table-param-uneditablefield": "編集不可",
 	"templatedata-modal-title": "テンプレートデータ編集機能",

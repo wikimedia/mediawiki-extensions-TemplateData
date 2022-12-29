@@ -98,7 +98,7 @@
 	"templatedata-modal-table-param-required": "Richieste",
 	"templatedata-modal-table-param-suggested": "Suggerite",
 	"templatedata-modal-table-param-suggestedvalues": "Valore suggerite",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Aggiunge 'nu valore...",
+	"templatedata-modal-placeholder-multiselect": "Aggiunge 'nu valore...",
 	"templatedata-modal-table-param-type": "Tipe",
 	"templatedata-modal-table-param-uneditablefield": "Non cangiabbele",
 	"templatedata-modal-title": "Cangiatore d'a documendazione de template",

@@ -113,7 +113,7 @@
 	"templatedata-modal-table-param-required": "مورد نیاز",
 	"templatedata-modal-table-param-suggested": "پیشنهادشده",
 	"templatedata-modal-table-param-suggestedvalues": "مقدارهای پیشنهادی",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "مقدار را وارد کنید...",
+	"templatedata-modal-placeholder-multiselect": "مقدار را وارد کنید...",
 	"templatedata-modal-table-param-type": "نوع",
 	"templatedata-modal-table-param-uneditablefield": "غیر قابل ویرایش",
 	"templatedata-modal-title": "ویرایشگر داده‌های الگو",

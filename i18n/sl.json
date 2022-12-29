@@ -100,7 +100,7 @@
 	"templatedata-modal-table-param-required": "Zahtevano",
 	"templatedata-modal-table-param-suggested": "Predlagano",
 	"templatedata-modal-table-param-suggestedvalues": "Predlagane vrednosti",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Vnesite vrednost ...",
+	"templatedata-modal-placeholder-multiselect": "Vnesite vrednost ...",
 	"templatedata-modal-table-param-type": "Vrsta",
 	"templatedata-modal-table-param-uneditablefield": "Ni mogoče urejati",
 	"templatedata-modal-title": "Urejevalnik podatkov predloge",

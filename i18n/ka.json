@@ -102,7 +102,7 @@
 	"templatedata-modal-table-param-required": "სავალდებულო",
 	"templatedata-modal-table-param-suggested": "შეთავაზებული",
 	"templatedata-modal-table-param-suggestedvalues": "შემოთავაზებული მნიშვნელობები",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "მნიშვნელობის დამატება...",
+	"templatedata-modal-placeholder-multiselect": "მნიშვნელობის დამატება...",
 	"templatedata-modal-table-param-type": "ტიპი",
 	"templatedata-modal-table-param-uneditablefield": "დაურედაქტირებელი",
 	"templatedata-modal-title": "თარგის მონაცემების რედაქტორი",

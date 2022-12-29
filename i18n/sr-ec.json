@@ -105,7 +105,7 @@
 	"templatedata-modal-table-param-required": "Обавезно",
 	"templatedata-modal-table-param-suggested": "Предложено",
 	"templatedata-modal-table-param-suggestedvalues": "Предложене вредности",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Додајте вредност…",
+	"templatedata-modal-placeholder-multiselect": "Додајте вредност…",
 	"templatedata-modal-table-param-type": "Врста",
 	"templatedata-modal-table-param-uneditablefield": "Неуредив",
 	"templatedata-modal-title": "Управљање подацима шаблона",

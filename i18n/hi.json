@@ -102,7 +102,7 @@
 	"templatedata-modal-table-param-required": "आवश्यक",
 	"templatedata-modal-table-param-suggested": "सुझावित",
 	"templatedata-modal-table-param-suggestedvalues": "सुझावित वैल्यू",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "वैल्यू जोड़ें...",
+	"templatedata-modal-placeholder-multiselect": "वैल्यू जोड़ें...",
 	"templatedata-modal-table-param-type": "प्रकार",
 	"templatedata-modal-table-param-uneditablefield": "असम्पादनीय",
 	"templatedata-modal-title": "साँचा डेटा एडिटर",

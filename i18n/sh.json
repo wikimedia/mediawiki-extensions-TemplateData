@@ -76,7 +76,7 @@
 	"templatedata-modal-table-param-name": "Naziv",
 	"templatedata-modal-table-param-required": "Obavezno",
 	"templatedata-modal-table-param-suggested": "Predloženi",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Dodaj vrijednost...",
+	"templatedata-modal-placeholder-multiselect": "Dodaj vrijednost...",
 	"templatedata-modal-table-param-type": "Tip",
 	"templatedata-modal-table-param-uneditablefield": "Neuredljivo",
 	"templatedata-modal-title": "Uređivač šablonskih podataka",

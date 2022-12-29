@@ -108,7 +108,7 @@
 	"templatedata-modal-table-param-required": "Wajib diisi",
 	"templatedata-modal-table-param-suggested": "Disarankan",
 	"templatedata-modal-table-param-suggestedvalues": "Nilai yang disarankan",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Tambahkan nilai...",
+	"templatedata-modal-placeholder-multiselect": "Tambahkan nilai...",
 	"templatedata-modal-table-param-type": "Jenis",
 	"templatedata-modal-table-param-uneditablefield": "Tak dapat disunting",
 	"templatedata-modal-title": "Penyunting dokumentasi templat",

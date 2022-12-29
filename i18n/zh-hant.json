@@ -110,7 +110,7 @@
 	"templatedata-modal-table-param-required": "必填",
 	"templatedata-modal-table-param-suggested": "建議",
 	"templatedata-modal-table-param-suggestedvalues": "建議值",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "添加值…",
+	"templatedata-modal-placeholder-multiselect": "添加值…",
 	"templatedata-modal-table-param-type": "類型",
 	"templatedata-modal-table-param-uneditablefield": "不可編輯",
 	"templatedata-modal-title": "模板文件編輯器",

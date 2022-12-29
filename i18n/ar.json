@@ -111,7 +111,7 @@
 	"templatedata-modal-table-param-required": "مطلوب",
 	"templatedata-modal-table-param-suggested": "مقترح",
 	"templatedata-modal-table-param-suggestedvalues": "القيم المقترحة",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "أضف قيمة...",
+	"templatedata-modal-placeholder-multiselect": "أضف قيمة...",
 	"templatedata-modal-table-param-type": "نوع",
 	"templatedata-modal-table-param-uneditablefield": "غير قابل للتعديل",
 	"templatedata-modal-title": "محرر بيانات القالب",

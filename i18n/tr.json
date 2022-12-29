@@ -110,7 +110,7 @@
 	"templatedata-modal-table-param-required": "Gerekli",
 	"templatedata-modal-table-param-suggested": "Önerilen",
 	"templatedata-modal-table-param-suggestedvalues": "Önerilen değerler",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Değer ekle...",
+	"templatedata-modal-placeholder-multiselect": "Değer ekle...",
 	"templatedata-modal-table-param-type": "Tür",
 	"templatedata-modal-table-param-uneditablefield": "Düzenlenemez",
 	"templatedata-modal-title": "Şablon veri düzenleyicisi",

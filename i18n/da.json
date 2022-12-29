@@ -102,7 +102,7 @@
 	"templatedata-modal-table-param-required": "Påkrævet",
 	"templatedata-modal-table-param-suggested": "Foreslået",
 	"templatedata-modal-table-param-suggestedvalues": "Foreslået værdier",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Tilføj værdi...",
+	"templatedata-modal-placeholder-multiselect": "Tilføj værdi...",
 	"templatedata-modal-table-param-type": "Type",
 	"templatedata-modal-table-param-uneditablefield": "Ikke-redigerbar",
 	"templatedata-modal-title": "Skabelon data editor",

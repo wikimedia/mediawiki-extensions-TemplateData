@@ -99,7 +99,7 @@
 	"templatedata-modal-table-param-required": "Nõutav",
 	"templatedata-modal-table-param-suggested": "Soovituslik",
 	"templatedata-modal-table-param-suggestedvalues": "Soovitatavad väärtused",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Lisa väärtus...",
+	"templatedata-modal-placeholder-multiselect": "Lisa väärtus...",
 	"templatedata-modal-table-param-type": "Tüüp",
 	"templatedata-modal-table-param-uneditablefield": "Ei saa muuta",
 	"templatedata-modal-title": "Malliandmete toimeti",
