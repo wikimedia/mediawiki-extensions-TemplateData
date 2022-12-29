@@ -92,16 +92,15 @@ class TemplateDataValidator {
 		}
 
 		// Root.format
-		if ( isset( $data->format ) ) {
-			// @phan-suppress-next-line PhanCoalescingAlwaysNull
-			$f = self::PREDEFINED_FORMATS[$data->format] ?? $data->format;
-			if ( !is_string( $f ) ||
-				!preg_match( '/^\n?\{\{ *_+\n? *\|\n? *_+ *= *_+\n? *\}\}\n?$/', $f )
-			) {
-				return Status::newFatal( 'templatedata-invalid-format', 'format' );
-			}
-		} else {
+		if ( !isset( $data->format ) ) {
 			$data->format = null;
+		} elseif ( !is_string( $data->format ) ||
+			// @phan-suppress-next-line PhanImpossibleCondition
+			!( isset( self::PREDEFINED_FORMATS[$data->format] ) ||
+				$this->isValidCustomFormatString( $data->format )
+			)
+		) {
+			return Status::newFatal( 'templatedata-invalid-format', 'format' );
 		}
 
 		// Root.params
@@ -471,6 +470,14 @@ class TemplateDataValidator {
 		}
 
 		return null;
+	}
+
+	/**
+	 * @param string|null $format
+	 * @return bool
+	 */
+	private function isValidCustomFormatString( ?string $format ): bool {
+		return $format && preg_match( '/^\n?{{ *_+\n? *\|\n? *_+ *= *_+\n? *}}\n?$/', $format );
 	}
 
 	/**
