@@ -520,9 +520,7 @@ Model.prototype.setTemplateDescription = function ( desc, language ) {
  * Get the template description.
  *
  * @param {string} [language] Optional language key
- * @return {string|Object} The template description. If it is set
- *  as multilanguage object and no language is set, the whole object
- *  will be returned.
+ * @return {string}
  */
 Model.prototype.getTemplateDescription = function ( language ) {
 	language = language || this.getDefaultLanguage();
@@ -530,9 +528,7 @@ Model.prototype.getTemplateDescription = function ( language ) {
 };
 
 /**
- * Set the template description
- *
- * @param {string|Object|undefined} map New template map info
+ * @param {Object|undefined} map New template map info
  * @fires change-map
  * @fires change
  */
@@ -553,7 +549,7 @@ Model.prototype.setMapInfo = function ( map ) {
 /**
  * Get the template info.
  *
- * @return {string|Object|undefined} The template map info.
+ * @return {Object|undefined} The template map info.
  */
 Model.prototype.getMapInfo = function () {
 	return this.maps;
