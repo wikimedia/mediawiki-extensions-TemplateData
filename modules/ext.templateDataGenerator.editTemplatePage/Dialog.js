@@ -1088,34 +1088,23 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 
 	lang = lang || this.language;
 
-	if ( value !== undefined ) {
-		// Change the actual input
-		if ( prop.type === 'select' ) {
-			propInput.selectItem( propInput.findItemFromData( value ) );
-		} else if ( prop.type === 'boolean' ) {
-			propInput.setSelected( !!value );
-		} else if ( prop.type === 'array' ) {
-			propInput.setValue( value.map( function ( v ) {
-				// TagMultiselectWidget accepts nothing but strings or objects with a .data property
-				return v && v.data ? v : String( v );
-			} ) );
-		} else {
-			if ( languageProps.indexOf( propName ) !== -1 ) {
-				propInput.setValue( value[ lang ] );
-			} else {
-				propInput.setValue( value );
-			}
-		}
+	if ( prop.type === 'select' ) {
+		value = value || prop.default;
+		propInput.selectItem( propInput.findItemFromData( value ) );
+	} else if ( prop.type === 'boolean' ) {
+		propInput.setSelected( !!value );
+	} else if ( prop.type === 'array' ) {
+		value = value || [];
+		propInput.setValue( value.map( function ( v ) {
+			// TagMultiselectWidget accepts nothing but strings or objects with a .data property
+			return v && v.data ? v : String( v );
+		} ) );
 	} else {
-		// Empty the input
-		if ( prop.type === 'select' ) {
-			propInput.selectItem( propInput.findItemFromData( prop.default ) );
-		} else if ( prop.type === 'boolean' ) {
-			propInput.setSelected( false );
-		} else if ( prop.type === 'array' ) {
-			propInput.setValue( [] );
+		if ( languageProps.indexOf( propName ) !== -1 ) {
+			propInput.setValue( value ? value[ lang ] : '' );
 		} else {
-			propInput.setValue( '' );
+			value = value || '';
+			propInput.setValue( value );
 		}
 	}
 };
