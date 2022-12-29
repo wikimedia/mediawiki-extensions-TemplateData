@@ -1182,8 +1182,7 @@ Dialog.prototype.createParamDetails = function () {
 				break;
 			case 'array':
 				config.allowArbitrary = true;
-				// FIXME: Rename the …suggestedvalues… message key to be generic
-				config.placeholder = mw.msg( 'templatedata-modal-table-param-suggestedvalues-placeholder' );
+				config.placeholder = mw.msg( 'templatedata-modal-placeholder-multiselect' );
 				propInput = new OO.ui.TagMultiselectWidget( config );
 				break;
 			default:

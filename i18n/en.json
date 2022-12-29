@@ -103,7 +103,7 @@
 	"templatedata-modal-table-param-required": "Required",
 	"templatedata-modal-table-param-suggested": "Suggested",
 	"templatedata-modal-table-param-suggestedvalues": "Suggested values",
-	"templatedata-modal-table-param-suggestedvalues-placeholder": "Add value...",
+	"templatedata-modal-placeholder-multiselect": "Add value...",
 	"templatedata-modal-table-param-type": "Type",
 	"templatedata-modal-table-param-uneditablefield": "Uneditable",
 	"templatedata-modal-title": "Template data editor",
