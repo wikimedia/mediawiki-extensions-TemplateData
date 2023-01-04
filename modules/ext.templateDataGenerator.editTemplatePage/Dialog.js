@@ -1512,6 +1512,7 @@ Dialog.prototype.switchPanels = function ( panel ) {
 			this.addParamPanel.$element.hide();
 			this.editParamPanel.$element.show();
 			this.editMapsPanel.$element.hide();
+			this.editParamPanel.focus();
 			break;
 		case 'addParam':
 			this.actions.setMode( 'add' );
@@ -1522,6 +1523,7 @@ Dialog.prototype.switchPanels = function ( panel ) {
 			this.languagePanel.$element.hide();
 			this.addParamPanel.$element.show();
 			this.editMapsPanel.$element.hide();
+			this.newParamInput.focus();
 			break;
 		case 'editMaps':
 			this.actions.setMode( 'maps' );
@@ -1532,7 +1534,7 @@ Dialog.prototype.switchPanels = function ( panel ) {
 			this.languagePanel.$element.hide();
 			this.addParamPanel.$element.hide();
 			this.editMapsPanel.$element.show();
-			this.templateMapsInput.adjustSize( true );
+			this.templateMapsInput.adjustSize( true ).focus();
 			break;
 		case 'language':
 			this.actions.setMode( 'language' );
