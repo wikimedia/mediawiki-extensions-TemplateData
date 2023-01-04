@@ -875,8 +875,9 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 		propInput = this.propInputs[ property ],
 		dependentField = allProps[ property ].textValue;
 
-	if ( property === 'type' ) {
-		value = propInput.getMenu().findSelectedItem() ? propInput.getMenu().findSelectedItem().getData() : 'unknown';
+	if ( allProps[ property ].type === 'select' ) {
+		var selected = propInput.getMenu().findSelectedItem();
+		value = selected ? selected.getData() : allProps[ property ].default;
 		this.toggleSuggestedValues( value );
 	}
 
@@ -1080,32 +1081,30 @@ Dialog.prototype.repopulateParamSelectWidget = function () {
  * @param {string} [lang] Language
  */
 Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value, lang ) {
-	var languageProps = Model.static.getPropertiesWithLanguage(),
-		allProps = Model.static.getAllProperties( true ),
+	var allProps = Model.static.getAllProperties( true ),
 		prop = allProps[ propName ],
-		propInput = typeof this.propInputs[ propName ].getMenu === 'function' ?
-			this.propInputs[ propName ].getMenu() : this.propInputs[ propName ];
+		propInput = this.propInputs[ propName ];
 
-	lang = lang || this.language;
-
-	if ( prop.type === 'select' ) {
-		value = value || prop.default;
-		propInput.selectItem( propInput.findItemFromData( value ) );
-	} else if ( prop.type === 'boolean' ) {
-		propInput.setSelected( !!value );
-	} else if ( prop.type === 'array' ) {
-		value = value || [];
-		propInput.setValue( value.map( function ( v ) {
-			// TagMultiselectWidget accepts nothing but strings or objects with a .data property
-			return v && v.data ? v : String( v );
-		} ) );
-	} else {
-		if ( languageProps.indexOf( propName ) !== -1 ) {
-			propInput.setValue( value ? value[ lang ] : '' );
-		} else {
-			value = value || '';
-			propInput.setValue( value );
-		}
+	switch ( prop.type ) {
+		case 'select':
+			propInput = propInput.getMenu();
+			propInput.selectItem( propInput.findItemFromData( value || prop.default ) );
+			break;
+		case 'boolean':
+			propInput.setSelected( !!value );
+			break;
+		case 'array':
+			value = value || [];
+			propInput.setValue( value.map( function ( v ) {
+				// TagMultiselectWidget accepts nothing but strings or objects with a .data property
+				return v && v.data ? v : String( v );
+			} ) );
+			break;
+		default:
+			if ( typeof value === 'object' ) {
+				value = value[ lang || this.language ];
+			}
+			propInput.setValue( value || '' );
 	}
 };
 
@@ -1232,7 +1231,7 @@ Dialog.prototype.createParamDetails = function () {
 		} );
 
 		// Event
-		if ( property === 'type' ) {
+		if ( propInput instanceof OO.ui.DropdownWidget ) {
 			propInput.getMenu().connect( this, { choose: [ 'onParamPropertyInputChange', property ] } );
 		} else {
 			propInput.connect( this, { change: [ 'onParamPropertyInputChange', property ] } );
@@ -1301,8 +1300,6 @@ Dialog.prototype.getBodyHeight = function () {
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} [noticeMessageLabel] The message to display
  */
 Dialog.prototype.toggleNoticeMessage = function ( type, isShowing, noticeMessageType, noticeMessageLabel ) {
-	type = type || 'list';
-
 	// Hide all
 	this.noticeMessage.toggle( false );
 	this.paramEditNoticeMessage.toggle( false );
