@@ -688,7 +688,7 @@ Dialog.prototype.stringifyObject = function ( object ) {
  * Respond to add language button click
  */
 Dialog.prototype.onLanguagePanelButton = function () {
-	this.switchPanels( 'language' );
+	this.switchPanels( this.languagePanel );
 };
 
 /**
@@ -743,7 +743,7 @@ Dialog.prototype.onNewLanguageSearchResultsChoose = function ( item ) {
 	}
 
 	// Go to the main panel
-	this.switchPanels( 'listParams' );
+	this.switchPanels();
 };
 
 /**
@@ -751,7 +751,7 @@ Dialog.prototype.onNewLanguageSearchResultsChoose = function ( item ) {
  */
 Dialog.prototype.onMapsPanelButton = function () {
 	var item = this.mapsGroup.findSelectedItem() || this.mapsGroup.findFirstSelectableItem();
-	this.switchPanels( 'editMaps' );
+	this.switchPanels( this.editMapsPanel );
 	// Select first item
 	this.mapsGroup.selectItem( item );
 };
@@ -780,7 +780,7 @@ Dialog.prototype.onAddParamButtonClick = function () {
 	this.newParamInput.setValue( '' );
 
 	// Go back to list
-	this.switchPanels( 'listParams' );
+	this.switchPanels();
 };
 
 /**
@@ -795,7 +795,7 @@ Dialog.prototype.onParamSelectChoose = function ( item ) {
 
 	// The panel with the `propInputs` widgets must be made visible before changing their value.
 	// Otherwiese the autosize feature of MultilineTextInputWidget doesn't work.
-	this.switchPanels( 'editParam' );
+	this.switchPanels( this.editParamPanel );
 	// Fill in parameter detail
 	this.getParameterDetails( paramKey );
 };
@@ -1375,7 +1375,7 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 			this.toggleNoticeMessage( 'list', false );
 
 			// Start with parameter list
-			this.switchPanels( 'listParams' );
+			this.switchPanels();
 
 			// Events
 			this.model.connect( this, {
@@ -1479,13 +1479,21 @@ Dialog.prototype.setupDetailsFromModel = function () {
 /**
  * Switch between stack layout panels
  *
- * @param {string} panel Panel key to switch to
+ * @param {OO.ui.PanelLayout} [panel] Panel to switch to, defaults to the first panel
  */
 Dialog.prototype.switchPanels = function ( panel ) {
+	panel = panel || this.listParamsPanel;
+
+	this.panels.setItem( panel );
+	this.listParamsPanel.$element.toggle( panel === this.listParamsPanel );
+	this.editParamPanel.$element.toggle( panel === this.editParamPanel );
+	this.languagePanel.$element.toggle( panel === this.languagePanel );
+	this.addParamPanel.$element.toggle( panel === this.addParamPanel );
+	this.editMapsPanel.$element.toggle( panel === this.editMapsPanel );
+
 	switch ( panel ) {
-		case 'listParams':
+		case this.listParamsPanel:
 			this.actions.setMode( 'list' );
-			this.panels.setItem( this.listParamsPanel );
 			// Reset message
 			this.toggleNoticeMessage( 'list', false );
 			// Deselect parameter
@@ -1494,58 +1502,24 @@ Dialog.prototype.switchPanels = function ( panel ) {
 			if ( this.model ) {
 				this.repopulateParamSelectWidget();
 			}
-			// Hide/show panels
-			this.listParamsPanel.$element.show();
-			this.editParamPanel.$element.hide();
-			this.addParamPanel.$element.hide();
-			this.languagePanel.$element.hide();
-			this.editMapsPanel.$element.hide();
 			break;
-		case 'editParam':
+		case this.editParamPanel:
 			this.actions.setMode( 'edit' );
-			this.panels.setItem( this.editParamPanel );
 			// Deselect parameter
 			this.paramSelect.selectItem( null );
-			// Hide/show panels
-			this.listParamsPanel.$element.hide();
-			this.languagePanel.$element.hide();
-			this.addParamPanel.$element.hide();
-			this.editParamPanel.$element.show();
-			this.editMapsPanel.$element.hide();
 			this.editParamPanel.focus();
 			break;
-		case 'addParam':
+		case this.addParamPanel:
 			this.actions.setMode( 'add' );
-			this.panels.setItem( this.addParamPanel );
-			// Hide/show panels
-			this.listParamsPanel.$element.hide();
-			this.editParamPanel.$element.hide();
-			this.languagePanel.$element.hide();
-			this.addParamPanel.$element.show();
-			this.editMapsPanel.$element.hide();
 			this.newParamInput.focus();
 			break;
-		case 'editMaps':
+		case this.editMapsPanel:
 			this.actions.setMode( 'maps' );
-			this.panels.setItem( this.editMapsPanel );
-			// Hide/show panels
-			this.listParamsPanel.$element.hide();
-			this.editParamPanel.$element.hide();
-			this.languagePanel.$element.hide();
-			this.addParamPanel.$element.hide();
-			this.editMapsPanel.$element.show();
 			this.templateMapsInput.adjustSize( true ).focus();
 			break;
-		case 'language':
+		case this.languagePanel:
 			this.actions.setMode( 'language' );
-			this.panels.setItem( this.languagePanel );
-			// Hide/show panels
-			this.listParamsPanel.$element.hide();
-			this.editParamPanel.$element.hide();
-			this.addParamPanel.$element.hide();
-			this.languagePanel.$element.show();
 			this.newLanguageSearch.query.focus();
-			this.editMapsPanel.$element.hide();
 			break;
 	}
 };
@@ -1559,7 +1533,7 @@ Dialog.prototype.switchPanels = function ( panel ) {
 Dialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'add' ) {
 		return new OO.ui.Process( function () {
-			this.switchPanels( 'addParam' );
+			this.switchPanels( this.addParamPanel );
 		}, this );
 	}
 	if ( action === 'done' ) {
@@ -1567,17 +1541,17 @@ Dialog.prototype.getActionProcess = function ( action ) {
 			// setMapInfo with the value and keep the done button active
 			this.model.setMapInfo( this.mapsCache );
 			this.model.originalMaps = OO.copy( this.mapsCache );
-			this.switchPanels( 'listParams' );
+			this.switchPanels();
 		}, this );
 	}
 	if ( action === 'back' ) {
 		return new OO.ui.Process( function () {
-			this.switchPanels( 'listParams' );
+			this.switchPanels();
 		}, this );
 	}
 	if ( action === 'maps' ) {
 		return new OO.ui.Process( function () {
-			this.switchPanels( 'editMaps' );
+			this.switchPanels( this.editMapsPanel );
 		}, this );
 	}
 	if ( action === 'cancel' ) {
@@ -1586,13 +1560,13 @@ Dialog.prototype.getActionProcess = function ( action ) {
 			this.model.restoreOriginalMaps();
 			this.populateMapsItems( this.mapsCache );
 			this.onCancelAddingMap();
-			this.switchPanels( 'listParams' );
+			this.switchPanels();
 		}, this );
 	}
 	if ( action === 'delete' ) {
 		return new OO.ui.Process( function () {
 			this.model.deleteParam( this.selectedParamKey );
-			this.switchPanels( 'listParams' );
+			this.switchPanels();
 		}, this );
 	}
 	if ( action === 'apply' ) {
