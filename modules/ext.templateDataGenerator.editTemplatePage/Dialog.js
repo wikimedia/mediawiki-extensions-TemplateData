@@ -619,7 +619,7 @@ Dialog.prototype.onEmbedNewMap = function ( response ) {
 	} );
 	// Add the new map item and select it
 	if ( mapNameValue.length !== 0 ) {
-		this.mapsGroup.addItems( newlyAddedMap, 0 );
+		this.mapsGroup.addItems( [ newlyAddedMap ], 0 );
 	} else {
 		delete this.mapsCache[ mapNameValue ];
 	}
@@ -630,10 +630,12 @@ Dialog.prototype.onEmbedNewMap = function ( response ) {
  * Handle click event for the remove button
  */
 Dialog.prototype.onMapItemRemove = function () {
-	// Remove the highlighted item
-	this.mapsGroup.removeItems( [ this.mapsGroup.findSelectedItem() ] );
-	// Remove the highlighted map from maps object
-	delete this.mapsCache[ this.mapsGroup.findSelectedItem().label ];
+	var item = this.mapsGroup.findSelectedItem();
+	if ( item ) {
+		this.mapsGroup.removeItems( [ item ] );
+		// Remove the highlighted map from maps object
+		delete this.mapsCache[ item.label ];
+	}
 
 	// Highlight another item, or show the search panel if the maps group is now empty
 	this.onMapsGroupSelect();
