@@ -271,9 +271,9 @@ class ApiTemplateData extends ApiBase {
 	 */
 	protected function getExamplesMessages() {
 		return [
-			'action=templatedata&titles=Template:Stub|Template:Example&includeMissingTitles=1'
+			'action=templatedata&titles=Template:Foobar&includeMissingTitles=1'
 				=> 'apihelp-templatedata-example-1',
-			'action=templatedata&titles=Template:Stub|Template:Example'
+			'action=templatedata&titles=Template:Phabricator'
 				=> 'apihelp-templatedata-example-2',
 		];
 	}
