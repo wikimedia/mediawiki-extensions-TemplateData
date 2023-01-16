@@ -1,8 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Patriot Kur"
+			"Patriot Kur",
+			"Patriot Kor",
+			"QeneralĞasım"
 		]
 	},
+	"templatedata-doc-param-type-number": "Aşmard",
 	"templatedata-modal-button-cancel": "Ləğv karde"
 }
