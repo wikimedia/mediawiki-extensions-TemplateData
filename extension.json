@@ -224,12 +224,6 @@
 		]
 	},
 	"attributes": {
-		"EventLogging": {
-			"Schemas": {
-				"TemplateDataEditor": "/analytics/legacy/templatedataeditor/1.0.0",
-				"TemplateDataApi": "/analytics/legacy/templatedataapi/1.0.0"
-			}
-		},
 		"VisualEditor": {
 			"PluginModules": [
 				"ext.templateDataGenerator.editPage"

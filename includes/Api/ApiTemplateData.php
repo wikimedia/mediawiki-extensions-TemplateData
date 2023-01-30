@@ -181,13 +181,15 @@ class ApiTemplateData extends ApiBase {
 		// template usage for the Technical Wishes topic area see T258917
 		if ( ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
 			foreach ( $resp as $pageInfo ) {
-				EventLogging::logEvent(
-					'TemplateDataApi',
-					-1,
+				EventLogging::submit(
+					'eventlogging_TemplateDataApi',
 					[
-						'template_name' => $wikiPageFactory->newFromTitle( $pageInfo['title'] )
-							->getTitle()->getDBkey(),
-						'has_template_data' => !isset( $pageInfo['notemplatedata'] ),
+						'$schema' => '/analytics/legacy/templatedataapi/1.0.0',
+						'event' => [
+							'template_name' => $wikiPageFactory->newFromTitle( $pageInfo['title'] )
+								->getTitle()->getDBkey(),
+							'has_template_data' => !isset( $pageInfo['notemplatedata'] ),
+						],
 					]
 				);
 			}

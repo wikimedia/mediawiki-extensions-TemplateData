@@ -5,14 +5,9 @@ namespace MediaWiki\Extension\EventLogging;
 class EventLogging {
 
 	/**
-	 * @param string $schemaName
-	 * @param int $revId
+	 * @param string $streamName
 	 * @param array $event
-	 * @param int $options
-	 * @return bool
 	 */
-	public static function logEvent( $schemaName, $revId, $event, $options = 0 ) {
-		return true;
+	public static function submit( string $streamName, array $event ): void {
 	}
-
 }

@@ -138,19 +138,21 @@ class Hooks {
 		$generatorUsed = RequestContext::getMain()->getRequest()->getBool( 'TemplateDataGeneratorUsed' );
 		$userEditCount = MediaWikiServices::getInstance()->getUserEditTracker()->getUserEditCount( $user );
 		// Note: We know that irrelevant changes (e.g. whitespace changes) aren't logged here
-		EventLogging::logEvent(
-			'TemplateDataEditor',
-			-1,
+		EventLogging::submit(
+			'eventlogging_TemplateDataEditor',
 			[
-				// Note: The "Done" button is disabled unless something changed, which means it's
-				// very likely (but not guaranteed) the generator was used to make the changes
-				'action' => $generatorUsed ? 'save-tag-edit-generator-used' : 'save-tag-edit-no-generator',
-				'page_id' => $pageId,
-				'page_namespace' => $page->getNamespace(),
-				'page_title' => $page->getDBkey(),
-				'rev_id' => $revisionRecord->getId() ?? 0,
-				'user_edit_count' => $userEditCount ?? 0,
-				'user_id' => $user->getId(),
+				'$schema' => '/analytics/legacy/templatedataeditor/1.0.0',
+				'event' => [
+					// Note: The "Done" button is disabled unless something changed, which means it's
+					// very likely (but not guaranteed) the generator was used to make the changes
+					'action' => $generatorUsed ? 'save-tag-edit-generator-used' : 'save-tag-edit-no-generator',
+					'page_id' => $pageId,
+					'page_namespace' => $page->getNamespace(),
+					'page_title' => $page->getDBkey(),
+					'rev_id' => $revisionRecord->getId() ?? 0,
+					'user_edit_count' => $userEditCount ?? 0,
+					'user_id' => $user->getId(),
+				],
 			]
 		);
 	}
