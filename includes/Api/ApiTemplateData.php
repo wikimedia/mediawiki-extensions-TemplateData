@@ -169,7 +169,18 @@ class ApiTemplateData extends ApiBase {
 					continue;
 				}
 
-				$content = $wikiPageFactory->newFromTitle( $pageInfo['title'] )->getContent();
+				// Fandom change - begin - IW-2730: Provide custom hook to allow extensions to fetch default params
+				$page = $wikiPageFactory->newFromTitle( $pageInfo['title'] );
+				$hookParams = null;
+
+				$hooks = $services->getHookContainer();
+				if ( !$hooks->run( 'ApiTemplateDataGetRawParams', [ $page, &$hookParams, ] ) ) {
+					$resp[ $pageId ][ 'params' ] = $hookParams;
+					continue;
+				}
+
+				$content = $page->getContent();
+				// Fandom change - end
 				$text = $content instanceof TextContent
 					? $content->getText()
 					: $content->getTextForSearchIndex();
