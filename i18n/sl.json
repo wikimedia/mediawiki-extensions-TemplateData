@@ -39,7 +39,7 @@
 	"templatedata-doc-param-type-wiki-template-name": "Predloga",
 	"templatedata-doc-param-type-wiki-user-name": "Uporabnik",
 	"templatedata-doc-params": "Parametri predloge",
-	"templatedata-editbutton": "urejanje podatkov predloge",
+	"templatedata-editbutton": "Urejanje podatkov predloge",
 	"templatedata-errormsg-jsonbadformat": "Nepravilen zapis JSON. To dejanje lahko prekličete, da ga lahko popravite, izbrišete trenutne značke <templatedata> in poskusite znova ali pa nadaljujete nadomeščanje trenutnih podatkov predloge z novimi.",
 	"templatedata-errormsg-insertblank": "Ali res želite vstaviti prazne podatke predloge?",
 	"templatedata-exists-on-related-page": "Opomba: Blok s podatki predloge že obstaja na povezani strani »[[$1]]«.",
