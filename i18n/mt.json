@@ -1,7 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Leli Forte"
+			"Leli Forte",
+			"Chrisportelli",
+			"ToniSant"
 		]
 	},
 	"templatedata-doc-param-autovalue": "Valur awtomatiku",
@@ -10,5 +12,6 @@
 	"templatedata-doc-param-type-unbalanced-wikitext": "Wikitest żbilanċjat",
 	"templatedata-helplink": "Informazzjoni dwar TemplateData",
 	"templatedata-modal-button-delparam": "Neħħi",
+	"templatedata-modal-table-param-actions": "Azzjonijiet",
 	"templatedata-modal-table-param-autovalue": "Valur awtomatiku"
 }
