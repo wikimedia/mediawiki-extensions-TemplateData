@@ -9,7 +9,7 @@ namespace MediaWiki\Extension\TemplateData;
 use MediaWiki\MediaWikiServices;
 use Status;
 use stdClass;
-use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Represents the information about a template,
@@ -38,11 +38,11 @@ class TemplateDataBlob {
 	 * instance.
 	 * Accepts and handles user-provided data.
 	 *
-	 * @param IDatabase $db
+	 * @param IReadableDatabase $db
 	 * @param string $json
 	 * @return TemplateDataBlob
 	 */
-	public static function newFromJSON( IDatabase $db, string $json ): TemplateDataBlob {
+	public static function newFromJSON( IReadableDatabase $db, string $json ): TemplateDataBlob {
 		if ( $db->getType() === 'mysql' ) {
 			$tdb = new TemplateDataCompressedBlob( json_decode( $json ) );
 		} else {
@@ -75,11 +75,11 @@ class TemplateDataBlob {
 	 * Parse and validate passed JSON (possibly gzip-compressed) and create a blob handling
 	 * instance.
 	 *
-	 * @param IDatabase $db
+	 * @param IReadableDatabase $db
 	 * @param string $json
 	 * @return TemplateDataBlob
 	 */
-	public static function newFromDatabase( IDatabase $db, string $json ): TemplateDataBlob {
+	public static function newFromDatabase( IReadableDatabase $db, string $json ): TemplateDataBlob {
 		// Handle GZIP compression. \037\213 is the header for GZIP files.
 		if ( substr( $json, 0, 2 ) === "\037\213" ) {
 			$json = gzdecode( $json );
