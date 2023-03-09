@@ -14,7 +14,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserIdentity;
 use OutputPage;
 use Parser;
-use ParserOutput;
 use PPFrame;
 use RequestContext;
 use ResourceLoader;
@@ -97,10 +96,10 @@ class Hooks {
 		// Revision hasn't been parsed yet, so parse to know if self::render got a
 		// valid tag (via inclusion and transclusion) and abort save if it didn't
 		$parserOutput = $renderedRevision->getRevisionParserOutput( [ 'generate-html' => false ] );
-		$templateDataStatus = self::getStatusFromParserOutput( $parserOutput );
-		if ( $templateDataStatus instanceof Status && !$templateDataStatus->isOK() ) {
+		$status = TemplateDataStatus::newFromJson( $parserOutput->getExtensionData( 'TemplateDataStatus' ) );
+		if ( $status && !$status->isOK() ) {
 			// Abort edit, show error message from TemplateDataBlob::getStatus
-			$hookStatus->merge( $templateDataStatus );
+			$hookStatus->merge( $status );
 			return false;
 		}
 
@@ -188,11 +187,12 @@ class Hooks {
 	 * @return string HTML to insert in the page.
 	 */
 	public static function render( $input, $args, Parser $parser, $frame ) {
+		$parserOutput = $parser->getOutput();
 		$ti = TemplateDataBlob::newFromJSON( wfGetDB( DB_REPLICA ), $input ?? '' );
 
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
-			self::setStatusToParserOutput( $parser->getOutput(), $status );
+			$parserOutput->setExtensionData( 'TemplateDataStatus', TemplateDataStatus::jsonSerialize( $status ) );
 			return Html::errorBox( $status->getHTML() );
 		}
 
@@ -205,16 +205,16 @@ class Hooks {
 		$title = $parser->getTitle();
 		$docPage = wfMessage( 'templatedata-doc-subpage' )->inContentLanguage();
 		if ( !$title->isSubpage() || $title->getSubpageText() !== $docPage->plain() ) {
-			$parser->getOutput()->setPageProperty( 'templatedata', $ti->getJSONForDatabase() );
+			$parserOutput->setPageProperty( 'templatedata', $ti->getJSONForDatabase() );
 		}
 
-		$parser->getOutput()->addModuleStyles( [
+		$parserOutput->addModuleStyles( [
 			'ext.templateData',
 			'ext.templateData.images',
 			'jquery.tablesorter.styles',
 		] );
-		$parser->getOutput()->addModules( [ 'jquery.tablesorter' ] );
-		$parser->getOutput()->setEnableOOUI( true );
+		$parserOutput->addModules( [ 'jquery.tablesorter' ] );
+		$parserOutput->setEnableOOUI( true );
 
 		$userLang = $parser->getOptions()->getUserLangObj();
 
@@ -319,66 +319,4 @@ class Hooks {
 		}
 	}
 
-	/**
-	 * Write the status to ParserOutput object.
-	 * @param ParserOutput $parserOutput
-	 * @param Status $status
-	 */
-	public static function setStatusToParserOutput( ParserOutput $parserOutput, Status $status ) {
-		$parserOutput->setExtensionData( 'TemplateDataStatus',
-			self::jsonSerializeStatus( $status ) );
-	}
-
-	/**
-	 * @param ParserOutput $parserOutput
-	 * @return Status|null
-	 */
-	public static function getStatusFromParserOutput( ParserOutput $parserOutput ) {
-		$status = $parserOutput->getExtensionData( 'TemplateDataStatus' );
-		if ( is_array( $status ) ) {
-			return self::newStatusFromJson( $status );
-		}
-		return $status;
-	}
-
-	/**
-	 * @param array $status contains StatusValue ok and errors fields (does not serialize value)
-	 * @return Status
-	 */
-	public static function newStatusFromJson( array $status ): Status {
-		if ( $status['ok'] ) {
-			return Status::newGood();
-		} else {
-			$statusObj = new Status();
-			$errors = $status['errors'];
-			foreach ( $errors as $error ) {
-				$statusObj->fatal( $error['message'], ...$error['params'] );
-			}
-			$warnings = $status['warnings'];
-			foreach ( $warnings as $warning ) {
-				$statusObj->warning( $warning['message'], ...$warning['params'] );
-			}
-			return $statusObj;
-		}
-	}
-
-	/**
-	 * @param Status $status
-	 * @return array contains StatusValue ok and errors fields (does not serialize value)
-	 */
-	public static function jsonSerializeStatus( Status $status ): array {
-		if ( $status->isOK() ) {
-			return [
-				'ok' => true
-			];
-		} else {
-			list( $errorsOnlyStatus, $warningsOnlyStatus ) = $status->splitByErrorType();
-			// note that non-scalar values are not supported in errors or warnings
-			return [
-				'ok' => false,
-				'errors' => $errorsOnlyStatus->getErrors(),
-				'warnings' => $warningsOnlyStatus->getErrors()
-			];
-		}
-	}
 }
