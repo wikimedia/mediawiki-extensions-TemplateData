@@ -75,7 +75,7 @@
 	"templatedata-modal-json-error-replace": "Zamijeni",
 	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Uvezen|Uvezena|Uvezeno}} $1 {{PLURAL:$1|novi parametar|nova parametra|novih parametara}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Ime parametra",
-	"templatedata-modal-placeholder-mapinfo": "Ovaj predložak nema kartografskih objekata",
+	"templatedata-modal-placeholder-mapinfo": "Ovaj predložak nema mapiranjā",
 	"templatedata-modal-search-input-placeholder": "Pretraži po imenu ili kôdu jezika",
 	"templatedata-modal-table-param-actions": "Radnje",
 	"templatedata-modal-table-param-aliases": "Pseudonimi (odvojeni zarezima)",
