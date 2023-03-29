@@ -4,7 +4,6 @@
 		"stylelint-config-wikimedia/mediawiki"
 	],
 	"rules": {
-		"selector-class-pattern": "(tdg|mw|oo-ui|cdx|client|skin)-",
-		"selector-pseudo-element-colon-notation": null
+		"selector-class-pattern": "(tdg|mw|oo-ui|cdx|client|skin)-"
 	}
 }
