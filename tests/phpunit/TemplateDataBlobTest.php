@@ -88,6 +88,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'status' => '(templatedata-invalid-type: params, object)',
 			],
 			[
+				'input' => '{ "params": { "": {} } }',
+				'status' => '(templatedata-invalid-unnamed-parameter)',
+			],
+			[
 				'input' => '{ "params": { "a": [] } }',
 				'status' => '(templatedata-invalid-type: params.a, object)',
 			],
