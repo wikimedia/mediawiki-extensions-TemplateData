@@ -47,6 +47,7 @@
 	"templatedata-exists-on-related-page": "Please note: there is already a template data block on the related page \"[[$1]]\".",
 	"templatedata-helplink": "Information about template data",
 	"templatedata-helplink-target": "//www.mediawiki.org/wiki/Special:MyLanguage/Help:TemplateData",
+	"templatedata-invalid-unnamed-parameter": "Parameter names cannot be empty. To document unnamed parameters use their internal numbers \"1\", \"2\", and so on.",
 	"templatedata-invalid-duplicate-value": "Property \"$1\" (\"$3\") is a duplicate of \"$2\".",
 	"templatedata-invalid-empty-array": "Property \"$1\" must have at least one value in its array.",
 	"templatedata-invalid-format": "Property \"$1\" is expected to be \"inline\", \"block\", or a valid format string.",

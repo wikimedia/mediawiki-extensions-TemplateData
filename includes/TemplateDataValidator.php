@@ -123,6 +123,10 @@ class TemplateDataValidator {
 	 */
 	private function validateParameters( stdClass $params ): ?Status {
 		foreach ( $params as $paramName => $param ) {
+			if ( trim( $paramName ) === '' ) {
+				return Status::newFatal( 'templatedata-invalid-unnamed-parameter' );
+			}
+
 			if ( !( $param instanceof stdClass ) ) {
 				return Status::newFatal( 'templatedata-invalid-type', "params.{$paramName}",
 					'object' );

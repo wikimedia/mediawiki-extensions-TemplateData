@@ -60,6 +60,7 @@
 	"templatedata-exists-on-related-page": "A messaged that is displayed when there already is a templatedata string in a related page. $1: The page where templatedata already exists.",
 	"templatedata-helplink": "The label of the link to the TemplateData documentation, appearing above the editor field.",
 	"templatedata-helplink-target": "{{ignore}} The target of the link to the TemplateData documentation",
+	"templatedata-invalid-unnamed-parameter": "Error message when a parameter name is empty.",
 	"templatedata-invalid-duplicate-value": "Displayed when an array that must only contain unique values contains a duplicate.\n* $1 - name of property containing the duplicate\n* $2 - name of property with first occurrence of value\n* $3 - the value being duplicated",
 	"templatedata-invalid-empty-array": "Error message when a property that must be non-empty is empty. Parameters:\n* $1 - property name (\"paramOrder\" or \"sets.{$setNr}.params\")",
 	"templatedata-invalid-format": "{{Doc-important|Don't translate \"inline\" and \"block\".}}\n\nError message when format property gets an unexpected value.",
