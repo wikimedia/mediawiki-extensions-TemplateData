@@ -45,6 +45,7 @@
 	"templatedata-errormsg-insertblank": "Bist du sicher, dass du Vorlagendaten ohne Informationen einfügen möchtest?",
 	"templatedata-exists-on-related-page": "Hinweis: Es gibt bereits einen Vorlagendatenblock auf der verwandten Seite „[[$1]]“.",
 	"templatedata-helplink": "Informationen über Vorlagendaten",
+	"templatedata-invalid-unnamed-parameter": "Parameternamen dürfen nicht leer sein. Um unbenannte Parameter zu dokumentieren, verwenden ihre internen Nummern „1“, „2“ usw.",
 	"templatedata-invalid-duplicate-value": "„$1“ („$3“) ist ein Duplikat von „$2“.",
 	"templatedata-invalid-empty-array": "Die Eigenschaft „$1“ muss mindestens einen Wert in ihrem Array haben.",
 	"templatedata-invalid-format": "Es wird erwartet, dass die Eigenschaft „$1“ „inline“, „block“ oder eine gültige Formatzeichenfolge ist.",

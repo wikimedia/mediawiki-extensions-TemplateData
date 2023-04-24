@@ -42,6 +42,7 @@
 	"templatedata-errormsg-insertblank": "Es tu secur de voler inserer datos de patrono sin information?",
 	"templatedata-exists-on-related-page": "Nota ben: existe ja un bloco de datos de patrono sur le pagina associate \"[[$1]]\".",
 	"templatedata-helplink": "Information sur le datos del patrono",
+	"templatedata-invalid-unnamed-parameter": "Nomines de parametros non pote esser vacue. Pro documentar parametros sin nomine, usa lor numeros interne \"1\", \"2\", et cetera.",
 	"templatedata-invalid-duplicate-value": "Le proprietate \"$1\" (\"$3\") es un duplicato de \"$2\".",
 	"templatedata-invalid-empty-array": "Le proprietate \"$1\" debe haber al minus un valor in su matrice.",
 	"templatedata-invalid-format": "Le proprietate \"$1\" deberea esser \"inline\", \"block\", o un catena de formato valide.",

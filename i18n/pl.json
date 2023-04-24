@@ -56,6 +56,7 @@
 	"templatedata-errormsg-insertblank": "Czy na pewno chcesz wstawić dane szablonu niezawierające żadnych informacji?",
 	"templatedata-exists-on-related-page": "Uwaga: istnieje już blok danych szablonu na powiązanej stronie „[[$1]]”.",
 	"templatedata-helplink": "Informacje o danych szablonu",
+	"templatedata-invalid-unnamed-parameter": "Nazwy parametrów nie mogą być puste. Aby udokumentować nienazwane parametry, użyj ich technicznych numerów: „1”, „2”, itd.",
 	"templatedata-invalid-duplicate-value": "Właściwość „$1” („$3”) jest duplikatem „$2”.",
 	"templatedata-invalid-empty-array": "Właściwość „$1” musi mieć w swojej tablicy co najmniej jedną wartość.",
 	"templatedata-invalid-format": "Właściwość „$1” musi mieć wartość „inline”, „block” lub poprawny ciąg znaków określający format.",
