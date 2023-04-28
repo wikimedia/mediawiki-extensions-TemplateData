@@ -8,6 +8,8 @@ templatedata
 
 !! test
 Empty
+!! options
+disabled
 !! wikitext
 <templatedata />
 !! html
