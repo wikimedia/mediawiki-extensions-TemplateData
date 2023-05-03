@@ -53,7 +53,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "利用者",
 	"templatedata-doc-params": "テンプレート引数",
 	"templatedata-editbutton": "テンプレートデータを編集",
-	"templatedata-errormsg-jsonbadformat": "不正なJSON形式です。この操作を中止して、JASONを修正するか、現在の <templatedata>タグを削除して再試行するか、テンプレートデータを新しいものに置き換えて継続することができます。",
+	"templatedata-errormsg-jsonbadformat": "JSON 形式として正しくありません。この操作を中止して修正するか、現在の <templatedata> タグを削除して再試行するか、テンプレートデータを新しいものに置き換えて続行してください。",
 	"templatedata-exists-on-related-page": "注意: ページ「[[$1]]」に類似するテンプレートデータブロックが既に存在します。",
 	"templatedata-helplink": "テンプレートデータに関する情報",
 	"templatedata-invalid-duplicate-value": "プロパティ「$1」(「$3」) は「$2」と重複しています。",
