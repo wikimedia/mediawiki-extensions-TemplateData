@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\TemplateData;
 
 use CommentStoreComment;
-use EditPage;
 use ExtensionRegistry;
 use Html;
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\EventLogging\EventLogging;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RenderedRevision;
