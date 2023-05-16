@@ -25,6 +25,7 @@
 	"templatedata-doc-param-status-optional": "valgfri",
 	"templatedata-doc-param-status-required": "påkrevd",
 	"templatedata-doc-param-status-suggested": "anbefalt",
+	"templatedata-doc-param-suggestedvalues": "Foreslåtte verdier",
 	"templatedata-doc-param-type": "Type",
 	"templatedata-doc-param-type-boolean": "Boolsk verdi",
 	"templatedata-doc-param-type-content": "Innhold",
