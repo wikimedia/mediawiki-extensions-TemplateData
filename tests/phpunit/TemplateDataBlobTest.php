@@ -38,7 +38,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		return $string;
 	}
 
-	public function provideParse() {
+	public static function provideParse() {
 		$cases = [
 			[
 				'input' => '{',
@@ -829,7 +829,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( $expected, $validator->isValidInterfaceText( $text ) );
 	}
 
-	public function provideInterfaceTexts() {
+	public static function provideInterfaceTexts() {
 		return [
 			// Invalid stuff
 			[ null, false ],
@@ -874,7 +874,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$this->assertInstanceOf( TemplateDataBlob::class, $templateData );
 	}
 
-	public function provideGetDataInLanguage() {
+	public static function provideGetDataInLanguage() {
 		$cases = [
 			[
 				'input' => '{
@@ -1170,7 +1170,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	public function provideParamOrder() {
+	public static function provideParamOrder() {
 		$cases = [
 			[
 				'input' => '{
@@ -1376,7 +1376,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$this->assertArrayEquals( $expectedParams, $params, true, true );
 	}
 
-	public function provideGetRawParams() {
+	public static function provideGetRawParams() {
 		return [
 			'No params' => [
 				'Lorem ipsum {{tpl}}.',
@@ -1442,7 +1442,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		];
 	}
 
-	public function provideGetHtml() {
+	public static function provideGetHtml() {
 		// phpcs:disable Generic.Files.LineLength.TooLong
 		yield 'No params' => [
 			[ 'params' => [ (object)[] ] ],

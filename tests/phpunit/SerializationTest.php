@@ -41,7 +41,7 @@ class SerializationTest extends MediaWikiIntegrationTestCase {
 		$this->assertSame( (string)$status, (string)$result );
 	}
 
-	public function provideStatus() {
+	public static function provideStatus() {
 		yield [ Status::newGood() ];
 		$status = Status::newFatal( 'a', 'b', 'c' );
 		$status->fatal( 'f' );
