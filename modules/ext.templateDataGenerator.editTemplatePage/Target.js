@@ -75,7 +75,7 @@ function Target( $textarea, config ) {
 			if ( response.missing === undefined ) {
 				var content = response.revisions[ 0 ][ '*' ];
 				// There's a templatedata string
-				if ( content.match( /<templatedata>/i ) ) {
+				if ( /<templatedata>/i.test( content ) ) {
 					// HACK: Setting a link in the messages doesn't work. The bug report offers
 					// a somewhat hacky work around that includes setting a separate message
 					// to be parsed.

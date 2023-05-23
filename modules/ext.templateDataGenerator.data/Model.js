@@ -75,22 +75,15 @@ OO.mixinClass( Model, OO.EventEmitter );
  * @return {boolean} Objects have equal values
  */
 Model.static.compare = function ( obj1, obj2, allowSubset ) {
-	if ( allowSubset && obj2 === undefined ) {
+	if ( obj1 === obj2 || ( allowSubset && obj2 === undefined ) ) {
 		return true;
 	}
 
-	// Make sure the objects are of the same type
 	if ( typeof obj1 !== typeof obj2 ) {
 		return false;
 	}
 
-	// Comparing objects or arrays
-	if ( typeof obj1 === 'object' ) {
-		return OO.compare( obj2, obj1, allowSubset );
-	}
-
-	// Everything else (primitive types, functions, etc)
-	return obj1 === obj2;
+	return typeof obj1 === 'object' && OO.compare( obj2, obj1, allowSubset );
 };
 
 /**
@@ -383,27 +376,17 @@ Model.prototype.getExistingLanguageCodes = function () {
 /**
  * Add parameter to the model
  *
- * @param {string} key Parameter key
+ * @param {string} name
  * @param {Object} [paramData] Parameter data
  * @fires add-param
  * @fires change
  */
-Model.prototype.addParam = function ( key, paramData ) {
-	var existingNames = this.getAllParamNames(),
-		data = $.extend( true, {}, paramData );
-
-	var name = key;
-	// Check that the parameter is not already in the model
-	if ( this.params[ key ] || existingNames.indexOf( key ) !== -1 ) {
-		// Change parameter key
-		key = this.getNewValidParameterKey( key );
-	}
+Model.prototype.addParam = function ( name, paramData ) {
+	var data = $.extend( true, {}, paramData );
+	var key = this.getNewValidParameterKey( name );
 
 	// Initialize
-	this.params[ key ] = {};
-
-	// Store the key
-	this.params[ key ].name = name;
+	this.params[ key ] = { name: name };
 
 	// Mark the parameter if it is in the template source
 	if ( this.sourceCodeParameters.indexOf( key ) !== -1 ) {
@@ -730,9 +713,8 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 			var oldValue = this.params[ paramKey ][ prop ];
 			this.params[ paramKey ][ prop ] = value;
 
-			var newKey;
+			var newKey = value;
 			if ( prop === 'name' && oldValue !== value ) {
-				newKey = value;
 				// See if the parameters already has something with this new key
 				if ( this.params[ newKey ] && !this.params[ newKey ].deleted ) {
 					// Change the key to be something else
@@ -748,7 +730,7 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 			this.emit( 'change' );
 
 			if ( prop === 'name' ) {
-				this.paramOrder[ this.paramOrder.indexOf( paramKey ) ] = newKey || value;
+				this.paramOrder[ this.paramOrder.indexOf( paramKey ) ] = newKey;
 				this.paramOrderChanged = true;
 				this.emit( 'change-paramOrder', this.paramOrder );
 				this.emit( 'change' );
@@ -1076,8 +1058,7 @@ Model.prototype.outputTemplateData = function () {
  * @return {string} Valid new parameter key
  */
 Model.prototype.getNewValidParameterKey = function ( key ) {
-	var allParamNames = this.getAllParamNames();
-	if ( this.params[ key ] || allParamNames.indexOf( key ) !== -1 ) {
+	if ( this.params[ key ] || this.getAllParamNames().indexOf( key ) !== -1 ) {
 		// Change the key to be something else
 		if ( /\d$/.test( key ) ) {
 			key += '-';
@@ -1085,9 +1066,9 @@ Model.prototype.getNewValidParameterKey = function ( key ) {
 		key += this.paramIdentifierCounter;
 		this.paramIdentifierCounter++;
 		return this.getNewValidParameterKey( key );
-	} else {
-		return key;
 	}
+
+	return key;
 };
 /**
  * Go over a language property and remove empty language key values
