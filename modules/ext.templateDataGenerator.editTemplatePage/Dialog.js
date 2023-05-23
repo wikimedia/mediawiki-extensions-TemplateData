@@ -1102,13 +1102,15 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
  */
 Dialog.prototype.addParamToSelectWidget = function ( paramKey ) {
 	var data = this.model.getParamData( paramKey );
-
 	this.paramSelect.addItems( [ new ParamWidget( {
 		key: paramKey,
 		label: this.model.getParamValue( paramKey, 'label', this.language ),
 		aliases: data.aliases,
 		description: this.model.getParamValue( paramKey, 'description', this.language )
-	} ) ] );
+	} )
+		// Forward keyboard-triggered events from the OptionWidget to the SelectWidget
+		.connect( this.paramSelect, { choose: [ 'emit', 'choose' ] } )
+	] );
 };
 
 /**
