@@ -231,22 +231,15 @@ Dialog.prototype.initialize = function () {
 		label: mw.msg( 'templatedata-modal-button-map' ),
 		classes: [ 'mw-templateData-maps-panel-button' ]
 	} );
-	var mapsActionFieldLayout = new OO.ui.ActionFieldLayout(
-		this.mapsPanelButton,
-		{
-			align: 'left',
-			label: mw.msg( 'templatedata-modal-button-map' )
-		}
-	);
 	this.paramListNoticeMessage = new OO.ui.MessageWidget();
 	this.paramListNoticeMessage.toggle( false );
 
 	this.paramSelect = new ParamSelectWidget();
-	var templateParamsFieldset = new OO.ui.FieldsetLayout( {
-		label: mw.msg( 'templatedata-modal-title-templateparams' )
-	} );
 	this.paramImport = new ParamImportWidget();
-	templateParamsFieldset.$element.append( this.paramSelect.$element, this.paramImport.$element );
+	var templateParamsFieldset = new OO.ui.FieldsetLayout( {
+		label: mw.msg( 'templatedata-modal-title-templateparams' ),
+		items: [ this.paramSelect, this.paramImport ]
+	} );
 
 	this.templateFormatSelectWidget = new OO.ui.ButtonSelectWidget();
 	this.templateFormatSelectWidget.addItems( [
@@ -275,16 +268,15 @@ Dialog.prototype.initialize = function () {
 	} );
 
 	var templateFormatFieldSet = new OO.ui.FieldsetLayout( {
-		label: mw.msg( 'templatedata-modal-title-templateformat' )
+		label: mw.msg( 'templatedata-modal-title-templateformat' ),
+		items: [
+			new OO.ui.FieldLayout( this.templateFormatSelectWidget ),
+			new OO.ui.FieldLayout( this.templateFormatInputWidget, {
+				align: 'top',
+				label: mw.msg( 'templatedata-modal-title-templateformatstring' )
+			} )
+		]
 	} );
-	templateFormatFieldSet.addItems( [
-		new OO.ui.FieldLayout( this.templateFormatSelectWidget, {
-		} ),
-		new OO.ui.FieldLayout( this.templateFormatInputWidget, {
-			align: 'top',
-			label: mw.msg( 'templatedata-modal-title-templateformatstring' )
-		} )
-	] );
 
 	// Param details panel
 	this.$paramDetailsContainer = $( '<div>' )
@@ -296,7 +288,7 @@ Dialog.prototype.initialize = function () {
 			this.paramListNoticeMessage.$element,
 			languageActionFieldLayout.$element,
 			this.templateDescriptionFieldset.$element,
-			mapsActionFieldLayout.$element,
+			new OO.ui.FieldLayout( this.mapsPanelButton ).$element,
 			templateFormatFieldSet.$element,
 			templateParamsFieldset.$element
 		);
