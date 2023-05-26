@@ -128,7 +128,8 @@ Dialog.prototype.initialize = function () {
 	} );
 	this.addParamButton = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'templatedata-modal-button-addparam' ),
-		flags: [ 'progressive', 'primary' ]
+		flags: [ 'progressive', 'primary' ],
+		disabled: true
 	} );
 	var addParamFieldlayout = new OO.ui.ActionFieldLayout(
 		this.newParamInput,
@@ -356,7 +357,7 @@ Dialog.prototype.initialize = function () {
 
 	// Events
 	this.newLanguageSearch.getResults().connect( this, { choose: 'onNewLanguageSearchResultsChoose' } );
-	this.newParamInput.connect( this, { change: 'onAddParamInputChange' } );
+	this.newParamInput.connect( this, { change: 'onAddParamInputChange', enter: 'onAddParamButtonClick' } );
 	this.addParamButton.connect( this, { click: 'onAddParamButtonClick' } );
 	this.descriptionInput.connect( this, { change: 'onDescriptionInputChange' } );
 	this.languagePanelButton.connect( this, { click: 'onLanguagePanelButton' } );
@@ -412,7 +413,8 @@ Dialog.prototype.onModelChangeMapInfo = function ( map ) {
 Dialog.prototype.onAddParamInputChange = function ( value ) {
 	var allProps = Model.static.getAllProperties( true );
 
-	if (
+	value = value.trim();
+	if ( !value ||
 		value.match( allProps.name.restrict ) ||
 		(
 			this.model.isParamExists( value ) &&
@@ -748,20 +750,19 @@ Dialog.prototype.onMapsPanelButton = function () {
  * Respond to add parameter button
  */
 Dialog.prototype.onAddParamButtonClick = function () {
-	var newParamKey = this.newParamInput.getValue(),
-		allProps = Model.static.getAllProperties( true );
+	if ( this.addParamButton.isDisabled() ) {
+		return;
+	}
 
-	// Validate parameter
-	if ( !newParamKey.match( allProps.name.restrict ) ) {
-		if ( this.model.isParamDeleted( newParamKey ) ) {
-			// Empty param
-			this.model.emptyParamData( newParamKey );
-		} else if ( !this.model.isParamExists( newParamKey ) ) {
-			// Add to model
-			if ( this.model.addParam( newParamKey ) ) {
-				// Add parameter to list
-				this.addParamToSelectWidget( newParamKey );
-			}
+	var newParamKey = this.newParamInput.getValue().trim();
+	if ( this.model.isParamDeleted( newParamKey ) ) {
+		// Empty param
+		this.model.emptyParamData( newParamKey );
+	} else if ( !this.model.isParamExists( newParamKey ) ) {
+		// Add to model
+		if ( this.model.addParam( newParamKey ) ) {
+			// Add parameter to list
+			this.addParamToSelectWidget( newParamKey );
 		}
 	}
 	// Reset the input
