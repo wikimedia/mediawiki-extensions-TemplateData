@@ -3,7 +3,9 @@
 		"authors": [
 			"Artsiom91",
 			"Maksim L.",
-			"Chadyka"
+			"Chadyka",
+			"No Sleep till Krupki",
+			"Plaga med"
 		]
 	},
 	"templatedata-desc": "Рэалізацыя сховішча звестак для параметраў шаблонаў (з дапамогай JSON)",
@@ -13,7 +15,7 @@
 	"templatedata-doc-format-inline": "Шаблон выкарыстоўвае радковае фарматаванне параметраў.",
 	"templatedata-doc-no-params-set": "Не выбрана ніводнага параметра.",
 	"templatedata-doc-param-autovalue": "Аўтазначэнне",
-	"templatedata-doc-param-default": "Па змоўчанні",
+	"templatedata-doc-param-default": "Прадвызначана",
 	"templatedata-doc-param-example": "Прыклад",
 	"templatedata-doc-param-desc": "Апісанне",
 	"templatedata-doc-param-desc-empty": "няма апісання",
@@ -82,7 +84,7 @@
 	"templatedata-modal-table-param-actions": "Дзеянні",
 	"templatedata-modal-table-param-aliases": "Псеўданімы (праз коску)",
 	"templatedata-modal-table-param-autovalue": "Аўтазначэнне",
-	"templatedata-modal-table-param-default": "Па змоўчанні ($1)",
+	"templatedata-modal-table-param-default": "Прадвызначана ($1)",
 	"templatedata-modal-table-param-deprecated": "Састарэлы",
 	"templatedata-modal-table-param-deprecatedValue": "Тлумачэнні да састарэння",
 	"templatedata-modal-table-param-description": "Апісанне ($1)",
