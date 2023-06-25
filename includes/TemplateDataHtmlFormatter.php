@@ -217,7 +217,7 @@ class TemplateDataHtmlFormatter {
 			. Html::element( 'th', [], $param->label ?? $paramName )
 			// Parameters and aliases
 			. Html::rawElement( 'td', [ 'class' => 'mw-templatedata-doc-param-name' ],
-				implode( $this->localizer->msg( 'word-separator' )->escaped(), $allParamNames )
+				implode( ' ', $allParamNames )
 			)
 			// Description
 			. Html::rawElement( 'td', [],
@@ -234,7 +234,7 @@ class TemplateDataHtmlFormatter {
 						$this->localizer->msg( 'templatedata-doc-param-suggestedvalues' )->text()
 					)
 					. Html::rawElement( 'dd', [],
-						implode( $this->localizer->msg( 'word-separator' )->escaped(), $suggestedValues )
+						implode( ' ', $suggestedValues )
 					) ) : '' ) .
 					// Default
 					( $param->default !== null ? ( Html::element( 'dt', [],

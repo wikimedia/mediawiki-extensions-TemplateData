@@ -1521,11 +1521,11 @@ HTML
 	<tbody>
 		<tr>
 			<th>Label</th>
-			<td class="mw-templatedata-doc-param-name"><code>suggestedParam</code>(word-separator)<code class="mw-templatedata-doc-param-alias">Alias1</code>(word-separator)<code class="mw-templatedata-doc-param-alias">Alias2</code></td>
+			<td class="mw-templatedata-doc-param-name"><code>suggestedParam</code> <code class="mw-templatedata-doc-param-alias">Alias1</code> <code class="mw-templatedata-doc-param-alias">Alias2</code></td>
 			<td>
 				<p>Param docs</p>
 				<dl>
-					<dt>(templatedata-doc-param-suggestedvalues)</dt><dd><code>Suggested1</code>(word-separator)<code>Suggested2</code></dd>
+					<dt>(templatedata-doc-param-suggestedvalues)</dt><dd><code>Suggested1</code> <code>Suggested2</code></dd>
 					<dt>(templatedata-doc-param-default)</dt><dd>Default docs</dd>
 					<dt>(templatedata-doc-param-example)</dt><dd>Example docs</dd>
 					<dt>(templatedata-doc-param-autovalue)</dt><dd><code>Auto value</code></dd>
