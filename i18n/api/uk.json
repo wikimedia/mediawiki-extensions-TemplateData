@@ -6,7 +6,6 @@
 			"Piramidion"
 		]
 	},
-	"apihelp-templatedata-description": "Отримати дані, що зберігаються розширенням TemplateData.",
 	"apihelp-templatedata-summary": "Отримати дані, що зберігаються розширенням TemplateData.",
 	"apihelp-templatedata-example-1": "Вивести TemplateData для [[Template:Stub]] та [[Template:Example]] з результатами, якщо шаблони не існують, або таки існують, але в них відсутні TemplateData",
 	"apihelp-templatedata-example-2": "Вивести TemplateData для [[Template:Stub]] та [[Template:Example]] з результатами, якщо шаблони не існують, або таки існують, але в них відсутні TemplateData",
