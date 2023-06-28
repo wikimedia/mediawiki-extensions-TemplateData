@@ -726,14 +726,14 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	 * because empty string equals null in PHP's weak comparison.
 	 *
 	 * @param string $expected
-	 * @param string $actual
+	 * @param stdClass $actual
 	 * @param string|null $message
 	 */
-	private function assertStrictJsonEquals( string $expected, string $actual, string $message = null ): void {
+	private function assertStrictJsonEquals( string $expected, stdClass $actual, string $message = null ): void {
 		// Lazy recursive strict comparison: Serialise to JSON and compare that
 		// Sort first to ensure key-order
 		$expected = json_decode( $expected, /* assoc = */ true );
-		$actual = json_decode( $actual, /* assoc = */ true );
+		$actual = json_decode( json_encode( $actual ), /* assoc = */ true );
 		$this->ksort( $expected );
 		$this->ksort( $actual );
 
@@ -754,9 +754,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		}
 
 		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
-		/** @var TemplateDataBlob $t */
-		$t = TestingAccessWrapper::newFromObject( $t );
-		$actual = $t->json;
+		$actual = $t->getData();
 		$status = $t->getStatus();
 
 		$this->assertSame(
@@ -775,8 +773,6 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
 			// Assert this case roundtrips properly by running through the output as input.
 			$t = TemplateDataBlob::newFromJSON( $this->db, $case['output'] );
-			/** @var TemplateDataBlob $t */
-			$t = TestingAccessWrapper::newFromObject( $t );
 			$status = $t->getStatus();
 
 			if ( !$status->isGood() ) {
@@ -784,7 +780,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					'Roundtrip status: ' . $case['msg']
 				);
 			}
-			$this->assertStrictJsonEquals( $case['output'], $t->json,
+			$this->assertStrictJsonEquals( $case['output'], $t->getData(),
 				'Roundtrip: ' . $case['msg']
 			);
 		}
