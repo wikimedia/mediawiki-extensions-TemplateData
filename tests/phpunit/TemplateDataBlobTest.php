@@ -26,10 +26,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	 *
 	 * Output is consistent when given the same seed.
 	 * @param int $minLength
-	 * @param string $seed
+	 * @param int $seed
 	 * @return string
 	 */
-	private function generatePseudorandomString( $minLength, $seed ): string {
+	private function generatePseudorandomString( int $minLength, int $seed ): string {
 		srand( $seed );
 		$string = '';
 		while ( strlen( $string ) < $minLength ) {
@@ -707,7 +707,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		return $str;
 	}
 
-	private function ksort( array &$input ) {
+	private function ksort( array &$input ): void {
 		ksort( $input );
 		foreach ( $input as &$value ) {
 			if ( is_array( $value ) ) {
@@ -725,11 +725,11 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	 * so "array( 'a' => '' )" still equals "array( 'a' => null )"
 	 * because empty string equals null in PHP's weak comparison.
 	 *
-	 * @param mixed $expected
-	 * @param mixed $actual
+	 * @param string $expected
+	 * @param string $actual
 	 * @param string|null $message
 	 */
-	private function assertStrictJsonEquals( $expected, $actual, $message = null ) {
+	private function assertStrictJsonEquals( string $expected, string $actual, string $message = null ): void {
 		// Lazy recursive strict comparison: Serialise to JSON and compare that
 		// Sort first to ensure key-order
 		$expected = json_decode( $expected, /* assoc = */ true );
@@ -744,7 +744,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		);
 	}
 
-	private function assertTemplateData( array $case ) {
+	private function assertTemplateData( array $case ): void {
 		// Expand defaults
 		if ( !isset( $case['status'] ) ) {
 			$case['status'] = true;
@@ -1552,7 +1552,7 @@ HTML
 	 * @covers \MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter
 	 * @dataProvider provideGetHtml
 	 */
-	public function testGetHtml( array $data, $expected ) {
+	public function testGetHtml( array $data, string $expected ) {
 		$t = TemplateDataBlob::newFromJSON( $this->db, json_encode( $data ) );
 		$localizer = new class implements MessageLocalizer {
 			public function msg( $key, ...$params ) {
