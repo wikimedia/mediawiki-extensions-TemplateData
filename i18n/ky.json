@@ -5,11 +5,19 @@
 			"Bosogo"
 		]
 	},
+	"templatedata-doc-desc-empty": "Сыпаттама жок.",
+	"templatedata-doc-param-desc-empty": "сыпаттама жок",
 	"templatedata-doc-param-status": "Макам",
+	"templatedata-doc-param-type-content": "Мазмун",
+	"templatedata-doc-param-type-date": "Дата",
+	"templatedata-doc-param-type-unknown": "Белгисиз",
+	"templatedata-doc-param-type-wiki-file-name": "Файл",
 	"templatedata-doc-param-type-wiki-template-name": "Калып",
 	"templatedata-doc-param-type-wiki-user-name": "Колдонуучу",
 	"templatedata-modal-button-add-language": "Тил кошуу",
 	"templatedata-modal-button-apply": "Колдонуу",
 	"templatedata-modal-button-cancel": "Жокко чыгаруу",
+	"templatedata-modal-button-changelang": "Тилди өзгөртүү",
+	"templatedata-modal-button-saveparam": "Сактоо",
 	"templatedata-modal-title-language": "Тил"
 }
