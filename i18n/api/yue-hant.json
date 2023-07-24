@@ -1,7 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
-			"Deryck Chan"
+			"Winston Sung"
 		]
 	},
 	"apierror-templatedata-corrupt": "頁#$1嘅模板數據(templatedata)規格有錯：$2"
