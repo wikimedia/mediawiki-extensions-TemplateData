@@ -136,7 +136,7 @@ class Hooks {
 
 		$generatorUsed = RequestContext::getMain()->getRequest()->getBool( 'TemplateDataGeneratorUsed' );
 		$userEditCount = $services->getUserEditTracker()->getUserEditCount( $user );
-		$userId = $services->getUserNameUtils()->isTemp( $user->getName() ) ? 0 : $user->getId();
+		$userId = $services->getUserIdentityUtils()->isTemp( $user ) ? 0 : $user->getId();
 		// Note: We know that irrelevant changes (e.g. whitespace changes) aren't logged here
 		EventLogging::submit(
 			'eventlogging_TemplateDataEditor',
