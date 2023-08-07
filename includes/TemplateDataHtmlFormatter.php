@@ -72,16 +72,16 @@ class TemplateDataHtmlFormatter {
 			. '</header>'
 			. '<table class="wikitable mw-templatedata-doc-params' . $sorting . '">'
 			. Html::rawElement( 'caption', [],
-				// Edit interface is only loaded in the template namespace (see Hooks::onEditPage)
-				( $showEditLink && $frameTitle->inNamespace( NS_TEMPLATE ) ?
-					Html::element( 'mw:edittemplatedata', [
-						'page' => $frameTitle->getPrefixedText()
-					] ) :
-					''
-				) .
-				Html::element( 'p',
+				Html::rawElement( 'p',
 					[ 'class' => 'mw-templatedata-caption' ],
-					$this->localizer->msg( 'templatedata-doc-params' )->text()
+					$this->localizer->msg( 'templatedata-doc-params' )->escaped() .
+					// Edit interface is only loaded in the template namespace (see Hooks::onEditPage)
+					( $showEditLink && $frameTitle->inNamespace( NS_TEMPLATE ) ?
+						Html::element( 'mw:edittemplatedata', [
+							'page' => $frameTitle->getPrefixedText()
+						] ) :
+						''
+					)
 				)
 				. ( $formatMsg ?
 					Html::rawElement( 'p', [],
