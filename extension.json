@@ -24,13 +24,18 @@
 		"MediaWiki\\Extension\\TemplateData\\": "includes/"
 	},
 	"Hooks": {
-		"EditPage::showEditForm:fields": "MediaWiki\\Extension\\TemplateData\\Hooks::onEditPageShowEditFormFields",
-		"ParserFirstCallInit": "MediaWiki\\Extension\\TemplateData\\Hooks::onParserFirstCallInit",
-		"MultiContentSave": "MediaWiki\\Extension\\TemplateData\\Hooks::onMultiContentSave",
-		"ResourceLoaderRegisterModules": "MediaWiki\\Extension\\TemplateData\\Hooks::onResourceLoaderRegisterModules",
-		"EditPage::showEditForm:initial": "MediaWiki\\Extension\\TemplateData\\Hooks::onEditPage",
-		"ParserFetchTemplateData": "MediaWiki\\Extension\\TemplateData\\Hooks::onParserFetchTemplateData",
-		"OutputPageBeforeHTML": "MediaWiki\\Extension\\TemplateData\\Hooks::onOutputPageBeforeHTML"
+		"EditPage::showEditForm:fields": "main",
+		"ParserFirstCallInit": "main",
+		"MultiContentSave": "main",
+		"ResourceLoaderRegisterModules": "main",
+		"EditPage::showEditForm:initial": "main",
+		"ParserFetchTemplateData": "main",
+		"OutputPageBeforeHTML": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\TemplateData\\Hooks"
+		}
 	},
 	"MessagesDirs": {
 		"TemplateData": [

@@ -1,5 +1,7 @@
 <?php
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 namespace MediaWiki\Extension\TemplateData;
 
 use CommentStoreComment;
@@ -7,10 +9,17 @@ use ExtensionRegistry;
 use Html;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\EventLogging\EventLogging;
+use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
+use MediaWiki\Hook\EditPage__showEditForm_initialHook;
+use MediaWiki\Hook\OutputPageBeforeHTMLHook;
+use MediaWiki\Hook\ParserFetchTemplateDataHook;
+use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Storage\Hook\MultiContentSaveHook;
 use MediaWiki\User\UserIdentity;
 use OutputPage;
 use Parser;
@@ -27,13 +36,21 @@ use Title;
  * @ingroup Extensions
  */
 
-class Hooks {
+class Hooks implements
+	EditPage__showEditForm_fieldsHook,
+	ParserFirstCallInitHook,
+	MultiContentSaveHook,
+	ResourceLoaderRegisterModulesHook,
+	EditPage__showEditForm_initialHook,
+	ParserFetchTemplateDataHook,
+	OutputPageBeforeHTMLHook
+{
 
 	/**
 	 * @param EditPage $editPage
 	 * @param OutputPage $out
 	 */
-	public static function onEditPageShowEditFormFields( EditPage $editPage, OutputPage $out ) {
+	public function onEditPage__showEditForm_fields( $editPage, $out ) {
 		// TODO: Remove when not needed any more, see T267926
 		if ( $out->getRequest()->getBool( 'TemplateDataGeneratorUsed' ) ) {
 			// Recreate the dynamically created field after the user clicked "preview"
@@ -45,7 +62,7 @@ class Hooks {
 	 * Register parser hooks
 	 * @param Parser $parser
 	 */
-	public static function onParserFirstCallInit( Parser $parser ) {
+	public function onParserFirstCallInit( $parser ) {
 		$parser->setHook( 'templatedata', [ __CLASS__, 'render' ] );
 	}
 
@@ -53,9 +70,9 @@ class Hooks {
 	 * Conditionally register the jquery.uls.data module, in case they've already been
 	 * registered by the UniversalLanguageSelector extension or the VisualEditor extension.
 	 *
-	 * @param ResourceLoader &$resourceLoader
+	 * @param ResourceLoader $resourceLoader
 	 */
-	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
+	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
 		$name = 'jquery.uls.data';
 		if ( !isset( $resourceModules[$name] ) && !$resourceLoader->isModuleRegistered( $name ) ) {
@@ -81,8 +98,8 @@ class Hooks {
 	 * @param Status $hookStatus
 	 * @return bool
 	 */
-	public static function onMultiContentSave(
-		RenderedRevision $renderedRevision, UserIdentity $user, CommentStoreComment $summary, $flags, Status $hookStatus
+	public function onMultiContentSave(
+		$renderedRevision, $user, $summary, $flags, $hookStatus
 	) {
 		$revisionRecord = $renderedRevision->getRevision();
 		$contentModel = $revisionRecord
@@ -163,7 +180,7 @@ class Hooks {
 	 * @param EditPage $editPage
 	 * @param OutputPage $output
 	 */
-	public static function onEditPage( EditPage $editPage, OutputPage $output ) {
+	public function onEditPage__showEditForm_initial( $editPage, $output ) {
 		global $wgTemplateDataUseGUI;
 		if ( $wgTemplateDataUseGUI ) {
 			if ( $output->getTitle()->inNamespace( NS_TEMPLATE ) ) {
@@ -234,7 +251,7 @@ class Hooks {
 	 * @param OutputPage $output
 	 * @param string &$text
 	 */
-	public static function onOutputPageBeforeHTML( $output, &$text ) {
+	public function onOutputPageBeforeHTML( $output, &$text ) {
 		$services = MediaWikiServices::getInstance();
 		$props = $services->getPageProps()->getProperties( $output->getTitle(), 'templatedata' );
 		if ( !empty( $props ) ) {
@@ -260,8 +277,9 @@ class Hooks {
 	 *
 	 * @param array $tplTitles
 	 * @param \stdClass[] &$tplData
+	 * @return bool
 	 */
-	public static function onParserFetchTemplateData( array $tplTitles, array &$tplData ): void {
+	public function onParserFetchTemplateData( array $tplTitles, array &$tplData ): bool {
 		$tplData = [];
 
 		$pageProps = MediaWikiServices::getInstance()->getPageProps();
@@ -318,6 +336,7 @@ class Hooks {
 
 			$tplData[$tplTitle] = $tdb->getData();
 		}
+		return true;
 	}
 
 }
