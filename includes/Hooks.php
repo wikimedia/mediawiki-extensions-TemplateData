@@ -20,6 +20,7 @@ use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Storage\Hook\MultiContentSaveHook;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 use OutputPage;
 use Parser;
@@ -27,7 +28,6 @@ use PPFrame;
 use RequestContext;
 use ResourceLoader;
 use Status;
-use Title;
 
 /**
  * Hooks for TemplateData extension

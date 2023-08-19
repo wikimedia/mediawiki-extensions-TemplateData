@@ -5,9 +5,9 @@ namespace MediaWiki\Extension\TemplateData;
 use Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use MessageLocalizer;
 use stdClass;
-use Title;
 
 class TemplateDataHtmlFormatter {
 

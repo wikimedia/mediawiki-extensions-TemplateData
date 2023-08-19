@@ -7,6 +7,7 @@ if ( $IP === false ) {
 require_once "$IP/maintenance/Maintenance.php";
 
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
+use MediaWiki\Title\Title;
 
 class ValidateTemplateData extends Maintenance {
 
