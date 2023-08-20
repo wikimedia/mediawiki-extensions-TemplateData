@@ -158,7 +158,7 @@ class Hooks {
 	}
 
 	/**
-	 * Parser hook registering the GUI module only in edit pages.
+	 * Hook to load the GUI module only on edit action.
 	 *
 	 * @param EditPage $editPage
 	 * @param OutputPage $output
@@ -166,7 +166,16 @@ class Hooks {
 	public static function onEditPage( EditPage $editPage, OutputPage $output ) {
 		global $wgTemplateDataUseGUI;
 		if ( $wgTemplateDataUseGUI ) {
-			if ( $output->getTitle()->inNamespace( NS_TEMPLATE ) ) {
+			$isTemplate = $output->getTitle()->inNamespace( NS_TEMPLATE );
+			if ( !$isTemplate ) {
+				// If we're outside the Template namespace, allow access to GUI
+				// if it's an existing page with <templatedate> (e.g. User template sandbox,
+				// or some other page that's intended to be transcluded for any reason).
+				$services = MediaWikiServices::getInstance();
+				$props = $services->getPageProps()->getProperties( $editPage->getTitle(), 'templatedata' );
+				$isTemplate = (bool)$props;
+			}
+			if ( $isTemplate ) {
 				$output->addModuleStyles( 'ext.templateDataGenerator.editTemplatePage.loading' );
 				$output->addHTML( '<div class="tdg-editscreen-placeholder"></div>' );
 				$output->addModules( 'ext.templateDataGenerator.editTemplatePage' );
