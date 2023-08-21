@@ -280,8 +280,9 @@ class TemplateDataValidator {
 		} elseif ( !is_array( $paramOrder ) ) {
 			return Status::newFatal( 'templatedata-invalid-type', 'paramOrder', 'array' );
 		} elseif ( count( $paramOrder ) < count( (array)$params ) ) {
-			$firstMissing = count( $paramOrder );
-			return Status::newFatal( 'templatedata-invalid-missing', "paramOrder[$firstMissing]" );
+			$missing = array_diff( array_keys( (array)$params ), $paramOrder );
+			return Status::newFatal( 'templatedata-invalid-missing',
+				"paramOrder[ \"" . implode( '", "', $missing ) . '" ]' );
 		}
 
 		// Validate each of the values corresponds to a parameter and that there are no
@@ -289,7 +290,7 @@ class TemplateDataValidator {
 		$seen = [];
 		foreach ( $paramOrder as $i => $param ) {
 			if ( !isset( $params->$param ) ) {
-				return Status::newFatal( 'templatedata-invalid-value', "paramOrder[$i]" );
+				return Status::newFatal( 'templatedata-invalid-value', "paramOrder[ \"$param\" ]" );
 			}
 			if ( isset( $seen[$param] ) ) {
 				return Status::newFatal( 'templatedata-invalid-duplicate-value',

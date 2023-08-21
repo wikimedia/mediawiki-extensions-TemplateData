@@ -1303,7 +1303,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					"paramOrder": ["foo", "bar"]
 				}
 				',
-				'status' => '(templatedata-invalid-missing: paramOrder[2])',
+				'status' => '(templatedata-invalid-missing: paramOrder[ "baz" ])',
 				'msg' => 'Incomplete paramOrder'
 			],
 			[
@@ -1331,7 +1331,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 					"paramOrder": ["foo", "bar", "baz", "quux"]
 				}
 				',
-				'status' => '(templatedata-invalid-value: paramOrder[3])',
+				'status' => '(templatedata-invalid-value: paramOrder[ "quux" ])',
 				'msg' => 'Unknown params in paramOrder'
 			],
 			[
