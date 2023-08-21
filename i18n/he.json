@@ -43,7 +43,7 @@
 	"templatedata-editbutton": "עריכת נתוני תבנית",
 	"templatedata-errormsg-jsonbadformat": "JSON בלתי־תקין. אפשר לבטל את הפעולה הזאת כדי לתקן אותו, למחוק את תגי ה־<templatedata> הנוכחיים ולנסות שוב, או להמשיך להחליף את נתוני התבנית הנוכחיים בחדשים.",
 	"templatedata-errormsg-insertblank": "האם ברצונך להוסיף נתוני תבנית ללא מידע?",
-	"templatedata-exists-on-related-page": "לתשומת לבך: כבר יש בלוק נתוני תבנית בדף הקשור \"[[$1]]\".",
+	"templatedata-exists-on-related-page": "לתשומת ליבך: כבר יש בלוק נתוני תבנית בדף הקשור \"[[$1]]\".",
 	"templatedata-helplink": "מידע על נתוני תבנית",
 	"templatedata-invalid-unnamed-parameter": "שמות פרמטרים לא יכולים להיות ריקים. כדי לתעד פרמטרים ללא שם, נא להשתמש במספרים הפנימיים שלהם \"1\", \"2\" וכן הלאה.",
 	"templatedata-invalid-duplicate-value": "המאפיין \"$1\" (ערך: \"$3\") זהה למאפיין \"$2\".",
