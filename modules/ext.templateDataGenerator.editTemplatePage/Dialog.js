@@ -697,7 +697,8 @@ Dialog.prototype.onLanguageDropdownWidgetSelect = function ( item ) {
 		this.templateDescriptionFieldset.setLabel( mw.msg( 'templatedata-modal-title-templatedesc', this.language ) );
 
 		// Update description value
-		this.descriptionInput.setValue( this.model.getTemplateDescription( language ) );
+		this.descriptionInput.setValue( this.model.getTemplateDescription( language ) )
+			.$input.attr( { lang: language, dir: 'auto' } );
 
 		// Update all param descriptions in the param select widget
 		this.repopulateParamSelectWidget();
@@ -1089,7 +1090,9 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			break;
 		default:
 			if ( typeof value === 'object' ) {
-				value = value[ lang || this.language ];
+				lang = lang || this.language;
+				value = value[ lang ];
+				propInput.$input.attr( { lang: lang, dir: 'auto' } );
 			}
 			propInput.setValue( value || '' );
 	}
