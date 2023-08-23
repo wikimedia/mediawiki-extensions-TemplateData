@@ -693,11 +693,9 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 			],
 		];
 
-		$calls = [];
 		foreach ( $cases as $case ) {
-			$calls[] = [ $case ];
+			yield [ $case ];
 		}
-		return $calls;
 	}
 
 	private function getStatusText( Status $status ): string {
@@ -1132,11 +1130,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'msg' => 'Set label is not optional, choose first available key as final fallback'
 			],
 		];
-		$calls = [];
+
 		foreach ( $cases as $case ) {
-			$calls[] = [ $case ];
+			yield [ $case ];
 		}
-		return $calls;
 	}
 
 	/**
@@ -1348,11 +1345,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 				'msg' => 'Duplicate params in paramOrder'
 			],
 		];
-		$calls = [];
+
 		foreach ( $cases as $case ) {
-			$calls[] = [ $case ];
+			yield [ $case ];
 		}
-		return $calls;
 	}
 
 	/**
