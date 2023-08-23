@@ -76,8 +76,8 @@ class ApiTemplateData extends ApiBase {
 
 		$pageSet = $this->getPageSet();
 		$pageSet->execute();
-		$titles = $pageSet->getGoodTitles(); // page_id => Title object
-		$missingTitles = $pageSet->getMissingTitles(); // page_id => Title object
+		$titles = $pageSet->getGoodPages();
+		$missingTitles = $pageSet->getMissingPages();
 
 		$includeMissingTitles = $this->getParameter( 'doNotIgnoreMissingTitles' ) ?:
 			$this->getParameter( 'includeMissingTitles' );
