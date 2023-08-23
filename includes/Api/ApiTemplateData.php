@@ -51,9 +51,7 @@ class ApiTemplateData extends ApiBase {
 	 * @return ApiPageSet
 	 */
 	private function getPageSet(): ApiPageSet {
-		if ( $this->mPageSet === null ) {
-			$this->mPageSet = new ApiPageSet( $this );
-		}
+		$this->mPageSet ??= new ApiPageSet( $this );
 		return $this->mPageSet;
 	}
 
@@ -81,11 +79,8 @@ class ApiTemplateData extends ApiBase {
 		$titles = $pageSet->getGoodTitles(); // page_id => Title object
 		$missingTitles = $pageSet->getMissingTitles(); // page_id => Title object
 
-		$includeMissingTitles = $this->getParameter( 'includeMissingTitles' );
-		$doNotIgnoreMissingTitles = $this->getParameter( 'doNotIgnoreMissingTitles' );
-		if ( $doNotIgnoreMissingTitles ) {
-			$includeMissingTitles = $doNotIgnoreMissingTitles;
-		}
+		$includeMissingTitles = $this->getParameter( 'doNotIgnoreMissingTitles' ) ?:
+			$this->getParameter( 'includeMissingTitles' );
 
 		if ( !$titles && ( !$includeMissingTitles || !$missingTitles ) ) {
 			$result->addValue( null, 'pages', (object)[] );

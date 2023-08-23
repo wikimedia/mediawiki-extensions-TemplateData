@@ -747,12 +747,8 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
 	private function assertTemplateData( array $case ): void {
 		// Expand defaults
-		if ( !isset( $case['status'] ) ) {
-			$case['status'] = true;
-		}
-		if ( !isset( $case['msg'] ) ) {
-			$case['msg'] = is_string( $case['status'] ) ? $case['status'] : 'TemplateData assertion';
-		}
+		$case['status'] ??= true;
+		$case['msg'] ??= $case['status'];
 
 		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
 		$actual = $t->getData();
@@ -1146,10 +1142,6 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		// Change content-language to be non-English so we can distinguish between the
 		// last 'en' fallback and the content language in our tests
 		$this->setContentLang( 'nl' );
-
-		if ( !isset( $case['msg'] ) ) {
-			$case['msg'] = is_string( $case['status'] ) ? $case['status'] : 'TemplateData assertion';
-		}
 
 		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
 		$status = $t->getStatus();
