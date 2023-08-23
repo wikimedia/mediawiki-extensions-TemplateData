@@ -8,12 +8,12 @@ use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * @group TemplateData
  * @group Database
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataBlob
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataCompressedBlob
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataNormalizer
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataValidator
+ * @license GPL-2.0-or-later
  */
 class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
@@ -1537,9 +1537,11 @@ HTML
 	public function testGetHtml( array $data, string $expected ) {
 		$t = TemplateDataBlob::newFromJSON( $this->db, json_encode( $data ) );
 		$localizer = new class implements MessageLocalizer {
+
 			public function msg( $key, ...$params ) {
 				return new RawMessage( "($key)" );
 			}
+
 		};
 		$title = Title::newFromText( 'Template:Test/doc' );
 		$formatter = new TemplateDataHtmlFormatter( $localizer );
@@ -1550,4 +1552,5 @@ HTML
 
 		$this->assertSame( $linedExpected, $linedActual );
 	}
+
 }

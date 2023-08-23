@@ -5,6 +5,9 @@ namespace MediaWiki\Extension\TemplateData;
 use Status;
 use stdClass;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class TemplateDataValidator {
 
 	public const PREDEFINED_FORMATS = [
@@ -53,7 +56,7 @@ class TemplateDataValidator {
 	];
 
 	/** @var string[] */
-	private $validParameterTypes;
+	private array $validParameterTypes;
 
 	/**
 	 * @param string[] $additionalParameterTypes
@@ -282,7 +285,7 @@ class TemplateDataValidator {
 		} elseif ( count( $paramOrder ) < count( (array)$params ) ) {
 			$missing = array_diff( array_keys( (array)$params ), $paramOrder );
 			return Status::newFatal( 'templatedata-invalid-missing',
-				"paramOrder[ \"" . implode( '", "', $missing ) . '" ]' );
+				'paramOrder[ "' . implode( '", "', $missing ) . '" ]' );
 		}
 
 		// Validate each of the values corresponds to a parameter and that there are no
@@ -413,10 +416,6 @@ class TemplateDataValidator {
 		return null;
 	}
 
-	/**
-	 * @param string|null $format
-	 * @return bool
-	 */
 	private function isValidCustomFormatString( ?string $format ): bool {
 		return $format && preg_match( '/^\n?{{ *_+\n? *\|\n? *_+ *= *_+\n? *}}\n?$/', $format );
 	}

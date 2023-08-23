@@ -3,8 +3,8 @@
 use MediaWiki\Extension\TemplateData\TemplateDataStatus;
 
 /**
- * @group TemplateData
  * @covers \MediaWiki\Extension\TemplateData\TemplateDataStatus
+ * @license GPL-2.0-or-later
  */
 class SerializationTest extends MediaWikiIntegrationTestCase {
 

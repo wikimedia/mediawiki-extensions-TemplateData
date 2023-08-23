@@ -1,10 +1,4 @@
 <?php
-/**
- * Implement the 'templatedata' query module in the API.
- * Format JSON only.
- *
- * @file
- */
 
 namespace MediaWiki\Extension\TemplateData\Api;
 
@@ -21,16 +15,16 @@ use TextContent;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
+ * Implement the 'templatedata' query module in the API.
+ * Format JSON only.
+ * @license GPL-2.0-or-later
  * @ingroup API
  * @emits error.code templatedata-corrupt
  * @todo Support continuation (see I1a6e51cd)
  */
 class ApiTemplateData extends ApiBase {
 
-	/**
-	 * @var ApiPageSet|null
-	 */
-	private $mPageSet = null;
+	private ?ApiPageSet $mPageSet = null;
 
 	/**
 	 * For backwards compatibility, this module needs to output format=json when
@@ -47,9 +41,6 @@ class ApiTemplateData extends ApiBase {
 		return null;
 	}
 
-	/**
-	 * @return ApiPageSet
-	 */
 	private function getPageSet(): ApiPageSet {
 		$this->mPageSet ??= new ApiPageSet( $this );
 		return $this->mPageSet;
@@ -281,4 +272,5 @@ class ApiTemplateData extends ApiBase {
 	public function getHelpUrls() {
 		return 'https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:TemplateData';
 	}
+
 }

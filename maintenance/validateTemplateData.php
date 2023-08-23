@@ -9,6 +9,9 @@ require_once "$IP/maintenance/Maintenance.php";
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\Title\Title;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class ValidateTemplateData extends Maintenance {
 
 	public function __construct() {
@@ -60,6 +63,7 @@ class ValidateTemplateData extends Maintenance {
 		$this->output( "Rows checked: {$rowsChecked}\n" );
 		$this->output( "Bad rows: {$badRows}\n" );
 	}
+
 }
 
 $maintClass = ValidateTemplateData::class;

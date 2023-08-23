@@ -1,7 +1,5 @@
 <?php
 
-// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
-
 namespace MediaWiki\Extension\TemplateData;
 
 use CommentStoreComment;
@@ -30,12 +28,9 @@ use ResourceLoader;
 use Status;
 
 /**
- * Hooks for TemplateData extension
- *
- * @file
- * @ingroup Extensions
+ * @license GPL-2.0-or-later
+ * phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName
  */
-
 class Hooks implements
 	EditPage__showEditForm_fieldsHook,
 	ParserFirstCallInitHook,
@@ -126,16 +121,11 @@ class Hooks implements
 		return true;
 	}
 
-	/**
-	 * @param RevisionRecord $revisionRecord
-	 * @param ?string $newPageProperty
-	 * @param UserIdentity $user
-	 */
 	private static function logChangeEvent(
 		RevisionRecord $revisionRecord,
 		?string $newPageProperty,
 		UserIdentity $user
-	) {
+	): void {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
 			return;
 		}
@@ -213,7 +203,7 @@ class Hooks implements
 	 *
 	 * @return string HTML to insert in the page.
 	 */
-	public static function render( $input, $args, Parser $parser, $frame ) {
+	public static function render( ?string $input, array $args, Parser $parser, PPFrame $frame ): string {
 		$parserOutput = $parser->getOutput();
 		$ti = TemplateDataBlob::newFromJSON( wfGetDB( DB_REPLICA ), $input ?? '' );
 
@@ -268,7 +258,6 @@ class Hooks implements
 			$localizer = new TemplateDataMessageLocalizer( $lang );
 			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
 			$formatter->replaceEditLink( $text );
-
 		}
 	}
 
@@ -315,7 +304,7 @@ class Hooks implements
 			}
 
 			if ( !$title->exists() ) {
-				$tplData[$tplTitle] = (object)[ "missing" => true ];
+				$tplData[$tplTitle] = (object)[ 'missing' => true ];
 				continue;
 			}
 
@@ -331,7 +320,7 @@ class Hooks implements
 			$props = $pageProps->getProperties( $title, 'templatedata' );
 			if ( !isset( $props[$pageId] ) ) {
 				// No templatedata
-				$tplData[$tplTitle] = (object)[ "notemplatedata" => true ];
+				$tplData[$tplTitle] = (object)[ 'notemplatedata' => true ];
 				continue;
 			}
 
@@ -339,7 +328,7 @@ class Hooks implements
 			$status = $tdb->getStatus();
 			if ( !$status->isOK() ) {
 				// Invalid data. Parsoid has no use for the error.
-				$tplData[$tplTitle] = (object)[ "notemplatedata" => true ];
+				$tplData[$tplTitle] = (object)[ 'notemplatedata' => true ];
 				continue;
 			}
 

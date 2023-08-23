@@ -4,6 +4,9 @@ namespace MediaWiki\Extension\TemplateData;
 
 use Status;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class TemplateDataStatus {
 
 	/**

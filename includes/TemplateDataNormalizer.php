@@ -4,6 +4,9 @@ namespace MediaWiki\Extension\TemplateData;
 
 use stdClass;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class TemplateDataNormalizer {
 
 	public const DEPRECATED_PARAMETER_TYPES = [
@@ -13,12 +16,8 @@ class TemplateDataNormalizer {
 		'string/wiki-file-name' => 'wiki-file-name',
 	];
 
-	/** @var string */
 	private string $contentLanguageCode;
 
-	/**
-	 * @param string $contentLanguageCode
-	 */
 	public function __construct( string $contentLanguageCode ) {
 		$this->contentLanguageCode = $contentLanguageCode;
 	}
@@ -26,7 +25,7 @@ class TemplateDataNormalizer {
 	/**
 	 * @param stdClass $data Expected to be valid according to the {@see TemplateDataValidator}
 	 */
-	public function normalize( stdClass $data ) {
+	public function normalize( stdClass $data ): void {
 		$data->description ??= null;
 		$data->sets ??= [];
 		$data->maps ??= (object)[];
@@ -55,10 +54,7 @@ class TemplateDataNormalizer {
 		}
 	}
 
-	/**
-	 * @param stdClass $paramObj
-	 */
-	private function normalizeParameter( stdClass $paramObj ) {
+	private function normalizeParameter( stdClass $paramObj ): void {
 		$paramObj->label ??= null;
 		$paramObj->description ??= null;
 		$paramObj->required ??= false;
@@ -91,7 +87,7 @@ class TemplateDataNormalizer {
 	/**
 	 * @param string|stdClass &$text
 	 */
-	private function normaliseInterfaceText( &$text ) {
+	private function normaliseInterfaceText( &$text ): void {
 		if ( is_string( $text ) ) {
 			$text = (object)[ $this->contentLanguageCode => $text ];
 		}

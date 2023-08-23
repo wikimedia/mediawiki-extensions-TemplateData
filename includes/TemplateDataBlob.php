@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * @ingroup Extensions
- */
 
 namespace MediaWiki\Extension\TemplateData;
 
@@ -15,18 +11,12 @@ use Wikimedia\Rdbms\IReadableDatabase;
  * Represents the information about a template,
  * coming from the JSON blob in the <templatedata> tags
  * on wiki pages.
+ * @license GPL-2.0-or-later
  */
 class TemplateDataBlob {
 
-	/**
-	 * @var string
-	 */
-	protected $json;
-
-	/**
-	 * @var Status
-	 */
-	protected $status;
+	protected string $json;
+	protected Status $status;
 
 	/**
 	 * Parse and validate passed JSON and create a blob handling
@@ -117,9 +107,6 @@ class TemplateDataBlob {
 		return null;
 	}
 
-	/**
-	 * @return Status
-	 */
 	public function getStatus(): Status {
 		return $this->status;
 	}

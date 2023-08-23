@@ -9,18 +9,14 @@ use MediaWiki\Title\Title;
 use MessageLocalizer;
 use stdClass;
 
+/**
+ * @license GPL-2.0-or-later
+ */
 class TemplateDataHtmlFormatter {
 
-	/** @var MessageLocalizer */
-	private $localizer;
+	private MessageLocalizer $localizer;
+	private string $languageCode;
 
-	/** @var string */
-	private $languageCode;
-
-	/**
-	 * @param MessageLocalizer $localizer
-	 * @param string $languageCode
-	 */
 	public function __construct( MessageLocalizer $localizer, string $languageCode = 'en' ) {
 		$this->localizer = $localizer;
 		$this->languageCode = $languageCode;
@@ -57,7 +53,7 @@ class TemplateDataHtmlFormatter {
 			}
 		}
 
-		$sorting = count( (array)$data->params ) > 1 ? " sortable" : "";
+		$sorting = count( (array)$data->params ) > 1 ? ' sortable' : '';
 		$html = '<header>'
 			. Html::element( 'p',
 				[
@@ -138,12 +134,12 @@ class TemplateDataHtmlFormatter {
 	 *
 	 * @param string &$text
 	 */
-	public function replaceEditLink( string &$text ) {
+	public function replaceEditLink( string &$text ): void {
 		$localizer = $this->localizer;
 		$text = preg_replace_callback(
 			// Based on EDITSECTION_REGEX in ParserOutput
 			'#<mw:edittemplatedata page="(.*?)"></mw:edittemplatedata>#s',
-			static function ( $m ) use ( $localizer ) {
+			static function ( array $m ) use ( $localizer ): string {
 				$editsectionPage = Title::newFromText( htmlspecialchars_decode( $m[1] ) );
 
 				if ( !is_object( $editsectionPage ) ) {
