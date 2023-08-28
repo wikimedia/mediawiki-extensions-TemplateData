@@ -5,7 +5,9 @@
 			"Аҡҡашҡа",
 			"Лилиә",
 			"Ләйсән",
-			"Янмурза Баки"
+			"Янмурза Баки",
+			"MR973",
+			"З. ӘЙЛЕ"
 		]
 	},
 	"templatedata-desc": "Ҡалыптың параметрҙарына һаҡлағысҡты тормошҡа ашырыу (JSON ярҙамында)",
@@ -51,7 +53,7 @@
 	"templatedata-modal-button-add-language": "Тел өҫтәргә.",
 	"templatedata-modal-button-addparam": "Параметр өҫтәргә.",
 	"templatedata-modal-button-apply": "Ҡулланырға.",
-	"templatedata-modal-button-back": "Артҡа",
+	"templatedata-modal-button-back": "Кирегә",
 	"templatedata-modal-button-cancel": "Кире алырға",
 	"templatedata-modal-button-changelang": "Телде үҙгәртергә.",
 	"templatedata-modal-button-delparam": "Параметр тураһында мәғлүмәтте кире алырға",
