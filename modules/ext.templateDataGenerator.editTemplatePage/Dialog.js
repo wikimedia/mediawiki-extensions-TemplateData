@@ -1090,9 +1090,7 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			break;
 		default:
 			if ( typeof value === 'object' ) {
-				lang = lang || this.language;
-				value = value[ lang ];
-				propInput.$input.attr( { lang: lang, dir: 'auto' } );
+				value = value[ lang || this.language ];
 			}
 			propInput.setValue( value || '' );
 	}
@@ -1269,6 +1267,7 @@ Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
 		// * templatedata-modal-table-param-uneditablefield
 		var label = mw.msg( 'templatedata-modal-table-param-' + prop, lang );
 		this.propFieldLayout[ prop ].setLabel( label );
+		this.propInputs[ prop ].$input.attr( { lang: lang, dir: 'auto' } );
 	}
 };
 
