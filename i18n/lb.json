@@ -62,7 +62,7 @@
 	"templatedata-modal-format-inline": "Inline",
 	"templatedata-modal-format-null": "Net uginn",
 	"templatedata-modal-json-error-replace": "Ersetzen",
-	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|Een neie Parameter gouf|$1 nei Parametere goufen}} importéiert: $2",
+	"templatedata-modal-notice-import-numparams": "{{PLURAL:$1|En neie Parameter gouf|$1 nei Parametere goufen}} importéiert: $2",
 	"templatedata-modal-placeholder-paramkey": "Numm vum Parameter",
 	"templatedata-modal-search-input-placeholder": "Nom Numm oder nom Code vun der Sprooch sichen",
 	"templatedata-modal-table-param-actions": "Aktiounen",
