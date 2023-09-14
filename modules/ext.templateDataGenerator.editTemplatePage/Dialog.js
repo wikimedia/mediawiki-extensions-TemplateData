@@ -1177,7 +1177,6 @@ Dialog.prototype.createParamDetails = function () {
 		this.propInputs[ property ] = propInput;
 
 		// The following classes are used here:
-		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-actions
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-aliases
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-autovalue
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-default
@@ -1193,14 +1192,12 @@ Dialog.prototype.createParamDetails = function () {
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-suggested
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-suggestedvalues
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-type
-		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-uneditablefield
 		propInput.$element
 			.addClass( 'tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-' + property );
 
 		this.propFieldLayout[ property ] = new OO.ui.FieldLayout( propInput, {
 			align: 'left',
 			// The following messages are used here:
-			// * templatedata-modal-table-param-actions
 			// * templatedata-modal-table-param-aliases
 			// * templatedata-modal-table-param-autovalue
 			// * templatedata-modal-table-param-default
@@ -1216,7 +1213,6 @@ Dialog.prototype.createParamDetails = function () {
 			// * templatedata-modal-table-param-suggested
 			// * templatedata-modal-table-param-suggestedvalues
 			// * templatedata-modal-table-param-type
-			// * templatedata-modal-table-param-uneditablefield
 			label: mw.msg( 'templatedata-modal-table-param-' + property )
 		} );
 
@@ -1248,7 +1244,6 @@ Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
 	for ( var i = 0; i < languageProps.length; i++ ) {
 		var prop = languageProps[ i ];
 		// The following messages are used here:
-		// * templatedata-modal-table-param-actions
 		// * templatedata-modal-table-param-aliases
 		// * templatedata-modal-table-param-autovalue
 		// * templatedata-modal-table-param-default
@@ -1264,7 +1259,6 @@ Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
 		// * templatedata-modal-table-param-suggested
 		// * templatedata-modal-table-param-suggestedvalues
 		// * templatedata-modal-table-param-type
-		// * templatedata-modal-table-param-uneditablefield
 		var label = mw.msg( 'templatedata-modal-table-param-' + prop, lang );
 		this.propFieldLayout[ prop ].setLabel( label );
 		this.propInputs[ prop ].$input.attr( { lang: lang, dir: 'auto' } );
