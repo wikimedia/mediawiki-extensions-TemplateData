@@ -704,7 +704,7 @@ Dialog.prototype.onLanguageDropdownWidgetSelect = function ( item ) {
 		this.repopulateParamSelectWidget();
 
 		// Update the parameter detail page
-		this.updateParamDetailsLanguage( this.language );
+		this.updateParamDetailsLanguage();
 
 		this.emit( 'change-language', this.language );
 	}
@@ -1226,20 +1226,16 @@ Dialog.prototype.createParamDetails = function () {
 		paramFieldset.$element.append( this.propFieldLayout[ property ].$element );
 	}
 	// Update parameter property fields with languages
-	this.updateParamDetailsLanguage( this.language );
+	this.updateParamDetailsLanguage();
 	return paramFieldset.$element;
 };
 
 /**
  * Update the labels for parameter property inputs that include language, so
  * they show the currently used language.
- *
- * @param {string} [lang] Language. If not used, will use currently defined
- *  language.
  */
-Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
+Dialog.prototype.updateParamDetailsLanguage = function () {
 	var languageProps = Model.static.getPropertiesWithLanguage();
-	lang = lang || this.language;
 
 	for ( var i = 0; i < languageProps.length; i++ ) {
 		var prop = languageProps[ i ];
@@ -1259,9 +1255,9 @@ Dialog.prototype.updateParamDetailsLanguage = function ( lang ) {
 		// * templatedata-modal-table-param-suggested
 		// * templatedata-modal-table-param-suggestedvalues
 		// * templatedata-modal-table-param-type
-		var label = mw.msg( 'templatedata-modal-table-param-' + prop, lang );
+		var label = mw.msg( 'templatedata-modal-table-param-' + prop, this.language );
 		this.propFieldLayout[ prop ].setLabel( label );
-		this.propInputs[ prop ].$input.attr( { lang: lang, dir: 'auto' } );
+		this.propInputs[ prop ].$input.attr( { lang: this.language, dir: 'auto' } );
 	}
 };
 
