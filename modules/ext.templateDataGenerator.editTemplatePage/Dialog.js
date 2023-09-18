@@ -837,9 +837,9 @@ Dialog.prototype.onTemplateFormatInputWidgetChange = function ( value ) {
 		// Convert literal newlines or backslash-n to our fancy character
 		// replacement.
 		var format = this.displayToFormat( value );
-		var newValue = this.formatToDisplay( format );
-		if ( newValue !== value ) {
-			this.templateFormatInputWidget.setValue( newValue );
+		var normalized = this.formatToDisplay( format );
+		if ( normalized !== value ) {
+			this.templateFormatInputWidget.setValue( normalized );
 			// Will recurse to actually set value in model.
 		} else {
 			this.model.setTemplateFormat( this.displayToFormat( value.trim() ) );
@@ -857,19 +857,19 @@ Dialog.prototype.onTemplateFormatInputWidgetEnter = function () {
 	);
 };
 
-Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
+Dialog.prototype.onParamPropertyInputChange = function ( propName, value ) {
 	var $errors = $( [] ),
 		allProps = Model.static.getAllProperties( true ),
-		propInput = this.propInputs[ property ],
-		dependentField = allProps[ property ].textValue;
+		propInput = this.propInputs[ propName ],
+		dependentField = allProps[ propName ].textValue;
 
-	if ( allProps[ property ].type === 'select' ) {
+	if ( allProps[ propName ].type === 'select' ) {
 		var selected = propInput.getMenu().findSelectedItem();
-		value = selected ? selected.getData() : allProps[ property ].default;
+		value = selected ? selected.getData() : allProps[ propName ].default;
 		this.toggleSuggestedValues( value );
 	}
 
-	if ( property === 'name' ) {
+	if ( propName === 'name' ) {
 		if ( value.length === 0 ) {
 			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) ) );
 		}
@@ -879,12 +879,12 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 		}
 	}
 
-	if ( allProps[ property ].type === 'array' ) {
+	if ( allProps[ propName ].type === 'array' ) {
 		value = propInput.getValue();
 	}
 
-	if ( allProps[ property ].restrict ) {
-		if ( value.match( allProps[ property ].restrict ) ) {
+	if ( allProps[ propName ].restrict ) {
+		if ( value.match( allProps[ propName ].restrict ) ) {
 			// Error! Don't fix the model
 			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) ) );
 		}
@@ -911,7 +911,7 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 		this.toggleNoticeMessage( 'edit', true, 'error', $errors );
 	} else {
 		this.toggleNoticeMessage( 'edit', false );
-		this.model.setParamProperty( this.selectedParamKey, property, value, this.language );
+		this.model.setParamProperty( this.selectedParamKey, propName, value, this.language );
 	}
 
 	// If we're changing the aliases and the name has an error, poke its change
@@ -919,11 +919,11 @@ Dialog.prototype.onParamPropertyInputChange = function ( property, value ) {
 	// aliases.
 	// FIXME: Don't read model information from the DOM
 	// eslint-disable-next-line no-jquery/no-class-state
-	if ( property === 'aliases' && this.propInputs.name.$element.hasClass( 'tdg-editscreen-input-error' ) ) {
+	if ( propName === 'aliases' && this.propInputs.name.$element.hasClass( 'tdg-editscreen-input-error' ) ) {
 		this.onParamPropertyInputChange( 'name', this.propInputs.name.getValue() );
 	}
 
-	this.trackPropertyChange( property );
+	this.trackPropertyChange( propName );
 };
 
 Dialog.prototype.toggleSuggestedValues = function ( type ) {
@@ -1125,22 +1125,22 @@ Dialog.prototype.createParamDetails = function () {
 	// Fieldset
 	var paramFieldset = new OO.ui.FieldsetLayout();
 
-	for ( var property in paramProperties ) {
+	for ( var propName in paramProperties ) {
 		var propInput;
 		var config = {
-			multiline: paramProperties[ property ].multiline
+			multiline: paramProperties[ propName ].multiline
 		};
-		if ( paramProperties[ property ].multiline ) {
+		if ( paramProperties[ propName ].multiline ) {
 			config.autosize = true;
 		}
 		// Create the property inputs
-		switch ( paramProperties[ property ].type ) {
+		switch ( paramProperties[ propName ].type ) {
 			case 'select':
 				propInput = new OO.ui.DropdownWidget( config );
-				var typeItemArray = [];
-				for ( var i in paramProperties[ property ].children ) {
-					typeItemArray.push( new OO.ui.MenuOptionWidget( {
-						data: paramProperties[ property ].children[ i ],
+				var items = [];
+				for ( var i in paramProperties[ propName ].children ) {
+					items.push( new OO.ui.MenuOptionWidget( {
+						data: paramProperties[ propName ].children[ i ],
 
 						// The following messages are used here:
 						// * templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
@@ -1150,10 +1150,10 @@ Dialog.prototype.createParamDetails = function () {
 						// * templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
 						// * templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
 						// * templatedata-doc-param-type-wiki-user-name
-						label: mw.msg( 'templatedata-doc-param-' + property + '-' + paramProperties[ property ].children[ i ] )
+						label: mw.msg( 'templatedata-doc-param-' + propName + '-' + paramProperties[ propName ].children[ i ] )
 					} ) );
 				}
-				propInput.getMenu().addItems( typeItemArray );
+				propInput.getMenu().addItems( items );
 				break;
 			case 'boolean':
 				propInput = new OO.ui.CheckboxInputWidget( config );
@@ -1174,7 +1174,7 @@ Dialog.prototype.createParamDetails = function () {
 				break;
 		}
 
-		this.propInputs[ property ] = propInput;
+		this.propInputs[ propName ] = propInput;
 
 		// The following classes are used here:
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-aliases
@@ -1193,9 +1193,9 @@ Dialog.prototype.createParamDetails = function () {
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-suggestedvalues
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-type
 		propInput.$element
-			.addClass( 'tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-' + property );
+			.addClass( 'tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-' + propName );
 
-		this.propFieldLayout[ property ] = new OO.ui.FieldLayout( propInput, {
+		this.propFieldLayout[ propName ] = new OO.ui.FieldLayout( propInput, {
 			align: 'left',
 			// The following messages are used here:
 			// * templatedata-modal-table-param-aliases
@@ -1213,17 +1213,17 @@ Dialog.prototype.createParamDetails = function () {
 			// * templatedata-modal-table-param-suggested
 			// * templatedata-modal-table-param-suggestedvalues
 			// * templatedata-modal-table-param-type
-			label: mw.msg( 'templatedata-modal-table-param-' + property )
+			label: mw.msg( 'templatedata-modal-table-param-' + propName )
 		} );
 
 		// Event
 		if ( propInput instanceof OO.ui.DropdownWidget ) {
-			propInput.getMenu().connect( this, { choose: [ 'onParamPropertyInputChange', property ] } );
+			propInput.getMenu().connect( this, { choose: [ 'onParamPropertyInputChange', propName ] } );
 		} else {
-			propInput.connect( this, { change: [ 'onParamPropertyInputChange', property ] } );
+			propInput.connect( this, { change: [ 'onParamPropertyInputChange', propName ] } );
 		}
 		// Append to parameter section
-		paramFieldset.$element.append( this.propFieldLayout[ property ].$element );
+		paramFieldset.$element.append( this.propFieldLayout[ propName ].$element );
 	}
 	// Update parameter property fields with languages
 	this.updateParamDetailsLanguage();
@@ -1372,8 +1372,8 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 
 			this.newLanguageSearch.addResults();
 
-			var languageItems = [],
-				language = this.model.getDefaultLanguage(),
+			var items = [],
+				defaultLanguage = this.model.getDefaultLanguage(),
 				languages = this.model.getExistingLanguageCodes();
 
 			// Bring in the editNoticeMessage from the main page
@@ -1384,28 +1384,28 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 			// Fill up the language selection
 			if (
 				languages.length === 0 ||
-				languages.indexOf( language ) === -1
+				languages.indexOf( defaultLanguage ) === -1
 			) {
 				// Add the default language
-				languageItems.push( new OO.ui.MenuOptionWidget( {
-					data: language,
-					label: $.uls.data.getAutonym( language )
+				items.push( new OO.ui.MenuOptionWidget( {
+					data: defaultLanguage,
+					label: $.uls.data.getAutonym( defaultLanguage )
 				} ) );
-				this.availableLanguages.push( language );
+				this.availableLanguages.push( defaultLanguage );
 			}
 
 			// Add all available languages
 			for ( var i = 0; i < languages.length; i++ ) {
-				languageItems.push( new OO.ui.MenuOptionWidget( {
+				items.push( new OO.ui.MenuOptionWidget( {
 					data: languages[ i ],
 					label: $.uls.data.getAutonym( languages[ i ] )
 				} ) );
 				// Store available languages
 				this.availableLanguages.push( languages[ i ] );
 			}
-			this.languageDropdownWidget.getMenu().addItems( languageItems );
+			this.languageDropdownWidget.getMenu().addItems( items );
 			// Trigger the initial language choice
-			this.languageDropdownWidget.getMenu().selectItemByData( language );
+			this.languageDropdownWidget.getMenu().selectItemByData( defaultLanguage );
 
 			this.isSetup = true;
 
