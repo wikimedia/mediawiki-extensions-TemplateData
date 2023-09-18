@@ -757,14 +757,10 @@ Dialog.prototype.onAddParamButtonClick = function () {
 
 	var newParamKey = this.newParamInput.getValue().trim();
 	if ( this.model.isParamDeleted( newParamKey ) ) {
-		// Empty param
 		this.model.emptyParamData( newParamKey );
 	} else if ( !this.model.isParamExists( newParamKey ) ) {
-		// Add to model
-		if ( this.model.addParam( newParamKey ) ) {
-			// Add parameter to list
-			this.addParamToSelectWidget( newParamKey );
-		}
+		this.model.addParam( newParamKey );
+		this.addParamToSelectWidget( newParamKey );
 	}
 	// Reset the input
 	this.newParamInput.setValue( '' );
