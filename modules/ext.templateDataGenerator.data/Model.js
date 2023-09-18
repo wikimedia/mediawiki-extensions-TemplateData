@@ -100,16 +100,7 @@ Model.static.compare = function ( obj1, obj2, allowSubset ) {
  * @return {string} Normalized non-obsolete type
  */
 Model.static.translateObsoleteParamTypes = function ( paramType ) {
-	switch ( paramType ) {
-		case 'string/wiki-page-name':
-			return 'wiki-page-name';
-		case 'string/wiki-file-name':
-			return 'wiki-file-name';
-		case 'string/wiki-user-name':
-			return 'wiki-user-name';
-		default:
-			return paramType;
-	}
+	return paramType.replace( /^string\//, '' );
 };
 
 /**
