@@ -49,6 +49,7 @@
 	"templatedata-errormsg-insertblank": "Är du säker på att du vill infoga malldata utan information?",
 	"templatedata-exists-on-related-page": "OBS: Det finns redan ett block med malldata på den relaterade sidan ''[[$1]]''.",
 	"templatedata-helplink": "Information om malldata",
+	"templatedata-invalid-unnamed-parameter": "Parameternamn får inte vara tomma. Använd deras interna nummer (\"1\", \"2\" och så vidare) för att dokumentera namnlösa parametrar.",
 	"templatedata-invalid-duplicate-value": "Egenskapen \"$1\" (\"$3\") är en dubblett av \"$2\".",
 	"templatedata-invalid-empty-array": "Egenskap \"$1\" måste ha minst ett värde i sin tabell.",
 	"templatedata-invalid-format": "Egenskapen \"$1\" förväntas vara \"inline\", \"block\" eller en giltig formateringssträng.",
