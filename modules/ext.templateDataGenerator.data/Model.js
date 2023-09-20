@@ -337,10 +337,8 @@ Model.prototype.importSourceCodeParameters = function () {
 
 	// Add sourceCodeParameters to the model
 	this.sourceCodeParameters.forEach( function ( sourceCodeParameter ) {
-		if (
-			existingArray.indexOf( sourceCodeParameter ) === -1 &&
-			model.addParam( sourceCodeParameter )
-		) {
+		if ( existingArray.indexOf( sourceCodeParameter ) === -1 ) {
+			model.addParam( sourceCodeParameter );
 			importedArray.push( sourceCodeParameter );
 		} else {
 			skippedArray.push( sourceCodeParameter );
@@ -386,7 +384,6 @@ Model.prototype.getExistingLanguageCodes = function () {
  *
  * @param {string} key Parameter key
  * @param {Object} [paramData] Parameter data
- * @return {boolean} Parameter was added successfully
  * @fires add-param
  * @fires change
  */
@@ -470,7 +467,6 @@ Model.prototype.addParam = function ( key, paramData ) {
 	// Trigger the add parameter event
 	this.emit( 'add-param', key, this.params[ key ] );
 	this.emit( 'change' );
-	return true;
 };
 
 /**
