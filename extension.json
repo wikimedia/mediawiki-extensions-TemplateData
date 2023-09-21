@@ -91,6 +91,7 @@
 			],
 			"dependencies": [
 				"mediawiki.api",
+				"mediawiki.language",
 				"mediawiki.user",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
