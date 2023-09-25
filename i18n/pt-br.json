@@ -55,6 +55,7 @@
 	"templatedata-errormsg-insertblank": "Tem certeza de que deseja inserir dados da predefinição sem informações?",
 	"templatedata-exists-on-related-page": "Observe: já existe um bloco de dados da predefinição na página relacionada \"[[$1]]\".",
 	"templatedata-helplink": "Informação sobre os dados da predefinição",
+	"templatedata-invalid-unnamed-parameter": "Os nomes dos parâmetros não podem ser vazios. Para documentar parâmetros sem nome, use seus números internos \"1\", \"2\" e assim por diante.",
 	"templatedata-invalid-duplicate-value": "A propriedade \"$1\" (\"$3\") é uma duplicata de \"$2\".",
 	"templatedata-invalid-empty-array": "Propriedade \"$1\" deve ter pelo menos um valor em sua matriz.",
 	"templatedata-invalid-format": "A propriedade \"$1\" deverá ser \"inline\", \"block\" ou uma string de formato válida.",
