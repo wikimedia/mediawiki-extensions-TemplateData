@@ -1221,8 +1221,6 @@ Dialog.prototype.createParamDetails = function () {
 		// Append to parameter section
 		paramFieldset.$element.append( this.propFieldLayout[ propName ].$element );
 	}
-	// Update parameter property fields with languages
-	this.updateParamDetailsLanguage();
 	return paramFieldset.$element;
 };
 
