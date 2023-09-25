@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\TemplateData;
 use CommentStoreComment;
 use ExtensionRegistry;
 use Html;
+use MediaWiki\Config\Config;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\EventLogging\EventLogging;
 use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
@@ -40,6 +41,13 @@ class Hooks implements
 	ParserFetchTemplateDataHook,
 	OutputPageBeforeHTMLHook
 {
+
+	/** @var Config */
+	private $config;
+
+	public function __construct( Config $mainConfig ) {
+		$this->config = $mainConfig;
+	}
 
 	/**
 	 * @param EditPage $editPage
@@ -171,8 +179,7 @@ class Hooks implements
 	 * @param OutputPage $output
 	 */
 	public function onEditPage__showEditForm_initial( $editPage, $output ) {
-		global $wgTemplateDataUseGUI;
-		if ( $wgTemplateDataUseGUI ) {
+		if ( $this->config->get( 'TemplateDataUseGUI' ) ) {
 			$isTemplate = $output->getTitle()->inNamespace( NS_TEMPLATE );
 			if ( !$isTemplate ) {
 				// If we're outside the Template namespace, allow access to GUI
