@@ -34,7 +34,10 @@
 	},
 	"HookHandlers": {
 		"main": {
-			"class": "MediaWiki\\Extension\\TemplateData\\Hooks"
+			"class": "MediaWiki\\Extension\\TemplateData\\Hooks",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"MessagesDirs": {
