@@ -60,7 +60,7 @@
 	"templatedata-invalid-format": "الخاصية \"$1\" متوقع أن تكون \"inline\"، \"block\" أو سلسلة حروف صياغة صحيحة.",
 	"templatedata-invalid-length": "لم تحفظ البيانات لكبر حجمها ($1 {{PLURAL:$1|بايت|بايتات}}، {{PLURAL:$2|الحجم الأقصى}} $2)",
 	"templatedata-invalid-missing": "خاصية \"$1\" ضرورية.",
-	"templatedata-invalid-param": "معامل غير صحيح \"$1\" للخاصية \"$2\".",
+	"templatedata-invalid-param": "وسيط غير صحيح \"$1\" للخاصية \"$2\".",
 	"templatedata-invalid-parse": "خطأ نحوي",
 	"templatedata-invalid-type": "خاصية \"$1\" من نوع \"$2\".",
 	"templatedata-invalid-unknown": "خاصية \"$1\" غير متوقعة.",
