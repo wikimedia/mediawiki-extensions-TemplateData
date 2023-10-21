@@ -260,7 +260,7 @@ class Hooks implements
 	public function onOutputPageBeforeHTML( $output, &$text ) {
 		$services = MediaWikiServices::getInstance();
 		$props = $services->getPageProps()->getProperties( $output->getTitle(), 'templatedata' );
-		if ( !empty( $props ) ) {
+		if ( $props ) {
 			$lang = $output->getLanguage();
 			$localizer = new TemplateDataMessageLocalizer( $lang );
 			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
