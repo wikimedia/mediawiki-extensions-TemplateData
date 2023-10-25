@@ -1,4 +1,4 @@
-var AutosizeTextInputWidget = require( './widgets/AutosizeTextInputWidget.js' ),
+var
 	LanguageSearchWidget = require( './widgets/LanguageSearchWidget.js' ),
 	Metrics = require( './Metrics.js' ),
 	Model = require( 'ext.templateDataGenerator.data' ).Model,
@@ -1160,13 +1160,13 @@ Dialog.prototype.createParamDetails = function () {
 				propInput = new OO.ui.TagMultiselectWidget( config );
 				break;
 			default:
-				if ( config.multiline === true ) {
-					delete config.multiline;
-					propInput = new OO.ui.MultilineTextInputWidget( config );
-				} else {
-					delete config.multiline;
-					propInput = new AutosizeTextInputWidget( config );
+				if ( !config.multiline ) {
+					config.autosize = true;
+					config.rows = 1;
+					config.allowLinebreaks = false;
 				}
+				delete config.multiline;
+				propInput = new OO.ui.MultilineTextInputWidget( config );
 				break;
 		}
 

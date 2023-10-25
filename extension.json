@@ -15,7 +15,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.41"
+		"MediaWiki": ">= 1.42"
 	},
 	"APIModules": {
 		"templatedata": "MediaWiki\\Extension\\TemplateData\\Api\\ApiTemplateData"
@@ -82,7 +82,6 @@
 			"styles": "templateDataGenerator.ui.less",
 			"packageFiles": [
 				"init.js",
-				"widgets/AutosizeTextInputWidget.js",
 				"widgets/ParamSelectWidget.js",
 				"widgets/ParamWidget.js",
 				"widgets/ParamImportWidget.js",
