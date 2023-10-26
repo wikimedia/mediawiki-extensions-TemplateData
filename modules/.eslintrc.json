@@ -10,8 +10,6 @@
 	],
 	"rules": {
 		"max-len": "off",
-		"no-var": "off",
-		"no-shadow": "warn",
-		"compat/compat": "warn"
+		"no-var": "off"
 	}
 }
