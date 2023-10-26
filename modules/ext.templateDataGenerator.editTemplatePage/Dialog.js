@@ -780,7 +780,7 @@ Dialog.prototype.onParamSelectChoose = function ( item ) {
 	this.selectedParamKey = paramKey;
 
 	// The panel with the `propInputs` widgets must be made visible before changing their value.
-	// Otherwiese the autosize feature of MultilineTextInputWidget doesn't work.
+	// Otherwise the autosize feature of MultilineTextInputWidget doesn't work.
 	this.switchPanels( this.editParamPanel );
 	// Fill in parameter detail
 	this.getParameterDetails( paramKey );
