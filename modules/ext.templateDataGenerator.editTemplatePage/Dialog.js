@@ -1123,12 +1123,7 @@ Dialog.prototype.createParamDetails = function () {
 
 	for ( var propName in paramProperties ) {
 		var propInput;
-		var config = {
-			multiline: paramProperties[ propName ].multiline
-		};
-		if ( paramProperties[ propName ].multiline ) {
-			config.autosize = true;
-		}
+		var config = {};
 		// Create the property inputs
 		switch ( paramProperties[ propName ].type ) {
 			case 'select':
@@ -1160,12 +1155,11 @@ Dialog.prototype.createParamDetails = function () {
 				propInput = new OO.ui.TagMultiselectWidget( config );
 				break;
 			default:
-				if ( !config.multiline ) {
-					config.autosize = true;
+				config.autosize = true;
+				if ( !paramProperties[ propName ].multiline ) {
 					config.rows = 1;
 					config.allowLinebreaks = false;
 				}
-				delete config.multiline;
 				propInput = new OO.ui.MultilineTextInputWidget( config );
 				break;
 		}
