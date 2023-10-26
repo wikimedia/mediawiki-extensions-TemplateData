@@ -19,10 +19,7 @@ module.exports = function ( grunt ) {
 				cache: true,
 				fix: grunt.option( 'fix' )
 			},
-			all: [
-				'**/*.{js,json}',
-				'!{lib,vendor,node_modules,docs}/**'
-			]
+			all: [ '.' ]
 		},
 		stylelint: {
 			all: [
@@ -38,7 +35,8 @@ module.exports = function ( grunt ) {
 		watch: {
 			files: [
 				'.{stylelintrc,eslintrc}.json',
-				'<%= eslint.all %>',
+				'**/*.{js,json}',
+				'!{lib,vendor,node_modules,docs}/**',
 				'<%= stylelint.all %>'
 			],
 			tasks: 'test'
