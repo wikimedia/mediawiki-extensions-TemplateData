@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xuacu"
+			"Xuacu",
+			"YoaR"
 		]
 	},
 	"templatedata-desc": "Permite l'almacenamientu de datos pa los parámetros de plantíes (usando JSON)",
@@ -55,7 +56,7 @@
 	"templatedata-modal-button-addparam": "Amestar parámetru",
 	"templatedata-modal-button-apply": "Aplicar",
 	"templatedata-modal-button-back": "Anterior",
-	"templatedata-modal-button-cancel": "Encaboxar",
+	"templatedata-modal-button-cancel": "Zarrar",
 	"templatedata-modal-button-changelang": "Camudar llingua",
 	"templatedata-modal-button-delparam": "Desaniciar la información del parámetru",
 	"templatedata-modal-button-done": "Fecho",
