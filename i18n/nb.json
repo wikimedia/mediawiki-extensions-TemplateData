@@ -57,7 +57,7 @@
 	"templatedata-invalid-type": "Egenskapen «$1» forventes å være av typen «$2».",
 	"templatedata-invalid-unknown": "Uventet egenskap «$1».",
 	"templatedata-invalid-value": "Ugyldig verdi for egenskapen «$1».",
-	"templatedata-modal-button-add-language": "Tilføy språk",
+	"templatedata-modal-button-add-language": "Legg til språk",
 	"templatedata-modal-button-addparam": "Legg til parameter",
 	"templatedata-modal-button-addmap": "Legg til nytt kart",
 	"templatedata-modal-button-apply": "Bruk",
