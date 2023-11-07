@@ -856,12 +856,13 @@ Dialog.prototype.onTemplateFormatInputWidgetEnter = function () {
 Dialog.prototype.onParamPropertyInputChange = function ( propName, value ) {
 	var $errors = $( [] ),
 		allProps = Model.static.getAllProperties( true ),
+		prop = allProps[ propName ],
 		propInput = this.propInputs[ propName ],
-		dependentField = allProps[ propName ].textValue;
+		dependentField = prop.textValue;
 
-	if ( allProps[ propName ].type === 'select' ) {
+	if ( prop.type === 'select' ) {
 		var selected = propInput.getMenu().findSelectedItem();
-		value = selected ? selected.getData() : allProps[ propName ].default;
+		value = selected ? selected.getData() : prop.default;
 		this.toggleSuggestedValues( value );
 	}
 
@@ -875,12 +876,12 @@ Dialog.prototype.onParamPropertyInputChange = function ( propName, value ) {
 		}
 	}
 
-	if ( allProps[ propName ].type === 'array' ) {
+	if ( prop.type === 'array' ) {
 		value = propInput.getValue();
 	}
 
-	if ( allProps[ propName ].restrict ) {
-		if ( value.match( allProps[ propName ].restrict ) ) {
+	if ( prop.restrict ) {
+		if ( value.match( prop.restrict ) ) {
 			// Error! Don't fix the model
 			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) ) );
 		}
@@ -1122,16 +1123,17 @@ Dialog.prototype.createParamDetails = function () {
 	var paramFieldset = new OO.ui.FieldsetLayout();
 
 	for ( var propName in paramProperties ) {
+		var prop = paramProperties[ propName ];
 		var propInput;
 		var config = {};
 		// Create the property inputs
-		switch ( paramProperties[ propName ].type ) {
+		switch ( prop.type ) {
 			case 'select':
 				propInput = new OO.ui.DropdownWidget( config );
 				var items = [];
-				for ( var i in paramProperties[ propName ].children ) {
+				for ( var i in prop.children ) {
 					items.push( new OO.ui.MenuOptionWidget( {
-						data: paramProperties[ propName ].children[ i ],
+						data: prop.children[ i ],
 
 						// The following messages are used here:
 						// * templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
@@ -1141,7 +1143,7 @@ Dialog.prototype.createParamDetails = function () {
 						// * templatedata-doc-param-type-url, templatedata-doc-param-type-wiki-file-name,
 						// * templatedata-doc-param-type-wiki-page-name, templatedata-doc-param-type-wiki-template-name,
 						// * templatedata-doc-param-type-wiki-user-name
-						label: mw.msg( 'templatedata-doc-param-' + propName + '-' + paramProperties[ propName ].children[ i ] )
+						label: mw.msg( 'templatedata-doc-param-' + propName + '-' + prop.children[ i ] )
 					} ) );
 				}
 				propInput.getMenu().addItems( items );
@@ -1156,7 +1158,7 @@ Dialog.prototype.createParamDetails = function () {
 				break;
 			default:
 				config.autosize = true;
-				if ( !paramProperties[ propName ].multiline ) {
+				if ( !prop.multiline ) {
 					config.rows = 1;
 					config.allowLinebreaks = false;
 				}
