@@ -42,8 +42,7 @@ class Hooks implements
 	OutputPageBeforeHTMLHook
 {
 
-	/** @var Config */
-	private $config;
+	private Config $config;
 
 	public function __construct( Config $mainConfig ) {
 		$this->config = $mainConfig;
@@ -80,7 +79,7 @@ class Hooks implements
 		$name = 'jquery.uls.data';
 		if ( !isset( $resourceModules[$name] ) && !$resourceLoader->isModuleRegistered( $name ) ) {
 			$resourceLoader->register( [
-				'jquery.uls.data' => [
+				$name => [
 					'localBasePath' => dirname( __DIR__ ),
 					'remoteExtPath' => 'TemplateData',
 					'scripts' => [
