@@ -860,7 +860,7 @@ Dialog.prototype.onParamPropertyInputChange = function ( propName, value ) {
 		propInput = this.propInputs[ propName ],
 		dependentField = prop.textValue;
 
-	if ( prop.type === 'select' ) {
+	if ( propName === 'type' ) {
 		var selected = propInput.getMenu().findSelectedItem();
 		value = selected ? selected.getData() : prop.default;
 		this.toggleSuggestedValues( value );
@@ -960,6 +960,38 @@ Dialog.prototype.getParameterDetails = function ( paramKey ) {
 	}
 	// Update suggested values field visibility
 	this.toggleSuggestedValues( paramData.type || allProps.type.default );
+
+	var status;
+	// This accepts one of the three booleans only if the other two are false
+	if ( paramData.deprecated ) {
+		status = !paramData.required && !paramData.suggested && 'deprecated';
+	} else if ( paramData.required ) {
+		status = !paramData.deprecated && !paramData.suggested && 'required';
+	} else if ( paramData.suggested ) {
+		status = !paramData.deprecated && !paramData.required && 'suggested';
+	} else {
+		status = 'optional';
+	}
+	// Status is false at this point when more than one was set to true
+	this.propFieldLayout.status.toggle( status );
+	this.propFieldLayout.deprecated.toggle( !status );
+	this.propFieldLayout.required.toggle( !status );
+	this.propFieldLayout.suggested.toggle( !status );
+	if ( !status ) {
+		// No unambiguous status found, can't use the dropdown
+		this.propInputs.status.getMenu().disconnect( this );
+	} else {
+		this.changeParamPropertyInput( paramKey, 'status', status );
+		this.propInputs.status.getMenu().connect( this, {
+			choose: function ( item ) {
+				var selected = item.getData();
+				// Forward selection from the dropdown to the hidden checkboxes, these get saved
+				this.propInputs.deprecated.setSelected( selected === 'deprecated' );
+				this.propInputs.required.setSelected( selected === 'required' );
+				this.propInputs.suggested.setSelected( selected === 'suggested' );
+			}
+		} );
+	}
 
 	this.startParameterInputTracking( paramData );
 };
@@ -1136,6 +1168,10 @@ Dialog.prototype.createParamDetails = function () {
 						data: prop.children[ i ],
 
 						// The following messages are used here:
+						// * templatedata-doc-param-status-optional
+						// * templatedata-doc-param-status-deprecated
+						// * templatedata-doc-param-status-required
+						// * templatedata-doc-param-status-suggested
 						// * templatedata-doc-param-type-boolean, templatedata-doc-param-type-content,
 						// * templatedata-doc-param-type-date, templatedata-doc-param-type-line,
 						// * templatedata-doc-param-type-number, templatedata-doc-param-type-string,
