@@ -91,6 +91,7 @@
 	"templatedata-modal-table-param-aliases": "Aliasse",
 	"templatedata-modal-table-param-autovalue": "Autowert",
 	"templatedata-modal-table-param-default": "Standard ($1)",
+	"templatedata-modal-table-param-status": "Status",
 	"templatedata-modal-table-param-deprecated": "Veraltet",
 	"templatedata-modal-table-param-deprecatedValue": "Veraltete Anleitung",
 	"templatedata-modal-table-param-description": "Beschreibung ($1)",
