@@ -94,6 +94,7 @@
 	"templatedata-modal-table-param-aliases": "Псеудоними",
 	"templatedata-modal-table-param-autovalue": "Аутоматска вредност",
 	"templatedata-modal-table-param-default": "Подразумевано ($1)",
+	"templatedata-modal-table-param-status": "Статус",
 	"templatedata-modal-table-param-deprecated": "Застарело",
 	"templatedata-modal-table-param-deprecatedValue": "Смернице за застарели параметар",
 	"templatedata-modal-table-param-description": "Опис ($1)",
