@@ -93,7 +93,7 @@
 	"templatedata-modal-table-param-description": "Kirjeldus ($1)",
 	"templatedata-modal-table-param-example": "Näide ($1)",
 	"templatedata-modal-table-param-importoption": "Lisa {{PLURAL:$1|üks pakutav parameeter|$1 pakutavat parameetrit}}",
-	"templatedata-modal-table-param-importoption-subtitle": "Need on: $1",
+	"templatedata-modal-table-param-importoption-subtitle": "Kaasa arvatud: $1",
 	"templatedata-modal-table-param-label": "Silt ($1)",
 	"templatedata-modal-table-param-name": "Nimi",
 	"templatedata-modal-table-param-required": "Nõutav",
