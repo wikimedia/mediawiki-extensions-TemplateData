@@ -4,6 +4,9 @@ use MediaWiki\Extension\TemplateData\Api\ApiTemplateData;
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter;
 use MediaWiki\Extension\TemplateData\TemplateDataValidator;
+use MediaWiki\Language\RawMessage;
+use MediaWiki\Parser\Sanitizer;
+use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
 

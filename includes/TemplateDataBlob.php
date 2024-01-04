@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\TemplateData;
 
 use MediaWiki\MediaWikiServices;
-use Status;
+use MediaWiki\Status\Status;
 use stdClass;
 use Wikimedia\Rdbms\IReadableDatabase;
 
