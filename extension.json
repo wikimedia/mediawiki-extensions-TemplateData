@@ -196,7 +196,7 @@
 		},
 		"ext.templateData.images": {
 			"localBasePath": "modules/ext.templateData.images",
-			"class": "ResourceLoaderImageModule",
+			"class": "MediaWiki\\ResourceLoader\\ImageModule",
 			"selectorWithVariant": ".oo-ui-icon-{name}.oo-ui-image-invert",
 			"selectorWithoutVariant": ".oo-ui-icon-{name}",
 			"variants": {
