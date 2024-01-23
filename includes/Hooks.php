@@ -86,7 +86,6 @@ class Hooks implements
 						'lib/jquery.uls/src/jquery.uls.data.js',
 						'lib/jquery.uls/src/jquery.uls.data.utils.js',
 					],
-					'targets' => [ 'desktop', 'mobile' ],
 				]
 			] );
 		}
