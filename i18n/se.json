@@ -6,6 +6,7 @@
 		]
 	},
 	"templatedata-doc-desc-empty": "Ii gávdno govvádus.",
+	"templatedata-doc-no-params-set": "Paramehterat eai leat meroštuvvon",
 	"templatedata-doc-param-autovalue": "Automáhtalaš árvu",
 	"templatedata-doc-param-default": "Dábálaš",
 	"templatedata-doc-param-example": "Ovdamearka",
@@ -46,8 +47,15 @@
 	"templatedata-modal-button-saveparam": "Vurke",
 	"templatedata-modal-confirmcancel": "Áiggutgo don duođaid iežat rievdadusaid healbadit?",
 	"templatedata-modal-current-language": "Dálá giella: $1",
+	"templatedata-modal-format-block": "Blohkka",
+	"templatedata-modal-format-custom": "Heivehuvvon",
+	"templatedata-modal-format-inline": "Linjá nalde",
+	"templatedata-modal-format-null": "Ii meroštuvvon",
+	"templatedata-modal-format-placeholder": "Málleparamehtera formáhttastreaŋga",
 	"templatedata-modal-json-error-replace": "Buhtte",
+	"templatedata-modal-placeholder-add-new-map-input": "Lasiheame ođđa kártta...",
 	"templatedata-modal-placeholder-paramkey": "Paramehternamma",
+	"templatedata-modal-placeholder-prompt-map-name": "Čálit kártta nama",
 	"templatedata-modal-search-input-placeholder": "Oza giellanama dahje -koda mielde",
 	"templatedata-modal-table-param-actions": "Doaimmat",
 	"templatedata-modal-table-param-aliases": "Paramehtera lassenamat",
@@ -63,7 +71,9 @@
 	"templatedata-modal-title-addparam": "Lasit ođđa paramehtera",
 	"templatedata-modal-title-choose-language": "Vállje giela",
 	"templatedata-modal-title-language": "Giella",
+	"templatedata-modal-title-paramorder": "Paramehteriid ortnet",
 	"templatedata-modal-title-templatedesc": "Málle govvádus ($1)",
+	"templatedata-modal-title-templateformatstring": "Heivehuvvon formáhttastreaŋga",
 	"templatedata-modal-title-templateparam-details": "Paramehtera govvádus: $1",
 	"templatedata-modal-title-templateparams": "Málle paramehterat"
 }
