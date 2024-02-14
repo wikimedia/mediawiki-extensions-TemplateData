@@ -210,7 +210,8 @@ class Hooks implements
 	 */
 	public static function render( ?string $input, array $args, Parser $parser, PPFrame $frame ): string {
 		$parserOutput = $parser->getOutput();
-		$ti = TemplateDataBlob::newFromJSON( wfGetDB( DB_REPLICA ), $input ?? '' );
+		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$ti = TemplateDataBlob::newFromJSON( $dbr, $input ?? '' );
 
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
@@ -285,8 +286,10 @@ class Hooks implements
 	public function onParserFetchTemplateData( array $tplTitles, array &$tplData ): bool {
 		$tplData = [];
 
-		$pageProps = MediaWikiServices::getInstance()->getPageProps();
-		$wikiPageFactory = MediaWikiServices::getInstance()->getWikiPageFactory();
+		$services = MediaWikiServices::getInstance();
+		$pageProps = $services->getPageProps();
+		$wikiPageFactory = $services->getWikiPageFactory();
+		$dbr = $services->getConnectionProvider()->getReplicaDatabase();
 
 		// This inefficient implementation is currently tuned for
 		// Parsoid's use case where it requests info for exactly one title.
@@ -329,7 +332,7 @@ class Hooks implements
 				continue;
 			}
 
-			$tdb = TemplateDataBlob::newFromDatabase( wfGetDB( DB_REPLICA ), $props[$pageId] );
+			$tdb = TemplateDataBlob::newFromDatabase( $dbr, $props[$pageId] );
 			$status = $tdb->getStatus();
 			if ( !$status->isOK() ) {
 				// Invalid data. Parsoid has no use for the error.
