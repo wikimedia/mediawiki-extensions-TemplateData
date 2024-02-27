@@ -1212,8 +1212,6 @@ Dialog.prototype.createParamDetails = function () {
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-deprecatedValue
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-description
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-example
-		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-importoption
-		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-importoption-subtitle
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-label
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-name
 		// * tdg-templateDataDialog-paramInput tdg-templateDataDialog-paramList-required
@@ -1233,8 +1231,6 @@ Dialog.prototype.createParamDetails = function () {
 			// * templatedata-modal-table-param-deprecatedValue
 			// * templatedata-modal-table-param-description
 			// * templatedata-modal-table-param-example
-			// * templatedata-modal-table-param-importoption
-			// * templatedata-modal-table-param-importoption-subtitle
 			// * templatedata-modal-table-param-label
 			// * templatedata-modal-table-param-name
 			// * templatedata-modal-table-param-required
@@ -1273,8 +1269,6 @@ Dialog.prototype.updateParamDetailsLanguage = function () {
 		// * templatedata-modal-table-param-deprecatedValue
 		// * templatedata-modal-table-param-description
 		// * templatedata-modal-table-param-example
-		// * templatedata-modal-table-param-importoption
-		// * templatedata-modal-table-param-importoption-subtitle
 		// * templatedata-modal-table-param-label
 		// * templatedata-modal-table-param-name
 		// * templatedata-modal-table-param-required
