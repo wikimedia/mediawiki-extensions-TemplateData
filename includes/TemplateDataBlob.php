@@ -86,7 +86,7 @@ class TemplateDataBlob {
 			return $text->$langCode;
 		}
 
-		list( $userlangs, $sitelangs ) = MediaWikiServices::getInstance()->getLanguageFallback()
+		[ $userlangs, $sitelangs ] = MediaWikiServices::getInstance()->getLanguageFallback()
 			->getAllIncludingSiteLanguage( $langCode );
 
 		foreach ( $userlangs as $lang ) {
