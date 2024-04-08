@@ -8,7 +8,8 @@
 			"Milicevic01",
 			"Obsuser",
 			"Милан Јелисавчић",
-			"Сербијана"
+			"Сербијана",
+			"Zenfiric"
 		]
 	},
 	"templatedata-desc": "Омогућава чување података о параметрима шаблона (користећи JSON)",
@@ -39,7 +40,7 @@
 	"templatedata-doc-param-type-unbalanced-wikitext": "неуређен викитект",
 	"templatedata-doc-param-type-unknown": "непознат",
 	"templatedata-doc-param-type-url": "URL",
-	"templatedata-doc-param-type-wiki-file-name": "име датотеке",
+	"templatedata-doc-param-type-wiki-file-name": "датотека",
 	"templatedata-doc-param-type-wiki-page-name": "Назив странице",
 	"templatedata-doc-param-type-wiki-template-name": "име шаблона",
 	"templatedata-doc-param-type-wiki-user-name": "име корисника",
