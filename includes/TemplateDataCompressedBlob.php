@@ -25,8 +25,8 @@ class TemplateDataCompressedBlob extends TemplateDataBlob {
 	/**
 	 * @inheritDoc
 	 */
-	protected function __construct( string $json ) {
-		parent::__construct( $json );
+	protected function __construct( string $json, string $lang ) {
+		parent::__construct( $json, $lang );
 		$this->jsonDB = gzencode( $this->json );
 
 		$length = strlen( $this->jsonDB );

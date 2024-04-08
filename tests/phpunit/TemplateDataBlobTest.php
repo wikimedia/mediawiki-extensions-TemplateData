@@ -5,6 +5,7 @@ use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter;
 use MediaWiki\Extension\TemplateData\TemplateDataValidator;
 use MediaWiki\Language\RawMessage;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
@@ -1141,7 +1142,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	public function testGetDataInLanguage( array $case ) {
 		// Change content-language to be non-English so we can distinguish between the
 		// last 'en' fallback and the content language in our tests
-		$this->setContentLang( 'nl' );
+		$this->overrideConfigValue( MainConfigNames::LanguageCode, 'nl' );
 
 		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
 		$status = $t->getStatus();
