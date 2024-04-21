@@ -6,7 +6,6 @@ use MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter;
 use MediaWiki\Extension\TemplateData\TemplateDataValidator;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\MainConfigNames;
-use MediaWiki\Parser\Sanitizer;
 use MediaWiki\Status\Status;
 use MediaWiki\Title\Title;
 use Wikimedia\TestingAccessWrapper;
@@ -47,7 +46,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$cases = [
 			[
 				'input' => '{',
-				'status' => '(templatedata-invalid-parse)'
+				'status' => 'templatedata-invalid-parse'
 			],
 			[
 				'input' => '[]
@@ -94,7 +93,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 			],
 			[
 				'input' => '{ "params": { "": {} } }',
-				'status' => '(templatedata-invalid-unnamed-parameter)',
+				'status' => 'templatedata-invalid-unnamed-parameter',
 			],
 			[
 				'input' => '{ "params": { "a": [] } }',
@@ -703,11 +702,9 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	}
 
 	private function getStatusText( Status $status ): string {
-		$str = Parser::stripOuterParagraph( $status->getHtml() );
 		// Unescape char references for things like "[, "]" and "|" for
 		// cleaner test assertions and output
-		$str = Sanitizer::decodeCharReferences( $str );
-		return $str;
+		return html_entity_decode( $status->getMessage()->plain() );
 	}
 
 	private function ksort( array &$input ): void {
@@ -756,11 +753,13 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$actual = $t->getData();
 		$status = $t->getStatus();
 
-		$this->assertSame(
-			$case['status'],
-			is_string( $case['status'] ) ? $this->getStatusText( $status ) : $status->isGood(),
-			$case['msg'] . ' (status "' . $this->getStatusText( $status ) . '")'
-		);
+		if ( $case['status'] === true ) {
+			$this->assertStatusGood( $status );
+		} elseif ( !str_starts_with( $case['status'], '(' ) ) {
+			$this->assertStatusError( $case['status'], $status );
+		} else {
+			$this->assertSame( $case['status'], $this->getStatusText( $status ), $case['msg'] );
+		}
 
 		if ( !isset( $case['output'] ) ) {
 			$expected = is_string( $case['status'] )
@@ -807,10 +806,8 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		}';
 		$templateData = TemplateDataBlob::newFromJSON( $this->db, $json );
 
-		$this->assertStringStartsWith(
-			'(templatedata-invalid-length: ',
-			$this->getStatusText( $templateData->getStatus() )
-		);
+		$this->assertStatusError( 'templatedata-invalid-length',
+			$templateData->getStatus() );
 	}
 
 	/**
@@ -1147,10 +1144,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		$t = TemplateDataBlob::newFromJSON( $this->db, $case['input'] );
 		$status = $t->getStatus();
 
-		$this->assertTrue(
-			$status->isGood() ?: $this->getStatusText( $status ),
-			'Status is good: ' . $case['msg']
-		);
+		$this->assertStatusGood( $status, $case['msg'] );
 
 		$actual = $t->getDataInLanguage( $case['lang'] );
 		$this->assertJsonStringEqualsJsonString(
