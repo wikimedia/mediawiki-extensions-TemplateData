@@ -42,7 +42,7 @@
 	"templatedata-invalid-type": "«$1» шарт ючюн «$2» тип керекди.",
 	"templatedata-invalid-unknown": "Киши сакъламагъан «$1» шарт.",
 	"templatedata-invalid-value": "«$1» шарт ючюн болмазлыкъ магъана.",
-	"templatedata-modal-button-add-language": "Тилни къошуу",
+	"templatedata-modal-button-add-language": "Тил къош",
 	"templatedata-modal-button-addparam": "Параметрни къошуу",
 	"templatedata-modal-button-apply": "Хайырландыр",
 	"templatedata-modal-button-back": "Кери",
