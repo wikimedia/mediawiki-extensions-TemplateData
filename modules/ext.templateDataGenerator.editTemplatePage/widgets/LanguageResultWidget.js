@@ -20,7 +20,8 @@ function LanguageResultWidget( config ) {
 
 	// Initialization
 	this.$element.addClass( 'tdg-languageResultWidget' );
-	this.$name = $( '<div>' ).addClass( 'tdg-languageResultWidget-name' );
+	this.$name = $( '<div>' ).addClass( 'tdg-languageResultWidget-name' )
+		.attr( { lang: mw.language.bcp47( config.data.code ), dir: 'auto' } );
 	this.$otherMatch = $( '<div>' ).addClass( 'tdg-languageResultWidget-otherMatch' );
 	this.setLabel( this.$otherMatch.add( this.$name ) );
 }
