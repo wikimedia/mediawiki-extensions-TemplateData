@@ -1477,13 +1477,30 @@ Dialog.prototype.switchPanels = function ( panel ) {
 			break;
 		case this.editMapsPanel:
 			this.actions.setMode( 'maps' );
-			this.templateMapsInput.adjustSize( true ).focus();
+			this.templateMapsInput.adjustSize( true );
+			if ( !this.templateMapsInput.isDisabled() ) {
+				this.templateMapsInput.focus();
+			} else {
+				// Focus something to keep focus on the visible dialog.
+				this.focus();
+			}
 			break;
 		case this.languagePanel:
 			this.actions.setMode( 'language' );
 			this.newLanguageSearch.query.focus();
 			break;
 	}
+};
+
+/**
+ * @inheritdoc
+ */
+Dialog.prototype.getEscapeAction = function () {
+	const backCloseOrCancel = this.actions.get( { flags: [ 'back', 'close' ], actions: 'cancel', visible: true } );
+	if ( backCloseOrCancel.length ) {
+		return backCloseOrCancel[ 0 ].getAction();
+	}
+	return null;
 };
 
 /**
@@ -1506,6 +1523,7 @@ Dialog.prototype.getActionProcess = function ( action ) {
 			this.switchPanels();
 		} );
 	}
+	// Back button in the top-left corner of the "Add language" and "Add parameter" panels
 	if ( action === 'back' ) {
 		return new OO.ui.Process( () => {
 			this.switchPanels();
@@ -1516,6 +1534,7 @@ Dialog.prototype.getActionProcess = function ( action ) {
 			this.switchPanels( this.editMapsPanel );
 		} );
 	}
+	// "Cancel" button in the bottom-left corner of the "Edit maps" panel
 	if ( action === 'cancel' ) {
 		return new OO.ui.Process( () => {
 			this.mapsCache = OO.copy( this.model.getOriginalMapsInfo() );
