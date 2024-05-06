@@ -39,6 +39,7 @@
 	"templatedata-modal-format-block": "Blokusar",
 	"templatedata-modal-format-null": "Sen speciguro",
 	"templatedata-modal-search-input-placeholder": "Serchar segun la nomo o kodexo di la linguo",
+	"templatedata-modal-table-param-aliases": "Surnomi (''Alias-i'')",
 	"templatedata-modal-table-param-default": "Predeterminita ($1)",
 	"templatedata-modal-table-param-description": "Deskripto ($1)",
 	"templatedata-modal-table-param-example": "Exemplo ($1)",
