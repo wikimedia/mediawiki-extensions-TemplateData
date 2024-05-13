@@ -784,23 +784,6 @@ Model.prototype.deleteParam = function ( paramKey ) {
 };
 
 /**
- * Restore parameter by unmarking it as deleted.
- *
- * @param {string} paramKey Parameter key
- * @fires add-param
- * @fires change
- */
-Model.prototype.restoreParam = function ( paramKey ) {
-	if ( this.params[ paramKey ] ) {
-		this.params[ paramKey ].deleted = false;
-		// Add back to paramOrder
-		this.addKeyTemplateParamOrder( paramKey );
-		this.emit( 'add-param', paramKey, this.params[ paramKey ] );
-		this.emit( 'change' );
-	}
-};
-
-/**
  * Delete all data attached to a parameter
  *
  * @param {string} paramKey Parameter key
