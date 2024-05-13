@@ -19,7 +19,9 @@
 			"Smigles",
 			"Stjn",
 			"Striking Blue",
-			"Sunpriat"
+			"Sunpriat",
+			"Pacha Tchernof",
+			"UniCollab"
 		]
 	},
 	"templatedata-desc": "Реализация хранилища данных для параметров шаблона (с помощью JSON)",
@@ -95,7 +97,7 @@
 	"templatedata-modal-format-null": "Не определён",
 	"templatedata-modal-format-placeholder": "Формат параметра шаблона",
 	"templatedata-modal-json-error-replace": "Заменить",
-	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новый параметр импортирован|новых параметров импортировано|новых параметра импортировано}}: $2",
+	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|новый параметр импортирован|новых параметра импортированы|новых параметров импортированы}}: $2",
 	"templatedata-modal-placeholder-add-new-map-input": "Добавить новый маппинг…",
 	"templatedata-modal-placeholder-paramkey": "Имя параметра",
 	"templatedata-modal-placeholder-mapinfo": "У этого шаблона нет объекта маппингов",
