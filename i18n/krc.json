@@ -50,7 +50,6 @@
 	"templatedata-modal-button-changelang": "Тилни ауушдур",
 	"templatedata-modal-button-delparam": "Параметрни юсюнден информацияны кетер",
 	"templatedata-modal-button-importParams": "Параметрлени импорт эт",
-	"templatedata-modal-button-restoreparam": "Параметрни ызына сал",
 	"templatedata-modal-button-saveparam": "Сакъландыр",
 	"templatedata-modal-current-language": "Бусагъатдагъы тил: $1",
 	"templatedata-modal-errormsg": "Были обнаружены ошибки Халатла табылгъандыла. Параметрлени атлары бош болмагъанларына, бири-бирин дубликат этмегенлерине эмда «$1», «$2» неда «$3» болмагъанына ажымсыз болугъуз.",

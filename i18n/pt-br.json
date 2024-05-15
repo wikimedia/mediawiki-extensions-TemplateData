@@ -78,7 +78,6 @@
 	"templatedata-modal-button-map": "Editar mapas",
 	"templatedata-modal-button-importParams": "Importar parâmetros",
 	"templatedata-modal-button-removemap": "Remover mapa",
-	"templatedata-modal-button-restoreparam": "Restaurar parâmetro",
 	"templatedata-modal-button-saveparam": "Salvar",
 	"templatedata-modal-confirmcancel": "Tem certeza de que deseja descartar suas alterações?",
 	"templatedata-modal-current-language": "Idioma atual: $1",

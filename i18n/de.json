@@ -70,7 +70,6 @@
 	"templatedata-modal-button-map": "Zuordnungen bearbeiten",
 	"templatedata-modal-button-importParams": "Parameter importieren",
 	"templatedata-modal-button-removemap": "Zuordnung entfernen",
-	"templatedata-modal-button-restoreparam": "Parameter wiederherstellen",
 	"templatedata-modal-button-saveparam": "Speichern",
 	"templatedata-modal-confirmcancel": "Bist du sicher, dass du deine Änderungen verwerfen möchtest?",
 	"templatedata-modal-current-language": "Aktuelle Sprache: $1",

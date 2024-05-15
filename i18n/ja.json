@@ -81,7 +81,6 @@
 	"templatedata-modal-button-map": "マップを編集",
 	"templatedata-modal-button-importParams": "パラメーターを取り込む",
 	"templatedata-modal-button-removemap": "マップを除去",
-	"templatedata-modal-button-restoreparam": "パラメーターを復元",
 	"templatedata-modal-button-saveparam": "保存",
 	"templatedata-modal-confirmcancel": "すべての変更を破棄してもよろしいですか？",
 	"templatedata-modal-current-language": "現在の言語: $1",

@@ -79,7 +79,6 @@
 	"templatedata-modal-button-map": "ویرایش نقشه‌ها",
 	"templatedata-modal-button-importParams": "درون‌ریزی پارامترها",
 	"templatedata-modal-button-removemap": "حذف نقشه",
-	"templatedata-modal-button-restoreparam": "بازگرداندن پارامتر",
 	"templatedata-modal-button-saveparam": "ذخیره",
 	"templatedata-modal-confirmcancel": "آیا مطمئن هستید که می‌خواهید از تغییرات خود چشم‌پوشی کنید؟",
 	"templatedata-modal-current-language": "زبان کنونی: $1",

@@ -77,7 +77,6 @@
 	"templatedata-modal-button-map": "Haritayı düzenle",
 	"templatedata-modal-button-importParams": "Parametreleri içe aktar",
 	"templatedata-modal-button-removemap": "Haritayı kaldır",
-	"templatedata-modal-button-restoreparam": "Parametreyi geri yükle",
 	"templatedata-modal-button-saveparam": "Kaydet",
 	"templatedata-modal-confirmcancel": "Değişikliklerinizi iptal etmek istediğinizden emin misiniz?",
 	"templatedata-modal-current-language": "Geçerli dil: $1",
