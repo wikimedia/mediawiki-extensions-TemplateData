@@ -13,7 +13,8 @@
 			"Songhee",
 			"Ykhwong",
 			"렌즈",
-			"아라"
+			"아라",
+			"Markingdots"
 		]
 	},
 	"templatedata-desc": "(JSON을 사용하여) 틀 변수에 대한 데이터 저장소를 구현합니다",
@@ -33,6 +34,7 @@
 	"templatedata-doc-param-status-optional": "선택 사항",
 	"templatedata-doc-param-status-required": "필수",
 	"templatedata-doc-param-status-suggested": "제안",
+	"templatedata-doc-param-suggestedvalues": "제안된 값",
 	"templatedata-doc-param-type": "형식",
 	"templatedata-doc-param-type-boolean": "부울식",
 	"templatedata-doc-param-type-content": "내용",
@@ -99,6 +101,7 @@
 	"templatedata-modal-table-param-autovalue": "자동 값",
 	"templatedata-modal-table-param-default": "기본값 ($1)",
 	"templatedata-modal-table-param-deprecated": "사용되지 않음",
+	"templatedata-modal-table-param-deprecatedValue": "더 이상 사용되지 않는 지침",
 	"templatedata-modal-table-param-description": "설명 ($1)",
 	"templatedata-modal-table-param-example": "예시 ($1)",
 	"templatedata-modal-table-param-importoption": "제안된 변수에 $1 추가하기",
@@ -107,6 +110,7 @@
 	"templatedata-modal-table-param-name": "이름",
 	"templatedata-modal-table-param-required": "필수",
 	"templatedata-modal-table-param-suggested": "제안",
+	"templatedata-modal-table-param-suggestedvalues": "제안된 값",
 	"templatedata-modal-table-param-type": "종류",
 	"templatedata-modal-table-param-uneditablefield": "편집할 수 없음",
 	"templatedata-modal-title": "틀 문서 편집기",
