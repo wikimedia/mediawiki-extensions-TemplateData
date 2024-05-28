@@ -11,9 +11,9 @@ var Model = require( './Model.js' );
  *
  * @constructor
  * @param {Object} [config]
- * @cfg {string} [fullPageName] The full name of the current page
- * @cfg {string} [parentPage] The name of the parent page
- * @cfg {string} [isPageSubLevel] The page is sub-level of another template
+ * @param {string} [config.fullPageName=""] The full name of the current page
+ * @param {string} [config.parentPage=""] The name of the parent page
+ * @param {string} [config.isPageSubLevel=false] The page is sub-level of another template
  */
 function SourceHandler( config ) {
 	config = config || {};
@@ -216,7 +216,7 @@ SourceHandler.prototype.findModelInString = function ( templateDataString ) {
 /**
  * Set the page as a sub page of the main template
  *
- * @param {boolean} isSubLevel Page is sublevel
+ * @param {boolean} [isSubLevel=false] Page is sublevel
  */
 SourceHandler.prototype.setPageSubLevel = function ( isSubLevel ) {
 	this.subLevel = !!isSubLevel;
@@ -234,7 +234,7 @@ SourceHandler.prototype.isPageSubLevel = function () {
 /**
  * Get full page name
  *
- * @param {string} pageName Page name
+ * @param {string} [pageName=""] Page name
  */
 SourceHandler.prototype.setFullPageName = function ( pageName ) {
 	this.fullPageName = pageName || '';
@@ -252,7 +252,7 @@ SourceHandler.prototype.getFullPageName = function () {
 /**
  * Set parent page
  *
- * @param {string} parent Parent page
+ * @param {string} [parent=""] Parent page
  */
 SourceHandler.prototype.setParentPage = function ( parent ) {
 	this.parentPage = parent || '';
