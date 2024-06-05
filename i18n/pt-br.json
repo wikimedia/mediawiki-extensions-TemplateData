@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			555,
 			"Araceletorres",
 			"Cainamarques",
 			"Dr03ramos",
@@ -13,8 +14,7 @@
 			"Jefersonmoraes",
 			"Luckas",
 			"Luk3",
-			"Opraco",
-			555
+			"Opraco"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
