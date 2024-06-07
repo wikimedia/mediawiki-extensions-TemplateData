@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\TemplateData;
 use ExtensionRegistry;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Config\Config;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Extension\EventLogging\EventLogging;
 use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
@@ -15,6 +16,7 @@ use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Parser\Parser;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RenderedRevision;
@@ -24,9 +26,7 @@ use MediaWiki\Status\Status;
 use MediaWiki\Storage\Hook\MultiContentSaveHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
-use Parser;
 use PPFrame;
-use RequestContext;
 
 /**
  * @license GPL-2.0-or-later

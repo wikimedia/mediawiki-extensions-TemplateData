@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\TemplateData;
 
-use Message;
+use MediaWiki\Message\Message;
 
 /**
  * Represents the information about a template,
