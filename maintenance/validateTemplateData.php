@@ -23,7 +23,7 @@ class ValidateTemplateData extends Maintenance {
 	}
 
 	public function execute() {
-		$db = $this->getDB( DB_REPLICA );
+		$db = $this->getReplicaDB();
 
 		$lastId = 0;
 		$rowsChecked = 0;
