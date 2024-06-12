@@ -85,7 +85,7 @@
 	"templatedata-modal-placeholder-add-new-map-input": "กำลังเพิ่มแม็ปใหม่...",
 	"templatedata-modal-placeholder-paramkey": "ชื่อพารามิเตอร์",
 	"templatedata-modal-placeholder-mapinfo": "แม่แบบนี้ไม่มีวัตถุแม็ป",
-	"templatedata-modal-placeholder-prompt-map-name": "ป้อนชื่อแม็ป",
+	"templatedata-modal-placeholder-prompt-map-name": "กรอกชื่อแม็ป",
 	"templatedata-modal-search-input-placeholder": "ค้นหาตามชื่อหรือรหัสภาษา",
 	"templatedata-modal-table-param-aliases": "ชื่อพ้อง (แยกด้วยจุลภาค)",
 	"templatedata-modal-table-param-autovalue": "ค่าอัตโนมัติ",
