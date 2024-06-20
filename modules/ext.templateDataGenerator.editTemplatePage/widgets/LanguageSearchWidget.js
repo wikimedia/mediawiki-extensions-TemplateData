@@ -12,7 +12,7 @@ var LanguageResultWidget = require( './LanguageResultWidget.js' );
  */
 function LanguageSearchWidget( config ) {
 	// Configuration initialization
-	config = $.extend( {
+	config = Object.assign( {
 		placeholder: mw.msg( 'templatedata-modal-search-input-placeholder' )
 	}, config );
 
@@ -22,15 +22,13 @@ function LanguageSearchWidget( config ) {
 	// Properties
 	this.filteredLanguageResultWidgets = [];
 	var languageCodes = Object.keys( $.uls.data.getAutonyms() ).sort();
-	this.languageResultWidgets = languageCodes.map( function ( languageCode ) {
-		return new LanguageResultWidget( {
-			data: {
-				code: languageCode,
-				name: $.uls.data.getAutonym( languageCode ),
-				autonym: $.uls.data.getAutonym( languageCode )
-			}
-		} );
-	} );
+	this.languageResultWidgets = languageCodes.map( ( languageCode ) => new LanguageResultWidget( {
+		data: {
+			code: languageCode,
+			name: $.uls.data.getAutonym( languageCode ),
+			autonym: $.uls.data.getAutonym( languageCode )
+		}
+	} ) );
 	this.setAvailableLanguages();
 
 	// Initialization
@@ -65,15 +63,13 @@ LanguageSearchWidget.prototype.setAvailableLanguages = function ( availableLangu
 		return;
 	}
 
-	this.filteredLanguageResultWidgets = this.languageResultWidgets.map( function ( languageResult ) {
+	this.filteredLanguageResultWidgets = this.languageResultWidgets.map( ( languageResult ) => {
 		var data = languageResult.getData();
 		if ( availableLanguages.indexOf( data.code ) !== -1 ) {
 			return languageResult;
 		}
 		return null;
-	} ).filter( function ( languageResult ) {
-		return languageResult;
-	} );
+	} ).filter( ( languageResult ) => languageResult );
 };
 
 /**
@@ -93,11 +89,11 @@ LanguageSearchWidget.prototype.addResults = function () {
 	var results = this.getResults();
 	results.clearItems();
 
-	this.filteredLanguageResultWidgets.forEach( function ( languageResult ) {
+	this.filteredLanguageResultWidgets.forEach( ( languageResult ) => {
 		var data = languageResult.getData();
 		var matchedProperty = null;
 
-		matchProperties.some( function ( prop ) {
+		matchProperties.some( ( prop ) => {
 			if ( data[ prop ] && compare( data[ prop ].slice( 0, query.length ), query ) === 0 ) {
 				matchedProperty = prop;
 				return true;

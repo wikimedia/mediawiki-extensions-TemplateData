@@ -10,7 +10,7 @@
 
 'use strict';
 
-new mw.Api().loadMessages( 'templatedata-doc-subpage', { amlang: mw.config.get( 'wgContentLanguage' ) } ).then( function () {
+new mw.Api().loadMessages( 'templatedata-doc-subpage', { amlang: mw.config.get( 'wgContentLanguage' ) } ).then( () => {
 	var Target = require( './Target.js' ),
 		pageName = mw.config.get( 'wgPageName' ),
 		docSubpage = mw.msg( 'templatedata-doc-subpage' ),
@@ -50,7 +50,7 @@ new mw.Api().loadMessages( 'templatedata-doc-subpage', { amlang: mw.config.get( 
 	}
 	var veTarget;
 	// Visual editor source mode
-	mw.hook( 've.activationComplete' ).add( function () {
+	mw.hook( 've.activationComplete' ).add( () => {
 		var surface = ve.init.target.getSurface();
 		if ( surface.getMode() === 'source' ) {
 			// Source mode will have created a dummy textbox
@@ -65,7 +65,7 @@ new mw.Api().loadMessages( 'templatedata-doc-subpage', { amlang: mw.config.get( 
 			}
 		}
 	} );
-	mw.hook( 've.deactivationComplete' ).add( function () {
+	mw.hook( 've.deactivationComplete' ).add( () => {
 		if ( veTarget ) {
 			veTarget.destroy();
 			veTarget = null;

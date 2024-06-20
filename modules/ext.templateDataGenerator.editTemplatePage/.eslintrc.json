@@ -4,5 +4,9 @@
 			"URL",
 			"URLSearchParams"
 		]
+	},
+	"rules": {
+		"no-mixed-spaces-and-tabs": "warn",
+		"implicit-arrow-linebreak": "warn"
 	}
 }

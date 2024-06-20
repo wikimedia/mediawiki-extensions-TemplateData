@@ -499,11 +499,9 @@ Dialog.prototype.populateMapsItems = function ( mapsObject ) {
 	mapsObject = mapsObject || {};
 	var mapKeysList = Object.keys( mapsObject );
 
-	var items = mapKeysList.map( function ( mapKey ) {
-		return new OO.ui.OutlineOptionWidget( {
-			label: mapKey
-		} );
-	} );
+	var items = mapKeysList.map( ( mapKey ) => new OO.ui.OutlineOptionWidget( {
+		label: mapKey
+	} ) );
 
 	this.mapsGroup.clearItems();
 	this.mapsGroup.addItems( items );
@@ -1089,10 +1087,10 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			break;
 		case 'array':
 			value = value || [];
-			propInput.setValue( value.map( function ( v ) {
+			propInput.setValue( value.map( ( v ) =>
 				// TagMultiselectWidget accepts nothing but strings or objects with a .data property
-				return v && v.data ? v : String( v );
-			} ) );
+				 v && v.data ? v : String( v )
+			 ) );
 			break;
 		default:
 			if ( typeof value === 'object' ) {
@@ -1380,12 +1378,10 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 			if ( this.availableLanguages.indexOf( defaultLanguage ) === -1 ) {
 				this.availableLanguages.unshift( defaultLanguage );
 			}
-			var items = this.availableLanguages.map( function ( lang ) {
-				return new OO.ui.MenuOptionWidget( {
-					data: lang,
-					label: $.uls.data.getAutonym( lang )
-				} );
-			} );
+			var items = this.availableLanguages.map( ( lang ) => new OO.ui.MenuOptionWidget( {
+				data: lang,
+				label: $.uls.data.getAutonym( lang )
+			} ) );
 			this.languageDropdownWidget.getMenu()
 				.addItems( items )
 				// Trigger the initial language choice
@@ -1547,7 +1543,7 @@ Dialog.prototype.getActionProcess = function ( action ) {
 		return new OO.ui.Process( function () {
 			var dialog = this;
 			return OO.ui.confirm( mw.msg( 'templatedata-modal-confirmcancel' ) )
-				.then( function ( result ) {
+				.then( ( result ) => {
 					if ( result ) {
 						dialog.close();
 					} else {

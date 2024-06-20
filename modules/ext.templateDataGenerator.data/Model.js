@@ -219,7 +219,7 @@ Model.static.splitAndTrimArray = function ( str, delim ) {
 	delim = delim || mw.msg( 'comma-separator' );
 
 	var arr = [];
-	str.split( delim ).forEach( function ( part ) {
+	str.split( delim ).forEach( ( part ) => {
 		var trimmed = part.trim();
 		if ( trimmed ) {
 			arr.push( trimmed );
@@ -240,9 +240,7 @@ Model.static.arrayUnionWithoutEmpty = function () {
 	var result = OO.simpleArrayUnion.apply( this, arguments );
 
 	// Trim and filter empty strings
-	return result.filter( function ( i ) {
-		return i.trim();
-	} );
+	return result.filter( ( i ) => i.trim() );
 };
 
 /**
@@ -305,9 +303,7 @@ Model.prototype.getMissingParams = function () {
 	var allParamNames = this.getAllParamNames(),
 		sourceCodeParameters = this.sourceCodeParameters;
 
-	return sourceCodeParameters.filter( function ( sourceCodeParameter ) {
-		return allParamNames.indexOf( sourceCodeParameter ) === -1;
-	} );
+	return sourceCodeParameters.filter( ( sourceCodeParameter ) => allParamNames.indexOf( sourceCodeParameter ) === -1 );
 };
 
 /**
@@ -323,14 +319,14 @@ Model.prototype.importSourceCodeParameters = function () {
 		skippedArray = [];
 
 	// Check existing params
-	allParamNames.forEach( function ( paramKey ) {
+	allParamNames.forEach( ( paramKey ) => {
 		if ( model.sourceCodeParameters.indexOf( paramKey ) !== -1 ) {
 			existingArray.push( paramKey );
 		}
 	} );
 
 	// Add sourceCodeParameters to the model
-	this.sourceCodeParameters.forEach( function ( sourceCodeParameter ) {
+	this.sourceCodeParameters.forEach( ( sourceCodeParameter ) => {
 		if ( existingArray.indexOf( sourceCodeParameter ) === -1 ) {
 			model.addParam( sourceCodeParameter );
 			importedArray.push( sourceCodeParameter );
@@ -486,7 +482,7 @@ Model.prototype.setTemplateDescription = function ( desc, language ) {
 
 	if ( !this.constructor.static.compare( this.description[ language ], desc ) ) {
 		if ( typeof desc === 'object' ) {
-			$.extend( this.description, desc );
+			Object.assign( this.description, desc );
 			this.emit( 'change-description', desc[ language ], language );
 		} else {
 			this.description[ language ] = desc;

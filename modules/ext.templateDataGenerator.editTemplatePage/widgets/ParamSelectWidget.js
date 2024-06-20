@@ -12,7 +12,7 @@ function ParamSelectWidget( config ) {
 	ParamSelectWidget.parent.call( this, config );
 
 	// Mixin constructors
-	OO.ui.mixin.DraggableGroupElement.call( this, $.extend( {}, config, { $group: this.$element } ) );
+	OO.ui.mixin.DraggableGroupElement.call( this, Object.assign( {}, config, { $group: this.$element } ) );
 
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataParamSelectWidget' );

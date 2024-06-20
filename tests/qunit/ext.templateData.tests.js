@@ -68,7 +68,7 @@ originalWikitext = 'Some text here that is not templatedata information.' +
 // Prepare description language objects
 resultDescCurrLang[ currLanguage ] = 'Some string here in ' + currLanguage + ' language.';
 resultDescMockLang.blah = 'Some string here in blah language.';
-resultDescBothLang = $.extend( {}, resultDescCurrLang, resultDescMockLang );
+resultDescBothLang = Object.assign( {}, resultDescCurrLang, resultDescMockLang );
 finalJsonParams = {
 	user: {
 		label: 'Username',
@@ -151,7 +151,7 @@ finalJson = {
 finalJson.description[ currLanguage ] = 'Label unsigned comments in a conversation.';
 
 // Test validation tools
-QUnit.test( 'Validation tools', function ( assert ) {
+QUnit.test( 'Validation tools', ( assert ) => {
 	var i, testVars,
 		tests = {
 			compare: [
@@ -387,7 +387,7 @@ QUnit.test( 'Validation tools', function ( assert ) {
 } );
 
 // Test model load
-QUnit.test( 'TemplateData model', function ( assert ) {
+QUnit.test( 'TemplateData model', ( assert ) => {
 	var i, testVars,
 		sourceHandler = new SourceHandler(),
 		paramAddTest = [
@@ -435,7 +435,7 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 				property: 'description',
 				language: currLanguage,
 				value: resultDescCurrLang[ currLanguage ],
-				result: $.extend( {}, paramAddTest[ 0 ].result, {
+				result: Object.assign( {}, paramAddTest[ 0 ].result, {
 					description: resultDescCurrLang
 				} ),
 				msg: 'Adding description in current language.'
@@ -445,8 +445,8 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 				property: 'description',
 				language: 'blah',
 				value: resultDescMockLang.blah,
-				result: $.extend( {}, paramAddTest[ 0 ].result, {
-					description: $.extend( {}, resultDescCurrLang, resultDescMockLang )
+				result: Object.assign( {}, paramAddTest[ 0 ].result, {
+					description: Object.assign( {}, resultDescCurrLang, resultDescMockLang )
 				} ),
 				msg: 'Adding description in mock language.'
 			},
@@ -466,7 +466,7 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 				property: 'description',
 				language: 'blah',
 				value: '',
-				result: $.extend( {}, paramAddTest[ 1 ].result, {
+				result: Object.assign( {}, paramAddTest[ 1 ].result, {
 					description: { blah: '' }
 				} ),
 				msg: 'Adding empty description in mock language.'
@@ -475,7 +475,7 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 				key: 'newParam3',
 				property: 'deprecated',
 				value: true,
-				result: $.extend( {}, paramAddTest[ 2 ].result, {
+				result: Object.assign( {}, paramAddTest[ 2 ].result, {
 					deprecated: true
 				} ),
 				msg: 'Adding deprecated property (boolean).'
@@ -484,7 +484,7 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 				key: 'newParam3',
 				property: 'deprecatedValue',
 				value: 'This is deprecated.',
-				result: $.extend( {}, paramAddTest[ 2 ].result, {
+				result: Object.assign( {}, paramAddTest[ 2 ].result, {
 					deprecated: true,
 					deprecatedValue: 'This is deprecated.'
 				} ),
@@ -493,7 +493,7 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 		];
 
 	return sourceHandler.buildModel( originalWikitext )
-		.done( function ( model ) {
+		.done( ( model ) => {
 			// Check description
 			assert.strictEqual(
 				model.getTemplateDescription(),
@@ -560,7 +560,7 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 				null,
 				'block',
 				'inline'
-			].forEach( function ( f ) {
+			].forEach( ( f ) => {
 				model.setTemplateFormat( f );
 				assert.deepEqual(
 					model.getTemplateFormat(),
@@ -595,7 +595,7 @@ QUnit.test( 'TemplateData model', function ( assert ) {
 } );
 
 // Test model with maps in wikitext
-QUnit.test( 'TemplateData sourceHandler with maps', function ( assert ) {
+QUnit.test( 'TemplateData sourceHandler with maps', ( assert ) => {
 	var sourceHandler = new SourceHandler(),
 		wikitextWithMaps = 'Some text here that is not templatedata information.' +
 		'<templatedata>' +
@@ -708,7 +708,7 @@ QUnit.test( 'TemplateData sourceHandler with maps', function ( assert ) {
 		};
 
 	return sourceHandler.buildModel( wikitextWithMaps )
-		.done( function ( model ) {
+		.done( ( model ) => {
 			assert.deepEqual(
 				model.outputTemplateData(),
 				jsonWithMaps,
@@ -718,7 +718,7 @@ QUnit.test( 'TemplateData sourceHandler with maps', function ( assert ) {
 } );
 
 // Test model fail
-QUnit.test( 'TemplateData sourceHandler failure', function ( assert ) {
+QUnit.test( 'TemplateData sourceHandler failure', ( assert ) => {
 	var sourceHandler = new SourceHandler(),
 		erronousString = '<templatedata>{\n' +
 			'"params": {\n' +
@@ -746,14 +746,14 @@ QUnit.test( 'TemplateData sourceHandler failure', function ( assert ) {
 		promise;
 
 	promise = sourceHandler.buildModel( erronousString );
-	promise.always( function () {
+	promise.always( () => {
 		assert.strictEqual( promise.state(), 'rejected', 'Promise rejected on erronous json string.' );
 		done();
 	} );
 } );
 
 // Test model gets default format
-QUnit.test( 'TemplateData sourceHandler adding default format', function ( assert ) {
+QUnit.test( 'TemplateData sourceHandler adding default format', ( assert ) => {
 	var sourceHandler = new SourceHandler(),
 		simpleTemplateDataNoFormat = '<templatedata>{\n' +
 				'"params": {}\n' +
@@ -763,7 +763,7 @@ QUnit.test( 'TemplateData sourceHandler adding default format', function ( asser
 		};
 
 	return sourceHandler.buildModel( simpleTemplateDataNoFormat )
-		.done( function ( model ) {
+		.done( ( model ) => {
 			assert.deepEqual(
 				model.outputTemplateData(),
 				simpleTemplateDataDefaultFormat,
@@ -772,7 +772,7 @@ QUnit.test( 'TemplateData sourceHandler adding default format', function ( asser
 		} );
 } );
 
-QUnit.test( 'Duplicate parameter names', function ( assert ) {
+QUnit.test( 'Duplicate parameter names', ( assert ) => {
 	var model = new Model();
 	model.addParam( 'color' );
 	assert.deepEqual( model.getParams(), {
@@ -803,7 +803,7 @@ QUnit.test( 'Duplicate parameter names', function ( assert ) {
 	assert.deepEqual( model.getTemplateParamOrder(), [ '1-3', '1' ] );
 } );
 
-QUnit.test( 'safesubst: hack with an unnamed parameter', function ( assert ) {
+QUnit.test( 'safesubst: hack with an unnamed parameter', ( assert ) => {
 	var handler = new SourceHandler(),
 		wikitext = '{{ {{{|safesubst:}}}#invoke:…|{{{1}}}|{{{ 1 }}}}}';
 

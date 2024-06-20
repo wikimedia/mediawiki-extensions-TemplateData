@@ -65,7 +65,7 @@ function Target( $textarea, config ) {
 	// Check if there's already a templatedata in a related page
 	var relatedPage = this.isDocPage ? this.parentPage : this.pageName + '/' + this.docSubpage;
 	this.sourceHandler.getApi( relatedPage )
-		.then( function ( result ) {
+		.then( ( result ) => {
 			var response = result.query.pages[ result.query.pageids[ 0 ] ];
 			// HACK: When checking whether a related page (parent for /doc page or
 			// vice versa) already has a templatedata string, we shouldn't
@@ -162,11 +162,11 @@ Target.prototype.onEditOpenDialogButton = function () {
 	this.sourceHandler.buildModel( this.originalWikitext )
 		.then(
 			// Success
-			function ( model ) {
+			( model ) => {
 				target.openEditDialog( model );
 			},
 			// Failure
-			function () {
+			() => {
 				// Open a message dialog
 				OO.ui.getWindowManager().openWindow( 'message', {
 					title: mw.msg( 'templatedata-modal-title' ),
@@ -184,7 +184,7 @@ Target.prototype.onEditOpenDialogButton = function () {
 							flags: 'safe'
 						}
 					]
-				} ).closed.then( function ( data ) {
+				} ).closed.then( ( data ) => {
 					if ( data && data.action === 'accept' ) {
 						// Open the dialog with an empty model
 						var model = Model.static.newFromObject(
@@ -268,7 +268,7 @@ Target.prototype.onDialogApply = function ( templateData ) {
 					label: mw.msg( 'templatedata-modal-button-apply' )
 				}
 			]
-		} ).closed.then( function ( data ) {
+		} ).closed.then( ( data ) => {
 			if ( data && data.action === 'apply' ) {
 				target.replaceTemplateData( templateData );
 			}

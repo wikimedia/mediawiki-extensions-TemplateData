@@ -53,7 +53,7 @@ SourceHandler.prototype.getApi = function ( page, getTemplateData ) {
 
 	var config;
 	if ( type === 'query' ) {
-		config = $.extend( baseConfig, {
+		config = Object.assign( baseConfig, {
 			prop: 'revisions',
 			rvprop: 'content',
 			indexpageids: '1'
@@ -92,12 +92,10 @@ SourceHandler.prototype.buildModel = function ( wikitext ) {
 	// Mostly used for the import option
 	return this.getParametersFromTemplateSource( wikitext )
 		// This is always successful by definition
-		.then( function ( templateSourceCodeParams ) {
-			return Model.static.newFromObject(
-				tdObject,
-				templateSourceCodeParams
-			);
-		} );
+		.then( ( templateSourceCodeParams ) => Model.static.newFromObject(
+			tdObject,
+			templateSourceCodeParams
+		) );
 };
 
 /**
@@ -131,7 +129,7 @@ SourceHandler.prototype.getParametersFromTemplateSource = function ( wikitext ) 
 		} else if ( this.isPageSubLevel() && this.getParentPage() ) {
 			// Get the content of the parent
 			this.templateSourceCodePromise = this.getApi( this.getParentPage() ).then(
-				function ( resp ) {
+				( resp ) => {
 					var pageContent = '';
 
 					// Verify that we have a sane response from the API.
@@ -145,10 +143,9 @@ SourceHandler.prototype.getParametersFromTemplateSource = function ( wikitext ) 
 					}
 					return sourceHandler.extractParametersFromTemplateCode( pageContent );
 				},
-				function () {
-					// Resolve an empty parameters array
-					return $.Deferred().resolve( [] );
-				}
+				// Resolve an empty parameters array
+				() => $.Deferred().resolve( [] )
+
 			);
 		} else {
 			// No template found. Resolve to empty array of parameters
