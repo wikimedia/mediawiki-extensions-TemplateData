@@ -86,7 +86,7 @@
 	"templatedata-modal-placeholder-add-new-map-input": "Hinzufügen neuer Zuordnung …",
 	"templatedata-modal-placeholder-paramkey": "Name des Parameters",
 	"templatedata-modal-placeholder-mapinfo": "Diese Vorlage hat keine Zuordnungs-Objekte",
-	"templatedata-modal-placeholder-prompt-map-name": "Eingeben der Namens der Zuordnung",
+	"templatedata-modal-placeholder-prompt-map-name": "Namen der Zuordnung eingeben",
 	"templatedata-modal-search-input-placeholder": "Nach Sprachnamen oder Sprachcode suchen",
 	"templatedata-modal-table-param-aliases": "Aliasse",
 	"templatedata-modal-table-param-autovalue": "Autowert",
