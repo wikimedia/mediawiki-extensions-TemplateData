@@ -795,7 +795,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	 * MySQL breaks if the input is too large even after compression
 	 */
 	public function testParseLongString() {
-		if ( $this->db->getType() !== 'mysql' ) {
+		if ( $this->getDb()->getType() !== 'mysql' ) {
 			$this->markTestSkipped( 'long compressed strings break on MySQL only' );
 		}
 
