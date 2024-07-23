@@ -15,7 +15,8 @@
 			"Songhee",
 			"Ykhwong",
 			"렌즈",
-			"아라"
+			"아라",
+			"이강철"
 		]
 	},
 	"templatedata-desc": "(JSON을 사용하여) 틀 변수에 대한 데이터 저장소를 구현합니다",
@@ -32,7 +33,7 @@
 	"templatedata-doc-param-name": "변수",
 	"templatedata-doc-param-status": "상태",
 	"templatedata-doc-param-status-deprecated": "사용되지 않음",
-	"templatedata-doc-param-status-optional": "선택",
+	"templatedata-doc-param-status-optional": "선택 사항",
 	"templatedata-doc-param-status-required": "필수",
 	"templatedata-doc-param-status-suggested": "권장",
 	"templatedata-doc-param-suggestedvalues": "권장 값",

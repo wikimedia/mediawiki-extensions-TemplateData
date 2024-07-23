@@ -69,7 +69,7 @@
 	"templatedata-modal-button-importParams": "นำเข้าพารามิเตอร์",
 	"templatedata-modal-button-removemap": "ลบแม็ป",
 	"templatedata-modal-button-saveparam": "บันทึก",
-	"templatedata-modal-confirmcancel": "คุณต้องการยกเลิกการเปลี่ยนแปลงหรือไม่ ?",
+	"templatedata-modal-confirmcancel": "คุณต้องการยกเลิกการเปลี่ยนแปลงหรือไม่?",
 	"templatedata-modal-current-language": "ภาษาปัจจุบัน: $1",
 	"templatedata-modal-errormsg": "พบความผิดพลาด กรุณาแน่ใจว่าไม่มีชื่อพารามิเตอร์ที่ว่างหรือซ้ำกัน และชื่อพารามิเตอร์ต้องไม่มี \"$1\", \"$2\" หรือ \"$3\"",
 	"templatedata-modal-errormsg-duplicate-name": "พบข้อผิดพลาด ชื่อที่เลือกถูกใช้แล้วโดยพารามิเตอร์อื่น",
