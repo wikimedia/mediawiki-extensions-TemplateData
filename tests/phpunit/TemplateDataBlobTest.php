@@ -22,7 +22,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->setMwGlobals( 'wgLanguageCode', 'qqx' );
+		$this->overrideConfigValue( MainConfigNames::LanguageCode, 'qqx' );
 	}
 
 	/**
