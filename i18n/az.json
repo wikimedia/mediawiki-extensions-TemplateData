@@ -6,7 +6,8 @@
 			"NMW03",
 			"Serkanland",
 			"Toghrul Rahimli",
-			"Wertuose"
+			"Wertuose",
+			"Nemoralis"
 		]
 	},
 	"templatedata-doc-desc-empty": "İzahı yoxdur.",
@@ -22,8 +23,8 @@
 	"templatedata-doc-param-name": "Parametr",
 	"templatedata-doc-param-status": "Status",
 	"templatedata-doc-param-status-deprecated": "köhnəlmiş",
-	"templatedata-doc-param-status-optional": "vacib deyil",
-	"templatedata-doc-param-status-required": "vacib",
+	"templatedata-doc-param-status-optional": "məcburi deyil",
+	"templatedata-doc-param-status-required": "tələb olunur",
 	"templatedata-doc-param-status-suggested": "tövsiyə olunur",
 	"templatedata-doc-param-suggestedvalues": "Tövsiyə edilən dəyərlər",
 	"templatedata-doc-param-type": "Tipi",

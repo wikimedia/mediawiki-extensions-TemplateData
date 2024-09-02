@@ -42,7 +42,7 @@
 	"templatedata-errormsg-insertblank": "Бакъалла лаьий хьуна, хаамаш боцуш TemplateData кеп чуйилла?",
 	"templatedata-exists-on-related-page": "Терго йехьа: TemplateData блок «[[$1]]» агӀонан тӀехь йолуш йу.",
 	"templatedata-helplink": "TemplateData лаьцна хаам",
-	"templatedata-invalid-duplicate-value": "Билгало «$1» («$3») — дубликат йу «$2».",
+	"templatedata-invalid-duplicate-value": "Башхалла «$1» («$3») — дубликат йу «$2».",
 	"templatedata-invalid-empty-array": "«$1» билгалонан цхьаъ мукъа маьӀна хила деза.",
 	"templatedata-invalid-format": "ТӀедожийна, \"$1\" билгалонан маьӀна \"inline\", \"block\" йа форматан магийна могӀа хилар.",
 	"templatedata-invalid-length": "Хаамаш Ӏалашбан тӀех дукха бу ({{formatnum:$1}} {{PLURAL:$1|байт}}, {{PLURAL:$2|лимит:}} {{formatnum:$2}})",
