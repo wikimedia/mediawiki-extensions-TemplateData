@@ -1087,10 +1087,10 @@ Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value
 			break;
 		case 'array':
 			value = value || [];
-			propInput.setValue( value.map( ( v ) =>
+			propInput.setValue( value.map(
 				// TagMultiselectWidget accepts nothing but strings or objects with a .data property
-				 v && v.data ? v : String( v )
-			 ) );
+				( v ) => v && v.data ? v : String( v )
+			) );
 			break;
 		default:
 			if ( typeof value === 'object' ) {
