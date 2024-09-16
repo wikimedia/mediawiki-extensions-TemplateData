@@ -19,7 +19,7 @@ var
  */
 function Dialog( config ) {
 	// Parent constructor
-	Dialog.parent.call( this, config );
+	Dialog.super.call( this, config );
 
 	this.model = null;
 	this.modified = false;

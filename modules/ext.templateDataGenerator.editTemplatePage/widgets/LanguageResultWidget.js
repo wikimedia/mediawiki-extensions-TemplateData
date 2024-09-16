@@ -10,7 +10,7 @@
  */
 function LanguageResultWidget( config ) {
 	// Parent constructor
-	LanguageResultWidget.parent.call( this, config );
+	LanguageResultWidget.super.call( this, config );
 
 	// Mixin constructors
 	OO.ui.mixin.TabIndexedElement.call( this );

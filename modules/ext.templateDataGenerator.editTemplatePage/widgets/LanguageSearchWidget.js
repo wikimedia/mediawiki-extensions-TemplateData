@@ -17,7 +17,7 @@ function LanguageSearchWidget( config ) {
 	}, config );
 
 	// Parent constructor
-	LanguageSearchWidget.parent.call( this, config );
+	LanguageSearchWidget.super.call( this, config );
 
 	// Properties
 	this.filteredLanguageResultWidgets = [];
@@ -46,7 +46,7 @@ OO.inheritClass( LanguageSearchWidget, OO.ui.SearchWidget );
  */
 LanguageSearchWidget.prototype.onQueryChange = function () {
 	// Parent method
-	LanguageSearchWidget.parent.prototype.onQueryChange.apply( this, arguments );
+	LanguageSearchWidget.super.prototype.onQueryChange.apply( this, arguments );
 
 	// Populate
 	this.addResults();
