@@ -1337,7 +1337,7 @@ Dialog.prototype.importParametersFromTemplateCode = function () {
  */
 Dialog.prototype.getSetupProcess = function ( data ) {
 	return Dialog.super.prototype.getSetupProcess.call( this, data )
-		.next( function () {
+		.next( () => {
 			this.isSetup = false;
 
 			this.reset();
@@ -1397,7 +1397,7 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 			this.panels.$element.show();
 
 			this.actions.setAbilities( { apply: false } );
-		}, this );
+		} );
 };
 
 /**
@@ -1494,64 +1494,63 @@ Dialog.prototype.switchPanels = function ( panel ) {
  */
 Dialog.prototype.getActionProcess = function ( action ) {
 	if ( action === 'add' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.switchPanels( this.addParamPanel );
-		}, this );
+		} );
 	}
 	if ( action === 'done' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			// setMapInfo with the value and keep the done button active
 			this.model.setMapInfo( this.mapsCache );
 			this.model.originalMaps = OO.copy( this.mapsCache );
 			this.switchPanels();
-		}, this );
+		} );
 	}
 	if ( action === 'back' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.switchPanels();
-		}, this );
+		} );
 	}
 	if ( action === 'maps' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.switchPanels( this.editMapsPanel );
-		}, this );
+		} );
 	}
 	if ( action === 'cancel' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.mapsCache = OO.copy( this.model.getOriginalMapsInfo() );
 			this.model.restoreOriginalMaps();
 			this.populateMapsItems( this.mapsCache );
 			this.onCancelAddingMap();
 			this.switchPanels();
-		}, this );
+		} );
 	}
 	if ( action === 'delete' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			this.model.deleteParam( this.selectedParamKey );
 			this.switchPanels();
-		}, this );
+		} );
 	}
 	if ( action === 'apply' ) {
-		return new OO.ui.Process( function () {
+		return new OO.ui.Process( () => {
 			Metrics.logEvent( this.model.getOriginalTemplateDataObject() ?
 				'save-page-edit' : 'save-page-create' );
 
 			this.emit( 'apply', this.model.outputTemplateData() );
 			this.close( { action: action } );
-		}, this );
+		} );
 	}
 	if ( !action && this.modified ) {
-		return new OO.ui.Process( function () {
-			const dialog = this;
-			return OO.ui.confirm( mw.msg( 'templatedata-modal-confirmcancel' ) )
+		return new OO.ui.Process(
+			() => OO.ui.confirm( mw.msg( 'templatedata-modal-confirmcancel' ) )
 				.then( ( result ) => {
 					if ( result ) {
-						dialog.close();
+						this.close();
 					} else {
 						return $.Deferred().resolve().promise();
 					}
-				} );
-		}, this );
+				} )
+		);
 	}
 	// Fallback to parent handler
 	return Dialog.super.prototype.getActionProcess.call( this, action );
