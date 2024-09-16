@@ -106,7 +106,7 @@ Model.static.translateObsoleteParamTypes = function ( paramType ) {
  *  definition data
  */
 Model.static.getAllProperties = function ( getFullData ) {
-	var properties = {
+	const properties = {
 		name: {
 			type: 'string',
 			// Validation regex
@@ -197,10 +197,10 @@ Model.static.getAllProperties = function ( getFullData ) {
  * @return {string[]} Property names
  */
 Model.static.getPropertiesWithLanguage = function () {
-	var result = [],
+	const result = [],
 		propDefinitions = this.getAllProperties( true );
 
-	for ( var prop in propDefinitions ) {
+	for ( const prop in propDefinitions ) {
 		if ( propDefinitions[ prop ].allowLanguages ) {
 			result.push( prop );
 		}
@@ -218,9 +218,9 @@ Model.static.getPropertiesWithLanguage = function () {
 Model.static.splitAndTrimArray = function ( str, delim ) {
 	delim = delim || mw.msg( 'comma-separator' );
 
-	var arr = [];
+	const arr = [];
 	str.split( delim ).forEach( ( part ) => {
-		var trimmed = part.trim();
+		const trimmed = part.trim();
 		if ( trimmed ) {
 			arr.push( trimmed );
 		}
@@ -237,7 +237,7 @@ Model.static.splitAndTrimArray = function ( str, delim ) {
  * @return {Array} Union of the arrays
  */
 Model.static.arrayUnionWithoutEmpty = function () {
-	var result = OO.simpleArrayUnion.apply( this, arguments );
+	const result = OO.simpleArrayUnion.apply( this, arguments );
 
 	// Trim and filter empty strings
 	return result.filter( ( i ) => i.trim() );
@@ -251,7 +251,7 @@ Model.static.arrayUnionWithoutEmpty = function () {
  * @return {Model} New model
  */
 Model.static.newFromObject = function ( tdObject, paramsInSource ) {
-	var model = new Model();
+	const model = new Model();
 
 	model.setSourceCodeParameters( paramsInSource || [] );
 
@@ -265,7 +265,7 @@ Model.static.newFromObject = function ( tdObject, paramsInSource ) {
 
 	// Add params
 	if ( tdObject.params ) {
-		for ( var param in tdObject.params ) {
+		for ( const param in tdObject.params ) {
 			model.addParam( param, tdObject.params[ param ] );
 		}
 	}
@@ -300,7 +300,7 @@ Model.static.newFromObject = function ( tdObject, paramsInSource ) {
  *  the model
  */
 Model.prototype.getMissingParams = function () {
-	var allParamNames = this.getAllParamNames(),
+	const allParamNames = this.getAllParamNames(),
 		sourceCodeParameters = this.sourceCodeParameters;
 
 	return sourceCodeParameters.filter( ( sourceCodeParameter ) => allParamNames.indexOf( sourceCodeParameter ) === -1 );
@@ -312,7 +312,7 @@ Model.prototype.getMissingParams = function () {
  * @return {Object} Parameters added. -1 for failure.
  */
 Model.prototype.importSourceCodeParameters = function () {
-	var model = this,
+	const model = this,
 		allParamNames = this.getAllParamNames(),
 		existingArray = [],
 		importedArray = [],
@@ -348,18 +348,18 @@ Model.prototype.importSourceCodeParameters = function () {
  * @return {string[]} Language codes in use
  */
 Model.prototype.getExistingLanguageCodes = function () {
-	var result = [];
+	let result = [];
 
 	// Take languages from the template description
 	if ( $.isPlainObject( this.description ) ) {
 		result = Object.keys( this.description );
 	}
 
-	var languageProps = this.constructor.static.getPropertiesWithLanguage();
+	const languageProps = this.constructor.static.getPropertiesWithLanguage();
 	// Go over the parameters
-	for ( var param in this.params ) {
+	for ( const param in this.params ) {
 		// Go over the properties
-		for ( var prop in this.params[ param ] ) {
+		for ( const prop in this.params[ param ] ) {
 			if ( languageProps.indexOf( prop ) !== -1 ) {
 				result = this.constructor.static.arrayUnionWithoutEmpty( result, Object.keys( this.params[ param ][ prop ] ) );
 			}
@@ -378,8 +378,8 @@ Model.prototype.getExistingLanguageCodes = function () {
  * @fires change
  */
 Model.prototype.addParam = function ( name, paramData ) {
-	var data = $.extend( true, {}, paramData );
-	var key = this.getNewValidParameterKey( name );
+	const data = $.extend( true, {}, paramData );
+	const key = this.getNewValidParameterKey( name );
 
 	// Initialize
 	this.params[ key ] = { name: name };
@@ -402,11 +402,11 @@ Model.prototype.addParam = function ( name, paramData ) {
 
 	// Go over the rest of the data
 	if ( data ) {
-		var language = this.getDefaultLanguage();
-		var propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage();
-		var allProps = this.constructor.static.getAllProperties( true );
-		for ( var prop in data ) {
-			var propToSet = prop;
+		const language = this.getDefaultLanguage();
+		const propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage();
+		const allProps = this.constructor.static.getAllProperties( true );
+		for ( const prop in data ) {
+			let propToSet = prop;
 			if (
 				// This is to make sure that forwards compatibility is achieved
 				// and the code doesn't die on properties that aren't valid
@@ -432,7 +432,7 @@ Model.prototype.addParam = function ( name, paramData ) {
 				$.isPlainObject( data[ prop ] )
 			) {
 				// Add all language properties
-				for ( var lang in data[ prop ] ) {
+				for ( const lang in data[ prop ] ) {
 					this.setParamProperty( key, propToSet, data[ prop ], lang );
 				}
 			} else {
@@ -456,9 +456,9 @@ Model.prototype.addParam = function ( name, paramData ) {
  * @return {string[]} Used parameter names
  */
 Model.prototype.getAllParamNames = function () {
-	var result = [];
-	for ( var key in this.params ) {
-		var param = this.params[ key ];
+	let result = [];
+	for ( const key in this.params ) {
+		const param = this.params[ key ];
 		result.push( param.name );
 		if ( param.aliases ) {
 			result = result.concat( param.aliases );
@@ -618,7 +618,7 @@ Model.prototype.addKeyTemplateParamOrder = function ( key ) {
  * @fires change
  */
 Model.prototype.reorderParamOrderKey = function ( key, newIndex ) {
-	var keyIndex = this.paramOrder.indexOf( key );
+	const keyIndex = this.paramOrder.indexOf( key );
 	// Move the parameter, account for left shift if moving forwards
 	this.paramOrder.splice(
 		newIndex - ( newIndex > keyIndex ? 1 : 0 ),
@@ -641,7 +641,7 @@ Model.prototype.reorderParamOrderKey = function ( key, newIndex ) {
  * @fires change
  */
 Model.prototype.removeKeyTemplateParamOrder = function ( key ) {
-	var keyPos = this.paramOrder.indexOf( key );
+	const keyPos = this.paramOrder.indexOf( key );
 	if ( keyPos > -1 ) {
 		this.paramOrder.splice( keyPos, 1 );
 		this.emit( 'change-paramOrder', this.paramOrder );
@@ -679,8 +679,8 @@ Model.prototype.getTemplateFormat = function () {
  * @fires change
  */
 Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) {
-	var allProps = this.constructor.static.getAllProperties( true ),
-		status = false;
+	const allProps = this.constructor.static.getAllProperties( true );
+	let status = false;
 
 	language = language || this.getDefaultLanguage();
 	if ( !allProps[ prop ] ) {
@@ -688,7 +688,7 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 		return status;
 	}
 
-	var propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage();
+	const propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage();
 	// Check if the property is split by language code
 	if ( propertiesWithLanguage.indexOf( prop ) !== -1 ) {
 		// Initialize property if necessary
@@ -706,10 +706,10 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 	} else {
 		// Compare without language
 		if ( !this.constructor.static.compare( this.params[ paramKey ][ prop ], value ) ) {
-			var oldValue = this.params[ paramKey ][ prop ];
+			const oldValue = this.params[ paramKey ][ prop ];
 			this.params[ paramKey ][ prop ] = value;
 
-			var newKey = value;
+			let newKey = value;
 			if ( prop === 'name' && oldValue !== value ) {
 				// See if the parameters already has something with this new key
 				if ( this.params[ newKey ] && !this.params[ newKey ].deleted ) {
@@ -886,13 +886,13 @@ Model.prototype.getOriginalTemplateDataObject = function () {
  * @return {Object} Templatedata object
  */
 Model.prototype.outputTemplateData = function () {
-	var allProps = this.constructor.static.getAllProperties( true ),
+	const allProps = this.constructor.static.getAllProperties( true ),
 		original = this.getOriginalTemplateDataObject() || {};
 	original.params = original.params || {};
-	var result = $.extend( true, {}, original ),
+	const result = $.extend( true, {}, original ),
 		defaultLang = this.getDefaultLanguage();
 
-	var normalizedValue;
+	let normalizedValue;
 	// Template description
 	if ( this.description[ defaultLang ] !== undefined ) {
 		normalizedValue = this.propRemoveUnusedLanguages( this.description );
@@ -935,8 +935,8 @@ Model.prototype.outputTemplateData = function () {
 	}
 
 	// Go over parameters in data
-	for ( var paramKey in this.params ) {
-		var key = paramKey;
+	for ( const paramKey in this.params ) {
+		const key = paramKey;
 		if ( this.params[ key ].deleted ) {
 			delete result.params[ key ];
 			continue;
@@ -949,8 +949,8 @@ Model.prototype.outputTemplateData = function () {
 		}
 
 		// Check if name was changed and change the key accordingly
-		var name = this.params[ key ].name;
-		var oldKey = key;
+		const name = this.params[ key ].name;
+		const oldKey = key;
 
 		// Notice for clarity:
 		// Whether the parameter name was changed or not the following
@@ -966,7 +966,7 @@ Model.prototype.outputTemplateData = function () {
 		}
 
 		// Go over all properties
-		for ( var prop in allProps ) {
+		for ( const prop in allProps ) {
 			if ( prop === 'status' || prop === 'deprecatedValue' || prop === 'name' ) {
 				continue;
 			}
@@ -1021,7 +1021,7 @@ Model.prototype.outputTemplateData = function () {
 				default:
 					// Check if there's a value in the model
 					if ( this.params[ key ][ prop ] !== undefined ) {
-						var compareOrig = original.params[ oldKey ] && original.params[ oldKey ][ prop ];
+						const compareOrig = original.params[ oldKey ] && original.params[ oldKey ][ prop ];
 						if ( allProps[ prop ].allowLanguages ) {
 							normalizedValue = this.propRemoveUnusedLanguages( this.params[ key ][ prop ] );
 							// Check if this should be displayed with language object or directly as string
@@ -1073,9 +1073,9 @@ Model.prototype.getNewValidParameterKey = function ( key ) {
  * @return {Object} Property data with only used language keys
  */
 Model.prototype.propRemoveUnusedLanguages = function ( propData ) {
-	var result = {};
+	const result = {};
 	if ( $.isPlainObject( propData ) ) {
-		for ( var key in propData ) {
+		for ( const key in propData ) {
 			if ( propData[ key ] ) {
 				result[ key ] = propData[ key ];
 			}

@@ -1,4 +1,4 @@
-var LanguageResultWidget = require( './LanguageResultWidget.js' );
+const LanguageResultWidget = require( './LanguageResultWidget.js' );
 
 /**
  * Creates a TemplateDataLanguageSearchWidget object.
@@ -21,7 +21,7 @@ function LanguageSearchWidget( config ) {
 
 	// Properties
 	this.filteredLanguageResultWidgets = [];
-	var languageCodes = Object.keys( $.uls.data.getAutonyms() ).sort();
+	const languageCodes = Object.keys( $.uls.data.getAutonyms() ).sort();
 	this.languageResultWidgets = languageCodes.map( ( languageCode ) => new LanguageResultWidget( {
 		data: {
 			code: languageCode,
@@ -64,7 +64,7 @@ LanguageSearchWidget.prototype.setAvailableLanguages = function ( availableLangu
 	}
 
 	this.filteredLanguageResultWidgets = this.languageResultWidgets.map( ( languageResult ) => {
-		var data = languageResult.getData();
+		const data = languageResult.getData();
 		if ( availableLanguages.indexOf( data.code ) !== -1 ) {
 			return languageResult;
 		}
@@ -76,7 +76,7 @@ LanguageSearchWidget.prototype.setAvailableLanguages = function ( availableLangu
  * Update search results from current query
  */
 LanguageSearchWidget.prototype.addResults = function () {
-	var matchProperties = [ 'name', 'autonym', 'code' ],
+	const matchProperties = [ 'name', 'autonym', 'code' ],
 		query = this.query.getValue().trim(),
 		compare = window.Intl && Intl.Collator ?
 			new Intl.Collator( this.lang, { sensitivity: 'base' } ).compare :
@@ -86,12 +86,12 @@ LanguageSearchWidget.prototype.addResults = function () {
 		hasQuery = !!query.length,
 		items = [];
 
-	var results = this.getResults();
+	const results = this.getResults();
 	results.clearItems();
 
 	this.filteredLanguageResultWidgets.forEach( ( languageResult ) => {
-		var data = languageResult.getData();
-		var matchedProperty = null;
+		const data = languageResult.getData();
+		let matchedProperty = null;
 
 		matchProperties.some( ( prop ) => {
 			if ( data[ prop ] && compare( data[ prop ].slice( 0, query.length ), query ) === 0 ) {

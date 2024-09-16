@@ -1,4 +1,4 @@
-var Model = require( './Model.js' );
+const Model = require( './Model.js' );
 
 /**
  * TemplateData Source Handler
@@ -43,7 +43,7 @@ OO.mixinClass( SourceHandler, OO.EventEmitter );
  * @return {jQuery.Promise} API promise
  */
 SourceHandler.prototype.getApi = function ( page, getTemplateData ) {
-	var type = getTemplateData ? 'templatedata' : 'query',
+	const type = getTemplateData ? 'templatedata' : 'query',
 		api = new mw.Api(),
 		baseConfig = {
 			action: type,
@@ -51,7 +51,7 @@ SourceHandler.prototype.getApi = function ( page, getTemplateData ) {
 			redirects: getTemplateData ? 1 : 0
 		};
 
-	var config;
+	let config;
 	if ( type === 'query' ) {
 		config = Object.assign( baseConfig, {
 			prop: 'revisions',
@@ -76,9 +76,9 @@ SourceHandler.prototype.getApi = function ( page, getTemplateData ) {
  *  or is rejected if the model was impossible to create.
  */
 SourceHandler.prototype.buildModel = function ( wikitext ) {
-	var tdObject = null,
-		templateDataString = this.findModelInString( wikitext );
+	const templateDataString = this.findModelInString( wikitext );
 
+	let tdObject = null;
 	if ( templateDataString !== null ) {
 		try {
 			tdObject = JSON.parse( templateDataString );
@@ -114,9 +114,9 @@ SourceHandler.prototype.buildModel = function ( wikitext ) {
  * @return {jQuery.Promise} Promise resolving into template parameter array
  */
 SourceHandler.prototype.getParametersFromTemplateSource = function ( wikitext ) {
-	var params = [],
-		sourceHandler = this;
+	const sourceHandler = this;
 
+	let params = [];
 	if ( !this.templateSourceCodePromise ) {
 		// Check given page text first
 		if ( wikitext ) {
@@ -130,7 +130,7 @@ SourceHandler.prototype.getParametersFromTemplateSource = function ( wikitext ) 
 			// Get the content of the parent
 			this.templateSourceCodePromise = this.getApi( this.getParentPage() ).then(
 				( resp ) => {
-					var pageContent = '';
+					let pageContent = '';
 
 					// Verify that we have a sane response from the API.
 					// This is particularly important for unit tests, since the
@@ -165,7 +165,7 @@ SourceHandler.prototype.getParametersFromTemplateSource = function ( wikitext ) 
  * @return {string[]} An array of parameters that appear in the template code
  */
 SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateCode ) {
-	var paramNames = [],
+	const paramNames = [],
 		normalizedParamNames = [],
 		// This regex matches the one in TemplateDataBlob.php
 		paramExtractor = /{{{+([^\n#={|}]*?)([<|]|}}})/mg;
@@ -175,10 +175,10 @@ SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateC
 		.replace( /<nowiki\s*>[\s\S]*?<\/nowiki\s*>/g, '' )
 		.replace( /<pre\s*>[\s\S]*?<\/pre\s*>/g, '' );
 
-	var matches;
+	let matches;
 	while ( ( matches = paramExtractor.exec( templateCode ) ) !== null ) {
 		// This normalization process is repeated in PHP in TemplateDataBlob.php
-		var normalizedParamName = matches[ 1 ].replace( /[-_ ]+/, ' ' ).trim().toLowerCase();
+		const normalizedParamName = matches[ 1 ].replace( /[-_ ]+/, ' ' ).trim().toLowerCase();
 		if ( !normalizedParamName || normalizedParamNames.indexOf( normalizedParamName ) !== -1 ) {
 			continue;
 		}
@@ -199,7 +199,7 @@ SourceHandler.prototype.extractParametersFromTemplateCode = function ( templateC
  * templatedata string was found.
  */
 SourceHandler.prototype.findModelInString = function ( templateDataString ) {
-	var parts = templateDataString.match(
+	const parts = templateDataString.match(
 		/<templatedata>([\s\S]*?)<\/templatedata>/i
 	);
 
