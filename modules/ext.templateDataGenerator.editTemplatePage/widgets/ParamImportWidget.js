@@ -9,7 +9,7 @@ function ParamImportWidget( config ) {
 	config = config || {};
 
 	// Parent constructor
-	ParamImportWidget.parent.call( this, Object.assign( {
+	ParamImportWidget.super.call( this, Object.assign( {
 		icon: 'parameter-set'
 	}, config ) );
 

@@ -12,7 +12,7 @@ function ParamWidget( data, config ) {
 	config = config || {};
 
 	// Parent constructor
-	ParamWidget.parent.call( this, Object.assign( {}, config, { data: data.key, icon: 'menu' } ) );
+	ParamWidget.super.call( this, Object.assign( {}, config, { data: data.key, icon: 'menu' } ) );
 
 	// Mixin constructors
 	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$icon } ) );
