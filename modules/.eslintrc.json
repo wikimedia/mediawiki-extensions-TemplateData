@@ -10,8 +10,6 @@
 	],
 	"rules": {
 		"max-len": "off",
-		"no-var": "off",
-		"no-mixed-spaces-and-tabs": "warn",
-		"implicit-arrow-linebreak": "warn"
+		"no-var": "off"
 	}
 }
