@@ -142,7 +142,7 @@ Dialog.prototype.initialize = function () {
 
 	// Maps panel
 	this.templateMapsInput = new OO.ui.MultilineTextInputWidget( {
-		classes: [ 'mw-templateData-template-maps-input' ],
+		classes: [ 'mw-templateData-template-maps-input mw-editfont-monospace' ],
 		autosize: true,
 		rows: this.getBodyHeight() / 22.5,
 		maxRows: this.getBodyHeight() / 22.5,
