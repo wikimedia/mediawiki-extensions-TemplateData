@@ -312,15 +312,14 @@ Model.prototype.getMissingParams = function () {
  * @return {Object} Parameters added. -1 for failure.
  */
 Model.prototype.importSourceCodeParameters = function () {
-	const model = this,
-		allParamNames = this.getAllParamNames(),
+	const allParamNames = this.getAllParamNames(),
 		existingArray = [],
 		importedArray = [],
 		skippedArray = [];
 
 	// Check existing params
 	allParamNames.forEach( ( paramKey ) => {
-		if ( model.sourceCodeParameters.indexOf( paramKey ) !== -1 ) {
+		if ( this.sourceCodeParameters.indexOf( paramKey ) !== -1 ) {
 			existingArray.push( paramKey );
 		}
 	} );
@@ -328,7 +327,7 @@ Model.prototype.importSourceCodeParameters = function () {
 	// Add sourceCodeParameters to the model
 	this.sourceCodeParameters.forEach( ( sourceCodeParameter ) => {
 		if ( existingArray.indexOf( sourceCodeParameter ) === -1 ) {
-			model.addParam( sourceCodeParameter );
+			this.addParam( sourceCodeParameter );
 			importedArray.push( sourceCodeParameter );
 		} else {
 			skippedArray.push( sourceCodeParameter );

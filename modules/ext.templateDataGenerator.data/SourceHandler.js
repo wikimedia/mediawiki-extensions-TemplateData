@@ -114,8 +114,6 @@ SourceHandler.prototype.buildModel = function ( wikitext ) {
  * @return {jQuery.Promise} Promise resolving into template parameter array
  */
 SourceHandler.prototype.getParametersFromTemplateSource = function ( wikitext ) {
-	const sourceHandler = this;
-
 	let params = [];
 	if ( !this.templateSourceCodePromise ) {
 		// Check given page text first
@@ -141,7 +139,7 @@ SourceHandler.prototype.getParametersFromTemplateSource = function ( wikitext ) 
 					) {
 						pageContent = resp.query.pages[ resp.query.pageids[ 0 ] ].revisions[ 0 ][ '*' ];
 					}
-					return sourceHandler.extractParametersFromTemplateCode( pageContent );
+					return this.extractParametersFromTemplateCode( pageContent );
 				},
 				// Resolve an empty parameters array
 				() => $.Deferred().resolve( [] )

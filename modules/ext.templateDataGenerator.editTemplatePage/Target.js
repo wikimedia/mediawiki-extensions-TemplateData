@@ -15,8 +15,6 @@ const Dialog = require( './Dialog.js' ),
  * @param {Object} config
  */
 function Target( $textarea, config ) {
-	const target = this;
-
 	// Parent constructor
 	Target.super.call( this, config );
 
@@ -86,7 +84,7 @@ function Target( $textarea, config ) {
 						mw.message( 'templatedata-string-exists-hack-message' ).parse()
 					);
 
-					target.setEditNoticeMessage( msg, 'warning' );
+					this.setEditNoticeMessage( msg, 'warning' );
 				}
 			}
 		} );
@@ -154,8 +152,6 @@ Target.prototype.openEditDialog = function ( dataModel ) {
  * @method onEditOpenDialogButton
  */
 Target.prototype.onEditOpenDialogButton = function () {
-	const target = this;
-
 	this.originalWikitext = this.$textarea.textSelection( 'getContents' );
 
 	// Build the model
@@ -163,7 +159,7 @@ Target.prototype.onEditOpenDialogButton = function () {
 		.then(
 			// Success
 			( model ) => {
-				target.openEditDialog( model );
+				this.openEditDialog( model );
 			},
 			// Failure
 			() => {
@@ -189,9 +185,9 @@ Target.prototype.onEditOpenDialogButton = function () {
 						// Open the dialog with an empty model
 						const model = Model.static.newFromObject(
 							null,
-							target.sourceHandler.getTemplateSourceCodeParams()
+							this.sourceHandler.getTemplateSourceCodeParams()
 						);
-						target.openEditDialog( model );
+						this.openEditDialog( model );
 					}
 				} );
 			}
@@ -246,8 +242,6 @@ Target.prototype.replaceTemplateData = function ( newTemplateData ) {
  * @param {Object} templateData New templatedata
  */
 Target.prototype.onDialogApply = function ( templateData ) {
-	const target = this;
-
 	if (
 		Object.keys( templateData ).length > 1 ||
 		Object.keys( templateData.params ).length > 0
@@ -270,7 +264,7 @@ Target.prototype.onDialogApply = function ( templateData ) {
 			]
 		} ).closed.then( ( data ) => {
 			if ( data && data.action === 'apply' ) {
-				target.replaceTemplateData( templateData );
+				this.replaceTemplateData( templateData );
 			}
 		} );
 	}
