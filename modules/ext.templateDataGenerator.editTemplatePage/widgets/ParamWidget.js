@@ -52,7 +52,7 @@ ParamWidget.prototype.onKeyDown = function ( e ) {
  * Build the parameter label in the parameter select widget
  */
 ParamWidget.prototype.buildParamLabel = function () {
-	var keys = this.aliases.slice(),
+	const keys = this.aliases.slice(),
 		$paramLabel = $( '<div>' )
 			.addClass( 'tdg-templateDataParamWidget-param-name' ),
 		$aliases = $( '<div>' )

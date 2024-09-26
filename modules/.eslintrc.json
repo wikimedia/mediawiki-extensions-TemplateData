@@ -9,7 +9,6 @@
 		"wikimedia/mediawiki"
 	],
 	"rules": {
-		"max-len": "off",
-		"no-var": "off"
+		"max-len": "off"
 	}
 }

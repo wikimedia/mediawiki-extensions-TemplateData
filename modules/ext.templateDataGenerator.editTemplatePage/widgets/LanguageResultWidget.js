@@ -52,7 +52,7 @@ LanguageResultWidget.prototype.onKeyDown = function ( e ) {
  * @chainable
  */
 LanguageResultWidget.prototype.updateLabel = function ( query, matchedProperty ) {
-	var data = this.getData();
+	const data = this.getData();
 
 	// Reset text
 	this.$name.text( data.name );
@@ -60,7 +60,7 @@ LanguageResultWidget.prototype.updateLabel = function ( query, matchedProperty )
 
 	// Highlight where applicable
 	if ( matchedProperty ) {
-		var $highlighted = this.constructor.static.highlightQuery( data[ matchedProperty ], query );
+		const $highlighted = this.constructor.static.highlightQuery( data[ matchedProperty ], query );
 		if ( matchedProperty === 'name' ) {
 			this.$name.empty().append( $highlighted );
 		} else {
@@ -81,7 +81,7 @@ LanguageResultWidget.prototype.updateLabel = function ( query, matchedProperty )
  * @return {jQuery} Text with query substring wrapped in highlighted span
  */
 LanguageResultWidget.static.highlightQuery = function ( text, query ) {
-	var $result = $( '<span>' ),
+	const $result = $( '<span>' ),
 		offset = text.toLowerCase().indexOf( query.toLowerCase() );
 
 	if ( !query.length || offset === -1 ) {

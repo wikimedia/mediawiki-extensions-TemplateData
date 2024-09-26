@@ -27,7 +27,7 @@ OO.inheritClass( ParamImportWidget, OO.ui.ButtonWidget );
  * @param {string[]} params Param names
  */
 ParamImportWidget.prototype.buildParamLabel = function ( params ) {
-	var paramNames = params.slice( 0, 9 ).join( mw.msg( 'comma-separator' ) );
+	const paramNames = params.slice( 0, 9 ).join( mw.msg( 'comma-separator' ) );
 	this.setLabel( $( '<div>' )
 		.addClass( 'tdg-templateDataParamWidget-param-name' )
 		.text( mw.msg( 'templatedata-modal-table-param-importoption', params.length ) )
