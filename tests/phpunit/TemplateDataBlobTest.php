@@ -4,6 +4,7 @@ use MediaWiki\Extension\TemplateData\Api\ApiTemplateData;
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter;
 use MediaWiki\Extension\TemplateData\TemplateDataValidator;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Language\RawMessage;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Status\Status;

@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\TemplateData;
 
-use ExtensionRegistry;
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
@@ -17,6 +16,8 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\OutputPageBeforeHTMLHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\PPFrame;
+use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RenderedRevision;
@@ -26,7 +27,6 @@ use MediaWiki\Status\Status;
 use MediaWiki\Storage\Hook\MultiContentSaveHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
-use PPFrame;
 
 /**
  * @license GPL-2.0-or-later
