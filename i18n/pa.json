@@ -14,5 +14,6 @@
 	"templatedata-doc-params": "ਫਰਮੇ ਦੇ ਮਾਪਦੰਡ",
 	"templatedata-invalid-missing": "ਲੋੜੀਂਦਾ ਮਲਕੀਅਤ \"$1\" ਨਹੀਂ ਲੱਭੀ।",
 	"templatedata-invalid-parse": "JSON ਵਿਚ ਵਾਕ-ਰਚਨਾ ਦੋਸ਼",
-	"templatedata-invalid-value": "\"$1\" ਮਲਕੀਅਤ ਲਈ ਗ਼ਲਤ ਮੁੱਲ"
+	"templatedata-invalid-value": "\"$1\" ਮਲਕੀਅਤ ਲਈ ਗ਼ਲਤ ਮੁੱਲ",
+	"templatedata-modal-button-changelang": "ਭਾਸ਼ਾ ਬਦਲੋ"
 }
