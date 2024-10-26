@@ -730,7 +730,7 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 	 * @param stdClass $actual
 	 * @param string|null $message
 	 */
-	private function assertStrictJsonEquals( string $expected, stdClass $actual, string $message = null ): void {
+	private function assertStrictJsonEquals( string $expected, stdClass $actual, ?string $message = null ): void {
 		// Lazy recursive strict comparison: Serialise to JSON and compare that
 		// Sort first to ensure key-order
 		$expected = json_decode( $expected, /* assoc = */ true );
