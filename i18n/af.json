@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Wawiel"
+			"Wawiel",
+			"Rooiratel"
 		]
 	},
 	"templatedata-desc": "Implementeer die stoor van data vir sjabloonparameters (met JSON)",

@@ -8,7 +8,9 @@
 			"Macofe",
 			"Mannivu",
 			"Nivit",
-			"Ruthven"
+			"Ruthven",
+			"Luca.favorido",
+			"McDutchie"
 		]
 	},
 	"templatedata-desc": "Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)",

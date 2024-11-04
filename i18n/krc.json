@@ -53,7 +53,7 @@
 	"templatedata-modal-button-restoreparam": "Параметрни ызына сал",
 	"templatedata-modal-button-saveparam": "Сакъландыр",
 	"templatedata-modal-current-language": "Бусагъатдагъы тил: $1",
-	"templatedata-modal-errormsg": "Были обнаружены ошибки Халатла табылгъандыла. Параметрлени атлары бош болмагъанларына, бири-бирин дубликат этмегенлерине эмда «$1», «$2» неда «$3» болмагъанына ажымсыз болугъуз.",
+	"templatedata-modal-errormsg": "Халатла табылгъандыла. Параметрлени атлары бош болмагъанларына, бири-бирин дубликат этмегенлерине эмда «$1», «$2» неда «$3» болмагъанына ажымсыз болугъуз.",
 	"templatedata-modal-errormsg-import-noparams": "Импортну заманында джангы параметрле табылмадыла.",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|джангы параметр импорт этилди}}: $2",
 	"templatedata-modal-placeholder-paramkey": "Параметрни аты",
