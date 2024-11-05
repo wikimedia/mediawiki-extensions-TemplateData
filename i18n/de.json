@@ -44,7 +44,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Benutzer",
 	"templatedata-doc-params": "Vorlagenparameter",
 	"templatedata-editbutton": "Vorlagendaten bearbeiten",
-	"templatedata-errormsg-jsonbadformat": "Ungültiges JSON-Format. Du kannst diese Operation zum Korrigieren abbrechen, die aktuellen <templatedata>-Tags löschen und es erneut versuchen oder mit dem Ersetzen der aktuellen Vorlagendaten durch neue fortfahren.",
+	"templatedata-errormsg-jsonbadformat": "Ungültiges JSON-Format. Du kannst diesen Vorgang abbrechen, um ihn zu korrigieren oder zu entfernen, oder damit fortfahren, die aktuellen Vorlagendaten durch neue zu ersetzen.",
 	"templatedata-errormsg-insertblank": "Bist du sicher, dass du Vorlagendaten ohne Informationen einfügen möchtest?",
 	"templatedata-exists-on-related-page": "Hinweis: Es gibt bereits einen Vorlagendatenblock auf der verwandten Seite „[[$1]]“.",
 	"templatedata-helplink": "Informationen über Vorlagendaten",
