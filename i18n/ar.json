@@ -51,7 +51,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "مستخدم",
 	"templatedata-doc-params": "وسائط القالب",
 	"templatedata-editbutton": "تحرير بيانات القالب",
-	"templatedata-errormsg-jsonbadformat": "تنسيق JSON غير صالح. يمكنك إلغاء هذه العملية حتى تتمكن من تصحيحها وحذف التيار<templatedata> وحاول مرة أخرى ، أو استمر في استبدال بيانات القالب الحالية بواحدة جديدة.",
+	"templatedata-errormsg-jsonbadformat": "شكل JSON سيء. يمكنك إلغاء هذه العملية حتى تتمكن من تصحيحها أو إزالتها، أو الاستمرار في استبدال بيانات القالب الحالية بإصدار آخر.",
 	"templatedata-errormsg-insertblank": "هل أنت متأكد من أنك تريد إدراج بيانات القالب بدون معلومات؟",
 	"templatedata-exists-on-related-page": "يرجى ملاحظة: يوجد بالفعل قالب بيانات على الصفحة ذات الصلة \"[[$1]]\".",
 	"templatedata-helplink": "معلومات حول بيانات النموذج",

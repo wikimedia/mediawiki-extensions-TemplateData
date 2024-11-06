@@ -41,7 +41,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "משתמש",
 	"templatedata-doc-params": "פרמטרים של תבניות",
 	"templatedata-editbutton": "עריכת נתוני תבנית",
-	"templatedata-errormsg-jsonbadformat": "JSON בלתי־תקין. אפשר לבטל את הפעולה הזאת כדי לתקן אותו, למחוק את תגי ה־<templatedata> הנוכחיים ולנסות שוב, או להמשיך להחליף את נתוני התבנית הנוכחיים בחדשים.",
+	"templatedata-errormsg-jsonbadformat": "JSON בלתי־תקין. אפשר לבטל את הפעולה הזאת כדי לתקן אותו או למחוק אותו, או להמשיך להחליף את נתוני התבנית הנוכחיים בחדשים.",
 	"templatedata-errormsg-insertblank": "האם ברצונך להוסיף נתוני תבנית ללא מידע?",
 	"templatedata-exists-on-related-page": "לתשומת ליבך: כבר יש בלוק נתוני תבנית בדף הקשור \"[[$1]]\".",
 	"templatedata-helplink": "מידע על נתוני תבנית",
