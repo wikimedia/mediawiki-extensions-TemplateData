@@ -46,7 +46,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "име корисника",
 	"templatedata-doc-params": "Параметри шаблона",
 	"templatedata-editbutton": "Уреди податке о шаблону",
-	"templatedata-errormsg-jsonbadformat": "Неисправан JSON формат. Откажите ову радњу, исправите формат, избришите тренутне ознаке <templatedata> па покушајте поново. Алтернативно, можете наставити да бисте заменили тренутне податке шаблона с новим.",
+	"templatedata-errormsg-jsonbadformat": "Неисправан JSON формат. Можете отказати ову радњу ради исправке, брисања или наставити да бисте заменили тренутне податке шаблона с новим.",
 	"templatedata-errormsg-insertblank": "Желите ли заиста да уметнете податке о шаблону без информација?",
 	"templatedata-exists-on-related-page": "Напомена: Подаци о шаблону већ постоје на страници „[[$1]]”.",
 	"templatedata-helplink": "Информације за податке о шаблону",
