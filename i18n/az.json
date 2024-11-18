@@ -7,7 +7,8 @@
 			"Serkanland",
 			"Toghrul Rahimli",
 			"Wertuose",
-			"Nemoralis"
+			"Nemoralis",
+			"Əkrəm Cəfər"
 		]
 	},
 	"templatedata-doc-desc-empty": "İzahı yoxdur.",
@@ -76,7 +77,7 @@
 	"templatedata-modal-search-input-placeholder": "Dil adına və ya koduna görə axtarış",
 	"templatedata-modal-table-param-aliases": "Digər adları",
 	"templatedata-modal-table-param-autovalue": "Avtomatik dəyər",
-	"templatedata-modal-table-param-default": "Susmaya görə ($1)",
+	"templatedata-modal-table-param-default": "Defolt ($1)",
 	"templatedata-modal-table-param-deprecated": "Köhnəlmiş",
 	"templatedata-modal-table-param-deprecatedValue": "Köhnəlmiş tövsiyələr",
 	"templatedata-modal-table-param-description": "İzahı ($1)",
