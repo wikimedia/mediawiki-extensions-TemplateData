@@ -56,7 +56,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "用户",
 	"templatedata-doc-params": "模板参数",
 	"templatedata-editbutton": "编辑模板数据",
-	"templatedata-errormsg-jsonbadformat": "错误的JSON格式。您可以取消此操作以便更正格式，请删除当前的<templatedata>标签并重试，或是继续用新模板数据替换当前的模板数据。",
+	"templatedata-errormsg-jsonbadformat": "错误的JSON格式。您可以取消此操作以便更正或移除，或是继续用新模板数据替换当前的模板数据。",
 	"templatedata-errormsg-insertblank": "您确定要插入没有信息的模板数据吗？",
 	"templatedata-exists-on-related-page": "请注意：关联页面“[[$1]]”上已存在模板数据代码块。",
 	"templatedata-helplink": "关于模板数据的信息",
