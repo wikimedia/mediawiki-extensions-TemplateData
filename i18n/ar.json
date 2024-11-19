@@ -98,6 +98,7 @@
 	"templatedata-modal-table-param-aliases": "أسماء بديلة",
 	"templatedata-modal-table-param-autovalue": "قيمة تلقائية",
 	"templatedata-modal-table-param-default": "افتراضي ($1)",
+	"templatedata-modal-table-param-status": "الحالة",
 	"templatedata-modal-table-param-deprecated": "تم الاستغناء عنه",
 	"templatedata-modal-table-param-deprecatedValue": "إرشاد مستغنى عنه",
 	"templatedata-modal-table-param-description": "وصف ($1)",
