@@ -907,7 +907,7 @@ Model.prototype.outputTemplateData = function () {
 	}
 
 	// Template maps
-	if ( this.maps === undefined || Object.keys( this.maps ).length === 0 ) {
+	if ( !this.maps || !Object.keys( this.maps ).length ) {
 		delete result.maps;
 	} else {
 		result.maps = this.maps;
@@ -921,7 +921,7 @@ Model.prototype.outputTemplateData = function () {
 	}
 
 	// Format
-	if ( this.format === null ) {
+	if ( !this.format ) {
 		delete result.format;
 	} else {
 		result.format = this.format;

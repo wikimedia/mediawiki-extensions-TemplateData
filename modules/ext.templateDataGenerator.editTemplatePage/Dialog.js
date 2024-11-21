@@ -531,7 +531,7 @@ Dialog.prototype.onMapInfoChange = function ( value ) {
 				// Otherwise disable the done button if maps object is populated
 				this.actions.setAbilities( { done: false } );
 			} finally {
-				if ( this.mapsGroup.items.length === 0 ) {
+				if ( !this.mapsGroup.items.length ) {
 					this.actions.setAbilities( { done: true } );
 					this.removeMapButton.setDisabled( true );
 				}
@@ -1313,7 +1313,7 @@ Dialog.prototype.importParametersFromTemplateCode = function () {
 
 	let $message = $( [] ),
 		state = 'success';
-	if ( response.imported.length === 0 ) {
+	if ( !response.imported.length ) {
 		$message = $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg-import-noparams' ) );
 		state = 'error';
 	} else {

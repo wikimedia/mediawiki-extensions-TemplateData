@@ -101,7 +101,7 @@ LanguageSearchWidget.prototype.addResults = function () {
 			return false;
 		} );
 
-		if ( query === '' || matchedProperty ) {
+		if ( !query || matchedProperty ) {
 			items.push(
 				languageResult
 					.updateLabel( query, matchedProperty, compare )
