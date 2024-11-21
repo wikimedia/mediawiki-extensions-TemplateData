@@ -11,6 +11,7 @@ const
  *
  * @class
  * @extends OO.ui.ProcessDialog
+ * @property {Model} model
  *
  * @constructor
  * @param {Object} config Dialog configuration object
