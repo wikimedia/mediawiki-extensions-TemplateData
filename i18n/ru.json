@@ -58,7 +58,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Имя участника",
 	"templatedata-doc-params": "Параметры шаблона",
 	"templatedata-editbutton": "Править данные шаблона",
-	"templatedata-errormsg-jsonbadformat": "Некорректный формат JSON. Вы можете отменить эту операцию, чтобы исправить его: удалите текущие теги <templatedata> и повторите попытку, или же вы можете продолжить, чтобы заменить текущий шаблон данных новым.",
+	"templatedata-errormsg-jsonbadformat": "Некорректный формат JSON. Вы можете отменить эту операцию, чтобы исправить или удалить JSON, или продолжить, чтобы заменить текущие данные шаблона новыми.",
 	"templatedata-errormsg-insertblank": "Вы уверены, что хотите вставить данные шаблона без информации?",
 	"templatedata-exists-on-related-page": "Обратите внимание: уже имеется блок данных шаблона на связанной странице «[[$1]]».",
 	"templatedata-helplink": "Информация о данных в шаблоне",
