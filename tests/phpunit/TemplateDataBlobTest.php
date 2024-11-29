@@ -1534,6 +1534,11 @@ HTML
 	 * @dataProvider provideGetHtml
 	 */
 	public function testGetHtml( array $data, string $expected ) {
+		$config = new HashConfig( [
+			'TemplateDataEditorNamespaces' => [
+				10
+			]
+		] );
 		$t = TemplateDataBlob::newFromJSON( $this->db, json_encode( $data ) );
 		$localizer = new class implements MessageLocalizer {
 
@@ -1543,7 +1548,7 @@ HTML
 
 		};
 		$title = Title::newFromText( 'Template:Test/doc' );
-		$formatter = new TemplateDataHtmlFormatter( $localizer );
+		$formatter = new TemplateDataHtmlFormatter( $config, $localizer );
 		$actual = $formatter->getHtml( $t, $title );
 		$linedActual = preg_replace( '/>\s*</', ">\n<", $actual );
 

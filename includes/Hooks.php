@@ -65,7 +65,7 @@ class Hooks implements
 	 * @param Parser $parser
 	 */
 	public function onParserFirstCallInit( $parser ) {
-		$parser->setHook( 'templatedata', [ __CLASS__, 'render' ] );
+		$parser->setHook( 'templatedata', [ $this, 'render' ] );
 	}
 
 	/**
@@ -178,16 +178,17 @@ class Hooks implements
 	 */
 	public function onEditPage__showEditForm_initial( $editPage, $output ) {
 		if ( $this->config->get( 'TemplateDataUseGUI' ) ) {
-			$isTemplate = $output->getTitle()->inNamespace( NS_TEMPLATE );
-			if ( !$isTemplate ) {
-				// If we're outside the Template namespace, allow access to GUI
+			$editorNamespaces = $this->config->get( 'TemplateDataEditorNamespaces' );
+			$isEditorNamespace = $output->getTitle()->inNamespaces( $editorNamespaces );
+			if ( !$isEditorNamespace ) {
+				// If we're outside the editor namespaces, allow access to GUI
 				// if it's an existing page with <templatedate> (e.g. User template sandbox,
 				// or some other page that's intended to be transcluded for any reason).
 				$services = MediaWikiServices::getInstance();
 				$props = $services->getPageProps()->getProperties( $editPage->getTitle(), 'templatedata' );
-				$isTemplate = (bool)$props;
+				$isEditorNamespace = (bool)$props;
 			}
-			if ( $isTemplate ) {
+			if ( $isEditorNamespace ) {
 				$output->addModuleStyles( 'ext.templateDataGenerator.editTemplatePage.loading' );
 				$output->addHTML( '<div class="tdg-editscreen-placeholder"></div>' );
 				$output->addModules( 'ext.templateDataGenerator.editTemplatePage' );
@@ -208,7 +209,7 @@ class Hooks implements
 	 *
 	 * @return string HTML to insert in the page.
 	 */
-	public static function render( ?string $input, array $args, Parser $parser, PPFrame $frame ): string {
+	public function render( ?string $input, array $args, Parser $parser, PPFrame $frame ): string {
 		$parserOutput = $parser->getOutput();
 		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
 		$ti = TemplateDataBlob::newFromJSON( $dbr, $input ?? '' );
@@ -246,7 +247,7 @@ class Hooks implements
 		OutputPage::setupOOUI( 'bogus', $userLang->getDir() );
 
 		$localizer = new TemplateDataMessageLocalizer( $userLang );
-		$formatter = new TemplateDataHtmlFormatter( $localizer, $userLang->getCode() );
+		$formatter = new TemplateDataHtmlFormatter( $this->config, $localizer, $userLang->getCode() );
 		return $formatter->getHtml( $ti, $frame->getTitle(), !$parser->getOptions()->getIsPreview() );
 	}
 
@@ -262,7 +263,7 @@ class Hooks implements
 		if ( $props ) {
 			$lang = $output->getLanguage();
 			$localizer = new TemplateDataMessageLocalizer( $lang );
-			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
+			$formatter = new TemplateDataHtmlFormatter( $this->config, $localizer, $lang->getCode() );
 			$formatter->replaceEditLink( $text );
 		}
 	}

@@ -243,6 +243,12 @@
 	"config": {
 		"TemplateDataUseGUI": {
 			"value": true
+		},
+		"TemplateDataEditorNamespaces": {
+			"value": [
+				10
+			],
+			"description": "The namespaces in which the template data editor appears when creating or editing a page."
 		}
 	},
 	"manifest_version": 2
