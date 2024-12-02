@@ -39,7 +39,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Kasutaja",
 	"templatedata-doc-params": "Malli parameetrid",
 	"templatedata-editbutton": "Muuda malliandmeid",
-	"templatedata-errormsg-jsonbadformat": "Vigane JSONi vorming. Saad sellest toimingust loobuda, et praegused <templatedata>-sildid kustutada ning uuesti proovida ja vorming parandada. Saad ka jätkata ja asendada praegused malliandmed uutega.",
+	"templatedata-errormsg-jsonbadformat": "Vigane JSONi vorming. Saad sellest toimingust loobuda, et vorming parandada või eemaldada. Saad ka jätkata ja asendada praegused malliandmed uutega.",
 	"templatedata-errormsg-insertblank": "Kas oled kindel, et tahad lisada malliandmed ilma teabeta?",
 	"templatedata-exists-on-related-page": "Pane tähele, et seotud leheküljel \"[[$1]]\" juba on malliandmete plokk.",
 	"templatedata-helplink": "Teave malliandmete süsteemi kohta",
