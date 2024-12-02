@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\TemplateData\Api\ApiTemplateData;
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter;

@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\TemplateData;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
