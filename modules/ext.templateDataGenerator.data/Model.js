@@ -543,7 +543,7 @@ Model.prototype.getOriginalMapsInfo = function () {
  * Get a specific parameter's localized property
  *
  * @param {string} paramKey Parameter key
- * @param {string} property Property name
+ * @param {string} property One of the properties that have `allowLanguages` set, e.g. "label"
  * @param {string} [language] Optional language key
  * @return {string} Parameter property in specified language
  */
@@ -803,16 +803,26 @@ Model.prototype.getParamData = function ( key ) {
 /**
  * Return the complete object of all parameters.
  *
- * @return {Object} All parameters and their data
+ * @return {Object.<string,Object>} All parameters and their data
  */
 Model.prototype.getParams = function () {
 	return this.params;
 };
 
+/**
+ * @param {string} key
+ * @return {boolean} If a parameter with this name originally existed, but got marked as deleted in
+ *  the meantime
+ */
 Model.prototype.isParamDeleted = function ( key ) {
 	return this.params[ key ] && this.params[ key ].deleted === true;
 };
 
+/**
+ * @param {string} key
+ * @return {boolean} If a parameter with this name originally existed (might or might not be marked
+ *  as deleted in the meantime)
+ */
 Model.prototype.isParamExists = function ( key ) {
 	return Object.prototype.hasOwnProperty.call( this.params, key );
 };
