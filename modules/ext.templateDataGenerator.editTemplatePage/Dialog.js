@@ -532,7 +532,7 @@ Dialog.prototype.onMapInfoChange = function ( value ) {
 				// Otherwise disable the done button if maps object is populated
 				this.actions.setAbilities( { done: false } );
 			} finally {
-				if ( !this.mapsGroup.items.length ) {
+				if ( this.mapsGroup.isEmpty() ) {
 					this.actions.setAbilities( { done: true } );
 					this.removeMapButton.setDisabled( true );
 				}
@@ -578,30 +578,27 @@ Dialog.prototype.onCancelAddingMap = function ( highlightNext ) {
 	this.addNewMapButton.$element.show();
 	// move the list panel up back as add new map shrank
 	this.editMapsPanel.$element.removeClass( 'tdg-templateDataDialog-addingNewMap' );
-	this.removeMapButton.setDisabled( false );
+	this.removeMapButton.setDisabled( this.mapsGroup.isEmpty() );
 	this.mapsGroup.selectItem( highlightNext || this.mapsGroup.findFirstSelectableItem() );
 };
 
 /**
  * Handle clicking Enter event for promptMapName
  *
- * @param {jQuery.Event} response response from Enter action on promptMapName
+ * @param {jQuery.Event} [response] Response from Enter action on promptMapName
  */
 Dialog.prototype.onEmbedNewMap = function ( response ) {
 	const mapNameValue = response ? response.target.value : this.newMapNameInput.getValue();
 	this.mapsCache = this.mapsCache || {};
-	// Create a new empty map in maps object
-	this.mapsCache[ mapNameValue ] = {};
-	const newlyAddedMap = new OO.ui.OutlineOptionWidget( {
-		label: mapNameValue
-	} );
-	// Add the new map item and select it
-	if ( mapNameValue.length !== 0 ) {
-		this.mapsGroup.addItems( [ newlyAddedMap ], 0 );
-	} else {
-		delete this.mapsCache[ mapNameValue ];
+	let item;
+	if ( mapNameValue ) {
+		// Create a new empty map in maps object
+		this.mapsCache[ mapNameValue ] = {};
+		// Add the new map item and select it
+		item = new OO.ui.OutlineOptionWidget( { label: mapNameValue } );
+		this.mapsGroup.addItems( [ item ], 0 );
 	}
-	this.onCancelAddingMap( newlyAddedMap );
+	this.onCancelAddingMap( item );
 };
 
 /**
@@ -639,7 +636,6 @@ Dialog.prototype.onMapsGroupSelect = function () {
 		this.addNewMapButton.$element.show();
 		// move the list panel up back as add new map shrank
 		this.editMapsPanel.$element.removeClass( 'tdg-templateDataDialog-addingNewMap' );
-		this.removeMapButton.setDisabled( $.isEmptyObject( this.mapsCache ) );
 
 		this.mapsGroup.selectItem( item );
 		this.templateMapsInput.setDisabled( false );
@@ -652,6 +648,7 @@ Dialog.prototype.onMapsGroupSelect = function () {
 		const currentMapInfo = this.mapsCache[ item.label ];
 		this.templateMapsInput.setValue( this.stringifyObject( currentMapInfo ) );
 	}
+	this.removeMapButton.setDisabled( !item );
 };
 
 /**
@@ -1479,11 +1476,10 @@ Dialog.prototype.switchPanels = function ( panel ) {
 		case this.editMapsPanel:
 			this.actions.setMode( 'maps' );
 			this.templateMapsInput.adjustSize( true );
-			if ( !this.templateMapsInput.isDisabled() ) {
-				this.templateMapsInput.focus();
+			if ( this.mapsGroup.isEmpty() ) {
+				this.addNewMapButton.focus();
 			} else {
-				// Focus something to keep focus on the visible dialog.
-				this.focus();
+				this.templateMapsInput.focus();
 			}
 			break;
 		case this.languagePanel:
