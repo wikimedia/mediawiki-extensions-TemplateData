@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Config\HashConfig;
 use MediaWiki\Extension\TemplateData\Api\ApiTemplateData;
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\Extension\TemplateData\TemplateDataHtmlFormatter;
@@ -1535,11 +1534,6 @@ HTML
 	 * @dataProvider provideGetHtml
 	 */
 	public function testGetHtml( array $data, string $expected ) {
-		$config = new HashConfig( [
-			'TemplateDataEditorNamespaces' => [
-				10
-			]
-		] );
 		$t = TemplateDataBlob::newFromJSON( $this->db, json_encode( $data ) );
 		$localizer = new class implements MessageLocalizer {
 
@@ -1549,7 +1543,7 @@ HTML
 
 		};
 		$title = Title::newFromText( 'Template:Test/doc' );
-		$formatter = new TemplateDataHtmlFormatter( $config, $localizer );
+		$formatter = new TemplateDataHtmlFormatter( $localizer );
 		$actual = $formatter->getHtml( $t, $title );
 		$linedActual = preg_replace( '/>\s*</', ">\n<", $actual );
 

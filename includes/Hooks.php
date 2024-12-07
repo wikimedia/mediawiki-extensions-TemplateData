@@ -247,7 +247,7 @@ class Hooks implements
 		OutputPage::setupOOUI( 'bogus', $userLang->getDir() );
 
 		$localizer = new TemplateDataMessageLocalizer( $userLang );
-		$formatter = new TemplateDataHtmlFormatter( $this->config, $localizer, $userLang->getCode() );
+		$formatter = new TemplateDataHtmlFormatter( $localizer, $userLang->getCode() );
 		return $formatter->getHtml( $ti, $frame->getTitle(), !$parser->getOptions()->getIsPreview() );
 	}
 
@@ -263,7 +263,7 @@ class Hooks implements
 		if ( $props ) {
 			$lang = $output->getLanguage();
 			$localizer = new TemplateDataMessageLocalizer( $lang );
-			$formatter = new TemplateDataHtmlFormatter( $this->config, $localizer, $lang->getCode() );
+			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
 			$formatter->replaceEditLink( $text );
 		}
 	}
