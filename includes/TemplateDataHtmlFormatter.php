@@ -2,7 +2,6 @@
 
 namespace MediaWiki\Extension\TemplateData;
 
-use MediaWiki\Config\Config;
 use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
@@ -15,12 +14,10 @@ use stdClass;
  */
 class TemplateDataHtmlFormatter {
 
-	private Config $config;
 	private MessageLocalizer $localizer;
 	private string $languageCode;
 
-	public function __construct( Config $config, MessageLocalizer $localizer, string $languageCode = 'en' ) {
-		$this->config = $config;
+	public function __construct( MessageLocalizer $localizer, string $languageCode = 'en' ) {
 		$this->localizer = $localizer;
 		$this->languageCode = $languageCode;
 	}
@@ -56,7 +53,6 @@ class TemplateDataHtmlFormatter {
 			}
 		}
 
-		$editorNamespaces = $this->config->get( 'TemplateDataEditorNamespaces' );
 		$sorting = count( (array)$data->params ) > 1 ? ' sortable' : '';
 		$html = '<header>'
 			. Html::element( 'p',
@@ -75,8 +71,7 @@ class TemplateDataHtmlFormatter {
 				Html::rawElement( 'p',
 					[ 'class' => 'mw-templatedata-caption' ],
 					$this->localizer->msg( 'templatedata-doc-params' )->escaped() .
-					// Edit interface is only loaded in the template namespace (see Hooks::onEditPage)
-					( $showEditLink && $frameTitle->inNamespaces( $editorNamespaces ) ?
+					( $showEditLink ?
 						Html::element( 'mw:edittemplatedata', [
 							'page' => $frameTitle->getPrefixedText()
 						] ) :
