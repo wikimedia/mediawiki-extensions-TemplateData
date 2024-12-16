@@ -43,7 +43,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Usuario",
 	"templatedata-doc-params": "Parámetros do modelo",
 	"templatedata-editbutton": "Editar os datos do modelo",
-	"templatedata-errormsg-jsonbadformat": "Formato JSON incorrecto. Pode cancelar esta operación para corrixilo, borrar as etiquetas <templatedata> actuais e tentalo de novo, ou pode continuar e substituír os datos actuais do modelo por uns novos.",
+	"templatedata-errormsg-jsonbadformat": "Formato JSON incorrecto. Pode cancelar esta operación para corrixilo ou borralo, ou ben pode continuar e substituír os datos actuais do modelo por uns novos.",
 	"templatedata-errormsg-insertblank": "Quere inserir os datos do modelo sen información?",
 	"templatedata-exists-on-related-page": "Atención: Xa existe un bloque de datos do modelo na páxina relacionada \"[[$1]]\".",
 	"templatedata-helplink": "Información sobre os datos do modelo",
