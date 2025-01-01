@@ -38,7 +38,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Usator",
 	"templatedata-doc-params": "Parametros del patrono",
 	"templatedata-editbutton": "Modificar le datos del patrono",
-	"templatedata-errormsg-jsonbadformat": "Formato JSON incorrecte. Tu pote cancellar iste operation e corriger le formato, o deler le etiquettas <templatedata> actual e tentar lo de novo, o continuar a reimplaciar le datos actual del patrono per noves.",
+	"templatedata-errormsg-jsonbadformat": "Formato JSON incorrecte. Tu pote cancellar iste operation e corriger lo o remover lo, o continuar a reimplaciar le datos actual del patrono per nove datos.",
 	"templatedata-errormsg-insertblank": "Es tu secur de voler inserer datos de patrono sin information?",
 	"templatedata-exists-on-related-page": "Nota ben: existe ja un bloco de datos de patrono sur le pagina associate \"[[$1]]\".",
 	"templatedata-helplink": "Information sur le datos del patrono",
