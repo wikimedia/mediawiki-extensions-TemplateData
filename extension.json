@@ -146,6 +146,7 @@
 				"templatedata-modal-button-removemap",
 				"templatedata-modal-button-saveparam",
 				"templatedata-modal-confirmcancel",
+				"templatedata-modal-button-discard",
 				"templatedata-modal-current-language",
 				"templatedata-modal-errormsg",
 				"templatedata-modal-errormsg-duplicate-name",
