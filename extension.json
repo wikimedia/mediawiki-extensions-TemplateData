@@ -249,6 +249,10 @@
 				10
 			],
 			"description": "The namespaces in which the template data editor appears when creating or editing a page."
+		},
+		"TemplateDataEnableDiscovery": {
+			"value": false,
+			"description": "Enable the template discovery and recall functionality."
 		}
 	},
 	"manifest_version": 2
