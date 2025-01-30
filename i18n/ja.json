@@ -54,7 +54,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "利用者",
 	"templatedata-doc-params": "テンプレートパラメーター",
 	"templatedata-editbutton": "テンプレートデータを編集",
-	"templatedata-errormsg-jsonbadformat": "JSON 形式として正しくありません。この操作を中止して修正するか、現在の <templatedata> タグを削除して再試行するか、テンプレートデータを新しいものに置き換えて続行してください。",
+	"templatedata-errormsg-jsonbadformat": "JSON 形式として正しくありません。この操作を中止して修正または削除するか、テンプレートデータを新しいものに置き換えて続行してください。",
 	"templatedata-errormsg-insertblank": "本当に情報なしでテンプレートデータを挿入しますか？",
 	"templatedata-exists-on-related-page": "注意: 関連ページ「[[$1]]」にテンプレートデータブロックが既に存在します。",
 	"templatedata-helplink": "テンプレートデータに関する情報",
