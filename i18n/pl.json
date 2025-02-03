@@ -52,7 +52,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Użytkownik",
 	"templatedata-doc-params": "Parametry szablonu",
 	"templatedata-editbutton": "Zarządzaj danymi szablonu",
-	"templatedata-errormsg-jsonbadformat": "Nieprawidłowy format JSON. Możesz anulować tę operację, dzięki czemu możesz poprawić go, usunąć aktualne znaczniki <templatedata> lub kontynuować z zamianą aktualnych danych szablonu na nowe.",
+	"templatedata-errormsg-jsonbadformat": "Nieprawidłowy format JSON. Możesz anulować tę operację, dzięki czemu możesz go poprawić lub kontynuować, bądź kontynuować z zamianą aktualnych danych szablonu na nowe.",
 	"templatedata-errormsg-insertblank": "Czy na pewno chcesz wstawić dane szablonu niezawierające żadnych informacji?",
 	"templatedata-exists-on-related-page": "Uwaga: istnieje już blok danych szablonu na powiązanej stronie „[[$1]]”.",
 	"templatedata-helplink": "Informacje o danych szablonu",
