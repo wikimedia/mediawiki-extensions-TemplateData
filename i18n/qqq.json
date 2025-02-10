@@ -17,7 +17,8 @@
 			"Stryn",
 			"Timo Tijhof",
 			"Umherirrender",
-			"Xiplus"
+			"Xiplus",
+			"Sammy Fox"
 		]
 	},
 	"templatedata-desc": "{{desc|name=Template Data|url=https://www.mediawiki.org/wiki/Extension:TemplateData}}",
@@ -131,5 +132,7 @@
 	"templatedata-search-title": "Main label for template search.",
 	"templatedata-search-description": "Instructional text for the template search field.",
 	"templatedata-search-placeholder": "Placeholder text for the template search field.",
-	"templatedata-search-button": "Button text for the template search field."
+	"templatedata-search-button": "Button text for the template search field.",
+	"templatedata-template-discovery-disabled": "Message displayed when TemplateData discovery is disabled on the wiki and the user tries to view the special page.",
+	"templatesearch": "Title for the template search special page"
 }
