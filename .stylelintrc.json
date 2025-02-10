@@ -4,6 +4,6 @@
 		"stylelint-config-wikimedia/mediawiki"
 	],
 	"rules": {
-		"selector-class-pattern": "(tdg|mw|oo-ui|cdx|client|skin)-"
+		"selector-class-pattern": "(tdg|ext-templatedata|mw|oo-ui|cdx|client|skin)-"
 	}
 }

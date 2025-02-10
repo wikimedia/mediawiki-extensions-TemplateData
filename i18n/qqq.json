@@ -127,5 +127,9 @@
 	"templatedata-modal-title-templateformat": "The title for the template preferred format",
 	"templatedata-modal-title-templateformatstring": "The title for the template custom format string",
 	"templatedata-modal-title-templateparam-details": "The title for the parameter information section. Parameters:\n* $1 - The parameter name",
-	"templatedata-modal-title-templateparams": "The title for the template parameters table\nof a single template."
+	"templatedata-modal-title-templateparams": "The title for the template parameters table\nof a single template.",
+	"templatedata-search-title": "Main label for template search.",
+	"templatedata-search-description": "Instructional text for the template search field.",
+	"templatedata-search-placeholder": "Placeholder text for the template search field.",
+	"templatedata-search-button": "Button text for the template search field."
 }

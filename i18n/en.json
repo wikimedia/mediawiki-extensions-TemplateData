@@ -114,5 +114,9 @@
 	"templatedata-modal-title-templateformat": "Suggested wikitext formatting",
 	"templatedata-modal-title-templateformatstring": "Custom format string",
 	"templatedata-modal-title-templateparam-details": "Parameter details: $1",
-	"templatedata-modal-title-templateparams": "Template parameters"
+	"templatedata-modal-title-templateparams": "Template parameters",
+	"templatedata-search-title": "Template search",
+	"templatedata-search-description": "Find the template you want to insert by searching for an identifying keyword. Templates that have descriptions are more likely to work well.",
+	"templatedata-search-placeholder": "Find template",
+	"templatedata-search-button": "Add"
 }

@@ -1,0 +1,40 @@
+@import 'mediawiki.skin.variables.less';
+@import 'mediawiki.mixins.less';
+
+@font-size-description: 12px;
+@line-height-description: 1.2;
+
+.ext-templatedata-search {
+	.ext-templatedata-search-description,
+	.ext-templatedata-search-redirectedfrom {
+		color: @color-subtle;
+		display: block;
+		font-size: @font-size-description;
+		line-height: @line-height-description;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.ext-templatedata-search-description {
+		@max-lines: 2;
+		display: -webkit-box;
+		max-height: @max-lines * unit( @line-height-description, em );
+		-webkit-line-clamp: @max-lines;
+		-webkit-box-orient: vertical;
+	}
+
+	.ext-templatedata-search-redirectedfrom {
+		font-style: italic;
+		white-space: nowrap;
+	}
+
+	.oo-ui-inputWidget {
+		margin-right: 0;
+	}
+
+	.oo-ui-comboBoxInputWidget .oo-ui-iconElement-icon {
+		// HACK: This should be fixed in OOUI; the icon is behind
+		// the input rather than in front
+		z-index: 1;
+	}
+}
