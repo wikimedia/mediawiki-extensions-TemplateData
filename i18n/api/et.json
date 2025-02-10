@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rivoz"
+			"Rivoz",
+			"Pikne"
 		]
 	},
-	"apierror-templatedata-corrupt": "Lehekülg # $1 malliandmed sisaldavad vigaseid andmeid: $2"
+	"apierror-templatedata-corrupt": "Lehekülje #$1 malliandmed sisaldavad vigaseid andmeid: $2"
 }
