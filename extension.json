@@ -1,6 +1,6 @@
 {
 	"name": "TemplateData",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"author": [
 		"Timo Tijhof",
 		"Moriel Schottlender",
@@ -221,6 +221,33 @@
 					}
 				}
 			}
+		},
+		"ext.templateData.templateDiscovery": {
+			"localBasePath": "modules/ext.templateData.templateDiscovery",
+			"remoteExtPath": "TemplateData/modules/ext.templateData.templateDiscovery",
+			"styles": [
+				"TemplateSearchLayout.less"
+			],
+			"packageFiles": [
+				"init.js",
+				{
+					"name": "config.json",
+					"callback": "MediaWiki\\Extension\\TemplateData\\TemplateDiscoveryConfig::getConfig"
+				},
+				"TemplateSearchLayout.js",
+				"SearchWidget.js",
+				"SearchResult.js"
+			],
+			"dependencies": [
+				"oojs-ui-core",
+				"oojs-ui-widgets"
+			],
+			"messages": [
+				"templatedata-search-title",
+				"templatedata-search-description",
+				"templatedata-search-placeholder",
+				"templatedata-search-button"
+			]
 		}
 	},
 	"QUnitTestModule": {
