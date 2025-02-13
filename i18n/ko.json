@@ -125,5 +125,8 @@
 	"templatedata-modal-title-templateformat": "제안되는 위키텍스트 형식",
 	"templatedata-modal-title-templateformatstring": "사용자 지정 포맷 문자열",
 	"templatedata-modal-title-templateparam-details": "변수 상세 정보: $1",
-	"templatedata-modal-title-templateparams": "틀 변수"
+	"templatedata-modal-title-templateparams": "틀 변수",
+	"templatedata-search-title": "틀 검색",
+	"templatedata-search-placeholder": "틀 찾기",
+	"templatedata-search-button": "추가"
 }

@@ -108,5 +108,7 @@
 	"templatedata-modal-title-templateformat": "Virgeschloe Wikitext-Formatéierung",
 	"templatedata-modal-title-templateformatstring": "Benotzerdefinéiert Format-Zeecheketten",
 	"templatedata-modal-title-templateparam-details": "Parameterdetailer: $1",
-	"templatedata-modal-title-templateparams": "Parametere vun der Schabloun"
+	"templatedata-modal-title-templateparams": "Parametere vun der Schabloun",
+	"templatedata-search-placeholder": "Schabloun sichen",
+	"templatedata-search-button": "Derbäisetzen"
 }
