@@ -109,5 +109,9 @@
 	"templatedata-modal-title-templateformat": "Formato de wikitexto suggerite",
 	"templatedata-modal-title-templateformatstring": "Catena de formato personalisate",
 	"templatedata-modal-title-templateparam-details": "Detalios del parametro: $1",
-	"templatedata-modal-title-templateparams": "Parametros del patrono"
+	"templatedata-modal-title-templateparams": "Parametros del patrono",
+	"templatedata-search-title": "Recerca de patronos",
+	"templatedata-search-description": "Cerca le patrono que tu vole inserer indicante un parola-clave que lo identifica. Patronos que ha descriptiones probabilemente functiona melio.",
+	"templatedata-search-placeholder": "Cercar patrono",
+	"templatedata-search-button": "Adder"
 }
