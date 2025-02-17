@@ -110,5 +110,9 @@
 	"templatedata-modal-title-templateformat": "Предложено форматирање на викитекстот",
 	"templatedata-modal-title-templateformatstring": "Низа во прилагодфен формат",
 	"templatedata-modal-title-templateparam-details": "Поединости за параметарот: $1",
-	"templatedata-modal-title-templateparams": "Предложни параметри"
+	"templatedata-modal-title-templateparams": "Предложни параметри",
+	"templatedata-search-title": "Пребарување на предлошки",
+	"templatedata-search-description": "Најдете ја предлошката што сакате да ја вметнете пребарувајќи ја според клучен збор. Предлошките кои имаат описи е поверојатно да работат добро.",
+	"templatedata-search-placeholder": "Најди предлошка",
+	"templatedata-search-button": "Додај"
 }

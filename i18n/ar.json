@@ -122,5 +122,9 @@
 	"templatedata-modal-title-templateformat": "التنسيق المقترح لنص الويكي",
 	"templatedata-modal-title-templateformatstring": "سلسلة حروف صياغة مخصصة",
 	"templatedata-modal-title-templateparam-details": "تفاصيل الوسيط: $1",
-	"templatedata-modal-title-templateparams": "وسائط القالب"
+	"templatedata-modal-title-templateparams": "وسائط القالب",
+	"templatedata-search-title": "البحث عن القالب",
+	"templatedata-search-description": "ابحث عن القالب الذي تريد إدراجه من خلال البحث عن كلمة رئيسية مميزة. من المرجح أن تنجح القوالب التي تحتوي على أوصاف.",
+	"templatedata-search-placeholder": "البحث عن قالب",
+	"templatedata-search-button": "أضف"
 }

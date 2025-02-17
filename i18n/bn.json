@@ -107,5 +107,8 @@
 	"templatedata-modal-title-templateformat": "পরামর্শকৃত উইকিপাঠ্যের বিন্যাসন",
 	"templatedata-modal-title-templateformatstring": "স্বনির্ধারিত বিন্যাস স্ট্রিং",
 	"templatedata-modal-title-templateparam-details": "প্যারামিটারের বিস্তারিত: $1",
-	"templatedata-modal-title-templateparams": "টেমপ্লেট প্যারামিটার"
+	"templatedata-modal-title-templateparams": "টেমপ্লেট প্যারামিটার",
+	"templatedata-search-title": "টেমপ্লেট অনুসন্ধান",
+	"templatedata-search-placeholder": "টেমপ্লেট খুঁজুন",
+	"templatedata-search-button": "যোগ করুন"
 }

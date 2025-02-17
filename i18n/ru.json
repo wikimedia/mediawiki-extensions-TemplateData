@@ -128,5 +128,6 @@
 	"templatedata-modal-title-templateformat": "Предлагаемое форматирование вики-текста",
 	"templatedata-modal-title-templateformatstring": "Нестандартный формат",
 	"templatedata-modal-title-templateparam-details": "Описание параметра: $1",
-	"templatedata-modal-title-templateparams": "Параметры шаблона"
+	"templatedata-modal-title-templateparams": "Параметры шаблона",
+	"templatedata-search-button": "Добавить"
 }

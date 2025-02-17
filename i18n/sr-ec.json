@@ -116,5 +116,6 @@
 	"templatedata-modal-title-templateformat": "Преферирано форматирање параметара",
 	"templatedata-modal-title-templateformatstring": "Ниска прилагођеног формата",
 	"templatedata-modal-title-templateparam-details": "Детаљи параметра: $1",
-	"templatedata-modal-title-templateparams": "Параметри шаблона"
+	"templatedata-modal-title-templateparams": "Параметри шаблона",
+	"templatedata-search-button": "Додај"
 }

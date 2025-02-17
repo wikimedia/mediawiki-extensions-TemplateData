@@ -114,5 +114,9 @@
 	"templatedata-modal-title-templateformat": "Formato recomendado para o wikitexto",
 	"templatedata-modal-title-templateformatstring": "Cadea de formato personalizada",
 	"templatedata-modal-title-templateparam-details": "Detalles do parámetro: $1",
-	"templatedata-modal-title-templateparams": "Parámetros do modelo"
+	"templatedata-modal-title-templateparams": "Parámetros do modelo",
+	"templatedata-search-title": "Procura de modelos",
+	"templatedata-search-description": "Atopa o modelo que queres inserir mediante unha palabra clave. Os modelos que teñen descricións é probable que funcionen mellor.",
+	"templatedata-search-placeholder": "Atopar un modelo",
+	"templatedata-search-button": "Engadir"
 }
