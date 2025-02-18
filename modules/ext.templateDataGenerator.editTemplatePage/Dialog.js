@@ -1558,7 +1558,20 @@ Dialog.prototype.getActionProcess = function ( action ) {
 	}
 	if ( !action && this.modified ) {
 		return new OO.ui.Process(
-			() => OO.ui.confirm( mw.msg( 'templatedata-modal-confirmcancel' ) )
+			() => OO.ui.confirm( mw.msg( 'templatedata-modal-confirmcancel' ), {
+				actions: [
+					{
+						action: 'reject',
+						label: mw.msg( 'templatedata-modal-button-back' ),
+						flags: 'safe'
+					},
+					{
+						action: 'accept',
+						label: mw.msg( 'templatedata-modal-button-discard' ),
+						flags: [ 'primary', 'destructive' ]
+					}
+				]
+			} )
 				.then( ( result ) => {
 					if ( result ) {
 						this.close();
