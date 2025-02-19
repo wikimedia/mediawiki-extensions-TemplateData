@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
+			"Cabadeck",
 			"Eakarpov",
 			"IKhitron",
 			"INS Pirat",
@@ -86,6 +87,7 @@
 	"templatedata-modal-button-removemap": "Удалить маппинг",
 	"templatedata-modal-button-saveparam": "Сохранить",
 	"templatedata-modal-confirmcancel": "Вы уверены, что хотите отменить внесённые изменения?",
+	"templatedata-modal-button-discard": "Отменить",
 	"templatedata-modal-current-language": "Текущий язык: $1",
 	"templatedata-modal-errormsg": "Были обнаружены ошибки. Пожалуйста, убедитесь, что имена параметров не являются пустыми, не дублируются и не содержат «$1», «$2» или «$3».",
 	"templatedata-modal-errormsg-duplicate-name": "Найдена ошибка. Выбранное имя уже используется другим параметром.",

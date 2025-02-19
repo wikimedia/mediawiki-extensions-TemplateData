@@ -66,6 +66,7 @@
 	"templatedata-modal-button-removemap": "Map ewechhuelen",
 	"templatedata-modal-button-saveparam": "Späicheren",
 	"templatedata-modal-confirmcancel": "Sidd Dir sécher, datt Dir Är Ännerunge verwerfe wëllt?",
+	"templatedata-modal-button-discard": "Verwerfen",
 	"templatedata-modal-current-language": "Aktuell Sprooch: $1",
 	"templatedata-modal-errormsg": "Feeler fonnt. Kuckt wgl. datt et keng eider oder duebel Parameternimm gëtt an datt „$1“, „$2“ an „$3“ am Parameternumm net virkënnt.",
 	"templatedata-modal-errormsg-duplicate-name": "Feeler fonnt. De gewielten Numm gëtt scho vun engem anere Parameter benotzt.",
@@ -109,6 +110,7 @@
 	"templatedata-modal-title-templateformatstring": "Benotzerdefinéiert Format-Zeecheketten",
 	"templatedata-modal-title-templateparam-details": "Parameterdetailer: $1",
 	"templatedata-modal-title-templateparams": "Parametere vun der Schabloun",
+	"templatedata-search-title": "Sich no Schablounen",
 	"templatedata-search-placeholder": "Schabloun sichen",
 	"templatedata-search-button": "Derbäisetzen"
 }

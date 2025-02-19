@@ -75,6 +75,7 @@
 	"templatedata-modal-button-removemap": "Xəritəni sil",
 	"templatedata-modal-button-saveparam": "Yadda saxla",
 	"templatedata-modal-confirmcancel": "Dəyişikliklərinizi ləğv etmək istədiyinizə əminsiniz?",
+	"templatedata-modal-button-discard": "Ləğv et",
 	"templatedata-modal-current-language": "Cari dil: $1",
 	"templatedata-modal-errormsg": "Xəta tapıldı. Zəhmət olmasa, boş və ya dublikat parametr adlarının olmadığına və parametr adlarında \"$1\", \"$2\" və ya \"$3\" olmadığına əmin olun.",
 	"templatedata-modal-errormsg-duplicate-name": "Xəta tapıldı. Seçilmiş ad artıq başqa parametr tərəfindən istifadə olunur.",

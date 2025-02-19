@@ -123,5 +123,9 @@
 	"templatedata-modal-title-templateformat": "قالب‌بندی پیشنهادی ویکی‌متن",
 	"templatedata-modal-title-templateformatstring": "متن قالب‌بندی‌کنندهٔ سفارشی",
 	"templatedata-modal-title-templateparam-details": "جزئیات پارامتر: $1",
-	"templatedata-modal-title-templateparams": "پارامترهای الگو"
+	"templatedata-modal-title-templateparams": "پارامترهای الگو",
+	"templatedata-search-title": "جستجوی الگو",
+	"templatedata-search-description": "با جستجو کلیدواژه‌های شناسایی، الگویی که می‌خواهید درج کنید را پیدا کنید. احتمال عملکرد صحیح برای الگوهایی که دارای توضیحات باشند، بیشتر است.",
+	"templatedata-search-placeholder": "یافتن الگو",
+	"templatedata-search-button": "افزودن"
 }

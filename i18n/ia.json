@@ -67,6 +67,7 @@
 	"templatedata-modal-button-removemap": "Remover mappa",
 	"templatedata-modal-button-saveparam": "Salveguardar",
 	"templatedata-modal-confirmcancel": "Es tu secur de voler discartar tu cambiamentos?",
+	"templatedata-modal-button-discard": "Discartar",
 	"templatedata-modal-current-language": "Lingua actual: $1",
 	"templatedata-modal-errormsg": "Errores trovate. Assecura te que il non ha nomines de parametro vacue o duplicate, e que le nomines de parametro non contine \"$1\", \"$2\" o \"$3\".",
 	"templatedata-modal-errormsg-duplicate-name": "Error trovate. Le nomine eligite es ja usate per un altere parametro.",

@@ -80,6 +80,7 @@
 	"templatedata-modal-button-removemap": "أزل الخريطة",
 	"templatedata-modal-button-saveparam": "حفظ",
 	"templatedata-modal-confirmcancel": "هل أنت متأكد أنك تريد تجاهل تغييراتك؟",
+	"templatedata-modal-button-discard": "تجاهل",
 	"templatedata-modal-current-language": "اللغة الحالية: $1",
 	"templatedata-modal-errormsg": "خطأ: تأكد من عدم وجود وسائط فارغة أو مكررة، ومن عدم تضمن اسم الوسيط للرموز \"$1\" و\"$2\" و\"$3\".",
 	"templatedata-modal-errormsg-duplicate-name": "تم العثور على خطأ. الاسم المختار مستخدم بالفعل بواسطة معامل آخر.",

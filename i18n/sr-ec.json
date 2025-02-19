@@ -74,6 +74,7 @@
 	"templatedata-modal-button-removemap": "Уклони мапу",
 	"templatedata-modal-button-saveparam": "Сачувај",
 	"templatedata-modal-confirmcancel": "Желите ли заиста да одбаците измене?",
+	"templatedata-modal-button-discard": "Одбаци",
 	"templatedata-modal-current-language": "Тренутни језик: $1",
 	"templatedata-modal-errormsg": "Пронађене грешке. Проверите да нема празних или дуплих имена параметара и да име не садржи „$1”, „$2” или „$3”.",
 	"templatedata-modal-errormsg-duplicate-name": "Пронађена грешка. Одабрано име већ користи други параметар.",

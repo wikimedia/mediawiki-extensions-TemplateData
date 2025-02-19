@@ -16,5 +16,9 @@
 	"templatedata-invalid-missing": "ਲੋੜੀਂਦਾ ਮਲਕੀਅਤ \"$1\" ਨਹੀਂ ਲੱਭੀ।",
 	"templatedata-invalid-parse": "JSON ਵਿਚ ਵਾਕ-ਰਚਨਾ ਦੋਸ਼",
 	"templatedata-invalid-value": "\"$1\" ਮਲਕੀਅਤ ਲਈ ਗ਼ਲਤ ਮੁੱਲ",
-	"templatedata-modal-button-changelang": "ਭਾਸ਼ਾ ਬਦਲੋ"
+	"templatedata-modal-button-changelang": "ਭਾਸ਼ਾ ਬਦਲੋ",
+	"templatedata-modal-button-discard": "ਖਾਰਜ ਕਰੋ",
+	"templatedata-search-title": "ਫਰਮਾ ਖੋਜ",
+	"templatedata-search-placeholder": "ਫਰਮਾ ਲੱਭੋ",
+	"templatedata-search-button": "ਜੋੜੋ"
 }
