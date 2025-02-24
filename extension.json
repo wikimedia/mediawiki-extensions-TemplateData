@@ -23,6 +23,11 @@
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\TemplateData\\": "includes/"
 	},
+	"SpecialPages": {
+		"TemplateSearch": {
+			"class": "MediaWiki\\Extension\\TemplateData\\Special\\SpecialTemplateSearch"
+		}
+	},
 	"Hooks": {
 		"EditPage::showEditForm:fields": "main",
 		"ParserFirstCallInit": "main",
@@ -45,6 +50,9 @@
 			"i18n",
 			"i18n/api"
 		]
+	},
+	"ExtensionMessagesFiles": {
+		"TemplateDataAlias": "TemplateData.i18n.alias.php"
 	},
 	"ResourceModules": {
 		"ext.templateData": {
@@ -241,7 +249,9 @@
 			],
 			"dependencies": [
 				"oojs-ui-core",
-				"oojs-ui-widgets"
+				"oojs-ui-widgets",
+				"oojs-ui.styles.icons-editing-advanced",
+				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
 				"templatedata-search-title",
