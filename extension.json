@@ -251,7 +251,8 @@
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-editing-advanced",
-				"oojs-ui.styles.icons-interactions"
+				"oojs-ui.styles.icons-interactions",
+				"oojs-ui.styles.icons-moderation"
 			],
 			"messages": [
 				"templatedata-search-title",
