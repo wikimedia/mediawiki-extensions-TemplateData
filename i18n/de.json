@@ -120,5 +120,7 @@
 	"templatedata-search-title": "Vorlagensuche",
 	"templatedata-search-description": "Suche die Vorlage, die du einfügen möchtest, indem du nach einem identifizierenden Schlüsselwort suchst. Vorlagen, die Beschreibungen enthalten, werden wahrscheinlich besser funktionieren.",
 	"templatedata-search-placeholder": "Vorlage finden",
-	"templatedata-search-button": "Hinzufügen"
+	"templatedata-search-button": "Hinzufügen",
+	"templatedata-template-discovery-disabled": "Die Vorlagenerkennung ist in diesem Wiki deaktiviert.",
+	"templatesearch": "Vorlagensuche"
 }

@@ -72,6 +72,7 @@
 	"templatedata-modal-button-removemap": "Eliminar o mapa",
 	"templatedata-modal-button-saveparam": "Gardar",
 	"templatedata-modal-confirmcancel": "Está seguro de que quere descartar os seus cambios?",
+	"templatedata-modal-button-discard": "Desbotar",
 	"templatedata-modal-current-language": "Lingua actual: $1",
 	"templatedata-modal-errormsg": "Producíronse varios erros. Asegúrese de que non hai nomes de parámetros baleiros ou duplicados e de que o nome do parámetro non inclúe os caracteres \"$1\", \"$2\" ou \"$3\".",
 	"templatedata-modal-errormsg-duplicate-name": "Atopouse un erro. O nome escollido xa está en uso por parte doutro parámetro.",
