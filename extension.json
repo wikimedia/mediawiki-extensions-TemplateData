@@ -254,6 +254,7 @@
 				"oojs-ui.styles.icons-interactions"
 			],
 			"messages": [
+				"redirectedfrom",
 				"templatedata-search-title",
 				"templatedata-search-description",
 				"templatedata-search-placeholder",
