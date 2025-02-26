@@ -115,5 +115,7 @@
 	"templatedata-search-title": "Пребарување на предлошки",
 	"templatedata-search-description": "Најдете ја предлошката што сакате да ја вметнете пребарувајќи ја според клучен збор. Предлошките кои имаат описи е поверојатно да работат добро.",
 	"templatedata-search-placeholder": "Најди предлошка",
-	"templatedata-search-button": "Додај"
+	"templatedata-search-button": "Додај",
+	"templatedata-template-discovery-disabled": "Откривањето на предлошки е оневозможено на ова вики.",
+	"templatesearch": "Пребарување на предлошки"
 }

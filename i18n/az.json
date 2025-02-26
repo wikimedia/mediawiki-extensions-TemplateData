@@ -122,5 +122,7 @@
 	"templatedata-search-title": "Şablon axtarışı",
 	"templatedata-search-description": "Tanıdıcı açar söz axtararaq daxil etmək istədiyiniz şablonu tapın. İzahları olan şablonların bu redaktorla yaxşı işləmə ehtimalı daha yüksəkdir.",
 	"templatedata-search-placeholder": "Şablon tap",
-	"templatedata-search-button": "Əlavə et"
+	"templatedata-search-button": "Əlavə et",
+	"templatedata-template-discovery-disabled": "Şablonların aşkarlanması bu vikidə söndürülüb.",
+	"templatesearch": "Şablon axtarışı"
 }
