@@ -35,7 +35,7 @@ class TemplateDataSpecialPageTest extends SpecialPageTestBase {
 		$this->overrideConfigValue( 'TemplateDataEnableDiscovery', true );
 		[ $html ] = $this->getSpecialPageHtml();
 		$this->assertStringNotContainsString( '(templatedata-template-discovery-disabled', $html );
-		$this->assertStringContainsString( 'id="ext-TemplateData-SpecialTemplateSearch"', $html );
+		$this->assertStringContainsString( 'id="ext-TemplateData-SpecialTemplateSearch-widget"', $html );
 	}
 
 	/**

@@ -1,3 +1,5 @@
+const FavouritesStore = require( './FavouritesStore.js' );
+
 /**
  * @class
  * @extends OO.ui.MenuOptionWidget
@@ -5,15 +7,14 @@
  * @constructor
  * @param {Object} config
  * @param {jQuery|string} [config.description=''] Search result description
- * @param {boolean} [config.isFavourite=false] Whether this template has been favourited
  * @param {string} [config.data.redirecttitle] Page title for the "redirected from" message
  */
 function SearchResult( config ) {
 	config = Object.assign( {
-		classes: [ 'ext-templatedata-SearchResult' ],
-		isFavourite: false
+		classes: [ 'ext-templatedata-SearchResult' ]
 	}, config );
 	SearchResult.super.call( this, config );
+	this.favouritesStore = new FavouritesStore();
 
 	if ( config.data.redirecttitle ) {
 		const redirecttitle = new mw.Title( config.data.redirecttitle )
@@ -34,10 +35,10 @@ function SearchResult( config ) {
 	$wrap.append( this.$element.contents() );
 	this.$element.append( $wrap );
 
-	this.isFavourite = config.isFavourite;
+	this.isFavourite = config.favourited;
 
 	this.favouriteButton = new OO.ui.ButtonInputWidget( {
-		icon: 'bookmarkOutline',
+		icon: this.isFavourite ? 'bookmark' : 'bookmarkOutline',
 		framed: false,
 		invisibleLabel: true,
 		type: 'button'
@@ -51,6 +52,11 @@ OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
 SearchResult.prototype.clickFavourite = function () {
 	this.isFavourite = !this.isFavourite;
 	this.favouriteButton.setIcon( this.isFavourite ? 'bookmark' : 'bookmarkOutline' );
+	if ( this.isFavourite ) {
+		this.favouritesStore.addFavourite( this.data.pageId );
+	} else {
+		this.favouritesStore.removeFavourite( this.data.pageId );
+	}
 };
 
 module.exports = SearchResult;

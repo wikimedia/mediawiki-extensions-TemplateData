@@ -1,5 +1,6 @@
 const SearchResult = require( './SearchResult.js' );
 const templateDiscoveryConfig = require( './config.json' );
+const FavouritesStore = require( './FavouritesStore.js' );
 
 /**
  * @class
@@ -20,6 +21,7 @@ function SearchWidget( config ) {
 
 	this.limit = config.limit || 10;
 	this.api = config.api || new mw.Api();
+	this.favouritesStore = new FavouritesStore();
 }
 
 /* Setup */
@@ -193,6 +195,7 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 
 	const searchResults = Object.keys( templateData ).map( ( pageId ) => {
 		const page = templateData[ pageId ];
+		page.pageId = pageId;
 
 		if ( !page.redirecttitle && page.title in redirectedFrom ) {
 			page.redirecttitle = redirectedFrom[ page.title ];
@@ -201,11 +204,13 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 		/**
 		 * Config for the {@see SearchResult} widget:
 		 * - data: {@see OO.ui.Element} and getData()
+		 * - favourited: {@see SearchResult}
 		 * - label: {@see OO.ui.mixin.LabelElement} and getLabel()
 		 * - description: {@see SearchResult}
 		 */
 		return {
 			data: page,
+			favourited: this.favouritesStore.isFavourite( pageId ),
 			label: mw.Title.newFromText( page.title ).getRelativeText( mw.config.get( 'wgNamespaceIds' ).template ),
 			description: page.description
 		};

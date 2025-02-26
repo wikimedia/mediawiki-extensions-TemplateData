@@ -20,7 +20,12 @@ class SpecialTemplateSearch extends SpecialPage {
 		$output = $this->getOutput();
 		$this->setHeaders();
 		if ( $this->getConfig()->get( 'TemplateDataEnableDiscovery' ) ) {
-			$output->addHTML( Html::element( 'div', [ 'id' => 'ext-TemplateData-SpecialTemplateSearch' ] ) );
+			$output->addHTML(
+				Html::element( 'h2', [], 'Current favourite template list' ) .
+				Html::element( 'div', [ 'id' => 'ext-TemplateData-SpecialTemplateSearch-list' ] ) .
+				Html::element( 'h2', [], 'Widget test' ) .
+				Html::element( 'div', [ 'id' => 'ext-TemplateData-SpecialTemplateSearch-widget' ] )
+			);
 			$output->addModules( 'ext.templateData.templateDiscovery' );
 		} else {
 			$output->addWikiTextAsInterface( $this->msg( 'templatedata-template-discovery-disabled' )->text() );

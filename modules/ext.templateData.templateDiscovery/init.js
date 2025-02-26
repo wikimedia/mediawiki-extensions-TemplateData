@@ -1,3 +1,5 @@
+const SpecialPage = require( './SpecialPage.js' );
+
 mw.templateData = {
 	config: require( './config.json' ),
 	TemplateSearchLayout: require( './TemplateSearchLayout.js' )
@@ -5,16 +7,6 @@ mw.templateData = {
 
 // If we're on the TemplateSearch special page
 if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'TemplateSearch' ) {
-	const specialTemplateSearch = document.getElementById( 'ext-TemplateData-SpecialTemplateSearch' );
-	if ( specialTemplateSearch ) {
-		const config = {
-			expanded: false
-		};
-		const searchForm = new mw.templateData.TemplateSearchLayout( config );
-		specialTemplateSearch.append( searchForm.$element[ 0 ] );
-		searchForm.focus();
-		searchForm.on( 'choose', ( item ) => {
-			location.href = mw.util.getUrl( item.title );
-		} );
-	}
+	const specialPage = new SpecialPage();
+	specialPage.init();
 }

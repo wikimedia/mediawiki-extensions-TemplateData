@@ -35,7 +35,8 @@
 		"ResourceLoaderRegisterModules": "main",
 		"EditPage::showEditForm:initial": "main",
 		"ParserFetchTemplateData": "main",
-		"OutputPageBeforeHTML": "main"
+		"OutputPageBeforeHTML": "main",
+		"GetPreferences": "main"
 	},
 	"HookHandlers": {
 		"main": {
@@ -245,7 +246,9 @@
 				},
 				"TemplateSearchLayout.js",
 				"SearchWidget.js",
-				"SearchResult.js"
+				"SearchResult.js",
+				"FavouritesStore.js",
+				"SpecialPage.js"
 			],
 			"dependencies": [
 				"oojs-ui-core",
@@ -294,6 +297,9 @@
 			"value": false,
 			"description": "Enable the template discovery and recall functionality."
 		}
+	},
+	"DefaultUserOptions": {
+		"templatedata-favorite-templates": "[]"
 	},
 	"manifest_version": 2
 }

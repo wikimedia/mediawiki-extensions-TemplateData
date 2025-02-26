@@ -17,6 +17,7 @@ use MediaWiki\Output\Hook\OutputPageBeforeHTMLHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
+use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
@@ -26,6 +27,7 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Status\Status;
 use MediaWiki\Storage\Hook\MultiContentSaveHook;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 
 /**
@@ -39,7 +41,8 @@ class Hooks implements
 	ResourceLoaderRegisterModulesHook,
 	EditPage__showEditForm_initialHook,
 	ParserFetchTemplateDataHook,
-	OutputPageBeforeHTMLHook
+	OutputPageBeforeHTMLHook,
+	GetPreferencesHook
 {
 
 	private Config $config;
@@ -344,6 +347,21 @@ class Hooks implements
 			$tplData[$tplTitle] = $tdb->getData();
 		}
 		return true;
+	}
+
+	/**
+	 * GetPreferences hook handler
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetPreferences
+	 *
+	 * @param User $user
+	 * @param array &$defaultPreferences
+	 * @return bool|void True or no return value to continue or false to abort
+	 */
+	public function onGetPreferences( $user, &$defaultPreferences ) {
+		$defaultPreferences['templatedata-favorite-templates'] = [
+			'type' => 'api',
+		];
 	}
 
 }
