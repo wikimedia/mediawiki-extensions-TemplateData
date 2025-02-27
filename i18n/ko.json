@@ -129,5 +129,6 @@
 	"templatedata-modal-title-templateparams": "틀 변수",
 	"templatedata-search-title": "틀 검색",
 	"templatedata-search-placeholder": "틀 찾기",
-	"templatedata-search-button": "추가"
+	"templatedata-search-button": "추가",
+	"templatesearch": "틀 검색"
 }
