@@ -14,18 +14,25 @@ function TemplateSearchLayout( config ) {
 	}, config );
 	TemplateSearchLayout.super.call( this, config );
 
+	this.matchedTemplateData = null;
 	this.searchWidget = new SearchWidget( {}, this );
 	this.searchWidget.connect( this, {
 		change: 'onTemplateInputChange',
+		match: 'onTemplateInputMatch',
 		choose: 'onAddTemplate'
 	} );
+	this.searchWidget.getMenu().connect( this, { choose: 'onAddTemplate' } );
 
 	this.searchButton = new OO.ui.ButtonWidget( {
 		label: mw.msg( 'templatedata-search-button' ),
 		flags: [ 'progressive' ],
 		disabled: true
 	} );
-	this.searchButton.connect( this, { click: 'onAddTemplate' } );
+	this.searchButton.connect( this, {
+		click: function () {
+			this.onAddTemplate( this.matchedTemplateData );
+		}
+	} );
 
 	const field = new OO.ui.ActionFieldLayout(
 		this.searchWidget,
@@ -57,7 +64,13 @@ OO.inheritClass( TemplateSearchLayout, OO.ui.PanelLayout );
 /* Methods */
 
 TemplateSearchLayout.prototype.onTemplateInputChange = function () {
-	this.searchButton.setDisabled( this.searchWidget.getValue() === '' );
+	this.matchedTemplateData = null;
+	this.searchButton.setDisabled( true );
+};
+
+TemplateSearchLayout.prototype.onTemplateInputMatch = function ( data ) {
+	this.matchedTemplateData = data;
+	this.searchButton.setDisabled( false );
 };
 
 TemplateSearchLayout.prototype.onAddTemplate = function ( data ) {
