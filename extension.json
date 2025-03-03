@@ -36,7 +36,8 @@
 		"EditPage::showEditForm:initial": "main",
 		"ParserFetchTemplateData": "main",
 		"OutputPageBeforeHTML": "main",
-		"GetPreferences": "main"
+		"GetPreferences": "main",
+		"SaveUserOptions": "main"
 	},
 	"HookHandlers": {
 		"main": {

@@ -27,6 +27,7 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Status\Status;
 use MediaWiki\Storage\Hook\MultiContentSaveHook;
 use MediaWiki\Title\Title;
+use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
 
@@ -42,7 +43,8 @@ class Hooks implements
 	EditPage__showEditForm_initialHook,
 	ParserFetchTemplateDataHook,
 	OutputPageBeforeHTMLHook,
-	GetPreferencesHook
+	GetPreferencesHook,
+	SaveUserOptionsHook
 {
 
 	private Config $config;
@@ -362,6 +364,59 @@ class Hooks implements
 		$defaultPreferences['templatedata-favorite-templates'] = [
 			'type' => 'api',
 		];
+	}
+
+	/**
+	 * SaveUserOptions hook handler
+	 *
+	 * Validates the favorite templates JSON array before saving it to the database.
+	 * - Removes duplicates
+	 * - Removes non-integer values
+	 * - Removes values less than 1
+	 * - Aborts if the array has more than wgTemplateDataMaxFavorites values
+	 *
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/SaveUserOptions
+	 *
+	 * @param UserIdentity $user
+	 * @param array &$modifiedOptions
+	 * @param array $originalOptions
+	 */
+	public function onSaveUserOptions( $user, &$modifiedOptions, $originalOptions ) {
+		if ( isset( $modifiedOptions['templatedata-favorite-templates'] ) ) {
+			$maximumFavorites = $this->config->get( 'TemplateDataMaxFavorites' );
+
+			$favoriteTemplates = json_decode( $modifiedOptions['templatedata-favorite-templates'] );
+			// If we can't decode the JSON, we don't want to save it
+			if ( $favoriteTemplates === null ) {
+				// TODO: Do we want to log a warning here?
+				unset( $modifiedOptions['templatedata-favorite-templates'] );
+				return;
+			}
+
+			// Remove duplicates
+			$favoriteTemplates = array_unique( $favoriteTemplates );
+			// Filter out non-integers and values less than 1
+			$favoriteTemplates = array_filter( $favoriteTemplates, static function ( $favorite ) {
+				return is_int( $favorite ) && $favorite > 0;
+			} );
+			// Check if we have more than wgTemplateDataMaxFavorites values
+			if ( count( $favoriteTemplates ) > intval( $maximumFavorites ) ) {
+				unset( $modifiedOptions['templatedata-favorite-templates'] );
+				return;
+			}
+			// After these steps the indexes are not preserved, so we need to 're-index' the array
+			$favoriteTemplates = array_values( $favoriteTemplates );
+
+			$encodedFavorites = json_encode( $favoriteTemplates );
+			// If we can't encode the array, we don't want to save it
+			if ( $encodedFavorites === false ) {
+				// TODO: Do we want to log a warning here?
+				unset( $modifiedOptions['templatedata-favorite-templates'] );
+				return;
+			}
+
+			$modifiedOptions['templatedata-favorite-templates'] = $encodedFavorites;
+		}
 	}
 
 }
