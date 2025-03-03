@@ -86,6 +86,7 @@
 	"templatedata-modal-format-custom": "Mukautettu",
 	"templatedata-modal-format-inline": "Yksirivinen",
 	"templatedata-modal-format-null": "Määrittelemätön",
+	"templatedata-modal-format-placeholder": "Mallineparametrin muotomerkkijono",
 	"templatedata-modal-json-error-replace": "Korvaa",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|uusi parametri|uutta parametria}} tuotiin: $2",
 	"templatedata-modal-placeholder-add-new-map-input": "Lisätään uutta karttaa...",
