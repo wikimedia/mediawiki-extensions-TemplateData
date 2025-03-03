@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sammy Fox"
+		]
+	},
+	"templatedata-favorite-added": "Template added to favourites",
+	"templatedata-favorite-removed": "Template removed from favourites"
+}

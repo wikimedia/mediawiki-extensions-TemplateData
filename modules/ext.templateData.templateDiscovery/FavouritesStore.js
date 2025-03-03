@@ -43,7 +43,15 @@ FavouritesStore.prototype.addFavourite = function ( pageId ) {
 	this.refreshFavourites();
 	this.favouritesArray.push( parsePageId( pageId ) );
 	save( this.favouritesArray );
-	document.dispatchEvent( new Event( 'favouriteAdded' ) );
+	document.dispatchEvent( new Event( 'favoriteAdded' ) );
+	// TODO: Handling errors will be added in patch for T377460
+	mw.notify(
+		mw.msg( 'templatedata-favorite-added' ),
+		{
+			type: 'success',
+			tag: 'templatedata-favorite-added'
+		}
+	);
 };
 
 /**
@@ -58,7 +66,15 @@ FavouritesStore.prototype.removeFavourite = function ( pageId ) {
 		this.favouritesArray.splice( index, 1 );
 	}
 	save( this.favouritesArray );
-	document.dispatchEvent( new Event( 'favouriteRemoved' ) );
+	document.dispatchEvent( new Event( 'favoriteRemoved' ) );
+	// TODO: Handling errors will be added in patch for T377460
+	mw.notify(
+		mw.msg( 'templatedata-favorite-removed' ),
+		{
+			type: 'success',
+			tag: 'templatedata-favorite-removed'
+		}
+	);
 };
 
 /**

@@ -122,5 +122,7 @@
 	"templatedata-search-placeholder": "Find template",
 	"templatedata-search-button": "Add",
 	"templatedata-template-discovery-disabled": "Template discovery is disabled on this wiki.",
-	"templatesearch": "Template search"
+	"templatesearch": "Template search",
+	"templatedata-favorite-added": "Template added to favorites",
+	"templatedata-favorite-removed": "Template removed from favorites"
 }

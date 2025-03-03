@@ -8,14 +8,15 @@ const FavouritesStore = require( './FavouritesStore.js' );
  * @param {Object} config
  * @param {jQuery|string} [config.description=''] Search result description
  * @param {string} [config.data.redirecttitle] Page title for the "redirected from" message
+ * @param {FavouritesStore} favouritesStore
  */
-function SearchResult( config ) {
+function SearchResult( config, favouritesStore ) {
 	config = Object.assign( {
 		classes: [ 'ext-templatedata-SearchResult' ],
 		$label: $( '<a>' )
 	}, config );
 	SearchResult.super.call( this, config );
-	this.favouritesStore = new FavouritesStore();
+	this.favouritesStore = favouritesStore;
 
 	if ( config.data.redirecttitle ) {
 		const redirecttitle = new mw.Title( config.data.redirecttitle )
@@ -37,7 +38,7 @@ function SearchResult( config ) {
 	$wrap.append( this.$element.contents() );
 	this.$element.append( $wrap );
 
-	this.isFavourite = config.favourited;
+	this.isFavourite = this.favouritesStore.isFavourite( config.data.pageId );
 
 	this.favouriteButton = new OO.ui.ButtonInputWidget( {
 		icon: this.isFavourite ? 'bookmark' : 'bookmarkOutline',

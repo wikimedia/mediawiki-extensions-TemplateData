@@ -251,7 +251,7 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
  * @return {OO.ui.MenuOptionWidget[]}
  */
 SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
-	return data.map( ( config ) => new SearchResult( config ) );
+	return data.map( ( config ) => new SearchResult( config, this.favouritesStore ) );
 };
 
 /**

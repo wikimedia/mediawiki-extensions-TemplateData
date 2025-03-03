@@ -262,7 +262,9 @@
 				"templatedata-search-title",
 				"templatedata-search-description",
 				"templatedata-search-placeholder",
-				"templatedata-search-button"
+				"templatedata-search-button",
+				"templatedata-favorite-added",
+				"templatedata-favorite-removed"
 			]
 		}
 	},
