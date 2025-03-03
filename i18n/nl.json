@@ -84,6 +84,7 @@
 	"templatedata-modal-button-removemap": "Verwijzing verwijderen",
 	"templatedata-modal-button-saveparam": "Opslaan",
 	"templatedata-modal-confirmcancel": "Weet u zeker dat u uw wijzigingen wilt weggooien?",
+	"templatedata-modal-button-discard": "Verwijderen",
 	"templatedata-modal-current-language": "Huidige taal: $1",
 	"templatedata-modal-errormsg": "Fouten gevonden. Zorg ervoor dat er geen lege of dubbele parameternamen zijn, en dat de parameternaam geen \"$1\", \"$2\" of \"$3\" bevat.",
 	"templatedata-modal-errormsg-duplicate-name": "Fout gevonden. De gekozen naam wordt al gebruikt door een andere parameter.",
@@ -126,5 +127,11 @@
 	"templatedata-modal-title-templateformat": "Voorgestelde wikitext-opmaak",
 	"templatedata-modal-title-templateformatstring": "Tekenreeks met aangepaste opmaak",
 	"templatedata-modal-title-templateparam-details": "Parameterdetails: $1",
-	"templatedata-modal-title-templateparams": "Sjabloonparameters"
+	"templatedata-modal-title-templateparams": "Sjabloonparameters",
+	"templatedata-search-title": "Sjabloon zoeken",
+	"templatedata-search-description": "Zoek het sjabloon dat u wilt invoegen door te zoeken naar een kenmerkend trefwoord. Sjablonen met beschrijvingen werken waarschijnlijk beter.",
+	"templatedata-search-placeholder": "Sjabloon zoeken",
+	"templatedata-search-button": "Toevoegen",
+	"templatedata-template-discovery-disabled": "Sjabloondetectie is uitgeschakeld op deze wiki.",
+	"templatesearch": "Sjabloon zoeken"
 }
