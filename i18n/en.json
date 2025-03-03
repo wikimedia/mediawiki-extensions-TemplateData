@@ -124,5 +124,6 @@
 	"templatedata-template-discovery-disabled": "Template discovery is disabled on this wiki.",
 	"templatesearch": "Template search",
 	"templatedata-favorite-added": "Template added to favorites",
-	"templatedata-favorite-removed": "Template removed from favorites"
+	"templatedata-favorite-removed": "Template removed from favorites",
+	"templatedata-favorite-maximum-reached": "You have reached the maximum number ($1) of favorite templates. Please remove some from your list before adding more."
 }

@@ -14,6 +14,7 @@ class TemplateDiscoveryConfig {
 	public static function getConfig( Context $context, Config $config ): array {
 		return [
 			'cirrusSearchLoaded' => ExtensionRegistry::getInstance()->isLoaded( 'CirrusSearch' ),
+			'maxFavorites' => $config->get( 'TemplateDataMaxFavorites' ),
 		];
 	}
 

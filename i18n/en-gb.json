@@ -5,5 +5,6 @@
 		]
 	},
 	"templatedata-favorite-added": "Template added to favourites",
-	"templatedata-favorite-removed": "Template removed from favourites"
+	"templatedata-favorite-removed": "Template removed from favourites",
+	"templatedata-favorite-maximum-reached": "You have reached the maximum number ($1) of favourite templates. Please remove some from your list before adding more."
 }

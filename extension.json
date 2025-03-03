@@ -264,7 +264,8 @@
 				"templatedata-search-placeholder",
 				"templatedata-search-button",
 				"templatedata-favorite-added",
-				"templatedata-favorite-removed"
+				"templatedata-favorite-removed",
+				"templatedata-favorite-maximum-reached"
 			]
 		}
 	},
@@ -298,6 +299,10 @@
 		"TemplateDataEnableDiscovery": {
 			"value": false,
 			"description": "Enable the template discovery and recall functionality."
+		},
+		"TemplateDataMaxFavorites": {
+			"value": 50,
+			"description": "The maximum number of favorite templates that can be stored."
 		}
 	},
 	"DefaultUserOptions": {

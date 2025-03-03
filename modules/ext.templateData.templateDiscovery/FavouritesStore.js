@@ -1,3 +1,4 @@
+const templateDiscoveryConfig = require( './config.json' );
 const USER_PREFERENCE_NAME = 'templatedata-favorite-templates';
 
 /**
@@ -7,6 +8,7 @@ const USER_PREFERENCE_NAME = 'templatedata-favorite-templates';
  */
 function FavouritesStore() {
 	this.favouritesArray = JSON.parse( mw.user.options.get( USER_PREFERENCE_NAME ) );
+	this.maxFavorites = templateDiscoveryConfig.maxFavorites;
 }
 
 /**
@@ -38,26 +40,39 @@ function parsePageId( pageId ) {
  * Add a pageId to the favourites array
  *
  * @param {number} pageId
+ * @return {boolean} Whether the page ID was added
  */
 FavouritesStore.prototype.addFavourite = function ( pageId ) {
 	this.refreshFavourites();
-	this.favouritesArray.push( parsePageId( pageId ) );
-	save( this.favouritesArray );
-	document.dispatchEvent( new Event( 'favoriteAdded' ) );
-	// TODO: Handling errors will be added in patch for T377460
-	mw.notify(
-		mw.msg( 'templatedata-favorite-added' ),
-		{
-			type: 'success',
-			tag: 'templatedata-favorite-added'
-		}
-	);
+	if ( this.favouritesArray.length < this.maxFavorites ) {
+		this.favouritesArray.push( parsePageId( pageId ) );
+		save( this.favouritesArray );
+		document.dispatchEvent( new Event( 'favoriteAdded' ) );
+		mw.notify(
+			mw.msg( 'templatedata-favorite-added' ),
+			{
+				type: 'success',
+				tag: 'templatedata-favorite-added'
+			}
+		);
+		return true;
+	} else {
+		mw.notify(
+			mw.msg( 'templatedata-favorite-maximum-reached', this.maxFavorites ),
+			{
+				type: 'error',
+				tag: 'templatedata-favorite-maximum-reached'
+			}
+		);
+		return false;
+	}
 };
 
 /**
  * Remove a pageId from the favourites array
  *
  * @param {number} pageId
+ * @return {boolean} Whether the page ID was removed
  */
 FavouritesStore.prototype.removeFavourite = function ( pageId ) {
 	this.refreshFavourites();
@@ -67,7 +82,6 @@ FavouritesStore.prototype.removeFavourite = function ( pageId ) {
 	}
 	save( this.favouritesArray );
 	document.dispatchEvent( new Event( 'favoriteRemoved' ) );
-	// TODO: Handling errors will be added in patch for T377460
 	mw.notify(
 		mw.msg( 'templatedata-favorite-removed' ),
 		{
@@ -75,6 +89,7 @@ FavouritesStore.prototype.removeFavourite = function ( pageId ) {
 			tag: 'templatedata-favorite-removed'
 		}
 	);
+	return true;
 };
 
 /**

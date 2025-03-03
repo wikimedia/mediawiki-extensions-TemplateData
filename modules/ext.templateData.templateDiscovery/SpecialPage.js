@@ -37,9 +37,9 @@ SpecialPage.prototype.init = function () {
 SpecialPage.prototype.buildFavouritesList = function () {
 	// TODO: This should probably automagically update when the favourites change
 	if ( this.favouriteTemplates.length === 0 ) {
-		this.templateSearchList.append( document.createElement( 'p' ).textContent = 'No favourite templates' );
+		this.templateSearchList.append( document.createElement( 'p' ).textContent = `0/${ this.favouritesStore.maxFavorites }` );
 	} else {
-		this.templateSearchList.append( document.createElement( 'p' ).textContent = `${ this.favouriteTemplates.length } total` );
+		this.templateSearchList.append( document.createElement( 'p' ).textContent = `${ this.favouriteTemplates.length }/${ this.favouritesStore.maxFavorites }` );
 		const templateList = document.createElement( 'ul' );
 		this.favouriteTemplates.forEach( ( pageId ) => {
 			const result = this.favouritesStore.getFavouriteTitle( pageId );

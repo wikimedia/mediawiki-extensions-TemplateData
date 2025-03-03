@@ -137,5 +137,6 @@
 	"templatedata-template-discovery-disabled": "Message displayed when TemplateData discovery is disabled on the wiki and the user tries to view the special page.",
 	"templatesearch": "Title for the template search special page",
 	"templatedata-favorite-added": "Message displayed (in bubble notification) when a template is added to the user's favorites list.",
-	"templatedata-favorite-removed": "Message displayed (in bubble notification) when a template is removed from the user's favorites list."
+	"templatedata-favorite-removed": "Message displayed (in bubble notification) when a template is removed from the user's favorites list.",
+	"templatedata-favorite-maximum-reached": "Message displayed (in bubble notification) when the user tries to add more than the maximum number of templates to their favorites list."
 }

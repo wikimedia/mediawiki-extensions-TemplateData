@@ -59,13 +59,19 @@ function SearchResult( config, favouritesStore ) {
 OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
 
 SearchResult.prototype.clickFavourite = function () {
+	if ( !this.isFavourite ) {
+		// Add to favourites
+		if ( !this.favouritesStore.addFavourite( this.data.pageId ) ) {
+			return;
+		}
+	} else {
+		// Remove from favourites
+		if ( !this.favouritesStore.removeFavourite( this.data.pageId ) ) {
+			return;
+		}
+	}
 	this.isFavourite = !this.isFavourite;
 	this.favouriteButton.setIcon( this.isFavourite ? 'bookmark' : 'bookmarkOutline' );
-	if ( this.isFavourite ) {
-		this.favouritesStore.addFavourite( this.data.pageId );
-	} else {
-		this.favouritesStore.removeFavourite( this.data.pageId );
-	}
 };
 
 module.exports = SearchResult;
