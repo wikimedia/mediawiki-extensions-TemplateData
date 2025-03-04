@@ -11,7 +11,8 @@ const FavouritesStore = require( './FavouritesStore.js' );
  */
 function SearchResult( config ) {
 	config = Object.assign( {
-		classes: [ 'ext-templatedata-SearchResult' ]
+		classes: [ 'ext-templatedata-SearchResult' ],
+		$label: $( '<a>' )
 	}, config );
 	SearchResult.super.call( this, config );
 	this.favouritesStore = new FavouritesStore();
@@ -24,6 +25,7 @@ function SearchResult( config ) {
 			.text( mw.msg( 'redirectedfrom', redirecttitle ) )
 			.appendTo( this.$element );
 	}
+	this.$label.attr( 'href', mw.util.getUrl( config.data.title ) );
 
 	$( '<span>' )
 		.addClass( 'ext-templatedata-search-description' )
@@ -45,6 +47,12 @@ function SearchResult( config ) {
 	} );
 	this.favouriteButton.connect( this, { click: this.clickFavourite } );
 	this.$element.append( this.favouriteButton.$element );
+
+	// Configure non-existing templates.
+	if ( config.data.pageId === '-1' ) {
+		this.favouriteButton.setDisabled( true );
+		this.$label.addClass( 'new' );
+	}
 }
 
 OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
