@@ -264,6 +264,8 @@
 				"templatedata-search-placeholder",
 				"templatedata-search-button",
 				"templatedata-favorite-added",
+				"templatedata-favorite-disabled",
+				"templatedata-favorite-error",
 				"templatedata-favorite-removed",
 				"templatedata-favorite-maximum-reached"
 			]

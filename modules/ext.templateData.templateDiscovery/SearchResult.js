@@ -54,6 +54,12 @@ function SearchResult( config, favouritesStore ) {
 		this.favouriteButton.setDisabled( true );
 		this.$label.addClass( 'new' );
 	}
+
+	// Don't let temp and anon users favourite.
+	if ( !mw.user.isNamed() ) {
+		this.favouriteButton.setDisabled( true );
+		this.favouriteButton.setTitle( mw.msg( 'templatedata-favorite-disabled' ) );
+	}
 }
 
 OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
@@ -61,17 +67,17 @@ OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
 SearchResult.prototype.clickFavourite = function () {
 	if ( !this.isFavourite ) {
 		// Add to favourites
-		if ( !this.favouritesStore.addFavourite( this.data.pageId ) ) {
-			return;
-		}
+		this.favouritesStore.addFavourite( this.data.pageId ).then( () => {
+			this.isFavourite = true;
+			this.favouriteButton.setIcon( 'bookmark' );
+		} );
 	} else {
 		// Remove from favourites
-		if ( !this.favouritesStore.removeFavourite( this.data.pageId ) ) {
-			return;
-		}
+		this.favouritesStore.removeFavourite( this.data.pageId ).then( () => {
+			this.isFavourite = false;
+			this.favouriteButton.setIcon( 'bookmarkOutline' );
+		} );
 	}
-	this.isFavourite = !this.isFavourite;
-	this.favouriteButton.setIcon( this.isFavourite ? 'bookmark' : 'bookmarkOutline' );
 };
 
 module.exports = SearchResult;

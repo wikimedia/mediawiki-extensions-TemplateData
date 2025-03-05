@@ -15,10 +15,22 @@ function FavouritesStore() {
  * Save the favourites array to the user options
  *
  * @param {Array} favouritesArray
+ * @return {Promise}
  */
 function save( favouritesArray ) {
-	new mw.Api().saveOption( USER_PREFERENCE_NAME, JSON.stringify( favouritesArray ) );
-	mw.user.options.set( USER_PREFERENCE_NAME, JSON.stringify( favouritesArray ) );
+	const json = JSON.stringify( favouritesArray );
+	return new mw.Api().saveOption( USER_PREFERENCE_NAME, json, { errorsuselocal: 1, errorformat: 'html' } )
+		.then( () => {
+			mw.user.options.set( USER_PREFERENCE_NAME, json );
+		} )
+		.fail( ( _, response ) => {
+			for ( const error of response.errors ) {
+				mw.notify( error.html, {
+					type: 'error',
+					title: mw.msg( 'templatedata-favorite-error' )
+				} );
+			}
+		} );
 }
 
 /**
@@ -40,22 +52,23 @@ function parsePageId( pageId ) {
  * Add a pageId to the favourites array
  *
  * @param {number} pageId
- * @return {boolean} Whether the page ID was added
+ * @return {Promise} Resolves when the page ID is added (or is not able to be).
  */
 FavouritesStore.prototype.addFavourite = function ( pageId ) {
 	this.refreshFavourites();
 	if ( this.favouritesArray.length < this.maxFavorites ) {
 		this.favouritesArray.push( parsePageId( pageId ) );
-		save( this.favouritesArray );
-		document.dispatchEvent( new Event( 'favoriteAdded' ) );
-		mw.notify(
-			mw.msg( 'templatedata-favorite-added' ),
-			{
-				type: 'success',
-				tag: 'templatedata-favorite-added'
-			}
-		);
-		return true;
+		return save( this.favouritesArray ).then( () => {
+			document.dispatchEvent( new Event( 'favoriteAdded' ) );
+			mw.notify(
+				mw.msg( 'templatedata-favorite-added' ),
+				{
+					type: 'success',
+					tag: 'templatedata-favorite-added'
+				}
+			);
+			return Promise.resolve();
+		} );
 	} else {
 		mw.notify(
 			mw.msg( 'templatedata-favorite-maximum-reached', this.maxFavorites ),
@@ -64,7 +77,7 @@ FavouritesStore.prototype.addFavourite = function ( pageId ) {
 				tag: 'templatedata-favorite-maximum-reached'
 			}
 		);
-		return false;
+		return Promise.resolve();
 	}
 };
 
@@ -72,7 +85,7 @@ FavouritesStore.prototype.addFavourite = function ( pageId ) {
  * Remove a pageId from the favourites array
  *
  * @param {number} pageId
- * @return {boolean} Whether the page ID was removed
+ * @return {Promise} Resolves when the page ID is removed (or is not able to be).
  */
 FavouritesStore.prototype.removeFavourite = function ( pageId ) {
 	this.refreshFavourites();
@@ -80,16 +93,17 @@ FavouritesStore.prototype.removeFavourite = function ( pageId ) {
 	if ( index > -1 ) {
 		this.favouritesArray.splice( index, 1 );
 	}
-	save( this.favouritesArray );
-	document.dispatchEvent( new Event( 'favoriteRemoved' ) );
-	mw.notify(
-		mw.msg( 'templatedata-favorite-removed' ),
-		{
-			type: 'success',
-			tag: 'templatedata-favorite-removed'
-		}
-	);
-	return true;
+	return save( this.favouritesArray ).then( () => {
+		document.dispatchEvent( new Event( 'favoriteRemoved' ) );
+		mw.notify(
+			mw.msg( 'templatedata-favorite-removed' ),
+			{
+				type: 'success',
+				tag: 'templatedata-favorite-removed'
+			}
+		);
+		return Promise.resolve();
+	} );
 };
 
 /**
