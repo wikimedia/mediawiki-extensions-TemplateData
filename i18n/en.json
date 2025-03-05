@@ -123,7 +123,9 @@
 	"templatedata-search-button": "Add",
 	"templatedata-template-discovery-disabled": "Template discovery is disabled on this wiki.",
 	"templatesearch": "Template search",
+	"templatedata-favorite-disabled": "You must be logged in to favorite a template",
 	"templatedata-favorite-added": "Template added to favorites",
 	"templatedata-favorite-removed": "Template removed from favorites",
+	"templatedata-favorite-error": "Unable to save favorites",
 	"templatedata-favorite-maximum-reached": "You have reached the maximum number ($1) of favorite templates. Please remove some from your list before adding more."
 }
