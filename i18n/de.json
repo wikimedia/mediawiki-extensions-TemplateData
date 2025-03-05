@@ -122,5 +122,8 @@
 	"templatedata-search-placeholder": "Vorlage finden",
 	"templatedata-search-button": "Hinzufügen",
 	"templatedata-template-discovery-disabled": "Die Vorlagenerkennung ist in diesem Wiki deaktiviert.",
-	"templatesearch": "Vorlagensuche"
+	"templatesearch": "Vorlagensuche",
+	"templatedata-favorite-added": "Vorlage zu Favoriten hinzugefügt",
+	"templatedata-favorite-removed": "Vorlage aus Favoriten entfernt",
+	"templatedata-favorite-maximum-reached": "Du hast die maximale Anzahl ($1) an Favoritenvorlagen erreicht. Bitte entferne einige aus deiner Liste, bevor du weitere hinzufügst."
 }
