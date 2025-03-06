@@ -41,6 +41,16 @@ OO.mixinClass( Model, OO.EventEmitter );
  */
 
 /**
+ * @event add-paramOrder
+ * @param {string} key Parameter key
+ */
+
+/**
+ * @event delete-param
+ * @param {string} paramKey Parameter key
+ */
+
+/**
  * @event change-description
  * @param {string} description New template description
  * @param {Object} [language] Description language, if supplied
@@ -57,6 +67,16 @@ OO.mixinClass( Model, OO.EventEmitter );
  * @param {string} prop Property name
  * @param {Mixed} value
  * @param {string} language
+ */
+
+/**
+ * @event change-map
+ * @param {Object|undefined} map New template map info
+ */
+
+/**
+ * @event change-format
+ * @param {string|null} [format=null] Preferred format
  */
 
 /**

@@ -35,7 +35,8 @@ OO.mixinClass( SearchWidget, OO.ui.mixin.LookupElement );
 /**
  * When a template is choosen from the menu.
  *
- * @event SearchWidget#choose
+ * @event choose
+ * @param {Object} The template data of the chosen template.
  */
 
 /* Methods */

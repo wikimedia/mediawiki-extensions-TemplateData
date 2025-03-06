@@ -39,6 +39,15 @@ OO.inheritClass( ParamWidget, OO.ui.DecoratedOptionWidget );
 OO.mixinClass( ParamWidget, OO.ui.mixin.DraggableElement );
 OO.mixinClass( ParamWidget, OO.ui.mixin.TabIndexedElement );
 
+/* Events */
+
+/**
+ * @event choose
+ * @param {ParamWidget} paramWidget
+ */
+
+/* Methods */
+
 /**
  * @param {jQuery.Event} e Key down event
  * @fires choose

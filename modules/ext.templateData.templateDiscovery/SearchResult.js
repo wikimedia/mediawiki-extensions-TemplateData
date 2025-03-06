@@ -62,7 +62,11 @@ function SearchResult( config, favoritesStore ) {
 	}
 }
 
+/* Setup */
+
 OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
+
+/* Methods */
 
 SearchResult.prototype.clickFavorite = function () {
 	if ( !this.isFavorite ) {
