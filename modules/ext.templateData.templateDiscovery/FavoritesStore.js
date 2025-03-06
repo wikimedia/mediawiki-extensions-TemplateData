@@ -23,12 +23,20 @@ function save( favoritesArray ) {
 		.then( () => {
 			mw.user.options.set( USER_PREFERENCE_NAME, json );
 		} )
-		.fail( ( _, response ) => {
-			for ( const error of response.errors ) {
-				mw.notify( error.html, {
+		.fail( ( code, response ) => {
+			// The 'notloggedin' error is a special case in mw.Api.saveOptions()
+			if ( code === 'notloggedin' ) {
+				mw.notify( mw.msg( 'notloggedin' ), {
 					type: 'error',
 					title: mw.msg( 'templatedata-favorite-error' )
 				} );
+			} else {
+				for ( const error of response.errors ) {
+					mw.notify( error.html, {
+						type: 'error',
+						title: mw.msg( 'templatedata-favorite-error' )
+					} );
+				}
 			}
 		} );
 }

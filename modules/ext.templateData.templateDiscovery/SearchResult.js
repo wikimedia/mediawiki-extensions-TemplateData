@@ -1,4 +1,5 @@
 const FavoritesStore = require( './FavoritesStore.js' );
+const FavoriteButton = require( './FavoriteButton.js' );
 
 /**
  * @class
@@ -16,7 +17,6 @@ function SearchResult( config, favoritesStore ) {
 		$label: $( '<a>' )
 	}, config );
 	SearchResult.super.call( this, config );
-	this.favoritesStore = favoritesStore;
 
 	if ( config.data.redirecttitle ) {
 		const redirecttitle = new mw.Title( config.data.redirecttitle )
@@ -38,50 +38,21 @@ function SearchResult( config, favoritesStore ) {
 	$wrap.append( this.$element.contents() );
 	this.$element.append( $wrap );
 
-	this.isFavorite = this.favoritesStore.isFavorite( config.data.pageId );
-
-	this.favoriteButton = new OO.ui.ButtonInputWidget( {
-		icon: this.isFavorite ? 'bookmark' : 'bookmarkOutline',
-		framed: false,
-		invisibleLabel: true,
-		type: 'button'
+	const favoriteButton = new FavoriteButton( {
+		favoritesStore: favoritesStore,
+		pageId: config.data.pageId
 	} );
-	this.favoriteButton.connect( this, { click: this.clickFavorite } );
-	this.$element.append( this.favoriteButton.$element );
+	this.$element.append( favoriteButton.$element );
 
 	// Configure non-existing templates.
 	if ( config.data.pageId === '-1' ) {
-		this.favoriteButton.setDisabled( true );
+		favoriteButton.setDisabled( true );
 		this.$label.addClass( 'new' );
-	}
-
-	// Don't let temp and anon users favorite.
-	if ( !mw.user.isNamed() ) {
-		this.favoriteButton.setDisabled( true );
-		this.favoriteButton.setTitle( mw.msg( 'templatedata-favorite-disabled' ) );
 	}
 }
 
 /* Setup */
 
 OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
-
-/* Methods */
-
-SearchResult.prototype.clickFavorite = function () {
-	if ( !this.isFavorite ) {
-		// Add to favorites
-		this.favoritesStore.addFavorite( this.data.pageId ).then( () => {
-			this.isFavorite = true;
-			this.favoriteButton.setIcon( 'bookmark' );
-		} );
-	} else {
-		// Remove from favorites
-		this.favoritesStore.removeFavorite( this.data.pageId ).then( () => {
-			this.isFavorite = false;
-			this.favoriteButton.setIcon( 'bookmarkOutline' );
-		} );
-	}
-};
 
 module.exports = SearchResult;

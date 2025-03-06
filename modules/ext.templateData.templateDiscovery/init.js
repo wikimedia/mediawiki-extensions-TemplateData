@@ -2,7 +2,8 @@ const SpecialPage = require( './SpecialPage.js' );
 
 mw.templateData = {
 	config: require( './config.json' ),
-	TemplateSearchLayout: require( './TemplateSearchLayout.js' )
+	TemplateSearchLayout: require( './TemplateSearchLayout.js' ),
+	FavoriteButton: require( './FavoriteButton.js' )
 };
 
 // If we're on the TemplateSearch special page
