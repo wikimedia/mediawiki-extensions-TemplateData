@@ -129,5 +129,10 @@
 	"templatedata-search-placeholder": "Hae mallinetta",
 	"templatedata-search-button": "Lisää",
 	"templatedata-template-discovery-disabled": "Mallinehaku on poistettu käytöstä tässä wikissä.",
-	"templatesearch": "Mallinehaku"
+	"templatesearch": "Mallinehaku",
+	"templatedata-favorite-disabled": "Sinun on oltava kirjautuneena sisään merkitäksesi mallineen suosikkeihin",
+	"templatedata-favorite-added": "Malline lisätty suosikkeihin",
+	"templatedata-favorite-removed": "Malline poistettu suosikeista",
+	"templatedata-favorite-error": "Suosikkeja ei voitu tallentaa",
+	"templatedata-favorite-maximum-reached": "Olet saavuttanut suosikkimallineiden enimmäismäärän ($1). Poista joitakin listaltasi ennen kuin lisäät lisää."
 }
