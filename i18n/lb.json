@@ -112,5 +112,11 @@
 	"templatedata-modal-title-templateparams": "Parametere vun der Schabloun",
 	"templatedata-search-title": "Sich no Schablounen",
 	"templatedata-search-placeholder": "Schabloun sichen",
-	"templatedata-search-button": "Derbäisetzen"
+	"templatedata-search-button": "Derbäisetzen",
+	"templatesearch": "Schablounesich",
+	"templatedata-favorite-disabled": "Dir musst ageloggt si fir eng Schabloun als Favorit ze markéieren",
+	"templatedata-favorite-added": "Schabloun bei Favoritten derbäigesat",
+	"templatedata-favorite-removed": "Schabloun aus Favoritten erausgeholl",
+	"templatedata-favorite-error": "Favoritte konnten net gespäichert ginn",
+	"templatedata-favorite-maximum-reached": "Dir hutt déi maximal Zuel vu Favoritte-Schablounen erreecht ($1). Huelt der wgl. e puer aus Ärer Lëscht eraus, ier Dir neier derbäisetzt."
 }

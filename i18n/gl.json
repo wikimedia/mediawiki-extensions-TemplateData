@@ -121,5 +121,10 @@
 	"templatedata-search-placeholder": "Atopar un modelo",
 	"templatedata-search-button": "Engadir",
 	"templatedata-template-discovery-disabled": "O descubrimento de modelos está desactivado neste wiki.",
-	"templatesearch": "Procura de modelos"
+	"templatesearch": "Procura de modelos",
+	"templatedata-favorite-disabled": "Debes iniciar sesión para marcar como favorito un modelo",
+	"templatedata-favorite-added": "Engadiuse o modelo aos favoritos",
+	"templatedata-favorite-removed": "Eliminouse o modelo dos favoritos",
+	"templatedata-favorite-error": "Non se poden gardar os favoritos",
+	"templatedata-favorite-maximum-reached": "Alcanzaches o número máximo de modelos favoritos ($1). Elimina algúns da túa lista antes de engadires máis."
 }

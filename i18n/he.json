@@ -119,5 +119,10 @@
 	"templatedata-search-placeholder": "מציאת תבנית",
 	"templatedata-search-button": "הוספה",
 	"templatedata-template-discovery-disabled": "גילוי תבניות מושבת בוויקי הזה.",
-	"templatesearch": "חיפוש תבנית"
+	"templatesearch": "חיפוש תבנית",
+	"templatedata-favorite-disabled": "צריך להתחבר לחשבון כדי לסמן תבנית בתור מועדפת",
+	"templatedata-favorite-added": "תבנית סומנה בתור מועדפת",
+	"templatedata-favorite-removed": "התבנית הוסרה מרשימת המועדפות",
+	"templatedata-favorite-error": "לא ניתן לשמור תבניות מועדפות",
+	"templatedata-favorite-maximum-reached": "הגעת למספר המרבי ($1) של תבניות מועדפות. נא להסיר כמה מהרשימה שלך לפני שיהיה אפשר להוסיף עוד."
 }
