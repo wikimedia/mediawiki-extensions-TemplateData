@@ -1,6 +1,5 @@
 const
 	LanguageSearchWidget = require( './widgets/LanguageSearchWidget.js' ),
-	Metrics = require( './Metrics.js' ),
 	Model = require( 'ext.templateDataGenerator.data' ).Model,
 	ParamImportWidget = require( './widgets/ParamImportWidget.js' ),
 	ParamSelectWidget = require( './widgets/ParamSelectWidget.js' ),
@@ -31,9 +30,6 @@ function Dialog( config ) {
 	this.propFieldLayout = {};
 	this.isSetup = false;
 	this.mapsCache = undefined;
-	this.descriptionChanged = false;
-	this.paramsReordered = false;
-	this.paramPropertyChangeTracking = {};
 
 	// Initialize
 	this.$element.addClass( 'tdg-templateDataDialog' );
@@ -467,11 +463,6 @@ Dialog.prototype.updateActions = function () {
  * @param {number} newIndex New index of the item
  */
 Dialog.prototype.onParamSelectReorder = function ( item, newIndex ) {
-	if ( !this.paramsReordered ) {
-		Metrics.logEvent( 'parameter-reorder' );
-	}
-	this.paramsReordered = true;
-
 	this.model.reorderParamOrderKey( item.getData(), newIndex );
 };
 
@@ -481,11 +472,6 @@ Dialog.prototype.onParamSelectReorder = function ( item, newIndex ) {
  * @param {string} value Description value
  */
 Dialog.prototype.onDescriptionInputChange = function ( value ) {
-	if ( !this.descriptionChanged ) {
-		Metrics.logEvent( 'template-description-change' );
-	}
-	this.descriptionChanged = true;
-
 	if ( this.model.getTemplateDescription( this.language ) !== value ) {
 		this.model.setTemplateDescription( value, this.language );
 	}
@@ -897,8 +883,6 @@ Dialog.prototype.onParamPropertyInputChange = function ( propName, value ) {
 	if ( propName === 'aliases' && this.propInputs.name.$element.hasClass( 'tdg-editscreen-input-error' ) ) {
 		this.onParamPropertyInputChange( 'name', this.propInputs.name.getValue() );
 	}
-
-	this.trackPropertyChange( propName );
 };
 
 Dialog.prototype.toggleSuggestedValues = function ( type ) {
@@ -926,8 +910,6 @@ Dialog.prototype.toggleSuggestedValues = function ( type ) {
 Dialog.prototype.getParameterDetails = function ( paramKey ) {
 	const paramData = this.model.getParamData( paramKey );
 	const allProps = Model.static.getAllProperties( true );
-
-	this.stopParameterInputTracking();
 
 	for ( const prop in this.propInputs ) {
 		this.changeParamPropertyInput( paramKey, prop, paramData[ prop ], this.language );
@@ -969,52 +951,6 @@ Dialog.prototype.getParameterDetails = function ( paramKey ) {
 				this.propInputs.suggested.setSelected( selected === 'suggested' );
 			}
 		} );
-	}
-
-	this.startParameterInputTracking( paramData );
-};
-
-Dialog.prototype.stopParameterInputTracking = function () {
-	this.paramPropertyChangeTracking = {};
-};
-
-/**
- * Temporary metrics to understand how properties are edited, see T260343.
- *
- * @param {Object} paramValues parameter property values at dialog open time
- */
-Dialog.prototype.startParameterInputTracking = function ( paramValues ) {
-	this.paramPropertyChangeTracking = {};
-	for ( const prop in this.propInputs ) {
-		// Set to true, unless one of the exceptions applies.
-		this.paramPropertyChangeTracking[ prop ] = !(
-			// Setting type when we already have a specific type.
-			( prop === 'type' && paramValues[ prop ] !== undefined && paramValues[ prop ] !== 'unknown' ) ||
-
-			// Setting priority but already required, suggested, or deprecated.
-			( ( prop === 'required' || prop === 'suggested' || prop === 'deprecated' ) &&
-				( paramValues.required || paramValues.suggested || paramValues.deprecated ) ) ||
-
-			// Fields ignored by tracking.
-			( prop === 'name' || prop === 'aliases' || prop === 'autovalue' || prop === 'deprecatedValue' )
-		);
-	}
-};
-
-Dialog.prototype.trackPropertyChange = function ( property ) {
-	const eventKey = ( property === 'required' || property === 'suggested' || property === 'deprecated' ) ?
-		'parameter-priority-change' : 'parameter-' + property + '-change';
-
-	if ( this.paramPropertyChangeTracking[ property ] ) {
-		Metrics.logEvent( eventKey );
-	}
-	this.paramPropertyChangeTracking[ property ] = false;
-
-	// These properties form a conceptual group; suppress additional events.
-	if ( property === 'required' || property === 'suggested' || property === 'deprecated' ) {
-		this.paramPropertyChangeTracking.required =
-			this.paramPropertyChangeTracking.suggested =
-			this.paramPropertyChangeTracking.deprecated = false;
 	}
 };
 
@@ -1431,9 +1367,6 @@ Dialog.prototype.setupDetailsFromModel = function () {
 
 	// Repopulate the parameter list
 	this.repopulateParamSelectWidget();
-
-	Metrics.logEvent( this.model.getOriginalTemplateDataObject() ?
-		'dialog-open-edit' : 'dialog-open-create' );
 };
 
 /**
@@ -1549,9 +1482,6 @@ Dialog.prototype.getActionProcess = function ( action ) {
 	}
 	if ( action === 'apply' ) {
 		return new OO.ui.Process( () => {
-			Metrics.logEvent( this.model.getOriginalTemplateDataObject() ?
-				'save-page-edit' : 'save-page-create' );
-
 			this.emit( 'apply', this.model.outputTemplateData() );
 			this.close( { action: action } );
 		} );
