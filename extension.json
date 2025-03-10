@@ -29,7 +29,6 @@
 		}
 	},
 	"Hooks": {
-		"EditPage::showEditForm:fields": "main",
 		"ParserFirstCallInit": "main",
 		"MultiContentSave": "main",
 		"ResourceLoaderRegisterModules": "main",

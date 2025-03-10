@@ -8,10 +8,8 @@ use MediaWiki\Api\ApiFormatBase;
 use MediaWiki\Api\ApiPageSet;
 use MediaWiki\Api\ApiResult;
 use MediaWiki\Content\TextContent;
-use MediaWiki\Extension\EventLogging\EventLogging;
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Registration\ExtensionRegistry;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**
@@ -160,24 +158,6 @@ class ApiTemplateData extends ApiBase {
 					? $content->getText()
 					: $content->getTextForSearchIndex();
 				$resp[$pageId]['params'] = $this->getRawParams( $text );
-			}
-		}
-
-		// TODO tracking will only be implemented temporarily to answer questions on
-		// template usage for the Technical Wishes topic area see T258917
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
-			foreach ( $resp as $pageInfo ) {
-				EventLogging::submit(
-					'eventlogging_TemplateDataApi',
-					[
-						'$schema' => '/analytics/legacy/templatedataapi/1.0.0',
-						'event' => [
-							'template_name' => $wikiPageFactory->newFromTitle( $pageInfo['title'] )
-								->getTitle()->getDBkey(),
-							'has_template_data' => !isset( $pageInfo['notemplatedata'] ),
-						],
-					]
-				);
 			}
 		}
 
