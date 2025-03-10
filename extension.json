@@ -248,7 +248,7 @@
 				"TemplateSearchLayout.js",
 				"SearchWidget.js",
 				"SearchResult.js",
-				"FavouritesStore.js",
+				"FavoritesStore.js",
 				"SpecialPage.js"
 			],
 			"dependencies": [

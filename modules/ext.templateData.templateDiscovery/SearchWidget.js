@@ -1,6 +1,6 @@
 const SearchResult = require( './SearchResult.js' );
 const templateDiscoveryConfig = require( './config.json' );
-const FavouritesStore = require( './FavouritesStore.js' );
+const FavoritesStore = require( './FavoritesStore.js' );
 
 /**
  * @class
@@ -21,7 +21,7 @@ function SearchWidget( config ) {
 
 	this.limit = config.limit || 10;
 	this.api = config.api || new mw.Api();
-	this.favouritesStore = new FavouritesStore();
+	this.favoritesStore = new FavoritesStore();
 }
 
 /* Setup */
@@ -204,13 +204,13 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 		/**
 		 * Config for the {@see SearchResult} widget:
 		 * - data: {@see OO.ui.Element} and getData()
-		 * - favourited: {@see SearchResult}
+		 * - favorited: {@see SearchResult}
 		 * - label: {@see OO.ui.mixin.LabelElement} and getLabel()
 		 * - description: {@see SearchResult}
 		 */
 		return {
 			data: page,
-			favourited: this.favouritesStore.isFavourite( pageId ),
+			favorited: this.favoritesStore.isFavorite( pageId ),
 			label: mw.Title.newFromText( page.title ).getRelativeText( mw.config.get( 'wgNamespaceIds' ).template ),
 			description: page.description
 		};
@@ -251,7 +251,7 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
  * @return {OO.ui.MenuOptionWidget[]}
  */
 SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
-	return data.map( ( config ) => new SearchResult( config, this.favouritesStore ) );
+	return data.map( ( config ) => new SearchResult( config, this.favoritesStore ) );
 };
 
 /**

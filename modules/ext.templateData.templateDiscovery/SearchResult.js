@@ -1,4 +1,4 @@
-const FavouritesStore = require( './FavouritesStore.js' );
+const FavoritesStore = require( './FavoritesStore.js' );
 
 /**
  * @class
@@ -8,15 +8,15 @@ const FavouritesStore = require( './FavouritesStore.js' );
  * @param {Object} config
  * @param {jQuery|string} [config.description=''] Search result description
  * @param {string} [config.data.redirecttitle] Page title for the "redirected from" message
- * @param {FavouritesStore} favouritesStore
+ * @param {FavoritesStore} favoritesStore
  */
-function SearchResult( config, favouritesStore ) {
+function SearchResult( config, favoritesStore ) {
 	config = Object.assign( {
 		classes: [ 'ext-templatedata-SearchResult' ],
 		$label: $( '<a>' )
 	}, config );
 	SearchResult.super.call( this, config );
-	this.favouritesStore = favouritesStore;
+	this.favoritesStore = favoritesStore;
 
 	if ( config.data.redirecttitle ) {
 		const redirecttitle = new mw.Title( config.data.redirecttitle )
@@ -38,44 +38,44 @@ function SearchResult( config, favouritesStore ) {
 	$wrap.append( this.$element.contents() );
 	this.$element.append( $wrap );
 
-	this.isFavourite = this.favouritesStore.isFavourite( config.data.pageId );
+	this.isFavorite = this.favoritesStore.isFavorite( config.data.pageId );
 
-	this.favouriteButton = new OO.ui.ButtonInputWidget( {
-		icon: this.isFavourite ? 'bookmark' : 'bookmarkOutline',
+	this.favoriteButton = new OO.ui.ButtonInputWidget( {
+		icon: this.isFavorite ? 'bookmark' : 'bookmarkOutline',
 		framed: false,
 		invisibleLabel: true,
 		type: 'button'
 	} );
-	this.favouriteButton.connect( this, { click: this.clickFavourite } );
-	this.$element.append( this.favouriteButton.$element );
+	this.favoriteButton.connect( this, { click: this.clickFavorite } );
+	this.$element.append( this.favoriteButton.$element );
 
 	// Configure non-existing templates.
 	if ( config.data.pageId === '-1' ) {
-		this.favouriteButton.setDisabled( true );
+		this.favoriteButton.setDisabled( true );
 		this.$label.addClass( 'new' );
 	}
 
-	// Don't let temp and anon users favourite.
+	// Don't let temp and anon users favorite.
 	if ( !mw.user.isNamed() ) {
-		this.favouriteButton.setDisabled( true );
-		this.favouriteButton.setTitle( mw.msg( 'templatedata-favorite-disabled' ) );
+		this.favoriteButton.setDisabled( true );
+		this.favoriteButton.setTitle( mw.msg( 'templatedata-favorite-disabled' ) );
 	}
 }
 
 OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
 
-SearchResult.prototype.clickFavourite = function () {
-	if ( !this.isFavourite ) {
-		// Add to favourites
-		this.favouritesStore.addFavourite( this.data.pageId ).then( () => {
-			this.isFavourite = true;
-			this.favouriteButton.setIcon( 'bookmark' );
+SearchResult.prototype.clickFavorite = function () {
+	if ( !this.isFavorite ) {
+		// Add to favorites
+		this.favoritesStore.addFavorite( this.data.pageId ).then( () => {
+			this.isFavorite = true;
+			this.favoriteButton.setIcon( 'bookmark' );
 		} );
 	} else {
-		// Remove from favourites
-		this.favouritesStore.removeFavourite( this.data.pageId ).then( () => {
-			this.isFavourite = false;
-			this.favouriteButton.setIcon( 'bookmarkOutline' );
+		// Remove from favorites
+		this.favoritesStore.removeFavorite( this.data.pageId ).then( () => {
+			this.isFavorite = false;
+			this.favoriteButton.setIcon( 'bookmarkOutline' );
 		} );
 	}
 };
