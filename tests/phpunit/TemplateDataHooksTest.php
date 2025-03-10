@@ -128,7 +128,7 @@ class TemplateDataHooksTest extends MediaWikiIntegrationTestCase {
 					'templatedata-favorite-templates' => '[7,15,24]'
 				],
 			],
-			'added first favourite' => [
+			'added first favorite' => [
 				[
 					'templatedata-favorite-templates' => '[]'
 				],
@@ -139,7 +139,7 @@ class TemplateDataHooksTest extends MediaWikiIntegrationTestCase {
 					'templatedata-favorite-templates' => '[7]'
 				],
 			],
-			'removed all favourites' => [
+			'removed all favorites' => [
 				[
 					'templatedata-favorite-templates' => '[7,15,24]'
 				],

@@ -6,19 +6,19 @@ const USER_PREFERENCE_NAME = 'templatedata-favorite-templates';
  *
  * @constructor
  */
-function FavouritesStore() {
-	this.favouritesArray = JSON.parse( mw.user.options.get( USER_PREFERENCE_NAME ) );
+function FavoritesStore() {
+	this.favoritesArray = JSON.parse( mw.user.options.get( USER_PREFERENCE_NAME ) );
 	this.maxFavorites = templateDiscoveryConfig.maxFavorites;
 }
 
 /**
- * Save the favourites array to the user options
+ * Save the favorites array to the user options
  *
- * @param {Array} favouritesArray
+ * @param {Array} favoritesArray
  * @return {Promise}
  */
-function save( favouritesArray ) {
-	const json = JSON.stringify( favouritesArray );
+function save( favoritesArray ) {
+	const json = JSON.stringify( favoritesArray );
 	return new mw.Api().saveOption( USER_PREFERENCE_NAME, json, { errorsuselocal: 1, errorformat: 'html' } )
 		.then( () => {
 			mw.user.options.set( USER_PREFERENCE_NAME, json );
@@ -49,16 +49,16 @@ function parsePageId( pageId ) {
 }
 
 /**
- * Add a pageId to the favourites array
+ * Add a pageId to the favorites array
  *
  * @param {number} pageId
  * @return {Promise} Resolves when the page ID is added (or is not able to be).
  */
-FavouritesStore.prototype.addFavourite = function ( pageId ) {
-	this.refreshFavourites();
-	if ( this.favouritesArray.length < this.maxFavorites ) {
-		this.favouritesArray.push( parsePageId( pageId ) );
-		return save( this.favouritesArray ).then( () => {
+FavoritesStore.prototype.addFavorite = function ( pageId ) {
+	this.refreshFavorites();
+	if ( this.favoritesArray.length < this.maxFavorites ) {
+		this.favoritesArray.push( parsePageId( pageId ) );
+		return save( this.favoritesArray ).then( () => {
 			document.dispatchEvent( new Event( 'favoriteAdded' ) );
 			mw.notify(
 				mw.msg( 'templatedata-favorite-added' ),
@@ -82,18 +82,18 @@ FavouritesStore.prototype.addFavourite = function ( pageId ) {
 };
 
 /**
- * Remove a pageId from the favourites array
+ * Remove a pageId from the favorites array
  *
  * @param {number} pageId
  * @return {Promise} Resolves when the page ID is removed (or is not able to be).
  */
-FavouritesStore.prototype.removeFavourite = function ( pageId ) {
-	this.refreshFavourites();
-	const index = this.favouritesArray.indexOf( parsePageId( pageId ) );
+FavoritesStore.prototype.removeFavorite = function ( pageId ) {
+	this.refreshFavorites();
+	const index = this.favoritesArray.indexOf( parsePageId( pageId ) );
 	if ( index > -1 ) {
-		this.favouritesArray.splice( index, 1 );
+		this.favoritesArray.splice( index, 1 );
 	}
-	return save( this.favouritesArray ).then( () => {
+	return save( this.favoritesArray ).then( () => {
 		document.dispatchEvent( new Event( 'favoriteRemoved' ) );
 		mw.notify(
 			mw.msg( 'templatedata-favorite-removed' ),
@@ -107,29 +107,29 @@ FavouritesStore.prototype.removeFavourite = function ( pageId ) {
 };
 
 /**
- * Check if a pageId is in the favourites array
+ * Check if a pageId is in the favorites array
  *
  * @param {number} pageId
- * @return {boolean} Whether the page ID is in the favourites array
+ * @return {boolean} Whether the page ID is in the favorites array
  */
-FavouritesStore.prototype.isFavourite = function ( pageId ) {
-	return this.favouritesArray.indexOf( parsePageId( pageId ) ) !== -1;
+FavoritesStore.prototype.isFavorite = function ( pageId ) {
+	return this.favoritesArray.indexOf( parsePageId( pageId ) ) !== -1;
 };
 
 /**
- * Get the favourites array
+ * Get the favorites array
  *
  * @return {Array} Array of page IDs
  */
-FavouritesStore.prototype.getFavourites = function () {
-	return this.favouritesArray;
+FavoritesStore.prototype.getFavorites = function () {
+	return this.favoritesArray;
 };
 
 /**
- * Refresh the favourites array from the user options
+ * Refresh the favorites array from the user options
  */
-FavouritesStore.prototype.refreshFavourites = function () {
-	this.favouritesArray = JSON.parse( mw.user.options.get( USER_PREFERENCE_NAME ) );
+FavoritesStore.prototype.refreshFavorites = function () {
+	this.favoritesArray = JSON.parse( mw.user.options.get( USER_PREFERENCE_NAME ) );
 };
 
 /**
@@ -138,7 +138,7 @@ FavouritesStore.prototype.refreshFavourites = function () {
  * @param {number} pageId
  * @return {jQuery.Promise}
  */
-FavouritesStore.prototype.getFavouriteTitle = function ( pageId ) {
+FavoritesStore.prototype.getFavoriteTitle = function ( pageId ) {
 	// TODO: Should this be cached in some way?
 	return new mw.Api().get( {
 		action: 'query',
@@ -148,4 +148,4 @@ FavouritesStore.prototype.getFavouriteTitle = function ( pageId ) {
 	} );
 };
 
-module.exports = FavouritesStore;
+module.exports = FavoritesStore;
