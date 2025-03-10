@@ -111,5 +111,7 @@
 	"templatedata-modal-title-templateparams": "টেমপ্লেট প্যারামিটার",
 	"templatedata-search-title": "টেমপ্লেট অনুসন্ধান",
 	"templatedata-search-placeholder": "টেমপ্লেট খুঁজুন",
-	"templatedata-search-button": "যোগ করুন"
+	"templatedata-search-button": "যোগ করুন",
+	"templatedata-favorite-added": "পছন্দে টেমপ্লেট যোগ করা হয়েছে",
+	"templatedata-favorite-removed": "পছন্দ থেকে টেমপ্লেট সরানো হয়েছে"
 }

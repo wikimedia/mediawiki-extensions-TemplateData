@@ -10,6 +10,7 @@
 			"Epok",
 			"Gomoko",
 			"Guillom",
+			"JLTRY",
 			"Ltrlg",
 			"Macofe",
 			"Mahabarata",
@@ -24,6 +25,7 @@
 			"Urhixidur",
 			"Verdy p",
 			"Weft",
+			"WillyM",
 			"Wladek92"
 		]
 	},
@@ -90,6 +92,7 @@
 	"templatedata-modal-button-removemap": "Supprimer la correspondance",
 	"templatedata-modal-button-saveparam": "Enregistrer",
 	"templatedata-modal-confirmcancel": "Êtes-vous sûr{{GENDER:||e}} de vouloir annuler vos modifications ?",
+	"templatedata-modal-button-discard": "Abandonner",
 	"templatedata-modal-current-language": "Langue actuelle : $1",
 	"templatedata-modal-errormsg": "Des erreurs ont été trouvées. Assurez-vous qu’il n’y a pas de noms de paramètre vides ou dupliqués, et que les noms de paramètres ne comprennent aucun « $1 », « $2 » ou « $3 ».",
 	"templatedata-modal-errormsg-duplicate-name": "Erreur trouvée. Le nom choisi est déjà utilisé par un autre paramètre.",
@@ -132,5 +135,16 @@
 	"templatedata-modal-title-templateformat": "Mise en forme suggérée du wikicode",
 	"templatedata-modal-title-templateformatstring": "Chaîne de format personnalisé",
 	"templatedata-modal-title-templateparam-details": "Détails du paramètre : $1",
-	"templatedata-modal-title-templateparams": "Paramètres du modèle"
+	"templatedata-modal-title-templateparams": "Paramètres du modèle",
+	"templatedata-search-title": "Recherche de modèle",
+	"templatedata-search-description": "Recherchez le modèle que vous souhaitez insérer en recherchant un mot-clé d'identification. Les modèles qui comportent des descriptions sont plus susceptibles de bien fonctionner.",
+	"templatedata-search-placeholder": "Rechercher un modèle",
+	"templatedata-search-button": "Ajouter",
+	"templatedata-template-discovery-disabled": "La découverte de modèles est désactivée sur ce wiki.",
+	"templatesearch": "Recherche de modèle",
+	"templatedata-favorite-disabled": "Vous devez être connecté pour ajouter un modèle à vos favoris",
+	"templatedata-favorite-added": "Modèle ajouté aux favoris",
+	"templatedata-favorite-removed": "Modèle supprimé des favoris",
+	"templatedata-favorite-error": "Impossible de sauvegarder les favoris",
+	"templatedata-favorite-maximum-reached": "Vous avez atteint le nombre maximum ( $1 ) de modèles favoris. Veuillez en supprimer certains de votre liste avant d'en ajouter d'autres."
 }

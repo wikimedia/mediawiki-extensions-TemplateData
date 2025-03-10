@@ -69,6 +69,7 @@
 	"templatedata-modal-button-removemap": "Eemalda vastendus",
 	"templatedata-modal-button-saveparam": "Salvesta",
 	"templatedata-modal-confirmcancel": "Kas oled kindel, et tahad muudatustest loobuda?",
+	"templatedata-modal-button-discard": "Hülga",
 	"templatedata-modal-current-language": "Praegune keel: $1",
 	"templatedata-modal-errormsg": "Leidub tõrkeid. Palun veendu, et ükski parameetri nimi pole tühi ega topelt ning et parameetrite nimed ei sisalda märke \"$1\", \"$2\" ega \"$3\".",
 	"templatedata-modal-errormsg-duplicate-name": "Leiti viga. Valitud nime kasutab juba teine parameeter.",

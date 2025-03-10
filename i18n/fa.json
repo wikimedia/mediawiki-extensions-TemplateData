@@ -82,6 +82,7 @@
 	"templatedata-modal-button-removemap": "حذف نقشه",
 	"templatedata-modal-button-saveparam": "ذخیره",
 	"templatedata-modal-confirmcancel": "آیا مطمئن هستید که می‌خواهید از تغییرات خود چشم‌پوشی کنید؟",
+	"templatedata-modal-button-discard": "دور انداختن",
 	"templatedata-modal-current-language": "زبان کنونی: $1",
 	"templatedata-modal-errormsg": "خطاهایی پیدا شدند. لطفاً مطمئن شوید که هیچ نام پارامتری خالی یا تکراری نیست، و اینکه نام پارامتر شامل «$1»، «$2» یا «$3» نیست.",
 	"templatedata-modal-errormsg-duplicate-name": "خطا یافت شد. نان منتخب از پیش توسط پارامتر دیگری استفاده شده.",
@@ -127,5 +128,10 @@
 	"templatedata-search-title": "جستجوی الگو",
 	"templatedata-search-description": "با جستجو کلیدواژه‌های شناسایی، الگویی که می‌خواهید درج کنید را پیدا کنید. احتمال عملکرد صحیح برای الگوهایی که دارای توضیحات باشند، بیشتر است.",
 	"templatedata-search-placeholder": "یافتن الگو",
-	"templatedata-search-button": "افزودن"
+	"templatedata-search-button": "افزودن",
+	"templatedata-template-discovery-disabled": "اکتشاف الگو در این ویکی غیر فعال است.",
+	"templatesearch": "جستجوی الگو",
+	"templatedata-favorite-added": "الگو به فهرست علاقه‌مندی‌ها اضافه شد",
+	"templatedata-favorite-removed": "الگو از فهرست علاقه‌مندی‌ها حذف شد",
+	"templatedata-favorite-maximum-reached": "شما به حداکثر تعداد مجاز برای الگوی مورد علاقه ($1) رسیده‌اید. پیش از افزودن الگوهای بیشتر، لطفاً ابتدا برخی از الگوها را از فهرست خود حذف کنید."
 }

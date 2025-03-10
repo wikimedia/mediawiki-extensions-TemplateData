@@ -130,5 +130,6 @@
 	"templatedata-search-title": "틀 검색",
 	"templatedata-search-placeholder": "틀 찾기",
 	"templatedata-search-button": "추가",
-	"templatesearch": "틀 검색"
+	"templatesearch": "틀 검색",
+	"templatedata-favorite-error": "즐겨찾기를 저장할 수 없습니다"
 }
