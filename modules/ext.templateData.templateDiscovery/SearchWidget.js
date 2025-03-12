@@ -26,7 +26,6 @@ function SearchWidget( config ) {
 
 /* Setup */
 
-// @todo Switch to mw.widgets.TitleSearchWidget
 OO.inheritClass( SearchWidget, OO.ui.ComboBoxInputWidget );
 OO.mixinClass( SearchWidget, OO.ui.mixin.LookupElement );
 
@@ -37,6 +36,13 @@ OO.mixinClass( SearchWidget, OO.ui.mixin.LookupElement );
  *
  * @event choose
  * @param {Object} The template data of the chosen template.
+ */
+
+/**
+ * When the current value of the search input matches a search result (regardless of wether that result is highlighted).
+ *
+ * @event match
+ * @param {Object} templateData Template data of the matched search result.
  */
 
 /* Methods */
@@ -252,7 +258,14 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
  * @return {OO.ui.MenuOptionWidget[]}
  */
 SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
-	return data.map( ( config ) => new SearchResult( config, this.favoritesStore ) );
+	return data.map( ( config ) => {
+		// See if this template matches, and if it does then emit an event.
+		const valueAsTitle = new mw.Title( this.getValue() );
+		if ( valueAsTitle.getMainText() === config.label ) {
+			this.emit( 'match', config.data );
+		}
+		return new SearchResult( config, this.favoritesStore );
+	} );
 };
 
 /**
