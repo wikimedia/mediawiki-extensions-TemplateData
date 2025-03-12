@@ -61,6 +61,15 @@ function TemplateSearchLayout( config ) {
 
 OO.inheritClass( TemplateSearchLayout, OO.ui.PanelLayout );
 
+/* Events */
+
+/**
+ * When a template is choosen by searching or other means.
+ *
+ * @event choose
+ * @param {Object} The template data of the chosen template.
+ */
+
 /* Methods */
 
 TemplateSearchLayout.prototype.onTemplateInputChange = function () {
@@ -73,6 +82,10 @@ TemplateSearchLayout.prototype.onTemplateInputMatch = function ( data ) {
 	this.searchButton.setDisabled( false );
 };
 
+/**
+ * @fires choose
+ * @param {Object} data The texmplate data of the choosen template
+ */
 TemplateSearchLayout.prototype.onAddTemplate = function ( data ) {
 	if ( !data ) {
 		return;

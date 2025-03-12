@@ -272,6 +272,7 @@ SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
  * Handle menu item 'choose' event, updating the text input value to the value of the clicked item.
  *
  * @protected
+ * @fires choose
  * @param {OO.ui.MenuOptionWidget} item Selected item
  */
 SearchWidget.prototype.onLookupMenuChoose = function ( item ) {
