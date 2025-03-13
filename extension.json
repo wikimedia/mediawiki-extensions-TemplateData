@@ -246,6 +246,7 @@
 					"callback": "MediaWiki\\Extension\\TemplateData\\TemplateDiscoveryConfig::getConfig"
 				},
 				"TemplateSearchLayout.js",
+				"TemplateList.js",
 				"SearchWidget.js",
 				"SearchResult.js",
 				"FavoritesStore.js",
@@ -265,6 +266,7 @@
 				"templatedata-search-description",
 				"templatedata-search-placeholder",
 				"templatedata-search-button",
+				"templatedata-search-list-header",
 				"templatedata-favorite-added",
 				"templatedata-favorite-disabled",
 				"templatedata-favorite-error",

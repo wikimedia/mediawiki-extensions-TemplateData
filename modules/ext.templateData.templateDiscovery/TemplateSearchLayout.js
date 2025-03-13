@@ -1,4 +1,6 @@
+const FavoritesStore = require( './FavoritesStore.js' );
 const SearchWidget = require( './SearchWidget.js' );
+const TemplateList = require( './TemplateList.js' );
 
 /**
  * @class
@@ -14,7 +16,10 @@ function TemplateSearchLayout( config ) {
 	}, config );
 	TemplateSearchLayout.super.call( this, config );
 
+	const favoritesStore = new FavoritesStore();
+
 	this.matchedTemplateData = null;
+	// @todo Inject favoriteStore to SearchWidget
 	this.searchWidget = new SearchWidget( {}, this );
 	this.searchWidget.connect( this, {
 		change: 'onTemplateInputChange',
@@ -42,17 +47,29 @@ function TemplateSearchLayout( config ) {
 			align: 'top'
 		}
 	);
-	const fieldset = new OO.ui.FieldsetLayout( {
+
+	// By design, this is a tab bar with just a single tab.
+	const tabLayout = new OO.ui.IndexLayout( {
+		expanded: false,
+		framed: false,
+		classes: [ 'ext-templatedata-search-tabs' ]
+	} );
+
+	const templateList = new TemplateList( { favoritesStore: favoritesStore } );
+	templateList.connect( this, { choose: 'onAddTemplate' } );
+	tabLayout.addTabPanels( [ templateList ] );
+
+	const searchFieldset = new OO.ui.FieldsetLayout( {
 		label: mw.msg( 'templatedata-search-title' ),
 		icon: 'puzzle',
-		items: [ field ]
+		items: [ field, tabLayout ]
 	} );
 
 	this.$element
 		.addClass( 'ext-templatedata-search' )
 		.append( $( '<div>' )
 			.append(
-				fieldset.$element
+				searchFieldset.$element
 			)
 		);
 }

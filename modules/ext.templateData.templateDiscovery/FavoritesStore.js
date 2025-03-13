@@ -12,6 +12,28 @@ function FavoritesStore() {
 }
 
 /**
+ * @return {Promise}
+ */
+FavoritesStore.prototype.getAllFavoritesDetails = function () {
+	return new mw.Api().get( {
+		action: 'templatedata',
+		includeMissingTitles: 1,
+		pageids: this.favoritesArray.join( '|' ),
+		lang: mw.config.get( 'wgUserLanguage' ),
+		redirects: 1,
+		formatversion: 2
+	} ).then( ( data ) => {
+		const favorites = [];
+		Object.keys( data.pages ).forEach( ( k ) => {
+			const favorite = data.pages[ k ];
+			favorite.pageId = k;
+			favorites.push( favorite );
+		} );
+		return favorites;
+	} );
+};
+
+/**
  * Save the favorites array to the user options
  *
  * @param {Array} favoritesArray
