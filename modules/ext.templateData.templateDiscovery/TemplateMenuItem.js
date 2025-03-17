@@ -7,6 +7,7 @@ const FavoriteButton = require( './FavoriteButton.js' );
  *
  * @constructor
  * @param {Object} config
+ * @param {string} config.data.title Page title of the template
  * @param {jQuery|string} [config.description=''] Search result description
  * @param {string} [config.data.redirecttitle] Page title for the "redirected from" message
  * @param {FavoritesStore} favoritesStore
