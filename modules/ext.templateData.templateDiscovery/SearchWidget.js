@@ -1,6 +1,7 @@
 const SearchResult = require( './SearchResult.js' );
 const templateDiscoveryConfig = require( './config.json' );
 const FavoritesStore = require( './FavoritesStore.js' );
+const mwConfig = require( './mwConfig.json' );
 
 /**
  * @class
@@ -208,6 +209,13 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 			page.redirecttitle = redirectedFrom[ page.title ];
 		}
 
+		const title = mw.Title.newFromText( page.title );
+
+		// Skip non-TemplateDataEditorNamespaces namespaces
+		if ( mwConfig.TemplateDataEditorNamespaces.indexOf( title.getNamespaceId() ) === -1 ) {
+			return null;
+		}
+
 		/**
 		 * Config for the {@see SearchResult} widget:
 		 * - data: {@see OO.ui.Element} and getData()
@@ -216,10 +224,11 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 		 */
 		return {
 			data: page,
-			label: mw.Title.newFromText( page.title ).getRelativeText( mw.config.get( 'wgNamespaceIds' ).template ),
+			label: title.getRelativeText( mw.config.get( 'wgNamespaceIds' ).template ),
 			description: page.description
 		};
-	} );
+	// Filter map results to remove null values
+	} ).filter( ( result ) => result !== null );
 
 	const lowerQuery = this.getValue().trim().toLowerCase();
 	searchResults.sort( ( a, b ) => {
