@@ -211,13 +211,11 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 		/**
 		 * Config for the {@see SearchResult} widget:
 		 * - data: {@see OO.ui.Element} and getData()
-		 * - favorited: {@see SearchResult}
 		 * - label: {@see OO.ui.mixin.LabelElement} and getLabel()
 		 * - description: {@see SearchResult}
 		 */
 		return {
 			data: page,
-			favorited: this.favoritesStore.isFavorite( pageId ),
 			label: mw.Title.newFromText( page.title ).getRelativeText( mw.config.get( 'wgNamespaceIds' ).template ),
 			description: page.description
 		};
