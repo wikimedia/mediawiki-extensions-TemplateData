@@ -11,12 +11,12 @@ const FavoriteButton = require( './FavoriteButton.js' );
  * @param {string} [config.data.redirecttitle] Page title for the "redirected from" message
  * @param {FavoritesStore} favoritesStore
  */
-function SearchResult( config, favoritesStore ) {
+function TemplateMenuItem( config, favoritesStore ) {
 	config = Object.assign( {
-		classes: [ 'ext-templatedata-SearchResult' ],
+		classes: [ 'ext-templatedata-TemplateMenuItem' ],
 		$label: $( '<a>' )
 	}, config );
-	SearchResult.super.call( this, config );
+	TemplateMenuItem.super.call( this, config );
 
 	if ( config.data.redirecttitle ) {
 		const redirecttitle = new mw.Title( config.data.redirecttitle )
@@ -53,6 +53,6 @@ function SearchResult( config, favoritesStore ) {
 
 /* Setup */
 
-OO.inheritClass( SearchResult, OO.ui.MenuOptionWidget );
+OO.inheritClass( TemplateMenuItem, OO.ui.MenuOptionWidget );
 
-module.exports = SearchResult;
+module.exports = TemplateMenuItem;
