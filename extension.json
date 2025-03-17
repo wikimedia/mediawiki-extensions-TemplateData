@@ -245,6 +245,10 @@
 					"name": "config.json",
 					"callback": "MediaWiki\\Extension\\TemplateData\\TemplateDiscoveryConfig::getConfig"
 				},
+				{
+					"name": "mwConfig.json",
+					"config": [ "TemplateDataEditorNamespaces" ]
+				},
 				"TemplateSearchLayout.js",
 				"SearchWidget.js",
 				"SearchResult.js",
