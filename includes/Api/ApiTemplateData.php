@@ -88,7 +88,11 @@ class ApiTemplateData extends ApiBase {
 			}
 
 			foreach ( $titles as $titleId => $title ) {
-				$resp[ $titleId ] = [ 'title' => $title, 'notemplatedata' => true ];
+				$resp[ $titleId ] = [
+					'title' => $title,
+					'notemplatedata' => true,
+					'ns' => $title->getNamespace()
+				];
 			}
 		}
 
@@ -138,7 +142,10 @@ class ApiTemplateData extends ApiBase {
 				if ( $includeMissingTitles ) {
 					unset( $resp[$row->pp_page]['notemplatedata'] );
 				} else {
-					$resp[ $row->pp_page ] = [ 'title' => $titles[ $row->pp_page ] ];
+					$resp[ $row->pp_page ] = [
+						'title' => $titles[ $row->pp_page ],
+						'ns' => $titles[ $row->pp_page ]->getNamespace()
+					];
 				}
 				$resp[$row->pp_page] += (array)$data;
 			}
