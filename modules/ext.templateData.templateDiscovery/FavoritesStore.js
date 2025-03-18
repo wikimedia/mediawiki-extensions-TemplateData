@@ -1,4 +1,5 @@
 const templateDiscoveryConfig = require( './config.json' );
+const mwConfig = require( './mwConfig.json' );
 const USER_PREFERENCE_NAME = 'templatedata-favorite-templates';
 
 /**
@@ -7,7 +8,9 @@ const USER_PREFERENCE_NAME = 'templatedata-favorite-templates';
  * @constructor
  */
 function FavoritesStore() {
-	this.favoritesArray = JSON.parse( mw.user.options.get( USER_PREFERENCE_NAME ) );
+	this.validateFavorites().then( ( validatedFavorites ) => {
+		this.favoritesArray = validatedFavorites;
+	} );
 	this.maxFavorites = templateDiscoveryConfig.maxFavorites;
 }
 
@@ -131,6 +134,40 @@ FavoritesStore.prototype.isFavorite = function ( pageId ) {
  */
 FavoritesStore.prototype.getFavorites = function () {
 	return this.favoritesArray;
+};
+
+/**
+ * Validate the favorites array
+ *
+ * @return {Promise}
+ */
+FavoritesStore.prototype.validateFavorites = function () {
+	this.refreshFavorites();
+	// If the user has no favorites, return early
+	if ( this.favoritesArray.length === 0 ) {
+		return Promise.resolve( [] );
+	}
+	const validatedFavorites = [];
+	const api = new mw.Api();
+	return api.get( {
+		action: 'query',
+		prop: 'info',
+		formatversion: 2,
+		origin: '*',
+		pageids: this.favoritesArray.join( '|' )
+	} ).then( ( data ) => {
+		if ( !data.query || !data.query.pages ) {
+			return Promise.resolve( [] );
+		}
+		data.query.pages.forEach( ( page ) => {
+			// Skip if the page is missing, or in an invalid namespace
+			if ( page.missing || mwConfig.TemplateDataEditorNamespaces.indexOf( page.ns ) === -1 ) {
+				return;
+			}
+			validatedFavorites.push( page.pageid );
+		} );
+		return validatedFavorites;
+	} );
 };
 
 /**
