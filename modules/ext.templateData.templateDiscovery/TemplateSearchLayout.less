@@ -5,6 +5,9 @@
 @line-height-description: 1.2;
 
 .ext-templatedata-search {
+	// Max width to match .oo-ui-actionFieldLayout.oo-ui-fieldLayout-align-top
+	max-width: 50em;
+
 	.ext-templatedata-search-description,
 	.ext-templatedata-search-redirectedfrom {
 		color: @color-subtle;
@@ -44,5 +47,9 @@
 		// HACK: This should be fixed in OOUI; the icon is behind
 		// the input rather than in front
 		z-index: 1;
+	}
+
+	.oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
+		padding: 0;
 	}
 }
