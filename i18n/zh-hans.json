@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"22593",
 			"Anterdc99",
 			"Arthur2e5",
 			"Cwek",
@@ -127,5 +128,6 @@
 	"templatedata-modal-title-templateformat": "推荐的wikitext格式",
 	"templatedata-modal-title-templateformatstring": "自定义格式字符串",
 	"templatedata-modal-title-templateparam-details": "参数详情：$1",
-	"templatedata-modal-title-templateparams": "模板参数"
+	"templatedata-modal-title-templateparams": "模板参数",
+	"templatedata-search-list-header": "我的收藏"
 }

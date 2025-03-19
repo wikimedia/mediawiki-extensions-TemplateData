@@ -121,9 +121,12 @@
 	"templatedata-search-description": "Suche die Vorlage, die du einfügen möchtest, indem du nach einem identifizierenden Schlüsselwort suchst. Vorlagen, die Beschreibungen enthalten, werden wahrscheinlich besser funktionieren.",
 	"templatedata-search-placeholder": "Vorlage finden",
 	"templatedata-search-button": "Hinzufügen",
+	"templatedata-search-list-header": "Favoriten",
 	"templatedata-template-discovery-disabled": "Die Vorlagenerkennung ist in diesem Wiki deaktiviert.",
 	"templatesearch": "Vorlagensuche",
+	"templatedata-favorite-disabled": "Du musst angemeldet sein, um eine Vorlage als Favorit zu markieren",
 	"templatedata-favorite-added": "Vorlage zu Favoriten hinzugefügt",
 	"templatedata-favorite-removed": "Vorlage aus Favoriten entfernt",
+	"templatedata-favorite-error": "Favoriten können nicht gespeichert werden",
 	"templatedata-favorite-maximum-reached": "Du hast die maximale Anzahl ($1) an Favoritenvorlagen erreicht. Bitte entferne einige aus deiner Liste, bevor du weitere hinzufügst."
 }

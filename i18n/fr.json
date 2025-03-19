@@ -140,6 +140,7 @@
 	"templatedata-search-description": "Recherchez le modèle que vous souhaitez insérer en recherchant un mot-clé d'identification. Les modèles qui comportent des descriptions sont plus susceptibles de bien fonctionner.",
 	"templatedata-search-placeholder": "Rechercher un modèle",
 	"templatedata-search-button": "Ajouter",
+	"templatedata-search-list-header": "Favoris",
 	"templatedata-template-discovery-disabled": "La découverte de modèles est désactivée sur ce wiki.",
 	"templatesearch": "Recherche de modèle",
 	"templatedata-favorite-disabled": "Vous devez être connecté pour ajouter un modèle à vos favoris",
