@@ -6,6 +6,7 @@
 		]
 	},
 	"templatedata-search-list-header": "Favourites",
+	"templatedata-search-list-empty": "Templates you mark as favourites will appear here",
 	"templatedata-favorite-disabled": "You must be logged in to favourite a template",
 	"templatedata-favorite-added": "Template added to favourites",
 	"templatedata-favorite-removed": "Template removed from favourites",
