@@ -132,6 +132,7 @@
 	"templatedata-search-description": "Zoek het sjabloon dat u wilt invoegen door te zoeken naar een kenmerkend trefwoord. Sjablonen met beschrijvingen werken waarschijnlijk beter.",
 	"templatedata-search-placeholder": "Sjabloon zoeken",
 	"templatedata-search-button": "Toevoegen",
+	"templatedata-search-list-header": "Favorieten",
 	"templatedata-template-discovery-disabled": "Sjabloondetectie is uitgeschakeld op deze wiki.",
 	"templatesearch": "Sjabloon zoeken",
 	"templatedata-favorite-disabled": "U moet aangemeld zijn om een sjabloon als favoriet te markeren",

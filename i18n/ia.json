@@ -115,6 +115,7 @@
 	"templatedata-search-description": "Cerca le patrono que tu vole inserer indicante un parola-clave que lo identifica. Patronos que ha descriptiones probabilemente functiona melio.",
 	"templatedata-search-placeholder": "Cercar patrono",
 	"templatedata-search-button": "Adder",
+	"templatedata-search-list-header": "Favorites",
 	"templatedata-template-discovery-disabled": "Le discoperta de patronos es disactivate sur iste wiki.",
 	"templatesearch": "Recerca de patronos",
 	"templatedata-favorite-disabled": "Es necessari aperir session pro marcar un patrono como favorite",
