@@ -1,4 +1,4 @@
-const SearchResult = require( './SearchResult.js' );
+const TemplateMenuItem = require( './TemplateMenuItem.js' );
 const templateDiscoveryConfig = require( './config.json' );
 const FavoritesStore = require( './FavoritesStore.js' );
 const mwConfig = require( './mwConfig.json' );
@@ -187,7 +187,7 @@ SearchWidget.prototype.addExactMatch = function ( response ) {
  * @protected
  * @method
  * @param {Object} response Response from server
- * @return {Object[]} Config for {@see SearchResult} widgets
+ * @return {Object[]} Config for {@see TemplateMenuItem} widgets
  */
 SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 	const templateData = response.pages;
@@ -217,10 +217,10 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 		}
 
 		/**
-		 * Config for the {@see SearchResult} widget:
+		 * Config for the {@see TemplateMenuItem} widget:
 		 * - data: {@see OO.ui.Element} and getData()
 		 * - label: {@see OO.ui.mixin.LabelElement} and getLabel()
-		 * - description: {@see SearchResult}
+		 * - description: {@see TemplateMenuItem}
 		 */
 		return {
 			data: page,
@@ -271,7 +271,7 @@ SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
 		if ( valueAsTitle.getMainText() === config.label ) {
 			this.emit( 'match', config.data );
 		}
-		return new SearchResult( config, this.favoritesStore );
+		return new TemplateMenuItem( config, this.favoritesStore );
 	} );
 };
 

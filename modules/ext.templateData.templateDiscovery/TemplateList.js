@@ -1,5 +1,5 @@
 const FavoritesStore = require( './FavoritesStore.js' );
-const SearchResult = require( './SearchResult.js' );
+const TemplateMenuItem = require( './TemplateMenuItem.js' );
 
 /**
  * @class
@@ -26,9 +26,9 @@ function TemplateList( config ) {
 				label: mw.Title.newFromText( fave.title ).getRelativeText( templateNsId ),
 				description: fave.description
 			};
-			const searchResult = new SearchResult( searchResultConfig, config.favoritesStore );
-			searchResult.connect( this, { choose: 'onChoose' } );
-			menu.$element.append( searchResult.$element );
+			const templateMenuItem = new TemplateMenuItem( searchResultConfig, config.favoritesStore );
+			templateMenuItem.connect( this, { choose: 'onChoose' } );
+			menu.$element.append( templateMenuItem.$element );
 		}
 		this.$element.append( menu.$element );
 	} );

@@ -254,7 +254,7 @@
 				"TemplateSearchLayout.js",
 				"TemplateList.js",
 				"SearchWidget.js",
-				"SearchResult.js",
+				"TemplateMenuItem.js",
 				"FavoritesStore.js",
 				"FavoriteButton.js",
 				"SpecialPage.js"
