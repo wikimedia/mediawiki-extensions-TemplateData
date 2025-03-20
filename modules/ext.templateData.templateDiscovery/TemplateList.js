@@ -15,6 +15,7 @@ function TemplateList( config ) {
 	}, config );
 	TemplateList.super.call( this, 'template-list', config );
 	this.$element.addClass( 'ext-templatedata-TemplateList' );
+	this.menuItems = new Map();
 
 	config.favoritesStore.getAllFavoritesDetails().then( ( favorites ) => {
 		const menu = new OO.ui.PanelLayout( { expanded: false } );
@@ -27,6 +28,7 @@ function TemplateList( config ) {
 				description: fave.description
 			};
 			const templateMenuItem = new TemplateMenuItem( searchResultConfig, config.favoritesStore );
+			this.menuItems.set( fave.pageId, templateMenuItem );
 			templateMenuItem.connect( this, { choose: 'onChoose' } );
 			menu.$element.append( templateMenuItem.$element );
 		}
@@ -39,6 +41,14 @@ function TemplateList( config ) {
 		// Then add the list (or message) to the container.
 		this.$element.append( menu.$element );
 	} );
+
+	config.favoritesStore.connect(
+		this,
+		{
+			removed: 'onFavoriteRemoved'
+		}
+	);
+
 }
 
 /* Setup */
@@ -72,6 +82,10 @@ TemplateList.prototype.setupTabItem = function () {
 
 TemplateList.prototype.onChoose = function ( templateData ) {
 	this.emit( 'choose', templateData );
+};
+
+TemplateList.prototype.onFavoriteRemoved = function ( pageId ) {
+	this.menuItems.get( pageId ).$element[ 0 ].classList.add( 'ext-templatedata-TemplateMenuItem-removed' );
 };
 
 module.exports = TemplateList;

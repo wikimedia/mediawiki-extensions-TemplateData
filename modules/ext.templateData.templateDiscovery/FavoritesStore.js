@@ -4,15 +4,30 @@ const USER_PREFERENCE_NAME = 'templatedata-favorite-templates';
 
 /**
  * @class
+ * @mixes OO.EventEmitter
  *
  * @constructor
  */
 function FavoritesStore() {
+	// Mixin constructors
+	OO.EventEmitter.call( this );
+
 	this.validateFavorites().then( ( validatedFavorites ) => {
 		this.favoritesArray = validatedFavorites;
 	} );
 	this.maxFavorites = templateDiscoveryConfig.maxFavorites;
 }
+
+/* Setup */
+OO.mixinClass( FavoritesStore, OO.EventEmitter );
+
+/* Events */
+/**
+ * When favorite is removed
+ *
+ * @event removed
+ * @param {number} pageId
+ */
 
 /**
  * @return {Promise}
@@ -102,7 +117,6 @@ FavoritesStore.prototype.addFavorite = function ( pageId ) {
 	if ( this.favoritesArray.length < this.maxFavorites ) {
 		this.favoritesArray.push( parsePageId( pageId ) );
 		return save( this.favoritesArray ).then( () => {
-			document.dispatchEvent( new Event( 'favoriteAdded' ) );
 			mw.notify(
 				mw.msg( 'templatedata-favorite-added' ),
 				{
@@ -137,7 +151,7 @@ FavoritesStore.prototype.removeFavorite = function ( pageId ) {
 		this.favoritesArray.splice( index, 1 );
 	}
 	return save( this.favoritesArray ).then( () => {
-		document.dispatchEvent( new Event( 'favoriteRemoved' ) );
+		this.emit( 'removed', pageId );
 		mw.notify(
 			mw.msg( 'templatedata-favorite-removed' ),
 			{
