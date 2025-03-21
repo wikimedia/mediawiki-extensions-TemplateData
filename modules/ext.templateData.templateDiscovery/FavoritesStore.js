@@ -32,7 +32,8 @@ FavoritesStore.prototype.getAllFavoritesDetails = function () {
 			favorite.pageId = k;
 			favorites.push( favorite );
 		} );
-		return favorites;
+		return favorites
+			.sort( ( p1, p2 ) => p1.title === p2.title ? 0 : ( p1.title < p2.title ? -1 : 1 ) );
 	} );
 };
 
