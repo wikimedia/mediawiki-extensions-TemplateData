@@ -41,7 +41,8 @@ OO.mixinClass( SearchWidget, OO.ui.mixin.LookupElement );
  */
 
 /**
- * When the current value of the search input matches a search result (regardless of wether that result is highlighted).
+ * When the current value of the search input matches a search result (regardless of whether that
+ * result is highlighted).
  *
  * @event match
  * @param {Object} templateData Template data of the matched search result.
@@ -156,7 +157,8 @@ SearchWidget.prototype.addExactMatch = function ( response ) {
 			prefixMatches.pages[ pageId ].pageid = pageId;
 		}
 		// Make sure the loop below processes the results by relevance
-		const pages = OO.getObjectValues( prefixMatches.pages ).sort( ( a, b ) => a.index - b.index );
+		const pages = OO.getObjectValues( prefixMatches.pages )
+			.sort( ( a, b ) => a.index - b.index );
 		for ( const i in pages ) {
 			const prefixMatch = pages[ i ];
 			if ( !( prefixMatch.pageid in response.pages ) ) {

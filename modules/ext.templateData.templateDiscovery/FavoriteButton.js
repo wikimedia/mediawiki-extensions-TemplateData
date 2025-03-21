@@ -6,7 +6,8 @@ const FavoritesStore = require( './FavoritesStore.js' );
  *
  * @constructor
  * @param {Object} config Configuration options.
- * @param {string} config.pageId The wiki page ID of the page to favorite/unfavorite. If `"-1"` then the button will be disabled.
+ * @param {string} config.pageId The wiki page ID of the page to favorite/unfavorite. If `"-1"`
+ * then the button will be disabled.
  * @param {FavoritesStore} config.favoritesStore The store to use.
  */
 function FavoriteButton( config ) {

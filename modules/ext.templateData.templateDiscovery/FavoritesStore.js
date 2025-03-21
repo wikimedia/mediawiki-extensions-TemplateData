@@ -66,7 +66,9 @@ FavoritesStore.prototype.getFavoriteDetail = function ( pageId ) {
 		Object.keys( data.pages ).forEach( ( k ) => {
 			const favorite = data.pages[ k ];
 			// Skip if the page is missing, or in an invalid namespace
-			if ( favorite.missing || !mwConfig.TemplateDataEditorNamespaces.includes( favorite.ns ) ) {
+			if ( favorite.missing ||
+				!mwConfig.TemplateDataEditorNamespaces.includes( favorite.ns )
+			) {
 				return;
 			}
 			favorite.pageId = k;
