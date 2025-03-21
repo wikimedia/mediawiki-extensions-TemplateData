@@ -130,6 +130,10 @@
 	"templatedata-search-title": "틀 검색",
 	"templatedata-search-placeholder": "틀 찾기",
 	"templatedata-search-button": "추가",
+	"templatedata-search-list-header": "즐겨찾기",
 	"templatesearch": "틀 검색",
+	"templatedata-favorite-disabled": "틀을 즐겨찾기하려면 로그인해야 합니다",
+	"templatedata-favorite-added": "즐겨찾기에 틀이 추가되었습니다",
+	"templatedata-favorite-removed": "즐겨찾기에서 틀을 제거했습니다",
 	"templatedata-favorite-error": "즐겨찾기를 저장할 수 없습니다"
 }
