@@ -5,7 +5,9 @@ const FavoritesStore = require( './FavoritesStore.js' );
  * @extends OO.ui.ButtonInputWidget
  *
  * @constructor
- * @param {Object} [config] Configuration options.
+ * @param {Object} config Configuration options.
+ * @param {string} config.pageId The wiki page ID of the page to favorite/unfavorite. If `"-1"` then the button will be disabled.
+ * @param {FavoritesStore} [config.favoritesStore] The store to use. A new one will be created if one is not passed in.
  */
 function FavoriteButton( config ) {
 	this.pageId = config.pageId;
