@@ -41,7 +41,7 @@ OO.inheritClass( TemplateList, OO.ui.TabPanelLayout );
 /* Events */
 
 /**
- * When a template is choosen from the list of favorites.
+ * When a template is chosen from the list of favorites.
  *
  * @event choose
  * @param {Object} The template data of the chosen template.
@@ -49,8 +49,8 @@ OO.inheritClass( TemplateList, OO.ui.TabPanelLayout );
 
 /* Methods */
 
-TemplateList.prototype.onChoose = function ( item ) {
-	this.emit( 'choose', item.data );
+TemplateList.prototype.onChoose = function ( templateData ) {
+	this.emit( 'choose', templateData );
 };
 
 module.exports = TemplateList;

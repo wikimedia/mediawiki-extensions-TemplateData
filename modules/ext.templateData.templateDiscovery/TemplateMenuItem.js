@@ -19,6 +19,7 @@ function TemplateMenuItem( config, favoritesStore ) {
 	}, config );
 	TemplateMenuItem.super.call( this, config );
 
+	this.data = config.data;
 	if ( config.data.redirecttitle ) {
 		const redirecttitle = new mw.Title( config.data.redirecttitle )
 			.getRelativeText( mw.config.get( 'wgNamespaceIds' ).template );
@@ -27,7 +28,13 @@ function TemplateMenuItem( config, favoritesStore ) {
 			.text( mw.msg( 'redirectedfrom', redirecttitle ) )
 			.appendTo( this.$element );
 	}
+	// Make the label a link, but only functional for 'open in new tab'.
 	this.$label.attr( 'href', mw.util.getUrl( config.data.title ) );
+	this.$label.on( 'click', ( event ) => {
+		event.preventDefault();
+	} );
+	// Main area click handler (includes clicks on the child $label).
+	this.$element.on( 'click', this.onClick.bind( this ) );
 
 	$( '<span>' )
 		.addClass( 'ext-templatedata-search-description' )
@@ -55,5 +62,21 @@ function TemplateMenuItem( config, favoritesStore ) {
 /* Setup */
 
 OO.inheritClass( TemplateMenuItem, OO.ui.MenuOptionWidget );
+
+/* Events */
+
+/**
+ * When a template is chosen.
+ *
+ * @event choose
+ * @param {Object} The template data of the chosen template.
+ */
+
+/* Methods */
+
+TemplateMenuItem.prototype.onClick = function ( event ) {
+	event.preventDefault();
+	this.emit( 'choose', this.data );
+};
 
 module.exports = TemplateMenuItem;
