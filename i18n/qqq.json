@@ -135,6 +135,7 @@
 	"templatedata-search-placeholder": "Placeholder text for the template search field.",
 	"templatedata-search-button": "Button text for the template search field.",
 	"templatedata-search-list-header": "Tab label above the list of current favorites.",
+	"templatedata-search-list-empty": "Message shown in place of the favorites' list when a user has no favorites yet.",
 	"templatedata-template-discovery-disabled": "Message displayed when TemplateData discovery is disabled on the wiki and the user tries to view the special page.",
 	"templatesearch": "Title for the template search special page",
 	"templatedata-favorite-disabled": "Tooltip shown on the 'favorite' button when the current user is not able to save favorites.",
