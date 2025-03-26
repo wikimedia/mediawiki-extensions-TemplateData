@@ -205,6 +205,16 @@ class Hooks implements
 			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
 			$formatter->replaceEditLink( $text );
 		}
+
+		// user is logged in, and TemplateDataEnableDiscovery is true
+		if ( $output->getUser()->isNamed() && $this->config->get( 'TemplateDataEnableDiscovery' ) ) {
+			// On any valid namespace page, load the templateDiscovery module
+			// so that the favourite button can be shown.
+			$editorNamespaces = $this->config->get( 'TemplateDataEditorNamespaces' );
+			if ( $output->getTitle()->inNamespaces( $editorNamespaces ) && $output->getTitle()->exists() ) {
+				$output->addModules( 'ext.templateData.templateDiscovery' );
+			}
+		}
 	}
 
 	/**

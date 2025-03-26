@@ -8,6 +8,8 @@
 		"Trevor Parscal",
 		"Bartosz Dziewoński",
 		"Marielle Volz",
+		"Sam Wilson",
+		"[https://www.mediawiki.org/wiki/User:TheresNoTime-WMF Sammy Fox]",
 		"..."
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:TemplateData",
@@ -293,6 +295,7 @@
 				"templatedata-favorite-remove",
 				"templatedata-favorite-removed",
 				"templatedata-favorite-maximum-reached",
+				"templatedata-favorite-add",
 				"templatedata-category-browser-header",
 				"templatedata-category-switch-label",
 				"templatedata-category-switch-button",
