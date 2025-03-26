@@ -46,15 +46,15 @@ function TemplateMenuItem( config, favoritesStore ) {
 	$wrap.append( this.$element.contents() );
 	this.$element.append( $wrap );
 
-	const favoriteButton = new FavoriteButton( {
+	this.favoriteButton = new FavoriteButton( {
 		favoritesStore: favoritesStore,
 		pageId: config.data.pageId
 	} );
-	this.$element.append( favoriteButton.$element );
+	this.$element.append( this.favoriteButton.$element );
 
 	// Configure non-existing templates.
 	if ( config.data.pageId === '-1' ) {
-		favoriteButton.setDisabled( true );
+		this.favoriteButton.setDisabled( true );
 		this.$label.addClass( 'new' );
 	}
 }
@@ -75,8 +75,11 @@ OO.inheritClass( TemplateMenuItem, OO.ui.MenuOptionWidget );
 /* Methods */
 
 TemplateMenuItem.prototype.onClick = function ( event ) {
-	event.preventDefault();
-	this.emit( 'choose', this.data );
+	// Only handle click events that do not belong to the favorite button.
+	if ( !this.favoriteButton.$element[ 0 ].contains( event.target ) ) {
+		event.preventDefault();
+		this.emit( 'choose', this.data );
+	}
 };
 
 module.exports = TemplateMenuItem;
