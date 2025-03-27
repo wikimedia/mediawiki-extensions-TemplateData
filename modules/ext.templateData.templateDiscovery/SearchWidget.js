@@ -11,6 +11,7 @@ const mwConfig = require( './mwConfig.json' );
  * @param {Object} [config] Configuration options.
  * @param {number} [config.limit=10]
  * @param {mw.Api} [config.api] Optional MediaWiki API, for testing
+ * @param {FavoritesStore} config.favoritesStore Data store
  */
 function SearchWidget( config ) {
 	config = Object.assign( {
@@ -22,7 +23,7 @@ function SearchWidget( config ) {
 
 	this.limit = config.limit || 10;
 	this.api = config.api || new mw.Api();
-	this.favoritesStore = new FavoritesStore();
+	this.favoritesStore = config.favoritesStore;
 }
 
 /* Setup */

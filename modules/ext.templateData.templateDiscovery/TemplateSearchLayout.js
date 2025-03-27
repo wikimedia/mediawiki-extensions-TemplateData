@@ -18,8 +18,7 @@ function TemplateSearchLayout( config ) {
 
 	const favoritesStore = new FavoritesStore();
 
-	// @todo Inject favoriteStore to SearchWidget
-	this.searchWidget = new SearchWidget( {}, this );
+	this.searchWidget = new SearchWidget( { favoritesStore: favoritesStore } );
 	this.searchWidget.connect( this, {
 		choose: 'onAddTemplate'
 	} );
