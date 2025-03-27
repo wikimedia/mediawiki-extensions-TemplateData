@@ -120,7 +120,6 @@
 	"templatedata-search-title": "Template search",
 	"templatedata-search-description": "Find the template you want to insert by searching for an identifying keyword. Templates that have descriptions are more likely to work well.",
 	"templatedata-search-placeholder": "Find template",
-	"templatedata-search-button": "Add",
 	"templatedata-search-list-header": "Favorites",
 	"templatedata-search-list-empty": "Templates you mark as favorites will appear here",
 	"templatedata-template-discovery-disabled": "Template discovery is disabled on this wiki.",

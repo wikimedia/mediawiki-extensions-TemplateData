@@ -18,30 +18,15 @@ function TemplateSearchLayout( config ) {
 
 	const favoritesStore = new FavoritesStore();
 
-	this.matchedTemplateData = null;
 	// @todo Inject favoriteStore to SearchWidget
 	this.searchWidget = new SearchWidget( {}, this );
 	this.searchWidget.connect( this, {
-		change: 'onTemplateInputChange',
-		match: 'onTemplateInputMatch',
 		choose: 'onAddTemplate'
 	} );
 	this.searchWidget.getMenu().connect( this, { choose: 'onAddTemplate' } );
 
-	this.searchButton = new OO.ui.ButtonWidget( {
-		label: mw.msg( 'templatedata-search-button' ),
-		flags: [ 'progressive' ],
-		disabled: true
-	} );
-	this.searchButton.connect( this, {
-		click: function () {
-			this.onAddTemplate( this.matchedTemplateData );
-		}
-	} );
-
-	const field = new OO.ui.ActionFieldLayout(
+	const field = new OO.ui.FieldLayout(
 		this.searchWidget,
-		this.searchButton,
 		{
 			label: mw.msg( 'templatedata-search-description' ),
 			align: 'top'
@@ -88,16 +73,6 @@ OO.inheritClass( TemplateSearchLayout, OO.ui.PanelLayout );
  */
 
 /* Methods */
-
-TemplateSearchLayout.prototype.onTemplateInputChange = function () {
-	this.matchedTemplateData = null;
-	this.searchButton.setDisabled( true );
-};
-
-TemplateSearchLayout.prototype.onTemplateInputMatch = function ( data ) {
-	this.matchedTemplateData = data;
-	this.searchButton.setDisabled( false );
-};
 
 /**
  * @fires choose
