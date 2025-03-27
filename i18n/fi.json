@@ -129,6 +129,7 @@
 	"templatedata-search-placeholder": "Hae mallinetta",
 	"templatedata-search-button": "Lisää",
 	"templatedata-search-list-header": "Suosikit",
+	"templatedata-search-list-empty": "Suosikeiksi merkitsemäsi mallineet näkyvät täällä",
 	"templatedata-template-discovery-disabled": "Mallinehaku on poistettu käytöstä tässä wikissä.",
 	"templatesearch": "Mallinehaku",
 	"templatedata-favorite-disabled": "Sinun on oltava kirjautuneena sisään merkitäksesi mallineen suosikkeihin",

@@ -116,6 +116,7 @@
 	"templatedata-search-placeholder": "Cercar patrono",
 	"templatedata-search-button": "Adder",
 	"templatedata-search-list-header": "Favorites",
+	"templatedata-search-list-empty": "Le patronos que tu marca como favorite apparera hic",
 	"templatedata-template-discovery-disabled": "Le discoperta de patronos es disactivate sur iste wiki.",
 	"templatesearch": "Recerca de patronos",
 	"templatedata-favorite-disabled": "Es necessari aperir session pro marcar un patrono como favorite",
