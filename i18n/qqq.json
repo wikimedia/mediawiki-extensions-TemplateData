@@ -139,7 +139,9 @@
 	"templatedata-template-discovery-disabled": "Message displayed when TemplateData discovery is disabled on the wiki and the user tries to view the special page.",
 	"templatesearch": "Title for the template search special page",
 	"templatedata-favorite-disabled": "Tooltip shown on the 'favorite' button when the current user is not able to save favorites.",
+	"templatedata-favorite-add": "Tooltip and label for the 'favorite' button.",
 	"templatedata-favorite-added": "Message displayed (in bubble notification) when a template is added to the user's favorites list.",
+	"templatedata-favorite-remove": "Tooltip and label for the 'favorite' button.",
 	"templatedata-favorite-removed": "Message displayed (in bubble notification) when a template is removed from the user's favorites list.",
 	"templatedata-favorite-error": "Title of bubble notification when any error occurs when saving (i.e. adding or removing) the favorites user preference. A more specific error message is shown below this.",
 	"templatedata-favorite-maximum-reached": "Message displayed (in bubble notification) when the user tries to add more than the maximum number of templates to their favorites list."
