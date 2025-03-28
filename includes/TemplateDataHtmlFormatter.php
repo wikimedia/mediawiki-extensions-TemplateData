@@ -130,8 +130,6 @@ class TemplateDataHtmlFormatter {
 
 	/**
 	 * Replace <mw:edittemplatedata> markers with links
-	 *
-	 * @param string &$text
 	 */
 	public function replaceEditLink( string &$text ): void {
 		$localizer = $this->localizer;
