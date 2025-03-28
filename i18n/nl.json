@@ -133,6 +133,7 @@
 	"templatedata-search-placeholder": "Sjabloon zoeken",
 	"templatedata-search-button": "Toevoegen",
 	"templatedata-search-list-header": "Favorieten",
+	"templatedata-search-list-empty": "Sjablonen die u als favoriet markeert, verschijnen hier",
 	"templatedata-template-discovery-disabled": "Sjabloondetectie is uitgeschakeld op deze wiki.",
 	"templatesearch": "Sjabloon zoeken",
 	"templatedata-favorite-disabled": "U moet aangemeld zijn om een sjabloon als favoriet te markeren",
