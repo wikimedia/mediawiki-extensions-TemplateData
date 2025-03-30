@@ -4,10 +4,7 @@ namespace MediaWiki\Extension\TemplateData;
 
 use MediaWiki\CommentStore\CommentStoreComment;
 use MediaWiki\Config\Config;
-use MediaWiki\Context\RequestContext;
 use MediaWiki\EditPage\EditPage;
-use MediaWiki\Extension\EventLogging\EventLogging;
-use MediaWiki\Hook\EditPage__showEditForm_fieldsHook;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\ParserFetchTemplateDataHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
@@ -18,11 +15,9 @@ use MediaWiki\Output\OutputPage;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
-use MediaWiki\Registration\ExtensionRegistry;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\RenderedRevision;
-use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Status\Status;
 use MediaWiki\Storage\Hook\MultiContentSaveHook;
@@ -36,7 +31,6 @@ use MediaWiki\User\UserIdentity;
  * phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName
  */
 class Hooks implements
-	EditPage__showEditForm_fieldsHook,
 	ParserFirstCallInitHook,
 	MultiContentSaveHook,
 	ResourceLoaderRegisterModulesHook,
@@ -51,18 +45,6 @@ class Hooks implements
 
 	public function __construct( Config $mainConfig ) {
 		$this->config = $mainConfig;
-	}
-
-	/**
-	 * @param EditPage $editPage
-	 * @param OutputPage $out
-	 */
-	public function onEditPage__showEditForm_fields( $editPage, $out ) {
-		// TODO: Remove when not needed any more, see T267926
-		if ( $out->getRequest()->getBool( 'TemplateDataGeneratorUsed' ) ) {
-			// Recreate the dynamically created field after the user clicked "preview"
-			$out->addHTML( Html::hidden( 'TemplateDataGeneratorUsed', true ) );
-		}
 	}
 
 	/**
@@ -126,53 +108,7 @@ class Hooks implements
 			return false;
 		}
 
-		// TODO: Remove when not needed any more, see T267926
-		self::logChangeEvent( $revisionRecord, $parserOutput->getPageProperty( 'templatedata' ), $user );
-
 		return true;
-	}
-
-	private static function logChangeEvent(
-		RevisionRecord $revisionRecord,
-		?string $newPageProperty,
-		UserIdentity $user
-	): void {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'EventLogging' ) ) {
-			return;
-		}
-
-		$services = MediaWikiServices::getInstance();
-		$page = $revisionRecord->getPage();
-		$props = $services->getPageProps()->getProperties( $page, 'templatedata' );
-
-		$pageId = $page->getId();
-		// The JSON strings here are guaranteed to be normalized (and possibly compressed) the same
-		// way. No need to normalize them again for this comparison.
-		if ( $newPageProperty === ( $props[$pageId] ?? null ) ) {
-			return;
-		}
-
-		$generatorUsed = RequestContext::getMain()->getRequest()->getBool( 'TemplateDataGeneratorUsed' );
-		$userEditCount = $services->getUserEditTracker()->getUserEditCount( $user );
-		$userId = $services->getUserIdentityUtils()->isTemp( $user ) ? 0 : $user->getId();
-		// Note: We know that irrelevant changes (e.g. whitespace changes) aren't logged here
-		EventLogging::submit(
-			'eventlogging_TemplateDataEditor',
-			[
-				'$schema' => '/analytics/legacy/templatedataeditor/1.0.0',
-				'event' => [
-					// Note: The "Done" button is disabled unless something changed, which means it's
-					// very likely (but not guaranteed) the generator was used to make the changes
-					'action' => $generatorUsed ? 'save-tag-edit-generator-used' : 'save-tag-edit-no-generator',
-					'page_id' => $pageId,
-					'page_namespace' => $page->getNamespace(),
-					'page_title' => $page->getDBkey(),
-					'rev_id' => $revisionRecord->getId() ?? 0,
-					'user_edit_count' => $userEditCount ?? 0,
-					'user_id' => $userId,
-				],
-			]
-		);
 	}
 
 	/**
