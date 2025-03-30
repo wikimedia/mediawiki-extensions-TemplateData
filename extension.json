@@ -98,7 +98,6 @@
 				"widgets/LanguageResultWidget.js",
 				"widgets/LanguageSearchWidget.js",
 				"Dialog.js",
-				"Metrics.js",
 				"Target.js"
 			],
 			"dependencies": [
