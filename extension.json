@@ -272,9 +272,11 @@
 				"templatedata-search-button",
 				"templatedata-search-list-empty",
 				"templatedata-search-list-header",
+				"templatedata-favorite-add",
 				"templatedata-favorite-added",
 				"templatedata-favorite-disabled",
 				"templatedata-favorite-error",
+				"templatedata-favorite-remove",
 				"templatedata-favorite-removed",
 				"templatedata-favorite-maximum-reached"
 			]
