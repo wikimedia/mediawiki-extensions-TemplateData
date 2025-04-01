@@ -692,7 +692,7 @@ Dialog.prototype.onNewLanguageSearchResultsChoose = function ( item ) {
 	const newLanguage = item.getData().code;
 
 	if ( newLanguage ) {
-		if ( this.availableLanguages.indexOf( newLanguage ) === -1 ) {
+		if ( !this.availableLanguages.includes( newLanguage ) ) {
 			// Add new language
 			this.availableLanguages.push( newLanguage );
 			const languageButton = new OO.ui.MenuOptionWidget( {
@@ -844,7 +844,7 @@ Dialog.prototype.onParamPropertyInputChange = function ( propName, value ) {
 		const changed = value !== this.selectedParamKey;
 		if ( invalid ) {
 			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg', '|', '=', '}}' ) ) );
-		} else if ( changed && this.model.getAllParamNames().indexOf( value ) !== -1 ) {
+		} else if ( changed && this.model.getAllParamNames().includes( value ) ) {
 			// We're changing the name. Make sure it doesn't conflict.
 			$errors = $errors.add( $( '<p>' ).text( mw.msg( 'templatedata-modal-errormsg-duplicate-name' ) ) );
 		}
@@ -898,7 +898,7 @@ Dialog.prototype.toggleSuggestedValues = function ( type ) {
 	// Don't show the suggested values field when the feature flag is
 	// disabled, or for inapplicable types.
 	this.propFieldLayout.suggestedvalues.toggle(
-		suggestedValuesAllowedTypes.indexOf( type ) !== -1
+		suggestedValuesAllowedTypes.includes( type )
 	);
 };
 
@@ -1310,7 +1310,7 @@ Dialog.prototype.getSetupProcess = function ( data ) {
 
 			this.availableLanguages = this.model.getExistingLanguageCodes().slice();
 			const defaultLanguage = this.model.getDefaultLanguage();
-			if ( this.availableLanguages.indexOf( defaultLanguage ) === -1 ) {
+			if ( !this.availableLanguages.includes( defaultLanguage ) ) {
 				this.availableLanguages.unshift( defaultLanguage );
 			}
 			const items = this.availableLanguages.map( ( lang ) => new OO.ui.MenuOptionWidget( {

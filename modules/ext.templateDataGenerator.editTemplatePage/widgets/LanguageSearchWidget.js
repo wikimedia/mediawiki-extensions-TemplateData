@@ -65,7 +65,7 @@ LanguageSearchWidget.prototype.setAvailableLanguages = function ( availableLangu
 
 	this.filteredLanguageResultWidgets = this.languageResultWidgets.map( ( languageResult ) => {
 		const data = languageResult.getData();
-		if ( availableLanguages.indexOf( data.code ) !== -1 ) {
+		if ( availableLanguages.includes( data.code ) ) {
 			return languageResult;
 		}
 		return null;

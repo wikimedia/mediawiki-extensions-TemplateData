@@ -101,7 +101,7 @@ FavoritesStore.prototype.addFavorite = function ( pageId ) {
 					tag: 'templatedata-favorite-added'
 				}
 			);
-			return Promise.resolve();
+			return;
 		} );
 	} else {
 		mw.notify(
@@ -136,7 +136,7 @@ FavoritesStore.prototype.removeFavorite = function ( pageId ) {
 				tag: 'templatedata-favorite-removed'
 			}
 		);
-		return Promise.resolve();
+		return;
 	} );
 };
 
@@ -147,7 +147,7 @@ FavoritesStore.prototype.removeFavorite = function ( pageId ) {
  * @return {boolean} Whether the page ID is in the favorites array
  */
 FavoritesStore.prototype.isFavorite = function ( pageId ) {
-	return this.favoritesArray.indexOf( parsePageId( pageId ) ) !== -1;
+	return this.favoritesArray.includes( parsePageId( pageId ) );
 };
 
 /**
@@ -180,11 +180,11 @@ FavoritesStore.prototype.validateFavorites = function () {
 		pageids: this.favoritesArray.join( '|' )
 	} ).then( ( data ) => {
 		if ( !data.query || !data.query.pages ) {
-			return Promise.resolve( [] );
+			return [];
 		}
 		data.query.pages.forEach( ( page ) => {
 			// Skip if the page is missing, or in an invalid namespace
-			if ( page.missing || mwConfig.TemplateDataEditorNamespaces.indexOf( page.ns ) === -1 ) {
+			if ( page.missing || !mwConfig.TemplateDataEditorNamespaces.includes( page.ns ) ) {
 				return;
 			}
 			validatedFavorites.push( page.pageid );
