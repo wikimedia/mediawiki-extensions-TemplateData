@@ -58,8 +58,6 @@ class Hooks implements
 	/**
 	 * Conditionally register the jquery.uls.data module, in case they've already been
 	 * registered by the UniversalLanguageSelector extension or the VisualEditor extension.
-	 *
-	 * @param ResourceLoader $resourceLoader
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		$resourceModules = $resourceLoader->getConfig()->get( 'ResourceModules' );
