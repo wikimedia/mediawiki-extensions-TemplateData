@@ -86,6 +86,7 @@
 	"templatedata-modal-button-removemap": "移除映射",
 	"templatedata-modal-button-saveparam": "保存",
 	"templatedata-modal-confirmcancel": "您确定要放弃您的更改吗？",
+	"templatedata-modal-button-discard": "舍弃",
 	"templatedata-modal-current-language": "当前语言：$1",
 	"templatedata-modal-errormsg": "发现错误。请确保没有空的或重复的参数名称，并且参数名称不包含“$1”“$2”或“$3”。",
 	"templatedata-modal-errormsg-duplicate-name": "发现错误。所选名称已被另一个参数使用。",
@@ -129,5 +130,19 @@
 	"templatedata-modal-title-templateformatstring": "自定义格式字符串",
 	"templatedata-modal-title-templateparam-details": "参数详情：$1",
 	"templatedata-modal-title-templateparams": "模板参数",
-	"templatedata-search-list-header": "我的收藏"
+	"templatedata-search-title": "模板搜索",
+	"templatedata-search-description": "通过搜索标识关键词查找您想要插入的模板。具有描述的模板搜索效果更好。",
+	"templatedata-search-placeholder": "查找模板",
+	"templatedata-search-button": "添加",
+	"templatedata-search-list-header": "我的收藏",
+	"templatedata-search-list-empty": "您标记为收藏的模板将显示在这里",
+	"templatedata-template-discovery-disabled": "本wiki已禁用模板发现功能。",
+	"templatesearch": "模板搜索",
+	"templatedata-favorite-disabled": "您必须登录才能收藏模板",
+	"templatedata-favorite-add": "将模板添加到收藏",
+	"templatedata-favorite-added": "模板已添加到收藏",
+	"templatedata-favorite-remove": "从收藏中移除模板",
+	"templatedata-favorite-removed": "模板已从收藏中移除",
+	"templatedata-favorite-error": "无法保存收藏",
+	"templatedata-favorite-maximum-reached": "您收藏的模板数量已达上限（$1）。请从您的收藏列表中移除一些模板后，再添加更多模板。"
 }

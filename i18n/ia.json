@@ -120,7 +120,9 @@
 	"templatedata-template-discovery-disabled": "Le discoperta de patronos es disactivate sur iste wiki.",
 	"templatesearch": "Recerca de patronos",
 	"templatedata-favorite-disabled": "Es necessari aperir session pro marcar un patrono como favorite",
+	"templatedata-favorite-add": "Adder le patrono al favorites",
 	"templatedata-favorite-added": "Patrono addite al favorites",
+	"templatedata-favorite-remove": "Remover le patrono del favorites",
 	"templatedata-favorite-removed": "Patrono removite del favorites",
 	"templatedata-favorite-error": "Impossibile salveguardar favorites",
 	"templatedata-favorite-maximum-reached": "Tu ha attingite le numero maxime de patronos favorite ($1). Per favor remove alcunes de tu lista ante de adder alteres."

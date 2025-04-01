@@ -123,5 +123,7 @@
 	"templatedata-modal-title-templateformat": "Sugerowane formatowanie wikitekstu",
 	"templatedata-modal-title-templateformatstring": "Własny format ciągu znaków",
 	"templatedata-modal-title-templateparam-details": "Szczegóły parametrów: $1",
-	"templatedata-modal-title-templateparams": "Parametry szablonu"
+	"templatedata-modal-title-templateparams": "Parametry szablonu",
+	"templatedata-favorite-add": "Dodaj szablon do ulubionych",
+	"templatedata-favorite-remove": "Usuń szablon z ulubionych"
 }

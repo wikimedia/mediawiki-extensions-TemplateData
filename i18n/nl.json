@@ -137,7 +137,9 @@
 	"templatedata-template-discovery-disabled": "Sjabloondetectie is uitgeschakeld op deze wiki.",
 	"templatesearch": "Sjabloon zoeken",
 	"templatedata-favorite-disabled": "U moet aangemeld zijn om een sjabloon als favoriet te markeren",
+	"templatedata-favorite-add": "Sjabloon aan favorieten toevoegen",
 	"templatedata-favorite-added": "Sjabloon toegevoegd aan favorieten",
+	"templatedata-favorite-remove": "Sjabloon uit favorieten verwijderen",
 	"templatedata-favorite-removed": "Sjabloon verwijderd uit favorieten",
 	"templatedata-favorite-error": "Favorieten kunnen niet worden opgeslagen",
 	"templatedata-favorite-maximum-reached": "U hebt het maximumaantal favoriete sjablonen ($1) bereikt. Verwijder er een aantal uit uw lijst voordat u er meer toevoegt."

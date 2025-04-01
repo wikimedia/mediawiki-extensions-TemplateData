@@ -128,7 +128,9 @@
 	"templatedata-template-discovery-disabled": "Şablonların aşkarlanması bu vikidə söndürülüb.",
 	"templatesearch": "Şablon axtarışı",
 	"templatedata-favorite-disabled": "Şablonu sevimlilərə əlavə edə bilmək üçün daxil olmalısınız",
+	"templatedata-favorite-add": "Şablonu sevimlilərə əlavə et",
 	"templatedata-favorite-added": "Şablon sevimlilərə əlavə edildi",
+	"templatedata-favorite-remove": "Şablonu sevimlilərdən sil",
 	"templatedata-favorite-removed": "Şablon sevimlilərdən silindi",
 	"templatedata-favorite-error": "Sevimliləri yadda saxlamaq mümkün olmadı",
 	"templatedata-favorite-maximum-reached": "Sevimli şablonların maksimum sayına ($1) çatdınız. Zəhmət olmasa, yenisini əlavə etməzdən əvvəl bəzi şablonu sevimlilərdən silin."

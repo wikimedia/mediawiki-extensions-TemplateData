@@ -126,7 +126,9 @@
 	"templatedata-template-discovery-disabled": "Die Vorlagenerkennung ist in diesem Wiki deaktiviert.",
 	"templatesearch": "Vorlagensuche",
 	"templatedata-favorite-disabled": "Du musst angemeldet sein, um eine Vorlage als Favorit zu markieren",
+	"templatedata-favorite-add": "Vorlage zu Favoriten hinzufügen",
 	"templatedata-favorite-added": "Vorlage zu Favoriten hinzugefügt",
+	"templatedata-favorite-remove": "Vorlage aus den Favoriten entfernen",
 	"templatedata-favorite-removed": "Vorlage aus Favoriten entfernt",
 	"templatedata-favorite-error": "Favoriten können nicht gespeichert werden",
 	"templatedata-favorite-maximum-reached": "Du hast die maximale Anzahl ($1) an Favoritenvorlagen erreicht. Bitte entferne einige aus deiner Liste, bevor du weitere hinzufügst."

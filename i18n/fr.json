@@ -141,10 +141,13 @@
 	"templatedata-search-placeholder": "Rechercher un modèle",
 	"templatedata-search-button": "Ajouter",
 	"templatedata-search-list-header": "Favoris",
+	"templatedata-search-list-empty": "Les modèles que vous marquez comme favoris apparaîtront ici",
 	"templatedata-template-discovery-disabled": "La découverte de modèles est désactivée sur ce wiki.",
 	"templatesearch": "Recherche de modèle",
 	"templatedata-favorite-disabled": "Vous devez être connecté pour ajouter un modèle à vos favoris",
+	"templatedata-favorite-add": "Ajouter le modèle aux favoris",
 	"templatedata-favorite-added": "Modèle ajouté aux favoris",
+	"templatedata-favorite-remove": "Supprimer le modèle des favoris",
 	"templatedata-favorite-removed": "Modèle supprimé des favoris",
 	"templatedata-favorite-error": "Impossible de sauvegarder les favoris",
 	"templatedata-favorite-maximum-reached": "Vous avez atteint le nombre maximum ( $1 ) de modèles favoris. Veuillez en supprimer certains de votre liste avant d'en ajouter d'autres."
