@@ -24,8 +24,6 @@ function FavoriteButton( config ) {
 	}, config );
 	FavoriteButton.super.call( this, config );
 
-	this.$button.attr( 'aria-role', 'button' );
-
 	// Don't let temp and anon users favorite.
 	if ( !mw.user.isNamed() ) {
 		this.setDisabled( true );
