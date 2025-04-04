@@ -26,10 +26,19 @@ FavoritesStore.prototype.getAllFavoritesDetails = function () {
 		redirects: 1,
 		formatversion: 2
 	} ).then( ( data ) => {
+		const redirectedFrom = {};
+		if ( data.redirects ) {
+			data.redirects.forEach( ( redirect ) => {
+				redirectedFrom[ redirect.to ] = redirect.from;
+			} );
+		}
 		const favorites = [];
 		Object.keys( data.pages ).forEach( ( k ) => {
 			const favorite = data.pages[ k ];
 			favorite.pageId = k;
+			if ( favorite.title in redirectedFrom ) {
+				favorite.redirecttitle = redirectedFrom[ favorite.title ];
+			}
 			favorites.push( favorite );
 		} );
 		return favorites
