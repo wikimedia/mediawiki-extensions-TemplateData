@@ -212,7 +212,7 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 		const title = mw.Title.newFromText( page.title );
 
 		// Skip non-TemplateDataEditorNamespaces namespaces
-		if ( mwConfig.TemplateDataEditorNamespaces.indexOf( title.getNamespaceId() ) === -1 ) {
+		if ( !mwConfig.TemplateDataEditorNamespaces.includes( title.getNamespaceId() ) ) {
 			return null;
 		}
 

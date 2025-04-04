@@ -323,7 +323,7 @@ Model.prototype.getMissingParams = function () {
 	const allParamNames = this.getAllParamNames(),
 		sourceCodeParameters = this.sourceCodeParameters;
 
-	return sourceCodeParameters.filter( ( sourceCodeParameter ) => allParamNames.indexOf( sourceCodeParameter ) === -1 );
+	return sourceCodeParameters.filter( ( sourceCodeParameter ) => !allParamNames.includes( sourceCodeParameter ) );
 };
 
 /**
@@ -339,14 +339,14 @@ Model.prototype.importSourceCodeParameters = function () {
 
 	// Check existing params
 	allParamNames.forEach( ( paramKey ) => {
-		if ( this.sourceCodeParameters.indexOf( paramKey ) !== -1 ) {
+		if ( this.sourceCodeParameters.includes( paramKey ) ) {
 			existingArray.push( paramKey );
 		}
 	} );
 
 	// Add sourceCodeParameters to the model
 	this.sourceCodeParameters.forEach( ( sourceCodeParameter ) => {
-		if ( existingArray.indexOf( sourceCodeParameter ) === -1 ) {
+		if ( !existingArray.includes( sourceCodeParameter ) ) {
 			this.addParam( sourceCodeParameter );
 			importedArray.push( sourceCodeParameter );
 		} else {
@@ -379,7 +379,7 @@ Model.prototype.getExistingLanguageCodes = function () {
 	for ( const param in this.params ) {
 		// Go over the properties
 		for ( const prop in this.params[ param ] ) {
-			if ( languageProps.indexOf( prop ) !== -1 ) {
+			if ( languageProps.includes( prop ) ) {
 				result = this.constructor.static.arrayUnionWithoutEmpty( result, Object.keys( this.params[ param ][ prop ] ) );
 			}
 		}
@@ -404,7 +404,7 @@ Model.prototype.addParam = function ( name, paramData ) {
 	this.params[ key ] = { name: name };
 
 	// Mark the parameter if it is in the template source
-	if ( this.sourceCodeParameters.indexOf( key ) !== -1 ) {
+	if ( this.sourceCodeParameters.includes( key ) ) {
 		this.params[ key ].inSource = true;
 	}
 
@@ -447,7 +447,7 @@ Model.prototype.addParam = function ( name, paramData ) {
 			}
 
 			if (
-				propertiesWithLanguage.indexOf( propToSet ) !== -1 &&
+				propertiesWithLanguage.includes( propToSet ) &&
 				$.isPlainObject( data[ prop ] )
 			) {
 				// Add all language properties
@@ -621,7 +621,7 @@ Model.prototype.setTemplateFormat = function ( format ) {
  * @fires change
  */
 Model.prototype.addKeyTemplateParamOrder = function ( key ) {
-	if ( this.paramOrder.indexOf( key ) === -1 ) {
+	if ( !this.paramOrder.includes( key ) ) {
 		this.paramOrder.push( key );
 		this.emit( 'add-paramOrder', key );
 		this.emit( 'change' );
@@ -709,7 +709,7 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
 
 	const propertiesWithLanguage = this.constructor.static.getPropertiesWithLanguage();
 	// Check if the property is split by language code
-	if ( propertiesWithLanguage.indexOf( prop ) !== -1 ) {
+	if ( propertiesWithLanguage.includes( prop ) ) {
 		// Initialize property if necessary
 		if ( !$.isPlainObject( this.params[ paramKey ][ prop ] ) ) {
 			this.params[ paramKey ][ prop ] = {};
@@ -1083,7 +1083,7 @@ Model.prototype.outputTemplateData = function () {
  * @return {string} Valid new parameter key
  */
 Model.prototype.getNewValidParameterKey = function ( key ) {
-	if ( this.params[ key ] || this.getAllParamNames().indexOf( key ) !== -1 ) {
+	if ( this.params[ key ] || this.getAllParamNames().includes( key ) ) {
 		// Change the key to be something else
 		if ( /\d$/.test( key ) ) {
 			key += '-';
