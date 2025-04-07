@@ -121,7 +121,9 @@
 	"templatedata-template-discovery-disabled": "Откривањето на предлошки е оневозможено на ова вики.",
 	"templatesearch": "Пребарување на предлошки",
 	"templatedata-favorite-disabled": "Мора да сте најавени за да ставите предлошка во омилени",
+	"templatedata-favorite-add": "Додај ја предлошката во омилени",
 	"templatedata-favorite-added": "Предлошката е додадена во омилените",
+	"templatedata-favorite-remove": "Отстрани ја предлошката од омилени",
 	"templatedata-favorite-removed": "Предлошката е отстранета од омилените",
 	"templatedata-favorite-error": "Не можам да зачувам омилени",
 	"templatedata-favorite-maximum-reached": "Го достигнавте најголемиот дозволен број ($1) на омилени предлошки. Отстранете некои од списокот за да додадете уште."
