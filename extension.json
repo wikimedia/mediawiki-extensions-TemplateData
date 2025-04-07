@@ -265,6 +265,7 @@
 				"oojs-ui.styles.icons-moderation"
 			],
 			"messages": [
+				"notloggedin",
 				"redirectedfrom",
 				"templatedata-search-title",
 				"templatedata-search-description",

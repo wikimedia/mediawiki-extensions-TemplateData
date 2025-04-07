@@ -48,8 +48,8 @@ function save( favoritesArray ) {
 	return new mw.Api().saveOption( USER_PREFERENCE_NAME, json, { errorsuselocal: 1, errorformat: 'html' } )
 		.then( () => {
 			mw.user.options.set( USER_PREFERENCE_NAME, json );
-		} )
-		.fail( ( code, response ) => {
+		},
+		( code, response ) => {
 			// The 'notloggedin' error is a special case in mw.Api.saveOptions()
 			if ( code === 'notloggedin' ) {
 				mw.notify( mw.msg( 'notloggedin' ), {
@@ -111,7 +111,7 @@ FavoritesStore.prototype.addFavorite = function ( pageId ) {
 				tag: 'templatedata-favorite-maximum-reached'
 			}
 		);
-		return Promise.resolve();
+		return Promise.reject();
 	}
 };
 
