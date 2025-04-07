@@ -49,6 +49,12 @@
 		z-index: 1;
 	}
 
+	// Remove border and background from favorite buttons within the search results. T390018.
+	.oo-ui-textInputWidget.oo-ui-widget-enabled:hover .oo-ui-menuSelectWidget .oo-ui-inputWidget-input {
+		border-color: transparent;
+		background: none;
+	}
+
 	.oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
 		padding: 0;
 	}
