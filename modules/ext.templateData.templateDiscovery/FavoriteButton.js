@@ -7,11 +7,11 @@ const FavoritesStore = require( './FavoritesStore.js' );
  * @constructor
  * @param {Object} config Configuration options.
  * @param {string} config.pageId The wiki page ID of the page to favorite/unfavorite. If `"-1"` then the button will be disabled.
- * @param {FavoritesStore} [config.favoritesStore] The store to use. A new one will be created if one is not passed in.
+ * @param {FavoritesStore} config.favoritesStore The store to use.
  */
 function FavoriteButton( config ) {
 	this.pageId = config.pageId;
-	this.favoritesStore = config.favoritesStore || new FavoritesStore();
+	this.favoritesStore = config.favoritesStore;
 	this.isFavorite = this.favoritesStore.isFavorite( this.pageId );
 	const label = mw.msg( this.isFavorite ? 'templatedata-favorite-remove' : 'templatedata-favorite-add' );
 	config = Object.assign( {

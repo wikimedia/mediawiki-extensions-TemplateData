@@ -3,14 +3,14 @@ const TemplateMenuItem = require( './TemplateMenuItem.js' );
 
 /**
  * @class
- * @extends OO.ui.xxx
+ * @extends OO.ui.TabPanelLayout
  *
  * @constructor
  * @param {Object} [config] Configuration options.
+ * @param {FavoritesStore} config.favoritesStore
  */
 function TemplateList( config ) {
 	config = Object.assign( {
-		favoritesStore: new FavoritesStore(),
 		expanded: false
 	}, config );
 	TemplateList.super.call( this, 'template-list', config );

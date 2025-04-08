@@ -1,5 +1,4 @@
 'use strict';
-const FavoritesStore = require( './FavoritesStore.js' );
 
 /**
  * @class
@@ -7,7 +6,6 @@ const FavoritesStore = require( './FavoritesStore.js' );
  * @constructor
  */
 function SpecialPage() {
-	this.favoritesStore = new FavoritesStore();
 	this.templateSearchWidget = document.getElementById( 'ext-TemplateData-SpecialTemplateSearch-widget' );
 	if ( !this.templateSearchWidget ) {
 		// Throw an error if the required elements are not found
