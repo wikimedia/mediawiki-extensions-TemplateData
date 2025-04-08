@@ -117,7 +117,6 @@
 	"templatedata-search-title": "חיפוש תבנית",
 	"templatedata-search-description": "{{GENDER:|מצא את התבנית שאתה|מצאי את התבנית שאת}} רוצה באמצעות חיפוש מילת מפתח מזהה. סביר שתבניות עם תיאורים יעבדו טוב יותר.",
 	"templatedata-search-placeholder": "מציאת תבנית",
-	"templatedata-search-button": "הוספה",
 	"templatedata-search-list-header": "מועדפות",
 	"templatedata-search-list-empty": "תבניות שסימנת בתור מועדפות יופיעו כאן",
 	"templatedata-template-discovery-disabled": "גילוי תבניות מושבת בוויקי הזה.",

@@ -119,7 +119,6 @@
 	"templatedata-search-title": "Procura de modelos",
 	"templatedata-search-description": "Atopa o modelo que queres inserir mediante unha palabra clave. Os modelos que teñen descricións é probable que funcionen mellor.",
 	"templatedata-search-placeholder": "Atopar un modelo",
-	"templatedata-search-button": "Engadir",
 	"templatedata-search-list-header": "Favoritos",
 	"templatedata-search-list-empty": "Aquí aparecerán os modelos que marques como favoritos",
 	"templatedata-template-discovery-disabled": "O descubrimento de modelos está desactivado neste wiki.",
