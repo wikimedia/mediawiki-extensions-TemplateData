@@ -3,7 +3,8 @@ const SpecialPage = require( './SpecialPage.js' );
 mw.templateData = {
 	config: require( './config.json' ),
 	TemplateSearchLayout: require( './TemplateSearchLayout.js' ),
-	FavoriteButton: require( './FavoriteButton.js' )
+	FavoriteButton: require( './FavoriteButton.js' ),
+	FavoritesStore: require( './FavoritesStore.js' )
 };
 
 // If we're on the TemplateSearch special page
