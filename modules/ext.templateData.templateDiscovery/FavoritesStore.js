@@ -92,9 +92,9 @@ function save( favoritesArray ) {
 }
 
 /**
- * Parse a pageId to a number, or throw
+ * Parse a page ID to a number, or throw an error
  *
- * @param {number} pageId
+ * @param {string} pageId
  * @return {number} The parsed page ID
  * @throws {Error} If the pageId is not a number
  */
@@ -107,9 +107,9 @@ function parsePageId( pageId ) {
 }
 
 /**
- * Add a pageId to the favorites array
+ * Add a page ID to the favorites array
  *
- * @param {number} pageId
+ * @param {string} pageId
  * @return {Promise} Resolves when the page ID is added (or is not able to be).
  */
 FavoritesStore.prototype.addFavorite = function ( pageId ) {
@@ -139,9 +139,9 @@ FavoritesStore.prototype.addFavorite = function ( pageId ) {
 };
 
 /**
- * Remove a pageId from the favorites array
+ * Remove a page ID from the favorites array
  *
- * @param {number} pageId
+ * @param {string} pageId
  * @return {Promise} Resolves when the page ID is removed (or is not able to be).
  */
 FavoritesStore.prototype.removeFavorite = function ( pageId ) {
@@ -164,9 +164,9 @@ FavoritesStore.prototype.removeFavorite = function ( pageId ) {
 };
 
 /**
- * Check if a pageId is in the favorites array
+ * Check if a page ID is in the favorites array
  *
- * @param {number} pageId
+ * @param {string} pageId
  * @return {boolean} Whether the page ID is in the favorites array
  */
 FavoritesStore.prototype.isFavorite = function ( pageId ) {
