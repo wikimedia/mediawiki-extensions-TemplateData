@@ -26,15 +26,32 @@ OO.mixinClass( FavoritesStore, OO.EventEmitter );
  * @event removed
  * @param {number} pageId
  */
+/**
+ * When favorite is added
+ *
+ * @event added
+ * @param {number} pageId
+ */
 
 /**
  * @return {Promise}
  */
 FavoritesStore.prototype.getAllFavoritesDetails = function () {
+	return this.getFavoriteDetail( this.favoritesArray.join( '|' ) );
+};
+
+/**
+ * Get the details of a favorite (or favorites) by page ID(s)
+ * pageId can be a number or a string of numbers separated by '|'.
+ *
+ * @param {number|string} pageId
+ * @return {Promise}
+ */
+FavoritesStore.prototype.getFavoriteDetail = function ( pageId ) {
 	return new mw.Api().get( {
 		action: 'templatedata',
 		includeMissingTitles: 1,
-		pageids: this.favoritesArray.join( '|' ),
+		pageids: pageId,
 		lang: mw.config.get( 'wgUserLanguage' ),
 		redirects: 1,
 		formatversion: 2
@@ -120,6 +137,7 @@ FavoritesStore.prototype.addFavorite = function ( pageId ) {
 		const newFavorites = this.favoritesArray;
 		newFavorites.push( parsePageId( pageId ) );
 		return save( newFavorites ).then( () => {
+			this.emit( 'added', pageId );
 			mw.notify(
 				mw.msg( 'templatedata-favorite-added' ),
 				{
