@@ -322,7 +322,6 @@ class Hooks implements
 			$favoriteTemplates = json_decode( $modifiedOptions['templatedata-favorite-templates'] );
 			// If we can't decode the JSON, we don't want to save it
 			if ( $favoriteTemplates === null ) {
-				// TODO: Do we want to log a warning here?
 				unset( $modifiedOptions['templatedata-favorite-templates'] );
 				return;
 			}
@@ -344,7 +343,6 @@ class Hooks implements
 			$encodedFavorites = json_encode( $favoriteTemplates );
 			// If we can't encode the array, we don't want to save it
 			if ( $encodedFavorites === false ) {
-				// TODO: Do we want to log a warning here?
 				unset( $modifiedOptions['templatedata-favorite-templates'] );
 				return;
 			}
