@@ -11,7 +11,7 @@ const FavoritesStore = require( './FavoritesStore.js' );
  */
 function FavoriteButton( config ) {
 	this.pageId = config.pageId;
-	this.favoritesStore = config.favoritesStore;
+	this.favoritesStore = config.favoritesStore || new FavoritesStore();
 	this.isFavorite = this.favoritesStore.isFavorite( this.pageId );
 	const label = mw.msg( this.isFavorite ? 'templatedata-favorite-remove' : 'templatedata-favorite-add' );
 	config = Object.assign( {

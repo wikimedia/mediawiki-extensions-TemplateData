@@ -12,9 +12,7 @@ function FavoritesStore() {
 	// Mixin constructors
 	OO.EventEmitter.call( this );
 
-	this.validateFavorites().then( ( validatedFavorites ) => {
-		this.favoritesArray = validatedFavorites;
-	} );
+	this.favoritesArray = JSON.parse( mw.user.options.get( USER_PREFERENCE_NAME ) );
 	this.maxFavorites = templateDiscoveryConfig.maxFavorites;
 }
 
@@ -50,6 +48,10 @@ FavoritesStore.prototype.getAllFavoritesDetails = function () {
 		const favorites = [];
 		Object.keys( data.pages ).forEach( ( k ) => {
 			const favorite = data.pages[ k ];
+			// Skip if the page is missing, or in an invalid namespace
+			if ( favorite.missing || !mwConfig.TemplateDataEditorNamespaces.includes( favorite.ns ) ) {
+				return;
+			}
 			favorite.pageId = k;
 			if ( favorite.title in redirectedFrom ) {
 				favorite.redirecttitle = redirectedFrom[ favorite.title ];
@@ -71,6 +73,7 @@ function save( favoritesArray ) {
 	const json = JSON.stringify( favoritesArray );
 	return new mw.Api().saveOption( USER_PREFERENCE_NAME, json, { errorsuselocal: 1, errorformat: 'html' } )
 		.then( () => {
+			this.favoritesArray = favoritesArray;
 			mw.user.options.set( USER_PREFERENCE_NAME, json );
 		},
 		( code, response ) => {
@@ -113,10 +116,10 @@ function parsePageId( pageId ) {
  * @return {Promise} Resolves when the page ID is added (or is not able to be).
  */
 FavoritesStore.prototype.addFavorite = function ( pageId ) {
-	this.refreshFavorites();
 	if ( this.favoritesArray.length < this.maxFavorites ) {
-		this.favoritesArray.push( parsePageId( pageId ) );
-		return save( this.favoritesArray ).then( () => {
+		const newFavorites = this.favoritesArray;
+		newFavorites.push( parsePageId( pageId ) );
+		return save( newFavorites ).then( () => {
 			mw.notify(
 				mw.msg( 'templatedata-favorite-added' ),
 				{
@@ -145,12 +148,13 @@ FavoritesStore.prototype.addFavorite = function ( pageId ) {
  * @return {Promise} Resolves when the page ID is removed (or is not able to be).
  */
 FavoritesStore.prototype.removeFavorite = function ( pageId ) {
-	this.refreshFavorites();
 	const index = this.favoritesArray.indexOf( parsePageId( pageId ) );
-	if ( index > -1 ) {
-		this.favoritesArray.splice( index, 1 );
+	if ( index === -1 ) {
+		return Promise.resolve();
 	}
-	return save( this.favoritesArray ).then( () => {
+	const newFavorites = this.favoritesArray;
+	newFavorites.splice( index, 1 );
+	return save( newFavorites ).then( () => {
 		this.emit( 'removed', pageId );
 		mw.notify(
 			mw.msg( 'templatedata-favorite-removed' ),
@@ -171,56 +175,6 @@ FavoritesStore.prototype.removeFavorite = function ( pageId ) {
  */
 FavoritesStore.prototype.isFavorite = function ( pageId ) {
 	return this.favoritesArray.includes( parsePageId( pageId ) );
-};
-
-/**
- * Get the favorites array
- *
- * @return {Array} Array of page IDs
- */
-FavoritesStore.prototype.getFavorites = function () {
-	return this.favoritesArray;
-};
-
-/**
- * Validate the favorites array
- *
- * @return {Promise}
- */
-FavoritesStore.prototype.validateFavorites = function () {
-	this.refreshFavorites();
-	// If the user has no favorites, return early
-	if ( this.favoritesArray.length === 0 ) {
-		return Promise.resolve( [] );
-	}
-	const validatedFavorites = [];
-	const api = new mw.Api();
-	return api.get( {
-		action: 'query',
-		prop: 'info',
-		formatversion: 2,
-		origin: '*',
-		pageids: this.favoritesArray.join( '|' )
-	} ).then( ( data ) => {
-		if ( !data.query || !data.query.pages ) {
-			return [];
-		}
-		data.query.pages.forEach( ( page ) => {
-			// Skip if the page is missing, or in an invalid namespace
-			if ( page.missing || !mwConfig.TemplateDataEditorNamespaces.includes( page.ns ) ) {
-				return;
-			}
-			validatedFavorites.push( page.pageid );
-		} );
-		return validatedFavorites;
-	} );
-};
-
-/**
- * Refresh the favorites array from the user options
- */
-FavoritesStore.prototype.refreshFavorites = function () {
-	this.favoritesArray = JSON.parse( mw.user.options.get( USER_PREFERENCE_NAME ) );
 };
 
 /**
