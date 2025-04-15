@@ -22,6 +22,9 @@ function TemplateList( config ) {
 
 	this.$tabHeaderIcon = null;
 	this.$emptyListMessage = null;
+	this.items = [];
+	this.favorites = [];
+	this.favoritesStore = config.favoritesStore || new FavoritesStore();
 
 	this.config.favoritesStore.getAllFavoritesDetails().then( ( favorites ) => {
 		// Either loop through all favorites, adding them to the list.
@@ -39,6 +42,11 @@ function TemplateList( config ) {
 		}
 		// Then add the list (or message) to the container.
 		this.$element.append( this.menu.$element );
+		const mergedConfig = Object.assign( {
+			items: this.items
+		}, config );
+		mergedConfig.$group = this.$element;
+		OO.ui.mixin.DraggableGroupElement.call( this, mergedConfig );
 	} );
 
 	this.config.favoritesStore.connect(
@@ -54,6 +62,7 @@ function TemplateList( config ) {
 /* Setup */
 
 OO.inheritClass( TemplateList, OO.ui.TabPanelLayout );
+OO.mixinClass( TemplateList, OO.ui.mixin.DraggableGroupElement );
 
 /* Events */
 
@@ -111,16 +120,30 @@ TemplateList.prototype.addRowToList = function ( fave ) {
 	const searchResultConfig = {
 		data: fave,
 		label: mw.Title.newFromText( fave.title ).getRelativeText( templateNsId ),
-		description: fave.description
+		description: fave.description,
+		draggable: true // Only allow reordering of favorites in the list.
 	};
 	const templateMenuItem = new TemplateMenuItem( searchResultConfig, this.config.favoritesStore );
+	this.items.push( templateMenuItem );
+	this.favorites.push( parseInt( fave.pageId ) );
 	this.menuItems.set( fave.pageId, templateMenuItem );
-	templateMenuItem.connect( this, { choose: 'onChoose' } );
+	templateMenuItem.connect( this, { choose: 'onChoose', drop: 'onReorder' } );
 	this.menu.$element.append( templateMenuItem.$element );
 	// Remove the empty-list state (if applicable).
 	if ( this.emptyListMessage ) {
 		this.emptyListMessage.$element.remove();
 	}
+};
+
+TemplateList.prototype.onReorder = function () {
+	const droppedItem = this.items[ 0 ];
+	const oldIndex = this.favorites.indexOf( parseInt( droppedItem.data.pageId ) );
+
+	this.items.splice( oldIndex, 1 );
+	this.items.splice( this.items[ 0 ].index, 0, droppedItem );
+	this.favorites.splice( oldIndex, 1 );
+	this.favorites.splice( this.items[ 0 ].index, 0, parseInt( droppedItem.data.pageId ) );
+	this.favoritesStore.saveFavoritesArray( this.favorites );
 };
 
 module.exports = TemplateList;

@@ -77,8 +77,12 @@ FavoritesStore.prototype.getFavoriteDetail = function ( pageId ) {
 			}
 			favorites.push( favorite );
 		} );
-		return favorites
-			.sort( ( p1, p2 ) => p1.title === p2.title ? 0 : ( p1.title < p2.title ? -1 : 1 ) );
+		// Return favorites sorted by page id in this.favoritesArray
+		return favorites.sort( ( p1, p2 ) => {
+			const index1 = this.favoritesArray.indexOf( parseInt( p1.pageId ) );
+			const index2 = this.favoritesArray.indexOf( parseInt( p2.pageId ) );
+			return index1 === index2 ? 0 : ( index1 < index2 ? -1 : 1 );
+		} );
 	} );
 };
 
@@ -211,6 +215,16 @@ FavoritesStore.prototype.getFavoriteTitle = function ( pageId ) {
 		pageids: pageId,
 		formatversion: 2
 	} );
+};
+
+/**
+ * Save the favorites array to the user options
+ *
+ * @param {Array} favoritesArray
+ * @return {Promise}
+ */
+FavoritesStore.prototype.saveFavoritesArray = function ( favoritesArray ) {
+	return save( favoritesArray );
 };
 
 module.exports = FavoritesStore;
