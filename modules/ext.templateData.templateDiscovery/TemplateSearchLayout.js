@@ -12,7 +12,7 @@ const TemplateList = require( './TemplateList.js' );
 function TemplateSearchLayout( config ) {
 	config = Object.assign( {
 		padded: true,
-		expanded: true
+		expanded: false
 	}, config );
 	TemplateSearchLayout.super.call( this, config );
 

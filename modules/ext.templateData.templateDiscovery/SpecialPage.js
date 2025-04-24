@@ -17,9 +17,7 @@ function SpecialPage() {
  * Initialize the special page
  */
 SpecialPage.prototype.init = function () {
-	const searchForm = new mw.templateData.TemplateSearchLayout( {
-		expanded: false
-	} );
+	const searchForm = new mw.templateData.TemplateSearchLayout();
 	this.templateSearchWidget.append( searchForm.$element[ 0 ] );
 	searchForm.focus();
 	searchForm.on( 'choose', ( item ) => {
