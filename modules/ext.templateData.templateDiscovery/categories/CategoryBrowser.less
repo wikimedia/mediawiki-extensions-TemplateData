@@ -1,0 +1,41 @@
+@import 'mediawiki.skin.variables.less';
+
+@templatedata-column-width: 17em;
+
+.ext-templatedata-CategoryBrowser .oo-ui-fieldLayout:first-child {
+	margin: @spacing-75 0;
+}
+
+.ext-templatedata-ColumnGroup {
+	display: flex;
+	height: 22em;
+	overflow: auto;
+}
+
+.ext-templatedata-ColumnGroup-Column {
+	border-width: 0 1px 0 0;
+	min-width: @templatedata-column-width;
+	overflow: auto;
+}
+
+.oo-ui-menuOptionWidget.oo-ui-optionWidget.ext-templatedata-ColumnItem > .oo-ui-indicatorElement-indicator.oo-ui-indicator-down {
+	display: block;
+	// @todo Remove this when there is a 'next' indicator in OOUI.
+	transform: rotate( 270deg );
+}
+
+.ext-templatedata-column-error {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	background-color: @background-color-neutral-subtle;
+	height: 100%;
+	width: @templatedata-column-width;
+	text-align: center;
+
+	& > * {
+		max-width: 268px;
+		margin: 6px;
+	}
+}

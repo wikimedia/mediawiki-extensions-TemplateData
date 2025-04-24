@@ -144,5 +144,11 @@
 	"templatedata-favorite-remove": "Tooltip and label for the 'favorite' button.",
 	"templatedata-favorite-removed": "Message displayed (in bubble notification) when a template is removed from the user's favorites list.",
 	"templatedata-favorite-error": "Title of bubble notification when any error occurs when saving (i.e. adding or removing) the favorites user preference. A more specific error message is shown below this.",
-	"templatedata-favorite-maximum-reached": "Message displayed (in bubble notification) when the user tries to add more than the maximum number of templates to their favorites list."
+	"templatedata-favorite-maximum-reached": "Message displayed (in bubble notification) when the user tries to add more than the maximum number of templates to their favorites list.",
+	"templatedata-category-browser-header": "Tab header in the template discovery widget.",
+	"templatedata-category-switch-label": "Field label for the category-switching field.",
+	"templatedata-category-switch-button": "Button label for the category-switching field.",
+	"templatedata-category-column-empty": "Message shown in a category-browser column when no it has no content.",
+	"templatedata-category-browser-loadmore": "Button label for the 'load more' button that's shown at the bottom of columns.",
+	"templatedata-category-column-error": "Error message label. This is followed by {{msg-mw|colon-separator}}."
 }

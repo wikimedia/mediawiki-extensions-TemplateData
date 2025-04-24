@@ -1,6 +1,8 @@
+const CategoryBrowser = require( './categories/CategoryBrowser.js' );
 const FavoritesStore = require( './FavoritesStore.js' );
 const SearchWidget = require( './SearchWidget.js' );
 const TemplateList = require( './TemplateList.js' );
+const mwConfig = require( './mwConfig.json' );
 
 /**
  * @class
@@ -42,6 +44,14 @@ function TemplateSearchLayout( config ) {
 	const templateList = new TemplateList( { favoritesStore: favoritesStore } );
 	templateList.connect( this, { choose: 'onAddTemplate' } );
 	tabLayout.addTabPanels( [ templateList ] );
+
+	if ( mwConfig.TemplateDataEnableCategoryBrowser ||
+		( new URLSearchParams( window.location.search ) ).get( 'enablediscovery' ) === '1'
+	) {
+		const categoryBrowser = new CategoryBrowser();
+		categoryBrowser.connect( this, { choose: 'onAddTemplate' } );
+		tabLayout.addTabPanels( [ categoryBrowser ] );
+	}
 
 	const searchFieldset = new OO.ui.FieldsetLayout( {
 		label: mw.msg( 'templatedata-search-title' ),
