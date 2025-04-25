@@ -51,7 +51,7 @@ FavoriteButton.prototype.onClick = function () {
 			this.setIcon( 'bookmark' );
 			this.setLabel( mw.msg( 'templatedata-favorite-remove' ) );
 			this.setTitle( this.getLabel() );
-		} );
+		}, () => {} );
 	} else {
 		// Remove from favorites
 		this.favoritesStore.removeFavorite( this.pageId ).then( () => {

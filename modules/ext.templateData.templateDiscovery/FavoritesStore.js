@@ -108,6 +108,7 @@ function save( favoritesArray ) {
 					} );
 				}
 			}
+			throw code;
 		} );
 }
 
@@ -145,7 +146,6 @@ FavoritesStore.prototype.addFavorite = function ( pageId ) {
 					tag: 'templatedata-favorite-added'
 				}
 			);
-			return;
 		} );
 	} else {
 		mw.notify(
