@@ -136,7 +136,7 @@
 	"templatedata-search-list-header": "Tab label above the list of current favorites.",
 	"templatedata-search-list-empty": "Message shown in place of the favorites' list when a user has no favorites yet.",
 	"templatedata-template-discovery-disabled": "Message displayed when TemplateData discovery is disabled on the wiki and the user tries to view the special page.",
-	"templatesearch": "Title for the template search special page",
+	"templatediscovery": "Title for the template discovery special page",
 	"templatedata-favorite-disabled": "Tooltip shown on the 'favorite' button when the current user is not able to save favorites.",
 	"templatedata-favorite-add": "Tooltip and label for the 'favorite' button.",
 	"templatedata-favorite-added": "Message displayed (in bubble notification) when a template is added to the user's favorites list.",

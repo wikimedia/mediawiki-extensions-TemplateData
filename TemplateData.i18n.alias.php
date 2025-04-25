@@ -12,5 +12,5 @@ $specialPageAliases = [];
  * @author Sammy Fox <theresnotime@wikimedia.org>
  */
 $specialPageAliases['en'] = [
-	'TemplateSearch' => [ 'TemplateSearch', 'Template search' ],
+	'TemplateDiscovery' => [ 'TemplateDiscovery', 'Template Discovery', 'TemplateSearch' ],
 ];
