@@ -7,8 +7,8 @@ mw.templateData = {
 	FavoritesStore: require( './FavoritesStore.js' )
 };
 
-// If we're on the TemplateSearch special page
-if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'TemplateSearch' ) {
+// If we're on the TemplateDiscovery special page
+if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'TemplateDiscovery' ) {
 	const specialPage = new SpecialPage();
 	specialPage.init();
 }

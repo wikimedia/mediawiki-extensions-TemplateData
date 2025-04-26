@@ -123,7 +123,7 @@
 	"templatedata-search-list-header": "Favorites",
 	"templatedata-search-list-empty": "Templates you mark as favorites will appear here",
 	"templatedata-template-discovery-disabled": "Template discovery is disabled on this wiki.",
-	"templatesearch": "Template search",
+	"templatediscovery": "Template discovery",
 	"templatedata-favorite-disabled": "You must be logged in to favorite a template",
 	"templatedata-favorite-add": "Add template to favorites",
 	"templatedata-favorite-added": "Template added to favorites",

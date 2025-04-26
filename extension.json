@@ -24,8 +24,8 @@
 		"MediaWiki\\Extension\\TemplateData\\": "includes/"
 	},
 	"SpecialPages": {
-		"TemplateSearch": {
-			"class": "MediaWiki\\Extension\\TemplateData\\Special\\SpecialTemplateSearch"
+		"TemplateDiscovery": {
+			"class": "MediaWiki\\Extension\\TemplateData\\Special\\SpecialTemplateDiscovery"
 		}
 	},
 	"Hooks": {

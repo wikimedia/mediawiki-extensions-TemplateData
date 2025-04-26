@@ -7,10 +7,10 @@ use MediaWiki\SpecialPage\SpecialPage;
 /**
  * @license GPL-2.0-or-later
  */
-class SpecialTemplateSearch extends SpecialPage {
+class SpecialTemplateDiscovery extends SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'TemplateSearch', '', false );
+		parent::__construct( 'TemplateDiscovery', '', false );
 	}
 
 	/**

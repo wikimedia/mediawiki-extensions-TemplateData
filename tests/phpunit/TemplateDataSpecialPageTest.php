@@ -29,7 +29,7 @@ class TemplateDataSpecialPageTest extends SpecialPageTestBase {
 	/**
 	 * Test that the special page loads when the feature is enabled
 	 *
-	 * @covers \MediaWiki\Extension\TemplateData\Special\SpecialTemplateSearch::execute
+	 * @covers \MediaWiki\Extension\TemplateData\Special\SpecialTemplateDiscovery::execute
 	 */
 	public function testSpecialPageWhenFeatureEnabled() {
 		$this->overrideConfigValue( 'TemplateDataEnableDiscovery', true );
@@ -41,7 +41,7 @@ class TemplateDataSpecialPageTest extends SpecialPageTestBase {
 	/**
 	 * Test that the special page does not load when the feature is disabled
 	 *
-	 * @covers \MediaWiki\Extension\TemplateData\Special\SpecialTemplateSearch::execute
+	 * @covers \MediaWiki\Extension\TemplateData\Special\SpecialTemplateDiscovery::execute
 	 */
 	public function testSpecialPageWhenFeatureDisabled() {
 		$this->overrideConfigValue( 'TemplateDataEnableDiscovery', false );
