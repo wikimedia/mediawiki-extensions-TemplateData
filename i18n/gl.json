@@ -122,7 +122,7 @@
 	"templatedata-search-list-header": "Favoritos",
 	"templatedata-search-list-empty": "Aquí aparecerán os modelos que marques como favoritos",
 	"templatedata-template-discovery-disabled": "O descubrimento de modelos está desactivado neste wiki.",
-	"templatesearch": "Procura de modelos",
+	"templatediscovery": "Descubrimento de modelos",
 	"templatedata-favorite-disabled": "Debes iniciar sesión para marcar como favorito un modelo",
 	"templatedata-favorite-add": "Engadir o modelo aos favoritos",
 	"templatedata-favorite-added": "Engadiuse o modelo aos favoritos",

@@ -130,7 +130,7 @@
 	"templatedata-search-list-header": "Suosikit",
 	"templatedata-search-list-empty": "Suosikeiksi merkitsemäsi mallineet näkyvät täällä",
 	"templatedata-template-discovery-disabled": "Mallinehaku on poistettu käytöstä tässä wikissä.",
-	"templatesearch": "Mallinehaku",
+	"templatediscovery": "Mallineen löytäminen",
 	"templatedata-favorite-disabled": "Sinun on oltava kirjautuneena sisään merkitäksesi mallineen suosikkeihin",
 	"templatedata-favorite-add": "Lisää malline suosikkeihin",
 	"templatedata-favorite-added": "Malline lisätty suosikkeihin",

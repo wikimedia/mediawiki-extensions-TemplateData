@@ -123,7 +123,7 @@
 	"templatedata-search-list-header": "Favoriten",
 	"templatedata-search-list-empty": "Vorlagen, die du als Favoriten markierst, werden hier angezeigt",
 	"templatedata-template-discovery-disabled": "Die Vorlagenerkennung ist in diesem Wiki deaktiviert.",
-	"templatesearch": "Vorlagensuche",
+	"templatediscovery": "Entdecken von Vorlagen",
 	"templatedata-favorite-disabled": "Du musst angemeldet sein, um eine Vorlage als Favorit zu markieren",
 	"templatedata-favorite-add": "Vorlage zu Favoriten hinzufügen",
 	"templatedata-favorite-added": "Vorlage zu Favoriten hinzugefügt",
