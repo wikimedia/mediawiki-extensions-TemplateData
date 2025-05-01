@@ -67,6 +67,7 @@
 	"templatedata-modal-button-removemap": "ДӀадаккха карта",
 	"templatedata-modal-button-saveparam": "Ӏалашйан",
 	"templatedata-modal-confirmcancel": "Лаьий хьуна, бина хийцамаш дӀабаха?",
+	"templatedata-modal-button-discard": "Йухадаккха",
 	"templatedata-modal-current-language": "Карара мотт: $1",
 	"templatedata-modal-errormsg": "Карийна гӀалаташ. Дехар до, параметрийн цӀерш йаьсса йуьй а цхьатерра йуьй «$1», «$2» йа «$3» хьажар.",
 	"templatedata-modal-errormsg-duplicate-name": "Карийна гӀалат. Хаьржина цӀе кхечу параметро лелош йу.",
@@ -109,5 +110,8 @@
 	"templatedata-modal-title-templateformat": "Викийозан кховдийна формат",
 	"templatedata-modal-title-templateformatstring": "Кепан йоцу формат",
 	"templatedata-modal-title-templateparam-details": "Параметрах лаьцна: $1",
-	"templatedata-modal-title-templateparams": "Кепан параметраш"
+	"templatedata-modal-title-templateparams": "Кепан параметраш",
+	"templatedata-search-title": "Кеп лахар",
+	"templatedata-search-placeholder": "Кеп лаха",
+	"templatedata-search-list-header": "Хаьржинарг"
 }
