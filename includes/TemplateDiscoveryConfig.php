@@ -12,8 +12,10 @@ use MediaWiki\ResourceLoader\Context;
 class TemplateDiscoveryConfig {
 
 	public static function getConfig( Context $context, Config $config ): array {
+		$extRegistry = ExtensionRegistry::getInstance();
 		return [
-			'cirrusSearchLoaded' => ExtensionRegistry::getInstance()->isLoaded( 'CirrusSearch' ),
+			'cirrusSearchLoaded' => $extRegistry->isLoaded( 'CirrusSearch' ),
+			'communityConfigurationLoaded' => $extRegistry->isLoaded( 'CommunityConfiguration' ),
 			'maxFavorites' => $config->get( 'TemplateDataMaxFavorites' ),
 		];
 	}

@@ -3,6 +3,8 @@ const FavoritesStore = require( './FavoritesStore.js' );
 const SearchWidget = require( './SearchWidget.js' );
 const TemplateList = require( './TemplateList.js' );
 const mwConfig = require( './mwConfig.json' );
+const FeaturedTemplatesList = require( './FeaturedTemplatesList.js' );
+const TemplateDiscoveryConfig = require( './config.json' );
 
 /**
  * @class
@@ -52,6 +54,20 @@ function TemplateSearchLayout( config ) {
 		const categoryBrowser = new CategoryBrowser();
 		categoryBrowser.connect( this, { choose: 'onAddTemplate' } );
 		tabLayout.addTabPanels( [ categoryBrowser ] );
+	}
+
+	// Check if CommunityConfiguration is available
+	// and if TemplateDataEnableFeaturedTemplates is true
+	if ( TemplateDiscoveryConfig.communityConfigurationLoaded &&
+		mwConfig.TemplateDataEnableFeaturedTemplates
+	) {
+		const featuredTemplatesList = new FeaturedTemplatesList(
+			{
+				favoritesStore: favoritesStore
+			}
+		);
+		featuredTemplatesList.connect( this, { choose: 'onAddTemplate' } );
+		tabLayout.addTabPanels( [ featuredTemplatesList ] );
 	}
 
 	this.$element

@@ -250,7 +250,8 @@
 					"name": "mwConfig.json",
 					"config": [
 						"TemplateDataEditorNamespaces",
-						"TemplateDataEnableCategoryBrowser"
+						"TemplateDataEnableCategoryBrowser",
+						"TemplateDataEnableFeaturedTemplates"
 					]
 				},
 				"TemplateSearchLayout.js",
@@ -260,6 +261,7 @@
 				"FavoritesStore.js",
 				"FavoriteButton.js",
 				"SpecialPage.js",
+				"FeaturedTemplatesList.js",
 				"categories/CategoryBrowser.js",
 				"categories/Column.js",
 				"categories/ColumnGroup.js",
@@ -296,6 +298,8 @@
 				"templatedata-favorite-removed",
 				"templatedata-favorite-maximum-reached",
 				"templatedata-favorite-add",
+				"templatedata-featured-list-header",
+				"templatedata-featured-list-empty",
 				"templatedata-category-browser-header",
 				"templatedata-category-switch-label",
 				"templatedata-category-switch-button",
@@ -326,6 +330,35 @@
 			"PluginModules": [
 				"ext.templateDataGenerator.editPage"
 			]
+		},
+		"CommunityConfiguration": {
+			"Validators": {
+				"FeaturedTemplates": {
+					"class": "MediaWiki\\Extension\\TemplateData\\Config\\FeaturedTemplatesSchemaValidator",
+					"factory": "MediaWiki\\Extension\\TemplateData\\Config\\FeaturedTemplatesSchemaValidator::factory",
+					"services": [
+						"CommunityConfiguration.ValidatorFactory",
+						"MainConfig"
+					],
+					"args": [
+						"MediaWiki\\Extension\\TemplateData\\Schemas\\FeaturedTemplatesSchema"
+					]
+				}
+			},
+			"Providers": {
+				"TemplateData-FeaturedTemplates": {
+					"store": {
+						"type": "wikipage",
+						"args": [
+							"MediaWiki:FeaturedTemplates.json"
+						]
+					},
+					"validator": {
+						"type": "FeaturedTemplates"
+					},
+					"type": "mw-config"
+				}
+			}
 		}
 	},
 	"config": {
@@ -349,6 +382,10 @@
 		"TemplateDataEnableCategoryBrowser": {
 			"value": false,
 			"description": "Enable the category browser for the template discovery widget."
+		},
+		"TemplateDataEnableFeaturedTemplates": {
+			"value": false,
+			"description": "Enable the featured templates functionality."
 		}
 	},
 	"DefaultUserOptions": {

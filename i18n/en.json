@@ -141,5 +141,9 @@
 	"templatedata-category-column-error": "An error occurred",
 	"templatedata-category-use-template": "Use this template",
 	"templatedata-category-categories": "Other categories",
-	"templatedata-category-no-cats": "None."
+	"templatedata-category-no-cats": "None.",
+	"templatedata-featured-list-header": "Featured",
+	"templatedata-featured-list-empty": "No featured templates available",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Featured templates",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Featured templates are templates that have been marked as useful by the community. They are available for use in the template discovery tool."
 }

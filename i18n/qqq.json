@@ -154,5 +154,9 @@
 	"templatedata-category-column-error": "Error message label. This is followed by {{msg-mw|colon-separator}}.",
 	"templatedata-category-use-template": "Button text for the button with which to select a template. Shown below the template's name and description.",
 	"templatedata-category-categories": "Label for a list (separated by {{msg-mw|semicolon-separator}}) of the categories that this template is in.",
-	"templatedata-category-no-cats": "Placeholder for category list when there are none to show."
+	"templatedata-category-no-cats": "Placeholder for category list when there are none to show.",
+	"templatedata-featured-list-header": "Tab label above the list of featured templates.",
+	"templatedata-featured-list-empty": "Message shown in place of the featured templates list when there are no featured templates.",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Title for the featured templates configuration.",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Description for the featured templates configuration."
 }
