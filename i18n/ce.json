@@ -114,5 +114,10 @@
 	"templatedata-search-title": "Кеп лахар",
 	"templatedata-search-placeholder": "Кеп лаха",
 	"templatedata-search-list-header": "Хаьржинарг",
-	"templatediscovery": "Кеп карор"
+	"templatediscovery": "Кеп карор",
+	"templatedata-favorite-add": "Хаьржиначарна тӀетоха кеп",
+	"templatedata-favorite-added": "Хаьржиначарна тӀетоьхна кеп",
+	"templatedata-favorite-remove": "Хаьржиначарна йукъара дӀайаккха кеп",
+	"templatedata-favorite-removed": "Хаьржиначарна йукъара дӀайаьккхина кеп",
+	"templatedata-favorite-error": "Хаьржинарг Ӏалашйан йиш йац"
 }
