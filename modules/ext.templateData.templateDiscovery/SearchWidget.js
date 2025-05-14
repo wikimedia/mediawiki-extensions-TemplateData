@@ -143,6 +143,7 @@ SearchWidget.prototype.addExactMatch = function ( response ) {
 	return this.api.get( {
 		action: 'templatedata',
 		includeMissingTitles: 1,
+		redirects: 1,
 		lang: mw.config.get( 'wgUserLanguage' ),
 		// Can't use a direct lookup by title because we need this to be case-insensitive
 		generator: 'prefixsearch',
