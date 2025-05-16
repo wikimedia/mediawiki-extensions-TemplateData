@@ -219,6 +219,15 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 			return null;
 		}
 
+		// Skip common subpages
+		const subpages = mw.msg( 'templatedata-excluded-subpages' )
+			.split( '|' )
+			.map( ( e ) => e.trim() )
+			.filter( Boolean );
+		if ( subpages.some( ( s ) => title.getMainText().endsWith( '/' + s ) ) ) {
+			return null;
+		}
+
 		/**
 		 * Config for the {@see TemplateMenuItem} widget:
 		 * - data: {@see OO.ui.Element} and getData()

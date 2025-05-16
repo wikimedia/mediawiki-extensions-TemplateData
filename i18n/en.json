@@ -42,6 +42,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "User",
 	"templatedata-doc-params": "Template parameters",
 	"templatedata-doc-subpage": "doc",
+	"templatedata-excluded-subpages": "doc|sandbox|testcases",
 	"templatedata-editbutton": "Edit template data",
 	"templatedata-errormsg-jsonbadformat": "Bad JSON format. You can cancel this operation so you can correct or remove it, or continue to replace the current template data with a new one.",
 	"templatedata-errormsg-insertblank": "Are you sure you want to insert template data with no information?",
