@@ -11,6 +11,7 @@ const TemplateMenuItem = require( './TemplateMenuItem.js' );
  */
 function TemplateList( config ) {
 	config = Object.assign( {
+		label: mw.msg( 'templatedata-search-list-header' ),
 		expanded: false
 	}, config );
 	TemplateList.super.call( this, 'template-list', config );
@@ -19,6 +20,9 @@ function TemplateList( config ) {
 	this.config = config;
 	this.menu = new OO.ui.PanelLayout( { expanded: false } );
 
+	this.$tabHeaderIcon = null;
+	this.$emptyListMessage = null;
+
 	this.config.favoritesStore.getAllFavoritesDetails().then( ( favorites ) => {
 		// Either loop through all favorites, adding them to the list.
 		for ( const fave of favorites ) {
@@ -26,9 +30,7 @@ function TemplateList( config ) {
 		}
 		// Or add a message explaining that there are no favorites.
 		if ( favorites.length === 0 ) {
-			this.menu.$element.append( $( '<p>' )
-				.addClass( 'ext-templatedata-TemplateList-empty' )
-				.text( mw.msg( 'templatedata-search-list-empty' ) ) );
+			this.emptyListEnable();
 		}
 		// Then add the list (or message) to the container.
 		this.$element.append( this.menu.$element );
@@ -59,18 +61,33 @@ OO.inheritClass( TemplateList, OO.ui.TabPanelLayout );
 
 /* Methods */
 
-TemplateList.prototype.setupTabItem = function () {
+TemplateList.prototype.emptyListEnable = function () {
+	// Add the empty-list message.
+	this.$emptyListMessage = $( '<p>' )
+		.addClass( 'ext-templatedata-TemplateList-empty' )
+		.text( mw.msg( 'templatedata-search-list-empty' ) );
+	this.menu.$element.append( this.$emptyListMessage );
+	// Change the tab to include an icon, to make it clear what the favorite button looks like.
 	const icon = new OO.ui.IconWidget( {
 		icon: 'bookmark',
 		framed: false,
 		flags: [ 'progressive' ],
 		classes: [ 'ext-templatedata-TemplateList-tabIcon' ]
 	} );
-	this.tabItem.$label.append(
-		icon.$element,
-		' ',
-		mw.msg( 'templatedata-search-list-header' )
-	);
+	this.$tabHeaderIcon = $( '<span>' );
+	this.$tabHeaderIcon.append( icon.$element, ' ' );
+	this.tabItem.$label.prepend( this.$tabHeaderIcon );
+};
+
+TemplateList.prototype.emptyListDisable = function () {
+	if ( this.$emptyListMessage ) {
+		this.$emptyListMessage.remove();
+		this.$emptyListMessage = null;
+	}
+	if ( this.$tabHeaderIcon ) {
+		this.$tabHeaderIcon.remove();
+		this.$tabHeaderIcon = null;
+	}
 };
 
 TemplateList.prototype.onChoose = function ( templateData ) {
@@ -124,6 +141,8 @@ TemplateList.prototype.addRowToList = function ( fave ) {
 	this.menuItems.set( fave.pageId, templateMenuItem );
 	templateMenuItem.connect( this, { choose: 'onChoose' } );
 	this.menu.$element.append( templateMenuItem.$element );
+	// Remove the empty-list state (if applicable).
+	this.emptyListDisable();
 };
 
 module.exports = TemplateList;
