@@ -267,6 +267,8 @@
 			"messages": [
 				"notloggedin",
 				"redirectedfrom",
+				"templatedata-doc-subpage",
+				"templatedata-excluded-subpages",
 				"templatedata-search-title",
 				"templatedata-search-description",
 				"templatedata-search-placeholder",
