@@ -235,7 +235,8 @@
 			"localBasePath": "modules/ext.templateData.templateDiscovery",
 			"remoteExtPath": "TemplateData/modules/ext.templateData.templateDiscovery",
 			"styles": [
-				"TemplateSearchLayout.less"
+				"TemplateSearchLayout.less",
+				"categories/CategoryBrowser.less"
 			],
 			"packageFiles": [
 				"init.js",
@@ -246,7 +247,8 @@
 				{
 					"name": "mwConfig.json",
 					"config": [
-						"TemplateDataEditorNamespaces"
+						"TemplateDataEditorNamespaces",
+						"TemplateDataEnableCategoryBrowser"
 					]
 				},
 				"TemplateSearchLayout.js",
@@ -255,16 +257,25 @@
 				"TemplateMenuItem.js",
 				"FavoritesStore.js",
 				"FavoriteButton.js",
-				"SpecialPage.js"
+				"SpecialPage.js",
+				"categories/CategoryBrowser.js",
+				"categories/Column.js",
+				"categories/ColumnGroup.js",
+				"categories/ColumnItem.js",
+				"categories/DataStore.js"
 			],
 			"dependencies": [
+				"mediawiki.storage",
+				"mediawiki.widgets",
 				"oojs-ui-core",
 				"oojs-ui-widgets",
 				"oojs-ui.styles.icons-editing-advanced",
 				"oojs-ui.styles.icons-interactions",
+				"oojs-ui.styles.icons-movement",
 				"oojs-ui.styles.icons-moderation"
 			],
 			"messages": [
+				"colon-separator",
 				"notloggedin",
 				"redirectedfrom",
 				"templatedata-doc-subpage",
@@ -280,18 +291,27 @@
 				"templatedata-favorite-error",
 				"templatedata-favorite-remove",
 				"templatedata-favorite-removed",
-				"templatedata-favorite-maximum-reached"
+				"templatedata-favorite-maximum-reached",
+				"templatedata-category-browser-header",
+				"templatedata-category-switch-label",
+				"templatedata-category-switch-button",
+				"templatedata-category-column-empty",
+				"templatedata-category-browser-loadmore",
+				"templatedata-category-column-error"
 			]
 		}
 	},
 	"QUnitTestModule": {
 		"localBasePath": "tests/qunit",
 		"remoteExtPath": "TemplateData/tests/qunit",
-		"scripts": [
-			"ext.templateData.tests.js"
+		"packageFiles": [
+			"init.js",
+			"ext.templateData.tests.js",
+			"ext.templateData.templateDiscovery/ColumnGroup.tests.js"
 		],
 		"dependencies": [
-			"ext.templateDataGenerator.data"
+			"ext.templateDataGenerator.data",
+			"ext.templateData.templateDiscovery"
 		]
 	},
 	"attributes": {
@@ -318,6 +338,10 @@
 		"TemplateDataMaxFavorites": {
 			"value": 50,
 			"description": "The maximum number of favorite templates that can be stored."
+		},
+		"TemplateDataEnableCategoryBrowser": {
+			"value": false,
+			"description": "Enable the category browser for the template discovery widget."
 		}
 	},
 	"DefaultUserOptions": {

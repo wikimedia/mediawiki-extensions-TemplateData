@@ -72,7 +72,7 @@ TemplateList.prototype.emptyListEnable = function () {
 		icon: 'bookmark',
 		framed: false,
 		flags: [ 'progressive' ],
-		classes: [ 'ext-templatedata-TemplateList-tabIcon' ]
+		classes: [ 'ext-templatedata-templateDiscovery-tabIcon' ]
 	} );
 	this.$tabHeaderIcon = $( '<span>' );
 	this.$tabHeaderIcon.append( icon.$element, ' ' );
