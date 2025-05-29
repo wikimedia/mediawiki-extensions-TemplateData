@@ -1,4 +1,5 @@
 const Column = require( './Column.js' );
+const ColumnItem = require( './ColumnItem.js' );
 
 /**
  * @class
@@ -22,11 +23,20 @@ function ColumnGroup( config ) {
 
 OO.inheritClass( ColumnGroup, OO.ui.PanelLayout );
 
+/* Events */
+
+/**
+ * When a template is chosen.
+ *
+ * @event choose
+ * @param {Object} The template data of the chosen template.
+ */
+
 /* Methods */
 
 ColumnGroup.prototype.addColumn = function ( column ) {
 	column.connect( this, {
-		choose: this.onChoose,
+		select: this.onSelect,
 		loadmore: this.onLoadmore
 	} );
 	this.$element.append( column.$element );
@@ -38,24 +48,29 @@ ColumnGroup.prototype.getColumns = function () {
 };
 
 /**
- * @param {Object} data With keys 'column' and 'columnItem'.
+ * @param {Column} column
+ * @param {ColumnItem} columnItem
  */
-ColumnGroup.prototype.onChoose = function ( data ) {
-	if ( data.columnItem.getData().isCategory ) {
-		// Remove lower columns.
-		this.columns
-			.slice( this.columns.indexOf( data.column ) + 1 )
-			.forEach( ( c ) => c.$element.remove() );
-		// Add the new column.
-		const col = new Column( { dataStore: this.config.dataStore } );
-		this.addColumn( col );
-		col.loadItems( data.columnItem.getData().value ).then( () => {
+ColumnGroup.prototype.onSelect = function ( column, columnItem ) {
+	// Remove lower columns.
+	this.columns
+		.slice( this.columns.indexOf( column ) + 1 )
+		.forEach( ( c ) => c.$element.remove() );
+	// Add the new column.
+	const col = new Column( { dataStore: this.config.dataStore } );
+	col.connect( this, { choose: ( templatedata ) => {
+		this.emit( 'choose', templatedata );
+	} } );
+	this.addColumn( col );
+	if ( columnItem.getData().isCategory ) {
+		col.loadItems( columnItem.getData().value ).then( () => {
 			col.scrollElementIntoView();
 		} );
 	} else {
-		const pageId = data.columnItem.getData().pageId;
+		const pageId = columnItem.getData().pageId;
 		this.config.dataStore.getItemData( pageId ).then( ( itemData ) => {
-			this.emit( 'choose', itemData );
+			col.showTemplateDetails( column.getData().columnTitle, itemData );
+			col.scrollElementIntoView();
 		} );
 	}
 };

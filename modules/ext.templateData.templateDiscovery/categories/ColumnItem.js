@@ -35,6 +35,15 @@ OO.mixinClass( ColumnItem, OO.EventEmitter );
 
 ColumnItem.static.scrollIntoViewOnSelect = true;
 
+/* Events */
+
+/**
+ * When the item is selected.
+ *
+ * @event select
+ * @param {Object} The template data of the chosen template.
+ */
+
 /* Methods */
 
 ColumnItem.prototype.onClick = function ( event ) {
@@ -43,7 +52,7 @@ ColumnItem.prototype.onClick = function ( event ) {
 		this.emit( 'loadmore', this, this.getData().cmcontinue );
 	} else {
 		this.setHighlighted( true );
-		this.emit( 'choose', this );
+		this.emit( 'select', this );
 	}
 };
 

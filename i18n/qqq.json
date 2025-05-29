@@ -150,5 +150,8 @@
 	"templatedata-category-switch-button": "Button label for the category-switching field.",
 	"templatedata-category-column-empty": "Message shown in a category-browser column when a category has no subcategories or templates in it.\n\nParameters:\n* $1 The empty category's name (with localized 'Category:' prefix).",
 	"templatedata-category-browser-loadmore": "Button label for the 'load more' button that's shown at the bottom of columns.",
-	"templatedata-category-column-error": "Error message label. This is followed by {{msg-mw|colon-separator}}."
+	"templatedata-category-column-error": "Error message label. This is followed by {{msg-mw|colon-separator}}.",
+	"templatedata-category-use-template": "Button text for the button with which to select a template. Shown below the template's name and description.",
+	"templatedata-category-categories": "Label for a list (separated by {{msg-mw|semicolon-separator}}) of the categories that this template is in.",
+	"templatedata-category-no-cats": "Placeholder for category list when there are none to show."
 }
