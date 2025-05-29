@@ -137,5 +137,11 @@
 	"templatedata-favorite-remove": "Poista malline suosikeista",
 	"templatedata-favorite-removed": "Malline poistettu suosikeista",
 	"templatedata-favorite-error": "Suosikkeja ei voitu tallentaa",
-	"templatedata-favorite-maximum-reached": "Olet saavuttanut suosikkimallineiden enimmäismäärän ($1). Poista joitakin listaltasi ennen kuin lisäät lisää."
+	"templatedata-favorite-maximum-reached": "Olet saavuttanut suosikkimallineiden enimmäismäärän ($1). Poista joitakin listaltasi ennen kuin lisäät lisää.",
+	"templatedata-category-browser-header": "Luokat",
+	"templatedata-category-switch-label": "Ylin luokkataso:",
+	"templatedata-category-switch-button": "Selaa",
+	"templatedata-category-column-empty": "Luokasta [[$1]] ei löytynyt mallineita tai alaluokkia",
+	"templatedata-category-browser-loadmore": "…lataa lisää",
+	"templatedata-category-column-error": "Tapahtui virhe"
 }

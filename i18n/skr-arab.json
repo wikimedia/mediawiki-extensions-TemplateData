@@ -52,5 +52,8 @@
 	"templatedata-modal-title-choose-language": "زبان چݨو",
 	"templatedata-modal-title-language": "زبان",
 	"templatedata-modal-title-paramorder": "ترتیب پیرامیٹر",
-	"templatedata-modal-title-templatedesc": "وضاحت سانچہ ($1)"
+	"templatedata-modal-title-templatedesc": "وضاحت سانچہ ($1)",
+	"templatedata-category-browser-header": "ونکیاں",
+	"templatedata-category-switch-button": "براؤز",
+	"templatedata-category-browser-loadmore": "ٻئے لوڈ کرو"
 }
