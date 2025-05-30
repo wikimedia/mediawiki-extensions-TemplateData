@@ -134,5 +134,11 @@
 	"templatedata-favorite-disabled": "틀을 즐겨찾기하려면 로그인해야 합니다",
 	"templatedata-favorite-added": "즐겨찾기에 틀이 추가되었습니다",
 	"templatedata-favorite-removed": "즐겨찾기에서 틀을 제거했습니다",
-	"templatedata-favorite-error": "즐겨찾기를 저장할 수 없습니다"
+	"templatedata-favorite-error": "즐겨찾기를 저장할 수 없습니다",
+	"templatedata-category-browser-header": "분류",
+	"templatedata-category-switch-label": "최상위 분류:",
+	"templatedata-category-switch-button": "찾아보기",
+	"templatedata-category-column-empty": "[[$1]]에 틀 또는 하위 분류가 없습니다.",
+	"templatedata-category-browser-loadmore": "…더 불러오기",
+	"templatedata-category-column-error": "오류가 발생했습니다"
 }

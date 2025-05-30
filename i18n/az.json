@@ -132,5 +132,11 @@
 	"templatedata-favorite-remove": "Şablonu sevimlilərdən sil",
 	"templatedata-favorite-removed": "Şablon sevimlilərdən silindi",
 	"templatedata-favorite-error": "Sevimliləri yadda saxlamaq mümkün olmadı",
-	"templatedata-favorite-maximum-reached": "Sevimli şablonların maksimum sayına ($1) çatdınız. Zəhmət olmasa, yenisini əlavə etməzdən əvvəl bəzi şablonu sevimlilərdən silin."
+	"templatedata-favorite-maximum-reached": "Sevimli şablonların maksimum sayına ($1) çatdınız. Zəhmət olmasa, yenisini əlavə etməzdən əvvəl bəzi şablonu sevimlilərdən silin.",
+	"templatedata-category-browser-header": "Kateqoriyalar",
+	"templatedata-category-switch-label": "Ən yüksək səviyyəli kateqoriya:",
+	"templatedata-category-switch-button": "Gözdən keçir",
+	"templatedata-category-column-empty": "[[$1]] daxilində şablon və ya alt kateqoriya tapılmadı",
+	"templatedata-category-browser-loadmore": "…daha çoxunu yüklə",
+	"templatedata-category-column-error": "Xəta baş verdi"
 }
