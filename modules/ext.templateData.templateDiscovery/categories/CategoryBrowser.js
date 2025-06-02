@@ -78,7 +78,8 @@ CategoryBrowser.prototype.loadRootTemplate = function () {
 	columnGroup.addColumn( col1 );
 	const oneYear = 60 * 60 * 24 * 365;
 	mwStorage.set( this.storageKey, this.rootCatSearch.getValue(), oneYear );
-	col1.loadItems( 'Category:' + this.rootCatSearch.getValue() ).then( () => {
+	const catNsName = mw.config.get( 'wgFormattedNamespaces' )[ mw.config.get( 'wgNamespaceIds' ).category ];
+	col1.loadItems( catNsName + ':' + this.rootCatSearch.getValue() ).then( () => {
 		col1.focus();
 	} );
 };
