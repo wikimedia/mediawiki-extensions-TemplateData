@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ahmed-Najib-Biabani-Ibrahimkhel"
+			"Ahmed-Najib-Biabani-Ibrahimkhel",
+			"شاه زمان پټان"
 		]
 	},
 	"templatedata-doc-param-default": "تلواليز",
@@ -14,7 +15,7 @@
 	"templatedata-doc-param-type-number": "شمېره",
 	"templatedata-doc-param-type-unknown": "ناجوت",
 	"templatedata-doc-param-type-wiki-file-name": "دوتنه",
-	"templatedata-doc-param-type-wiki-page-name": "مخ",
+	"templatedata-doc-param-type-wiki-page-name": "مخ نوم",
 	"templatedata-doc-param-type-wiki-template-name": "کينډۍ",
 	"templatedata-doc-param-type-wiki-user-name": "کارن",
 	"templatedata-editbutton": "TemplateData مهارول",

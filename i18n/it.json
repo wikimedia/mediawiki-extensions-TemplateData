@@ -10,7 +10,8 @@
 			"Nivit",
 			"Ruthven",
 			"Luca.favorido",
-			"McDutchie"
+			"McDutchie",
+			"Sannita"
 		]
 	},
 	"templatedata-desc": "Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)",
@@ -87,7 +88,10 @@
 	"templatedata-modal-format-placeholder": "Parametro template in formato stringa",
 	"templatedata-modal-json-error-replace": "Sostituisci",
 	"templatedata-modal-notice-import-numparams": "$1 {{PLURAL:$1|nuovo parametro è stato importato|nuovi parametri sono stati importati}}: $2.",
+	"templatedata-modal-placeholder-add-new-map-input": "Aggiungendo una nuova mappa...",
 	"templatedata-modal-placeholder-paramkey": "Nome del parametro",
+	"templatedata-modal-placeholder-mapinfo": "Questo template non contiene un oggetto mappa",
+	"templatedata-modal-placeholder-prompt-map-name": "Inserisci il nome della mappa",
 	"templatedata-modal-search-input-placeholder": "Cerca per nome della lingua o codice",
 	"templatedata-modal-table-param-actions": "Azioni",
 	"templatedata-modal-table-param-aliases": "Alias",
