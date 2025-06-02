@@ -128,5 +128,11 @@
 	"templatedata-favorite-remove": "הסרה מתבניות מועדפות",
 	"templatedata-favorite-removed": "התבנית הוסרה מרשימת המועדפות",
 	"templatedata-favorite-error": "לא ניתן לשמור תבניות מועדפות",
-	"templatedata-favorite-maximum-reached": "הגעת למספר המרבי ($1) של תבניות מועדפות. נא להסיר כמה מהרשימה שלך לפני שיהיה אפשר להוסיף עוד."
+	"templatedata-favorite-maximum-reached": "הגעת למספר המרבי ($1) של תבניות מועדפות. נא להסיר כמה מהרשימה שלך לפני שיהיה אפשר להוסיף עוד.",
+	"templatedata-category-browser-header": "קטגוריות",
+	"templatedata-category-switch-label": "קטגוריה ברמה העליונה:",
+	"templatedata-category-switch-button": "עיון",
+	"templatedata-category-column-empty": "לא נמצאו תבניות או קטגוריות־משנה בדף [[$1]]",
+	"templatedata-category-browser-loadmore": "... לטעון עוד",
+	"templatedata-category-column-error": "אירעה שגיאה"
 }
