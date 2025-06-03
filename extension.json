@@ -276,6 +276,7 @@
 			],
 			"messages": [
 				"colon-separator",
+				"semicolon-separator",
 				"notloggedin",
 				"redirectedfrom",
 				"templatedata-doc-subpage",
@@ -297,6 +298,9 @@
 				"templatedata-category-switch-button",
 				"templatedata-category-column-empty",
 				"templatedata-category-browser-loadmore",
+				"templatedata-category-use-template",
+				"templatedata-category-categories",
+				"templatedata-category-no-cats",
 				"templatedata-category-column-error"
 			]
 		}

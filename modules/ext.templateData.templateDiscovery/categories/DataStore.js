@@ -63,17 +63,33 @@ DataStore.prototype.getColumnData = function ( categoryTitle, cmcontinue ) {
  * @return {Promise}
  */
 DataStore.prototype.getItemData = function ( pageId ) {
-	return this.api.get( {
-		action: 'templatedata',
-		includeMissingTitles: 1,
-		pageids: pageId,
-		lang: mw.config.get( 'wgUserLanguage' ),
-		redirects: 1,
-		formatversion: 2
-	} ).then( ( templatedataResponse ) => {
-		if ( templatedataResponse.pages[ pageId ] !== undefined ) {
-			return templatedataResponse.pages[ pageId ];
+	// @todo It it really not possible to do these in the same request?
+	return Promise.all( [
+		this.api.get( {
+			action: 'templatedata',
+			includeMissingTitles: 1,
+			pageids: pageId,
+			lang: mw.config.get( 'wgUserLanguage' ),
+			redirects: 1,
+			formatversion: 2
+		} ),
+		this.api.get( {
+			action: 'query',
+			format: 'json',
+			prop: 'categories',
+			pageids: pageId,
+			formatversion: 2,
+			clprop: 'hidden|sortkey'
+		} )
+	] ).then( ( responses ) => {
+		const out = {};
+		if ( responses[ 0 ].pages[ pageId ] !== undefined ) {
+			out.templatedata = responses[ 0 ].pages[ pageId ];
 		}
+		if ( responses[ 1 ].query.pages[ 0 ] !== undefined ) {
+			out.categories = responses[ 1 ].query.pages[ 0 ];
+		}
+		return out;
 	} );
 };
 

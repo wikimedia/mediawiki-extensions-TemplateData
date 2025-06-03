@@ -137,5 +137,8 @@
 	"templatedata-category-switch-button": "Browse",
 	"templatedata-category-column-empty": "No templates or subcategories found in [[$1]]",
 	"templatedata-category-browser-loadmore": "…load more",
-	"templatedata-category-column-error": "An error occurred"
+	"templatedata-category-column-error": "An error occurred",
+	"templatedata-category-use-template": "Use this template",
+	"templatedata-category-categories": "Other categories",
+	"templatedata-category-no-cats": "None."
 }
