@@ -30,7 +30,12 @@ function TemplateList( config ) {
 		}
 		// Or add a message explaining that there are no favorites.
 		if ( favorites.length === 0 ) {
-			this.emptyListEnable();
+			this.emptyListMessage = new OO.ui.MessageWidget( {
+				icon: 'bookmark',
+				classes: [ 'ext-templatedata-TemplateList-empty' ],
+				label: mw.msg( 'templatedata-search-list-empty' )
+			} );
+			this.menu.$element.append( this.emptyListMessage.$element );
 		}
 		// Then add the list (or message) to the container.
 		this.$element.append( this.menu.$element );
@@ -60,35 +65,6 @@ OO.inheritClass( TemplateList, OO.ui.TabPanelLayout );
  */
 
 /* Methods */
-
-TemplateList.prototype.emptyListEnable = function () {
-	// Add the empty-list message.
-	this.$emptyListMessage = $( '<p>' )
-		.addClass( 'ext-templatedata-TemplateList-empty' )
-		.text( mw.msg( 'templatedata-search-list-empty' ) );
-	this.menu.$element.append( this.$emptyListMessage );
-	// Change the tab to include an icon, to make it clear what the favorite button looks like.
-	const icon = new OO.ui.IconWidget( {
-		icon: 'bookmark',
-		framed: false,
-		flags: [ 'progressive' ],
-		classes: [ 'ext-templatedata-templateDiscovery-tabIcon' ]
-	} );
-	this.$tabHeaderIcon = $( '<span>' );
-	this.$tabHeaderIcon.append( icon.$element, ' ' );
-	this.tabItem.$label.prepend( this.$tabHeaderIcon );
-};
-
-TemplateList.prototype.emptyListDisable = function () {
-	if ( this.$emptyListMessage ) {
-		this.$emptyListMessage.remove();
-		this.$emptyListMessage = null;
-	}
-	if ( this.$tabHeaderIcon ) {
-		this.$tabHeaderIcon.remove();
-		this.$tabHeaderIcon = null;
-	}
-};
 
 TemplateList.prototype.onChoose = function ( templateData ) {
 	this.emit( 'choose', templateData );
@@ -142,7 +118,9 @@ TemplateList.prototype.addRowToList = function ( fave ) {
 	templateMenuItem.connect( this, { choose: 'onChoose' } );
 	this.menu.$element.append( templateMenuItem.$element );
 	// Remove the empty-list state (if applicable).
-	this.emptyListDisable();
+	if ( this.emptyListMessage ) {
+		this.emptyListMessage.$element.remove();
+	}
 };
 
 module.exports = TemplateList;
