@@ -16,6 +16,7 @@
 			"Mahabarata",
 			"Mattho69",
 			"Metroitendo",
+			"NicoScribe",
 			"Orlodrim",
 			"Peter17",
 			"Pols12",
@@ -148,5 +149,7 @@
 	"templatedata-favorite-remove": "Supprimer le modèle des favoris",
 	"templatedata-favorite-removed": "Modèle supprimé des favoris",
 	"templatedata-favorite-error": "Impossible de sauvegarder les favoris",
-	"templatedata-favorite-maximum-reached": "Vous avez atteint le nombre maximum ( $1 ) de modèles favoris. Veuillez en supprimer certains de votre liste avant d'en ajouter d'autres."
+	"templatedata-favorite-maximum-reached": "Vous avez atteint le nombre maximum ( $1 ) de modèles favoris. Veuillez en supprimer certains de votre liste avant d'en ajouter d'autres.",
+	"templatedata-category-browser-header": "Catégories",
+	"templatedata-category-column-error": "Une erreur s’est produite"
 }
