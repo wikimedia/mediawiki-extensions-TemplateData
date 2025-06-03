@@ -37,9 +37,13 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-between;
+		padding: @size-50;
 
 		.oo-ui-buttonElement-button {
 			padding: 0;
+			// Duplicate min sizes from OOUI's WikimediaUI theme because Apex is different.
+			min-width: 32px;
+			min-height: 32px;
 		}
 	}
 
@@ -53,6 +57,7 @@
 	.oo-ui-textInputWidget.oo-ui-widget-enabled:hover .oo-ui-menuSelectWidget .oo-ui-inputWidget-input {
 		border-color: transparent;
 		background: none;
+		box-shadow: none;
 	}
 
 	.oo-ui-indexLayout-stackLayout > .oo-ui-panelLayout {
