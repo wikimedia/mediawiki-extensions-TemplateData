@@ -85,6 +85,8 @@ DataStore.prototype.getItemData = function ( pageId ) {
 		const out = {};
 		if ( responses[ 0 ].pages[ pageId ] !== undefined ) {
 			out.templatedata = responses[ 0 ].pages[ pageId ];
+			// Set the pageId for easier access later.
+			out.templatedata.pageId = pageId;
 		}
 		if ( responses[ 1 ].query.pages[ 0 ] !== undefined ) {
 			out.categories = responses[ 1 ].query.pages[ 0 ];
