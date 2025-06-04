@@ -29,6 +29,7 @@ function TemplateSearchLayout( config ) {
 	const field = new OO.ui.FieldLayout(
 		this.searchWidget,
 		{
+			classes: [ 'ext-templatedata-search-field' ],
 			label: mw.msg( 'templatedata-search-description' ),
 			align: 'top'
 		}
@@ -53,17 +54,12 @@ function TemplateSearchLayout( config ) {
 		tabLayout.addTabPanels( [ categoryBrowser ] );
 	}
 
-	const searchFieldset = new OO.ui.FieldsetLayout( {
-		label: mw.msg( 'templatedata-search-title' ),
-		icon: 'puzzle',
-		items: [ field, tabLayout ]
-	} );
-
 	this.$element
 		.addClass( 'ext-templatedata-search' )
 		.append( $( '<div>' )
 			.append(
-				searchFieldset.$element
+				field.$element,
+				tabLayout.$element
 			)
 		);
 }
