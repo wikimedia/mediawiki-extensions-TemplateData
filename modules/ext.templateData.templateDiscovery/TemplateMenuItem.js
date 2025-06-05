@@ -18,6 +18,8 @@ function TemplateMenuItem( config, favoritesStore ) {
 		$label: $( '<a>' )
 	}, config );
 	TemplateMenuItem.super.call( this, config );
+	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$element } ), config );
+	OO.EventEmitter.call( this );
 
 	this.data = config.data;
 	if ( config.data.redirecttitle ) {
@@ -57,11 +59,15 @@ function TemplateMenuItem( config, favoritesStore ) {
 		this.favoriteButton.setDisabled( true );
 		this.$label.addClass( 'new' );
 	}
+	// Set draggable state based on the config, or false.
+	this.toggleDraggable( config.draggable || false );
 }
 
 /* Setup */
 
 OO.inheritClass( TemplateMenuItem, OO.ui.MenuOptionWidget );
+OO.mixinClass( TemplateMenuItem, OO.ui.mixin.DraggableElement );
+OO.mixinClass( TemplateMenuItem, OO.EventEmitter );
 
 /* Events */
 
@@ -69,6 +75,12 @@ OO.inheritClass( TemplateMenuItem, OO.ui.MenuOptionWidget );
  * When a template is chosen.
  *
  * @event choose
+ * @param {Object} The template data of the chosen template.
+ */
+/**
+ * aa
+ *
+ * @event drop
  * @param {Object} The template data of the chosen template.
  */
 
@@ -80,6 +92,13 @@ TemplateMenuItem.prototype.onClick = function ( event ) {
 		event.preventDefault();
 		this.emit( 'choose', this.data );
 	}
+};
+
+TemplateMenuItem.prototype.onDrop = function () {
+	this.emit( 'drop', {
+		index: this.index,
+		data: this.data
+	} );
 };
 
 module.exports = TemplateMenuItem;
