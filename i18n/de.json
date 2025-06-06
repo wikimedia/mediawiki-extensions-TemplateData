@@ -136,5 +136,8 @@
 	"templatedata-category-switch-button": "Durchsuchen",
 	"templatedata-category-column-empty": "Keine Vorlagen oder Unterkategorien in [[$1]] gefunden",
 	"templatedata-category-browser-loadmore": "… mehr laden",
-	"templatedata-category-column-error": "Es ist ein Fehler aufgetreten"
+	"templatedata-category-column-error": "Es ist ein Fehler aufgetreten",
+	"templatedata-category-use-template": "Diese Vorlage verwenden",
+	"templatedata-category-categories": "Andere Kategorien",
+	"templatedata-category-no-cats": "Keine."
 }

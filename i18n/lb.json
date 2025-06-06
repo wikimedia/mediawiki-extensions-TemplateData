@@ -125,5 +125,8 @@
 	"templatedata-category-browser-header": "Kategorien",
 	"templatedata-category-column-empty": "Keng Schablounen oder Ënnerkategorien a(n) [[$1]] fonnt",
 	"templatedata-category-browser-loadmore": "… méi lueden",
-	"templatedata-category-column-error": "Et ass e Feeler geschitt"
+	"templatedata-category-column-error": "Et ass e Feeler geschitt",
+	"templatedata-category-use-template": "Dës Schabloun benotzen",
+	"templatedata-category-categories": "Aner Kategorien",
+	"templatedata-category-no-cats": "Keng."
 }

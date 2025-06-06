@@ -143,6 +143,7 @@
 	"templatedata-search-list-header": "Favoris",
 	"templatedata-search-list-empty": "Les modèles que vous marquez comme favoris apparaîtront ici",
 	"templatedata-template-discovery-disabled": "La découverte de modèles est désactivée sur ce wiki.",
+	"templatediscovery": "Découverte de modèles",
 	"templatedata-favorite-disabled": "Vous devez être connecté pour ajouter un modèle à vos favoris",
 	"templatedata-favorite-add": "Ajouter le modèle aux favoris",
 	"templatedata-favorite-added": "Modèle ajouté aux favoris",
@@ -151,5 +152,12 @@
 	"templatedata-favorite-error": "Impossible de sauvegarder les favoris",
 	"templatedata-favorite-maximum-reached": "Vous avez atteint le nombre maximum ( $1 ) de modèles favoris. Veuillez en supprimer certains de votre liste avant d'en ajouter d'autres.",
 	"templatedata-category-browser-header": "Catégories",
-	"templatedata-category-column-error": "Une erreur s’est produite"
+	"templatedata-category-switch-label": "Catégorie de premier niveau :",
+	"templatedata-category-switch-button": "Parcourir",
+	"templatedata-category-column-empty": "Aucun modèle ni sous-catégorie trouvé dans [[$1]]",
+	"templatedata-category-browser-loadmore": "…charger plus",
+	"templatedata-category-column-error": "Une erreur s’est produite",
+	"templatedata-category-use-template": "Utilisez ce modèle",
+	"templatedata-category-categories": "Autres catégories",
+	"templatedata-category-no-cats": "Aucun."
 }

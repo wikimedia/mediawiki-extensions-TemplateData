@@ -124,5 +124,14 @@
 	"templatedata-favorite-remove": "Remover le patrono del favorites",
 	"templatedata-favorite-removed": "Patrono removite del favorites",
 	"templatedata-favorite-error": "Impossibile salveguardar favorites",
-	"templatedata-favorite-maximum-reached": "Tu ha attingite le numero maxime de patronos favorite ($1). Per favor remove alcunes de tu lista ante de adder alteres."
+	"templatedata-favorite-maximum-reached": "Tu ha attingite le numero maxime de patronos favorite ($1). Per favor remove alcunes de tu lista ante de adder alteres.",
+	"templatedata-category-browser-header": "Categorias",
+	"templatedata-category-switch-label": "Categoria de prime nivello:",
+	"templatedata-category-switch-button": "Percurrer",
+	"templatedata-category-column-empty": "Necun patrono o subcategoria trovate in [[$1]]",
+	"templatedata-category-browser-loadmore": "…cargar plus",
+	"templatedata-category-column-error": "Un error ha occurrite",
+	"templatedata-category-use-template": "Usar iste patrono",
+	"templatedata-category-categories": "Altere categorias",
+	"templatedata-category-no-cats": "Necun."
 }

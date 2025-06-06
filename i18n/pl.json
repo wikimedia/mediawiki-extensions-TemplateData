@@ -139,5 +139,8 @@
 	"templatedata-favorite-remove": "Usuń szablon z ulubionych",
 	"templatedata-favorite-removed": "Usunięto szablon z ulubionych",
 	"templatedata-favorite-error": "Nie udało się zapisać ulubionych",
-	"templatedata-favorite-maximum-reached": "Masz maksymalną możliwą liczbę ulubionych szablonów ($1). Usuń jakiś, zanim dodasz kolejny."
+	"templatedata-favorite-maximum-reached": "Masz maksymalną możliwą liczbę ulubionych szablonów ($1). Usuń jakiś, zanim dodasz kolejny.",
+	"templatedata-category-use-template": "Użyj tego szablonu",
+	"templatedata-category-categories": "Inne kategorie",
+	"templatedata-category-no-cats": "Brak."
 }

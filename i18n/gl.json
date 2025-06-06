@@ -135,5 +135,8 @@
 	"templatedata-category-switch-button": "Navegar",
 	"templatedata-category-column-empty": "Non se atoparon modelos nin subcategorías en \"[[$1]]\"",
 	"templatedata-category-browser-loadmore": "… cargar máis",
-	"templatedata-category-column-error": "Houbo un erro"
+	"templatedata-category-column-error": "Houbo un erro",
+	"templatedata-category-use-template": "Utilizar este modelo",
+	"templatedata-category-categories": "Outras categorías",
+	"templatedata-category-no-cats": "Ningunha."
 }

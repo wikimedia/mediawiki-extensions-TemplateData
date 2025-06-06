@@ -143,5 +143,8 @@
 	"templatedata-category-switch-button": "Selaa",
 	"templatedata-category-column-empty": "Luokasta [[$1]] ei löytynyt mallineita tai alaluokkia",
 	"templatedata-category-browser-loadmore": "…lataa lisää",
-	"templatedata-category-column-error": "Tapahtui virhe"
+	"templatedata-category-column-error": "Tapahtui virhe",
+	"templatedata-category-use-template": "Käytä tätä mallinetta",
+	"templatedata-category-categories": "Muut luokat",
+	"templatedata-category-no-cats": "Ei mitään."
 }

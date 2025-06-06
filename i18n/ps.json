@@ -36,5 +36,6 @@
 	"templatedata-modal-title": "کينډۍ اومتوک سمونگر",
 	"templatedata-modal-title-choose-language": "ژبه ټاکل",
 	"templatedata-modal-title-language": "ژبه",
-	"templatedata-modal-title-templatedesc": "د کينډۍ څرگندونه ($1)"
+	"templatedata-modal-title-templatedesc": "د کينډۍ څرگندونه ($1)",
+	"templatedata-category-browser-header": "وېشنيزې"
 }

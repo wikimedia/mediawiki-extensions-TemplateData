@@ -138,5 +138,8 @@
 	"templatedata-category-switch-button": "Gözdən keçir",
 	"templatedata-category-column-empty": "[[$1]] daxilində şablon və ya alt kateqoriya tapılmadı",
 	"templatedata-category-browser-loadmore": "…daha çoxunu yüklə",
-	"templatedata-category-column-error": "Xəta baş verdi"
+	"templatedata-category-column-error": "Xəta baş verdi",
+	"templatedata-category-use-template": "Bu şablonu istifadə et",
+	"templatedata-category-categories": "Digər kateqoriyalar",
+	"templatedata-category-no-cats": "Heç biri."
 }

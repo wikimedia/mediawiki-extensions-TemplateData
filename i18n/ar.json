@@ -7,6 +7,7 @@
 			"Maroen1990",
 			"Meno25",
 			"Mido",
+			"Mohammed Qays",
 			"Mr. Ibrahem",
 			"SaldırganSincap",
 			"Shbib Al-Subaie",
@@ -137,5 +138,11 @@
 	"templatedata-favorite-remove": "إزالة القالب من المفضلة",
 	"templatedata-favorite-removed": "تمت إزالة القالب من المفضلة",
 	"templatedata-favorite-error": "غير قادر على حفظ المفضلات",
-	"templatedata-favorite-maximum-reached": "لقد وصلتَ إلى الحد الأقصى ($1) من قوالبك المفضلة. يُرجى إزالة بعضها من قائمتك قبل إضافة المزيد."
+	"templatedata-favorite-maximum-reached": "لقد وصلتَ إلى الحد الأقصى ($1) من قوالبك المفضلة. يُرجى إزالة بعضها من قائمتك قبل إضافة المزيد.",
+	"templatedata-category-browser-header": "تصنيفات",
+	"templatedata-category-switch-button": "تصفح",
+	"templatedata-category-column-error": "حدث خطأ",
+	"templatedata-category-use-template": "استخدم هذا القالب",
+	"templatedata-category-categories": "تصنيفات أخرى",
+	"templatedata-category-no-cats": "لا شيء"
 }

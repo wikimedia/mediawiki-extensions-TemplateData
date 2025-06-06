@@ -131,5 +131,8 @@
 	"templatedata-category-switch-button": "Прелистај",
 	"templatedata-category-column-empty": "Не пронајдов предлошки или поткатегории во [[$1]]",
 	"templatedata-category-browser-loadmore": "…вчитај уште",
-	"templatedata-category-column-error": "Се појави грешка"
+	"templatedata-category-column-error": "Се појави грешка",
+	"templatedata-category-use-template": "Употреби ја предлошкава",
+	"templatedata-category-categories": "Други категории",
+	"templatedata-category-no-cats": "Ниедна."
 }

@@ -137,5 +137,7 @@
 	"templatedata-favorite-maximum-reached": "Hai raggiunto il numero massimo ($1) di modelli preferiti. Per favore, rimuovine alcuni dall'elenco prima di aggiungerne altri.",
 	"templatedata-category-browser-header": "Categorie",
 	"templatedata-category-switch-label": "Categoria di primo livello:",
-	"templatedata-category-column-error": "Si è verificato un errore"
+	"templatedata-category-column-error": "Si è verificato un errore",
+	"templatedata-category-categories": "Altre categorie",
+	"templatedata-category-no-cats": "Nessuno."
 }
