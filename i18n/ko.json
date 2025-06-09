@@ -140,5 +140,6 @@
 	"templatedata-category-switch-button": "찾아보기",
 	"templatedata-category-column-empty": "[[$1]]에 틀 또는 하위 분류가 없습니다.",
 	"templatedata-category-browser-loadmore": "…더 불러오기",
-	"templatedata-category-column-error": "오류가 발생했습니다"
+	"templatedata-category-column-error": "오류가 발생했습니다",
+	"templatedata-category-categories": "다른 분류"
 }

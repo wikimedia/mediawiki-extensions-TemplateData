@@ -134,5 +134,8 @@
 	"templatedata-category-switch-button": "עיון",
 	"templatedata-category-column-empty": "לא נמצאו תבניות או קטגוריות־משנה בדף [[$1]]",
 	"templatedata-category-browser-loadmore": "... לטעון עוד",
-	"templatedata-category-column-error": "אירעה שגיאה"
+	"templatedata-category-column-error": "אירעה שגיאה",
+	"templatedata-category-use-template": "להשתמש בתבנית הזאת",
+	"templatedata-category-categories": "קטגוריות אחרות",
+	"templatedata-category-no-cats": "אין."
 }

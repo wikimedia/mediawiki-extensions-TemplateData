@@ -113,5 +113,6 @@
 	"templatedata-search-placeholder": "টেমপ্লেট খুঁজুন",
 	"templatedata-search-list-header": "পছন্দের",
 	"templatedata-favorite-added": "পছন্দে টেমপ্লেট যোগ করা হয়েছে",
-	"templatedata-favorite-removed": "পছন্দ থেকে টেমপ্লেট সরানো হয়েছে"
+	"templatedata-favorite-removed": "পছন্দ থেকে টেমপ্লেট সরানো হয়েছে",
+	"templatedata-category-use-template": "এই টেমপ্লেটটি ব্যবহার করুন"
 }
