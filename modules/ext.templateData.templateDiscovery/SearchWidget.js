@@ -14,8 +14,11 @@ const mwConfig = require( './mwConfig.json' );
  * @param {FavoritesStore} config.favoritesStore Data store
  */
 function SearchWidget( config ) {
+	const placeholder = templateDiscoveryConfig.cirrusSearchLoaded ?
+		OO.ui.deferMsg( 'templatedata-search-description-cirrussearch' ) :
+		OO.ui.deferMsg( 'templatedata-search-description' );
 	config = Object.assign( {
-		placeholder: OO.ui.deferMsg( 'templatedata-search-placeholder' ),
+		placeholder: placeholder,
 		icon: 'search'
 	}, config );
 	SearchWidget.super.call( this, config );
