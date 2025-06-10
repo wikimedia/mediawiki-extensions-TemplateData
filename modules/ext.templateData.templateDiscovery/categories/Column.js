@@ -83,7 +83,7 @@ Column.prototype.loadItems = function ( columnTitle, cmcontinue ) {
 			this.popPending();
 		} ).catch( ( err ) => {
 			this.$element.addClass( 'ext-templatedata-column-info ext-templatedata-column-error' );
-			this.$element.append( mw.msg( 'templatedata-category-column-error' ) + mw.msg( 'colon-separator' ) + err );
+			this.$element.text( mw.msg( 'templatedata-category-column-error' ) + mw.msg( 'colon-separator' ) + err );
 			this.popPending();
 		} );
 	// @todo popPending should be moved to .finally(), when we can use that.
@@ -117,12 +117,12 @@ Column.prototype.showTemplateDetails = function ( catTitle, info ) {
 		const $cat = $( '<span>' ).text( new mw.Title( catData.title ).getMainText() );
 		$cats.append( $cat );
 		if ( catIndex !== otherCats.length - 1 ) {
-			$cats.append( mw.msg( 'semicolon-separator' ) );
+			$cats.append( mw.message( 'semicolon-separator' ).escaped() );
 		}
 	} );
 	// If the template is in no other categories, say so.
 	if ( otherCats.length === 0 ) {
-		$cats.append( mw.msg( 'templatedata-category-no-cats' ) );
+		$cats.append( mw.message( 'templatedata-category-no-cats' ).escaped() );
 	}
 	this.$element.append( $link, $description, button.$element, $cats );
 };
