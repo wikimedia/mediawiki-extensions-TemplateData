@@ -208,10 +208,17 @@ class Hooks implements
 
 		// user is logged in, and TemplateDataEnableDiscovery is true
 		if ( $output->getUser()->isNamed() && $this->config->get( 'TemplateDataEnableDiscovery' ) ) {
-			// On any valid namespace page, load the templateDiscovery module
-			// so that the favourite button can be shown.
 			$editorNamespaces = $this->config->get( 'TemplateDataEditorNamespaces' );
-			if ( $output->getTitle()->inNamespaces( $editorNamespaces ) && $output->getTitle()->exists() ) {
+			// The excluded subpages are also handled in modules/ext.templateData.templateDiscovery/SearchWidget.js
+			$excludedSubpages = explode( '|', $output->getContext()->msg( 'templatedata-excluded-subpages' ) );
+			// On any valid page, load the templateDiscovery module
+			// so that the favourite button can be shown.
+			if ( $output->getTitle()->inNamespaces( $editorNamespaces )
+				&& $output->getTitle()->exists()
+				&& count( array_filter( $excludedSubpages, static function ( $sub ) use ( $output ) {
+					return str_ends_with( $output->getTitle()->getText(), $sub );
+				} ) ) === 0
+			) {
 				$output->addModules( 'ext.templateData.templateDiscovery' );
 			}
 		}
