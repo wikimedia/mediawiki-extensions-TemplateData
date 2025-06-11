@@ -5,7 +5,8 @@ const mwConfig = require( '../mwConfig.json' );
  * @constructor
  */
 function DataStore() {
-	this.namespaceIds = mwConfig.TemplateDataEditorNamespaces;
+	this.namespaceIds = [];
+	this.namespaceIds.push( ...mwConfig.TemplateDataEditorNamespaces );
 	this.catNsId = mw.config.get( 'wgNamespaceIds' ).category;
 	this.namespaceIds.push( this.catNsId );
 	this.api = new mw.Api();
