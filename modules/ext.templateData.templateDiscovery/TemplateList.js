@@ -15,14 +15,14 @@ function TemplateList( config ) {
 		expanded: false
 	}, config );
 	TemplateList.super.call( this, 'template-list', config );
+	OO.ui.mixin.DraggableGroupElement.call( this );
+	this.$element.append( this.$group );
+
 	this.$element.addClass( 'ext-templatedata-TemplateList' );
 	this.menuItems = new Map();
 	this.config = config;
-	this.menu = new OO.ui.PanelLayout( { expanded: false } );
-
 	this.$tabHeaderIcon = null;
 	this.$emptyListMessage = null;
-	this.items = [];
 	this.favorites = [];
 	this.favoritesStore = config.favoritesStore || new FavoritesStore();
 
@@ -38,15 +38,8 @@ function TemplateList( config ) {
 				classes: [ 'ext-templatedata-TemplateList-empty' ],
 				label: mw.msg( 'templatedata-search-list-empty' )
 			} );
-			this.menu.$element.append( this.emptyListMessage.$element );
+			this.$group.append( this.emptyListMessage.$element );
 		}
-		// Then add the list (or message) to the container.
-		this.$element.append( this.menu.$element );
-		const mergedConfig = Object.assign( {
-			items: this.items
-		}, config );
-		mergedConfig.$group = this.$element;
-		OO.ui.mixin.DraggableGroupElement.call( this, mergedConfig );
 	} );
 
 	this.config.favoritesStore.connect(
@@ -124,25 +117,21 @@ TemplateList.prototype.addRowToList = function ( fave ) {
 		draggable: true // Only allow reordering of favorites in the list.
 	};
 	const templateMenuItem = new TemplateMenuItem( searchResultConfig, this.config.favoritesStore );
-	this.items.push( templateMenuItem );
+	this.addItems( templateMenuItem );
 	this.favorites.push( parseInt( fave.pageId ) );
 	this.menuItems.set( fave.pageId, templateMenuItem );
 	templateMenuItem.connect( this, { choose: 'onChoose', drop: 'onReorder' } );
-	this.menu.$element.append( templateMenuItem.$element );
 	// Remove the empty-list state (if applicable).
 	if ( this.emptyListMessage ) {
 		this.emptyListMessage.$element.remove();
 	}
 };
 
-TemplateList.prototype.onReorder = function () {
-	const droppedItem = this.items[ 0 ];
-	const oldIndex = this.favorites.indexOf( parseInt( droppedItem.data.pageId ) );
-
-	this.items.splice( oldIndex, 1 );
-	this.items.splice( this.items[ 0 ].index, 0, droppedItem );
+TemplateList.prototype.onReorder = function ( event ) {
+	const reorderedPageId = parseInt( event.data.pageId );
+	const oldIndex = this.favorites.indexOf( reorderedPageId );
 	this.favorites.splice( oldIndex, 1 );
-	this.favorites.splice( this.items[ 0 ].index, 0, parseInt( droppedItem.data.pageId ) );
+	this.favorites.splice( event.index, 0, reorderedPageId );
 	this.favoritesStore.saveFavoritesArray( this.favorites );
 };
 
