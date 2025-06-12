@@ -147,5 +147,9 @@
 	"templatedata-category-column-error": "حدث خطأ",
 	"templatedata-category-use-template": "استخدم هذا القالب",
 	"templatedata-category-categories": "تصنيفات أخرى",
-	"templatedata-category-no-cats": "لا شيء"
+	"templatedata-category-no-cats": "لا شيء",
+	"templatedata-featured-list-header": "مميزة",
+	"templatedata-featured-list-empty": "لا توجد قوالب مميزة متاحة",
+	"communityconfiguration-templatedata-featuredtemplates-title": "قوالب مميزة",
+	"communityconfiguration-templatedata-featuredtemplates-description": "القوالب المميزة هي قوالب صنفها المجتمع على أنها مفيدة. وهي متاحة للاستعمال في أداة اكتشاف القوالب."
 }

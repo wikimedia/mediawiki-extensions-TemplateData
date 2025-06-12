@@ -117,8 +117,9 @@
 	"templatedata-modal-title-templateparam-details": "Detalles do parámetro: $1",
 	"templatedata-modal-title-templateparams": "Parámetros do modelo",
 	"templatedata-search-title": "Procura de modelos",
-	"templatedata-search-description": "Atopa o modelo que queres inserir mediante unha palabra clave. Os modelos que teñen descricións é probable que funcionen mellor.",
-	"templatedata-search-placeholder": "Atopar un modelo",
+	"templatedata-search-description": "Buscar un modelo:",
+	"templatedata-search-placeholder": "Escribe o nome do modelo",
+	"templatedata-search-placeholder-cirrussearch": "Escribe o nome do modelo ou palabras clave",
 	"templatedata-search-list-header": "Favoritos",
 	"templatedata-search-list-empty": "Aquí aparecerán os modelos que marques como favoritos",
 	"templatedata-template-discovery-disabled": "O descubrimento de modelos está desactivado neste wiki.",
@@ -138,5 +139,9 @@
 	"templatedata-category-column-error": "Houbo un erro",
 	"templatedata-category-use-template": "Utilizar este modelo",
 	"templatedata-category-categories": "Outras categorías",
-	"templatedata-category-no-cats": "Ningunha."
+	"templatedata-category-no-cats": "Ningunha.",
+	"templatedata-featured-list-header": "Destacados",
+	"templatedata-featured-list-empty": "Non hai modelos destacados",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Modelos destacados",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Os modelos destacados son modelos que a comunidade marcou como útiles. Están dispoñibles para o seu uso na ferramenta de descubrimento de modelos."
 }

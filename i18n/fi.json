@@ -125,8 +125,9 @@
 	"templatedata-modal-title-templateparam-details": "Parametrin kuvaus: $1",
 	"templatedata-modal-title-templateparams": "Mallineen parametrit",
 	"templatedata-search-title": "Mallinehaku",
-	"templatedata-search-description": "Hae mallinetta käyttämällä vapaavalintaista hakusanaa. Parhaiten toimivat mallineet, joille on annettu kuvaus.",
-	"templatedata-search-placeholder": "Hae mallinetta",
+	"templatedata-search-description": "Hae mallinetta:",
+	"templatedata-search-placeholder": "Anna mallineen nimi",
+	"templatedata-search-placeholder-cirrussearch": "Anna mallineen nimi tai avainsanoja",
 	"templatedata-search-list-header": "Suosikit",
 	"templatedata-search-list-empty": "Suosikeiksi merkitsemäsi mallineet näkyvät tässä",
 	"templatedata-template-discovery-disabled": "Mallinehaku on poistettu käytöstä tässä wikissä.",
@@ -146,5 +147,9 @@
 	"templatedata-category-column-error": "Tapahtui virhe",
 	"templatedata-category-use-template": "Käytä tätä mallinetta",
 	"templatedata-category-categories": "Muut luokat",
-	"templatedata-category-no-cats": "Ei mitään."
+	"templatedata-category-no-cats": "Ei mitään.",
+	"templatedata-featured-list-header": "Suositellut",
+	"templatedata-featured-list-empty": "Ei suositeltuja mallineita saatavilla",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Suositellut mallineet",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi. Ne ovat käytettävissä mallinevalikossa."
 }

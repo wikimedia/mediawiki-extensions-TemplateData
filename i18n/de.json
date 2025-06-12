@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Brettchenweber",
+			"CennoxX",
 			"Flow",
 			"Kghbln",
 			"Metalhead64",
@@ -140,5 +141,9 @@
 	"templatedata-category-column-error": "Es ist ein Fehler aufgetreten",
 	"templatedata-category-use-template": "Diese Vorlage verwenden",
 	"templatedata-category-categories": "Andere Kategorien",
-	"templatedata-category-no-cats": "Keine."
+	"templatedata-category-no-cats": "Keine.",
+	"templatedata-featured-list-header": "Empfohlen",
+	"templatedata-featured-list-empty": "Keine empfohlenen Vorlagen verfügbar",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Empfohlene Vorlagen",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden. Sie stehen im Tool zur Vorlagensuche zur Verfügung."
 }

@@ -6,6 +6,7 @@
 			"Boniface",
 			"Brenloch56",
 			"Crochet.david",
+			"Derugon",
 			"Element303",
 			"Epok",
 			"Gomoko",
@@ -138,8 +139,9 @@
 	"templatedata-modal-title-templateparam-details": "Détails du paramètre : $1",
 	"templatedata-modal-title-templateparams": "Paramètres du modèle",
 	"templatedata-search-title": "Recherche de modèle",
-	"templatedata-search-description": "Recherchez le modèle que vous souhaitez insérer en recherchant un mot-clé d'identification. Les modèles qui comportent des descriptions sont plus susceptibles de bien fonctionner.",
-	"templatedata-search-placeholder": "Rechercher un modèle",
+	"templatedata-search-description": "Rechercher un modèle :",
+	"templatedata-search-placeholder": "Saisissez le nom d’un modèle",
+	"templatedata-search-placeholder-cirrussearch": "Saisissez le nom d’un modèle ou des mots-clés",
 	"templatedata-search-list-header": "Favoris",
 	"templatedata-search-list-empty": "Les modèles que vous marquez comme favoris apparaîtront ici",
 	"templatedata-template-discovery-disabled": "La découverte de modèles est désactivée sur ce wiki.",
@@ -159,5 +161,9 @@
 	"templatedata-category-column-error": "Une erreur s’est produite",
 	"templatedata-category-use-template": "Utilisez ce modèle",
 	"templatedata-category-categories": "Autres catégories",
-	"templatedata-category-no-cats": "Aucun."
+	"templatedata-category-no-cats": "Aucun.",
+	"templatedata-featured-list-header": "En vedette",
+	"templatedata-featured-list-empty": "Aucun modèle en vedette disponible",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Modèles en vedette",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Les modèles en vedête sont des modèles jugés utiles par la communauté. Ils sont disponibles dans l’outil de découverte de modèles."
 }

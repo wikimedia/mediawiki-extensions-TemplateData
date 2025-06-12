@@ -120,8 +120,9 @@
 	"templatedata-modal-title-templateparam-details": "Parametrin detalları: $1",
 	"templatedata-modal-title-templateparams": "Şablon parametrləri",
 	"templatedata-search-title": "Şablon axtarışı",
-	"templatedata-search-description": "Tanıdıcı açar söz axtararaq daxil etmək istədiyiniz şablonu tapın. İzahları olan şablonların bu redaktorla yaxşı işləmə ehtimalı daha yüksəkdir.",
-	"templatedata-search-placeholder": "Şablon tap",
+	"templatedata-search-description": "Şablon axtar:",
+	"templatedata-search-placeholder": "Şablonun adını daxil et",
+	"templatedata-search-placeholder-cirrussearch": "Şablon adını və ya açar sözləri daxil et",
 	"templatedata-search-list-header": "Sevimlilər",
 	"templatedata-search-list-empty": "Sevimli kimi qeyd etdiyiniz şablonlar burada görünəcək",
 	"templatedata-template-discovery-disabled": "Şablonların aşkarlanması bu vikidə söndürülüb.",
@@ -141,5 +142,9 @@
 	"templatedata-category-column-error": "Xəta baş verdi",
 	"templatedata-category-use-template": "Bu şablonu istifadə et",
 	"templatedata-category-categories": "Digər kateqoriyalar",
-	"templatedata-category-no-cats": "Heç biri."
+	"templatedata-category-no-cats": "Heç biri.",
+	"templatedata-featured-list-header": "Seçilmiş",
+	"templatedata-featured-list-empty": "Seçilmiş şablon mövcud deyil",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Seçilmiş şablonlar",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Seçilmiş şablonlar icma tərəfindən faydalı kimi qeyd edilmiş şablonlardır. Onlar şablon kəşf alətində istifadə üçün mövcuddur."
 }
