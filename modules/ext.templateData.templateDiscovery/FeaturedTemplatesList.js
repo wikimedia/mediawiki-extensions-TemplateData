@@ -13,7 +13,8 @@ const CCR_PROVIDER_VERSION = '1.0.0';
  */
 function FeaturedTemplatesList( config ) {
 	config = Object.assign( {
-		expanded: false
+		expanded: false,
+		label: mw.msg( 'templatedata-featured-list-header' )
 	}, config );
 	FeaturedTemplatesList.super.call( this, 'featured-templates-list', config );
 	this.$element.addClass( 'ext-templatedata-TemplateList' );
@@ -105,20 +106,6 @@ OO.inheritClass( FeaturedTemplatesList, OO.ui.TabPanelLayout );
  */
 
 /* Methods */
-
-FeaturedTemplatesList.prototype.setupTabItem = function () {
-	const icon = new OO.ui.IconWidget( {
-		icon: 'unStar',
-		framed: false,
-		flags: [ 'progressive' ],
-		classes: [ 'ext-templatedata-TemplateList-tabIcon' ]
-	} );
-	this.tabItem.$label.append(
-		icon.$element,
-		' ',
-		mw.message( 'templatedata-featured-list-header' ).escaped()
-	);
-};
 
 FeaturedTemplatesList.prototype.onChoose = function ( templateData ) {
 	this.emit( 'choose', templateData );
