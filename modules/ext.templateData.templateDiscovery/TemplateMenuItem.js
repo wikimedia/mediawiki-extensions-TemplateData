@@ -15,10 +15,11 @@ const FavoriteButton = require( './FavoriteButton.js' );
 function TemplateMenuItem( config, favoritesStore ) {
 	config = Object.assign( {
 		classes: [ 'ext-templatedata-TemplateMenuItem' ],
-		$label: $( '<a>' )
+		$label: $( '<a>' ),
+		icon: config.draggable ? 'draggable' : null
 	}, config );
 	TemplateMenuItem.super.call( this, config );
-	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$element } ), config );
+	OO.ui.mixin.DraggableElement.call( this, $.extend( { $handle: this.$icon } ), config );
 	OO.EventEmitter.call( this );
 
 	this.data = config.data;
