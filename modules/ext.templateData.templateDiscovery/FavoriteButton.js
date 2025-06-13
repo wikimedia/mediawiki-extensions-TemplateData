@@ -48,20 +48,26 @@ FavoriteButton.prototype.onClick = function () {
 	if ( !this.isFavorite ) {
 		// Add to favorites
 		this.favoritesStore.addFavorite( this.pageId ).then( () => {
-			this.isFavorite = true;
-			this.setIcon( 'bookmark' );
-			this.setLabel( mw.msg( 'templatedata-favorite-remove' ) );
-			this.setTitle( this.getLabel() );
+			this.setFavoriteState( true );
 		}, () => {} );
 	} else {
 		// Remove from favorites
 		this.favoritesStore.removeFavorite( this.pageId ).then( () => {
-			this.isFavorite = false;
-			this.setIcon( 'bookmarkOutline' );
-			this.setLabel( mw.msg( 'templatedata-favorite-add' ) );
-			this.setTitle( this.getLabel() );
+			this.setFavoriteState( false );
 		} );
 	}
+};
+
+/**
+ * Update the visible state of the button (icon, label, and title).
+ *
+ * @param {boolean} isFavorite The new state to set to.
+ */
+FavoriteButton.prototype.setFavoriteState = function ( isFavorite ) {
+	this.isFavorite = isFavorite;
+	this.setIcon( isFavorite ? 'bookmark' : 'bookmarkOutline' );
+	this.setLabel( isFavorite ? mw.msg( 'templatedata-favorite-remove' ) : mw.msg( 'templatedata-favorite-add' ) );
+	this.setTitle( this.getLabel() );
 };
 
 module.exports = FavoriteButton;

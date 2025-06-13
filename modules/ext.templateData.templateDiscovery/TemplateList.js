@@ -78,7 +78,7 @@ TemplateList.prototype.onChoose = function ( templateData ) {
  * @param {number} pageId
  */
 TemplateList.prototype.onFavoriteRemoved = function ( pageId ) {
-	this.menuItems.get( pageId ).$element[ 0 ].classList.add( 'ext-templatedata-TemplateMenuItem-removed' );
+	this.menuItems.get( pageId ).toggleFavorited( false );
 };
 
 /**
@@ -91,7 +91,7 @@ TemplateList.prototype.onFavoriteAdded = function ( pageId ) {
 	// Check if the pageId is already in the list.
 	// If it is, remove the 'removed' class.
 	if ( this.menuItems.has( pageId ) ) {
-		this.menuItems.get( pageId ).$element[ 0 ].classList.remove( 'ext-templatedata-TemplateMenuItem-removed' );
+		this.menuItems.get( pageId ).toggleFavorited( true );
 		return;
 	}
 
