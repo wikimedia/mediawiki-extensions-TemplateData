@@ -134,5 +134,9 @@
 	"templatedata-category-column-error": "Un error ha occurrite",
 	"templatedata-category-use-template": "Usar iste patrono",
 	"templatedata-category-categories": "Altere categorias",
-	"templatedata-category-no-cats": "Necun."
+	"templatedata-category-no-cats": "Necun.",
+	"templatedata-featured-list-header": "Eminente",
+	"templatedata-featured-list-empty": "Necun patrono eminente disponibile",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Patronos eminente",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Le patronos eminente es patronos que ha essite marcate como utile per le communitate. Illos es disponibile pro uso in le utensile de discoperta de patronos."
 }
