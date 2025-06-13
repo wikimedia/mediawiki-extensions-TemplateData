@@ -38,6 +38,7 @@ function FeaturedTemplatesList( config ) {
 	} );
 
 	getCommunityConfiguration().then( ( ccData ) => {
+		this.tabItem.$element.attr( 'title', mw.message( 'templatedata-featured-list-help' ).escaped() );
 		if ( ccData.communityconfiguration &&
 			ccData.communityconfiguration.data ) {
 			if ( !ccData.communityconfiguration.data.FeaturedTemplates ) {
