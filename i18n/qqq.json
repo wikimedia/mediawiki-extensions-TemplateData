@@ -158,5 +158,6 @@
 	"templatedata-featured-list-header": "Tab label above the list of featured templates.",
 	"templatedata-featured-list-empty": "Message shown in place of the featured templates list when there are no featured templates.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Title for the featured templates configuration.",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Description for the featured templates configuration."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Description for the featured templates configuration.",
+	"templatedata-featured-list-config-link": "Label for the link to the featured templates configuration page."
 }

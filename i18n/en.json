@@ -145,5 +145,6 @@
 	"templatedata-featured-list-header": "Featured",
 	"templatedata-featured-list-empty": "No featured templates available",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Featured templates",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Featured templates are templates that have been marked as useful by the community. They are available for use in the template discovery tool."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Featured templates are templates that have been marked as useful by the community. They are available for use in the template discovery tool.",
+	"templatedata-featured-list-config-link": "Edit featured list"
 }

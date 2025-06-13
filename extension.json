@@ -308,7 +308,8 @@
 				"templatedata-category-use-template",
 				"templatedata-category-categories",
 				"templatedata-category-no-cats",
-				"templatedata-category-column-error"
+				"templatedata-category-column-error",
+				"templatedata-featured-list-config-link"
 			]
 		}
 	},

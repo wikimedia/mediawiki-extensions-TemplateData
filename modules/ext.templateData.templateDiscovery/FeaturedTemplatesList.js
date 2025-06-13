@@ -21,6 +21,22 @@ function FeaturedTemplatesList( config ) {
 	this.config = config;
 	this.menu = new OO.ui.PanelLayout( { expanded: false } );
 
+	mw.user.getRights().then( ( rights ) => {
+		// If the user has the 'editsitejson' right, show the configuration link
+		if ( rights.includes( 'editsitejson' ) ) {
+			const $configLinkWrapper = $( '<div>' );
+			$configLinkWrapper.addClass( 'ext-templatedata-TemplateList-configLink' );
+			const configLink = new OO.ui.ButtonWidget( {
+				href: mw.util.getUrl( 'Special:CommunityConfiguration/' + CCR_PROVIDER ),
+				label: mw.msg( 'templatedata-featured-list-config-link' ),
+				framed: false,
+				flags: [ 'progressive' ]
+			} );
+			$configLinkWrapper.append( configLink.$element );
+			this.$element.append( $configLinkWrapper );
+		}
+	} );
+
 	getCommunityConfiguration().then( ( ccData ) => {
 		if ( ccData.communityconfiguration &&
 			ccData.communityconfiguration.data ) {
