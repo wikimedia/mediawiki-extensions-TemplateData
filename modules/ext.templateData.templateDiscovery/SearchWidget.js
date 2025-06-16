@@ -15,8 +15,8 @@ const mwConfig = require( './mwConfig.json' );
  */
 function SearchWidget( config ) {
 	const placeholder = templateDiscoveryConfig.cirrusSearchLoaded ?
-		OO.ui.deferMsg( 'templatedata-search-description-cirrussearch' ) :
-		OO.ui.deferMsg( 'templatedata-search-description' );
+		OO.ui.deferMsg( 'templatedata-search-placeholder-cirrussearch' ) :
+		OO.ui.deferMsg( 'templatedata-search-placeholder' );
 	config = Object.assign( {
 		placeholder: placeholder,
 		icon: 'search'
