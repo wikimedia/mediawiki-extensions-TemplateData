@@ -146,5 +146,6 @@
 	"templatedata-featured-list-header": "Seçilmiş",
 	"templatedata-featured-list-empty": "Seçilmiş şablon mövcud deyil",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Seçilmiş şablonlar",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Seçilmiş şablonlar icma tərəfindən faydalı kimi qeyd edilmiş şablonlardır. Onlar şablon kəşf alətində istifadə üçün mövcuddur."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Seçilmiş şablonlar icma tərəfindən faydalı kimi qeyd edilmiş şablonlardır. Onlar şablon kəşf alətində istifadə üçün mövcuddur.",
+	"templatedata-featured-list-config-link": "Seçilmişlər siyahısını redaktə et"
 }

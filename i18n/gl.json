@@ -143,5 +143,6 @@
 	"templatedata-featured-list-header": "Destacados",
 	"templatedata-featured-list-empty": "Non hai modelos destacados",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Modelos destacados",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Os modelos destacados son modelos que a comunidade marcou como útiles. Están dispoñibles para o seu uso na ferramenta de descubrimento de modelos."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Os modelos destacados son modelos que a comunidade marcou como útiles. Están dispoñibles para o seu uso na ferramenta de descubrimento de modelos.",
+	"templatedata-featured-list-config-link": "Editar a lista de modelos destacados"
 }

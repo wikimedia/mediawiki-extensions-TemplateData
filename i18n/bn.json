@@ -110,9 +110,12 @@
 	"templatedata-modal-title-templateparam-details": "প্যারামিটারের বিস্তারিত: $1",
 	"templatedata-modal-title-templateparams": "টেমপ্লেট প্যারামিটার",
 	"templatedata-search-title": "টেমপ্লেট অনুসন্ধান",
+	"templatedata-search-description": "একটি টেমপ্লেট জন্য অনুসন্ধান করুন:",
 	"templatedata-search-placeholder": "টেমপ্লেট খুঁজুন",
+	"templatedata-search-placeholder-cirrussearch": "টেমপ্লেটের নাম বা কীওয়ার্ড লিখুন",
 	"templatedata-search-list-header": "পছন্দের",
 	"templatedata-favorite-added": "পছন্দে টেমপ্লেট যোগ করা হয়েছে",
 	"templatedata-favorite-removed": "পছন্দ থেকে টেমপ্লেট সরানো হয়েছে",
-	"templatedata-category-use-template": "এই টেমপ্লেটটি ব্যবহার করুন"
+	"templatedata-category-use-template": "এই টেমপ্লেটটি ব্যবহার করুন",
+	"templatedata-category-no-cats": "কোনোটি নয়"
 }

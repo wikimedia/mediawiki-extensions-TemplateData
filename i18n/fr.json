@@ -165,5 +165,6 @@
 	"templatedata-featured-list-header": "En vedette",
 	"templatedata-featured-list-empty": "Aucun modèle en vedette disponible",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Modèles en vedette",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Les modèles en vedête sont des modèles jugés utiles par la communauté. Ils sont disponibles dans l’outil de découverte de modèles."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Les modèles en vedête sont des modèles jugés utiles par la communauté. Ils sont disponibles dans l’outil de découverte de modèles.",
+	"templatedata-featured-list-config-link": "Modifier la liste des modèles en vedette"
 }

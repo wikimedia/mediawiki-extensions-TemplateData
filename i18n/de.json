@@ -145,5 +145,6 @@
 	"templatedata-featured-list-header": "Empfohlen",
 	"templatedata-featured-list-empty": "Keine empfohlenen Vorlagen verfügbar",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Empfohlene Vorlagen",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden. Sie stehen im Tool zur Vorlagensuche zur Verfügung."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden. Sie stehen in der Vorlagensuche zur Verfügung.",
+	"templatedata-featured-list-config-link": "Liste empfohlener Vorlagen bearbeiten"
 }

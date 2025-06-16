@@ -139,5 +139,10 @@
 	"templatedata-category-column-error": "შეცდომა",
 	"templatedata-category-use-template": "ამ თარგი გამოყენება",
 	"templatedata-category-categories": "სხვა კატეგორიები",
-	"templatedata-category-no-cats": "არცერთი."
+	"templatedata-category-no-cats": "არცერთი.",
+	"templatedata-featured-list-header": "რჩეული",
+	"templatedata-featured-list-empty": "რჩეული თარგი არ არის ხელმისაწვდომი",
+	"communityconfiguration-templatedata-featuredtemplates-title": "რჩეული თარგები",
+	"communityconfiguration-templatedata-featuredtemplates-description": "რჩეული თარგები არის ის თარგები, რომლებიც საზოგადოების მიერ მონიშნულია როგორც სასარგებლო. ისინი ხელმისაწვდომია თარგების აღმოჩენის ინსტრუმენტში გამოსაყენებლად.",
+	"templatedata-featured-list-config-link": "რჩეული სიის რედაქტირება"
 }

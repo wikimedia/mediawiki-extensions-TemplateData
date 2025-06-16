@@ -113,8 +113,9 @@
 	"templatedata-modal-title-templateparam-details": "Поединости за параметарот: $1",
 	"templatedata-modal-title-templateparams": "Предложни параметри",
 	"templatedata-search-title": "Пребарување на предлошки",
-	"templatedata-search-description": "Најдете ја предлошката што сакате да ја вметнете пребарувајќи ја според клучен збор. Предлошките кои имаат описи е поверојатно да работат добро.",
-	"templatedata-search-placeholder": "Најди предлошка",
+	"templatedata-search-description": "Пребарајте предлошка:",
+	"templatedata-search-placeholder": "Внесете име на предлошка",
+	"templatedata-search-placeholder-cirrussearch": "Внесете име на предлошка или клучни зборови",
 	"templatedata-search-list-header": "Омилени",
 	"templatedata-search-list-empty": "Тука ќе се прикажуваат предлошките што сте ги означиле како омилени",
 	"templatedata-template-discovery-disabled": "Откривањето на предлошки е оневозможено на ова вики.",
@@ -134,5 +135,10 @@
 	"templatedata-category-column-error": "Се појави грешка",
 	"templatedata-category-use-template": "Употреби ја предлошкава",
 	"templatedata-category-categories": "Други категории",
-	"templatedata-category-no-cats": "Ниедна."
+	"templatedata-category-no-cats": "Ниедна.",
+	"templatedata-featured-list-header": "Избрани",
+	"templatedata-featured-list-empty": "Нема избрани предлошки",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Избрани предлошки",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Избраните предлошки се предлошки кои се означени како корисни за заедницата. Достапни се за употреба во алатката за откривање на предлошки.",
+	"templatedata-featured-list-config-link": "Уреди список на избрани"
 }

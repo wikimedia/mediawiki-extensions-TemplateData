@@ -138,5 +138,6 @@
 	"templatedata-featured-list-header": "Eminente",
 	"templatedata-featured-list-empty": "Necun patrono eminente disponibile",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Patronos eminente",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Le patronos eminente es patronos que ha essite marcate como utile per le communitate. Illos es disponibile pro uso in le utensile de discoperta de patronos."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Le patronos eminente es patronos que ha essite marcate como utile per le communitate. Illos es disponibile pro uso in le utensile de discoperta de patronos.",
+	"templatedata-featured-list-config-link": "Modificar le lista de patronos eminente"
 }

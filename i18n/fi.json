@@ -151,5 +151,6 @@
 	"templatedata-featured-list-header": "Suositellut",
 	"templatedata-featured-list-empty": "Ei suositeltuja mallineita saatavilla",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Suositellut mallineet",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi. Ne ovat käytettävissä mallinevalikossa."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi. Ne ovat käytettävissä mallinevalikossa.",
+	"templatedata-featured-list-config-link": "Muokkaa suositeltua listaa"
 }
