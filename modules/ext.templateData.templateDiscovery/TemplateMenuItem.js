@@ -88,8 +88,10 @@ OO.mixinClass( TemplateMenuItem, OO.EventEmitter );
 /* Methods */
 
 TemplateMenuItem.prototype.onClick = function ( event ) {
-	// Only handle click events that do not belong to the favorite button.
-	if ( !this.favoriteButton.$element[ 0 ].contains( event.target ) ) {
+	// Only handle click events that do not belong to the favorite button or the drag-handle icon.
+	if ( !this.favoriteButton.$element[ 0 ].contains( event.target ) &&
+		!this.$icon[ 0 ].contains( event.target )
+	) {
 		event.preventDefault();
 		this.emit( 'choose', this.data );
 	}
