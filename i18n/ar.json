@@ -152,5 +152,6 @@
 	"templatedata-featured-list-header": "مميزة",
 	"templatedata-featured-list-empty": "لا توجد قوالب مميزة متاحة",
 	"communityconfiguration-templatedata-featuredtemplates-title": "قوالب مميزة",
-	"communityconfiguration-templatedata-featuredtemplates-description": "القوالب المميزة هي قوالب صنفها المجتمع على أنها مفيدة. وهي متاحة للاستعمال في أداة اكتشاف القوالب."
+	"communityconfiguration-templatedata-featuredtemplates-description": "القوالب المميزة هي قوالب صنفها المجتمع على أنها مفيدة. وهي متاحة للاستعمال في أداة اكتشاف القوالب.",
+	"templatedata-featured-list-config-link": "تعديل القائمة المميزة"
 }
