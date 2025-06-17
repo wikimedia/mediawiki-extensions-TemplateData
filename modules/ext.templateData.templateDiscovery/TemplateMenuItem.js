@@ -102,4 +102,12 @@ TemplateMenuItem.prototype.onDrop = function () {
 	} );
 };
 
+/**
+ * @param {boolean} isFavorite
+ */
+TemplateMenuItem.prototype.toggleFavorited = function ( isFavorite ) {
+	this.$element.toggleClass( 'ext-templatedata-TemplateMenuItem-removed', !isFavorite );
+	this.favoriteButton.setFavoriteState( isFavorite );
+};
+
 module.exports = TemplateMenuItem;
