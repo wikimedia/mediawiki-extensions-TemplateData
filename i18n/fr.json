@@ -163,8 +163,9 @@
 	"templatedata-category-categories": "Autres catégories",
 	"templatedata-category-no-cats": "Aucun.",
 	"templatedata-featured-list-header": "En vedette",
-	"templatedata-featured-list-empty": "Aucun modèle en vedette disponible",
+	"templatedata-featured-list-empty": "Les modèles en vedête sont des modèles jugés utiles par la communauté. Aucun modèle en vedette n’a encore été défini.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Modèles en vedette",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Les modèles en vedête sont des modèles jugés utiles par la communauté. Ils sont disponibles dans l’outil de découverte de modèles.",
-	"templatedata-featured-list-config-link": "Modifier la liste des modèles en vedette"
+	"templatedata-featured-list-config-link": "Modifier la liste des modèles en vedette",
+	"templatedata-featured-list-help": "Les modèles en vedête sont des modèles jugés utiles par la communauté."
 }
