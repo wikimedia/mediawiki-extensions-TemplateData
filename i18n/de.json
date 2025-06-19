@@ -143,8 +143,9 @@
 	"templatedata-category-categories": "Andere Kategorien",
 	"templatedata-category-no-cats": "Keine.",
 	"templatedata-featured-list-header": "Empfohlen",
-	"templatedata-featured-list-empty": "Keine empfohlenen Vorlagen verfügbar",
+	"templatedata-featured-list-empty": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich eingestuft wurden. Es wurden noch keine empfohlenen Vorlagen eingerichtet.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Empfohlene Vorlagen",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden. Sie stehen in der Vorlagensuche zur Verfügung.",
-	"templatedata-featured-list-config-link": "Liste empfohlener Vorlagen bearbeiten"
+	"templatedata-featured-list-config-link": "Liste empfohlener Vorlagen bearbeiten",
+	"templatedata-featured-list-help": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden."
 }

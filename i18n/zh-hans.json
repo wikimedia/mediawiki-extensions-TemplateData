@@ -19,6 +19,7 @@
 			"Xiaomingyan",
 			"Xiplus",
 			"Yfdyh000",
+			"人间百态",
 			"星海",
 			"沈澄心"
 		]
@@ -132,7 +133,7 @@
 	"templatedata-modal-title-templateparams": "模板参数",
 	"templatedata-search-title": "模板搜索",
 	"templatedata-search-description": "通过搜索标识关键词查找您想要插入的模板。具有描述的模板搜索效果更好。",
-	"templatedata-search-placeholder": "查找模板",
+	"templatedata-search-placeholder": "填写模板名称",
 	"templatedata-search-list-header": "我的收藏",
 	"templatedata-search-list-empty": "您标记为收藏的模板将显示在这里",
 	"templatedata-template-discovery-disabled": "本wiki已禁用模板发现功能。",

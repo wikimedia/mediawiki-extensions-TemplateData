@@ -149,8 +149,9 @@
 	"templatedata-category-categories": "Muut luokat",
 	"templatedata-category-no-cats": "Ei mitään.",
 	"templatedata-featured-list-header": "Suositellut",
-	"templatedata-featured-list-empty": "Ei suositeltuja mallineita saatavilla",
+	"templatedata-featured-list-empty": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi. Yhtään suositeltua mallinetta ei ole vielä määritetty.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Suositellut mallineet",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi. Ne ovat käytettävissä mallinevalikossa.",
-	"templatedata-featured-list-config-link": "Muokkaa suositeltua listaa"
+	"templatedata-featured-list-config-link": "Muokkaa suositeltua listaa",
+	"templatedata-featured-list-help": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi."
 }
