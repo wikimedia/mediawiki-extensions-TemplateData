@@ -91,7 +91,7 @@ class FeaturedTemplatesSchemaValidator implements IValidator {
 	}
 
 	/** @inheritDoc */
-	public function validateStrictly( $config ): ValidationStatus {
+	public function validateStrictly( $config, ?string $version = null ): ValidationStatus {
 		$status = $this->jsonSchemaValidator->validateStrictly( $config );
 		if ( !$status->isOK() ) {
 			return $status;
@@ -100,7 +100,7 @@ class FeaturedTemplatesSchemaValidator implements IValidator {
 	}
 
 	/** @inheritDoc */
-	public function validatePermissively( $config ): ValidationStatus {
+	public function validatePermissively( $config, ?string $version = null ): ValidationStatus {
 		$status = $this->jsonSchemaValidator->validatePermissively( $config );
 		if ( !$status->isOK() ) {
 			return $status;
