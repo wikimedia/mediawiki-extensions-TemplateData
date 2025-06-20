@@ -1,0 +1,22 @@
+@import 'mediawiki.skin.variables.less';
+
+.mw-list-item.ext-templatedata-caction-favorite {
+	.oo-ui-buttonElement-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		width: 100%;
+		background-size: 15px;
+		left: 0;
+	}
+
+	.oo-ui-buttonElement-frameless.oo-ui-iconElement:first-child {
+		// Align small icons with the bottom of the tabs.
+		margin: 2px 0 0;
+		min-height: @min-size-interactive-pointer;
+		min-width: @min-size-interactive-pointer;
+		padding: 0;
+	}
+
+	.oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
+		// Match watchstar hover color.
+		background-color: @background-color-interactive-subtle--hover;
+	}
+}

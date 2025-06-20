@@ -1,0 +1,39 @@
+@import 'mediawiki.skin.variables.less';
+
+.mw-list-item.ext-templatedata-caction-favorite {
+	.oo-ui-buttonElement-frameless.oo-ui-iconElement:first-child {
+		margin: 0;
+		padding: 0;
+		vertical-align: bottom;
+	}
+
+	.oo-ui-buttonElement-button {
+		min-height: @min-size-icon-medium;
+		min-width: @min-size-icon-medium;
+		padding: 0;
+		border: 0;
+	}
+
+	.oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
+		background: none;
+	}
+
+	.oo-ui-buttonElement-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		width: 100%;
+		height: 100%;
+		mask-size: 15px;
+		mask-position: top;
+		mask-repeat: no-repeat;
+		margin: 0;
+		left: 0;
+		background: none;
+
+		&.oo-ui-icon-bookmark {
+			.cdx-mixin-css-icon-background-image( @cdx-icon-bookmark, #aaa );
+		}
+
+		&.oo-ui-icon-bookmarkOutline {
+			.cdx-mixin-css-icon-background-image( @cdx-icon-bookmark-outline, #aaa );
+		}
+	}
+}
