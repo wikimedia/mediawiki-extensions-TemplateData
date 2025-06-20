@@ -129,7 +129,7 @@
 	"templatedata-modal-title-templateparam-details": "변수 상세 정보: $1",
 	"templatedata-modal-title-templateparams": "틀 변수",
 	"templatedata-search-title": "틀 검색",
-	"templatedata-search-placeholder": "틀 찾기",
+	"templatedata-search-placeholder": "틀 이름 입력",
 	"templatedata-search-list-header": "즐겨찾기",
 	"templatedata-favorite-disabled": "틀을 즐겨찾기하려면 로그인해야 합니다",
 	"templatedata-favorite-added": "즐겨찾기에 틀이 추가되었습니다",
