@@ -137,8 +137,9 @@
 	"templatedata-category-categories": "Други категории",
 	"templatedata-category-no-cats": "Ниедна.",
 	"templatedata-featured-list-header": "Избрани",
-	"templatedata-featured-list-empty": "Нема избрани предлошки",
+	"templatedata-featured-list-empty": "Избраните предлошки се предлишки кои заедницата ги означила како корисни. Засега нема поставено избрани предлошки.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Избрани предлошки",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Избраните предлошки се предлошки кои се означени како корисни за заедницата. Достапни се за употреба во алатката за откривање на предлошки.",
-	"templatedata-featured-list-config-link": "Уреди список на избрани"
+	"templatedata-featured-list-config-link": "Уреди список на избрани",
+	"templatedata-featured-list-help": "Избраните предлошки се предлишки кои заедницата ги означила како корисни."
 }

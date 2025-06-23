@@ -116,8 +116,9 @@
 	"templatedata-modal-title-templateparam-details": "פרטי הפרמטר: $1",
 	"templatedata-modal-title-templateparams": "פרמטרי תבנית",
 	"templatedata-search-title": "חיפוש תבנית",
-	"templatedata-search-description": "{{GENDER:|מצא את התבנית שאתה|מצאי את התבנית שאת}} רוצה באמצעות חיפוש מילת מפתח מזהה. סביר שתבניות עם תיאורים יעבדו טוב יותר.",
-	"templatedata-search-placeholder": "מציאת תבנית",
+	"templatedata-search-description": "חיפוש תבנית:",
+	"templatedata-search-placeholder": "יש להזין את שם התבנית",
+	"templatedata-search-placeholder-cirrussearch": "יש להזין את שם התבנית, או מילות מפתח",
 	"templatedata-search-list-header": "מועדפות",
 	"templatedata-search-list-empty": "תבניות שסימנת בתור מועדפות יופיעו כאן",
 	"templatedata-template-discovery-disabled": "גילוי תבניות מושבת בוויקי הזה.",
@@ -137,5 +138,11 @@
 	"templatedata-category-column-error": "אירעה שגיאה",
 	"templatedata-category-use-template": "להשתמש בתבנית הזאת",
 	"templatedata-category-categories": "קטגוריות אחרות",
-	"templatedata-category-no-cats": "אין."
+	"templatedata-category-no-cats": "אין.",
+	"templatedata-featured-list-header": "מומלץ",
+	"templatedata-featured-list-empty": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה. עדיין לא הוגדרו תבניות מומלצות.",
+	"communityconfiguration-templatedata-featuredtemplates-title": "תבניות מומלצות",
+	"communityconfiguration-templatedata-featuredtemplates-description": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה. הן זמינות לשימוש בכלי גילוי התבניות.",
+	"templatedata-featured-list-config-link": "עריכת רשימת התבניות המומלצות",
+	"templatedata-featured-list-help": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה."
 }

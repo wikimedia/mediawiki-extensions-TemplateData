@@ -141,7 +141,7 @@
 	"templatedata-favorite-removed": "テンプレートをお気に入りから削除しました",
 	"templatedata-favorite-error": "お気に入りを保存できません",
 	"templatedata-favorite-maximum-reached": "お気に入りのテンプレートの数が上限（$1）に達しました。追加する前に、リストからいくつか削除してください。",
-	"templatedata-category-browser-header": "カテゴリー",
+	"templatedata-category-browser-header": "カテゴリ",
 	"templatedata-category-switch-label": "最上位カテゴリ:",
 	"templatedata-category-switch-button": "閲覧",
 	"templatedata-category-column-empty": "[[$1]]にテンプレートや下位カテゴリはありません",
