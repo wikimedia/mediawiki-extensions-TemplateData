@@ -150,8 +150,9 @@
 	"templatedata-category-categories": "تصنيفات أخرى",
 	"templatedata-category-no-cats": "لا شيء",
 	"templatedata-featured-list-header": "مميزة",
-	"templatedata-featured-list-empty": "لا توجد قوالب مميزة متاحة",
+	"templatedata-featured-list-empty": "القوالب المميزة هي قوالب صنفها المجتمع على أنها مفيدة. لم يتم إعداد أي قوالب مميزة بعد.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "قوالب مميزة",
 	"communityconfiguration-templatedata-featuredtemplates-description": "القوالب المميزة هي قوالب صنفها المجتمع على أنها مفيدة. وهي متاحة للاستعمال في أداة اكتشاف القوالب.",
-	"templatedata-featured-list-config-link": "تعديل القائمة المميزة"
+	"templatedata-featured-list-config-link": "تعديل القائمة المميزة",
+	"templatedata-featured-list-help": "القوالب المميزة هي قوالب تم وضع علامة عليها على أنها مفيدة من قبل المجتمع."
 }
