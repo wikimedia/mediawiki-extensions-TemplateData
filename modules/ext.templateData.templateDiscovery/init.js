@@ -1,6 +1,5 @@
 const FavoriteButton = require( './FavoriteButton.js' );
 const mwConfig = require( './mwConfig.json' );
-const FavoritesStore = require( './FavoritesStore.js' );
 
 mw.templateData = {
 	config: require( './config.json' ),
@@ -38,17 +37,9 @@ if ( mwConfig.TemplateDataEditorNamespaces.includes( namespace ) ) {
 function addFavoriteIcon( watchlistStarParent ) {
 	const pageId = mw.config.get( 'wgArticleId' );
 	if ( pageId ) {
-		const favoritesStore = new FavoritesStore();
-		const isFavorite = favoritesStore.isFavorite( pageId );
-		const tooltip = isFavorite ? mw.msg( 'templatedata-favorite-remove' ) : mw.msg( 'templatedata-favorite-add' );
 		const portlet = mw.util.addPortletLink( 'p-cactions', '', '', 'ca-favorite' );
 		if ( portlet ) {
-			const favoriteButton = new FavoriteButton( {
-				pageId: pageId,
-				favoritesStore: favoritesStore,
-				label: tooltip
-			} );
-
+			const favoriteButton = new FavoriteButton( { pageId: pageId } );
 			portlet.classList.add( 'ext-templatedata-caction-favorite' );
 
 			// Replace with the favorite button
