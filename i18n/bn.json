@@ -113,9 +113,14 @@
 	"templatedata-search-description": "একটি টেমপ্লেট জন্য অনুসন্ধান করুন:",
 	"templatedata-search-placeholder": "টেমপ্লেটের নাম লিখুন",
 	"templatedata-search-placeholder-cirrussearch": "টেমপ্লেটের নাম বা কীওয়ার্ড লিখুন",
-	"templatedata-search-list-header": "পছন্দের",
-	"templatedata-favorite-added": "পছন্দে টেমপ্লেট যোগ করা হয়েছে",
+	"templatedata-search-list-header": "পছন্দ",
+	"templatedata-favorite-add": "পছন্দের তালিকায় টেমপ্লেট যোগ করুন",
+	"templatedata-favorite-added": "পছন্দের তালিকায় টেমপ্লেট যোগ করা হয়েছে",
+	"templatedata-favorite-remove": "পছন্দের তালিকা থেকে টেমপ্লেট সরিয়ে ফেলুন",
 	"templatedata-favorite-removed": "পছন্দ থেকে টেমপ্লেট সরানো হয়েছে",
+	"templatedata-favorite-error": "পছন্দ সংরক্ষণ করা যায়নি",
+	"templatedata-category-browser-loadmore": "…আরও লোড করুন",
+	"templatedata-category-column-error": "একটি ত্রুটি ঘটেছে",
 	"templatedata-category-use-template": "এই টেমপ্লেটটি ব্যবহার করুন",
 	"templatedata-category-no-cats": "কোনোটি নয়"
 }
