@@ -240,6 +240,17 @@
 				"TemplateSearchLayout.less",
 				"categories/CategoryBrowser.less"
 			],
+			"skinStyles": {
+				"vector": [
+					"TemplateSearchLayout-Vector.less"
+				],
+				"vector-2022": [
+					"TemplateSearchLayout-Vector-2022.less"
+				],
+				"timeless": [
+					"TemplateSearchLayout-Timeless.less"
+				]
+			},
 			"packageFiles": [
 				"init.js",
 				{
