@@ -38,11 +38,18 @@
 		"ParserFetchTemplateData": "main",
 		"OutputPageBeforeHTML": "main",
 		"GetPreferences": "main",
-		"SaveUserOptions": "main"
+		"SaveUserOptions": "main",
+		"CommunityConfigurationProvider_initList": "communityconfig"
 	},
 	"HookHandlers": {
 		"main": {
 			"class": "MediaWiki\\Extension\\TemplateData\\Hooks",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"communityconfig": {
+			"class": "MediaWiki\\Extension\\TemplateData\\CommunityConfigurationHooks",
 			"services": [
 				"MainConfig"
 			]
