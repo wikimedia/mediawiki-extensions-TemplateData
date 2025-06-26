@@ -148,7 +148,7 @@ FavoritesStore.prototype.addFavorite = function ( pageId ) {
 			mw.notify(
 				mw.msg( 'templatedata-favorite-added' ),
 				{
-					type: 'success',
+					type: 'info',
 					tag: 'templatedata-favorite-added'
 				}
 			);
@@ -183,7 +183,7 @@ FavoritesStore.prototype.removeFavorite = function ( pageId ) {
 		mw.notify(
 			mw.msg( 'templatedata-favorite-removed' ),
 			{
-				type: 'success',
+				type: 'info',
 				tag: 'templatedata-favorite-removed'
 			}
 		);
