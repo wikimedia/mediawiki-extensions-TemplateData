@@ -84,7 +84,11 @@ DataStore.prototype.getItemData = function ( pageId ) {
 		} )
 	] ).then( ( responses ) => {
 		const out = {};
-		if ( responses[ 0 ].pages[ pageId ] !== undefined ) {
+		if ( Object.keys( responses[ 0 ].pages ).length > 0 ) {
+			const gotPageId = Object.keys( responses[ 0 ].pages )[ 0 ];
+			if ( parseInt( gotPageId ) !== pageId ) {
+				pageId = parseInt( gotPageId );
+			}
 			out.templatedata = responses[ 0 ].pages[ pageId ];
 			// Set the pageId for easier access later.
 			out.templatedata.pageId = pageId;
