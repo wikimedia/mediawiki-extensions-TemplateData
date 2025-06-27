@@ -21,8 +21,7 @@ function TemplateList( config ) {
 	this.$element.addClass( 'ext-templatedata-TemplateList' );
 	this.menuItems = new Map();
 	this.config = config;
-	this.$tabHeaderIcon = null;
-	this.$emptyListMessage = null;
+	this.emptyListMessage = null;
 	this.favorites = [];
 	this.favoritesStore = config.favoritesStore || new FavoritesStore();
 
@@ -116,7 +115,7 @@ TemplateList.prototype.addRowToList = function ( fave ) {
 		description: fave.description,
 		draggable: true // Only allow reordering of favorites in the list.
 	};
-	const templateMenuItem = new TemplateMenuItem( searchResultConfig, this.config.favoritesStore );
+	const templateMenuItem = new TemplateMenuItem( searchResultConfig, this.favoritesStore );
 	this.addItems( templateMenuItem );
 	this.favorites.push( parseInt( fave.pageId ) );
 	this.menuItems.set( fave.pageId, templateMenuItem );
