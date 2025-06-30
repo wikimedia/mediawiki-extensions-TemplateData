@@ -8,6 +8,7 @@ use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\ParserFetchTemplateDataHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\OutputPageBeforeHTMLHook;
@@ -29,6 +30,7 @@ use MediaWiki\User\UserIdentity;
 /**
  * @license GPL-2.0-or-later
  * phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName
+ * phpcs:disable Squiz.Classes.ValidClassName.NotCamelCaps
  */
 class Hooks implements
 	ParserFirstCallInitHook,
@@ -38,7 +40,8 @@ class Hooks implements
 	ParserFetchTemplateDataHook,
 	OutputPageBeforeHTMLHook,
 	GetPreferencesHook,
-	SaveUserOptionsHook
+	SaveUserOptionsHook,
+	SkinTemplateNavigation__UniversalHook
 {
 
 	private Config $config;
@@ -205,8 +208,11 @@ class Hooks implements
 			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
 			$formatter->replaceEditLink( $text );
 		}
+	}
 
-		// user is logged in, and TemplateDataEnableDiscovery is true
+	/** @inheritDoc */
+	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
+		$output = $sktemplate->getOutput();
 		if ( $output->getUser()->isNamed() && $this->config->get( 'TemplateDataEnableDiscovery' ) ) {
 			$editorNamespaces = $this->config->get( 'TemplateDataEditorNamespaces' );
 			// The excluded subpages are also handled in modules/ext.templateData.templateDiscovery/SearchWidget.js
@@ -220,6 +226,10 @@ class Hooks implements
 				} ) ) === 0
 			) {
 				$output->addModules( 'ext.templateData.templateDiscovery' );
+				// Add a dummy action that will be replaced by a functional button in the frontend.
+				$links[ 'actions' ][ 'favorite' ] = [
+					'text' => ' ',
+				];
 			}
 		}
 	}
