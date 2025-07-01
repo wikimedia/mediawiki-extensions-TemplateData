@@ -39,6 +39,7 @@
 		"OutputPageBeforeHTML": "main",
 		"GetPreferences": "main",
 		"SaveUserOptions": "main",
+		"SkinTemplateNavigation::Universal": "main",
 		"CommunityConfigurationProvider_initList": "communityconfig"
 	},
 	"HookHandlers": {
