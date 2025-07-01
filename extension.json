@@ -249,6 +249,9 @@
 				"categories/CategoryBrowser.less"
 			],
 			"skinStyles": {
+				"monobook": [
+					"TemplateSearchLayout-MonoBook.less"
+				],
 				"vector": [
 					"TemplateSearchLayout-Vector.less"
 				],

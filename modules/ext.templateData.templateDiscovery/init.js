@@ -20,7 +20,18 @@ if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'TemplateDiscovery' ) {
 const caFavorite = document.getElementById( 'ca-favorite' );
 const pageId = mw.config.get( 'wgArticleId' );
 if ( caFavorite && pageId ) {
-	const favoriteButton = new FavoriteButton( { pageId: pageId } );
+	// Some skins show the watchlist button as a star icon.
+	const iconSkins = [ 'vector', 'vector-2022', 'timeless' ];
+	const showIcon = iconSkins.includes( mw.config.get( 'skin' ) );
+	const buttonConfig = {
+		pageId: pageId,
+		invisibleLabel: showIcon
+	};
+	if ( !showIcon ) {
+		buttonConfig.icon = false;
+		buttonConfig.$input = $( '<a>' );
+	}
+	const favoriteButton = new FavoriteButton( buttonConfig );
 	caFavorite.classList.add( 'ext-templatedata-caction-favorite' );
 	caFavorite.replaceChildren( favoriteButton.$element[ 0 ] );
 	// If there is a watchstar, move the favorite button to be after it.

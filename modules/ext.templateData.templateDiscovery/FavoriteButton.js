@@ -65,7 +65,9 @@ FavoriteButton.prototype.onClick = function () {
  */
 FavoriteButton.prototype.setFavoriteState = function ( isFavorite ) {
 	this.isFavorite = isFavorite;
-	this.setIcon( isFavorite ? 'bookmark' : 'bookmarkOutline' );
+	if ( this.getIcon() ) {
+		this.setIcon( isFavorite ? 'bookmark' : 'bookmarkOutline' );
+	}
 	this.setLabel( isFavorite ? mw.msg( 'templatedata-favorite-remove' ) : mw.msg( 'templatedata-favorite-add' ) );
 	this.setTitle( this.getLabel() );
 };
