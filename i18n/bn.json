@@ -51,6 +51,7 @@
 	"templatedata-helplink": "টেমপ্লেটের উপাত্ত সম্পর্কে তথ্য",
 	"templatedata-invalid-format": "বিশিষ্ট \"$1\" \"inline\", \"block\", বা একটি বৈধ বিন্যাসের স্ট্রিং হতে হবে।",
 	"templatedata-invalid-length": "সংরক্ষণ করার জন্য উপাত্ত খুব বড় ($1 {{PLURAL:$1|বাইট}}, {{PLURAL:$2|সর্বোচ্চ সীমা}} হল $2)",
+	"templatedata-invalid-missing": "আবশ্যিক বৈশিষ্ট্য \"$1\" পাওয়া যায়নি।",
 	"templatedata-invalid-parse": "JSON-এর মধ্যে বাক্যগঠনে ত্রুটি।",
 	"templatedata-modal-button-add-language": "ভাষা যোগ করুন",
 	"templatedata-modal-button-addparam": "প্যারামিটার যোগ করুন",
@@ -111,7 +112,14 @@
 	"templatedata-modal-title-templateparams": "টেমপ্লেট প্যারামিটার",
 	"templatedata-search-title": "টেমপ্লেট অনুসন্ধান",
 	"templatedata-search-placeholder": "টেমপ্লেট খুঁজুন",
-	"templatedata-search-list-header": "পছন্দের",
-	"templatedata-favorite-added": "পছন্দে টেমপ্লেট যোগ করা হয়েছে",
-	"templatedata-favorite-removed": "পছন্দ থেকে টেমপ্লেট সরানো হয়েছে"
+	"templatedata-search-list-header": "পছন্দ",
+	"templatedata-search-list-empty": "আপনি যেসব টেমপ্লেট পছন্দসই হিসেবে চিহ্নিত করবেন সেগুলি এখানে দেখা যাবে",
+	"templatedata-template-discovery-disabled": "এই উইকিতে টেমপ্লেট আবিষ্কার নিষ্ক্রিয় করা রয়েছে।",
+	"templatediscovery": "টেমপ্লেট আবিষ্কার",
+	"templatedata-favorite-disabled": "টেমপ্লেট পছন্দের তালিকায় যোগ করতে আপনাকে অবশ্যই প্রবেশ করতে হবে।",
+	"templatedata-favorite-add": "পছন্দের তালিকায় টেমপ্লেট যোগ করুন",
+	"templatedata-favorite-added": "পছন্দের তালিকায় টেমপ্লেট যোগ করা হয়েছে",
+	"templatedata-favorite-remove": "পছন্দের তালিকা থেকে টেমপ্লেট সরিয়ে ফেলুন",
+	"templatedata-favorite-removed": "পছন্দ থেকে টেমপ্লেট সরানো হয়েছে",
+	"templatedata-favorite-error": "পছন্দ সংরক্ষণ করা যায়নি"
 }

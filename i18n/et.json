@@ -112,5 +112,13 @@
 	"templatedata-modal-title-templateformat": "Soovitatav vikiteksti vorming",
 	"templatedata-modal-title-templateformatstring": "Kohandatud vormingusõne",
 	"templatedata-modal-title-templateparam-details": "Parameetri üksikasjad: $1",
-	"templatedata-modal-title-templateparams": "Malli parameetrid"
+	"templatedata-modal-title-templateparams": "Malli parameetrid",
+	"templatedata-search-list-header": "Lemmikud",
+	"templatedata-search-list-empty": "Siia ilmuvad mallid, mille märgid lemmikuks.",
+	"templatedata-favorite-disabled": "Pead olema sisse loginud, et mall lemmikuks märkida",
+	"templatedata-favorite-add": "Lisa mall lemmikuks",
+	"templatedata-favorite-added": "Mall lisatud lemmikutesse.",
+	"templatedata-favorite-remove": "Eemalda mall lemmikutest",
+	"templatedata-favorite-removed": "Mall lemmikutest eemaldatud.",
+	"templatedata-favorite-maximum-reached": "Oled lisanud suurima lubatud arvu ($1) lemmikmalle. Palun eemalda enda loendist mõned, enne kui lisad malle juurde."
 }
