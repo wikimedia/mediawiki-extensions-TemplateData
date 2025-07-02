@@ -35,9 +35,10 @@ class FeaturedTemplatesSchemaValidator implements IValidator {
 
 	/**
 	 * @param mixed $config
+	 * @param string|null $version
 	 * @return ValidationStatus
 	 */
-	private function validate( $config ): ValidationStatus {
+	private function validate( $config, ?string $version = null ): ValidationStatus {
 		$resp = new ValidationStatus();
 		$configArray = json_decode( json_encode( $config ), true );
 
@@ -85,27 +86,27 @@ class FeaturedTemplatesSchemaValidator implements IValidator {
 		}
 		// Validate the config against the JSON schema
 		// This will add any validation errors to the response
-		$resp->merge( $this->jsonSchemaValidator->validateStrictly( $config ) );
+		$resp->merge( $this->jsonSchemaValidator->validateStrictly( $config, $version ) );
 
 		return $resp;
 	}
 
 	/** @inheritDoc */
 	public function validateStrictly( $config, ?string $version = null ): ValidationStatus {
-		$status = $this->jsonSchemaValidator->validateStrictly( $config );
+		$status = $this->jsonSchemaValidator->validateStrictly( $config, $version );
 		if ( !$status->isOK() ) {
 			return $status;
 		}
-		return $this->validate( $config );
+		return $this->validate( $config, $version );
 	}
 
 	/** @inheritDoc */
 	public function validatePermissively( $config, ?string $version = null ): ValidationStatus {
-		$status = $this->jsonSchemaValidator->validatePermissively( $config );
+		$status = $this->jsonSchemaValidator->validatePermissively( $config, $version );
 		if ( !$status->isOK() ) {
 			return $status;
 		}
-		return $this->validate( $config );
+		return $this->validate( $config, $version );
 	}
 
 	/** @inheritDoc */
