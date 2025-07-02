@@ -135,6 +135,7 @@
 	"templatedata-favorite-maximum-reached": "You have reached the maximum number ($1) of favorite templates. Please remove some from your list before adding more.",
 	"templatedata-category-browser-header": "Categories",
 	"templatedata-category-switch-label": "Top-level category:",
+	"templatedata-category-rootcat": "Templates",
 	"templatedata-category-switch-button": "Browse",
 	"templatedata-category-column-empty": "No templates or subcategories found in [[$1]]",
 	"templatedata-category-browser-loadmore": "…load more",
