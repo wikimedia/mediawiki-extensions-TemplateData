@@ -135,6 +135,7 @@
 	"templatedata-favorite-maximum-reached": "Du hast die maximale Anzahl ($1) an Favoritenvorlagen erreicht. Bitte entferne einige aus deiner Liste, bevor du weitere hinzufügst.",
 	"templatedata-category-browser-header": "Kategorien",
 	"templatedata-category-switch-label": "Kategorie der obersten Ebene:",
+	"templatedata-category-rootcat": "Vorlagen",
 	"templatedata-category-switch-button": "Durchsuchen",
 	"templatedata-category-column-empty": "Keine Vorlagen oder Unterkategorien in [[$1]] gefunden",
 	"templatedata-category-browser-loadmore": "… mehr laden",
