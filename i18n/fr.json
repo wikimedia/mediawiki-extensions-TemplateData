@@ -156,6 +156,7 @@
 	"templatedata-favorite-maximum-reached": "Vous avez atteint le nombre maximum ( $1 ) de modèles favoris. Veuillez en supprimer certains de votre liste avant d'en ajouter d'autres.",
 	"templatedata-category-browser-header": "Catégories",
 	"templatedata-category-switch-label": "Catégorie de premier niveau :",
+	"templatedata-category-rootcat": "Modèles",
 	"templatedata-category-switch-button": "Parcourir",
 	"templatedata-category-column-empty": "Aucun modèle ni sous-catégorie trouvé dans [[$1]]",
 	"templatedata-category-browser-loadmore": "…charger plus",

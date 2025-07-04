@@ -128,6 +128,7 @@
 	"templatedata-favorite-maximum-reached": "Tu ha attingite le numero maxime de patronos favorite ($1). Per favor remove alcunes de tu lista ante de adder alteres.",
 	"templatedata-category-browser-header": "Categorias",
 	"templatedata-category-switch-label": "Categoria de prime nivello:",
+	"templatedata-category-rootcat": "Patronos",
 	"templatedata-category-switch-button": "Percurrer",
 	"templatedata-category-column-empty": "Necun patrono o subcategoria trovate in [[$1]]",
 	"templatedata-category-browser-loadmore": "…cargar plus",

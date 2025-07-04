@@ -125,6 +125,7 @@
 	"templatedata-favorite-error": "Favoritte konnten net gespäichert ginn",
 	"templatedata-favorite-maximum-reached": "Dir hutt déi maximal Zuel vu Favoritte-Schablounen erreecht ($1). Huelt der wgl. e puer aus Ärer Lëscht eraus, ier Dir neier derbäisetzt.",
 	"templatedata-category-browser-header": "Kategorien",
+	"templatedata-category-rootcat": "Schablounen",
 	"templatedata-category-column-empty": "Keng Schablounen oder Ënnerkategorien a(n) [[$1]] fonnt",
 	"templatedata-category-browser-loadmore": "… méi lueden",
 	"templatedata-category-column-error": "Et ass e Feeler geschitt",

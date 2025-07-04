@@ -133,6 +133,7 @@
 	"templatedata-favorite-maximum-reached": "Alcanzaches o número máximo de modelos favoritos ($1). Elimina algúns da túa lista antes de engadires máis.",
 	"templatedata-category-browser-header": "Categorías",
 	"templatedata-category-switch-label": "Categoría de nivel superior:",
+	"templatedata-category-rootcat": "Modelos",
 	"templatedata-category-switch-button": "Navegar",
 	"templatedata-category-column-empty": "Non se atoparon modelos nin subcategorías en \"[[$1]]\"",
 	"templatedata-category-browser-loadmore": "… cargar máis",
