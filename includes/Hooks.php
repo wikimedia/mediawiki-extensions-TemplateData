@@ -71,8 +71,8 @@ class Hooks implements
 					'localBasePath' => dirname( __DIR__ ),
 					'remoteExtPath' => 'TemplateData',
 					'scripts' => [
-						'lib/jquery.uls/src/jquery.uls.data.js',
-						'lib/jquery.uls/src/jquery.uls.data.utils.js',
+						'modules/lib/jquery.uls/jquery.uls.data.js',
+						'modules/lib/jquery.uls/jquery.uls.data.utils.js',
 					],
 				]
 			] );

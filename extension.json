@@ -65,6 +65,7 @@
 	"ExtensionMessagesFiles": {
 		"TemplateDataAlias": "TemplateData.i18n.alias.php"
 	},
+	"ForeignResourcesDir": "modules/lib",
 	"ResourceModules": {
 		"ext.templateData": {
 			"localBasePath": "modules/ext.templateData",
