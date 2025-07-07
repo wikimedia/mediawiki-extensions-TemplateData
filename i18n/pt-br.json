@@ -3,6 +3,7 @@
 		"authors": [
 			"555",
 			"Araceletorres",
+			"BraunOBruno",
 			"Cainamarques",
 			"Dr03ramos",
 			"Eduardo Addad de Oliveira",
@@ -121,5 +122,6 @@
 	"templatedata-modal-title-templateformat": "Formatação do texto wiki sugerida",
 	"templatedata-modal-title-templateformatstring": "String de formato personalizado",
 	"templatedata-modal-title-templateparam-details": "Detalhes do parâmetro: $1",
-	"templatedata-modal-title-templateparams": "Parâmetros da predefinição"
+	"templatedata-modal-title-templateparams": "Parâmetros da predefinição",
+	"templatedata-search-list-empty": "Predefinições que você marcar como favoritas aparecerão aqui"
 }

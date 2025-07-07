@@ -93,6 +93,7 @@
 	"templatedata-modal-table-param-aliases": "Alias",
 	"templatedata-modal-table-param-autovalue": "Autovärde",
 	"templatedata-modal-table-param-default": "Standard ($1)",
+	"templatedata-modal-table-param-status": "Status",
 	"templatedata-modal-table-param-deprecated": "Föråldrad",
 	"templatedata-modal-table-param-deprecatedValue": "Föråldrad guide",
 	"templatedata-modal-table-param-description": "Beskrivning ($1)",
@@ -130,9 +131,12 @@
 	"templatedata-favorite-remove": "Ta bort mallen från favoriter",
 	"templatedata-favorite-removed": "Mall borttagen från favoriter",
 	"templatedata-favorite-error": "Det gick inte att spara favoriter",
+	"templatedata-favorite-maximum-reached": "Du har nått det maximala antalet ($1) favoritmallar. Ta bort några från din lista innan du lägger till fler.",
 	"templatedata-category-browser-header": "Kategorier",
+	"templatedata-category-switch-label": "Toppnivåkategori:",
 	"templatedata-category-rootcat": "Mallar",
 	"templatedata-category-switch-button": "Bläddra",
+	"templatedata-category-column-empty": "Inga mallar eller underkategorier hittades i [[$1]]",
 	"templatedata-category-browser-loadmore": "…ladda mer",
 	"templatedata-category-column-error": "Ett fel uppstod",
 	"templatedata-category-use-template": "Använd den här mallen",
@@ -140,5 +144,6 @@
 	"templatedata-category-no-cats": "Ingen.",
 	"templatedata-featured-list-header": "Utvald",
 	"templatedata-featured-list-empty": "Utvalda mallar är mallar som har markerats som användbara av gemenskapen. Inga utvalda mallar har lagts till än.",
-	"communityconfiguration-templatedata-featuredtemplates-title": "Utvalda mallar"
+	"communityconfiguration-templatedata-featuredtemplates-title": "Utvalda mallar",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Utvalda mallar är mallar som har markerats som användbara av gemenskapen. De är tillgängliga för användning i mallupptäcktsverktyget."
 }

@@ -143,6 +143,7 @@
 	"templatedata-favorite-maximum-reached": "Masz maksymalną możliwą liczbę ulubionych szablonów ($1). Usuń jakiś, zanim dodasz kolejny.",
 	"templatedata-category-browser-header": "Kategorie",
 	"templatedata-category-switch-label": "Kategoria najwyższego poziomu:",
+	"templatedata-category-rootcat": "Szablony",
 	"templatedata-category-switch-button": "Przeglądaj",
 	"templatedata-category-column-empty": "Nie znaleziono szablonów ani podkategorii w [[$1]]",
 	"templatedata-category-browser-loadmore": "…załaduj więcej",

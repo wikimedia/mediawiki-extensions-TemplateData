@@ -4,6 +4,7 @@
 			"Amire80",
 			"Guycn2",
 			"LaG roiL",
+			"YaronSh",
 			"מיכי י-ם",
 			"תומר ט"
 		]
@@ -132,6 +133,7 @@
 	"templatedata-favorite-maximum-reached": "הגעת למספר המרבי ($1) של תבניות מועדפות. נא להסיר כמה מהרשימה שלך לפני שיהיה אפשר להוסיף עוד.",
 	"templatedata-category-browser-header": "קטגוריות",
 	"templatedata-category-switch-label": "קטגוריה ברמה העליונה:",
+	"templatedata-category-rootcat": "תבניות",
 	"templatedata-category-switch-button": "עיון",
 	"templatedata-category-column-empty": "לא נמצאו תבניות או קטגוריות־משנה בדף [[$1]]",
 	"templatedata-category-browser-loadmore": "... לטעון עוד",
