@@ -18,10 +18,14 @@
 	overflow: auto;
 }
 
+// There is no 'next' indicator in OOUI, so we emulate it by rotating the down arrow.
 .oo-ui-menuOptionWidget.oo-ui-optionWidget.ext-templatedata-ColumnItem > .oo-ui-indicatorElement-indicator.oo-ui-indicator-down {
 	display: block;
-	// @todo Remove this when there is a 'next' indicator in OOUI.
 	transform: rotate( 270deg );
+}
+
+[ dir='rtl' ] .oo-ui-menuOptionWidget.oo-ui-optionWidget.ext-templatedata-ColumnItem > .oo-ui-indicatorElement-indicator.oo-ui-indicator-down {
+	transform: rotate( 90deg );
 }
 
 .ext-templatedata-column-info {
