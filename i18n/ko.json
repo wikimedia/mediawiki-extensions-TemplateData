@@ -137,6 +137,7 @@
 	"templatedata-favorite-error": "즐겨찾기를 저장할 수 없습니다",
 	"templatedata-category-browser-header": "분류",
 	"templatedata-category-switch-label": "최상위 분류:",
+	"templatedata-category-rootcat": "틀",
 	"templatedata-category-switch-button": "찾아보기",
 	"templatedata-category-column-empty": "[[$1]]에 틀 또는 하위 분류가 없습니다.",
 	"templatedata-category-browser-loadmore": "…더 불러오기",
