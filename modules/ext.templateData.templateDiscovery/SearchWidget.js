@@ -27,6 +27,11 @@ function SearchWidget( config ) {
 	this.limit = config.limit || 10;
 	this.api = config.api || new mw.Api();
 	this.favoritesStore = config.favoritesStore;
+
+	// Handle early enter key press
+	this.connect( this, {
+		enter: 'onEnterKeyPress'
+	} );
 }
 
 /* Setup */
@@ -301,6 +306,33 @@ SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
 SearchWidget.prototype.onLookupMenuChoose = function ( item ) {
 	this.setValue( item.getLabel() );
 	this.emit( 'choose', item.getData() );
+};
+
+/**
+ * Handle Enter key press to select template based on current input value.
+ *
+ * @protected
+ * @fires choose
+ */
+SearchWidget.prototype.onEnterKeyPress = function () {
+	// TODO: Do we also need to stop the favorites list, etc., queries too?
+	// Immediately abort any pending lookup requests
+	this.abortLookupRequest();
+
+	const currentValue = this.getValue().trim();
+	if ( !currentValue ) {
+		return;
+	}
+
+	// Create a title from the current value, and if it is valid, emit a 'choose' event
+	const title = mw.Title.newFromText( currentValue, mw.config.get( 'wgNamespaceIds' ).template );
+	if ( title ) {
+		const templateData = {
+			title: title.getPrefixedText(),
+			missing: true
+		};
+		this.emit( 'choose', templateData );
+	}
 };
 
 module.exports = SearchWidget;
