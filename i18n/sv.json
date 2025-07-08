@@ -93,6 +93,7 @@
 	"templatedata-modal-table-param-aliases": "Alias",
 	"templatedata-modal-table-param-autovalue": "Autovärde",
 	"templatedata-modal-table-param-default": "Standard ($1)",
+	"templatedata-modal-table-param-status": "Status",
 	"templatedata-modal-table-param-deprecated": "Föråldrad",
 	"templatedata-modal-table-param-deprecatedValue": "Föråldrad guide",
 	"templatedata-modal-table-param-description": "Beskrivning ($1)",
