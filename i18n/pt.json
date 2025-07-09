@@ -12,7 +12,8 @@
 			"Imperadeiro98",
 			"Macofe",
 			"Ti4goc",
-			"Vitorvicentevalente"
+			"Vitorvicentevalente",
+			"BraunOBruno"
 		]
 	},
 	"templatedata-desc": "Implementa o armazenamento de dados para os parâmetros das predefinições (em JSON)",
@@ -120,5 +121,6 @@
 	"templatedata-modal-title-templateformat": "Formatação sugerida do texto wiki",
 	"templatedata-modal-title-templateformatstring": "Texto de formato personalizado",
 	"templatedata-modal-title-templateparam-details": "Detalhes do parâmetro: $1",
-	"templatedata-modal-title-templateparams": "Parâmetros da predefinição"
+	"templatedata-modal-title-templateparams": "Parâmetros da predefinição",
+	"templatedata-search-list-empty": "Predefinições que você marcar como favoritas aparecerão aqui"
 }
