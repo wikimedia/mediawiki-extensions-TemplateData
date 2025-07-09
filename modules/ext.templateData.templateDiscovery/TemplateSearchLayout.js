@@ -5,6 +5,7 @@ const TemplateList = require( './TemplateList.js' );
 const mwConfig = require( './mwConfig.json' );
 const FeaturedTemplatesList = require( './FeaturedTemplatesList.js' );
 const TemplateDiscoveryConfig = require( './config.json' );
+const mwStorage = require( 'mediawiki.storage' ).local;
 
 /**
  * @class
@@ -70,6 +71,9 @@ function TemplateSearchLayout( config ) {
 		tabLayout.addTabPanels( [ featuredTemplatesList ] );
 	}
 
+	this.storageKey = 'templatedata-discovery-tab';
+	this.setupTabStorage( tabLayout );
+
 	this.$element
 		.addClass( 'ext-templatedata-search' )
 		.append( $( '<div>' )
@@ -108,6 +112,29 @@ TemplateSearchLayout.prototype.onAddTemplate = function ( data ) {
 
 TemplateSearchLayout.prototype.focus = function () {
 	this.searchWidget.$input.trigger( 'focus' );
+};
+
+/**
+ * Keep track of the currently-selected tab in a localStorage item,
+ * and restore it when loading the widget.
+ *
+ * @private
+ * @param {OO.ui.IndexLayout} tabLayout
+ */
+TemplateSearchLayout.prototype.setupTabStorage = function ( tabLayout ) {
+	// If there's a stored tab name, switch to it.
+	tabLayout.connect( this, { set: 'onSetTab' } );
+	const storedTab = mwStorage.get( this.storageKey );
+	if ( storedTab && tabLayout.getTabPanel( storedTab ) ) {
+		tabLayout.setTabPanel( storedTab );
+	}
+};
+
+/**
+ * @param {OO.ui.TabPanelLayout} tabPanel
+ */
+TemplateSearchLayout.prototype.onSetTab = function ( tabPanel ) {
+	mwStorage.set( this.storageKey, tabPanel.getName() );
 };
 
 module.exports = TemplateSearchLayout;
