@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Andriy.v",
 			"Andriykopanytsia",
 			"Base",
 			"DDPAT",
@@ -116,5 +117,9 @@
 	"templatedata-modal-title-templateformat": "Пропоноване форматування вікірозмітки",
 	"templatedata-modal-title-templateformatstring": "Рядок нестандартного формату",
 	"templatedata-modal-title-templateparam-details": "Опис параметра: $1",
-	"templatedata-modal-title-templateparams": "Параметри шаблону"
+	"templatedata-modal-title-templateparams": "Параметри шаблону",
+	"templatedata-favorite-add": "Додати шаблон до улюблених",
+	"templatedata-favorite-added": "Шаблон додано до улюблених",
+	"templatedata-favorite-removed": "Шаблон видалений з улюблених",
+	"templatedata-favorite-error": "Неможливо зберегти улюблені"
 }

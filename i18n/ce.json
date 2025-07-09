@@ -115,6 +115,7 @@
 	"templatedata-search-title": "Кеп лахар",
 	"templatedata-search-description": "Хьайна чуйаккха лууш йолу кеп лаха, билгалдоккхуш долу коьрта дош лехча. Хаамаш болу кепаш дика болх бан йиш йолуш йу.",
 	"templatedata-search-placeholder": "Кеп лаха",
+	"templatedata-search-placeholder-cirrussearch": "Кепан цӀе йа коьрта дешнаш йазде",
 	"templatedata-search-list-header": "Хаьржинарг",
 	"templatedata-search-list-empty": "Ахь хаьржина санна билгалйаьхна кепаш кхузахь гучуйовлу",
 	"templatedata-template-discovery-disabled": "Кеп карор дӀадаьккхина ду хӀокху вики тӀехь.",
@@ -125,5 +126,15 @@
 	"templatedata-favorite-remove": "Хаьржиначарна йукъара дӀайаккха кеп",
 	"templatedata-favorite-removed": "Хаьржиначарна йукъара дӀайаьккхина кеп",
 	"templatedata-favorite-error": "Хаьржинарг Ӏалашйан йиш йац",
-	"templatedata-favorite-maximum-reached": "Хьо кхаьчна максимум кепийн терахье ($1). Дехар до, цхьадерш дӀадаха хьайн могӀаман тӀера, кхин а тӀетохале."
+	"templatedata-favorite-maximum-reached": "Хьо кхаьчна максимум кепийн терахье ($1). Дехар до, цхьадерш дӀадаха хьайн могӀаман тӀера, кхин а тӀетохале.",
+	"templatedata-category-browser-header": "Категореш",
+	"templatedata-category-switch-label": "Лаккхара тӀегӀан категори:",
+	"templatedata-category-rootcat": "Кепаш",
+	"templatedata-category-switch-button": "Гуче",
+	"templatedata-category-browser-loadmore": "…чуйаха кхин а",
+	"templatedata-category-column-error": "ГӀалат даьлла",
+	"templatedata-category-use-template": "Лелайе хӀара кеп",
+	"templatedata-category-categories": "Кхин категореш",
+	"templatedata-category-no-cats": "ХӀумма а.",
+	"templatedata-featured-list-header": "Хаьржина"
 }
