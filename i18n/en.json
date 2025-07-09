@@ -147,5 +147,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Featured templates",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Featured templates are templates that have been marked as useful by the community. They are available for use in the template discovery tool.",
 	"templatedata-featured-list-config-link": "Edit featured list",
-	"templatedata-featured-list-help": "Featured templates are templates that have been marked as useful by the community."
+	"templatedata-featured-list-help": "Featured templates are templates that have been marked as useful by the community.",
+	"templatedata-favorite-count": "You have $1/$2 favorited templates"
 }

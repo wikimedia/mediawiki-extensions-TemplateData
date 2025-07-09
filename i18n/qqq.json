@@ -160,5 +160,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Title for the featured templates configuration.",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Description for the featured templates configuration.",
 	"templatedata-featured-list-config-link": "Label for the link to the featured templates configuration page.",
-	"templatedata-featured-list-help": "Help text for the featured templates configuration page."
+	"templatedata-featured-list-help": "Help text for the featured templates configuration page.",
+	"templatedata-favorite-count": "Label for the number of templates in the user's favorites list.\n\nParameters:\n* $1 - number of templates in the user's favorites list\n* $2 - maximum allowed number of favorites"
 }

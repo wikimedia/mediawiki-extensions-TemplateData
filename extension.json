@@ -334,7 +334,8 @@
 				"templatedata-category-no-cats",
 				"templatedata-category-column-error",
 				"templatedata-featured-list-config-link",
-				"templatedata-featured-list-help"
+				"templatedata-featured-list-help",
+				"templatedata-favorite-count"
 			]
 		}
 	},

@@ -24,6 +24,8 @@ function TemplateList( config ) {
 	this.emptyListMessage = null;
 	this.favorites = [];
 	this.favoritesStore = config.favoritesStore || new FavoritesStore();
+	this.templateCount = null;
+	this.$templateCountWrapper = null;
 
 	this.config.favoritesStore.getAllFavoritesDetails().then( ( favorites ) => {
 		// Either loop through all favorites, adding them to the list.
@@ -38,7 +40,20 @@ function TemplateList( config ) {
 				label: mw.msg( 'templatedata-search-list-empty' )
 			} );
 			this.$group.append( this.emptyListMessage.$element );
+		} else {
+			this.$templateCountWrapper = $( '<div>' );
+			this.templateCount = new OO.ui.MessageWidget( {
+				classes: [ 'ext-templatedata-TemplateList-count' ],
+				label: mw.msg(
+					'templatedata-favorite-count',
+					favorites.length,
+					this.favoritesStore.maxFavorites
+				)
+			} );
+			this.$templateCountWrapper.append( this.templateCount.$element );
+			this.$element.prepend( this.$templateCountWrapper );
 		}
+
 	} );
 
 	this.config.favoritesStore.connect(
@@ -78,6 +93,12 @@ TemplateList.prototype.onChoose = function ( templateData ) {
  */
 TemplateList.prototype.onFavoriteRemoved = function ( pageId ) {
 	this.menuItems.get( pageId ).toggleFavorited( false );
+	// Remove from favorites array
+	const index = this.favorites.indexOf( parseInt( pageId ) );
+	if ( index > -1 ) {
+		this.favorites.splice( index, 1 );
+	}
+	this.updateFavoritesCount();
 };
 
 /**
@@ -91,6 +112,11 @@ TemplateList.prototype.onFavoriteAdded = function ( pageId ) {
 	// If it is, remove the 'removed' class.
 	if ( this.menuItems.has( pageId ) ) {
 		this.menuItems.get( pageId ).toggleFavorited( true );
+		// Add back to favorites array if not already there
+		if ( !this.favorites.includes( parseInt( pageId ) ) ) {
+			this.favorites.push( parseInt( pageId ) );
+		}
+		this.updateFavoritesCount();
 		return;
 	}
 
@@ -98,6 +124,7 @@ TemplateList.prototype.onFavoriteAdded = function ( pageId ) {
 	this.config.favoritesStore.getFavoriteDetail( pageId ).then( ( data ) => {
 		if ( data && data[ 0 ] ) {
 			this.addRowToList( data[ 0 ] );
+			this.updateFavoritesCount();
 		}
 	} );
 };
@@ -123,6 +150,7 @@ TemplateList.prototype.addRowToList = function ( fave ) {
 	// Remove the empty-list state (if applicable).
 	if ( this.emptyListMessage ) {
 		this.emptyListMessage.$element.remove();
+		this.emptyListMessage = null;
 	}
 };
 
@@ -132,6 +160,19 @@ TemplateList.prototype.onReorder = function ( event ) {
 	this.favorites.splice( oldIndex, 1 );
 	this.favorites.splice( event.index, 0, reorderedPageId );
 	this.favoritesStore.saveFavoritesArray( this.favorites );
+};
+
+/**
+ * Update the favorites count display.
+ */
+TemplateList.prototype.updateFavoritesCount = function () {
+	if ( this.templateCount ) {
+		this.templateCount.setLabel( mw.msg(
+			'templatedata-favorite-count',
+			this.favorites.length,
+			this.favoritesStore.maxFavorites
+		) );
+	}
 };
 
 module.exports = TemplateList;
