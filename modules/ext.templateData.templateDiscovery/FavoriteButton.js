@@ -24,6 +24,7 @@ function FavoriteButton( config ) {
 		type: 'button'
 	}, config );
 	FavoriteButton.super.call( this, config );
+	OO.ui.mixin.PendingElement.call( this, config );
 
 	// Don't let temp and anon users favorite.
 	if ( !mw.user.isNamed() ) {
@@ -41,19 +42,23 @@ function FavoriteButton( config ) {
 /* Setup */
 
 OO.inheritClass( FavoriteButton, OO.ui.ButtonInputWidget );
+OO.mixinClass( FavoriteButton, OO.ui.mixin.PendingElement );
 
 /* Methods */
 
 FavoriteButton.prototype.onClick = function () {
+	this.pushPending();
 	if ( !this.isFavorite ) {
 		// Add to favorites
 		this.favoritesStore.addFavorite( this.pageId ).then( () => {
 			this.setFavoriteState( true );
+			this.popPending();
 		}, () => {} );
 	} else {
 		// Remove from favorites
 		this.favoritesStore.removeFavorite( this.pageId ).then( () => {
 			this.setFavoriteState( false );
+			this.popPending();
 		} );
 	}
 };
