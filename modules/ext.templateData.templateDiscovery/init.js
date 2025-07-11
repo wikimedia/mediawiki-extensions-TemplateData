@@ -25,11 +25,11 @@ if ( caFavorite && pageId ) {
 	const showIcon = iconSkins.includes( mw.config.get( 'skin' ) );
 	const buttonConfig = {
 		pageId: pageId,
-		invisibleLabel: showIcon
+		invisibleLabel: showIcon,
+		$input: $( '<a>' )
 	};
 	if ( !showIcon ) {
 		buttonConfig.icon = false;
-		buttonConfig.$input = $( '<a>' );
 	}
 	const favoriteButton = new FavoriteButton( buttonConfig );
 	caFavorite.classList.add( 'ext-templatedata-caction-favorite' );
@@ -37,6 +37,6 @@ if ( caFavorite && pageId ) {
 	// If there is a watchstar, move the favorite button to be after it.
 	const watchlistStar = document.querySelector( '#ca-watch, #ca-unwatch' );
 	if ( watchlistStar ) {
-		watchlistStar.parentNode.append( caFavorite );
+		watchlistStar.after( caFavorite );
 	}
 }

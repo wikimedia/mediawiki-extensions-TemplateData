@@ -1,12 +1,19 @@
-.mw-list-item.ext-templatedata-caction-favorite {
+// stylelint-disable selector-max-id
+#p-cactions .mw-list-item.ext-templatedata-caction-favorite {
 	.oo-ui-widget.oo-ui-buttonElement {
 		display: inline;
 		margin: 0;
+		vertical-align: unset;
+	}
+
+	.oo-ui-buttonElement-button {
+		border-radius: 0;
+		vertical-align: baseline;
 	}
 
 	.oo-ui-buttonElement-frameless.oo-ui-labelElement > .oo-ui-buttonElement-button > .oo-ui-labelElement-label {
 		line-height: unset;
 		color: unset;
-		vertical-align: unset;
+		vertical-align: text-top;
 	}
 }
