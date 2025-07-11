@@ -12,6 +12,7 @@
 			"Imperadeiro90",
 			"Imperadeiro98",
 			"Macofe",
+			"Mansil alfalb",
 			"Ti4goc",
 			"Vitorvicentevalente"
 		]
@@ -122,5 +123,6 @@
 	"templatedata-modal-title-templateformatstring": "Texto de formato personalizado",
 	"templatedata-modal-title-templateparam-details": "Detalhes do parâmetro: $1",
 	"templatedata-modal-title-templateparams": "Parâmetros da predefinição",
-	"templatedata-search-list-empty": "Predefinições que você marcar como favoritas aparecerão aqui"
+	"templatedata-search-list-empty": "Predefinições que você marcar como favoritas aparecerão aqui",
+	"templatedata-category-rootcat": "Modelos"
 }
