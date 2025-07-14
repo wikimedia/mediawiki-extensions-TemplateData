@@ -18,7 +18,8 @@
 			"Sethladan",
 			"Vfrico",
 			"La Mantis",
-			"MarcoAurelio"
+			"MarcoAurelio",
+			"Danielyepezgarces"
 		]
 	},
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
