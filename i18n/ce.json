@@ -136,5 +136,8 @@
 	"templatedata-category-use-template": "Лелайе хӀара кеп",
 	"templatedata-category-categories": "Кхин категореш",
 	"templatedata-category-no-cats": "ХӀумма а.",
-	"templatedata-featured-list-header": "Хаьржина"
+	"templatedata-featured-list-header": "Хаьржина",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Хаьржина кепаш",
+	"templatedata-featured-list-config-link": "Хийца безаш болу могӀам",
+	"templatedata-featured-list-help": "Гойтуш йолу кепаш — йукъаралло пайдехьа санна билгалйаьхна кепаш."
 }
