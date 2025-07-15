@@ -18,7 +18,8 @@
 			"Ovruni",
 			"Rodney Araujo",
 			"Sethladan",
-			"Vfrico"
+			"Vfrico",
+			"Danielyepezgarces"
 		]
 	},
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
@@ -103,6 +104,7 @@
 	"templatedata-modal-table-param-aliases": "Alias",
 	"templatedata-modal-table-param-autovalue": "Valor automático",
 	"templatedata-modal-table-param-default": "Predeterminado ($1)",
+	"templatedata-modal-table-param-status": "Estado",
 	"templatedata-modal-table-param-deprecated": "En desuso",
 	"templatedata-modal-table-param-deprecatedValue": "Guía desaconsejada",
 	"templatedata-modal-table-param-description": "Descripción ($1)",
