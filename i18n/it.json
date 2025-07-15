@@ -121,7 +121,6 @@
 	"templatedata-modal-title-templateformatstring": "Stringa in formato personalizzato",
 	"templatedata-modal-title-templateparam-details": "Dettagli del parametro: $1",
 	"templatedata-modal-title-templateparams": "Parametri template",
-	"templatedata-search-title": "Ricerca template",
 	"templatedata-search-description": "Cerca un template:",
 	"templatedata-search-placeholder": "Inserisci il nome del template",
 	"templatedata-search-list-header": "Preferiti",

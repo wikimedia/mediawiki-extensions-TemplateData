@@ -133,7 +133,6 @@
 	"templatedata-modal-title-templateformatstring": "自定义格式字符串",
 	"templatedata-modal-title-templateparam-details": "参数详情：$1",
 	"templatedata-modal-title-templateparams": "模板参数",
-	"templatedata-search-title": "模板搜索",
 	"templatedata-search-description": "搜索模板：",
 	"templatedata-search-placeholder": "填写模板名称",
 	"templatedata-search-placeholder-cirrussearch": "输入模板名称或关键词",

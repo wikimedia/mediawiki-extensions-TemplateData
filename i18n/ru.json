@@ -133,7 +133,6 @@
 	"templatedata-modal-title-templateformatstring": "Нестандартный формат",
 	"templatedata-modal-title-templateparam-details": "Описание параметра: $1",
 	"templatedata-modal-title-templateparams": "Параметры шаблона",
-	"templatedata-search-title": "Поиск шаблона",
 	"templatedata-search-description": "Поиск для шаблона:",
 	"templatedata-search-placeholder": "Введите название шаблона",
 	"templatedata-search-placeholder-cirrussearch": "Введите название шаблона или ключевые слова",

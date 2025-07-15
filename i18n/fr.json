@@ -139,7 +139,6 @@
 	"templatedata-modal-title-templateformatstring": "Chaîne de format personnalisé",
 	"templatedata-modal-title-templateparam-details": "Détails du paramètre : $1",
 	"templatedata-modal-title-templateparams": "Paramètres du modèle",
-	"templatedata-search-title": "Recherche de modèle",
 	"templatedata-search-description": "Rechercher un modèle :",
 	"templatedata-search-placeholder": "Saisissez le nom d’un modèle",
 	"templatedata-search-placeholder-cirrussearch": "Saisissez le nom d’un modèle ou des mots-clés",

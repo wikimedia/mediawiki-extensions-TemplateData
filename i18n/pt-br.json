@@ -125,7 +125,6 @@
 	"templatedata-modal-title-templateformatstring": "String de formato personalizado",
 	"templatedata-modal-title-templateparam-details": "Detalhes do parâmetro: $1",
 	"templatedata-modal-title-templateparams": "Parâmetros da predefinição",
-	"templatedata-search-title": "Pesquisa de predefinição",
 	"templatedata-search-description": "Procurar por uma predefinição:",
 	"templatedata-search-placeholder": "Digite o nome da predefinição",
 	"templatedata-search-placeholder-cirrussearch": "Insira o nome da predefinição ou palavras-chave",
