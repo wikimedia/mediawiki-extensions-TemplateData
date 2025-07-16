@@ -17,6 +17,7 @@ class TemplateDiscoveryConfig {
 			'cirrusSearchLoaded' => $extRegistry->isLoaded( 'CirrusSearch' ),
 			'communityConfigurationLoaded' => $extRegistry->isLoaded( 'CommunityConfiguration' ),
 			'maxFavorites' => $config->get( 'TemplateDataMaxFavorites' ),
+			'categoryRootCat' => $context->msg( 'templatedata-category-rootcat' )->inContentLanguage()->text(),
 		];
 	}
 

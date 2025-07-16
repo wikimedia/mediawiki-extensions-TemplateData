@@ -2,6 +2,7 @@ const Column = require( './Column.js' );
 const ColumnGroup = require( './ColumnGroup.js' );
 const DataStore = require( './DataStore.js' );
 const mwStorage = require( 'mediawiki.storage' ).local;
+const TemplateDiscoveryConfig = require( '../config.json' );
 
 /**
  * @class
@@ -24,7 +25,7 @@ function CategoryBrowser( config ) {
 	this.storageKey = 'templatedata-categories-rootcat';
 	this.rootCatSearch = new mw.widgets.TitleInputWidget( {
 		namespace: mw.config.get( 'wgNamespaceIds' ).category,
-		value: mwStorage.get( this.storageKey ) || mw.msg( 'templatedata-category-rootcat' )
+		value: mwStorage.get( this.storageKey ) || TemplateDiscoveryConfig.categoryRootCat
 	} );
 	const rootCatButton = new OO.ui.ButtonWidget( { label: mw.msg( 'templatedata-category-switch-button' ) } );
 	rootCatButton.connect( this, { click: this.loadRootTemplate } );
