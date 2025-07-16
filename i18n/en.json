@@ -123,6 +123,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Enter template name or keywords",
 	"templatedata-search-list-header": "Favorites",
 	"templatedata-search-list-empty": "Templates you mark as favorites will appear here",
+	"templatedata-search-list-empty-anon": "Please log in to mark templates as favorites",
 	"templatedata-template-discovery-disabled": "Template discovery is disabled on this wiki.",
 	"templatediscovery": "Template discovery",
 	"templatedata-favorite-disabled": "You must be logged in to favorite a template",

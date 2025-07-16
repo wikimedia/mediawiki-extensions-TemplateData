@@ -34,10 +34,13 @@ function TemplateList( config ) {
 		}
 		// Or add a message explaining that there are no favorites.
 		if ( favorites.length === 0 ) {
+			const emptyListMessageLabel = mw.user.isNamed() ?
+				mw.msg( 'templatedata-search-list-empty' ) :
+				mw.msg( 'templatedata-search-list-empty-anon' );
 			this.emptyListMessage = new OO.ui.MessageWidget( {
 				icon: 'bookmark',
 				classes: [ 'ext-templatedata-TemplateList-empty' ],
-				label: mw.msg( 'templatedata-search-list-empty' )
+				label: emptyListMessageLabel
 			} );
 			this.$group.append( this.emptyListMessage.$element );
 		} else {

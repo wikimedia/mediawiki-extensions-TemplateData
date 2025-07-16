@@ -136,6 +136,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Placeholder text for the template search field when CirrusSearch is installed (which allows searching of any word in the title).",
 	"templatedata-search-list-header": "Tab label above the list of current favorites.",
 	"templatedata-search-list-empty": "Message shown in place of the favorites' list when a user has no favorites yet.",
+	"templatedata-search-list-empty-anon": "Message shown in place of the favorites' list when a user is not logged in.",
 	"templatedata-template-discovery-disabled": "Message displayed when TemplateData discovery is disabled on the wiki and the user tries to view the special page.",
 	"templatediscovery": "Title for the template discovery special page",
 	"templatedata-favorite-disabled": "Tooltip shown on the 'favorite' button when the current user is not able to save favorites.",
