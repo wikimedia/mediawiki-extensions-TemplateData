@@ -108,7 +108,7 @@
 	"templatedata-modal-table-param-suggestedvalues": "Doporučené hodnoty",
 	"templatedata-modal-placeholder-multiselect": "Přidat hodnotu...",
 	"templatedata-modal-table-param-type": "Typ",
-	"templatedata-modal-title": "Editor dokumentace šablony",
+	"templatedata-modal-title": "Editor dat šablon",
 	"templatedata-modal-title-addparam": "Přidat nový parametr",
 	"templatedata-modal-title-choose-language": "Výběr jazyka",
 	"templatedata-modal-title-language": "Jazyk",
@@ -117,5 +117,12 @@
 	"templatedata-modal-title-templateformat": "Navrhované formátování wikitextu",
 	"templatedata-modal-title-templateformatstring": "Vlastní formátovací řetězec",
 	"templatedata-modal-title-templateparam-details": "Podrobnosti k parametru $1",
-	"templatedata-modal-title-templateparams": "Parametry šablony"
+	"templatedata-modal-title-templateparams": "Parametry šablony",
+	"templatedata-search-list-header": "Oblíbené",
+	"templatedata-search-list-empty": "Šablony, které označíte jako oblíbené, se zobrazí zde",
+	"templatedata-favorite-disabled": "Pro přidání šablony do oblíbených se musíte přihlásit",
+	"templatedata-favorite-add": "Přidat šablonu do oblíbených",
+	"templatedata-favorite-added": "Šablona přidána do oblíbených",
+	"templatedata-favorite-remove": "Odebrat šablonu z oblíbených",
+	"templatedata-favorite-removed": "Šablona odebrána z oblíbených"
 }
