@@ -9,6 +9,26 @@
 .mw-list-item.ext-templatedata-caction-favorite .oo-ui-inputWidget {
 	margin: 0;
 
+	.oo-ui-iconElement-icon.oo-ui-icon-bookmark {
+		background-image: url( favorites/bookmark-vector.svg );
+	}
+
+	.oo-ui-iconElement-icon.oo-ui-icon-bookmarkOutline {
+		background-image: url( favorites/bookmarkOutline-vector.svg );
+	}
+
+	& > .oo-ui-buttonElement-button:hover {
+		background-color: unset;
+	}
+
+	& > .oo-ui-buttonElement-button:hover .oo-ui-iconElement-icon.oo-ui-icon-bookmark {
+		background-image: url( favorites/bookmark-highlight-vector.svg );
+	}
+
+	& > .oo-ui-buttonElement-button:hover .oo-ui-iconElement-icon.oo-ui-icon-bookmarkOutline {
+		background-image: url( favorites/bookmarkOutline-highlight-vector.svg );
+	}
+
 	.oo-ui-inputWidget-input {
 		padding-right: 0;
 		height: @height-watchlink;
