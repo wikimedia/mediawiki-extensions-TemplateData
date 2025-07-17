@@ -147,5 +147,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Empfohlene Vorlagen",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden. Sie stehen in der Vorlagensuche zur Verfügung.",
 	"templatedata-featured-list-config-link": "Liste empfohlener Vorlagen bearbeiten",
-	"templatedata-featured-list-help": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden."
+	"templatedata-featured-list-help": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden.",
+	"templatedata-favorite-count": "Du hast $1/$2 favorierte Vorlagen"
 }
