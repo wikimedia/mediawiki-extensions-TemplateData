@@ -9,6 +9,7 @@
 			"Fitoschido",
 			"JasterTDC",
 			"Jelou",
+			"JorgeElias2302",
 			"Josecurioso",
 			"La Mantis",
 			"Lemondoge",
@@ -143,5 +144,6 @@
 	"templatedata-favorite-error": "No se pueden guardar favoritos",
 	"templatedata-favorite-maximum-reached": "Has alcanzado el número máximo ($1) de plantillas favoritas. Elimina algunas de tu lista antes de agregar más.",
 	"templatedata-category-browser-header": "Categorías",
-	"templatedata-category-rootcat": "Plantillas"
+	"templatedata-category-rootcat": "Plantillas",
+	"templatedata-favorite-count": "Tienes $1/$2 plantillas favoritas"
 }

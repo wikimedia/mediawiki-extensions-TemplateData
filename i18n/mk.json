@@ -112,7 +112,7 @@
 	"templatedata-modal-title-templateformatstring": "Низа во прилагодфен формат",
 	"templatedata-modal-title-templateparam-details": "Поединости за параметарот: $1",
 	"templatedata-modal-title-templateparams": "Предложни параметри",
-	"templatedata-search-description": "Пребарајте предлошка:",
+	"templatedata-search-description": "Пребарајте предлошка",
 	"templatedata-search-placeholder": "Внесете име на предлошка",
 	"templatedata-search-placeholder-cirrussearch": "Внесете име на предлошка или клучни зборови",
 	"templatedata-search-list-header": "Омилени",
@@ -141,5 +141,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Избрани предлошки",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Избраните предлошки се предлошки кои се означени како корисни за заедницата. Достапни се за употреба во алатката за откривање на предлошки.",
 	"templatedata-featured-list-config-link": "Уреди список на избрани",
-	"templatedata-featured-list-help": "Избраните предлошки се предлишки кои заедницата ги означила како корисни."
+	"templatedata-featured-list-help": "Избраните предлошки се предлишки кои заедницата ги означила како корисни.",
+	"templatedata-favorite-count": "Имате $1/$2 омилени предлошки"
 }

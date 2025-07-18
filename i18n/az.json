@@ -148,5 +148,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Seçilmiş şablonlar",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Seçilmiş şablonlar icma tərəfindən faydalı kimi qeyd edilmiş şablonlardır. Onlar şablon kəşf alətində istifadə üçün mövcuddur.",
 	"templatedata-featured-list-config-link": "Seçilmişlər siyahısını redaktə et",
-	"templatedata-featured-list-help": "Seçilmiş şablonlar icma tərəfindən faydalı kimi qeyd edilmiş şablonlardır."
+	"templatedata-featured-list-help": "Seçilmiş şablonlar icma tərəfindən faydalı kimi qeyd edilmiş şablonlardır.",
+	"templatedata-favorite-count": "Sizin $1/$2 sevimli şablonunuz var"
 }
