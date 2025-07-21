@@ -121,6 +121,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Escribe o nome do modelo ou palabras clave",
 	"templatedata-search-list-header": "Favoritos",
 	"templatedata-search-list-empty": "Aquí aparecerán os modelos que marques como favoritos",
+	"templatedata-search-list-empty-anon": "Inicia sesión para marcar os modelos como favoritos",
 	"templatedata-template-discovery-disabled": "O descubrimento de modelos está desactivado neste wiki.",
 	"templatediscovery": "Descubrimento de modelos",
 	"templatedata-favorite-disabled": "Debes iniciar sesión para marcar como favorito un modelo",

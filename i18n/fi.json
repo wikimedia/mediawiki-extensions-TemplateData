@@ -129,6 +129,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Anna mallineen nimi tai avainsanoja",
 	"templatedata-search-list-header": "Suosikit",
 	"templatedata-search-list-empty": "Suosikeiksi merkitsemäsi mallineet näkyvät tässä",
+	"templatedata-search-list-empty-anon": "Kirjaudu lisään merkitäksesi mallineita suosikeiksi",
 	"templatedata-template-discovery-disabled": "Mallinehaku on poistettu käytöstä tässä wikissä.",
 	"templatediscovery": "Mallineen löytäminen",
 	"templatedata-favorite-disabled": "Sinun on oltava kirjautuneena sisään merkitäksesi mallineen suosikkeihin",

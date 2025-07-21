@@ -121,11 +121,12 @@
 	"templatedata-modal-title-templateformatstring": "Рядок нестандартного формату",
 	"templatedata-modal-title-templateparam-details": "Опис параметра: $1",
 	"templatedata-modal-title-templateparams": "Параметри шаблону",
-	"templatedata-search-description": "Шукати шаблон:",
+	"templatedata-search-description": "Шукати шаблон",
 	"templatedata-search-placeholder": "Уведіть назву шаблона",
 	"templatedata-search-placeholder-cirrussearch": "Введіть назву шаблону або ключові слова",
 	"templatedata-search-list-header": "Улюблені",
 	"templatedata-search-list-empty": "Тут будуть шаблони, які ви позначите як улюблені",
+	"templatedata-search-list-empty-anon": "Будь ласка, увійдіть, щоб позначити шаблони як улюблені",
 	"templatedata-template-discovery-disabled": "Пошук шаблонів вимкнено у цій вікі.",
 	"templatediscovery": "Знаходження шаблонів",
 	"templatedata-favorite-disabled": "Ви повинні увійти, щоб додати шаблон до улюблених",
@@ -150,5 +151,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Вибрані шаблони",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Вибрані шаблони — це шаблони, які спільнота позначила як корисні. Ними можна скористатися в інструменті знаходження шаблонів.",
 	"templatedata-featured-list-config-link": "Редагувати список вибраних",
-	"templatedata-featured-list-help": "Вибрані шаблони — це шаблони, які спільнота позначила як корисні."
+	"templatedata-featured-list-help": "Вибрані шаблони — це шаблони, які спільнота позначила як корисні.",
+	"templatedata-favorite-count": "У вас є $1/$2 улюблених шаблонів"
 }

@@ -115,6 +115,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Gitt den Numm vun enger Schabloun oder Schlësselwierder an",
 	"templatedata-search-list-header": "Favoritten",
 	"templatedata-search-list-empty": "Hei gesitt Dir d'Schablounen, déi Dir als Favoritte markéiert",
+	"templatedata-search-list-empty-anon": "Loggt Iech wgl. a fir Schablounen als Favoritten ze markéieren",
 	"templatedata-template-discovery-disabled": "D'Entdecke vu Schablounen ass op dëser Wiki desaktivéiert.",
 	"templatedata-favorite-disabled": "Dir musst ageloggt si fir eng Schabloun als Favorit ze markéieren",
 	"templatedata-favorite-add": "Schabloun bei d'Favoritten derbäisetzen",
@@ -130,5 +131,6 @@
 	"templatedata-category-column-error": "Et ass e Feeler geschitt",
 	"templatedata-category-use-template": "Dës Schabloun benotzen",
 	"templatedata-category-categories": "Aner Kategorien",
-	"templatedata-category-no-cats": "Keng."
+	"templatedata-category-no-cats": "Keng.",
+	"templatedata-favorite-count": "Dir hutt $1/$2 Schablounen als Favoritten"
 }

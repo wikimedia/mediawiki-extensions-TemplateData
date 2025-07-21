@@ -117,6 +117,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Внесете име на предлошка или клучни зборови",
 	"templatedata-search-list-header": "Омилени",
 	"templatedata-search-list-empty": "Тука ќе се прикажуваат предлошките што сте ги означиле како омилени",
+	"templatedata-search-list-empty-anon": "Најавете се за да означувате предлошкит како омилени",
 	"templatedata-template-discovery-disabled": "Откривањето на предлошки е оневозможено на ова вики.",
 	"templatediscovery": "Откривање на предлошки",
 	"templatedata-favorite-disabled": "Мора да сте најавени за да ставите предлошка во омилени",

@@ -124,6 +124,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Şablon adını və ya açar sözləri daxil et",
 	"templatedata-search-list-header": "Sevimlilər",
 	"templatedata-search-list-empty": "Sevimli kimi qeyd etdiyiniz şablonlar burada görünəcək",
+	"templatedata-search-list-empty-anon": "Şablonları sevimli kimi işarələmək üçün daxil olun",
 	"templatedata-template-discovery-disabled": "Şablonların aşkarlanması bu vikidə söndürülüb.",
 	"templatediscovery": "Şablonların aşkarlanması",
 	"templatedata-favorite-disabled": "Şablonu sevimlilərə əlavə edə bilmək üçün daxil olmalısınız",

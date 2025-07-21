@@ -123,6 +123,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Gib den Vorlagennamen oder Schlüsselwörter ein",
 	"templatedata-search-list-header": "Favoriten",
 	"templatedata-search-list-empty": "Vorlagen, die du als Favoriten markierst, werden hier angezeigt",
+	"templatedata-search-list-empty-anon": "Bitte melde dich an, um Vorlagen als Favoriten zu markieren",
 	"templatedata-template-discovery-disabled": "Die Vorlagenerkennung ist in diesem Wiki deaktiviert.",
 	"templatediscovery": "Entdecken von Vorlagen",
 	"templatedata-favorite-disabled": "Du musst angemeldet sein, um eine Vorlage als Favorit zu markieren",

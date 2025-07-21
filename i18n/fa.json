@@ -127,8 +127,10 @@
 	"templatedata-modal-title-templateparams": "پارامترهای الگو",
 	"templatedata-search-description": "با جستجو کلیدواژه‌های شناسایی، الگویی که می‌خواهید درج کنید را پیدا کنید. احتمال عملکرد صحیح برای الگوهایی که دارای توضیحات باشند، بیشتر است.",
 	"templatedata-search-placeholder": "یافتن الگو",
+	"templatedata-search-list-empty-anon": "برای علامت‌گذاری الگوها به‌عنوان الگوی مورد علاقه، لطفاً به سامانه وارد شوید",
 	"templatedata-template-discovery-disabled": "اکتشاف الگو در این ویکی غیر فعال است.",
 	"templatedata-favorite-added": "الگو به فهرست علاقه‌مندی‌ها اضافه شد",
 	"templatedata-favorite-removed": "الگو از فهرست علاقه‌مندی‌ها حذف شد",
-	"templatedata-favorite-maximum-reached": "شما به حداکثر تعداد مجاز برای الگوی مورد علاقه ($1) رسیده‌اید. پیش از افزودن الگوهای بیشتر، لطفاً ابتدا برخی از الگوها را از فهرست خود حذف کنید."
+	"templatedata-favorite-maximum-reached": "شما به حداکثر تعداد مجاز برای الگوی مورد علاقه ($1) رسیده‌اید. پیش از افزودن الگوهای بیشتر، لطفاً ابتدا برخی از الگوها را از فهرست خود حذف کنید.",
+	"templatedata-favorite-count": "شما $1/$2 الگوی مورد علاقه دارید"
 }
