@@ -116,11 +116,12 @@
 	"templatedata-modal-title-templateformatstring": "კერძოდ განსაზღვრული ფორმატი",
 	"templatedata-modal-title-templateparam-details": "პარამეტრის დეტალები: $1",
 	"templatedata-modal-title-templateparams": "თარგის პარამეტრები",
-	"templatedata-search-description": "თარგის მოძებნა:",
+	"templatedata-search-description": "თარგის მოძებნა",
 	"templatedata-search-placeholder": "შეიყვანეთ თარგის სახელი",
 	"templatedata-search-placeholder-cirrussearch": "შეიყვანეთ თარგის სახელი ან საკვანძო სიტყვები",
 	"templatedata-search-list-header": "რჩეულები",
 	"templatedata-search-list-empty": "თქვენ მიერ რჩეულად მონიშნული თარგები აქ გამოჩნდება",
+	"templatedata-search-list-empty-anon": "გთხოვთ შეხვიდეთ ანგარიშში, რომ მონიშნოთ თარგი რჩეულად",
 	"templatedata-template-discovery-disabled": "თარგის ხილვადობა გამორთულია ამ ვიკიში",
 	"templatediscovery": "თარგის ხილვადობა",
 	"templatedata-favorite-disabled": "თარგის რჩეულად მოსანიშნად უნდა შეხვიდეთ ანგარიშში",
@@ -132,6 +133,7 @@
 	"templatedata-favorite-maximum-reached": "თქვენ მიაღწიეთ რჩეული თარგის მაქსიმალურ რაოდენობას ($1). გთხოვთ, წაშალოთ რამდენიმე თქვენი სიიდან, ახალი თარგების დასამატებლად.",
 	"templatedata-category-browser-header": "კატეგორიები",
 	"templatedata-category-switch-label": "ტოპ კატეგორია:",
+	"templatedata-category-rootcat": "თარგები",
 	"templatedata-category-switch-button": "ხილვა",
 	"templatedata-category-column-empty": "[[$1]]-ში თარგები ან ქვეკატეგორიები ვერ მოიძებნა",
 	"templatedata-category-browser-loadmore": "...მეტის ჩატვირთვა",
@@ -144,5 +146,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "რჩეული თარგები",
 	"communityconfiguration-templatedata-featuredtemplates-description": "რჩეული თარგები არის ის თარგები, რომლებიც საზოგადოების მიერ მონიშნულია როგორც სასარგებლო. ისინი ხელმისაწვდომია თარგების აღმოჩენის ინსტრუმენტში გამოსაყენებლად.",
 	"templatedata-featured-list-config-link": "რჩეული სიის რედაქტირება",
-	"templatedata-featured-list-help": "რჩეული თარგებია საზოგადოების მიერ მონიშნული სასარგებლო თარგები."
+	"templatedata-featured-list-help": "რჩეული თარგებია საზოგადოების მიერ მონიშნული სასარგებლო თარგები.",
+	"templatedata-favorite-count": "თქვენ გაქვთ $1/$2 რჩეული თარგი"
 }
