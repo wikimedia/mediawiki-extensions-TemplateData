@@ -128,11 +128,12 @@
 	"templatedata-modal-title-templateformatstring": "Tekenreeks met aangepaste opmaak",
 	"templatedata-modal-title-templateparam-details": "Parameterdetails: $1",
 	"templatedata-modal-title-templateparams": "Sjabloonparameters",
-	"templatedata-search-description": "Zoeken naar een sjabloon:",
+	"templatedata-search-description": "Een sjabloon zoeken:",
 	"templatedata-search-placeholder": "Geef sjabloonnaam op",
 	"templatedata-search-placeholder-cirrussearch": "Voer sjabloonnaam of trefwoorden in",
 	"templatedata-search-list-header": "Favorieten",
 	"templatedata-search-list-empty": "Sjablonen die u als favoriet markeert, verschijnen hier",
+	"templatedata-search-list-empty-anon": "Meld u aan om sjablonen als favoriet te markeren",
 	"templatedata-template-discovery-disabled": "Sjabloondetectie is uitgeschakeld op deze wiki.",
 	"templatediscovery": "Sjabloondetectie",
 	"templatedata-favorite-disabled": "U moet aangemeld zijn om een sjabloon als favoriet te markeren",
@@ -144,6 +145,7 @@
 	"templatedata-favorite-maximum-reached": "U hebt het maximumaantal favoriete sjablonen ($1) bereikt. Verwijder er een aantal uit uw lijst voordat u er meer toevoegt.",
 	"templatedata-category-browser-header": "Categorieën",
 	"templatedata-category-switch-label": "Hoofdcategorie:",
+	"templatedata-category-rootcat": "Sjablonen",
 	"templatedata-category-switch-button": "Bladeren",
 	"templatedata-category-column-empty": "Geen sjablonen of subcategorieën gevonden in [[$1]]",
 	"templatedata-category-browser-loadmore": "…meer laden",
@@ -156,5 +158,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Uitgelichte sjablonen",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Uitgelichte sjablonen zijn sjablonen die nuttig zijn bevonden door de gemeenschap. Deze zijn beschikbaar in het hulpmiddel voor het ontdekken van sjablonen.",
 	"templatedata-featured-list-config-link": "Lijst met uitgelichte sjablonen bewerken",
-	"templatedata-featured-list-help": "Uitgelichte sjablonen zijn sjablonen die nuttig zijn bevonden door de gemeenschap."
+	"templatedata-featured-list-help": "Uitgelichte sjablonen zijn sjablonen die nuttig zijn bevonden door de gemeenschap.",
+	"templatedata-favorite-count": "U hebt $1/$2 favoriete sjablonen"
 }
