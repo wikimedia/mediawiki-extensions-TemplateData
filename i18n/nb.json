@@ -116,11 +116,12 @@
 	"templatedata-modal-title-templateformatstring": "Egendefinert formatstreng",
 	"templatedata-modal-title-templateparam-details": "Parameterdetaljer: $1",
 	"templatedata-modal-title-templateparams": "Malparametre",
-	"templatedata-search-description": "Søk etter en mal:",
+	"templatedata-search-description": "Søk etter en mal",
 	"templatedata-search-placeholder": "Angi malnavn",
 	"templatedata-search-placeholder-cirrussearch": "Angi malnavn eller nøkkelord",
 	"templatedata-search-list-header": "Favoritter",
 	"templatedata-search-list-empty": "Maler du merker som favoritter vises her",
+	"templatedata-search-list-empty-anon": "Logg inn for å markere maler som favoritter",
 	"templatedata-template-discovery-disabled": "Maloppdagelse er deaktivert på denne wikien.",
 	"templatediscovery": "Finn maler",
 	"templatedata-favorite-disabled": "Du må være logget inn for å merke en mal som favoritt",
@@ -145,5 +146,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Framhevede maler",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Framhevede maler er maler som er merket som nyttige av fellesskapet. De er tilgjengelig i verktøyet for maloppdagelse.",
 	"templatedata-featured-list-config-link": "Rediger framhevet liste",
-	"templatedata-featured-list-help": "Framhevede maler er maler som er merket som nyttige av fellesskapet."
+	"templatedata-featured-list-help": "Framhevede maler er maler som er merket som nyttige av fellesskapet.",
+	"templatedata-favorite-count": "Du har $1 av $2 favoriserte maler"
 }

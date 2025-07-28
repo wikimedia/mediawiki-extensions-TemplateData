@@ -125,5 +125,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Formate recomandate",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Formatele recomandate sunt formate care au fost marcate ca folositoare de către comunitate. Sunt disponibile spre a fi folosite în unealta de descoperit formate.",
 	"templatedata-featured-list-config-link": "Modifică lista recomandatelor",
-	"templatedata-featured-list-help": "Formatele recomandate sunt formate care au fost marcate ca folositoare de către comunitate."
+	"templatedata-featured-list-help": "Formatele recomandate sunt formate care au fost marcate ca folositoare de către comunitate.",
+	"templatedata-favorite-count": "Aveți $1/$2 formate marcate ca favorite"
 }

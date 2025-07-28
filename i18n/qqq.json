@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"A smart kitten",
 			"Amire80",
 			"Deryck Chan",
 			"James D. Forrester",
@@ -148,7 +149,7 @@
 	"templatedata-favorite-maximum-reached": "Message displayed (in bubble notification) when the user tries to add more than the maximum number of templates to their favorites list.",
 	"templatedata-category-browser-header": "Tab header in the template discovery widget.",
 	"templatedata-category-switch-label": "Field label for the category-switching field.",
-	"templatedata-category-rootcat": "Name of the default top-level category that contains templates.",
+	"templatedata-category-rootcat": "Name of the default top-level category that contains templates.\n{{identical|Template}}",
 	"templatedata-category-switch-button": "Button label for the category-switching field.",
 	"templatedata-category-column-empty": "Message shown in a category-browser column when a category has no subcategories or templates in it.\n\nParameters:\n* $1 The empty category's name (with localized 'Category:' prefix).",
 	"templatedata-category-browser-loadmore": "Button label for the 'load more' button that's shown at the bottom of columns.",
