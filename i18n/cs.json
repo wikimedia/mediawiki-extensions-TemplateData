@@ -52,6 +52,7 @@
 	"templatedata-errormsg-insertblank": "Jste si jisti, že chcete strojový popis šablony vložit bez údajů?",
 	"templatedata-exists-on-related-page": "Upozornění: Blok strojového popisu šablony je již uveden na související stránce „[[$1]]“.",
 	"templatedata-helplink": "Informace o strojových popisech šablon",
+	"templatedata-invalid-unnamed-parameter": "Názvy parametrů nemohou být prázdné. Pro dokumentaci nepojmenovaných parametrů použijte jejich vnitřní čísla „1“, „2“ atd.",
 	"templatedata-invalid-duplicate-value": "Vlastnost „$1“ („$3“) je duplicita k „$2“.",
 	"templatedata-invalid-empty-array": "Vlastnost „$1“ musí ve svém poli obsahovat alespoň jednu hodnotu.",
 	"templatedata-invalid-format": "U vlastnosti „$1“ se očekává hodnota „inline“, „block“ nebo platná hodnota formátu",
