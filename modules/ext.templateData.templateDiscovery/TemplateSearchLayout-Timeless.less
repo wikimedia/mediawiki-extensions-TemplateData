@@ -1,39 +1,45 @@
 @import 'mediawiki.skin.variables.less';
 
 .mw-list-item.ext-templatedata-caction-favorite {
+	.oo-ui-inputWidget {
+		margin: 0;
+
+		.oo-ui-inputWidget-input {
+			background-image: none;
+		}
+
+		.oo-ui-iconElement-icon.oo-ui-icon-bookmark {
+			/* @embed */
+			background-image: url( favorites/bookmark-timeless.svg );
+		}
+
+		.oo-ui-iconElement-icon.oo-ui-icon-bookmarkOutline {
+			/* @embed */
+			background-image: url( favorites/bookmarkOutline-timeless.svg );
+		}
+	}
+
+	.oo-ui-buttonElement-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+		width: 100%;
+		background-size: 20px;
+		left: 0;
+	}
+
 	.oo-ui-buttonElement-frameless.oo-ui-iconElement:first-child {
 		margin: 0;
 		padding: 0;
-		vertical-align: bottom;
+		vertical-align: top;
 	}
 
 	.oo-ui-buttonElement-button {
 		min-height: @min-size-icon-medium;
 		min-width: @min-size-icon-medium;
 		padding: 0;
+		margin: 0;
 		border: 0;
 	}
 
 	.oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
 		background: none;
-	}
-
-	.oo-ui-buttonElement-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
-		width: 100%;
-		height: 100%;
-		mask-size: 15px;
-		mask-position: top;
-		mask-repeat: no-repeat;
-		margin: 0;
-		left: 0;
-		background: none;
-
-		&.oo-ui-icon-bookmark {
-			.cdx-mixin-css-icon-background-image( @cdx-icon-bookmark, #aaa );
-		}
-
-		&.oo-ui-icon-bookmarkOutline {
-			.cdx-mixin-css-icon-background-image( @cdx-icon-bookmark-outline, #aaa );
-		}
 	}
 }
