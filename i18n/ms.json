@@ -115,11 +115,12 @@
 	"templatedata-modal-title-templateformatstring": "Rentetan format tersuai",
 	"templatedata-modal-title-templateparam-details": "Butiran parameter: $1",
 	"templatedata-modal-title-templateparams": "Parameter templat",
-	"templatedata-search-description": "Cari templat:",
+	"templatedata-search-description": "Cari sesebuah templat",
 	"templatedata-search-placeholder": "Masukkan nama templat",
 	"templatedata-search-placeholder-cirrussearch": "Masukkan nama atau kata kunci templat",
 	"templatedata-search-list-header": "Kegemaran",
 	"templatedata-search-list-empty": "Templat yang anda tandakan sebagai kegemaran akan dipaparkan di sini",
+	"templatedata-search-list-empty-anon": "Sila log masuk untuk menandakan templat sebagai kegemaran",
 	"templatedata-template-discovery-disabled": "Penemuan templat dilumpuhkan di wiki ini.",
 	"templatediscovery": "Penemuan templat",
 	"templatedata-favorite-disabled": "Anda mesti log masuk ke templat kegemaran",
@@ -144,5 +145,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "Templat pilihan",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Templat pilihan merupakan templat yang telah ditandakan sebagai berguna oleh komuniti tempatan. Templat tersebut telahpun tersedia untuk digunakan melalui alat penemuan templat.",
 	"templatedata-featured-list-config-link": "Sunting senarai templat pilihan",
-	"templatedata-featured-list-help": "Templat pilihan merupakan templat yang telah ditanda sebagai berguna oleh komuniti tempatan."
+	"templatedata-featured-list-help": "Templat pilihan merupakan templat yang telah ditanda sebagai berguna oleh komuniti tempatan.",
+	"templatedata-favorite-count": "Anda mempunyai $1/$2 templat kegemaran"
 }
