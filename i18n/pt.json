@@ -129,5 +129,6 @@
 	"templatedata-favorite-added": "Predefinição adicionada aos favoritos",
 	"templatedata-favorite-remove": "Remover predefinição dos favoritos",
 	"templatedata-favorite-removed": "Predefinição removida dos favoritos",
-	"templatedata-category-rootcat": "Modelos"
+	"templatedata-category-rootcat": "Modelos",
+	"templatedata-favorite-count": "Você tem $1 de $2 predefinições favoritas"
 }

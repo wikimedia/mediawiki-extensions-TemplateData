@@ -152,5 +152,6 @@
 	"templatedata-featured-list-header": "Destacado",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Predefinições em destaque",
 	"templatedata-featured-list-config-link": "Editar lista em destaque",
-	"templatedata-featured-list-help": "As predefinições em destaque são aquelas que foram marcados como úteis pela comunidade."
+	"templatedata-featured-list-help": "As predefinições em destaque são aquelas que foram marcados como úteis pela comunidade.",
+	"templatedata-favorite-count": "Você tem $1 de $2 predefinições favoritas"
 }
