@@ -17,7 +17,8 @@
 			"Reza1615",
 			"Saadat",
 			"Sunfyre",
-			"Ebrahim"
+			"Ebrahim",
+			"Darafsh"
 		]
 	},
 	"templatedata-desc": "پیاده‌سازی ذخیره‌سازی داده‌های پارامترهای الگو (با استفاده از جی‌سن)",
@@ -102,7 +103,7 @@
 	"templatedata-modal-table-param-actions": "اقدامات",
 	"templatedata-modal-table-param-aliases": "نام‌های مستعار",
 	"templatedata-modal-table-param-autovalue": "مقدار خودکار",
-	"templatedata-modal-table-param-default": "پیش‌گزیده ($1)",
+	"templatedata-modal-table-param-default": "پیش‌فرض ($1)",
 	"templatedata-modal-table-param-deprecated": "منسوخ‌شده",
 	"templatedata-modal-table-param-deprecatedValue": "راهنمای منسوخ",
 	"templatedata-modal-table-param-description": "شرح ($1)",
