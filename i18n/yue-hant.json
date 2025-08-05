@@ -3,12 +3,13 @@
 		"authors": [
 			"H78c67c",
 			"JeffreyKim",
+			"Ktchankt",
 			"Winston Sung"
 		]
 	},
 	"templatedata-desc": "裝住模板參數嘅相關資訊（用JSON）",
 	"templatedata-doc-desc-empty": "無描述。",
-	"templatedata-doc-format-block": "呢個模板偏好參數嘅塊格式。",
+	"templatedata-doc-format-block": "呢個模偏好參數嘅塊格式。",
 	"templatedata-doc-format-custom": "呢個模有特定格式。",
 	"templatedata-doc-format-inline": "呢塊模建議一行過寫晒所有參數。",
 	"templatedata-doc-no-params-set": "冇指明參數",
@@ -119,7 +120,7 @@
 	"templatedata-search-list-header": "最鍾意嘅",
 	"templatedata-search-list-empty": "你標記為最愛嘅範本會喺呢度顯示",
 	"templatedata-search-list-empty-anon": "請登入嚟將範本標記為收藏",
-	"templatedata-template-discovery-disabled": "呢個 wiki 停用咗模板發現功能。",
+	"templatedata-template-discovery-disabled": "呢個 wiki 停用咗模發現功能。",
 	"templatediscovery": "範本發現",
 	"templatedata-favorite-disabled": "你一定要登入先至可以收藏一個範本",
 	"templatedata-favorite-add": "將範本加入收藏",
@@ -142,7 +143,7 @@
 	"templatedata-featured-list-empty": "精選範本係指社群已經標記為有用嘅範本。仲未設定任何精選範本。",
 	"communityconfiguration-templatedata-featuredtemplates-title": "精選範本",
 	"communityconfiguration-templatedata-featuredtemplates-description": "精選範本係指社群已經標記為有用嘅範本。佢哋可以喺範本發現工具入面用。",
-	"templatedata-featured-list-config-link": "編輯精選列表",
+	"templatedata-featured-list-config-link": "編輯精選一覽",
 	"templatedata-featured-list-help": "精選範本係指社群已經標記為有用嘅範本。",
 	"templatedata-favorite-count": "你有$1/$2嘅最愛範本"
 }
