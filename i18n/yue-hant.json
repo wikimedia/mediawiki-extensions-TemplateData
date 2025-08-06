@@ -3,12 +3,13 @@
 		"authors": [
 			"H78c67c",
 			"Winston Sung",
-			"JeffreyKim"
+			"JeffreyKim",
+			"Ktchankt"
 		]
 	},
 	"templatedata-desc": "裝住模板參數嘅相關資訊（用JSON）",
 	"templatedata-doc-desc-empty": "無描述。",
-	"templatedata-doc-format-block": "呢個模板偏好參數嘅塊格式。",
+	"templatedata-doc-format-block": "呢個模偏好參數嘅塊格式。",
 	"templatedata-doc-format-custom": "呢個模有特定格式。",
 	"templatedata-doc-format-inline": "呢塊模建議一行過寫晒所有參數。",
 	"templatedata-doc-no-params-set": "冇指明參數",
@@ -115,7 +116,7 @@
 	"templatedata-modal-title-templateparams": "模版參數",
 	"templatedata-search-list-header": "最鍾意嘅",
 	"templatedata-search-list-empty": "你標記為最愛嘅範本會喺呢度顯示",
-	"templatedata-template-discovery-disabled": "呢個 wiki 停用咗模板發現功能。",
+	"templatedata-template-discovery-disabled": "呢個 wiki 停用咗模發現功能。",
 	"templatediscovery": "範本發現",
 	"templatedata-favorite-disabled": "你一定要登入先至可以收藏一個範本",
 	"templatedata-favorite-add": "將範本加入收藏",

@@ -8,7 +8,8 @@
 			"Máté",
 			"Tacsipacsi",
 			"Tgr",
-			"Urbalazs"
+			"Urbalazs",
+			"Boro"
 		]
 	},
 	"templatedata-desc": "A sablonok paraméterezését leíró adatokat tárol (JSON formátumban)",
@@ -25,7 +26,7 @@
 	"templatedata-doc-param-name": "Paraméter",
 	"templatedata-doc-param-status": "Állapot",
 	"templatedata-doc-param-status-deprecated": "elavult",
-	"templatedata-doc-param-status-optional": "opcionális",
+	"templatedata-doc-param-status-optional": "nem kötelező",
 	"templatedata-doc-param-status-required": "kötelező",
 	"templatedata-doc-param-status-suggested": "ajánlott",
 	"templatedata-doc-param-suggestedvalues": "Javasolt értékek",
