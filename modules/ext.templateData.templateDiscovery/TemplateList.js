@@ -124,7 +124,7 @@ TemplateList.prototype.onFavoriteAdded = function ( pageId ) {
 	}
 
 	// Otherwise, add it to the list.
-	this.config.favoritesStore.getFavoriteDetail( pageId ).then( ( data ) => {
+	this.config.favoritesStore.getFavoritesDetails( [ pageId ] ).then( ( data ) => {
 		if ( data && data[ 0 ] ) {
 			this.addRowToList( data[ 0 ] );
 			this.updateFavoritesCount();

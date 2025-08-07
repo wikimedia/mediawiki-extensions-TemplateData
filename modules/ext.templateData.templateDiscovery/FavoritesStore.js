@@ -37,21 +37,20 @@ OO.mixinClass( FavoritesStore, OO.EventEmitter );
  * @return {Promise}
  */
 FavoritesStore.prototype.getAllFavoritesDetails = function () {
-	return this.getFavoriteDetail( this.favoritesArray.join( '|' ) );
+	return this.getFavoritesDetails( this.favoritesArray );
 };
 
 /**
- * Get the details of a favorite (or favorites) by page ID(s)
- * pageId can be a number or a string of numbers separated by '|'.
+ * Get the details of some favorites by page ID.
  *
- * @param {number|string} pageId
+ * @param {Array<number|string>} pageIds
  * @return {Promise}
  */
-FavoritesStore.prototype.getFavoriteDetail = function ( pageId ) {
+FavoritesStore.prototype.getFavoritesDetails = function ( pageIds ) {
 	return new mw.Api().get( {
 		action: 'templatedata',
 		includeMissingTitles: 1,
-		pageids: pageId,
+		pageids: pageIds.join( '|' ),
 		lang: mw.config.get( 'wgUserLanguage' ),
 		redirects: 1,
 		formatversion: 2
