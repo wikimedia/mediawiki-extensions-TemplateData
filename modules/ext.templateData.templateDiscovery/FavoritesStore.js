@@ -69,6 +69,7 @@ FavoritesStore.prototype.getFavoriteDetail = function ( pageId ) {
 			if ( favorite.missing ||
 				!mwConfig.TemplateDataEditorNamespaces.includes( favorite.ns )
 			) {
+				this.favoritesArray.splice( this.favoritesArray.indexOf( k ), 1 );
 				return;
 			}
 			favorite.pageId = k;
