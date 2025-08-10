@@ -53,11 +53,15 @@ FavoriteButton.prototype.onClick = function () {
 		this.favoritesStore.addFavorite( this.pageId ).then( () => {
 			this.setFavoriteState( true );
 			this.popPending();
-		}, () => {} );
+		}, () => {
+			this.popPending();
+		} );
 	} else {
 		// Remove from favorites
 		this.favoritesStore.removeFavorite( this.pageId ).then( () => {
 			this.setFavoriteState( false );
+			this.popPending();
+		}, () => {
 			this.popPending();
 		} );
 	}
