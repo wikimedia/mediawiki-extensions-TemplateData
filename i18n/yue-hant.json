@@ -4,7 +4,8 @@
 			"H78c67c",
 			"JeffreyKim",
 			"Ktchankt",
-			"Winston Sung"
+			"Winston Sung",
+			"Yueman"
 		]
 	},
 	"templatedata-desc": "裝住模板參數嘅相關資訊（用JSON）",
@@ -35,13 +36,13 @@
 	"templatedata-doc-param-type-unbalanced-wikitext": "唔對稱嘅維基字",
 	"templatedata-doc-param-type-unknown": "唔知",
 	"templatedata-doc-param-type-url": "網址",
-	"templatedata-doc-param-type-wiki-file-name": "快勞",
+	"templatedata-doc-param-type-wiki-file-name": "檔案",
 	"templatedata-doc-param-type-wiki-page-name": "頁面名稱",
 	"templatedata-doc-param-type-wiki-template-name": "模",
 	"templatedata-doc-param-type-wiki-user-name": "用戶",
 	"templatedata-doc-params": "模參數",
 	"templatedata-editbutton": "修改模數據",
-	"templatedata-errormsg-jsonbadformat": "JSON 格式唔好。 你可以取消呢個操作，噉你就可以更正或者移除佢，或者繼續用新嘅範本數據取代目前嘅範本資料。",
+	"templatedata-errormsg-jsonbadformat": "壞咗嘅JSON 格式。 你可以取消呢個操作，噉你就可以更正或者剷除佢，或者繼續用新嘅範本數據取代而家嘅範本資料。",
 	"templatedata-errormsg-insertblank": "你確定你想插入冇資料嘅範本資料？",
 	"templatedata-exists-on-related-page": "請注意：相關頁面\"[[$1]]\"上面已經有個範本數據塊。",
 	"templatedata-helplink": "有關範本資料嘅資訊",

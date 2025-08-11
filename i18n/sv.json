@@ -141,8 +141,9 @@
 	"templatedata-category-use-template": "Använd den här mallen",
 	"templatedata-category-categories": "Andra kategorier",
 	"templatedata-category-no-cats": "Ingen.",
-	"templatedata-featured-list-header": "Utvald",
+	"templatedata-featured-list-header": "Utvalda",
 	"templatedata-featured-list-empty": "Utvalda mallar är mallar som har markerats som användbara av gemenskapen. Inga utvalda mallar har lagts till än.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Utvalda mallar",
-	"communityconfiguration-templatedata-featuredtemplates-description": "Utvalda mallar är mallar som har markerats som användbara av gemenskapen. De är tillgängliga för användning i mallupptäcktsverktyget."
+	"communityconfiguration-templatedata-featuredtemplates-description": "Utvalda mallar är mallar som har markerats som användbara av gemenskapen. De är tillgängliga för användning i mallupptäcktsverktyget.",
+	"templatedata-featured-list-config-link": "Redigera utvalda-lista"
 }
