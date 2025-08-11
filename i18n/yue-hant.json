@@ -3,11 +3,12 @@
 		"authors": [
 			"Winston Sung",
 			"H78c67c",
-			"JeffreyKim"
+			"JeffreyKim",
+			"Ktchankt"
 		]
 	},
 	"templatedata-doc-desc-empty": "無描述。",
-	"templatedata-doc-format-block": "呢個模板偏好參數嘅塊格式。",
+	"templatedata-doc-format-block": "呢個模偏好參數嘅塊格式。",
 	"templatedata-doc-format-custom": "呢個模有特定格式。",
 	"templatedata-doc-format-inline": "呢塊模建議一行過寫晒所有參數。",
 	"templatedata-doc-no-params-set": "冇指明參數",
