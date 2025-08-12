@@ -147,6 +147,10 @@
 	"templatedata-featured-list-empty": "Featured templates are templates that have been marked as useful by the community. No featured templates have been set up yet.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Featured templates",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Featured templates are templates that have been marked as useful by the community. They are available for use in the template discovery tool.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "The templates listed here are made available for use in the template discovery tool.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Featured templates",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Titles",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "List the templates' titles (including the 'Template:' namespace prefix).",
 	"templatedata-featured-list-config-link": "Edit featured list",
 	"templatedata-featured-list-help": "Featured templates are templates that have been marked as useful by the community.",
 	"templatedata-favorite-count": "You have $1/$2 favorited templates"

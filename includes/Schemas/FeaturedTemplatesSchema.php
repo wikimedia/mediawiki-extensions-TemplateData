@@ -15,6 +15,8 @@ class FeaturedTemplatesSchema extends JsonSchema {
 	public const FeaturedTemplates = [
 		self::TYPE => self::TYPE_ARRAY,
 		self::DEFAULT => [],
+		self::MIN_ITEMS => 1,
+		self::MAX_ITEMS => 1,
 		self::ITEMS => [
 			self::TYPE => self::TYPE_OBJECT,
 			self::PROPERTIES => [
