@@ -3,12 +3,14 @@
 		"authors": [
 			"H78c67c",
 			"Winston Sung",
-			"JeffreyKim"
+			"JeffreyKim",
+			"Ktchankt",
+			"Yueman"
 		]
 	},
 	"templatedata-desc": "裝住模板參數嘅相關資訊（用JSON）",
 	"templatedata-doc-desc-empty": "無描述。",
-	"templatedata-doc-format-block": "呢個模板偏好參數嘅塊格式。",
+	"templatedata-doc-format-block": "呢個模偏好參數嘅塊格式。",
 	"templatedata-doc-format-custom": "呢個模有特定格式。",
 	"templatedata-doc-format-inline": "呢塊模建議一行過寫晒所有參數。",
 	"templatedata-doc-no-params-set": "冇指明參數",
@@ -34,7 +36,7 @@
 	"templatedata-doc-param-type-unbalanced-wikitext": "唔對稱嘅維基字",
 	"templatedata-doc-param-type-unknown": "唔知",
 	"templatedata-doc-param-type-url": "網址",
-	"templatedata-doc-param-type-wiki-file-name": "快勞",
+	"templatedata-doc-param-type-wiki-file-name": "檔案",
 	"templatedata-doc-param-type-wiki-page-name": "頁面名稱",
 	"templatedata-doc-param-type-wiki-template-name": "模",
 	"templatedata-doc-param-type-wiki-user-name": "用戶",
