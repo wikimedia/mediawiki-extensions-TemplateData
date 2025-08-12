@@ -141,7 +141,7 @@ function parsePageId( pageId ) {
  */
 FavoritesStore.prototype.addFavorite = function ( pageId ) {
 	if ( this.favoritesArray.length < this.maxFavorites ) {
-		const newFavorites = this.favoritesArray;
+		const newFavorites = [ ...this.favoritesArray ];
 		newFavorites.push( parsePageId( pageId ) );
 		return save( newFavorites ).then( () => {
 			this.emit( 'added', pageId );
@@ -176,7 +176,7 @@ FavoritesStore.prototype.removeFavorite = function ( pageId ) {
 	if ( index === -1 ) {
 		return Promise.resolve();
 	}
-	const newFavorites = this.favoritesArray;
+	const newFavorites = [ ...this.favoritesArray ];
 	newFavorites.splice( index, 1 );
 	return save( newFavorites ).then( () => {
 		this.emit( 'removed', pageId );
