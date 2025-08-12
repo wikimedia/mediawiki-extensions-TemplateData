@@ -74,7 +74,7 @@
 	"templatedata-modal-button-discard": "放棄",
 	"templatedata-modal-current-language": "而家語言：$1",
 	"templatedata-modal-errormsg": "有錯。請確保冇任何空白嘅參數名，同埋參數名唔包括任何以下字元：\"$1\"、\"$2\"、\"$3\"",
-	"templatedata-modal-errormsg-duplicate-name": "搵到錯誤。所選嘅名稱已經由另一個參數使用緊。",
+	"templatedata-modal-errormsg-duplicate-name": "搵到錯誤。所揀嘅名已經由另一個參數用緊。",
 	"templatedata-modal-errormsg-import-noparams": "倒入內容無發現任何新參數。",
 	"templatedata-modal-format-block": "攤開",
 	"templatedata-modal-format-custom": "自訂",
