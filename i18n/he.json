@@ -122,6 +122,7 @@
 	"templatedata-search-placeholder-cirrussearch": "יש להזין את שם התבנית, או מילות מפתח",
 	"templatedata-search-list-header": "מועדפות",
 	"templatedata-search-list-empty": "תבניות שסימנת בתור מועדפות יופיעו כאן",
+	"templatedata-search-list-empty-anon": "נא להיכנס לחשבון כדי לסמן תבניות בתור מועדפות",
 	"templatedata-template-discovery-disabled": "גילוי תבניות מושבת בוויקי הזה.",
 	"templatediscovery": "גילוי תבניות",
 	"templatedata-favorite-disabled": "צריך להתחבר לחשבון כדי לסמן תבנית בתור מועדפת",
@@ -146,5 +147,6 @@
 	"communityconfiguration-templatedata-featuredtemplates-title": "תבניות מומלצות",
 	"communityconfiguration-templatedata-featuredtemplates-description": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה. הן זמינות לשימוש בכלי גילוי התבניות.",
 	"templatedata-featured-list-config-link": "עריכת רשימת התבניות המומלצות",
-	"templatedata-featured-list-help": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה."
+	"templatedata-featured-list-help": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה.",
+	"templatedata-favorite-count": "יש לך $1 תבניות מועדפות מתוך $2 מותרות"
 }

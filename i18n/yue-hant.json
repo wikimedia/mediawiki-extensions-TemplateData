@@ -129,7 +129,7 @@
 	"templatedata-favorite-remove": "喺收藏入面剷走範本",
 	"templatedata-favorite-removed": "喺收藏入面剷走咗範本",
 	"templatedata-favorite-error": "儲存唔到最愛",
-	"templatedata-favorite-maximum-reached": "你已經達到最鍾意嘅範本數量嘅上限（$1）。喺加多啲之前，請喺你嘅清單入面移除一啲。",
+	"templatedata-favorite-maximum-reached": "你已經達到最鍾意嘅範本數量嘅上限（$1）。喺加多啲之前，請喺你嘅清單入面剷走一啲。",
 	"templatedata-category-browser-header": "類別",
 	"templatedata-category-switch-label": "頂級類別：",
 	"templatedata-category-rootcat": "範本",
