@@ -399,7 +399,7 @@
 			"description": "The namespaces in which the template data editor appears when creating or editing a page."
 		},
 		"TemplateDataEnableDiscovery": {
-			"value": false,
+			"value": true,
 			"description": "Enable the template discovery and recall functionality."
 		},
 		"TemplateDataMaxFavorites": {

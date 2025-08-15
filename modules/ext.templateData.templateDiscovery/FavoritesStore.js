@@ -195,7 +195,7 @@ FavoritesStore.prototype.saveFavoritesArray = function ( favoritesArray ) {
 	const json = JSON.stringify( favoritesArray );
 	return new mw.Api().saveOption( USER_PREFERENCE_NAME, json, { errorsuselocal: 1, errorformat: 'html' } )
 		.then( () => {
-			this.favoritesArray = favoritesArray;
+			this.favoritesArray = [ ...favoritesArray ];
 			mw.user.options.set( USER_PREFERENCE_NAME, json );
 		},
 		( code, response ) => {
