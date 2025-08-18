@@ -142,8 +142,8 @@
 	"templatedata-category-no-cats": "冇。",
 	"templatedata-featured-list-header": "精選",
 	"templatedata-featured-list-empty": "精選範本係指社群已經標記為有用嘅範本。仲未設定任何精選範本。",
-	"communityconfiguration-templatedata-featuredtemplates-title": "精選範本",
-	"communityconfiguration-templatedata-featuredtemplates-description": "精選範本係指社群已經標記為有用嘅範本。佢哋可以喺範本發現工具入面用。",
+	"communityconfiguration-templatedata-featuredtemplates-title": "精選模",
+	"communityconfiguration-templatedata-featuredtemplates-description": "精選模係指社群標記咗做有用嘅模。佢哋可以經模板發掘工具度攞嚟用。",
 	"templatedata-featured-list-config-link": "編輯精選一覽",
 	"templatedata-featured-list-help": "精選範本係指社群已經標記為有用嘅範本。",
 	"templatedata-favorite-count": "你有$1/$2嘅最愛範本"
