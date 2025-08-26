@@ -395,6 +395,10 @@
 			"value": false,
 			"description": "Enable the category browser for the template discovery widget."
 		},
+		"TemplateDataCategoryBrowserItem": {
+			"value": null,
+			"description": "Wikibase entity ID with which to look up the category browser's root category."
+		},
 		"TemplateDataEnableFeaturedTemplates": {
 			"value": false,
 			"description": "Enable the featured templates functionality."
