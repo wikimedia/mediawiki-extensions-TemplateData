@@ -78,9 +78,14 @@ CategoryBrowser.prototype.loadRootTemplate = function () {
 	const col1 = new Column( { dataStore: dataStore } );
 	columnGroup.addColumn( col1 );
 	const oneYear = 60 * 60 * 24 * 365;
-	mwStorage.set( this.storageKey, this.rootCatSearch.getValue(), oneYear );
+	const rootCat = this.rootCatSearch.getValue().trim();
+	if ( rootCat === TemplateDiscoveryConfig.categoryRootCat ) {
+		mwStorage.remove( this.storageKey );
+	} else {
+		mwStorage.set( this.storageKey, rootCat, oneYear );
+	}
 	const catNsName = mw.config.get( 'wgFormattedNamespaces' )[ mw.config.get( 'wgNamespaceIds' ).category ];
-	col1.loadItems( catNsName + ':' + this.rootCatSearch.getValue() ).then( () => {
+	col1.loadItems( catNsName + ':' + rootCat ).then( () => {
 		col1.focus();
 	} );
 };
