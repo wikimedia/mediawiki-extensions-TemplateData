@@ -3,10 +3,11 @@
 		"authors": [
 			"Winston Sung",
 			"JeffreyKim",
-			"Ktchankt"
+			"Ktchankt",
+			"Yueman"
 		]
 	},
-	"apihelp-templatedata-summary": "擷取由 TemplateData 擴充程式儲存嘅資料。",
+	"apihelp-templatedata-summary": "攞由 TemplateData 擴充程式儲存嘅資料。",
 	"apihelp-templatedata-example-1": "返返去[[Template:Foobar]]嘅模數據，如果模唔存在或者存在但係冇模數據，就會返返去結果",
 	"apihelp-templatedata-example-2": "返返去[[Template:Phabricator]]嘅模數據，如果模唔存在或者存在但係冇模數據，就冇結果",
 	"apihelp-templatedata-param-includeMissingTitles": "即使標題缺少或者缺乏範本資料，都會返返去有關標題嘅資料。預設情況下，只有喺存在同埋有範本資料嘅情況下先至會返去。",
