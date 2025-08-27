@@ -39,7 +39,6 @@
 		"OutputPageBeforeHTML": "main",
 		"GetPreferences": "main",
 		"SaveUserOptions": "main",
-		"SkinTemplateNavigation::Universal": "main",
 		"CommunityConfigurationProvider_initList": "communityconfig"
 	},
 	"HookHandlers": {
@@ -249,20 +248,6 @@
 				"TemplateSearchLayout.less",
 				"categories/CategoryBrowser.less"
 			],
-			"skinStyles": {
-				"monobook": [
-					"TemplateSearchLayout-MonoBook.less"
-				],
-				"vector": [
-					"TemplateSearchLayout-Vector.less"
-				],
-				"vector-2022": [
-					"TemplateSearchLayout-Vector-2022.less"
-				],
-				"timeless": [
-					"TemplateSearchLayout-Timeless.less"
-				]
-			},
 			"packageFiles": [
 				"init.js",
 				{

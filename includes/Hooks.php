@@ -8,7 +8,6 @@ use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Hook\ParserFetchTemplateDataHook;
 use MediaWiki\Hook\ParserFirstCallInitHook;
-use MediaWiki\Hook\SkinTemplateNavigation__UniversalHook;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Output\Hook\OutputPageBeforeHTMLHook;
@@ -40,8 +39,7 @@ class Hooks implements
 	ParserFetchTemplateDataHook,
 	OutputPageBeforeHTMLHook,
 	GetPreferencesHook,
-	SaveUserOptionsHook,
-	SkinTemplateNavigation__UniversalHook
+	SaveUserOptionsHook
 {
 
 	private Config $config;
@@ -207,30 +205,6 @@ class Hooks implements
 			$localizer = new TemplateDataMessageLocalizer( $lang );
 			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
 			$formatter->replaceEditLink( $text );
-		}
-	}
-
-	/** @inheritDoc */
-	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
-		$output = $sktemplate->getOutput();
-		if ( $output->getUser()->isNamed() && $this->config->get( 'TemplateDataEnableDiscovery' ) ) {
-			$editorNamespaces = $this->config->get( 'TemplateDataEditorNamespaces' );
-			// The excluded subpages are also handled in modules/ext.templateData.templateDiscovery/SearchWidget.js
-			$excludedSubpages = explode( '|', $output->getContext()->msg( 'templatedata-excluded-subpages' ) );
-			// On any valid page, load the templateDiscovery module
-			// so that the favourite button can be shown.
-			if ( $output->getTitle()->inNamespaces( $editorNamespaces )
-				&& $output->getTitle()->exists()
-				&& count( array_filter( $excludedSubpages, static function ( $sub ) use ( $output ) {
-					return str_ends_with( $output->getTitle()->getText(), $sub );
-				} ) ) === 0
-			) {
-				$output->addModules( 'ext.templateData.templateDiscovery' );
-				// Add a dummy action that will be replaced by a functional button in the frontend.
-				$links[ 'actions' ][ 'favorite' ] = [
-					'text' => ' ',
-				];
-			}
 		}
 	}
 
