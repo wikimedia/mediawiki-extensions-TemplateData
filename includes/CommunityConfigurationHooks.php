@@ -10,10 +10,8 @@ use MediaWiki\Extension\CommunityConfiguration\Hooks\CommunityConfigurationProvi
 class CommunityConfigurationHooks implements
 	CommunityConfigurationProvider_initListHook
 {
-	private Config $config;
 
-	public function __construct( Config $config ) {
-		$this->config = $config;
+	public function __construct( private readonly Config $config ) {
 	}
 
 	/**

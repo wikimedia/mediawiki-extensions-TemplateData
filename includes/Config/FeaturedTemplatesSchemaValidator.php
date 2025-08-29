@@ -16,12 +16,11 @@ use MediaWiki\Title\Title;
  * @license GPL-2.0-or-later
  */
 class FeaturedTemplatesSchemaValidator implements IValidator {
-	private IValidator $jsonSchemaValidator;
-	private Config $config;
 
-	public function __construct( IValidator $jsonSchemaValidator, Config $mainConfig ) {
-		$this->jsonSchemaValidator = $jsonSchemaValidator;
-		$this->config = $mainConfig;
+	public function __construct(
+		private readonly IValidator $jsonSchemaValidator,
+		private readonly Config $config,
+	) {
 	}
 
 	public static function factory( ValidatorFactory $validatorFactory, Config $mainConfig, string $jsonSchema ): self {

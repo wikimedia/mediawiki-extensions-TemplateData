@@ -42,10 +42,7 @@ class Hooks implements
 	SaveUserOptionsHook
 {
 
-	private Config $config;
-
-	public function __construct( Config $mainConfig ) {
-		$this->config = $mainConfig;
+	public function __construct( private readonly Config $config ) {
 	}
 
 	/**
