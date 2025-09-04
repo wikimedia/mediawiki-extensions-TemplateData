@@ -23,7 +23,8 @@
 			"Yfdyh000",
 			"人间百态",
 			"星海",
-			"沈澄心"
+			"沈澄心",
+			"范"
 		]
 	},
 	"templatedata-desc": "实现模板参数的数据存储（使用JSON）",
@@ -133,7 +134,7 @@
 	"templatedata-modal-title-templateformatstring": "自定义格式字符串",
 	"templatedata-modal-title-templateparam-details": "参数详情：$1",
 	"templatedata-modal-title-templateparams": "模板参数",
-	"templatedata-search-description": "搜索模板：",
+	"templatedata-search-description": "通过搜索标识关键词查找您想要插入的模板。具有描述的模板搜索效果更好。",
 	"templatedata-search-placeholder": "填写模板名称",
 	"templatedata-search-placeholder-cirrussearch": "输入模板名称或关键词",
 	"templatedata-search-list-header": "我的收藏",
