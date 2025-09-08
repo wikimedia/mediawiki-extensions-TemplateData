@@ -117,6 +117,7 @@
 	"templatedata-search-placeholder-cirrussearch": "Кепан цӀе йа коьрта дешнаш йазде",
 	"templatedata-search-list-header": "Хаьржинарг",
 	"templatedata-search-list-empty": "Ахь хаьржина санна билгалйаьхна кепаш кхузахь гучуйовлу",
+	"templatedata-search-list-empty-anon": "Дехар до, кепаш хаьржиначарна тӀетоха системехь авторизаци йе.",
 	"templatedata-template-discovery-disabled": "Кеп карор дӀадаьккхина ду хӀокху вики тӀехь.",
 	"templatediscovery": "Кеп карор",
 	"templatedata-favorite-disabled": "Кеп хаьржиначарна йукъатоха ахь системин тӀехь авторизаци йан йеза",
@@ -130,13 +131,17 @@
 	"templatedata-category-switch-label": "Лаккхара тӀегӀан категори:",
 	"templatedata-category-rootcat": "Кепаш",
 	"templatedata-category-switch-button": "Гуче",
+	"templatedata-category-column-empty": "Цхьа а кеп йа бухара категореш карийна [[$1]] чохь",
 	"templatedata-category-browser-loadmore": "…чуйаха кхин а",
 	"templatedata-category-column-error": "ГӀалат даьлла",
 	"templatedata-category-use-template": "Лелайе хӀара кеп",
 	"templatedata-category-categories": "Кхин категореш",
 	"templatedata-category-no-cats": "ХӀумма а.",
 	"templatedata-featured-list-header": "Хаьржина",
+	"templatedata-featured-list-empty": "Хаьржина кепаш — йукъаралло пайде аьлла билгалйаьхна кепаш йу. Цкъачунна йезаш йолу кепаш кхоьллина йац.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Хаьржина кепаш",
+	"communityconfiguration-templatedata-featuredtemplates-description": "Хаьржина кепаш — йукъараллина пайдехьа хетта кепаш йу, уьш лело йиш йу кепаш кароран гӀирсехь.",
 	"templatedata-featured-list-config-link": "Хийца безаш болу могӀам",
-	"templatedata-featured-list-help": "Гойтуш йолу кепаш — йукъаралло пайдехьа санна билгалйаьхна кепаш."
+	"templatedata-featured-list-help": "Гойтуш йолу кепаш — йукъаралло пайдехьа санна билгалйаьхна кепаш.",
+	"templatedata-favorite-count": "Ахь лелош йу $1/$2 хаьржина кепаш"
 }
