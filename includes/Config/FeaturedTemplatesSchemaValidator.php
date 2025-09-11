@@ -12,7 +12,6 @@ use MediaWiki\Extension\CommunityConfiguration\Validation\ValidatorFactory;
 use MediaWiki\Title\Title;
 
 /**
- *
  * @license GPL-2.0-or-later
  */
 class FeaturedTemplatesSchemaValidator implements IValidator {
