@@ -28,8 +28,6 @@ use MediaWiki\User\UserIdentity;
 
 /**
  * @license GPL-2.0-or-later
- * phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName
- * phpcs:disable Squiz.Classes.ValidClassName.NotCamelCaps
  */
 class Hooks implements
 	ParserFirstCallInitHook,
