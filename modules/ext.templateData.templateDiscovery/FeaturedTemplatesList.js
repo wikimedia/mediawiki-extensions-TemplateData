@@ -52,24 +52,22 @@ function FeaturedTemplatesList( config ) {
 						.addClass( 'ext-templatedata-TemplateList-empty' )
 						.text( mw.msg( 'templatedata-featured-list-empty' ) ) );
 				} else {
-					const templateTitles = featuredTemplates[ 0 ].titles;
-					// TODO: Removing dupes should be handled elsewhere
-					for ( const template of new Set( templateTitles ) ) {
-						// Query the API for the template data
-						getTemplateData( template ).then( ( templatedata ) => {
-							if ( templatedata.pages ) {
-								const pageId = Object.keys( templatedata.pages )[ 0 ];
-								const page = templatedata.pages[ pageId ];
-								// Add `pageId` to the template data
-								page.pageId = pageId;
-								if ( page.missing ) {
-									// TODO: Handle this?
-									return;
-								}
-								this.addRowToList( page );
+					// Query the API for the template data
+					getTemplateData( featuredTemplates[ 0 ].titles ).then( ( templatesdata ) => {
+						if ( templatesdata.pages === undefined ) {
+							return;
+						}
+						for ( const pageId of Object.keys( templatesdata.pages ) ) {
+							const page = templatesdata.pages[ pageId ];
+							// Add `pageId` to the template data
+							page.pageId = pageId;
+							if ( page.missing ) {
+								// TODO: Handle this?
+								return;
 							}
-						} );
-					}
+							this.addRowToList( page );
+						}
+					} );
 				}
 			}
 			this.$element.append( this.menu.$element );
@@ -93,16 +91,16 @@ function getCommunityConfiguration() {
 }
 
 /**
- * Get the template data for a given template.
+ * Get the template data for a given set of templates.
  *
- * @param {string} template
+ * @param {array} templates Template titles.
  * @return {Promise}
  */
-function getTemplateData( template ) {
+function getTemplateData( templates ) {
 	return new mw.Api().get( {
 		action: 'templatedata',
 		includeMissingTitles: 1,
-		titles: template,
+		titles: templates.join( '|' ),
 		lang: mw.config.get( 'wgUserLanguage' ),
 		redirects: 1,
 		formatversion: 2
