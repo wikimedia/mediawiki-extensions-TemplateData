@@ -170,22 +170,6 @@ FavoritesStore.prototype.isFavorite = function ( pageId ) {
 };
 
 /**
- * Utility function to get the title of a page ID
- *
- * @param {number} pageId
- * @return {jQuery.Promise}
- */
-FavoritesStore.prototype.getFavoriteTitle = function ( pageId ) {
-	// TODO: Should this be cached in some way?
-	return new mw.Api().get( {
-		action: 'query',
-		prop: 'info',
-		pageids: pageId,
-		formatversion: 2
-	} );
-};
-
-/**
  * Save the favorites array to the user options
  *
  * @param {Array} favoritesArray
