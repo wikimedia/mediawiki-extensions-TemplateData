@@ -176,13 +176,18 @@ FavoritesStore.prototype.isFavorite = function ( pageId ) {
  * @return {Promise}
  */
 FavoritesStore.prototype.saveFavoritesArray = function ( favoritesArray ) {
+	// Update favoritesArray early, so that subsequent calls to this method use the new value,
+	// but keep the old value available and roll back to it on error.
+	const oldFavoritesArray = [ ...this.favoritesArray ];
+	this.favoritesArray = [ ...favoritesArray ];
 	const json = JSON.stringify( favoritesArray );
 	return new mw.Api().saveOption( USER_PREFERENCE_NAME, json, { errorsuselocal: 1, errorformat: 'html' } )
 		.then( () => {
-			this.favoritesArray = [ ...favoritesArray ];
 			mw.user.options.set( USER_PREFERENCE_NAME, json );
 		},
 		( code, response ) => {
+			// Restore previous value if the new one was not saved.
+			this.favoritesArray = [ ...oldFavoritesArray ];
 			// The 'notloggedin' error is a special case in mw.Api.saveOptions()
 			if ( code === 'notloggedin' ) {
 				mw.notify( mw.msg( 'notloggedin' ), {
