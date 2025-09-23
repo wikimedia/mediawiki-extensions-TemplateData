@@ -138,5 +138,6 @@
 	"templatedata-category-switch-label": "Categoria di primo livello:",
 	"templatedata-category-column-error": "Si è verificato un errore",
 	"templatedata-category-categories": "Altre categorie",
-	"templatedata-category-no-cats": "Nessuno."
+	"templatedata-category-no-cats": "Nessuno.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Titoli"
 }
