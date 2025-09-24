@@ -140,6 +140,10 @@
 	"templatedata-featured-list-empty": "Le patronos eminente es patronos que le communitate ha marcate como utile. Necun patrono eminente ha ancora essite definite.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Patronos eminente",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Le patronos eminente es patronos que ha essite marcate como utile per le communitate. Illos es disponibile pro uso in le utensile de discoperta de patronos.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Le patronos listate hic es disponibile pro uso in le utensile de discoperta de patronos.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Patronos eminente",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Titulos",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Specifica le titulos del patronos (incluse le prefixo de spatio de nomines ‘Patrono:’).",
 	"templatedata-featured-list-config-link": "Modificar le lista de patronos eminente",
 	"templatedata-featured-list-help": "Le patronos eminente es patronos que le communitate ha marcate como utile.",
 	"templatedata-favorite-count": "Tu ha $1/$2 patronos favorite"

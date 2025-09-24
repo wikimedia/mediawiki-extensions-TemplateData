@@ -153,6 +153,10 @@
 	"templatedata-featured-list-empty": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi. Yhtään suositeltua mallinetta ei ole vielä määritetty.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Suositellut mallineet",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi. Ne ovat käytettävissä mallinevalikossa.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Tässä listatut mallineet tulevat näkyviin mallineiden hakutyökalussa.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Suositellut mallineet",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Nimet",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Listaa mallineiden nimet (mukaan lukien ”Malline:”-nimiavaruusetuliite).",
 	"templatedata-featured-list-config-link": "Muokkaa suositeltua listaa",
 	"templatedata-featured-list-help": "Suositellut mallineet ovat mallineita, jotka yhteisö on merkinnyt hyödyllisiksi.",
 	"templatedata-favorite-count": "Sinulla on $1/$2 suosikkimallinetta"

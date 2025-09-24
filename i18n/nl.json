@@ -157,6 +157,10 @@
 	"templatedata-featured-list-empty": "Uitgelichte sjablonen zijn sjablonen die nuttig zijn bevonden door de gemeenschap. Er zijn nog geen uitgelichte sjablonen ingesteld.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Uitgelichte sjablonen",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Uitgelichte sjablonen zijn sjablonen die nuttig zijn bevonden door de gemeenschap. Deze zijn beschikbaar in het hulpmiddel voor het ontdekken van sjablonen.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "De hier vermelde sjablonen zijn beschikbaar voor gebruik in de sjabloondetectietool.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Aanbevolen sjablonen",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Titels",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Geef de titels van de sjablonen op (met inbegrip van het naamruimtevoorvoegsel ‘Sjabloon:’).",
 	"templatedata-featured-list-config-link": "Lijst met uitgelichte sjablonen bewerken",
 	"templatedata-featured-list-help": "Uitgelichte sjablonen zijn sjablonen die nuttig zijn bevonden door de gemeenschap.",
 	"templatedata-favorite-count": "U hebt $1/$2 favoriete sjablonen"

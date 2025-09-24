@@ -141,6 +141,10 @@
 	"templatedata-featured-list-empty": "Хаьржина кепаш — йукъаралло пайде аьлла билгалйаьхна кепаш йу. Цкъачунна йезаш йолу кепаш кхоьллина йац.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Хаьржина кепаш",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Хаьржина кепаш — йукъараллина пайдехьа хетта кепаш йу, уьш лело йиш йу кепаш кароран гӀирсехь.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Кхузахь дӀайазйина кепаш лело йиш йолуш йу кепаш кароран гӀирсехь.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Хаьржина кепаш",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "ЦӀерш",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Кепийн цӀераш гайта (цу йукъахь «Template:» цӀерийн меттиган дешхьалхе).",
 	"templatedata-featured-list-config-link": "Хийца безаш болу могӀам",
 	"templatedata-featured-list-help": "Гойтуш йолу кепаш — йукъаралло пайдехьа санна билгалйаьхна кепаш.",
 	"templatedata-favorite-count": "Ахь лелош йу $1/$2 хаьржина кепаш"

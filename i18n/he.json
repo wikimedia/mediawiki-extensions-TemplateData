@@ -146,6 +146,10 @@
 	"templatedata-featured-list-empty": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה. עדיין לא הוגדרו תבניות מומלצות.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "תבניות מומלצות",
 	"communityconfiguration-templatedata-featuredtemplates-description": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה. הן זמינות לשימוש בכלי גילוי התבניות.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "התבניות שמפורטות כאן זמינות לשימוש בכלי גילוי התבניות.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "תבניות נבחרות",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "כותרות",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "יש לרשום כאן את כותרות התבניות (כולל תחילית מרחב השם \"תבנית:\").",
 	"templatedata-featured-list-config-link": "עריכת רשימת התבניות המומלצות",
 	"templatedata-featured-list-help": "תבניות מומלצות הן תבניות שסומנו כשימושיות על ידי הקהילה.",
 	"templatedata-favorite-count": "יש לך $1 תבניות מועדפות מתוך $2 מותרות"

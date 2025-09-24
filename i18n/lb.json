@@ -132,5 +132,7 @@
 	"templatedata-category-use-template": "Dës Schabloun benotzen",
 	"templatedata-category-categories": "Aner Kategorien",
 	"templatedata-category-no-cats": "Keng.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Titelen",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Gitt d'Titele vun de Schablounen un (zesumme mam Nummraum-Prefix „Schabloun:“)",
 	"templatedata-favorite-count": "Dir hutt $1/$2 Schablounen als Favoritten"
 }

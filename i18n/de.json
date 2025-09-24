@@ -150,7 +150,7 @@
 	"communityconfiguration-templatedata-featuredtemplates-info-text": "Die hier aufgeführten Vorlagen sind für die Verwendung im Vorlagenentdeckungswerkzeug zur Verfügung gestellt.",
 	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Empfohlene Vorlagen",
 	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Titel",
-	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Liste der Titel der Vorlagen (einschließlich des Namenraumpräfix „Vorlage:“).",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Liste der Titel der Vorlagen (einschließlich des Namenraumpräfixes „Vorlage:“).",
 	"templatedata-featured-list-config-link": "Liste empfohlener Vorlagen bearbeiten",
 	"templatedata-featured-list-help": "Empfohlene Vorlagen sind Vorlagen, die von der Community als nützlich markiert wurden.",
 	"templatedata-favorite-count": "Du hast $1/$2 favorierte Vorlagen"

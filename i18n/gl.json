@@ -145,6 +145,10 @@
 	"templatedata-featured-list-empty": "Os modelos destacados son modelos que a comunidade marcou como útiles. Aínda non se configurou ningún modelo destacado.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Modelos destacados",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Os modelos destacados son modelos que a comunidade marcou como útiles. Están dispoñibles para o seu uso na ferramenta de descubrimento de modelos.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Os modelos desta lista están dispoñibles para o seu uso na ferramenta de descubrimento de modelos.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Modelos destacados",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Títulos",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Listar os títulos dos modelos (incluíndo o prefixo do espazo de nomes \"Template:\").",
 	"templatedata-featured-list-config-link": "Editar a lista de modelos destacados",
 	"templatedata-featured-list-help": "Os modelos destacados son modelos que a comunidade marcou como útiles.",
 	"templatedata-favorite-count": "Tes $1/$2 modelos nos favoritos"
