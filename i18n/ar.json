@@ -154,6 +154,10 @@
 	"templatedata-featured-list-empty": "القوالب المميزة هي قوالب صنفها المجتمع على أنها مفيدة. لم يتم إعداد أي قوالب مميزة بعد.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "قوالب مميزة",
 	"communityconfiguration-templatedata-featuredtemplates-description": "القوالب المميزة هي قوالب صنفها المجتمع على أنها مفيدة. وهي متاحة للاستعمال في أداة اكتشاف القوالب.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "القوالب المدرجة هنا متاحة للاستخدام في أداة اكتشاف القوالب.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "القوالب المميزة",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "العناوين",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "قم بإدراج عناوين القوالب (بما في ذلك بادئة مساحة الاسم \"Template:\").",
 	"templatedata-featured-list-config-link": "تعديل القائمة المميزة",
 	"templatedata-featured-list-help": "القوالب المميزة هي قوالب تم وضع علامة عليها على أنها مفيدة من قبل المجتمع.",
 	"templatedata-favorite-count": "لديك قوالب مفضلة بقيمة $1 / $2"

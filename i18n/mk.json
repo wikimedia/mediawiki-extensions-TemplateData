@@ -141,6 +141,10 @@
 	"templatedata-featured-list-empty": "Избраните предлошки се предлишки кои заедницата ги означила како корисни. Засега нема поставено избрани предлошки.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Избрани предлошки",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Избраните предлошки се предлошки кои се означени како корисни за заедницата. Достапни се за употреба во алатката за откривање на предлошки.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Тука наведените предлошки се достапни за употреба во алатката за откривање на предлошки.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Истакнати предлошки",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Наслови",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Список на наслови на предлошки (вклучувајќи ја претставката „Предлошка:“).",
 	"templatedata-featured-list-config-link": "Уреди список на избрани",
 	"templatedata-featured-list-help": "Избраните предлошки се предлишки кои заедницата ги означила како корисни.",
 	"templatedata-favorite-count": "Имате $1/$2 омилени предлошки"
