@@ -150,6 +150,10 @@
 	"templatedata-featured-list-empty": "Вибрані шаблони — це шаблони, які спільнота позначила як корисні. Вибраних шаблонів ще не вказано.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Вибрані шаблони",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Вибрані шаблони — це шаблони, які спільнота позначила як корисні. Ними можна скористатися в інструменті знаходження шаблонів.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Шаблони, перелічені тут, доступні для використання в інструменті пошуку шаблонів.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Вибрані шаблони",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Назви",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Перелічіть назви шаблонів (включно з префіксом простору назв «Шаблон:»).",
 	"templatedata-featured-list-config-link": "Редагувати список вибраних",
 	"templatedata-featured-list-help": "Вибрані шаблони — це шаблони, які спільнота позначила як корисні.",
 	"templatedata-favorite-count": "У вас є $1/$2 улюблених шаблонів"

@@ -18,6 +18,7 @@
 			"Ltrlg",
 			"Macofe",
 			"Mahabarata",
+			"Marphy 123",
 			"Mattho69",
 			"Metroitendo",
 			"NicoScribe",
@@ -170,6 +171,10 @@
 	"templatedata-featured-list-empty": "Les modèles en vedette sont des modèles jugés utiles par la communauté. Aucun modèle en vedette n’a encore été défini.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Modèles en vedette",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Les modèles en vedette sont des modèles jugés utiles par la communauté. Ils sont disponibles dans l’outil de découverte de modèles.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Les modèles énumérés ici sont mis à disposition pour une utilisation dans l'outil de découverte de modèles.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Modèles en vedette",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Titres",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Répertoriez les titres des modèles (y compris le préfixe d'espace de noms « Modèle : »).",
 	"templatedata-featured-list-config-link": "Modifier la liste des modèles en vedette",
 	"templatedata-featured-list-help": "Les modèles en vedette sont des modèles jugés utiles par la communauté.",
 	"templatedata-favorite-count": "Vous avez $1/$2 modèles en favoris."

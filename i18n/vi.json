@@ -5,6 +5,7 @@
 			"Minh Nguyen",
 			"NguoiDungKhongDinhDanh",
 			"Nguyên Lê",
+			"Nvdtn19",
 			"Vinhtantran"
 		]
 	},
@@ -111,5 +112,6 @@
 	"templatedata-modal-title-templateformat": "Định dạng mã wiki gợi ý",
 	"templatedata-modal-title-templateformatstring": "Chuỗi định dạng tùy biến",
 	"templatedata-modal-title-templateparam-details": "Chi tiết tham số: $1",
-	"templatedata-modal-title-templateparams": "Tham số bản mẫu"
+	"templatedata-modal-title-templateparams": "Tham số bản mẫu",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Bản mẫu nổi bật"
 }

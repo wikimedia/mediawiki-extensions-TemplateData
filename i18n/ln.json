@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"BOKOBA VEROLY"
+			"BOKOBA VEROLY",
+			"Marphy 123"
 		]
 	},
 	"templatedata-search-description": "Luka modèle oyo olingi kotia na kolukaka mot clé oyo eko identifier. Ba modèles oyo ezali na ba déscriptions ezalaka plus susceptible ya kosala bien.",
@@ -9,5 +10,9 @@
 	"templatedata-favorite-added": "Template ebakisami na oyo olingaka",
 	"templatedata-favorite-removed": "Template elongwaki na oyo bato balingaka mingi",
 	"templatedata-favorite-error": "Kozanga makoki ya kobomba ba préférés",
-	"templatedata-favorite-maximum-reached": "Ozali na motango ya makasi ($1) ya ba templates oyo olingaka. Tosengi olongola yango na liste na yo liboso ya kobakisa mosusu."
+	"templatedata-favorite-maximum-reached": "Ozali na motango ya makasi ($1) ya ba templates oyo olingaka. Tosengi olongola yango na liste na yo liboso ya kobakisa mosusu.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Ba modèles oyo etangami awa esalemi pona kosalela na esaleli ya bokutani ya modèle.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Ba modèles oyo elakisami",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Mitó ya makambo",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Tanga ba titres ya ba modèles (na kati na yango préfixe ya esika ya kombo 'Modèle:')."
 }
