@@ -1,10 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
-			"BOKOBA VEROLY"
+			"BOKOBA VEROLY",
+			"Marphy 123"
 		]
 	},
 	"templatedata-favorite-added": "Bo me yika yo na bima ya bo ke zolaka mingi",
 	"templatedata-favorite-removed": "Bo katulaka yo na mikanda ya bo ke zolaka mingi",
-	"templatedata-favorite-maximum-reached": "Nge me kuma na ntalu ya kuluta nene ($1) ya ba templates ya nge ke zolaka mingi. Beto ke lomba nge na kukatula bankaka na lisiti na nge na ntwala ya kuyika mingi."
+	"templatedata-favorite-maximum-reached": "Nge me kuma na ntalu ya kuluta nene ($1) ya ba templates ya nge ke zolaka mingi. Beto ke lomba nge na kukatula bankaka na lisiti na nge na ntwala ya kuyika mingi.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Bapasudi-nzila ya bo me tula awa kele sambu na kusadila na kisadilu ya kumona basapatu.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Bapasudi-nzila ya nene",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Batitre",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "Listi ya batitre ya ba templates (katula 'Template:' prefix ya namespace)."
 }
