@@ -100,11 +100,7 @@ class FeaturedTemplatesSchemaValidator implements IValidator {
 
 	/** @inheritDoc */
 	public function validatePermissively( $config, ?string $version = null ): ValidationStatus {
-		$status = $this->jsonSchemaValidator->validatePermissively( $config, $version );
-		if ( !$status->isOK() ) {
-			return $status;
-		}
-		return $this->validate( $config, $version );
+		return $this->jsonSchemaValidator->validatePermissively( $config, $version );
 	}
 
 	/** @inheritDoc */
