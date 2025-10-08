@@ -141,6 +141,7 @@
 	"templatedata-search-list-header": "我的收藏",
 	"templatedata-search-list-empty": "您标记为收藏的模板将显示在这里",
 	"templatedata-template-discovery-disabled": "本wiki已禁用模板发现功能。",
+	"templatediscovery": "模板发现",
 	"templatedata-favorite-disabled": "您必须登录才能收藏模板",
 	"templatedata-favorite-add": "将模板添加到收藏",
 	"templatedata-favorite-added": "模板已添加到收藏",
