@@ -156,6 +156,10 @@
 	"templatedata-featured-list-empty": "おすすめのテンプレートはコミュニティによって有用であるとマークされたテンプレートです。おすすめのテンプレートがまだ設定されていません。",
 	"communityconfiguration-templatedata-featuredtemplates-title": "おすすめのテンプレート",
 	"communityconfiguration-templatedata-featuredtemplates-description": "おすすめのテンプレートはコミュニティによって有用であるとマークされたテンプレートです。テンプレート発見ツールから利用可能です。",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "この一覧にあるテンプレートは、テンプレート検出ツールで使用できます。",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "おすすめのテンプレート",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "タイトル",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "テンプレートのタイトルの一覧 ('Template:' の部分を含みます)。",
 	"templatedata-featured-list-config-link": "おすすめリストを編集",
 	"templatedata-featured-list-help": "おすすめのテンプレートはコミュニティによって有用であるとマークされたテンプレートです。",
 	"templatedata-favorite-count": "お気に入りのテンプレートが$1/$2個あります"
