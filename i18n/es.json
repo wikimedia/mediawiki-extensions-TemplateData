@@ -20,7 +20,8 @@
 			"Sethladan",
 			"Vfrico",
 			"Danielyepezgarces",
-			"JorgeElias2302"
+			"JorgeElias2302",
+			"IZapico (WMF)"
 		]
 	},
 	"templatedata-desc": "Implementa almacenamiento de datos para parámetros de plantillas (mediante JSON).",
@@ -57,7 +58,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Usuario",
 	"templatedata-doc-params": "Parámetros de la plantilla",
 	"templatedata-editbutton": "Editar los datos de la plantilla",
-	"templatedata-errormsg-jsonbadformat": "Formato JSON incorrecto. Puedes cancelar esta operación, así la puedes corregir, eliminar las etiquetas <templatedata> actuales e intentarlo de nuevo, o continuar sustituyendo los datos de la plantilla actual por una nueva.",
+	"templatedata-errormsg-jsonbadformat": "Formato JSON incorrecto. Puedes cancelar esta operación, así la puedes corregir o continuar sustituyendo los datos de la plantilla actual por una nueva.",
 	"templatedata-errormsg-insertblank": "¿Estás seguro de que quieres insertar datos de la plantilla sin información?",
 	"templatedata-exists-on-related-page": "Nota: ya existe un bloque de datos de la plantilla en la página relacionada \"[[$1]]\".",
 	"templatedata-helplink": "Información sobre los datos de la plantilla",
@@ -133,6 +134,7 @@
 	"templatedata-search-list-header": "Favoritos",
 	"templatedata-search-list-empty": "Las plantillas que marques como favoritas aparecerán aquí",
 	"templatedata-template-discovery-disabled": "El descubrimiento de plantillas está deshabilitado en esta wiki.",
+	"templatediscovery": "Descubrimiento de plantillas",
 	"templatedata-favorite-disabled": "Debe iniciar sesión para agregar una plantilla a favoritos",
 	"templatedata-favorite-add": "Añadir plantilla a favoritos",
 	"templatedata-favorite-added": "Plantilla añadida a favoritos",
