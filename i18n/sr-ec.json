@@ -122,6 +122,7 @@
 	"templatedata-search-description": "Претрага шаблона",
 	"templatedata-search-placeholder": "Унесите назив странице",
 	"templatedata-search-list-header": "Омиљено",
+	"templatedata-search-list-empty": "Шаблони које означите омиљеним ће се појавити овде",
 	"templatedata-search-list-empty-anon": "Молимо пријавите се да означите шаблон омиљеним",
 	"templatedata-favorite-add": "Додај шаблон у омиљене",
 	"templatedata-favorite-added": "Шаблон додат у омиљене",
