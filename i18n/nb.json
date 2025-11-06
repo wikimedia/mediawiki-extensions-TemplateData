@@ -145,6 +145,10 @@
 	"templatedata-featured-list-empty": "Framhevede maler er maler som er merket som nyttige av fellesskapet. Ingen framhevede maler er satt opp enda.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "Framhevede maler",
 	"communityconfiguration-templatedata-featuredtemplates-description": "Framhevede maler er maler som er merket som nyttige av fellesskapet. De er tilgjengelig i verktøyet for maloppdagelse.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "Malene som opplistes her er tilgjengelige for bruk i maloppdagelsesverktøyet.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "Framhevede maler",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Titler",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "List opp maltitlene (inkludert navneromsprefikset «Template:»).",
 	"templatedata-featured-list-config-link": "Rediger framhevet liste",
 	"templatedata-featured-list-help": "Framhevede maler er maler som er merket som nyttige av fellesskapet.",
 	"templatedata-favorite-count": "Du har $1 av $2 favoriserte maler"

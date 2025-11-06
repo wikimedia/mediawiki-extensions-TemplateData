@@ -157,6 +157,10 @@
 	"templatedata-featured-list-empty": "الگوهای برگزیده، الگوهایی هستند که توسط جامعه به‌عنوان مفید علامت‌گذاری شده‌اند. هنوز هیچ الگوی برگزیده‌ای تنظیم نشده است.",
 	"communityconfiguration-templatedata-featuredtemplates-title": "الگوهای برگزیده",
 	"communityconfiguration-templatedata-featuredtemplates-description": "الگوهای برگزیده، الگوهایی هستند که توسط جامعه به‌عنوان مفید علامت‌گذاری شده‌اند. این الگوها در ابزار کشف الگو در دسترس هستند.",
+	"communityconfiguration-templatedata-featuredtemplates-info-text": "الگوهای فهرست‌شده در اینجا، در ابزار کشف الگو برای استفاده در دسترس قرار می‌گیرند.",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "الگوهای برگزیده",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "عنوان‌ها",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-description": "عنوان الگوها را فهرست کنید (شامل پیشوند فضای نام «الگو:»).",
 	"templatedata-featured-list-config-link": "ویرایش فهرست برگزیده",
 	"templatedata-featured-list-help": "الگوهای برگزیده، الگوهایی هستند که توسط جامعه به‌عنوان مفید علامت‌گذاری شده‌اند. هنوز هیچ الگوی برگزیده‌ای تنظیم نشده است.",
 	"templatedata-favorite-count": "شما $1/$2 الگوی مورد علاقه دارید"
