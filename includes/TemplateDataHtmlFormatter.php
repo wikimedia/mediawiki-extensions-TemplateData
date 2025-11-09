@@ -277,11 +277,12 @@ class TemplateDataHtmlFormatter {
 					// mw-templatedata-doc-param-status-required
 					// mw-templatedata-doc-param-status-suggested
 					'class' => "mw-templatedata-doc-param-status-$status",
-					'data-sort-value' => [
+					'data-sort-value' => match ( $status ) {
 						'deprecated' => -1,
 						'suggested' => 1,
 						'required' => 2,
-					][$status] ?? 0,
+						default => 0,
+					},
 				],
 				// Messages that can be used here:
 				// templatedata-doc-param-status-deprecated
