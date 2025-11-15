@@ -93,7 +93,7 @@ function getCommunityConfiguration() {
 /**
  * Get the template data for a given set of templates.
  *
- * @param {array} templates Template titles.
+ * @param {Array} templates Template titles.
  * @return {Promise}
  */
 function getTemplateData( templates ) {

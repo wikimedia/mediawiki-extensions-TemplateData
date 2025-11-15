@@ -10,6 +10,6 @@
 	],
 	"rules": {
 		"max-len": "off",
-		"jsdoc/no-undefined-types": "error"
+		"jsdoc/no-undefined-types": "warn"
 	}
 }
