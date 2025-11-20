@@ -124,7 +124,7 @@
 	"templatedata-modal-title-templateformatstring": "Texto de formato personalizado",
 	"templatedata-modal-title-templateparam-details": "Detalhes do parâmetro: $1",
 	"templatedata-modal-title-templateparams": "Parâmetros do modelo",
-	"templatedata-search-description": "Procurar por um modelo",
+	"templatedata-search-description": "Procurar por uma predefinição",
 	"templatedata-search-placeholder": "Inserir nome do modelo",
 	"templatedata-search-placeholder-cirrussearch": "Inserir nome do modelo ou palavras-chave",
 	"templatedata-search-list-header": "Favoritos",
