@@ -50,7 +50,7 @@
 	"templatedata-invalid-duplicate-value": "Thuộc tính “$1” (“$3”) trùng với “$2”.",
 	"templatedata-invalid-empty-array": "Thuộc tính “$1” phải có ít nhất một giá trị trong mảng.",
 	"templatedata-invalid-format": "Thuộc tính “$1” phải là “inline” (trên cùng hàng), “block” (khối), hoặc một chuỗi định dạng hợp lệ.",
-	"templatedata-invalid-length": "Dữ liệu vượt quá kích thước cho phép ($1/$2 byte).",
+	"templatedata-invalid-length": "Dữ liệu vượt quá kích thước cho phép ($1{{PLURAL:$1}} trên $2 {{PLURAL:$2}}byte).",
 	"templatedata-invalid-missing": "Không tìm thấy thuộc tính bắt buộc “$1”.",
 	"templatedata-invalid-param": "Tham số “$1” không hợp lệ cho thuộc tính “$2”.",
 	"templatedata-invalid-parse": "Lỗi cú pháp JSON.",
