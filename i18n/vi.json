@@ -47,6 +47,7 @@
 	"templatedata-errormsg-insertblank": "Bạn có chắc chắn muốn chèn dữ liệu bản mẫu rỗng?",
 	"templatedata-exists-on-related-page": "Xin lưu ý: Trang có liên quan “[[$1]]” đã có phần dữ liệu bản mẫu.",
 	"templatedata-helplink": "Thông tin về dữ liệu bản mẫu",
+	"templatedata-invalid-unnamed-parameter": "Tên tham số không được để trống. Để mô tả các tham số không tên, hãy sử dụng số thứ tự nội bộ như \"1\", \"2\", v.v.",
 	"templatedata-invalid-duplicate-value": "Thuộc tính “$1” (“$3”) trùng với “$2”.",
 	"templatedata-invalid-empty-array": "Thuộc tính “$1” phải có ít nhất một giá trị trong mảng.",
 	"templatedata-invalid-format": "Thuộc tính “$1” phải là “inline” (trên cùng hàng), “block” (khối), hoặc một chuỗi định dạng hợp lệ.",
