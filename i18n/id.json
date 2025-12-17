@@ -11,7 +11,8 @@
 			"NoiX180",
 			"Rachmat04",
 			"Rizkiahmadz",
-			"William Surya Permana"
+			"William Surya Permana",
+			"Penyuwangi"
 		]
 	},
 	"templatedata-desc": "Pengimplementasian penyimpanan data untuk parameter templat (dengan menggunakan JSON)",
@@ -21,7 +22,7 @@
 	"templatedata-doc-format-inline": "Templat ini lebih menyukai format parameter dalam satu baris.",
 	"templatedata-doc-no-params-set": "Tak ada parameter yang ditentukan",
 	"templatedata-doc-param-autovalue": "Nilai otomatis",
-	"templatedata-doc-param-default": "Baku",
+	"templatedata-doc-param-default": "Bawaan",
 	"templatedata-doc-param-example": "Contoh",
 	"templatedata-doc-param-desc": "Keterangan",
 	"templatedata-doc-param-desc-empty": "tidak ada keterangan",

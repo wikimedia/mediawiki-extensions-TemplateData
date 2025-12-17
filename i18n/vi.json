@@ -47,6 +47,7 @@
 	"templatedata-errormsg-insertblank": "Bạn có chắc chắn muốn chèn dữ liệu bản mẫu rỗng?",
 	"templatedata-exists-on-related-page": "Xin lưu ý: Trang có liên quan “[[$1]]” đã có phần dữ liệu bản mẫu.",
 	"templatedata-helplink": "Thông tin về dữ liệu bản mẫu",
+	"templatedata-invalid-unnamed-parameter": "Tên tham số không được để trống. Để mô tả các tham số không tên, hãy sử dụng số thứ tự nội bộ như \"1\", \"2\", v.v.",
 	"templatedata-invalid-duplicate-value": "Thuộc tính “$1” (“$3”) trùng với “$2”.",
 	"templatedata-invalid-empty-array": "Thuộc tính “$1” phải có ít nhất một giá trị trong mảng.",
 	"templatedata-invalid-format": "Thuộc tính “$1” phải là “inline” (trên cùng hàng), “block” (khối), hoặc một chuỗi định dạng hợp lệ.",
@@ -114,5 +115,16 @@
 	"templatedata-modal-title-templateformat": "Định dạng mã wiki gợi ý",
 	"templatedata-modal-title-templateformatstring": "Chuỗi định dạng tùy biến",
 	"templatedata-modal-title-templateparam-details": "Chi tiết tham số: $1",
-	"templatedata-modal-title-templateparams": "Tham số bản mẫu"
+	"templatedata-modal-title-templateparams": "Tham số bản mẫu",
+	"templatedata-search-list-header": "Mục ưa thích",
+	"templatedata-search-list-empty": "Các bản mẫu bạn đánh dấu ưa thích sẽ xuất hiện tại đây",
+	"templatedata-template-discovery-disabled": "Tính năng khám phá bản mẫu đã bị tắt trên wiki này.",
+	"templatediscovery": "Khám phá bản mẫu",
+	"templatedata-favorite-disabled": "Bạn phải đăng nhập để thêm bản mẫu vào mục ưa thích",
+	"templatedata-favorite-add": "Thêm bản mẫu vào mục ưa thích",
+	"templatedata-favorite-added": "Đã thêm bản mẫu vào mục ưa thích",
+	"templatedata-favorite-remove": "Xóa bản mẫu khỏi mục ưa thích",
+	"templatedata-favorite-removed": "Đã xóa bản mẫu khỏi mục ưa thích",
+	"templatedata-favorite-error": "Không thể lưu mục ưa thích",
+	"templatedata-favorite-maximum-reached": "Bạn đã đạt giới hạn tối đa ($1) bản mẫu ưa thích. Vui lòng xóa bớt khỏi danh sách trước khi thêm mới."
 }
