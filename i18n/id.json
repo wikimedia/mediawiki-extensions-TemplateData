@@ -49,7 +49,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Pengguna",
 	"templatedata-doc-params": "Parameter templat",
 	"templatedata-editbutton": "Kelola data templat",
-	"templatedata-errormsg-jsonbadformat": "Format JSON bermasalah. Anda dapat membatalkan operasi ini agar dapat memperbaikinya, menghapus tag <templatedata> saat ini dan mencoba lagi, atau terus mengganti data templat saat ini dengan yang baru.",
+	"templatedata-errormsg-jsonbadformat": "Format JSON buruk. Anda dapat membatalkan operasi ini agar dapat memperbaikinya atau menghapusnya, atau melanjutkan penggantian data templat saat ini dengan yang baru.",
 	"templatedata-errormsg-insertblank": "Apakah Anda yakin ingin menyisipkan data templat tanpa informasi?",
 	"templatedata-exists-on-related-page": "Harap dicatat: sudah ada blok data templat di halaman terkait \"[[$1]]\".",
 	"templatedata-helplink": "Informasi tentang data templat",
