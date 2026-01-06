@@ -23,7 +23,8 @@
 			"Sunpriat",
 			"UniCollab",
 			"Cabadeck",
-			"Mitte27"
+			"Mitte27",
+			"Vonavy"
 		]
 	},
 	"templatedata-desc": "Реализация хранилища данных для параметров шаблона (с помощью JSON)",
