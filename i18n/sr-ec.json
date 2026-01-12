@@ -121,6 +121,7 @@
 	"templatedata-modal-title-templateparams": "Параметри шаблона",
 	"templatedata-search-description": "Претрага шаблона",
 	"templatedata-search-placeholder": "Унесите назив странице",
+	"templatedata-search-placeholder-cirrussearch": "Унесите назив шаблона или кључне речи",
 	"templatedata-search-list-header": "Омиљено",
 	"templatedata-search-list-empty": "Шаблони које означите омиљеним ће се појавити овде",
 	"templatedata-search-list-empty-anon": "Молимо пријавите се да означите шаблон омиљеним",
