@@ -5,5 +5,8 @@
 		]
 	},
 	"templatedata-editbutton": "Воа̄йхэ коа̄вь да̄ннэтҍ",
-	"templatedata-helplink": "Те̄дт коа̄весьт да̄ннэе баяс"
+	"templatedata-helplink": "Те̄дт коа̄весьт да̄ннэе баяс",
+	"templatedata-modal-search-input-placeholder": "О̄дзэ кӣл нэ̄м вай кӣллко̄д мӣлльтэ",
+	"templatedata-search-list-header": "Воа̄лша",
+	"templatedata-search-list-empty": "Тэсьт коа̄вь лӣннченҍ, кӯгк ле̄в то̄нэнҍ гу воа̄лша тӣһтма."
 }
