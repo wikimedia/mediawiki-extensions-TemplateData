@@ -5,5 +5,16 @@
 		]
 	},
 	"templatedata-editbutton": "Воа̄йхэ коа̄вь да̄ннэтҍ",
-	"templatedata-helplink": "Те̄дт коа̄весьт да̄ннэе баяс"
+	"templatedata-helplink": "Те̄дт коа̄весьт да̄ннэе баяс",
+	"templatedata-modal-search-input-placeholder": "О̄дзэ кӣл нэ̄м вай кӣллко̄д мӣлльтэ",
+	"templatedata-search-description": "О̄дзэ коа̄вь",
+	"templatedata-search-placeholder": "Пый коа̄вь нэ̄м",
+	"templatedata-search-placeholder-cirrussearch": "Пый коа̄вь нэ̄м вай чӯввтсоа̄нӭтҍ",
+	"templatedata-search-list-header": "Воа̄лша",
+	"templatedata-search-list-empty": "Тэсьт коа̄вь лӣннченҍ, кӯгк ле̄в то̄нэнҍ гу воа̄лша тӣһтма.",
+	"templatedata-category-switch-label": "Пайй ре̄вьн категорья:",
+	"templatedata-category-switch-button": "Кӣһче",
+	"templatedata-category-use-template": "Оанҍ тэнн коа̄вь",
+	"templatedata-category-categories": "Мудта категорья",
+	"templatedata-category-no-cats": "Ниманҍтэ."
 }

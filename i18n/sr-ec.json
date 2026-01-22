@@ -135,6 +135,8 @@
 	"templatedata-category-column-error": "Дошло је до грешке",
 	"templatedata-category-categories": "Остале категорије",
 	"templatedata-category-no-cats": "Нема.",
-	"templatedata-featured-list-header": "Изабрани",
-	"communityconfiguration-templatedata-featuredtemplates-title": "Истакнути шаблони"
+	"templatedata-featured-list-header": "Истакнути",
+	"communityconfiguration-templatedata-featuredtemplates-title": "Истакнути шаблони",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "Наслови",
+	"templatedata-featured-list-config-link": "Уреди списак истакнутих"
 }
