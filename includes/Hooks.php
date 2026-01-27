@@ -152,7 +152,7 @@ class Hooks implements
 		$status = $ti->getStatus();
 		if ( !$status->isOK() ) {
 			$parserOutput->setExtensionData( 'TemplateDataStatus', TemplateDataStatus::jsonSerialize( $status ) );
-			return Html::errorBox( $status->getHTML() );
+			return Html::errorBox( Status::wrap( $status )->getHTML() );
 		}
 
 		// Store the blob as page property for retrieval by ApiTemplateData.

@@ -702,10 +702,10 @@ class TemplateDataBlobTest extends MediaWikiIntegrationTestCase {
 		}
 	}
 
-	private function getStatusText( Status $status ): string {
+	private function getStatusText( StatusValue $status ): string {
 		// Unescape char references for things like "[, "]" and "|" for
 		// cleaner test assertions and output
-		return html_entity_decode( $status->getMessage()->plain() );
+		return html_entity_decode( Status::wrap( $status )->getMessage()->plain() );
 	}
 
 	private function ksort( array &$input ): void {
