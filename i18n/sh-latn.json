@@ -96,5 +96,8 @@
 	"templatedata-modal-title-templateformatstring": "Niska prilagođenog formata",
 	"templatedata-modal-title-templateparam-details": "Detalji o parametru: $1",
 	"templatedata-modal-title-templateparams": "Parametri šablona",
-	"templatedata-favorite-add": "Dodajte šablon u omiljene"
+	"templatedata-search-placeholder-cirrussearch": "Unesite naziv šablona ili ključne riječi",
+	"templatedata-favorite-add": "Dodajte šablon u omiljene",
+	"templatedata-category-switch-label": "Krovna kategorija",
+	"templatedata-featured-list-config-link": "Uredi listu istaknutih"
 }
