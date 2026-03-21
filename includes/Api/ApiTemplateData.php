@@ -163,6 +163,9 @@ class ApiTemplateData extends ApiBase {
 				}
 
 				$content = $wikiPageFactory->newFromTitle( $pageInfo['title'] )->getContent();
+				if ( !$content ) {
+					continue;
+				}
 				$text = $content instanceof TextContent
 					? $content->getText()
 					: $content->getTextForSearchIndex();
