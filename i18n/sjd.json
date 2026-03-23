@@ -4,7 +4,13 @@
 			"Merrahtar"
 		]
 	},
+	"templatedata-doc-desc-empty": "Нимӣ элля коа̄вь баяс кырьйха.",
+	"templatedata-doc-format-inline": "Коа̄весьт о̄ннъювв ню̄лас формаһтлаһтӭм на̄лль.",
+	"templatedata-doc-param-desc": "Параметэр баяс",
+	"templatedata-doc-param-name": "Параметэр",
 	"templatedata-doc-param-status": "Ста̄тусс",
+	"templatedata-doc-param-status-required": "па̄һкма",
+	"templatedata-doc-param-type": "На̄лль",
 	"templatedata-doc-param-type-date": "Пе̄ййвме̄ррь",
 	"templatedata-doc-param-type-number": "Числа",
 	"templatedata-doc-param-type-unknown": "Тӣдҍнаһтӭм",
@@ -35,6 +41,7 @@
 	"templatedata-modal-table-param-status": "Ста̄тусс",
 	"templatedata-modal-table-param-deprecated": "Вуамма",
 	"templatedata-modal-table-param-name": "Нэ̄мм",
+	"templatedata-modal-table-param-type": "На̄лль",
 	"templatedata-modal-title": "Коа̄вь да̄ннэтҍ редактэр",
 	"templatedata-modal-title-addparam": "Лажьхэ о̄дт параметэр",
 	"templatedata-modal-title-choose-language": "Воа̄лэшьт кӣл",
@@ -52,5 +59,6 @@
 	"templatedata-category-use-template": "Оанҍ тэнн коа̄вь",
 	"templatedata-category-categories": "Мудта категорья",
 	"templatedata-category-no-cats": "Ниманҍтэ.",
-	"templatedata-featured-list-header": "Воа̄лша"
+	"templatedata-featured-list-header": "Воа̄лша",
+	"templatedata-favorite-count": "То̄нэсьт {{PLURAL:$1|лӣ|ле̄в|лӣ}} $1/$2 воа̄лша {{PLURAL:$1|коа̄ввь|коа̄вь|коа̄вве}}"
 }

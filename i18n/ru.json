@@ -11,6 +11,7 @@
 			"Kaganer",
 			"Kareyac",
 			"Mariya",
+			"Merrahtar",
 			"Mitte27",
 			"Movses",
 			"Oashnic",
@@ -163,5 +164,5 @@
 	"communityconfiguration-templatedata-featuredtemplates-description": "Избранные шаблоны — это шаблоны, которые сообщество отметило как полезные. Они доступны для использования в инструменте обнаружения шаблонов.",
 	"templatedata-featured-list-config-link": "Изменить список избранных",
 	"templatedata-featured-list-help": "Избранные шаблоны — это шаблоны, которые были отмечены сообществом как полезные.",
-	"templatedata-favorite-count": "Вы используете $1/$2 избранных шаблона"
+	"templatedata-favorite-count": "У вас в избранных $1 {{PLURAL:$1|шаблон|̄шаблона|шаблонов}} из $2 возможных"
 }
