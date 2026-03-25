@@ -62,5 +62,5 @@
 	"templatedata-category-categories": "Мудта категорья",
 	"templatedata-category-no-cats": "Ниманҍтэ.",
 	"templatedata-featured-list-header": "Воа̄лша",
-	"templatedata-favorite-count": "То̄нэсьт {{PLURAL:$1|лӣ|ле̄в|лӣ}} $1/$2 воа̄лша {{PLURAL:$1|коа̄ввь|коа̄вь|коа̄вве}}"
+	"templatedata-favorite-count": "То̄нэсьт {{PLURAL:$1|лӣ|ле̄в|лӣ}} $1 воа̄лша {{PLURAL:$1|коа̄ввь|коа̄вь|коа̄вве}} (макс. $2)"
 }
