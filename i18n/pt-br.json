@@ -52,7 +52,7 @@
 	"templatedata-doc-param-type-wiki-user-name": "Usuário",
 	"templatedata-doc-params": "Parâmetros da predefinição",
 	"templatedata-editbutton": "Editar dados da predefinição",
-	"templatedata-errormsg-jsonbadformat": "Formato JSON inválido. Você pode cancelar esta operação para que você possa corrigi-la, excluir as tags <templatedata> atuais e tentar novamente ou continuar a substituir os dados da predefinição atual por um novo.",
+	"templatedata-errormsg-jsonbadformat": "Mau formato JSON. Pode cancelar esta operação, e assim, pode corrigi-la ou removê-la, ou continuar a substituir os dados atuais do modelo por um novo.",
 	"templatedata-errormsg-insertblank": "Tem certeza de que deseja inserir dados da predefinição sem informações?",
 	"templatedata-exists-on-related-page": "Observe: já existe um bloco de dados da predefinição na página relacionada \"[[$1]]\".",
 	"templatedata-helplink": "Informação sobre os dados da predefinição",
