@@ -25,6 +25,7 @@
 	"templatedata-doc-params": "Коа̄вь параметэр",
 	"templatedata-editbutton": "Воа̄йхэ коа̄вь да̄ннэтҍ",
 	"templatedata-helplink": "Те̄дт коа̄весьт да̄ннэе баяс",
+	"templatedata-invalid-parse": "Синтаксическэ ся̄гкнэгк JSON-эсьт",
 	"templatedata-modal-button-add-language": "Лажьхэ кӣл",
 	"templatedata-modal-button-addparam": "Лажьхэ параметэр",
 	"templatedata-modal-button-addmap": "Лажьхэ о̄дт ма̄ппинг",
@@ -41,8 +42,10 @@
 	"templatedata-modal-format-inline": "Ню̄ллас сыссенҍ",
 	"templatedata-modal-format-null": "Элля пыййма",
 	"templatedata-modal-placeholder-add-new-map-input": "Лажьхэ о̄дт ма̄ппинг...",
+	"templatedata-modal-placeholder-paramkey": "Параметэр нэ̄мм",
 	"templatedata-modal-placeholder-prompt-map-name": "Пый ма̄ппинг нэ̄м",
 	"templatedata-modal-search-input-placeholder": "О̄дзэ кӣл нэ̄м вай кӣллко̄д мӣлльтэ",
+	"templatedata-modal-table-param-autovalue": "Автоматическэ а̄ррв",
 	"templatedata-modal-table-param-status": "Ста̄тусс",
 	"templatedata-modal-table-param-deprecated": "Вуамма",
 	"templatedata-modal-table-param-example": "Вуэзхэллнэгк ($1)",
@@ -52,9 +55,12 @@
 	"templatedata-modal-title-addparam": "Лажьхэ о̄дт параметэр",
 	"templatedata-modal-title-choose-language": "Воа̄лэшьт кӣл",
 	"templatedata-modal-title-language": "Кӣлл",
+	"templatedata-modal-title-paramorder": "Параметрэ обрядт",
 	"templatedata-modal-title-templatedesc": "Коа̄вь баяс ($1)",
 	"templatedata-modal-title-templateformat": "Аннтма вики-текст формаһтлаһтҍмушш",
-	"templatedata-modal-title-templateformatstring": "Эйй стандартнэ формаһт",
+	"templatedata-modal-title-templateformatstring": "Надта формаһт",
+	"templatedata-modal-title-templateparams": "Коа̄вь параметэр",
 	"templatedata-search-list-header": "Воа̄лша",
-	"templatedata-search-list-empty": "Тэсьт коа̄вь лӣннченҍ, кӯгк ле̄в то̄нэнҍ гу воа̄лша тӣһтма."
+	"templatedata-search-list-empty": "Тэсьт коа̄вь лӣннченҍ, кӯгк ле̄в то̄нэнҍ гу воа̄лша тӣһтма.",
+	"templatedata-favorite-error": "Эйй выйт воа̄лшатҍ пынне"
 }
