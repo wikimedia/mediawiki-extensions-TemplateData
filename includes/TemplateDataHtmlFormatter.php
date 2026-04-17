@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\TemplateData;
 
 use MediaWiki\Html\Html;
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
-use MessageLocalizer;
 use stdClass;
 
 /**
