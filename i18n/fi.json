@@ -52,7 +52,7 @@
 	"templatedata-doc-params": "Mallineen parametrit",
 	"templatedata-editbutton": "Muokkaa mallinetietoja",
 	"templatedata-errormsg-insertblank": "Haluatko varmasti lisätä mallinetiedot ilman tietoja?",
-	"templatedata-exists-on-related-page": "Huomioithan, että mallinetietoja löytyy jo sivulta ”[[$1]]”.",
+	"templatedata-exists-on-related-page": "Ota huomioon, että mallinetietoja (template data) löytyy jo sivulta ”[[$1]]”.",
 	"templatedata-helplink": "Lisätietoja mallinetiedoista",
 	"templatedata-invalid-unnamed-parameter": "Parametrin nimi ei voi olla tyhjä. Dokumentoidaksesi nimettömiä parametreja käytä niiden sisäisiä numeroita ”1”, ”2”, ”3” jne.",
 	"templatedata-invalid-duplicate-value": "Ominaisuus ”$1” (”$3”) on ominaisuuden ”$2” kaksoiskappale.",
