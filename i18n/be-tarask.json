@@ -67,7 +67,7 @@
 	"templatedata-modal-button-saveparam": "Захаваць",
 	"templatedata-modal-confirmcancel": "Вы насамрэч жадаеце скасаваць вашыя зьмены?",
 	"templatedata-modal-current-language": "Цяперашняя мова: $1",
-	"templatedata-modal-errormsg": "Знойдзеныя памылкі. Пераканайцеся, калі ласка, што адсутнічаюць пустыя ці дубляваныя назвы парамэтраў, і што назвы не зьмяшчаюць «$1», «$2» або «$3».",
+	"templatedata-modal-errormsg": "Знойдзеныя памылкі. Пераканайцеся, калі ласка, што няма пустых ці дубляваных назваў парамэтраў, і што назвы не зьмяшчаюць «$1», «$2» або «$3».",
 	"templatedata-modal-errormsg-duplicate-name": "Знойдзеная памылка. Абране імя ўжо выкарыстанае іншым парамэтрам.",
 	"templatedata-modal-errormsg-import-noparams": "Падчас імпартаваньня новыя парамэтры ня знойдзеныя.",
 	"templatedata-modal-format-block": "Блёкавы",
