@@ -1,3 +1,5 @@
+@import 'mediawiki.skin.variables.less';
+
 .tdg-editscreen-main {
 	margin: 1em 0;
 
@@ -25,7 +27,7 @@
 }
 
 .tdg-editscreen-input-error .oo-ui-inputWidget-input {
-	background-color: #ffa3a3;
+	background-color: @background-color-error-subtle;
 }
 
 .tdg-templateDataParamWidget {
@@ -61,26 +63,26 @@
 	}
 
 	&-description {
-		color: #666;
+		color: @color-subtle;
 	}
 
 	&-alias {
 		border-radius: 0.3em;
 		padding: 0.125em 0.25em;
 		margin-left: 0.5em;
-		color: #999;
-		background-color: #eee;
-		border: solid 1px #ddd;
+		color: @color-subtle;
+		background-color: @background-color-neutral;
+		border: solid 1px @border-color-muted;
 
 		&:first-child {
-			background-color: #fff;
+			background-color: @background-color-base;
 		}
 	}
 }
 
 .tdg-templateDataParamWidget-paramList-param-description {
 	clear: both;
-	color: #555;
+	color: @color-subtle;
 }
 
 .tdg-templateDataParamImportWidget {
@@ -101,7 +103,7 @@
 
 	&-otherMatch {
 		float: right;
-		color: #777;
+		color: @color-subtle;
 	}
 
 	&-highlight {
