@@ -14,6 +14,9 @@ use stdClass;
  */
 class TemplateDataHtmlFormatter {
 
+	// Based on EDITSECTION_REGEX in ParserOutput
+	public const string EDIT_LINK_REGEX = '#<mw:edittemplatedata page="(.*?)"></mw:edittemplatedata>#s';
+
 	public function __construct(
 		private readonly MessageLocalizer $localizer,
 		private readonly string $languageCode = 'en',
@@ -132,8 +135,7 @@ class TemplateDataHtmlFormatter {
 	public function replaceEditLink( string &$text ): void {
 		$localizer = $this->localizer;
 		$text = preg_replace_callback(
-			// Based on EDITSECTION_REGEX in ParserOutput
-			'#<mw:edittemplatedata page="(.*?)"></mw:edittemplatedata>#s',
+			self::EDIT_LINK_REGEX,
 			static function ( array $m ) use ( $localizer ): string {
 				$editsectionPage = Title::newFromText( htmlspecialchars_decode( $m[1] ) );
 

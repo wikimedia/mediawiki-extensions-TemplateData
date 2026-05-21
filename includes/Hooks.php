@@ -192,7 +192,12 @@ class Hooks implements
 	 * @param OutputPage $output
 	 * @param string &$text
 	 */
-	public function onOutputPageBeforeHTML( $output, &$text ) {
+	public function onOutputPageBeforeHTML( $output, &$text ): void {
+		if ( !preg_match( TemplateDataHtmlFormatter::EDIT_LINK_REGEX, $text ) ) {
+			// Optimization: Don't query for the page property if there is nothing to replace
+			return;
+		}
+
 		$services = MediaWikiServices::getInstance();
 		$props = $services->getPageProps()->getProperties( $output->getTitle(), 'templatedata' );
 		if ( $props ) {
