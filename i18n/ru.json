@@ -25,7 +25,8 @@
 			"Cabadeck",
 			"Mitte27",
 			"Vonavy",
-			"Merrahtar"
+			"Merrahtar",
+			"Daisy40"
 		]
 	},
 	"templatedata-desc": "Реализация хранилища данных для параметров шаблона (с помощью JSON)",
