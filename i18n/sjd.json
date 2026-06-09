@@ -70,7 +70,7 @@
 	"templatedata-modal-table-param-description": "Параметэр баяс ($1)",
 	"templatedata-modal-table-param-example": "Вуэзхэллнэгк ($1)",
 	"templatedata-modal-table-param-importoption": "Лажьхэ $1 этткма {{PLURAL:$1|параметэр|параметэр|параметрэдтӭ}}",
-	"templatedata-modal-table-param-importoption-subtitle": "Ва̄лльтмэнҍ:",
+	"templatedata-modal-table-param-importoption-subtitle": "Ва̄лльтмэнҍ: $1",
 	"templatedata-modal-table-param-label": "Нэ̄ммдэгк ($1)",
 	"templatedata-modal-table-param-name": "Нэ̄мм",
 	"templatedata-modal-table-param-suggested": "Этткма",
