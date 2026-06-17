@@ -1543,7 +1543,7 @@ HTML
 			}
 
 		};
-		$title = Title::newFromText( 'Template:Test/doc' );
+		$title = Title::makeTitle( NS_TEMPLATE, 'Test/doc' );
 		$formatter = new TemplateDataHtmlFormatter( $localizer );
 		$actual = $formatter->getHtml( $t, $title );
 		$linedActual = preg_replace( '/>\s*</', ">\n<", $actual );
