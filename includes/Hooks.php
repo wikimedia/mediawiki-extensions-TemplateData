@@ -199,7 +199,11 @@ class Hooks implements
 		}
 
 		$services = MediaWikiServices::getInstance();
-		$props = $services->getPageProps()->getProperties( $output->getTitle(), 'templatedata' );
+		$title = $output->getTitle();
+		if ( $title === null ) {
+			return;
+		}
+		$props = $services->getPageProps()->getProperties( $title, 'templatedata' );
 		if ( $props ) {
 			$lang = $output->getLanguage();
 			$localizer = new TemplateDataMessageLocalizer( $lang );
