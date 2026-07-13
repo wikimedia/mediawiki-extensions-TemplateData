@@ -11,7 +11,8 @@
 			"McDutchie",
 			"Nivit",
 			"Ruthven",
-			"Sannita"
+			"Sannita",
+			"Valepert"
 		]
 	},
 	"templatedata-desc": "Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)",
@@ -123,6 +124,7 @@
 	"templatedata-modal-title-templateparams": "Parametri template",
 	"templatedata-search-description": "Cerca un template",
 	"templatedata-search-placeholder": "Inserisci il nome del template",
+	"templatedata-search-placeholder-cirrussearch": "Inserisci il nome del template o parole chiave",
 	"templatedata-search-list-header": "Preferiti",
 	"templatedata-search-list-empty": "I template che contrassegni come favoriti appariranno qui",
 	"templatedata-template-discovery-disabled": "Template preferiti è disabilitato su questa wiki.",
@@ -136,6 +138,8 @@
 	"templatedata-favorite-maximum-reached": "Hai raggiunto il numero massimo ($1) di modelli preferiti. Per favore, rimuovine alcuni dall'elenco prima di aggiungerne altri.",
 	"templatedata-category-browser-header": "Categorie",
 	"templatedata-category-switch-label": "Categoria di primo livello:",
+	"templatedata-category-rootcat": "Template",
+	"templatedata-category-switch-button": "Sfoglia",
 	"templatedata-category-column-error": "Si è verificato un errore",
 	"templatedata-category-categories": "Altre categorie",
 	"templatedata-category-no-cats": "Nessuno.",
