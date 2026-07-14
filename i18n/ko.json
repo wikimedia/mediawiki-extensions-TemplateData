@@ -82,7 +82,7 @@
 	"templatedata-modal-button-done": "완료",
 	"templatedata-modal-button-map": "지도 편집",
 	"templatedata-modal-button-importParams": "매개변수 가져오기",
-	"templatedata-modal-button-removemap": "지도 삭제",
+	"templatedata-modal-button-removemap": "지도 제거",
 	"templatedata-modal-button-saveparam": "저장",
 	"templatedata-modal-confirmcancel": "정말 변경사항을 버리시겠습니까?",
 	"templatedata-modal-current-language": "현재 언어: $1",
