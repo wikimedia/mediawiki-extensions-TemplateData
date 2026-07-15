@@ -11,7 +11,8 @@
 			"McDutchie",
 			"Nivit",
 			"Ruthven",
-			"Sannita"
+			"Sannita",
+			"Valepert"
 		]
 	},
 	"templatedata-desc": "Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)",
