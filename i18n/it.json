@@ -12,7 +12,8 @@
 			"Nivit",
 			"Ruthven",
 			"Sannita",
-			"Valepert"
+			"Valepert",
+			"Candalua"
 		]
 	},
 	"templatedata-desc": "Implementa la memorizzazione dei dati per i parametri dei template (utilizzando JSON)",
