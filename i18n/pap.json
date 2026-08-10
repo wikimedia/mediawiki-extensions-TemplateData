@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kallmemel"
+		]
+	},
+	"templatedata-doc-param-type": "Tipo",
+	"templatedata-doc-param-type-wiki-file-name": "Fail",
+	"templatedata-doc-param-type-wiki-template-name": "Malchi",
+	"templatedata-doc-param-type-wiki-user-name": "Usadó",
+	"templatedata-doc-params": "Parameter di malchi",
+	"templatedata-editbutton": "Editá dato di malchi",
+	"templatedata-modal-button-apply": "Apliká",
+	"templatedata-modal-button-back": "Bèk",
+	"templatedata-modal-button-cancel": "Kanselá",
+	"templatedata-modal-button-changelang": "Kambia idioma",
+	"templatedata-modal-button-done": "Kla"
+}
