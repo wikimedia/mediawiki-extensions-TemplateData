@@ -24,7 +24,7 @@ class TemplateDataHooksTest extends MediaWikiIntegrationTestCase {
 			$services->getConnectionProvider(),
 			$services->getLinkRenderer(),
 			$services->getPageProps(),
-			$services->getWikiPageFactory()
+			$services->getRedirectLookup()
 		);
 	}
 

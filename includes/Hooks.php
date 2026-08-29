@@ -11,7 +11,7 @@ use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Output\Hook\OutputPageBeforeHTMLHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\PageProps;
-use MediaWiki\Page\WikiPageFactory;
+use MediaWiki\Page\RedirectLookup;
 use MediaWiki\Parser\Hook\ParserFetchTemplateDataHook;
 use MediaWiki\Parser\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Parser;
@@ -48,7 +48,7 @@ class Hooks implements
 		private readonly IConnectionProvider $dbProvider,
 		private readonly LinkRenderer $linkRenderer,
 		private readonly PageProps $pageProps,
-		private readonly WikiPageFactory $wikiPageFactory,
+		private readonly RedirectLookup $redirectLookup,
 	) {
 	}
 
@@ -252,7 +252,7 @@ class Hooks implements
 			}
 
 			if ( $title->isRedirect() ) {
-				$title = $this->wikiPageFactory->newFromTitle( $title )->getRedirectTarget();
+				$title = Title::castFromLinkTarget( $this->redirectLookup->getRedirectTarget( $title ) );
 				if ( !$title ) {
 					// Invalid redirecting title
 					$tplData[$tplTitle] = null;

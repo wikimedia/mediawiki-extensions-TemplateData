@@ -55,7 +55,7 @@
 				"ConnectionProvider",
 				"LinkRenderer",
 				"PageProps",
-				"WikiPageFactory"
+				"RedirectLookup"
 			]
 		},
 		"communityconfig": {
