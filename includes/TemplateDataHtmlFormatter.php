@@ -4,8 +4,8 @@ namespace MediaWiki\Extension\TemplateData;
 
 use MediaWiki\Html\Html;
 use MediaWiki\Language\MessageLocalizer;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Logger\LoggerFactory;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use stdClass;
 
@@ -18,6 +18,7 @@ class TemplateDataHtmlFormatter {
 	public const string EDIT_LINK_REGEX = '#<mw:edittemplatedata page="(.*?)"></mw:edittemplatedata>#s';
 
 	public function __construct(
+		private readonly LinkRenderer $linkRenderer,
 		private readonly MessageLocalizer $localizer,
 		private readonly string $languageCode = 'en',
 	) {
@@ -133,10 +134,9 @@ class TemplateDataHtmlFormatter {
 	 * Replace <mw:edittemplatedata> markers with links
 	 */
 	public function replaceEditLink( string &$text ): void {
-		$localizer = $this->localizer;
 		$text = preg_replace_callback(
 			self::EDIT_LINK_REGEX,
-			static function ( array $m ) use ( $localizer ): string {
+			function ( array $m ): string {
 				$editsectionPage = Title::newFromText( htmlspecialchars_decode( $m[1] ) );
 
 				if ( !is_object( $editsectionPage ) ) {
@@ -154,10 +154,9 @@ class TemplateDataHtmlFormatter {
 				$result = Html::openElement( 'span', [ 'class' => 'mw-editsection-like' ] );
 				$result .= Html::rawElement( 'span', [ 'class' => 'mw-editsection-bracket' ], '[' );
 
-				$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-				$result .= $linkRenderer->makeKnownLink(
+				$result .= $this->linkRenderer->makeKnownLink(
 					$editsectionPage,
-					$localizer->msg( 'templatedata-editbutton' )->text(),
+					$this->localizer->msg( 'templatedata-editbutton' )->text(),
 					[],
 					[
 						'action' => 'edit',

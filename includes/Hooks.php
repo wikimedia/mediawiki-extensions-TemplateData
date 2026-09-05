@@ -7,9 +7,11 @@ use MediaWiki\Config\Config;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Hook\EditPage__showEditForm_initialHook;
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Output\Hook\OutputPageBeforeHTMLHook;
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Page\PageProps;
+use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Parser\Hook\ParserFetchTemplateDataHook;
 use MediaWiki\Parser\Hook\ParserFirstCallInitHook;
 use MediaWiki\Parser\Parser;
@@ -25,6 +27,7 @@ use MediaWiki\Title\Title;
 use MediaWiki\User\Options\Hook\SaveUserOptionsHook;
 use MediaWiki\User\User;
 use MediaWiki\User\UserIdentity;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * @license GPL-2.0-or-later
@@ -40,7 +43,13 @@ class Hooks implements
 	SaveUserOptionsHook
 {
 
-	public function __construct( private readonly Config $config ) {
+	public function __construct(
+		private readonly Config $config,
+		private readonly IConnectionProvider $dbProvider,
+		private readonly LinkRenderer $linkRenderer,
+		private readonly PageProps $pageProps,
+		private readonly WikiPageFactory $wikiPageFactory,
+	) {
 	}
 
 	/**
@@ -119,8 +128,7 @@ class Hooks implements
 				// If we're outside the editor namespaces, allow access to GUI
 				// if it's an existing page with <templatedate> (e.g. User template sandbox,
 				// or some other page that's intended to be transcluded for any reason).
-				$services = MediaWikiServices::getInstance();
-				$props = $services->getPageProps()->getProperties( $editPage->getTitle(), 'templatedata' );
+				$props = $this->pageProps->getProperties( $editPage->getTitle(), 'templatedata' );
 				$isEditorNamespace = (bool)$props;
 			}
 			if ( $isEditorNamespace ) {
@@ -146,7 +154,7 @@ class Hooks implements
 	 */
 	public function render( ?string $input, array $args, Parser $parser, PPFrame $frame ): string {
 		$parserOutput = $parser->getOutput();
-		$dbr = MediaWikiServices::getInstance()->getConnectionProvider()->getReplicaDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
 		$ti = TemplateDataBlob::newFromJSON( $dbr, $input ?? '' );
 
 		$status = $ti->getStatus();
@@ -182,7 +190,7 @@ class Hooks implements
 		OutputPage::setupOOUI( 'bogus', $userLang->getDir() );
 
 		$localizer = new TemplateDataMessageLocalizer( $userLang );
-		$formatter = new TemplateDataHtmlFormatter( $localizer, $userLang->getCode() );
+		$formatter = new TemplateDataHtmlFormatter( $this->linkRenderer, $localizer, $userLang->getCode() );
 		return $formatter->getHtml( $ti, $frame->getTitle(), !$parser->getOptions()->getIsPreview() );
 	}
 
@@ -198,16 +206,15 @@ class Hooks implements
 			return;
 		}
 
-		$services = MediaWikiServices::getInstance();
 		$title = $output->getTitle();
 		if ( $title === null ) {
 			return;
 		}
-		$props = $services->getPageProps()->getProperties( $title, 'templatedata' );
+		$props = $this->pageProps->getProperties( $title, 'templatedata' );
 		if ( $props ) {
 			$lang = $output->getLanguage();
 			$localizer = new TemplateDataMessageLocalizer( $lang );
-			$formatter = new TemplateDataHtmlFormatter( $localizer, $lang->getCode() );
+			$formatter = new TemplateDataHtmlFormatter( $this->linkRenderer, $localizer, $lang->getCode() );
 			$formatter->replaceEditLink( $text );
 		}
 	}
@@ -231,10 +238,7 @@ class Hooks implements
 	public function onParserFetchTemplateData( array $tplTitles, array &$tplData ): bool {
 		$tplData = [];
 
-		$services = MediaWikiServices::getInstance();
-		$pageProps = $services->getPageProps();
-		$wikiPageFactory = $services->getWikiPageFactory();
-		$dbr = $services->getConnectionProvider()->getReplicaDatabase();
+		$dbr = $this->dbProvider->getReplicaDatabase();
 
 		// This inefficient implementation is currently tuned for
 		// Parsoid's use case where it requests info for exactly one title.
@@ -248,7 +252,7 @@ class Hooks implements
 			}
 
 			if ( $title->isRedirect() ) {
-				$title = $wikiPageFactory->newFromTitle( $title )->getRedirectTarget();
+				$title = $this->wikiPageFactory->newFromTitle( $title )->getRedirectTarget();
 				if ( !$title ) {
 					// Invalid redirecting title
 					$tplData[$tplTitle] = null;
@@ -270,7 +274,7 @@ class Hooks implements
 			// It is also expected that such race conditions resolve themselves
 			// after a few seconds so the old "try again later" should cover this.
 			$pageId = $title->getArticleID();
-			$props = $pageProps->getProperties( $title, 'templatedata' );
+			$props = $this->pageProps->getProperties( $title, 'templatedata' );
 			if ( !isset( $props[$pageId] ) ) {
 				// No templatedata
 				$tplData[$tplTitle] = (object)[ 'notemplatedata' => true ];

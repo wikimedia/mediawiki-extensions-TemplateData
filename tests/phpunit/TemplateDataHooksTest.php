@@ -17,8 +17,15 @@ class TemplateDataHooksTest extends MediaWikiIntegrationTestCase {
 	 */
 	protected function setUp(): void {
 		parent::setUp();
-		// TODO: Am I meant to mock the config?
-		$this->hookHandler = new Hooks( $this->getServiceContainer()->getMainConfig() );
+		$services = $this->getServiceContainer();
+		$this->hookHandler = new Hooks(
+			// TODO: Am I meant to mock the config?
+			$services->getMainConfig(),
+			$services->getConnectionProvider(),
+			$services->getLinkRenderer(),
+			$services->getPageProps(),
+			$services->getWikiPageFactory()
+		);
 	}
 
 	/**
