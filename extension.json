@@ -20,7 +20,13 @@
 		"MediaWiki": ">= 1.47.0"
 	},
 	"APIModules": {
-		"templatedata": "MediaWiki\\Extension\\TemplateData\\Api\\ApiTemplateData"
+		"templatedata": {
+			"class": "MediaWiki\\Extension\\TemplateData\\Api\\ApiTemplateData",
+			"services": [
+				"LanguageNameUtils",
+				"WikiPageFactory"
+			]
+		}
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\TemplateData\\": "includes/"

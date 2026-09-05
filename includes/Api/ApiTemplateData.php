@@ -5,11 +5,13 @@ namespace MediaWiki\Extension\TemplateData\Api;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiContinuationManager;
 use MediaWiki\Api\ApiFormatBase;
+use MediaWiki\Api\ApiMain;
 use MediaWiki\Api\ApiPageSet;
 use MediaWiki\Api\ApiResult;
 use MediaWiki\Content\TextContent;
 use MediaWiki\Extension\TemplateData\TemplateDataBlob;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Language\LanguageNameUtils;
+use MediaWiki\Page\WikiPageFactory;
 use MediaWiki\Status\Status;
 use Wikimedia\ParamValidator\ParamValidator;
 
@@ -23,6 +25,15 @@ use Wikimedia\ParamValidator\ParamValidator;
 class ApiTemplateData extends ApiBase {
 
 	private ?ApiPageSet $mPageSet = null;
+
+	public function __construct(
+		ApiMain $main,
+		string $action,
+		private readonly LanguageNameUtils $languageNameUtils,
+		private readonly WikiPageFactory $wikiPageFactory,
+	) {
+		parent::__construct( $main, $action );
+	}
 
 	/**
 	 * For backwards compatibility, this module needs to output format=json when
@@ -48,7 +59,6 @@ class ApiTemplateData extends ApiBase {
 	 * @inheritDoc
 	 */
 	public function execute() {
-		$services = MediaWikiServices::getInstance();
 		$params = $this->extractRequestParams();
 		$result = $this->getResult();
 
@@ -57,7 +67,7 @@ class ApiTemplateData extends ApiBase {
 
 		if ( $params['lang'] === null ) {
 			$langCode = false;
-		} elseif ( !$services->getLanguageNameUtils()->isValidCode( $params['lang'] ) ) {
+		} elseif ( !$this->languageNameUtils->isValidCode( $params['lang'] ) ) {
 			$this->dieWithError( [ 'apierror-invalidlang', 'lang' ] );
 		} else {
 			$langCode = $params['lang'];
@@ -151,8 +161,6 @@ class ApiTemplateData extends ApiBase {
 			}
 		}
 
-		$wikiPageFactory = $services->getWikiPageFactory();
-
 		// Now go through all the titles again, and attempt to extract parameter names from the
 		// wikitext for templates with no templatedata.
 		if ( $includeMissingTitles ) {
@@ -162,7 +170,7 @@ class ApiTemplateData extends ApiBase {
 					continue;
 				}
 
-				$content = $wikiPageFactory->newFromTitle( $pageInfo['title'] )->getContent();
+				$content = $this->wikiPageFactory->newFromTitle( $pageInfo['title'] )->getContent();
 				if ( !$content ) {
 					continue;
 				}
