@@ -340,7 +340,8 @@
 		"packageFiles": [
 			"init.js",
 			"ext.templateData.tests.js",
-			"ext.templateData.templateDiscovery/ColumnGroup.tests.js"
+			"ext.templateData.templateDiscovery/ColumnGroup.tests.js",
+			"ext.templateData.templateDiscovery/SearchWidget.tests.js"
 		],
 		"dependencies": [
 			"ext.templateDataGenerator.data",

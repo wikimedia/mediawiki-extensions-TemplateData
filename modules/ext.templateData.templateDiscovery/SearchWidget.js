@@ -4,6 +4,17 @@ const FavoritesStore = require( './FavoritesStore.js' );
 const mwConfig = require( './mwConfig.json' );
 
 /**
+ * The {{subst:...}} and {{safesubst:...}} magic words in front of a template name, with the
+ * whitespace the parser permits. Search does not know these magic words. The wikitext needs
+ * them.
+ *
+ * FIXME: This does not match localized versions of these magic words.
+ *
+ * @type {RegExp}
+ */
+const substMagicWordPattern = /^\s*(?:safe)?subst:\s*/i;
+
+/**
  * @class
  * @extends OO.ui.ComboBoxInputWidget
  *
@@ -45,7 +56,8 @@ OO.mixinClass( SearchWidget, OO.ui.mixin.LookupElement );
  * When a template is choosen from the menu.
  *
  * @event choose
- * @param {Object} The template data of the chosen template.
+ * @param {Object} templateData The template data of the chosen template. The optional
+ *  substPrefix property holds the {{subst:...}} magic word the user typed.
  */
 
 /**
@@ -57,6 +69,38 @@ OO.mixinClass( SearchWidget, OO.ui.mixin.LookupElement );
  */
 
 /* Methods */
+
+/**
+ * @private
+ * @return {string} What the user typed, without a {{subst:...}} magic word.
+ */
+SearchWidget.prototype.getSearchQuery = function () {
+	return this.getValue().replace( substMagicWordPattern, '' );
+};
+
+/**
+ * @private
+ * @return {string} The {{subst:...}} magic word the user typed, or an empty string.
+ */
+SearchWidget.prototype.getSubstPrefix = function () {
+	const magicWord = this.getValue().match( substMagicWordPattern );
+	return magicWord ? magicWord[ 0 ].trim() : '';
+};
+
+/**
+ * Add a magic word to a copy of the template data. The original is part of the lookup
+ * cache, so it must not change.
+ *
+ * @private
+ * @param {Object} templateData
+ * @param {string} substPrefix A {{subst:...}} magic word, possibly empty
+ * @return {Object} Template data with the magic word, or the unchanged input
+ */
+SearchWidget.prototype.withSubstPrefix = function ( templateData, substPrefix ) {
+	return substPrefix ?
+		Object.assign( {}, templateData, { substPrefix: substPrefix } ) :
+		templateData;
+};
 
 /**
  * This helper method is modeled after mw.widgets.TitleWidget, even if this is *not* a TitleWidget.
@@ -111,8 +155,13 @@ SearchWidget.prototype.getApiParams = function ( query ) {
  * @return {jQuery.Promise} jQuery AJAX object, or promise object with an .abort() method
  */
 SearchWidget.prototype.getLookupRequest = function () {
-	const query = this.getValue(),
-		params = this.getApiParams( query );
+	const query = this.getSearchQuery();
+	if ( !query.trim() ) {
+		// A magic word alone is not a template name
+		return $.Deferred().resolve( { pages: {} } ).promise( { abort: function () {} } );
+	}
+
+	const params = this.getApiParams( query );
 	let promise = this.api.get( params );
 
 	// No point in running prefix search a second time
@@ -132,7 +181,7 @@ SearchWidget.prototype.getLookupRequest = function () {
  * @return {Object} Modified response
  */
 SearchWidget.prototype.addExactMatch = function ( response ) {
-	const query = this.getValue(),
+	const query = this.getSearchQuery(),
 		lowerQuery = query.trim().toLowerCase();
 	if ( !response.pages || !lowerQuery ) {
 		return response;
@@ -251,7 +300,7 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 	// Filter map results to remove null values
 	} ).filter( ( result ) => result !== null );
 
-	const lowerQuery = this.getValue().trim().toLowerCase();
+	const lowerQuery = this.getSearchQuery().trim().toLowerCase();
 	searchResults.sort( ( a, b ) => {
 		// Force exact matches to be at the top
 		if ( a.label.toLowerCase() === lowerQuery ) {
@@ -288,8 +337,8 @@ SearchWidget.prototype.getLookupCacheDataFromResponse = function ( response ) {
 SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
 	return data.map( ( config ) => {
 		// See if this template matches, and if it does then emit an event.
-		const valueAsTitle = new mw.Title( this.getValue() );
-		if ( valueAsTitle.getMainText() === config.label ) {
+		const valueAsTitle = mw.Title.newFromText( this.getSearchQuery() );
+		if ( valueAsTitle && valueAsTitle.getMainText() === config.label ) {
 			this.emit( 'match', config.data );
 		}
 		return new TemplateMenuItem( config, this.favoritesStore );
@@ -304,8 +353,9 @@ SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
  * @param {OO.ui.MenuOptionWidget} item Selected item
  */
 SearchWidget.prototype.onLookupMenuChoose = function ( item ) {
-	this.setValue( item.getLabel() );
-	this.emit( 'choose', item.getData() );
+	const substPrefix = this.getSubstPrefix();
+	this.setValue( substPrefix + item.getLabel() );
+	this.emit( 'choose', this.withSubstPrefix( item.getData(), substPrefix ) );
 };
 
 /**
@@ -319,7 +369,7 @@ SearchWidget.prototype.onEnterKeyPress = function () {
 	// Immediately abort any pending lookup requests
 	this.abortLookupRequest();
 
-	const currentValue = this.getValue().trim();
+	const currentValue = this.getSearchQuery().trim();
 	if ( !currentValue ) {
 		return;
 	}
@@ -331,7 +381,7 @@ SearchWidget.prototype.onEnterKeyPress = function () {
 			title: title.getPrefixedText(),
 			missing: true
 		};
-		this.emit( 'choose', templateData );
+		this.emit( 'choose', this.withSubstPrefix( templateData, this.getSubstPrefix() ) );
 	}
 };
 
