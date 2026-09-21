@@ -66,6 +66,7 @@
 	"templatedata-modal-button-importParams": "Імпартаваць парамэтры",
 	"templatedata-modal-button-saveparam": "Захаваць",
 	"templatedata-modal-confirmcancel": "Вы насамрэч жадаеце скасаваць вашыя зьмены?",
+	"templatedata-modal-button-discard": "Адкінуць",
 	"templatedata-modal-current-language": "Цяперашняя мова: $1",
 	"templatedata-modal-errormsg": "Знойдзеныя памылкі. Пераканайцеся, калі ласка, што няма пустых ці дубляваных назваў парамэтраў, і што назвы не зьмяшчаюць «$1», «$2» або «$3».",
 	"templatedata-modal-errormsg-duplicate-name": "Знойдзеная памылка. Абране імя ўжо выкарыстанае іншым парамэтрам.",
