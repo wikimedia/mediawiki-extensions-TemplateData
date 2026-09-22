@@ -96,7 +96,7 @@
 	"templatedata-modal-notice-import-numparams": "Zaimportowano {{PLURAL:$1|$1 nowy parametr|$1 nowe parametry|$1 nowych parametrów}}: $2",
 	"templatedata-modal-placeholder-add-new-map-input": "Dodawanie mapy…",
 	"templatedata-modal-placeholder-paramkey": "Nazwa parametru",
-	"templatedata-modal-placeholder-mapinfo": "Ten szablon nie posiada obiektu mapy",
+	"templatedata-modal-placeholder-mapinfo": "Ten szablon nie ma obiektu mapy",
 	"templatedata-modal-placeholder-prompt-map-name": "Wprowadź nazwę mapy",
 	"templatedata-modal-search-input-placeholder": "Szukaj według nazwy języka lub jego kodu",
 	"templatedata-modal-table-param-aliases": "Aliasy",
