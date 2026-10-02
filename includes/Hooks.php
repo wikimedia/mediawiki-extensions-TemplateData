@@ -57,7 +57,7 @@ class Hooks implements
 	 * @param Parser $parser
 	 */
 	public function onParserFirstCallInit( $parser ) {
-		$parser->setHook( 'templatedata', [ $this, 'render' ] );
+		$parser->setHook( 'templatedata', $this->render( ... ) );
 	}
 
 	/**
