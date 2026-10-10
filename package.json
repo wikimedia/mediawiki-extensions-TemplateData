@@ -20,6 +20,6 @@
 		"grunt-stylelint": "0.21.0",
 		"jsdoc": "4.0.5",
 		"stylelint-config-wikimedia": "0.19.4",
-		"wdio-mediawiki": "6.5.2"
+		"wdio-mediawiki": "6.5.3"
 	}
 }
