@@ -133,8 +133,7 @@
 				"ext.templateData.images",
 				"ext.templateDataGenerator.data",
 				"jquery.uls.data",
-				"jquery.textSelection",
-				"web2017-polyfills"
+				"jquery.textSelection"
 			],
 			"messages": [
 				"comma-separator",
