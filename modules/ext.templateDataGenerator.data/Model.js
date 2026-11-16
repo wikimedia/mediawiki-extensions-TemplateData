@@ -35,52 +35,52 @@ OO.mixinClass( Model, OO.EventEmitter );
 /* Events */
 
 /**
- * @event add-param
+ * @event Model#add-param
  * @param {string} key Parameter key
  * @param {Object} data Parameter data
  */
 
 /**
- * @event add-paramOrder
+ * @event Model#add-paramOrder
  * @param {string} key Parameter key
  */
 
 /**
- * @event delete-param
+ * @event Model#delete-param
  * @param {string} paramKey Parameter key
  */
 
 /**
- * @event change-description
+ * @event Model#change-description
  * @param {string} description New template description
  * @param {Object} [language] Description language, if supplied
  */
 
 /**
- * @event change-paramOrder
+ * @event Model#change-paramOrder
  * @param {string[]} orderArray Parameter key array in order
  */
 
 /**
- * @event change-property
+ * @event Model#change-property
  * @param {string} paramKey Parameter key
  * @param {string} prop Property name
- * @param {Mixed} value
+ * @param {any} value
  * @param {string} language
  */
 
 /**
- * @event change-map
+ * @event Model#change-map
  * @param {Object|undefined} map New template map info
  */
 
 /**
- * @event change-format
+ * @event Model#change-format
  * @param {string|null} [format=null] Preferred format
  */
 
 /**
- * @event change
+ * @event Model#change
  */
 
 /* Static Methods */
@@ -393,8 +393,8 @@ Model.prototype.getExistingLanguageCodes = function () {
  *
  * @param {string} name
  * @param {Object} [paramData] Parameter data
- * @fires add-param
- * @fires change
+ * @fires Model#add-param
+ * @fires Model#change
  */
 Model.prototype.addParam = function ( name, paramData ) {
 	const data = $.extend( true, {}, paramData );
@@ -493,8 +493,8 @@ Model.prototype.getAllParamNames = function () {
  * @param {string|Object} desc New template description
  * @param {string} [language] Description language, if supplied. If not given,
  *  will default to the wiki language.
- * @fires change-description
- * @fires change
+ * @fires Model#change-description
+ * @fires Model#change
  */
 Model.prototype.setTemplateDescription = function ( desc, language ) {
 	language = language || this.getDefaultLanguage();
@@ -524,8 +524,8 @@ Model.prototype.getTemplateDescription = function ( language ) {
 
 /**
  * @param {Object|undefined} map New template map info
- * @fires change-map
- * @fires change
+ * @fires Model#change-map
+ * @fires Model#change
  */
 Model.prototype.setMapInfo = function ( map ) {
 	if ( map !== undefined ) {
@@ -585,8 +585,8 @@ Model.prototype.getDefaultLanguage = function () {
  * Set template param order array.
  *
  * @param {string[]} [orderArray] Parameter key array in order
- * @fires change-paramOrder
- * @fires change
+ * @fires Model#change-paramOrder
+ * @fires Model#change
  */
 Model.prototype.setTemplateParamOrder = function ( orderArray ) {
 	orderArray = orderArray || [];
@@ -601,8 +601,8 @@ Model.prototype.setTemplateParamOrder = function ( orderArray ) {
  * Set template format.
  *
  * @param {string|null} [format=null] Preferred format
- * @fires change-format
- * @fires change
+ * @fires Model#change-format
+ * @fires Model#change
  */
 Model.prototype.setTemplateFormat = function ( format ) {
 	format = format || null;
@@ -617,8 +617,8 @@ Model.prototype.setTemplateFormat = function ( format ) {
  * Add a key to the end of the paramOrder
  *
  * @param {string} key New key the add into the paramOrder
- * @fires add-paramOrder
- * @fires change
+ * @fires Model#add-paramOrder
+ * @fires Model#change
  */
 Model.prototype.addKeyTemplateParamOrder = function ( key ) {
 	if ( !this.paramOrder.includes( key ) ) {
@@ -633,8 +633,8 @@ Model.prototype.addKeyTemplateParamOrder = function ( key ) {
  *
  * @param {string} key
  * @param {number} newIndex
- * @fires change-paramOrder
- * @fires change
+ * @fires Model#change-paramOrder
+ * @fires Model#change
  */
 Model.prototype.reorderParamOrderKey = function ( key, newIndex ) {
 	const keyIndex = this.paramOrder.indexOf( key );
@@ -656,8 +656,8 @@ Model.prototype.reorderParamOrderKey = function ( key, newIndex ) {
  * Add a key to the end of the paramOrder
  *
  * @param {string} key New key the add into the paramOrder
- * @fires change-paramOrder
- * @fires change
+ * @fires Model#change-paramOrder
+ * @fires Model#change
  */
 Model.prototype.removeKeyTemplateParamOrder = function ( key ) {
 	const keyPos = this.paramOrder.indexOf( key );
@@ -691,11 +691,11 @@ Model.prototype.getTemplateFormat = function () {
  *
  * @param {string} paramKey Parameter key
  * @param {string} prop Property name
- * @param {Mixed} value
+ * @param {any} value
  * @param {string} [language] Value language
  * @return {boolean} Operation was successful
- * @fires change-property
- * @fires change
+ * @fires Model#change-property
+ * @fires Model#change
  */
 Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) {
 	const allProps = this.constructor.static.getAllProperties( true );
@@ -769,8 +769,8 @@ Model.prototype.setParamProperty = function ( paramKey, prop, value, language ) 
  * from the final output.
  *
  * @param {string} paramKey Parameter key
- * @fires delete-param
- * @fires change
+ * @fires Model#delete-param
+ * @fires Model#change
  */
 Model.prototype.deleteParam = function ( paramKey ) {
 	this.params[ paramKey ].deleted = true;
@@ -800,7 +800,7 @@ Model.prototype.emptyParamData = function ( paramKey ) {
  *
  * @param {string} paramKey Parameter key
  * @param {string} prop Parameter property
- * @return {Mixed|null} Property value if it exists. Returns null if the
+ * @return {any} Property value if it exists. Returns null if the
  * parameter key itself doesn't exist.
  */
 Model.prototype.getParamProperty = function ( paramKey, prop ) {

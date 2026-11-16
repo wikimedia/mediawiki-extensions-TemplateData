@@ -34,7 +34,7 @@ OO.mixinClass( Column, OO.EventEmitter );
 /**
  * When an item in this column is selected.
  *
- * @event select
+ * @event Column#select
  * @param {Column} column
  * @param {ColumnItem} columnItem
  */
@@ -42,7 +42,7 @@ OO.mixinClass( Column, OO.EventEmitter );
 /**
  * When a "load more" item is clicked.
  *
- * @event loadmore
+ * @event Column#loadmore
  * @param {Column} column
  * @param {string} cmcontinue
  */
@@ -50,7 +50,7 @@ OO.mixinClass( Column, OO.EventEmitter );
 /**
  * When a template is chosen.
  *
- * @event choose
+ * @event Column#choose
  * @param {Object} The template data of the chosen template.
  */
 

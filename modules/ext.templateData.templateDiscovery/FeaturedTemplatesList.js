@@ -84,6 +84,7 @@ function FeaturedTemplatesList( config ) {
 /**
  * Get the community configuration for the featured templates.
  *
+ * @private
  * @return {Promise}
  */
 function getCommunityConfiguration() {
@@ -99,6 +100,7 @@ function getCommunityConfiguration() {
 /**
  * Get the template data for a given set of templates.
  *
+ * @private
  * @param {Array} templates Template titles.
  * @return {Promise}
  */
@@ -122,7 +124,7 @@ OO.inheritClass( FeaturedTemplatesList, OO.ui.TabPanelLayout );
 /**
  * When a template is chosen from the list of favorites.
  *
- * @event choose
+ * @event FeaturedTemplatesList#choose
  * @param {Object} The template data of the chosen template.
  */
 

@@ -40,7 +40,7 @@ ColumnItem.static.scrollIntoViewOnSelect = true;
 /**
  * When the item is selected.
  *
- * @event select
+ * @event ColumnItem#select
  * @param {Object} The template data of the chosen template.
  */
 

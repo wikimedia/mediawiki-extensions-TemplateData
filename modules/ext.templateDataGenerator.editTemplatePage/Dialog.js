@@ -14,8 +14,6 @@ const
  *
  * @constructor
  * @param {Object} config Dialog configuration object
- *
- * @external LanguageResultWidget
  */
 function Dialog( config ) {
 	// Parent constructor
@@ -431,7 +429,7 @@ Dialog.prototype.onModelChangeParamOrder = function () {
  *
  * @param {string} paramKey Parameter key
  * @param {string} prop Property name
- * @param {Mixed} value
+ * @param {any} value
  * @param {string} language
  */
 Dialog.prototype.onModelChangeProperty = function ( paramKey, prop, value ) {
@@ -1004,7 +1002,7 @@ Dialog.prototype.repopulateParamSelectWidget = function () {
  *
  * @param {string} paramKey Parameter key
  * @param {string} propName Property name
- * @param {Mixed} [value] Property value
+ * @param {any} [value] Property value
  * @param {string} [lang] Language
  */
 Dialog.prototype.changeParamPropertyInput = function ( paramKey, propName, value, lang ) {

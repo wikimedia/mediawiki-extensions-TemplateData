@@ -75,13 +75,13 @@ OO.mixinClass( TemplateMenuItem, OO.EventEmitter );
 /**
  * When a template is chosen.
  *
- * @event choose
+ * @event TemplateMenuItem#choose
  * @param {Object} The template data of the chosen template.
  */
 /**
  * aa
  *
- * @event drop
+ * @event TemplateMenuItem#drop
  * @param {Object} The template data of the chosen template.
  */
 

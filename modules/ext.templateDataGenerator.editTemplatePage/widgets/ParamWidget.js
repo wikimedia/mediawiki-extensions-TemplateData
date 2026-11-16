@@ -42,7 +42,7 @@ OO.mixinClass( ParamWidget, OO.ui.mixin.TabIndexedElement );
 /* Events */
 
 /**
- * @event choose
+ * @event ParamWidget#choose
  * @param {ParamWidget} paramWidget
  */
 
@@ -50,7 +50,7 @@ OO.mixinClass( ParamWidget, OO.ui.mixin.TabIndexedElement );
 
 /**
  * @param {jQuery.Event} e Key down event
- * @fires choose
+ * @fires ParamWidget#choose
  */
 ParamWidget.prototype.onKeyDown = function ( e ) {
 	if ( e.which === OO.ui.Keys.ENTER ) {

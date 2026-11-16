@@ -23,13 +23,13 @@ OO.mixinClass( FavoritesStore, OO.EventEmitter );
 /**
  * When favorite is removed
  *
- * @event removed
+ * @event FavoritesStore#removed
  * @param {number} pageId
  */
 /**
  * When favorite is added
  *
- * @event added
+ * @event FavoritesStore#added
  * @param {number} pageId
  */
 
@@ -43,7 +43,7 @@ FavoritesStore.prototype.getAllFavoritesDetails = function () {
 /**
  * Get the details of some favorites by page ID.
  *
- * @param {Array<number|string>} pageIds
+ * @param {number[]|string[]} pageIds
  * @return {Promise}
  */
 FavoritesStore.prototype.getFavoritesDetails = function ( pageIds ) {
@@ -89,6 +89,7 @@ FavoritesStore.prototype.getFavoritesDetails = function ( pageIds ) {
 /**
  * Parse a page ID to a number, or throw an error
  *
+ * @private
  * @param {string} pageId
  * @return {number} The parsed page ID
  * @throws {Error} If the pageId is not a number

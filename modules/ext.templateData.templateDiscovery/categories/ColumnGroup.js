@@ -28,7 +28,7 @@ OO.inheritClass( ColumnGroup, OO.ui.PanelLayout );
 /**
  * When a template is chosen.
  *
- * @event choose
+ * @event ColumnGroup#choose
  * @param {Object} The template data of the chosen template.
  */
 

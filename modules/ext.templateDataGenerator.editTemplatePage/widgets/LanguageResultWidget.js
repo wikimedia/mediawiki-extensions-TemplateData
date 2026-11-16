@@ -34,7 +34,7 @@ OO.mixinClass( LanguageResultWidget, OO.ui.mixin.TabIndexedElement );
 /* Events */
 
 /**
- * @event choose
+ * @event LanguageResultWidget#choose
  * @param {LanguageResultWidget} languageResultWidget
  */
 
@@ -42,7 +42,7 @@ OO.mixinClass( LanguageResultWidget, OO.ui.mixin.TabIndexedElement );
 
 /**
  * @param {jQuery.Event} e Key down event
- * @fires choose
+ * @fires LanguageResultWidget#choose
  */
 LanguageResultWidget.prototype.onKeyDown = function ( e ) {
 	if ( e.which === OO.ui.Keys.ENTER ) {

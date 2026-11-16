@@ -53,7 +53,7 @@ OO.mixinClass( CategoryBrowser, OO.ui.mixin.PendingElement );
 /**
  * When a template is chosen from the list of favorites.
  *
- * @event choose
+ * @event CategoryBrowser#choose
  * @param {Object} The template data of the chosen template.
  */
 

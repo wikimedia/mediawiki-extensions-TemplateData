@@ -121,7 +121,6 @@ Target.prototype.destroy = function () {
 /**
  * Display error message in the edit window
  *
- * @method setNoticeMessage
  * @param {jQuery|string|OO.ui.HtmlSnippet|Function|null} label Message to display
  * @param {string} type Message type 'notice', 'error', 'warning' or 'success'
  */
@@ -134,7 +133,6 @@ Target.prototype.setEditNoticeMessage = function ( label, type ) {
 /**
  * Open the templatedata edit dialog
  *
- * @method openEditDialog
  * @param {Model} dataModel The data model
  * associated with this edit dialog.
  */
@@ -148,8 +146,6 @@ Target.prototype.openEditDialog = function ( dataModel ) {
 
 /**
  * Respond to edit dialog button click.
- *
- * @method onEditOpenDialogButton
  */
 Target.prototype.onEditOpenDialogButton = function () {
 	this.originalWikitext = this.$textarea.textSelection( 'getContents' );
@@ -198,7 +194,6 @@ Target.prototype.onEditOpenDialogButton = function () {
  * Replace the old templatedata string with the new one, or
  * insert the new one into the page if an old one doesn't exist
  *
- * @method replaceTemplateData
  * @param {Object} newTemplateData New templatedata
  */
 Target.prototype.replaceTemplateData = function ( newTemplateData ) {
@@ -238,7 +233,6 @@ Target.prototype.replaceTemplateData = function ( newTemplateData ) {
 /**
  * Respond to edit dialog apply event
  *
- * @method onDialogApply
  * @param {Object} templateData New templatedata
  */
 Target.prototype.onDialogApply = function ( templateData ) {

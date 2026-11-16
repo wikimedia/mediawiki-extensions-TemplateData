@@ -79,7 +79,7 @@ OO.mixinClass( TemplateList, OO.ui.mixin.DraggableGroupElement );
 /**
  * When a template is chosen from the list of favorites.
  *
- * @event choose
+ * @event TemplateList#choose
  * @param {Object} The template data of the chosen template.
  */
 
@@ -108,7 +108,6 @@ TemplateList.prototype.onFavoriteRemoved = function ( pageId ) {
  * When a favorite is added, update the list.
  *
  * @param {number} pageId
- * @return {void}
  */
 TemplateList.prototype.onFavoriteAdded = function ( pageId ) {
 	// Check if the pageId is already in the list.

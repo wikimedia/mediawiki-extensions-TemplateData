@@ -10,6 +10,7 @@ const mwConfig = require( './mwConfig.json' );
  *
  * FIXME: This does not match localized versions of these magic words.
  *
+ * @private
  * @type {RegExp}
  */
 const substMagicWordPattern = /^\s*(?:safe)?subst:\s*/i;
@@ -55,7 +56,7 @@ OO.mixinClass( SearchWidget, OO.ui.mixin.LookupElement );
 /**
  * When a template is choosen from the menu.
  *
- * @event choose
+ * @event SearchWidget#choose
  * @param {Object} templateData The template data of the chosen template. The optional
  *  substPrefix property holds the {{subst:...}} magic word the user typed.
  */
@@ -64,7 +65,7 @@ OO.mixinClass( SearchWidget, OO.ui.mixin.LookupElement );
  * When the current value of the search input matches a search result (regardless of whether that
  * result is highlighted).
  *
- * @event match
+ * @event SearchWidget#match
  * @param {Object} templateData Template data of the matched search result.
  */
 
@@ -349,7 +350,7 @@ SearchWidget.prototype.getLookupMenuOptionsFromData = function ( data ) {
  * Handle menu item 'choose' event, updating the text input value to the value of the clicked item.
  *
  * @protected
- * @fires choose
+ * @fires SearchWidget#choose
  * @param {OO.ui.MenuOptionWidget} item Selected item
  */
 SearchWidget.prototype.onLookupMenuChoose = function ( item ) {
@@ -362,7 +363,7 @@ SearchWidget.prototype.onLookupMenuChoose = function ( item ) {
  * Handle Enter key press to select template based on current input value.
  *
  * @protected
- * @fires choose
+ * @fires SearchWidget#choose
  */
 SearchWidget.prototype.onEnterKeyPress = function () {
 	// TODO: Do we also need to stop the favorites list, etc., queries too?

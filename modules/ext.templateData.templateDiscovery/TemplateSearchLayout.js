@@ -93,14 +93,14 @@ OO.inheritClass( TemplateSearchLayout, OO.ui.PanelLayout );
 /**
  * When a template is choosen by searching or other means.
  *
- * @event choose
+ * @event TemplateSearchLayout#choose
  * @param {Object} The template data of the chosen template.
  */
 
 /* Methods */
 
 /**
- * @fires choose
+ * @fires TemplateSearchLayout#choose
  * @param {Object} data The texmplate data of the choosen template
  */
 TemplateSearchLayout.prototype.onAddTemplate = function ( data ) {
