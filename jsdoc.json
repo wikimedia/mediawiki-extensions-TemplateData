@@ -3,18 +3,28 @@
 		"destination": "docs",
 		"package": "package.json",
 		"pedantic": true,
-		"recurse": true
+		"readme": "modules/README.md",
+		"recurse": true,
+		"template": "node_modules/jsdoc-wmf-theme"
 	},
 	"plugins": [
-		"plugins/markdown"
+		"node_modules/jsdoc-wmf-theme/plugins/default"
 	],
 	"source": {
-		"include": [ "modules", "modules/README.md" ]
+		"include": [ "modules" ],
+		"exclude": [ "modules/lib" ]
 	},
 	"templates": {
 		"cleverLinks": true,
 		"default": {
 			"useLongnameInNav": true
+		},
+		"wmf": {
+			"maintitle": "TemplateData",
+			"repository": "https://gerrit.wikimedia.org/g/mediawiki/extensions/TemplateData/",
+			"prefixMap": {
+				"mw.": "https://doc.wikimedia.org/mediawiki-core/master/js/{type}.html"
+			}
 		}
 	}
 }
