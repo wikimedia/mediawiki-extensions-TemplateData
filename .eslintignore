@@ -1,4 +1,0 @@
-modules/lib/*
-!modules/lib/foreign-resources.*
-vendor/
-docs/

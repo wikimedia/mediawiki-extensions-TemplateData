@@ -1,9 +1,0 @@
-{
-	"extends": [
-		"../../modules/.eslintrc.json",
-		"wikimedia/qunit"
-	],
-	"rules": {
-		"no-jquery/no-done-fail": "warn"
-	}
-}
