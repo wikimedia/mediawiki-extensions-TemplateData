@@ -9,7 +9,8 @@
 			"Tauhid16",
 			"Titodutta",
 			"আফতাবুজ্জামান",
-			"খাত্তাব হাসান"
+			"খাত্তাব হাসান",
+			"আজিজ"
 		]
 	},
 	"templatedata-desc": "টেমপ্লেট প্যারামিটারের জন্য ডেটা স্টোরেজ প্রয়োগ করে (JSON ব্যবহার করে)",
@@ -24,7 +25,7 @@
 	"templatedata-doc-param-desc": "বিবরণ",
 	"templatedata-doc-param-desc-empty": "বিবরণ নেই",
 	"templatedata-doc-param-name": "প্যারামিটার",
-	"templatedata-doc-param-status": "অবস্থা",
+	"templatedata-doc-param-status": "স্থিতি",
 	"templatedata-doc-param-status-deprecated": "অবচিত",
 	"templatedata-doc-param-status-optional": "ঐচ্ছিক",
 	"templatedata-doc-param-status-required": "প্রয়োজনীয়",
@@ -49,12 +50,13 @@
 	"templatedata-errormsg-insertblank": "আপনি কি নিশ্চিতরূপে কোনো তথ্য ছাড়াই টেমপ্লেটের উপাত্ত সন্নিবেশ করতে ইচ্ছুক?",
 	"templatedata-exists-on-related-page": "অনুগ্রহ করে লক্ষ্য করুন: সংশ্লিষ্ট \"[[$1]]\" পাতায় ইতিমধ্যেই টেমপ্লেটের উপাত্ত ব্লক রয়েছে।",
 	"templatedata-helplink": "টেমপ্লেটের উপাত্ত সম্পর্কে তথ্য",
+	"templatedata-invalid-unnamed-parameter": "পরামিতিগুলির নাম খালি রাখা যাবে না। নামহীন পরামিতিগুলি নথিভুক্ত করতে তাদের অভ্যন্তরীণ সংখ্যা \"১\", \"২\" ইত্যাদি ব্যবহার করুন।",
 	"templatedata-invalid-format": "বিশিষ্ট \"$1\" \"inline\", \"block\", বা একটি বৈধ বিন্যাসের স্ট্রিং হতে হবে।",
 	"templatedata-invalid-length": "সংরক্ষণ করার জন্য উপাত্ত খুব বড় ($1 {{PLURAL:$1|বাইট}}, {{PLURAL:$2|সর্বোচ্চ সীমা}} হল $2)",
 	"templatedata-invalid-missing": "আবশ্যিক বৈশিষ্ট্য \"$1\" পাওয়া যায়নি।",
 	"templatedata-invalid-parse": "JSON-এর মধ্যে বাক্যগঠনে ত্রুটি।",
 	"templatedata-modal-button-add-language": "ভাষা যোগ করুন",
-	"templatedata-modal-button-addparam": "প্যারামিটার যোগ করুন",
+	"templatedata-modal-button-addparam": "পরামিতি যোগ করুন",
 	"templatedata-modal-button-addmap": "নতুন মানচিত্র যোগ করুন",
 	"templatedata-modal-button-apply": "প্রয়োগ",
 	"templatedata-modal-button-back": "পিছনে",
@@ -125,7 +127,9 @@
 	"templatedata-favorite-error": "পছন্দ সংরক্ষণ করা যায়নি",
 	"templatedata-category-browser-header": "বিষয়শ্রেণী",
 	"templatedata-category-switch-label": "শীর্ষ-স্তরের বিষয়শ্রেণী:",
-	"templatedata-category-switch-button": "ব্রাউজ করুন",
+	"templatedata-category-rootcat": "টেমপ্লেটসমূহ",
+	"templatedata-category-switch-button": "অন্বেষণ",
+	"templatedata-category-column-empty": "[[$1]]-এ কোনও টেমপ্লেট অথবা উপশ্রেণী খুঁজে পাওয়া যায়নি।",
 	"templatedata-category-browser-loadmore": "…আরও লোড করুন",
 	"templatedata-category-column-error": "একটি ত্রুটি ঘটেছে",
 	"templatedata-category-use-template": "এই টেমপ্লেটটি ব্যবহার করুন",
@@ -133,5 +137,7 @@
 	"templatedata-category-no-cats": "কোনোটি নয়",
 	"templatedata-featured-list-header": "নির্বাচিত",
 	"communityconfiguration-templatedata-featuredtemplates-title": "নির্বাচিত টেমপ্লেট",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-label": "নির্বাচিত টেমপ্লেট",
+	"communityconfiguration-templatedata-featuredtemplates-featuredtemplates-titles-label": "শিরোনাম",
 	"templatedata-featured-list-config-link": "নির্বাচিত তালিকা সম্পাদনা করুন"
 }
