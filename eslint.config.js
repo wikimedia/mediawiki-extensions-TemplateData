@@ -45,7 +45,12 @@ module.exports = defineConfig( [
 
 		// Build
 		'vendor/',
-		'docs/'
+		'docs/',
+
+		// Language files written automatically by TranslateWiki
+		'**/i18n/**/*.json',
+		'!**/i18n/**/en.json',
+		'!**/i18n/**/qqq.json'
 	] ),
 
 	// Gruntfile.js, etc.
