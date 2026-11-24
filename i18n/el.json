@@ -5,7 +5,8 @@
 			"Glavkos",
 			"Norhorn",
 			"P.a.a",
-			"Αντιγόνη"
+			"Αντιγόνη",
+			"Warudo"
 		]
 	},
 	"templatedata-desc": "Υλοποιεί την αποθήκευση δεδομένων για παραμέτρους προτύπου (χρησιμοποιώντας JSON)",
@@ -70,7 +71,7 @@
 	"templatedata-modal-button-importParams": "Εισαγωγή παραμέτρων",
 	"templatedata-modal-button-removemap": "Αφαίρεση χάρτη",
 	"templatedata-modal-button-saveparam": "Αποθήκευση",
-	"templatedata-modal-confirmcancel": "Είστε σίγουροι ότι θέλετε να απορρίψετε τις αλλαγές σας;",
+	"templatedata-modal-confirmcancel": "Είστε {{GENDER:|σίγουρος|σίγουρη}} ότι θέλετε να απορρίψετε τις αλλαγές σας;",
 	"templatedata-modal-current-language": "Τρέχουσα γλώσσα: $1",
 	"templatedata-modal-errormsg": "Βρέθηκαν σφάλματα. Παρακαλούμε σιγουρευτείτε ότι δεν υπάρχουν κενά ή διπλά ονόματα παραμέτρων, και ότι το όνομα παραμέτρου δεν περιλαμβάνει «$1», «$2» ή «$3».",
 	"templatedata-modal-errormsg-duplicate-name": "Βρέθηκε σφάλμα. Το επιλεγμένο όνομα χρησιμοποιείτε ήδη από μία άλλη παράμετρο.",
